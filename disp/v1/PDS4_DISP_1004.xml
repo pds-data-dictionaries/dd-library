@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1000.sch"
+  schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Product_XML_Schema
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
+                        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1000.xsd">
+
+    <Identification_Area>
+        <logical_identifier>urn:nasa:pds:system_bundle:xml_schema:pds-display</logical_identifier>
+        <version_id>1.1</version_id>
+        <title>PDS4 Display XML Schema V1004</title>
+        <information_model_version>1.0.0.0</information_model_version>
+        <product_class>Product_XML_Schema</product_class>
+        <Modification_History>
+            <Modification_Detail>
+                <modification_date>2013-08-09</modification_date>
+                <version_id>1.1</version_id>
+                <description>This version of the Display dictionary,
+                    v1.0.0.4, makes a number of changes:
+                    
+                    1) It updates the descriptions of the dictionary and
+                       its classes to make it clearer that the included
+                       attributes describe display parameters only, and are
+                       not to be presumed to be scientifically accurate.
+                    
+                    2) It attempts, unsuccessfully, to utilize the PDS
+                       common "comment" attribute, rather than recreating
+                       that attribute in the local namespace, as was done
+                       in the previous version.  Further work will have to
+                       be required to get this to work properly.
+                    
+                    3) With the exception of the boolean "true" and "false"
+                       values, all enumerated values have been changed from
+                       lower case to "Title" case, in accordance with
+                       CCB-22, "Adopt Rules for Case of Enumerated Values".
+                    
+                    4) Four enumerated values have been changed:
+                       
+                       Left_to_Right -->Right
+                       Right_to_Left -->Left
+                       Top_to_Bottom -->Down
+                       Bottom_to_Top -->Up
+                       
+                       Corresponding changes were made to the min_chars and
+                       max_chars values of the attributes.
+                    
+                    5) A spelling mistake in the definitions of the red_,
+                       green_, and blue_channel_bands has been corrected:
+                       "deafult" -->"default".
+                </description>
+            </Modification_Detail>
+            <Modification_Detail>
+                <modification_date>2013-06-06</modification_date>
+                <version_id>1.0</version_id>
+                <description>This version of the Display dictionary,
+                    v1.0.0.3, was released to the DDWG for review, before
+                    distribution to a broader community.  It includes the
+                    Default_Display_Settings class and three subclasses to
+                    handle color images, movies, and color movies.
+                </description>
+            </Modification_Detail>
+        </Modification_History>
+    </Identification_Area>
+
+    <File_Area_XML_Schema>
+        <File>
+            <file_name>PDS4_DISP_1004.xsd</file_name>
+            <creation_date_time>2013-08-10T01:13:16Z</creation_date_time>
+            <file_size unit="byte">14586</file_size>
+            <md5_checksum>8030df1e5a04527397c7e80c0cb8d6fc</md5_checksum>
+        </File>
+        <XML_Schema>
+            <name>PDS4 XML/Schema for Display Dictionary</name>
+            <offset unit="byte">0</offset>
+            <parsing_standard_id>XML Schema Version 1.1</parsing_standard_id>
+            <description>This is the PDS4 XML Schema file for the Display
+                dictionary, version 1.0.0.4, which uses the "disp"
+                namespace.</description>
+        </XML_Schema>
+    </File_Area_XML_Schema>
+
+    <File_Area_XML_Schema>
+        <File>
+            <file_name>PDS4_DISP_1004.sch</file_name>
+            <creation_date_time>2013-08-10T01:13:16Z</creation_date_time>
+            <file_size unit="byte">4479</file_size>
+            <md5_checksum>dc3585fce0fa2ef874560812e19b05b1</md5_checksum>
+        </File>
+        <XML_Schema>
+            <name>PDS4 Schematron File for Display Dictionary</name>
+            <offset unit="byte">0</offset>
+            <parsing_standard_id>Schematron ISO/IEC 19757-3:2006</parsing_standard_id>
+            <description>This is the PDS4 Schematron file for the "disp"
+                namespace.  Schematron provides rule-based validation for
+                XML Schema.</description>
+        </XML_Schema>
+    </File_Area_XML_Schema>
+
+</Product_XML_Schema>

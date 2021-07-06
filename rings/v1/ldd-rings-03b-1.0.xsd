@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for PDS4_0.3.1.0.b  Thu Apr 25 08:02:55 EDT 2013 -->
+  <!-- Generated from the PDS4 Information Model V0.3.1.0.b -->
+  <!-- *** This PDS4 product schema is a preliminary deliverable. *** -->
+  <!-- *** It is being made available for review and testing. *** -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/rings/v1"
+    xmlns:rings="http://pds.nasa.gov/pds4/rings/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v03"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v03" 
+      schemaLocation="http://pds.nasa.gov/pds4/pds/v03/PDS4_PDS_0310b.xsd"/>
+
+  <xs:complexType name="Radio_Occultation">
+    <xs:annotation>
+      <xs:documentation> This class is required for all radio ring occultations </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ring_observation_id" nillable="true" type="rings:ring_observation_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="occultation_type" nillable="true" type="rings:occultation_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="dsn_station_number" nillable="true" type="rings:dsn_station_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="frequency_band" nillable="true" type="rings:frequency_band" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="ring_occultation_direction" nillable="true" type="rings:ring_occultation_direction" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="ring_profile_direction" nillable="true" type="rings:ring_profile_direction" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="planetary_occultation_flag" nillable="true" type="rings:planetary_occultation_flag" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="wavelength" nillable="true" type="rings:wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_wavelength" nillable="true" type="rings:minimum_wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_wavelength" nillable="true" type="rings:maximum_wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radial_resolution" nillable="true" type="rings:radial_resolution" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="radial_sampling_interval" nillable="true" type="rings:radial_sampling_interval" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_radial_sampling_interval" nillable="true" type="rings:minimum_radial_sampling_interval" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_radial_sampling_interval" nillable="true" type="rings:maximum_radial_sampling_interval" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observed_event_start_tdb" nillable="true" type="rings:observed_event_start_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observed_event_stop_tdb" nillable="true" type="rings:observed_event_stop_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_event_start_time_utc" nillable="true" type="rings:spacecraft_event_start_time_utc" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_event_stop_time_utc" nillable="true" type="rings:spacecraft_event_stop_time_utc" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="ring_event_start_time_utc" nillable="true" type="rings:ring_event_start_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ring_event_stop_time_utc" nillable="true" type="rings:ring_event_stop_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ring_event_start_tdb" nillable="true" type="rings:ring_event_start_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ring_event_stop_tdb" nillable="true" type="rings:ring_event_stop_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="earth_received_start_time_utc" nillable="true" type="rings:earth_received_start_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="earth_received_stop_time_utc" nillable="true" type="rings:earth_received_stop_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_ring_radius" nillable="true" type="rings:minimum_ring_radius" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_ring_radius" nillable="true" type="rings:maximum_ring_radius" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_ring_longitude" nillable="true" type="rings:minimum_ring_longitude" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_ring_longitude" nillable="true" type="rings:maximum_ring_longitude" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_observed_ring_azimuth" nillable="true" type="rings:minimum_observed_ring_azimuth" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_observed_ring_azimuth" nillable="true" type="rings:maximum_observed_ring_azimuth" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observed_ring_elevation" nillable="true" type="rings:observed_ring_elevation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_observed_ring_elevation" nillable="true" type="rings:maximum_observed_ring_elevation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="light_source_incidence_angle" nillable="true" type="rings:light_source_incidence_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_light_source_incidence_angle" nillable="true" type="rings:minimum_light_source_incidence_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_light_source_incidence_angle" nillable="true" type="rings:maximum_light_source_incidence_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lowest_detectable_opacity" nillable="true" type="rings:lowest_detectable_opacity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="highest_detectable_opacity" nillable="true" type="rings:highest_detectable_opacity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="along_track_timing_offset" nillable="true" type="rings:along_track_timing_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="rings:occultation_type = ('solar', 'stellar', 'radio')"/> -->
+    <!-- <xs:assert test="rings:frequency_band = ('R', 'D', 'S', 'E', 'G', 'F', 'C', 'H', 'X', 'Ku', 'K', 'Ka', 'Q', 'U', 'V', 'W', 'Y')"/> -->
+    <!-- <xs:assert test="rings:ring_occultation_direction = ('ingress', 'egress', 'both', 'multiple')"/> -->
+    <!-- <xs:assert test="rings:ring_profile_direction = ('ingress', 'egress', 'multiple')"/> -->
+    <!-- <xs:assert test="rings:planetary_occultation_flag = ('Y', 'N')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:element name="Rings_Supplement" type="rings:Rings_Supplement"/>
+    
+    <xs:complexType name="Rings_Supplement">
+      <xs:annotation>
+        <xs:documentation> This class is required for all Rings Node currated data products </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element name="ring_observation_id" nillable="true" type="rings:ring_observation_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+      <xs:complexType name="Stellar_Occultation">
+        <xs:annotation>
+          <xs:documentation> This class is required for all stellar ring occultations </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="ring_observation_id" nillable="true" type="rings:ring_observation_id" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="occultation_type" nillable="true" type="rings:occultation_type" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="star_name" nillable="true" type="rings:star_name" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="ring_occultation_direction" nillable="true" type="rings:ring_occultation_direction" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="ring_profile_direction" nillable="true" type="rings:ring_profile_direction" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="planetary_occultation_flag" nillable="true" type="rings:planetary_occultation_flag" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="wavelength" nillable="true" type="rings:wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="minimum_wavelength" nillable="true" type="rings:minimum_wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="maximum_wavelength" nillable="true" type="rings:maximum_wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="radial_resolution" nillable="true" type="rings:radial_resolution" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="radial_sampling_interval" nillable="true" type="rings:radial_sampling_interval" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="minimum_radial_sampling_interval" nillable="true" type="rings:minimum_radial_sampling_interval" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="maximum_radial_sampling_interval" nillable="true" type="rings:maximum_radial_sampling_interval" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="observed_event_start_tdb" nillable="true" type="rings:observed_event_start_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="observed_event_stop_tdb" nillable="true" type="rings:observed_event_stop_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="ring_event_start_time_utc" nillable="true" type="rings:ring_event_start_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="ring_event_stop_time_utc" nillable="true" type="rings:ring_event_stop_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="ring_event_start_tdb" nillable="true" type="rings:ring_event_start_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="ring_event_stop_tdb" nillable="true" type="rings:ring_event_stop_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="minimum_ring_radius" nillable="true" type="rings:minimum_ring_radius" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="maximum_ring_radius" nillable="true" type="rings:maximum_ring_radius" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="minimum_ring_longitude" nillable="true" type="rings:minimum_ring_longitude" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="maximum_ring_longitude" nillable="true" type="rings:maximum_ring_longitude" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="minimum_observed_ring_azimuth" nillable="true" type="rings:minimum_observed_ring_azimuth" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="maximum_observed_ring_azimuth" nillable="true" type="rings:maximum_observed_ring_azimuth" minOccurs="1" maxOccurs="1"> </xs:element>
+          <xs:element name="sub_stellar_ring_azimuth" nillable="true" type="rings:sub_stellar_ring_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="sub_stellar_clock_angle" nillable="true" type="rings:sub_stellar_clock_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="observed_ring_elevation" nillable="true" type="rings:observed_ring_elevation" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="minimum_observed_ring_elevation" nillable="true" type="rings:minimum_observed_ring_elevation" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="maximum_observed_ring_elevation" nillable="true" type="rings:maximum_observed_ring_elevation" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="light_source_incidence_angle" nillable="true" type="rings:light_source_incidence_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="lowest_detectable_opacity" nillable="true" type="rings:lowest_detectable_opacity" minOccurs="0" maxOccurs="1"> </xs:element>
+          <xs:element name="highest_detectable_opacity" nillable="true" type="rings:highest_detectable_opacity" minOccurs="0" maxOccurs="1"> </xs:element>
+        </xs:sequence>
+        <!-- Begin assert statements for schematron - Enumerated Values -->
+        <!-- <xs:assert test="rings:occultation_type = ('solar', 'stellar', 'radio')"/> -->
+        <!-- <xs:assert test="rings:ring_occultation_direction = ('ingress', 'egress', 'both', 'multiple')"/> -->
+        <!-- <xs:assert test="rings:ring_profile_direction = ('ingress', 'egress', 'multiple')"/> -->
+        <!-- <xs:assert test="rings:planetary_occultation_flag = ('Y', 'N')"/> -->
+        <!-- End assert statements for schematron - Enumerated Values -->
+      </xs:complexType>
+
+  <xs:complexType name="along_track_timing_offset">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="dsn_station_number">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="earth_received_start_time_utc">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="earth_received_stop_time_utc">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="frequency_band">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="highest_detectable_opacity">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="light_source_incidence_angle">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="lowest_detectable_opacity">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="maximum_light_source_incidence_angle">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="maximum_observed_ring_azimuth">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="maximum_observed_ring_elevation">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="maximum_radial_sampling_interval">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="maximum_ring_longitude">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="maximum_ring_radius">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="maximum_wavelength">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="minimum_light_source_incidence_angle">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="minimum_observed_ring_azimuth">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="minimum_observed_ring_elevation">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="minimum_radial_sampling_interval">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="minimum_ring_longitude">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="minimum_ring_radius">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="minimum_wavelength">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="observed_event_start_tdb">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="observed_event_stop_tdb">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="observed_ring_elevation">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="occultation_type">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="planetary_occultation_flag">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="radial_resolution">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="radial_sampling_interval">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ring_event_start_tdb">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ring_event_start_time_utc">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ring_event_stop_tdb">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ring_event_stop_time_utc">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ring_observation_id">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ring_occultation_direction">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ring_profile_direction">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spacecraft_event_start_time_utc">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spacecraft_event_stop_time_utc">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="star_name">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="sub_stellar_clock_angle">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="sub_stellar_ring_azimuth">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="wavelength">
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

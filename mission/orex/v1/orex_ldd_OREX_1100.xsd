@@ -1,0 +1,4248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:orex  Version:1.0.0.0 - Tue May 07 10:17:39 MST 2019 -->
+  <!-- Generated from the PDS4 Information Model Version 1.7.0.0 - System Build 7a -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.7.0.0 - pds: - Common Dictionary - N/A                                  -->
+  <!-- 1.1.0.0 - orex: - OSIRIS-REX_Local_Data_Dictionary - orex_ldd.xml         -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/orex/v1"
+    xmlns:orex="http://pds.nasa.gov/pds4/mission/orex/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+This is the OSIRIS-REx Mission Specific Data Dictionary.  It includes 
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="common_instrument_attributes" type="orex:common_instrument_attributes"> </xs:element>
+  <xs:element name="data_processing_information" type="orex:data_processing_information"> </xs:element>
+  <xs:element name="data_quality" type="orex:data_quality"> </xs:element>
+  <xs:element name="instrument_telemetry_identification" type="orex:instrument_telemetry_identification"> </xs:element>
+  <xs:element name="mission_information" type="orex:mission_information"> </xs:element>
+  <xs:element name="ocm_image_properties" type="orex:ocm_image_properties"> </xs:element>
+  <xs:element name="ocm_instrument_attributes" type="orex:ocm_instrument_attributes"> </xs:element>
+  <xs:element name="spatial" type="orex:spatial"> </xs:element>
+  <xs:element name="tcm_instrument_attributes" type="orex:tcm_instrument_attributes"> </xs:element>
+  <xs:element name="time" type="orex:time"> </xs:element>
+
+  <xs:complexType name="common_instrument_attributes">
+    <xs:annotation>
+      <xs:documentation>Attributes that describe instrument
+        characteristics such as times, temperatures, voltages or
+        pressures that are common to more than one instrument aboard the
+        OSIRIS-REx Spacecraft.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="image_id" type="orex:image_id" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="data_processing_information">
+    <xs:annotation>
+      <xs:documentation>This class contains the data processing
+        information for a specific observation or set of observations.
+        Items included in this class include names of input files used
+        in the data processing, the source (test or flight) of the data,
+        who or where the data was processed, and if necessary software
+        names and version numbers.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="control_file" type="orex:control_file" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="creator" type="orex:creator" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_source" type="orex:data_source" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dispornt" type="orex:dispornt" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="file_creation" type="orex:file_creation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="linearity_limit" type="orex:linearity_limit" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="max_pixel_value" type="orex:max_pixel_value" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="min_pixel_value" type="orex:min_pixel_value" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ocams_pl_ver" type="orex:ocams_pl_ver" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="proc_desc_flag" type="orex:proc_desc_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rad_units" type="orex:rad_units" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="saturation_limit" type="orex:saturation_limit" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spoc_version" type="orex:spoc_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="units" type="orex:units" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="data_quality">
+    <xs:annotation>
+      <xs:documentation>This class contains data quality information for
+        a specific observation or set of observations. Attributes can
+        include data quality flags, as well as checksum
+        status.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="checksum_result" type="orex:checksum_result" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ckqual" type="orex:ckqual" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="meta_ker" type="orex:meta_ker" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="misspxla" type="orex:misspxla" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="misspxls" type="orex:misspxls" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="quality_flag" type="orex:quality_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="total_checksum" type="orex:total_checksum" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="instrument_telemetry_identification">
+    <xs:annotation>
+      <xs:documentation>This class contains the spacecraft telemetry
+        packet type identification information for a specific
+        observation or set of observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="apid" type="orex:apid" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mission_information">
+    <xs:annotation>
+      <xs:documentation>This class contains information about the
+        OSIRIS-REx mission and mission phases. The attributes in this
+        class are common to all mission data products.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_identifier" type="orex:mission_phase_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="orex:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ocm_image_properties">
+    <xs:annotation>
+      <xs:documentation>This class contains the OSIRIS-REx Camera Suite
+        (OCAMS) image properties. Attributes specify the type of image
+        taken for the specific observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="image_type_code" type="orex:image_type_code" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ocm_instrument_attributes">
+    <xs:annotation>
+      <xs:documentation>This class contains instrument attributes
+        specific to the OSIRIS-REx Camera Suite (OCAMS). These
+        instrument attributes are such items as instrument set-up
+        parameters for each image or sequence of images taken,
+        instrument temperatures, voltages and currents, or other
+        parameters recorded by the instrument on an image by image
+        basis.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="action_mode" type="orex:action_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="active" type="orex:active" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="adc_clamp_enable" type="orex:adc_clamp_enable" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="board_rev_num" type="orex:board_rev_num" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cal_lamp_sel" type="orex:cal_lamp_sel" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="camera_id" type="orex:camera_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_csr_reserved" type="orex:ccd_csr_reserved" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_rev_num" type="orex:ccd_rev_num" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_rst_l_pulse" type="orex:ccd_rst_l_pulse" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_rst_r_pulse" type="orex:ccd_rst_r_pulse" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chan1_course_dac_reg_val" type="orex:chan1_course_dac_reg_val" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chan1_fine_dac_reg_val" type="orex:chan1_fine_dac_reg_val" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chan2_course_dac_reg_val" type="orex:chan2_course_dac_reg_val" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chan2_fine_dac_reg_val" type="orex:chan2_fine_dac_reg_val" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cs1h_ccd" type="orex:cs1h_ccd" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cs2h_ccd" type="orex:cs2h_ccd" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cs3h_ccd" type="orex:cs3h_ccd" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cs4h_ccd" type="orex:cs4h_ccd" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_detector_minus_24" type="orex:cur_detector_minus_24" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_detector_minus_24_x" type="orex:cur_detector_minus_24_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_detector_plus_24" type="orex:cur_detector_plus_24" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_detector_plus_24_x" type="orex:cur_detector_plus_24_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_detector_plus_5" type="orex:cur_detector_plus_5" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_detector_plus_5_x" type="orex:cur_detector_plus_5_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_htr" type="orex:cur_htr" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_htr_x" type="orex:cur_htr_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_index" type="orex:cur_index" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_index_x" type="orex:cur_index_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_lamp" type="orex:cur_lamp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_lamp_x" type="orex:cur_lamp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_motor" type="orex:cur_motor" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cur_motor_x" type="orex:cur_motor_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cx_pattern" type="orex:cx_pattern" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_mode" type="orex:detector_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="device_id" type="orex:device_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dpu_brd_temp" type="orex:dpu_brd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dpu_brd_temp_x" type="orex:dpu_brd_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="egain" type="orex:egain" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="encode_upper_pixel_bits" type="orex:encode_upper_pixel_bits" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="filtname" type="orex:filtname" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fpga_rev_num" type="orex:fpga_rev_num" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ground" type="orex:ground" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ground_x" type="orex:ground_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="hcte_csr" type="orex:hcte_csr" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="htr_brd_temp" type="orex:htr_brd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="htr_brd_temp_x" type="orex:htr_brd_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="htr_test_pt" type="orex:htr_test_pt" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="htr_test_pt_x" type="orex:htr_test_pt_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="imgs_to_capture" type="orex:imgs_to_capture" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="index_led_read" type="orex:index_led_read" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="index_led_sel" type="orex:index_led_sel" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lut" type="orex:lut" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lvps_brd_temp" type="orex:lvps_brd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lvps_brd_temp_x" type="orex:lvps_brd_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="main_config" type="orex:main_config" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_ccd_heater" type="orex:mapcam_ccd_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_ccd_temp" type="orex:mapcam_ccd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_ccd_temp_x" type="orex:mapcam_ccd_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_filt_house_heater" type="orex:mapcam_filt_house_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_filt_motor_heater" type="orex:mapcam_filt_motor_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_fwh_temp" type="orex:mapcam_fwh_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_fwh_temp_x" type="orex:mapcam_fwh_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_fwm_temp" type="orex:mapcam_fwm_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_fwm_temp_x" type="orex:mapcam_fwm_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_len_temp" type="orex:mapcam_len_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_len_temp_x" type="orex:mapcam_len_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_lens_heater" type="orex:mapcam_lens_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_readout_elect_heater" type="orex:mapcam_readout_elect_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_roe_temp" type="orex:mapcam_roe_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapcam_roe_temp_x" type="orex:mapcam_roe_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="min_cnt" type="orex:min_cnt" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="motor_brd_temp" type="orex:motor_brd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="motor_brd_temp_x" type="orex:motor_brd_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="motor_pos" type="orex:motor_pos" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="motor_select" type="orex:motor_select" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="motor_zone" type="orex:motor_zone" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pga1_gain_amp" type="orex:pga1_gain_amp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pga2_gain_amp" type="orex:pga2_gain_amp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_ccd_heater" type="orex:polycam_ccd_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_ccd_temp" type="orex:polycam_ccd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_ccd_temp_x" type="orex:polycam_ccd_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_focus_house_heater" type="orex:polycam_focus_house_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_focus_motor_heater" type="orex:polycam_focus_motor_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_foh_temp" type="orex:polycam_foh_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_foh_temp_x" type="orex:polycam_foh_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_fom_temp" type="orex:polycam_fom_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_fom_temp_x" type="orex:polycam_fom_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_mirror_1_temp" type="orex:polycam_mirror_1_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_mirror_1_temp_x" type="orex:polycam_mirror_1_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_mirror_2_temp" type="orex:polycam_mirror_2_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_primary_heater" type="orex:polycam_primary_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_readout_elect_heater" type="orex:polycam_readout_elect_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_roe_temp" type="orex:polycam_roe_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_roe_temp_x" type="orex:polycam_roe_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_secondary_heater" type="orex:polycam_secondary_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_tbd_heater" type="orex:polycam_tbd_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polycam_tbd_temp" type="orex:polycam_tbd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="power_control" type="orex:power_control" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pwr_mon_vdd_l_override" type="orex:pwr_mon_vdd_l_override" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pwr_mon_vod_l_override" type="orex:pwr_mon_vod_l_override" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pwr_mon_wbb_l_override" type="orex:pwr_mon_wbb_l_override" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rdpxlmap" type="orex:rdpxlmap" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="readout_mode" type="orex:readout_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_ccd_heater" type="orex:samcam_ccd_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_ccd_temp" type="orex:samcam_ccd_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_ccd_temp_x" type="orex:samcam_ccd_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_filt_house_heater" type="orex:samcam_filt_house_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_filt_motor_heater" type="orex:samcam_filt_motor_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_fwh_temp" type="orex:samcam_fwh_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_fwh_temp_x" type="orex:samcam_fwh_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_fwm_temp" type="orex:samcam_fwm_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_fwm_temp_x" type="orex:samcam_fwm_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_len_temp" type="orex:samcam_len_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_len_temp_x" type="orex:samcam_len_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_lens_heater" type="orex:samcam_lens_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_readout_elect_heater" type="orex:samcam_readout_elect_heater" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_roe_temp" type="orex:samcam_roe_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="samcam_roe_temp_x" type="orex:samcam_roe_temp_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sdram_csr" type="orex:sdram_csr" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="secondary_ik_num" type="orex:secondary_ik_num" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="seconds_raw" type="orex:seconds_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="standby" type="orex:standby" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="storage_flush_block_flag" type="orex:storage_flush_block_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="storage_flush_cnt" type="orex:storage_flush_cnt" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="subseconds_raw" type="orex:subseconds_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="tck_pattern" type="orex:tck_pattern" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="vcte_csr" type="orex:vcte_csr" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="vfreq_csr" type="orex:vfreq_csr" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_4_5_therm_mon_1" type="orex:volt_4_5_therm_mon_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_4_5_therm_mon_1_x" type="orex:volt_4_5_therm_mon_1_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_4_5_therm_mon_2" type="orex:volt_4_5_therm_mon_2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_4_5_therm_mon_2_x" type="orex:volt_4_5_therm_mon_2_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_minus_12" type="orex:volt_mon_minus_12" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_minus_12_x" type="orex:volt_mon_minus_12_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_minus_24" type="orex:volt_mon_minus_24" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_minus_24_x" type="orex:volt_mon_minus_24_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_plus_12" type="orex:volt_mon_plus_12" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_plus_12_x" type="orex:volt_mon_plus_12_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_plus_24" type="orex:volt_mon_plus_24" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_plus_24_x" type="orex:volt_mon_plus_24_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_plus_5" type="orex:volt_mon_plus_5" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_plus_5_x" type="orex:volt_mon_plus_5_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_sc" type="orex:volt_mon_sc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="volt_mon_sc_x" type="orex:volt_mon_sc_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="vref_mon_plus_5" type="orex:vref_mon_plus_5" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="vref_mon_plus_5_x" type="orex:vref_mon_plus_5_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="wrpxlmap" type="orex:wrpxlmap" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="spatial">
+    <xs:annotation>
+      <xs:documentation>This class contains spatial information for a
+        specific observation or set of observations that is not
+        otherwise found in the GEOMETRY Discipline Dictionary.
+        Attributes included may be ancillary World Coordinate System
+        (WCS) values or additional quaternion information that should be
+        used with caution.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bennana" type="orex:bennana" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bennu_dec" type="orex:bennu_dec" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bennu_naxis1_offset" type="orex:bennu_naxis1_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bennu_naxis2_offset" type="orex:bennu_naxis2_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bennu_ra" type="orex:bennu_ra" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bennu_radec_quality" type="orex:bennu_radec_quality" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bennu_radec_target" type="orex:bennu_radec_target" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bore_angle" type="orex:bore_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bore_flag" type="orex:bore_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="boresight_lat" type="orex:boresight_lat" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="boresight_lon" type="orex:boresight_lon" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="boresight_range" type="orex:boresight_range" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="boresight_x" type="orex:boresight_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="boresight_y" type="orex:boresight_y" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="boresight_z" type="orex:boresight_z" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cd1_1" type="orex:cd1_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cd1_2" type="orex:cd1_2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cd2_1" type="orex:cd2_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cd2_2" type="orex:cd2_2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ctype1" type="orex:ctype1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ctype2" type="orex:ctype2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cunit1" type="orex:cunit1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cunit2" type="orex:cunit2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="declination" type="orex:declination" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="emission_angle" type="orex:emission_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="equinox" type="orex:equinox" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fov_fill_factor" type="orex:fov_fill_factor" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fov_fill_flag" type="orex:fov_fill_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="incidence_angle" type="orex:incidence_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="latitude" type="orex:latitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="longitude" type="orex:longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="object" type="orex:object" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="phase_angle" type="orex:phase_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="phase_angle_boresight" type="orex:phase_angle_boresight" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radesys" type="orex:radesys" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="range" type="orex:range" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="right_ascension" type="orex:right_ascension" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sc2sun_phi_deg" type="orex:sc2sun_phi_deg" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sc2sun_range_km" type="orex:sc2sun_range_km" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sc2sun_theta_deg" type="orex:sc2sun_theta_deg" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sc2sun_uvx" type="orex:sc2sun_uvx" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sc2sun_uvy" type="orex:sc2sun_uvy" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sc2sun_uvz" type="orex:sc2sun_uvz" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="semimajor_axis" type="orex:semimajor_axis" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="semiminor_axis" type="orex:semiminor_axis" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_azimuth" type="orex:solar_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_mean_normal_az" type="orex:solar_mean_normal_az" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_normal_lst" type="orex:solar_normal_lst" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_azimuth" type="orex:spacecraft_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sun_range" type="orex:sun_range" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sunbeamr" type="orex:sunbeamr" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sunbeams" type="orex:sunbeams" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sunbeamt" type="orex:sunbeamt" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sunbeamx" type="orex:sunbeamx" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sunbeamy" type="orex:sunbeamy" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sunbeamz" type="orex:sunbeamz" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="target_range" type="orex:target_range" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tcm_instrument_attributes">
+    <xs:annotation>
+      <xs:documentation>This class contains instrument attributes
+        specific to the OSIRIS-REx Navigation Camera (TagCam). These
+        instrument attributes are such items as instrument set-up
+        parameters for each image or sequence of images taken,
+        instrument temperatures or other parameters recorded by the
+        instrument on an image by image basis.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="att_rate_x" type="orex:att_rate_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="att_rate_y" type="orex:att_rate_y" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="att_rate_z" type="orex:att_rate_z" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="att_time" type="orex:att_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bpp" type="orex:bpp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="camera_head_temp" type="orex:camera_head_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gain" type="orex:gain" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="image_len" type="orex:image_len" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="image_size_estimate" type="orex:image_size_estimate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_cam" type="orex:img_cmd_cam" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_compress" type="orex:img_cmd_compress" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_exp" type="orex:img_cmd_exp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_gain" type="orex:img_cmd_gain" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_h" type="orex:img_cmd_h" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_int" type="orex:img_cmd_int" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_mode" type="orex:img_cmd_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_num_imgs" type="orex:img_cmd_num_imgs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_opcode" type="orex:img_cmd_opcode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_seq" type="orex:img_cmd_seq" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_subsample" type="orex:img_cmd_subsample" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_sx" type="orex:img_cmd_sx" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_sy" type="orex:img_cmd_sy" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="img_cmd_w" type="orex:img_cmd_w" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="powered_on_dvr" type="orex:powered_on_dvr" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="quaternion0" type="orex:quaternion0" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="quaternion1" type="orex:quaternion1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="quaternion2" type="orex:quaternion2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="quaternion3" type="orex:quaternion3" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="seconds" type="orex:seconds" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sequence_id" type="orex:sequence_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spare" type="orex:spare" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="subseconds" type="orex:subseconds" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="trans_cmd_compression" type="orex:trans_cmd_compression" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="trans_cmd_summing" type="orex:trans_cmd_summing" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="time">
+    <xs:annotation>
+      <xs:documentation>This class contains timing information for a
+        specific observation or set of observations. This class is a
+        mission type class meaning that the timing values given in this
+        class have been calculated using standard SPICE libraries and
+        the appropriate mission specific SPICE kernels based on the
+        instrument specific spacecraft clock values recorded at the time
+        of the observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="date_of_observation" type="orex:date_of_observation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="delta_obs" type="orex:delta_obs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="effective_exposure" type="orex:effective_exposure" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="expo_ms" type="orex:expo_ms" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="exposec" type="orex:exposec" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="exposure" type="orex:exposure" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ground_receipt_time" type="orex:ground_receipt_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="int_time" type="orex:int_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_obs" type="orex:mid_obs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_obs_et" type="orex:mid_obs_et" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_obs_sclk" type="orex:mid_obs_sclk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sclk_string" type="orex:sclk_string" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spoc_date" type="orex:spoc_date" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_sclk" type="orex:start_sclk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_sclk" type="orex:stop_sclk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="utc" type="orex:utc" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        pds namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="action_mode">
+    <xs:annotation>
+      <xs:documentation>Action sequence enable mode: 0 equals off, 1
+        equals on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="active">
+    <xs:annotation>
+      <xs:documentation>Camera number of active camera (1-Map, 2-Sam,
+        3-Poly). Note that the numeric values are different than those
+        of the CAMERAID.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="adc_clamp_enable">
+    <xs:annotation>
+      <xs:documentation>Analog to digital converter clamp enable during
+        imaging. Enable equals 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="apid">
+    <xs:annotation>
+      <xs:documentation>Application Identification
+        Number</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="att_rate_x">
+    <xs:annotation>
+      <xs:documentation>The x-axis component of the spacecraft angular
+        momentum rate in spacecraft body frame at the
+        ATT_TIME</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="att_rate_y">
+    <xs:annotation>
+      <xs:documentation>The y-axis component of the spacecraft angular
+        momentum rate in spacecraft body frame at the
+        ATT_TIME</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="att_rate_z">
+    <xs:annotation>
+      <xs:documentation>The z-axis component of the spacecraft angular
+        momentum rate in spacecraft body frame at the
+        ATT_TIME</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="att_time">
+    <xs:annotation>
+      <xs:documentation>The spacecraft clock time when attitude data was
+        collected</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bennana_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bennana">
+    <xs:annotation>
+      <xs:documentation>Azimuth of the North polar Axis of the target
+        named in FITS keyword BENNURDT (typically Bennu), positive from
+        the +NAXIS2 direction toward the +NAXIS1 direction; see also
+        BENNURDQ for a statement of the quality of this value; assumes
+        undistorted optics; will be -999 if the calculation
+        fails</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:bennana_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bennu_dec_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bennu_dec">
+    <xs:annotation>
+      <xs:documentation>Declination of the vector, expressed in the
+        Earth Mean Equator of the J2000 Epoch, from the ORX spacecraft
+        toward the target named in FITS keyword BENNURDT (typically
+        Bennu); see also BENNURDQ for a statement of the quality of this
+        value</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:bennu_dec_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bennu_naxis1_offset_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bennu_naxis1_offset">
+    <xs:annotation>
+      <xs:documentation>Approximate offset from CRPIX1 pixel in +NAXIS1
+        direction of the location of the center of the target named in
+        FITS keyword BENNURDT (typically Bennu); see also BENNURDQ for a
+        statement of the quality of this value; assumes undistorted
+        optics</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:bennu_naxis1_offset_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bennu_naxis2_offset_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bennu_naxis2_offset">
+    <xs:annotation>
+      <xs:documentation>Approximate offset from CRPIX2 pixel in +NAXIS2
+        direction of the location of the center of the target named in
+        FITS keyword BENNURDT (typically Bennu); see also BENNURDQ for a
+        statement of the quality of this value; assumes undistorted
+        optics</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:bennu_naxis2_offset_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bennu_ra_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bennu_ra">
+    <xs:annotation>
+      <xs:documentation>Right Ascension of the vector, expressed in the
+        Earth Mean Equator of the J2000 Epoch, from the ORX spacecraft
+        toward the target named in FITS keyword BENNURDT (typically
+        Bennu); see also BENNURDQ for a statement of the quality of this
+        value</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:bennu_ra_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bennu_radec_quality">
+    <xs:annotation>
+      <xs:documentation>(Quality: provenance) for the BENNURA, BENNUDEC,
+        BENNUNX1, BENNUNX2 FITS keywords. This will be one of three
+        values: (BEST: SPK), meaning the geometry was obtained from
+        SPICE SP-Kernels; (POOR: osculating elements; +/-1E6km), meaning
+        the geometry was obtained from osculating orbital elements of
+        Bennu w.r.t the Sun, and will have uncertainties of order 1E6km;
+        (NONE: FAILURE), meaning both the SPK and elements methods
+        failed; the parentheses, (), are only delimiters here and not
+        part of the quality:provenance values.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bennu_radec_target">
+    <xs:annotation>
+      <xs:documentation>Target for the BENNURA, BENNUDEC, BENNUNX1 and
+        BENNUNX2 FTIS keywords; typically BENNU; may be NONE if the
+        calculation failed. Target is not required to be in the field of
+        view.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="board_rev_num">
+    <xs:annotation>
+<xs:documentation>CCD board revision number</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bore_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bore_angle">
+    <xs:annotation>
+      <xs:documentation>Angle between boresight and origin of Bennu in
+        planetocentric Cartesian coordinates</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:bore_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bore_flag">
+    <xs:annotation>
+      <xs:documentation>Boresight flag 0-Boresight does not intersect
+        surface of asteroid; 1-Boresight intersects surface of
+        asteroid</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="boresight_lat">
+    <xs:annotation>
+      <xs:documentation>Boresight latitude of the imaging
+        location</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="boresight_lon">
+    <xs:annotation>
+      <xs:documentation>Boresight longitude of the imaging
+        location</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="boresight_range_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="boresight_range">
+    <xs:annotation>
+      <xs:documentation>Range from spacecraft to the closest boresight
+        intersection to spacecraft. Must be positive number . If
+        Boresight Flag NE 1, then value shall be 0.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:boresight_range_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="boresight_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="boresight_x">
+    <xs:annotation>
+      <xs:documentation>X coordinate of boresight intersection with
+        surface in planetocentric Cartesian coordinates. Allowed range 0
+        to 1000.0. If Boresight Flag NE 1, then value shall be
+        0.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:boresight_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="boresight_y_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="boresight_y">
+    <xs:annotation>
+      <xs:documentation>Y coordinate of boresight intersection with
+        surface in planetocentric Cartesian coordinates. Allowed range 0
+        to 1000.0. If Boresight Flag NE 1, then value shall be
+        0.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:boresight_y_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="boresight_z_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="boresight_z">
+    <xs:annotation>
+      <xs:documentation>Z coordinate of boresight intersection with
+        surface in planetocentric Cartesian coordinates. Allowed range 0
+        to 1000.0. If Boresight Flag NE 1, then value shall be
+        0.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:boresight_z_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bpp">
+    <xs:annotation>
+      <xs:documentation>Records the pixel depth of the transmitted
+        image. If the image was initially acquired as 12 bits, then it
+        can be sent as 12 bits or 8 bits. If the image was initially
+        acquired as 8 bits, then this value is ignored and the output is
+        always 8 bits. The companding mode is only significant if
+        companding is turned on. Keyword may be blank if the
+        transmit-image-raw command was used to acquire
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cal_lamp_sel">
+    <xs:annotation>
+      <xs:documentation>Bitwise Camera of the active illumination
+        lamp</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="camera_head_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="camera_head_temp">
+    <xs:annotation>
+      <xs:documentation>Camera head temperature in digital number (if
+        available).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:camera_head_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="camera_id">
+    <xs:annotation>
+      <xs:documentation>ID of camera in use. 0- Map, 1-Sam, 2-Poly. Note
+        that the numeric values for ACTV_CAM are different, but the
+        named camera will be identical.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ccd_csr_reserved">
+    <xs:annotation>
+      <xs:documentation>CCD control status register reserve
+        bit</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ccd_rev_num">
+    <xs:annotation>
+<xs:documentation>CCD revision number</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ccd_rst_l_pulse">
+    <xs:annotation>
+      <xs:documentation>CCD control status reg left reset pulse
+        indicator. 1 equals 25 ns RST_L pulse , 0 equals 12.5 ns
+        (Control/Status) Note: if ADC_INCLK equals 10 MHz, RST_L is
+        forced to 12.5 ns.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ccd_rst_r_pulse">
+    <xs:annotation>
+      <xs:documentation>CCD control status reg right reset pulse
+        indicator. 1 equals 25 ns RST_R pulse, 0 equals 12.5 ns
+        (Control/Status) Note: if ADC_INCLK equals 10 MHz, RST_R is
+        forced to 12.5 ns.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cd1_1_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cd1_1">
+    <xs:annotation>
+      <xs:documentation>Change in RA per pixel along first axis (sample)
+        evaluated at reference pixel</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cd1_1_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cd1_2_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cd1_2">
+    <xs:annotation>
+      <xs:documentation>Change in RA per pixel along second axis (line)
+        evaluated at reference pixel</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cd1_2_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cd2_1_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cd2_1">
+    <xs:annotation>
+      <xs:documentation>Change in DEC per pixel along first axis
+        (sample) evaluated at reference pixel</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cd2_1_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cd2_2_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cd2_2">
+    <xs:annotation>
+      <xs:documentation>Change in DEC per pixel along second axis (line)
+        evaluated at reference pixel</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cd2_2_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="chan1_course_dac_reg_val">
+    <xs:annotation>
+      <xs:documentation>Channel 1 coarse DAC register. 0 equals off, 1
+        equals on.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="chan1_fine_dac_reg_val">
+    <xs:annotation>
+      <xs:documentation>Channel 1 fine DAC register. 0 equals off, 1
+        equals on.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="chan2_course_dac_reg_val">
+    <xs:annotation>
+      <xs:documentation>Channel 2 coarse DAC register. 0 equals off, 1
+        equals on.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="chan2_fine_dac_reg_val">
+    <xs:annotation>
+      <xs:documentation>Channel 2 fine DAC register. 0 equals off, 1
+        equals on.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="checksum_result">
+    <xs:annotation>
+      <xs:documentation>The pass/fail state of the image check
+        sum</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ckqual">
+    <xs:annotation>
+      <xs:documentation>Quality of C-Kernel (nominal equals RECONSTRUCT,
+        contingency equals PREDICT)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="control_file">
+    <xs:annotation>
+      <xs:documentation>Data origin/provenance
+        information</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="creator">
+    <xs:annotation>
+<xs:documentation>Creator of this product</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cs1h_ccd">
+    <xs:annotation>
+      <xs:documentation>CCD Storage clock pattern. CCD Storage clock
+        patterns during a storage to horizontal register transfer. There
+        are 8 bit periods per storage clock cycle. The CS1H_CCD
+        determines the high to low ratio incremented each VFREQCSR count
+        cycle.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cs2h_ccd">
+    <xs:annotation>
+      <xs:documentation>CCD Storage clock pattern. CCD Storage clock
+        patterns during a storage to horizontal register transfer. There
+        are 8 bit periods per storage clock cycle. The CS2H_CCD
+        determines the high to low ratio incremented each VFREQCSR count
+        cycle.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cs3h_ccd">
+    <xs:annotation>
+      <xs:documentation>CCD Storage clock patterns during a storage to
+        horizontal register transfer. There are 8 bit periods per
+        storage clock cycle. The CS3H_CCD determines the high to low
+        ratio incremented each VFREQCSR count cycle.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cs4h_ccd">
+    <xs:annotation>
+      <xs:documentation>CCD Storage clock patterns during a storage to
+        horizontal register transfer. There are 8 bit periods per
+        storage clock cycle. The CS4H_CCD determines the high to low
+        ratio incremented each VFREQCSR count cycle.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ctype1">
+    <xs:annotation>
+      <xs:documentation>Coordinate type for reference pixel, values are
+        either RA---TAN equals gnomic or tangent plane or SIP - simple
+        image polynomial.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ctype2">
+    <xs:annotation>
+      <xs:documentation>Coordinate type for the reference pixel, values
+        are either DEC--TAN equals gnomic or tangent plane or SIP -
+        simple image polynomial.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cunit1_WO_Units">
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cunit1">
+    <xs:annotation>
+      <xs:documentation>Units for reference pixel 1
+        (CRPIX1)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cunit1_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cunit2_WO_Units">
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cunit2">
+    <xs:annotation>
+      <xs:documentation>Units for reference pixel 2
+        (CRPIX2)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cunit2_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_detector_minus_24_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_detector_minus_24">
+    <xs:annotation>
+<xs:documentation>-24 V current detector</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_detector_minus_24_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_detector_minus_24_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_detector_minus_24_x">
+    <xs:annotation>
+<xs:documentation>-24 V current detector</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_detector_minus_24_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_detector_plus_24_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_detector_plus_24">
+    <xs:annotation>
+<xs:documentation>+24 V current detector</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_detector_plus_24_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_detector_plus_24_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_detector_plus_24_x">
+    <xs:annotation>
+<xs:documentation>+24 V current detector</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_detector_plus_24_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_detector_plus_5_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_detector_plus_5">
+    <xs:annotation>
+<xs:documentation>+5 V current detector</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_detector_plus_5_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_detector_plus_5_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_detector_plus_5_x">
+    <xs:annotation>
+<xs:documentation>+5 V current detector</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_detector_plus_5_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_htr_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_htr">
+    <xs:annotation>
+<xs:documentation>Heater Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_htr_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_htr_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_htr_x">
+    <xs:annotation>
+<xs:documentation>Heater Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_htr_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_index_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_index">
+    <xs:annotation>
+<xs:documentation>Index Lamp Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_index_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_index_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_index_x">
+    <xs:annotation>
+<xs:documentation>Index Lamp Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_index_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_lamp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_lamp">
+    <xs:annotation>
+<xs:documentation>Illumination Lamp Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_lamp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_lamp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_lamp_x">
+    <xs:annotation>
+<xs:documentation>Illumination Lamp Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_lamp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_motor_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_motor">
+    <xs:annotation>
+<xs:documentation>Motor Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_motor_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cur_motor_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cur_motor_x">
+    <xs:annotation>
+<xs:documentation>Motor Current</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:cur_motor_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="cx_pattern">
+    <xs:annotation>
+      <xs:documentation>CCD vertical clock pattern. There are 8 bit
+        periods per vertical clock cycle. CX_PATT determines the high to
+        low ratio incremented each VFREQCSR count
+        cycle.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_source">
+    <xs:annotation>
+      <xs:documentation>Origin of image data TEST or
+        FLIGHT</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="date_of_observation">
+    <xs:annotation>
+      <xs:documentation>Observation start time in UTC
+        (YYYY-MM-DDThh:mm:ss.sss)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="declination_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="declination">
+    <xs:annotation>
+      <xs:documentation>Boresight Declination (DEC) in J2000
+        frame</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:declination_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="delta_obs_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="delta_obs">
+    <xs:annotation>
+      <xs:documentation>Delta between mid-observation time and
+        spacecraft clock string (Mid-observation time) - (SCLK_STR
+        timestamp), in seconds used to verify exposure
+        time.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:delta_obs_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="detector_mode">
+    <xs:annotation>
+<xs:documentation>Imaging command mode.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="device_id">
+    <xs:annotation>
+      <xs:documentation>Analog to digital converter device revision
+        identifier</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dispornt">
+    <xs:annotation>
+      <xs:documentation>Image origin (0,0) is located in the bottom-left
+        corner of the display. This is the standard FITS display
+        orientation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dpu_brd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="dpu_brd_temp">
+    <xs:annotation>
+      <xs:documentation>Digital processing unit (DPU) board
+        temperature.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:dpu_brd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="dpu_brd_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="dpu_brd_temp_x">
+    <xs:annotation>
+<xs:documentation>DPU Board Temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:dpu_brd_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="effective_exposure">
+    <xs:annotation>
+      <xs:documentation>The effective exposure time after charge smear
+        removal</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="egain">
+    <xs:annotation>
+      <xs:documentation>Electronic gain in electrons per
+        analog-to-digital units</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="emission_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="emission_angle">
+    <xs:annotation>
+      <xs:documentation>Emission angle. The angle between the vector
+        normal to the surface at the location of the boresight
+        intersection with the surface and the vector pointing to the
+        Spacecraft. If Boresight Flag NE 1, then value shall be -9999.
+        Allowed range is 0.0 to 90.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:emission_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="encode_upper_pixel_bits">
+    <xs:annotation>
+      <xs:documentation>Charge couple device control status register 1
+        equals encode upper pixel bits</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="equinox">
+    <xs:annotation>
+      <xs:documentation>Epoch of mean equator and equinox
+        (J2000)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="expo_ms_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="expo_ms">
+    <xs:annotation>
+<xs:documentation>Exposure time in milliseconds</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:expo_ms_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="exposec_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="exposec">
+    <xs:annotation>
+<xs:documentation>Exposure time in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:exposec_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="exposure_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="exposure">
+    <xs:annotation>
+<xs:documentation>Exposure time in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:exposure_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="file_creation">
+    <xs:annotation>
+<xs:documentation>Date of creation of this file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filtname">
+    <xs:annotation>
+      <xs:documentation>Filter name: SS - sun safe, X - 860 nm filter, W
+        - 700 nm filter, V - 550 nm filter, B - 470 nm filter, PAN -
+        panchromatic filter focused at greater than or equal to 125 m,
+        SSCAL - sun safe blocking filter calibration prosition, PAN30 -
+        panchromatic filter focuses at 30 m, PAN1 - panchromatic filter
+        focused at 5 m, PAN4 - panchromatic filter focused at 5 m , PAN5
+        - panchromatic filter focused at 5 m</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fov_fill_factor">
+    <xs:annotation>
+      <xs:documentation>Fill Factor. If FOV Flag equals 2, describes the
+        fraction of the FOV that intersects the asteroid surface. If FOV
+        Flag equals 0, value shall be 0.0. If FOV Flag equals 1, value
+        shall be 1.0. Allowed range is 0.0 to 1.0</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fov_fill_flag">
+    <xs:annotation>
+      <xs:documentation>Field of view flag 0-Entire FOV images empty
+        space; 1-Entire FOV image s asteroid surface; 2-Portion of FOV
+        images empty space</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fpga_rev_num">
+    <xs:annotation>
+<xs:documentation>FPGA revision number</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gain">
+    <xs:annotation>
+      <xs:documentation>The sensor analog gain value to use. Legal
+        values are 8-31 and 40-63. Values from 8 to 31 specify gains in
+        the range 1 to 3.875 in steps of 0.125; values from 40 to 63
+        specify gain in the range 2 to 7.75 in steps of 0.25. Gains in
+        the range [2, 4) should be commanded using the first
+        range</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ground_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ground">
+    <xs:annotation>
+<xs:documentation>Ground (Analog)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:ground_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ground_receipt_time">
+    <xs:annotation>
+      <xs:documentation>Ground Receive Time in UTC
+        (YYYY-MM-DDThh:mm:ss.sss)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ground_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ground_x">
+    <xs:annotation>
+<xs:documentation>Ground (Analog)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:ground_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="hcte_csr">
+    <xs:annotation>
+<xs:documentation>Horizontal over scan count</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="htr_brd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="htr_brd_temp">
+    <xs:annotation>
+      <xs:documentation>Heater board temperature
+        (unbuffered)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:htr_brd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="htr_brd_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="htr_brd_temp_x">
+    <xs:annotation>
+<xs:documentation>Heater_BRD_Temp (unbuffered)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:htr_brd_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="htr_test_pt_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="htr_test_pt">
+    <xs:annotation>
+<xs:documentation>Ground (Analog)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:htr_test_pt_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="htr_test_pt_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="htr_test_pt_x">
+    <xs:annotation>
+<xs:documentation>Ground (Analog)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:htr_test_pt_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="image_id">
+    <xs:annotation>
+      <xs:documentation>Identifier that is associated with an
+        image</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="image_len_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="image_len">
+    <xs:annotation>
+<xs:documentation>Recorded image length</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:image_len_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Storage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="image_size_estimate_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="image_size_estimate">
+    <xs:annotation>
+      <xs:documentation>initial size estimate for image in
+        flash</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:image_size_estimate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Storage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="image_type_code">
+    <xs:annotation>
+      <xs:documentation>Type of image commanded. LIGHT (science
+        observation), BIAS (calibration) , DARK (calibration), LAMP
+        (calibration), OTHER</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_cam">
+    <xs:annotation>
+      <xs:documentation>Specifies which camera to use. Legal values are
+        1 (for both DVR-4s) and 2 (for the DVR-4 with StowCam
+        attached).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_compress">
+    <xs:annotation>
+      <xs:documentation>Take image hardware image compression mode. 0
+        means no compression; 0xff means lossless compression; 1-99
+        means JPEG compression quality N, 4:2:2 color subsampling if
+        applicable; 101-199 means JPEG compression quality N, 4:4:4
+        color subsampling if applicable. Hardware compression is only
+        available in 8-bit mode; if companding is turned off, this value
+        must be 0.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_exp">
+    <xs:annotation>
+      <xs:documentation>The commanded 16-bit exposure time for each
+        image. For values from 0 to 5000, exposure time is in units of
+        0.1 msec, providing exposures of 0 to 0.5 seconds. From 5001 to
+        65535, exposure time is in units of 0.5msec with an offset of
+        0.5 seconds, so that the maximum exposure time is
+        0.5e-3*(65535-5000)+0.5 equals 30.7675
+        seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_gain">
+    <xs:annotation>
+      <xs:documentation>The sensor analog gain value. Legal values are
+        8-31 and 40-63. Values from 8 to 31 specify gains in the range 1
+        to 3.875 in steps of 0.125; values from 40 to 63 specify gain in
+        the range 2 to 7.75 in steps of 0.25. Gains in the range (2, 4)
+        are commanded using the first range</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_h_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="img_cmd_h">
+    <xs:annotation>
+      <xs:documentation>The starting height of the area of the image
+        sensor to read, in multiples of 16 pixels. If 0 is used for all
+        values, then the full frame is read (2592x1944 pixels with dark
+        pixels off, 2752x2004 pixels with dark pixels on.) Reading
+        outside the bounds of the image array is
+        illegal.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:img_cmd_h_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="img_cmd_int_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="img_cmd_int">
+    <xs:annotation>
+      <xs:documentation>The 16-bit time interval between images in
+        seconds, from 0 (as fast as possible) to 65535
+        seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:img_cmd_int_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="img_cmd_mode">
+    <xs:annotation>
+      <xs:documentation>0- 12-to-8 bit companding on/off; 1-3 companding
+        mode (0 equals square root, 1-7 linear divide by exp2(N-1)); 4-
+        dark pixels on/off; test pattern control (on equals 1/off equals
+        0); 6 enable additional sensor register settings (enable equals
+        1/disable equals 0); 7 reserved</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_num_imgs">
+    <xs:annotation>
+      <xs:documentation>The number of images to acquire in this
+        sequence. Legal values are 1 to 255.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_opcode">
+    <xs:annotation>
+      <xs:documentation>TAGCAMS Command 8-bit Operations Code
+        (Opcode)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_seq">
+    <xs:annotation>
+      <xs:documentation>The sequence identifier to assign to these
+        images. Legal values are 1 to 255.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_subsample">
+    <xs:annotation>
+      <xs:documentation>The subsampling to use when acquiring the image.
+        Legal values for this field are 0 (no subsampling), 1 (bin 2x2),
+        4 (bin 4x4), and 16-23 (skip (N-14)*(N-14)).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="img_cmd_sx_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="img_cmd_sx">
+    <xs:annotation>
+      <xs:documentation>The starting X of the area of the image sensor
+        to read, in multiples of 16 pixels. If 0 is used for all values,
+        then the full frame is read (2592x1944 pixels with dark pixels
+        off, 2752x2004 pixels with dark pixels on.) Reading outside the
+        bounds of the image array is illegal.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:img_cmd_sx_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="img_cmd_sy_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="img_cmd_sy">
+    <xs:annotation>
+      <xs:documentation>The starting Y of the area of the image sensor
+        to read, in multiples of 16 pixels. If 0 is used for all values,
+        then the full frame is read (2592x1944 pixels with dark pixels
+        off, 2752x2004 pixels with dark pixels on.) Reading outside the
+        bounds of the image array is illegal.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:img_cmd_sy_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="img_cmd_w_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="img_cmd_w">
+    <xs:annotation>
+      <xs:documentation>The starting Z of the area of the image sensor
+        to read, in multiples of 16 pixels. If 0 is used for all values,
+        then the full frame is read (2592x1944 pixels with dark pixels
+        off, 2752x2004 pixels with dark pixels on.) Reading outside the
+        bounds of the image array is illegal.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:img_cmd_w_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="imgs_to_capture">
+    <xs:annotation>
+      <xs:documentation>Number of images to capture (Control/Status)
+        Minimum/Default equals 1; Maximum equals 28</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="incidence_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="incidence_angle">
+    <xs:annotation>
+      <xs:documentation>Incidence angle. The angle between the vector
+        normal to the surface at the location of the boresight
+        intersection with the surface and the vector pointing at the
+        Sun. If Boresight Flag NE 1, then value shall be -9999. Allowed
+        range is 0.0 to 90.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:incidence_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="index_led_read">
+    <xs:annotation>
+      <xs:documentation>Bitwise read of the active LED
+        sensors</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="index_led_sel">
+    <xs:annotation>
+      <xs:documentation>Camera number of the active motor index LED
+        set</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="int_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="int_time">
+    <xs:annotation>
+      <xs:documentation>Commanded exposure time in
+        milliseconds</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:int_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="latitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="latitude">
+    <xs:annotation>
+      <xs:documentation>Planetocentric latitude of boresight
+        intersection with the surface. Allowed range +90.0 to -90.0. If
+        Boresight Flag NE 1, then value shall be -9999</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:latitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="linearity_limit">
+    <xs:annotation>
+<xs:documentation>Linearity Limit.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="longitude">
+    <xs:annotation>
+      <xs:documentation>Planetocentric longitude of boresight
+        intersection with the surface. Allowed range 0 to 360. If
+        Boresight Flag NE 1, then value shall be -9999</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="lut">
+    <xs:annotation>
+      <xs:documentation>Currently selected LUT number: 0 equals None.
+        The description of this field will be updated as more LUTS are
+        added.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="lvps_brd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="lvps_brd_temp">
+    <xs:annotation>
+      <xs:documentation>Low voltage power supply (LVPS) board
+        temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:lvps_brd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="lvps_brd_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="lvps_brd_temp_x">
+    <xs:annotation>
+<xs:documentation>LVPS Board Temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:lvps_brd_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="main_config">
+    <xs:annotation>
+<xs:documentation>Main configuration</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapcam_ccd_heater">
+    <xs:annotation>
+      <xs:documentation>MapCam CCD heater, on/off
+        state</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapcam_ccd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_ccd_temp">
+    <xs:annotation>
+      <xs:documentation>MapCam CCD resistance temperature detector
+        temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_ccd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_ccd_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_ccd_temp_x">
+    <xs:annotation>
+      <xs:documentation>MapCam CCD resistance temperature detector (RTD)
+        temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_ccd_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_filt_house_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapcam_filt_motor_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapcam_fwh_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_fwh_temp">
+    <xs:annotation>
+      <xs:documentation>MapCam Filter Wheel Housing
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_fwh_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_fwh_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_fwh_temp_x">
+    <xs:annotation>
+      <xs:documentation>MapCam Filter Wheel Housing
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_fwh_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_fwm_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_fwm_temp">
+    <xs:annotation>
+      <xs:documentation>MapCam Filter Wheel Motor
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_fwm_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_fwm_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_fwm_temp_x">
+    <xs:annotation>
+      <xs:documentation>MapCam Filter Wheel Housing
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_fwm_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_len_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_len_temp">
+    <xs:annotation>
+<xs:documentation>MapCam Lens Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_len_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_len_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_len_temp_x">
+    <xs:annotation>
+<xs:documentation>MapCam Lens Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_len_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_lens_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapcam_readout_elect_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapcam_roe_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_roe_temp">
+    <xs:annotation>
+      <xs:documentation>MapCam Read Out Electronics
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_roe_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mapcam_roe_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mapcam_roe_temp_x">
+    <xs:annotation>
+      <xs:documentation>MapCam Read Out Electronics
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mapcam_roe_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="max_pixel_value">
+    <xs:annotation>
+      <xs:documentation>Max image pixel value in dynamic range recorded
+        by the instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="meta_ker">
+    <xs:annotation>
+      <xs:documentation>Metakernel that holds all the spice kernels used
+        for processing</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mid_obs">
+    <xs:annotation>
+      <xs:documentation>Spacecraft mid-exposure time, UTC [Cal d]
+        (DATE_OBS - .5*EXPTIME). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mid_obs_et_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mid_obs_et">
+    <xs:annotation>
+      <xs:documentation>The ephemeris time of the mid-exposure time,
+        mid_obs</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:mid_obs_et_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mid_obs_sclk">
+    <xs:annotation>
+      <xs:documentation>The SCLK string of the mid-exposure time,
+        mid_obs</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="min_cnt_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="min_cnt">
+    <xs:annotation>
+<xs:documentation>Number of minutes since reset</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:min_cnt_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="min_pixel_value">
+    <xs:annotation>
+      <xs:documentation>Max image pixel value in dynamic range recorded
+        by the instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_identifier">
+    <xs:annotation>
+      <xs:documentation>Abbreviation used to indicate the OSIRIS-REx
+        mission phase. Accepted values are lau for Launch, obc for
+        Outbound Cruise, app for Approach, psv for Preliminary Survey,
+        ora for Orbit A, dsv for Detailed Survey, orb for Orbit B, rec
+        for Recon, tar for TAG Rehearsal, tag for Touch-and-Go, and rtn
+        for Return Cruise.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>Mission phase of the OSIRIS REx mission. Mission
+        phase possibilities include cruise, approach, preliminary
+        survey, orbital a, detailed survey, orbital b, reconnaissance,
+        rehearsal, and TAG (Touch-and-go)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="misspxla">
+    <xs:annotation>
+      <xs:documentation>Number of pixels in the 1024x1024 active area
+        that were zero filled as a result of data loss</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="misspxls">
+    <xs:annotation>
+      <xs:documentation>Number of pixels in the entire 1112x1044 CCD
+        that were zero filled as a result of data loss</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="motor_brd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="motor_brd_temp">
+    <xs:annotation>
+<xs:documentation>Motor Board Temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:motor_brd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="motor_brd_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="motor_brd_temp_x">
+    <xs:annotation>
+<xs:documentation>Motor Board Temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:motor_brd_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="motor_pos">
+    <xs:annotation>
+<xs:documentation>Filter wheel or focus position</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="motor_select">
+    <xs:annotation>
+      <xs:documentation>Camera number of the active
+        motor</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="motor_zone">
+    <xs:annotation>
+      <xs:documentation>Width of the last home command’s index (greater
+        than 31 is 31)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="object">
+    <xs:annotation>
+<xs:documentation>Object Name</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ocams_pl_ver">
+    <xs:annotation>
+<xs:documentation>TBD_Ingest_LDD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pga1_gain_amp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pga1_gain_amp">
+    <xs:annotation>
+      <xs:documentation>Channel 1 Programmable Gain Amplifier
+        Value</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:pga1_gain_amp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pga2_gain_amp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pga2_gain_amp">
+    <xs:annotation>
+      <xs:documentation>Channel 2 Programmable Gain Amplifier
+        Value</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:pga2_gain_amp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="phase_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="phase_angle">
+    <xs:annotation>
+      <xs:documentation>Phase Angle. The angle between the vector
+        pointing to the Sun and the vector pointing to the Spacecraft.
+        If Boresight Flag NE 1, then value shall be -9999. Allowed range
+        is 0.0 to 180.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:phase_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="phase_angle_boresight_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="phase_angle_boresight">
+    <xs:annotation>
+      <xs:documentation>Intersection-independent Phase Angle. The angle
+        between the vector pointing to the Sun and the vector pointing
+        opposite to the boresight; equal to 180-elongation angle.
+        Allowed range is 0.0 to 180.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:phase_angle_boresight_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_ccd_heater">
+    <xs:annotation>
+      <xs:documentation>PolyCam CCD heater, on/off
+        state</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polycam_ccd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_ccd_temp">
+    <xs:annotation>
+      <xs:documentation>PolyCam CCD resistance temperature detector
+        (RTD) temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_ccd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_ccd_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_ccd_temp_x">
+    <xs:annotation>
+      <xs:documentation>PolyCam CCD resistance temperature detector
+        (RTD) temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_ccd_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_focus_house_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polycam_focus_motor_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polycam_foh_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_foh_temp">
+    <xs:annotation>
+      <xs:documentation>PolyCam Focus Housing
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_foh_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_foh_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_foh_temp_x">
+    <xs:annotation>
+      <xs:documentation>PolyCam Focus Housing
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_foh_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_fom_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_fom_temp">
+    <xs:annotation>
+<xs:documentation>PolyCam Focus Motor Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_fom_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_fom_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_fom_temp_x">
+    <xs:annotation>
+<xs:documentation>PolyCam Focus Motor Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_fom_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_mirror_1_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_mirror_1_temp">
+    <xs:annotation>
+      <xs:documentation>PolyCam Primary Mirror
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_mirror_1_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_mirror_1_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_mirror_1_temp_x">
+    <xs:annotation>
+      <xs:documentation>PolyCam Primary Mirror
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_mirror_1_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_mirror_2_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_mirror_2_temp">
+    <xs:annotation>
+      <xs:documentation>PolyCam Secondary Mirror
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_mirror_2_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_primary_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polycam_readout_elect_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polycam_roe_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_roe_temp">
+    <xs:annotation>
+      <xs:documentation>PolyCam Read Out Electronics
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_roe_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_roe_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_roe_temp_x">
+    <xs:annotation>
+      <xs:documentation>PolyCam Read Out Electronics
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_roe_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="polycam_secondary_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polycam_tbd_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polycam_tbd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="polycam_tbd_temp">
+    <xs:annotation>
+<xs:documentation>PolyCam TBD Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:polycam_tbd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="power_control">
+    <xs:annotation>
+<xs:documentation>Power down control</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="powered_on_dvr">
+    <xs:annotation>
+      <xs:documentation>Touch and Go Camera Suite Powered On Digital
+        Video Recorder: 0 equals TAGCAMS_DVR_1, 1 equals
+        TAGCAMS_DVR_2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="proc_desc_flag">
+    <xs:annotation>
+      <xs:documentation>Processing description flag, where the different
+        processing levels are described in the CALIB section of the PDS
+        volume.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pwr_mon_vdd_l_override">
+    <xs:annotation>
+      <xs:documentation>Power monitor on-chip amplifier drain override.
+        Enable equals 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pwr_mon_vod_l_override">
+    <xs:annotation>
+      <xs:documentation>Power monitor high-performance charge couple
+        device (HCCD) drain override. Enable equals 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pwr_mon_wbb_l_override">
+    <xs:annotation>
+      <xs:documentation>Power monitor substrate bias override. Enable
+        equals 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="quality_flag">
+    <xs:annotation>
+      <xs:documentation>Data quality flag, 0 equals good. Other flags to
+        be added at a later date.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="quaternion0">
+    <xs:annotation>
+      <xs:documentation>Spacecraft quaternion in J2000 (q0 equals
+        cos(t/2)) obtained at the ATT_TIME. Quaternion values are
+        telemetry values based on the ATT_TIME parameter and may differ
+        from the SPICE calculated quaternions at mid-observation time by
+        several seconds. This value is to be used with caution as the
+        timing many not be for the boresight of the corresponding image.
+        SPICE quaternion standard is that Q0 is the scalar value which
+        is followed here.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="quaternion1">
+    <xs:annotation>
+      <xs:documentation>Spacecraft quaternion in J2000 (q1 equals
+        sin(theta/2) obtained at the ATT_TIME. Quaternion values are
+        telemetry values based on the ATT_TIME parameter and may differ
+        from the SPICE calculated quaternions at mid-observation time by
+        several seconds. This value is to be used with caution as the
+        timing many not be for the boresight of the corresponding
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="quaternion2">
+    <xs:annotation>
+      <xs:documentation>Spacecraft quaternion in J2000 (q2 equals
+        sin(theta/2))obtained at the ATT_TIME. Quaternion values are
+        telemetry values based on the ATT_TIME parameter and may differ
+        from the SPICE calculated quaternions at mid-observation time by
+        several seconds. This value is to be used with caution as the
+        timing many not be for the boresight of the corresponding
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="quaternion3">
+    <xs:annotation>
+      <xs:documentation>Spacecraft quaternion in J2000 (q3 equals
+        sin(theta/2)) obtained at the ATT_TIME. Quaternion values are
+        telemetry values based on the ATT_TIME parameter and may differ
+        from the SPICE calculated quaternions at mid-observation time by
+        several seconds. This value is to be used with caution as the
+        timing many not be for the boresight of the corresponding
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rad_units">
+    <xs:annotation>
+<xs:documentation>Reflectance (unitless).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="radesys">
+    <xs:annotation>
+      <xs:documentation>International Celestial Reference System
+        (ICRS)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="range_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="range">
+    <xs:annotation>
+      <xs:documentation>Range from S/C to boresight
+        intersection</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:range_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="rdpxlmap">
+    <xs:annotation>
+<xs:documentation>TBD_Ingest_LDD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="readout_mode">
+    <xs:annotation>
+<xs:documentation>Readout mode of detector</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="right_ascension_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="right_ascension">
+    <xs:annotation>
+      <xs:documentation>Boresight Right Ascension (RA) in J2000
+        frame</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:right_ascension_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_ccd_heater">
+    <xs:annotation>
+      <xs:documentation>SamCam CCD heater, on/off
+        state</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="samcam_ccd_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_ccd_temp">
+    <xs:annotation>
+      <xs:documentation>SamCam CCD resistance temperature detector (RTD)
+        temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_ccd_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_ccd_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_ccd_temp_x">
+    <xs:annotation>
+      <xs:documentation>SamCam CCD resistance temperature device (RTD)
+        temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_ccd_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_filt_house_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="samcam_filt_motor_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="samcam_fwh_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_fwh_temp">
+    <xs:annotation>
+      <xs:documentation>SamCam Filter Wheel Housing
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_fwh_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_fwh_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_fwh_temp_x">
+    <xs:annotation>
+      <xs:documentation>SamCam Filter Wheel Housing
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_fwh_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_fwm_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_fwm_temp">
+    <xs:annotation>
+      <xs:documentation>SamCam Filter Wheel Motor
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_fwm_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_fwm_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_fwm_temp_x">
+    <xs:annotation>
+      <xs:documentation>SamCam filter wheel motor heater, on/off
+        state</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_fwm_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_len_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_len_temp">
+    <xs:annotation>
+<xs:documentation>SamCam Lens Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_len_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_len_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_len_temp_x">
+    <xs:annotation>
+<xs:documentation>SamCam Lens Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_len_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_lens_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="samcam_readout_elect_heater">
+    <xs:annotation>
+      <xs:documentation>State of the heater: 0 equals off, 1 equals
+        on</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="samcam_roe_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_roe_temp">
+    <xs:annotation>
+      <xs:documentation>SamCam Read Out Electronics
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_roe_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="samcam_roe_temp_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="samcam_roe_temp_x">
+    <xs:annotation>
+      <xs:documentation>SamCam Read Out Electronics
+        Thermistor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:samcam_roe_temp_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="saturation_limit">
+    <xs:annotation>
+<xs:documentation>Saturation Limit.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sc2sun_phi_deg_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sc2sun_phi_deg">
+    <xs:annotation>
+      <xs:documentation>Phi component (angle from XY plane, positive
+        toward +Z) of spherical coordinate system vector, pointing from
+        the ORX spacecraft toward the Sun, in the ORX_SPACECRAFT
+        frame</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sc2sun_phi_deg_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sc2sun_range_km_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sc2sun_range_km">
+    <xs:annotation>
+      <xs:documentation>Range component of spherical coordinate system
+        vector, pointing from the ORX spacecraft toward the Sun, in the
+        ORX_SPACECRAFT frame</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sc2sun_range_km_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sc2sun_theta_deg_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sc2sun_theta_deg">
+    <xs:annotation>
+      <xs:documentation>Theta component (angle around +Z from XZ plane,
+        positive from +X toward +Y) of spherical coordinate system
+        vector, pointing from the ORX spacecraft toward the Sun, in the
+        ORX_SPACECRAFT frame</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sc2sun_theta_deg_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sc2sun_uvx">
+    <xs:annotation>
+      <xs:documentation>X component of Cartesian coordinate system unit
+        vector, pointing from the ORX spacecraft toward the Sun, in the
+        ORX_SPACECRAFT frame</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sc2sun_uvy">
+    <xs:annotation>
+      <xs:documentation>Y component of Cartesian coordinate system unit
+        vector, pointing from the ORX spacecraft toward the Sun, in the
+        ORX_SPACECRAFT frame</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sc2sun_uvz">
+    <xs:annotation>
+      <xs:documentation>Z component of Cartesian coordinate system unit
+        vector, pointing from the ORX spacecraft toward the Sun, in the
+        ORX_SPACECRAFT frame</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sclk_string">
+    <xs:annotation>
+      <xs:documentation>Spacecraft Clock String at start of image
+        observation</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sdram_csr">
+    <xs:annotation>
+      <xs:documentation>SDRAM Memory Control/Status Register: 0 equals
+        off, 1 equals 0n</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="secondary_ik_num">
+    <xs:annotation>
+      <xs:documentation>Secondary I-Kernel number for variable focal
+        length</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="seconds_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="seconds">
+    <xs:annotation>
+      <xs:documentation>TAGCAMS Mini Header spacecraft clock time in
+        seconds. The spacecraft clock time tag is the start of exposure
+        for line 1 of the image plus or minus 0.1
+        seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:seconds_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="seconds_raw_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="seconds_raw">
+    <xs:annotation>
+      <xs:documentation>Camera control module (CCM) seconds for start of
+        exposure</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:seconds_raw_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="semimajor_axis_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="semimajor_axis">
+    <xs:annotation>
+      <xs:documentation>Semimajor axis of FOV ellipse on
+        surface</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:semimajor_axis_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="semiminor_axis_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="semiminor_axis">
+    <xs:annotation>
+      <xs:documentation>Semiminor axis of FOV ellipse on
+        surface</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:semiminor_axis_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sequence_id">
+    <xs:annotation>
+      <xs:documentation>TAGCAMS commanded sequence
+        identifier</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="solar_azimuth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="solar_azimuth">
+    <xs:annotation>
+      <xs:documentation>Solar Azimuth. The angle between two
+        half-planes, both bounded by the target rotation axis boresight
+        intersection, one containing Sun, the other parallel to the
+        anti-normal at the boresight intersection. A value of 180.0
+        represents coincident half-planes; a value of 0.0 represents
+        parallel but opposing half-planes. If Boresight Flag NE 1, the
+        value shall be -9999. Allowed range is 0.0 to
+        360.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:solar_azimuth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="solar_mean_normal_az_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="solar_mean_normal_az">
+    <xs:annotation>
+      <xs:documentation>Local-mean-normal-based Solar Time (LST). The
+        angle between two half-planes, both bounded by the target
+        rotation axis boresight intersection, one containing the Sun,
+        the other parallel to the mean anti-normal calculated from up to
+        100 vectors in the FOV. A value of 180.0 represents coincident
+        half-planes; a value of 0.0 represents parallel but opposing
+        half-planes. If fov_fill_flag is zero, the value shall be -9999.
+        Allowed range is 0.0 to 360.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:solar_mean_normal_az_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="solar_normal_lst">
+    <xs:annotation>
+      <xs:documentation>Local-normal-based Solar Time (LST). The hour
+        angle between two half-planes, both bounded by the target
+        rotation axis boresight intersection, one containing the Sun,
+        the other parallel to the anti-normal at the boresight
+        intersection. A value of 12.0 represents coincident half-planes;
+        a value of 0.0 represents parallel but opposing half-planes. If
+        Boresight Flag NE 1, the value shall be -9999. Allowed range is
+        0.0 to 24.0</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_azimuth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_azimuth">
+    <xs:annotation>
+      <xs:documentation>Spacecraft Azimuth. The angle between two
+        half-planes, both bounded by the target rotation axis boresight
+        intersection, one containing the
+        boresight-intersection-tospacecraft vector, the other parallel
+        to the anti-normal at the boresight intersection. A value of
+        180.0 represents coincident half-planes; a value of 0.0
+        represents parallel but opposing half-planes. If Boresight Flag
+        NE 1, the value shall be -9999. Allowed range is 0.0 to
+        360.0</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:spacecraft_azimuth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spare">
+    <xs:annotation>
+<xs:documentation>Spare</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spoc_date">
+    <xs:annotation>
+      <xs:documentation>Coordinated Universal Time file was created by
+        SPOC (YYYY-MM-DDThh:mm:ss.sss).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spoc_version">
+    <xs:annotation>
+<xs:documentation>TBD_Ingest_LDD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="standby">
+    <xs:annotation>
+      <xs:documentation>Bitwise non-Off state of the cameras: 1 equals
+        MapCam, 2 equals SamCam, 4 equals PolyCam</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_sclk">
+    <xs:annotation>
+      <xs:documentation>SCLK Time (#/SSSSSSSSSS.sssss) of the first
+        frame in the science sequence.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_sclk">
+    <xs:annotation>
+      <xs:documentation>SCLK Time (#/SSSSSSSSSS.sssss) of the last
+        record in the science sequence</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="storage_flush_block_flag">
+    <xs:annotation>
+      <xs:documentation>Charge couple device control status register
+        storage flush block flag. Enable equals 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="storage_flush_cnt_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="storage_flush_cnt">
+    <xs:annotation>
+      <xs:documentation>Milliseconds between storage portion
+        flushes</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:storage_flush_cnt_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="subseconds_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="subseconds">
+    <xs:annotation>
+      <xs:documentation>TAGCAMS Mini Header spacecraft clock time in
+        sub-seconds. The spacecraft clock time tag is the start of
+        exposure for line 1 of the image plus or minus 0.1
+        seconds.!important</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:subseconds_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="subseconds_raw">
+    <xs:annotation>
+      <xs:documentation>Camera control module sub-seconds for start of
+        exposure</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sun_range_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sun_range">
+    <xs:annotation>
+      <xs:documentation>Range from Sun to center of
+        Bennu</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sun_range_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sunbeamr_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sunbeamr">
+    <xs:annotation>
+      <xs:documentation>Range to Sun from SunBEAM
+        target</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sunbeamr_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sunbeams">
+    <xs:annotation>
+      <xs:documentation>Status of SunBEAM calculation, will be either
+        SUCCESS or FAILURE</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sunbeamt">
+    <xs:annotation>
+      <xs:documentation>Target for SunBEAM quantities; will be one of
+        Bennu, Earth, And Moon; if observation target is not Earth or
+        Moon, then this will be BENNU</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sunbeamx_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sunbeamx">
+    <xs:annotation>
+      <xs:documentation>J2000 X-component of vector to Sun from SunBEAM
+        target</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sunbeamx_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sunbeamy_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sunbeamy">
+    <xs:annotation>
+      <xs:documentation>J2000 Y-component of vector to Sun from SunBEAM
+        target</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sunbeamy_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sunbeamz_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sunbeamz">
+    <xs:annotation>
+      <xs:documentation>J2000 Z-component of vector to Sun from SunBEAM
+        target</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:sunbeamz_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="target_range_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="target_range">
+    <xs:annotation>
+      <xs:documentation>Range from S/C to target body
+        center</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:target_range_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="tck_pattern">
+    <xs:annotation>
+      <xs:documentation>CCD transfer clock pattern. There are 8 bit
+        periods per the clock cycle. TCK_PATTERN determines the high to
+        low ratio.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="total_checksum">
+    <xs:annotation>
+      <xs:documentation>The pass/fail state of the image check sum as
+        transmitted from the instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="trans_cmd_compression">
+    <xs:annotation>
+      <xs:documentation>Compression mode. 0 means no compression; 0xff
+        means lossless compression; 1-99 means JPEG compression quality
+        N, grayscale; 101-199 means JPEG compression quality N, 4:2:2
+        color subsampling. JPEG compression can only be applied to 8-bit
+        data. Note that if a color camera image is compressed as
+        grayscale, compression efficiency may be degraded. Keyword may
+        be blank if the transmit-image-raw command was used to acquire
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="trans_cmd_summing">
+    <xs:annotation>
+      <xs:documentation>Turns 2x2 summing on or off. Legal values are 1
+        (no summing) and 2 (2x2 summing.) Summing can only be applied to
+        8-bit data. Images with both compression and summing selected
+        will be compressed but not summed. Keyword may be blank if the
+        transmit-image-raw command was used to acquire
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="units">
+    <xs:annotation>
+<xs:documentation>Raw ADC data numbers.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="utc">
+    <xs:annotation>
+      <xs:documentation>YYYY-MM-DDThh:mm:ss.sss observation
+        start</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vcte_csr">
+    <xs:annotation>
+<xs:documentation>Vertical over scan count</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vfreq_csr">
+    <xs:annotation>
+      <xs:documentation>CCD vertical clock frequency control, i.e.,
+        number of system clock cycles for each of the 8 vertical clock
+        periods</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="volt_4_5_therm_mon_1_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_4_5_therm_mon_1">
+    <xs:annotation>
+<xs:documentation>+4.5 V Thermistor Monitor #1</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_4_5_therm_mon_1_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_4_5_therm_mon_1_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_4_5_therm_mon_1_x">
+    <xs:annotation>
+<xs:documentation>+4.5 V Thermistor Monitor #1</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_4_5_therm_mon_1_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_4_5_therm_mon_2_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_4_5_therm_mon_2">
+    <xs:annotation>
+<xs:documentation>+4.5 V Thermistor Monitor #2</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_4_5_therm_mon_2_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_4_5_therm_mon_2_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_4_5_therm_mon_2_x">
+    <xs:annotation>
+<xs:documentation>+4.5 V Thermistor Monitor #2</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_4_5_therm_mon_2_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_minus_12_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_minus_12">
+    <xs:annotation>
+<xs:documentation>-12 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_minus_12_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_minus_12_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_minus_12_x">
+    <xs:annotation>
+<xs:documentation>-12 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_minus_12_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_minus_24_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_minus_24">
+    <xs:annotation>
+<xs:documentation>-24 V Monitor (buffered)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_minus_24_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_minus_24_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_minus_24_x">
+    <xs:annotation>
+<xs:documentation>-24 V Monitor (buffered)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_minus_24_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_plus_12_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_plus_12">
+    <xs:annotation>
+<xs:documentation>+12 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_plus_12_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_plus_12_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_plus_12_x">
+    <xs:annotation>
+<xs:documentation>+12 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_plus_12_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_plus_24_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_plus_24">
+    <xs:annotation>
+<xs:documentation>+24 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_plus_24_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_plus_24_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_plus_24_x">
+    <xs:annotation>
+<xs:documentation>+24 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_plus_24_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_plus_5_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_plus_5">
+    <xs:annotation>
+<xs:documentation>+5 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_plus_5_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_plus_5_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_plus_5_x">
+    <xs:annotation>
+<xs:documentation>+5 V Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_plus_5_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_sc_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_sc">
+    <xs:annotation>
+<xs:documentation>Primary Voltage from S/C</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_sc_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="volt_mon_sc_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volt_mon_sc_x">
+    <xs:annotation>
+<xs:documentation>Primary Voltage from S/C</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:volt_mon_sc_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vref_mon_plus_5_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="vref_mon_plus_5">
+    <xs:annotation>
+<xs:documentation>+5 V Reference Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:vref_mon_plus_5_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vref_mon_plus_5_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="vref_mon_plus_5_x">
+    <xs:annotation>
+<xs:documentation>+5 V Reference Monitor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="orex:vref_mon_plus_5_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="wrpxlmap">
+    <xs:annotation>
+<xs:documentation>TBD_Ingest_LDD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model 
+    href="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- for testing validation
+    href="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.sch"
+    href="https://raw.githubusercontent.com/pds-data-dictionaries/ldd-img/master/build/development/105aa0a5096ac1d7a64059e93b76ae6322f1cd09/1.14.0.0/PDS4_IMG_1E00_1820.sch"
+-->
+
+<Ingest_LDD 
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:img="http://pds.nasa.gov/pds4/img/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"    
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd 
+                        https://pds.nasa.gov/pds4/img/v1
+                        https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.xsd">
+
+<!-- for testing validation
+                        https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.xsd">
+                        https://raw.githubusercontent.com/pds-data-dictionaries/ldd-img/master/build/development/105aa0a5096ac1d7a64059e93b76ae6322f1cd09/1.14.0.0/PDS4_IMG_1E00_1820.xsd">
+-->
+
+  <name>MSSS Camera Mini-header</name>
+  <ldd_version_id>1.0.2.0</ldd_version_id>
+  <dictionary_type>Discipline</dictionary_type>
+  <full_name>Trent Hare</full_name>
+  <steward_id>img</steward_id>
+  <namespace_id>msss_cam_mh</namespace_id>
+  <comment>
+    ## CHANGE LOG ##
+    1.0.0.0
+    - Initial version
+    
+     1.0.1.0
+    - bump to use IMG v1E00_1810
+
+    1.0.2.0
+    - bump to use IMG v1E00_1820
+
+  </comment>
+  <last_modification_date_time>2020-09-09T09:10:00</last_modification_date_time>
+
+  <!-- Begin attribute definitions -->
+
+  <!-- Start attributes for MSSS_Camera_Mini_Header -->
+  <DD_Attribute>
+    <name>camera_product_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>camera_product_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Identifier assigned by the camera to this image (aka CDPID).  The identifier is 
+    unique among all products stored on the camera at the time of acquisition, but is not necessarily 
+    unique across the mission.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>magic_initial</name>
+    <version_id>1.0</version_id>
+    <local_identifier>magic_initial</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Bit pattern (hexadecimal value) at the beginning of the mini-header used to help identify product 
+    boundaries for flash fault recovery.  For MSL, this is a constant 0xFF00F0CA.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>magic_final</name>
+    <version_id>1.0</version_id>
+    <local_identifier>magic_final</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Bit pattern (hexadecimal value) at the end of the mini-header used to help identify product 
+    boundaries for flash fault recovery.  For MSL, this is a constant 0x1010CC28.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>  
+
+  <DD_Attribute>
+    <name>spacecraft_clock_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>spacecraft_clock_start</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>The spacecraft_clock_start is the value of the spacecraft clock at the beginning of the observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>spacecraft_clock_stop</name>
+    <version_id>1.0</version_id>
+    <local_identifier>spacecraft_clock_stop</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>The spacecraft_clock_stop is the value of the spacecraft clock at the end of the observation.
+      spacecraft_clock_stop should only be used if there's also a spacecraft_clock_start value.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>instrument_mode_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_mode_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Specifies the image or video readout mode, which determines the rate the image is read out.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>  
+
+  <DD_Attribute>
+    <name>instrument_serial_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_serial_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The instrument serial number element provides
+      the manufacturer's serial number assigned to an instrument. This
+      number may be used to uniquely identify a particular instrument
+      for tracing its components or determining its calibration
+      history, for example.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>initial_size</name>
+    <version_id>1.0</version_id>
+    <local_identifier>initial_size</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Initially-allocated size of data product by the camera (for compressed data, 
+      may not match actual size).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>  
+
+  <DD_Attribute>
+    <name>analog_offset</name>
+    <version_id>1.0</version_id>
+    <local_identifier>analog_offset</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The analog_offset attribute identifies the analog value that is subtracted from the
+      signal prior to the analog/digital conversion.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <!-- End attributes for MSSS_Camera_Mini_Header -->
+  
+  <!-- End attribute definitions -->
+
+
+  <!-- Begin class definitions -->
+
+  <!-- Start of MSSS_Camera_Mini_Header class Definition -->
+  <DD_Class>
+    <name>MSSS_Camera_Mini_Header</name>
+    <version_id>1.0</version_id>
+    <local_identifier>MSSS_Camera_Mini_Header</local_identifier>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The MSSS_Camera_Mini_Header class contains information for cameras developed 
+      by Malin Space Science Systems (MSSS) that share a common architecture or digital 
+      electronics assembly. Example cameras include Mastcam, MAHLI, MARDI, Mastcam-Z, 
+      SHERLOC-Watson and SHERLOC-ACI.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>camera_product_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>magic_initial</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>magic_final</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>spacecraft_clock_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>spacecraft_clock_stop</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>instrument_mode_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>instrument_serial_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>initial_size</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>analog_offset</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>img.Detector</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>img.Exposure</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>img.Focus</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>img.Onboard_Compression</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>img.Optical_Filter</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>img.Sampling</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+        <identifier_reference>img.Subframe</identifier_reference>
+        <reference_type>component_of</reference_type>
+        <minimum_occurrences>0</minimum_occurrences>
+        <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+        <identifier_reference>img.Instrument_State</identifier_reference>
+        <reference_type>component_of</reference_type>
+        <minimum_occurrences>0</minimum_occurrences>
+        <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of MSSS_Camera_Mini_Header class Definition -->
+ 
+  <!-- End class definitions -->
+
+
+  <!-- Begin rule definitions -->
+  
+<!--
+  <DD_Rule>
+    <local_identifier>application_name_value_check</local_identifier>
+    <rule_context>//msss_cam_mh:Telemetry</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>msn_surface:application_name = ('ICC_1', 'ICC_2', 'ICC_3', 'ICC_4', 'ICC_5',
+        'ICC_6', 'ICC_UNRECOG', 'IDC_1', 'IDC_2', 'IDC_3', 'IDC_4', 'IDC_5', 'IDC_6',
+        'IDC_UNRECOG')</rule_test>
+      <rule_message>MSSS_CAM_MH:error:application_name_value_check: The attribute
+        msn_surface:application_name must be equal to one of the following values: 'ICC_1', 'ICC_2',
+        'ICC_3', 'ICC_4', 'ICC_5', 'ICC_6', 'ICC_UNRECOG', 'IDC_1', 'IDC_2', 'IDC_3', 'IDC_4',
+        'IDC_5', 'IDC_6', 'IDC_UNRECOG'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  <DD_Rule>
+    <local_identifier>provider_id_value_check</local_identifier>
+    <rule_context>//msss_cam_mh:Telemetry</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>msss_cam_mh:provider_id = ('TTACS')</rule_test>
+      <rule_message>MSSS_CAM_MH:error:provider_id_value_check: The attribute msss_cam_mh:provider_id
+        must be equal to one of the following values: 'TTACS'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+-->
+
+  <!-- End rule definitions -->
+
+</Ingest_LDD>

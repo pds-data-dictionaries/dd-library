@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PDS4 XML/Schema for Spectra Dictionary -->
+<!-- Generated from the PDS4_Spectra_1100_20131111135132.xml Ingest_LDD file -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://pds.nasa.gov/pds4/sp/v1"
+  xmlns:sp="http://pds.nasa.gov/pds4/sp/v1"
+  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  version="1.1.0.0">
+
+  <xs:annotation>
+    <xs:documentation>The Spectra dictionary contains classes that describe
+      the spectral characteristics of Array (and Array subclass) data
+      objects, and of the instruments that acquired
+      them.</xs:documentation>
+  </xs:annotation>
+
+  <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1"
+    schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1100.xsd"/>
+  
+  <xs:element name="Spectral_Characteristics" type="sp:Spectral_Characteristics"/>
+  <xs:element name="Axis_Uniformly_Sampled" type="sp:Axis_Uniformly_Sampled"/>
+  <xs:element name="Axis_Bin_Set" type="sp:Axis_Bin_Set"/>
+  <xs:element name="Spectral_Lookup" type="sp:Spectral_Lookup"/>
+  <xs:element name="Local_Internal_Reference" type="sp:Local_Internal_Reference"/>
+  <xs:element name="Bin" type="sp:Bin"/>
+  <xs:element name="Filter" type="sp:Filter"/>
+  
+  <xs:complexType name="Axis_Bin_Set">
+    <xs:annotation>
+      <xs:documentation>The Axis_Bin_Set class describes the spectral
+        characteristics of each band along a spectral axis of an Array. 
+        This class is used in cases where the spectral information is not
+        uniform along the spectral axis.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Local_Internal_Reference" type="sp:Local_Internal_Reference" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="Bin" type="sp:Bin" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Axis_Uniformly_Sampled">
+    <xs:annotation>
+      <xs:documentation>The Axis_Uniformly_Sampled class provides
+        attributes describing the spectral characteristics of an axis of an
+        Array object, in cases where the spectral sampling interval is
+        regular.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sampling_parameter_type" type="sp:sampling_parameter_type" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="sampling_interval" type="sp:sampling_interval" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="bin_width" type="sp:bin_width" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="first_center_value" type="sp:first_center_value" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="last_center_value" type="sp:last_center_value" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Local_Internal_Reference" type="sp:Local_Internal_Reference" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Bin">
+    <xs:annotation>
+      <xs:documentation>The Bin class specifies the characteristics of an
+        individual bin along a spectral or other binned axis in an Array
+        object.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bin_sequence_number" type="sp:bin_sequence_number" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="center_value" type="sp:center_value" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="bin_width" type="sp:bin_width" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="detector_number" type="sp:detector_number" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="grating_position" type="sp:grating_position" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="original_bin_number" type="sp:original_bin_number" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="scaling_factor" type="sp:scaling_factor" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value_offset" type="sp:value_offset" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Filter" type="sp:Filter" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Filter">
+    <xs:annotation>
+      <xs:documentation>The Filter class identifies the filter associated
+        with a specific band or bin along a spectral axis in an Array
+        object.  The filter may be identified by either name, identifier,
+        or number or some combination of these.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="filter_name" type="sp:filter_name" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="filter_number" type="sp:filter_number" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Local_Internal_Reference">
+    <xs:annotation>
+      <xs:documentation>The Local_Internal_Reference class is used to
+        cross-reference other classes or objects within the
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="local_identifier_reference" type="sp:local_identifier_reference" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="local_reference_type" type="sp:local_reference_type" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="comment" type="sp:comment" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Spectral_Characteristics">
+    <xs:annotation>
+      <xs:documentation>The Spectral_Characteristics class provides
+        information about the spectral characteristics of an Array
+        object.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="comment" type="sp:comment" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="bin_width_desc" type="sp:bin_width_desc" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Local_Internal_Reference" type="sp:Local_Internal_Reference" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="Axis_Uniformly_Sampled" type="sp:Axis_Uniformly_Sampled"/>
+        <xs:element name="Axis_Bin_Set" type="sp:Axis_Bin_Set"/>
+        <xs:element name="Spectral_Lookup" type="sp:Spectral_Lookup"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Spectral_Lookup">
+    <xs:annotation>
+      <xs:documentation>The Spectral_Lookup class references a
+        2-dimensional lookup map providing spectral characteristics for a
+        corresponding spectral Array object.  The referenced lookup map may
+        either be internal to the referencing product, or an external
+        stand-alone product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="2" maxOccurs="2">
+        <xs:element name="Local_Internal_Reference" type="sp:Local_Internal_Reference"/>
+        <xs:element name="Internal_Reference" type="pds:Internal_Reference"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="bin_width_desc">
+    <xs:annotation>
+      <xs:documentation>The bin_width_desc attributes provides a
+        description of the method used to calculate the bin_width of a bin
+        along a spectral axis in an Array object.  The description should
+        include information on the shape (e.g. gaussian, square wave, etc.)
+        and what the bin_width value means (i.e., standard deviation of a
+        gaussian function or full-width at half max
+        (FWHM)).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Text_Preserved"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="bin_sequence_number">
+    <xs:annotation>
+      <xs:documentation>The bin_sequence_number provides the sequential
+        numbering of bins along an axis in an Array
+        object.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="bin_width_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+      <xs:minInclusive value="0.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="bin_width">
+    <xs:annotation>
+      <xs:documentation>The bin_width attribute provides the width of a bin
+        along a spectral axis in an Array object, in the specified units.
+        The method used to calculate the width must be specified using the
+        bin_width_desc attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="sp:bin_width_WO_Units">
+        <xs:attribute name="unit" type="sp:Units_of_Spectra" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="center_value_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+      <xs:minInclusive value="0.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="center_value">
+    <xs:annotation>
+      <xs:documentation>The center_value attribute provides the wavelength,
+        wave number, or frequency describing the center of a bin along the
+        band axis of a spectral data object. When describing data from a
+        spectrometer, the value corresponds to the peak of the response
+        function for a particular detector and/or grating
+        position.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="sp:center_value_WO_Units">
+        <xs:attribute name="unit" type="sp:Units_of_Spectra" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="comment">
+    <xs:annotation>
+      <xs:documentation>The comment attribute is a character string
+        expressing one or more remarks or thoughts relevant to the
+        object.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Text_Preserved"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="detector_number">
+    <xs:annotation>
+      <xs:documentation>The detector_number attribute provides the
+        spectrometer detector number corresponding to a band of a spectral
+        qube.  Detector numbers are usually assigned consecutively from 1,
+        in order of increasing wavelength.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="filter_name">
+    <xs:annotation>
+      <xs:documentation>The filter_name attribute provides the
+        commonly-used name of the instrument filter through which an image
+        or measurement was acquired or which is associated with a given
+        instrument mode.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="filter_number">
+    <xs:annotation>
+      <xs:documentation>The filter_number attribute provides the numeric
+        identifier of an instrument filter through which an image or
+        measurement was acquired or which is associated with a given
+        instrument mode.  Within the bin class of a spectral data object,
+        it identifies the filter through which data in the given band were
+        acquired.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="first_center_value_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+      <xs:minInclusive value="0.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="first_center_value">
+    <xs:annotation>
+      <xs:documentation>The first_center_value attribute provides the
+        wavelength, wave number, or frequency describing the center of the
+        first bin along the spectral axis of a spectral data
+        object.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="sp:first_center_value_WO_Units">
+        <xs:attribute name="unit" type="sp:Units_of_Spectra" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="grating_position">
+    <xs:annotation>
+      <xs:documentation>The grating_position attribute of a spectral qube
+        describes the grating position which corresponds to the band. 
+        Grating positions are usually assigned consecutively from 0, and
+        increasing position causes increasing wavelength for each
+        detector.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="last_center_value_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+      <xs:minInclusive value="0.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="last_center_value">
+    <xs:annotation>
+      <xs:documentation>The last_center_value attribute provides the
+        wavelength, wave number, or frequency describing the center of the
+        last bin along the spectral axis of a spectral data
+        object.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="sp:last_center_value_WO_Units">
+        <xs:attribute name="unit" type="sp:Units_of_Spectra" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="local_identifier_reference">
+    <xs:annotation>
+      <xs:documentation>The local_identifier_reference attribute provides
+        the local_identifier of the digital object described by the
+        referencing class.  Note that a local_identifier attribute, with
+        the same value as this local_identifier_reference, must be present
+        within the label.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="local_reference_type">
+    <xs:annotation>
+      <xs:documentation>The local_reference_type attribute provides the
+        name of an association between an entity identified by a
+        local_identifier_reference and another corresponding entity
+        identified by a local_identifier</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="sampling_parameter_type">
+    <xs:annotation>
+      <xs:documentation>The sampling_parameter_type attribute indicates the
+        nature of the parameter specified along the spectral axis in an
+        Array object.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="original_bin_number">
+    <xs:annotation>
+      <xs:documentation>The original_bin_number attribute of a spectral
+        Array object is used when the current data object is a subset of
+        some original data object.  The original_bin_number for each band
+        identifies the bin_sequence_number of the corresponding band in the
+        original data object.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="sampling_interval_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+      <xs:minInclusive value="0.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="sampling_interval">
+    <xs:annotation>
+      <xs:documentation>The sampling_interval attribute provides the
+        spacing of points at which data are sampled and at which a value
+        for an instrument or data parameter is available. This sampling
+        interval can be either the original (raw) sampling or the result of
+        some resampling process. The sampling parameter (wavelength,
+        frequency, etc.) is identified by the sampling_parameter_type
+        attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="sp:sampling_interval_WO_Units">
+        <xs:attribute name="unit" type="sp:Units_of_Spectra" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="scaling_factor">
+    <xs:annotation>
+      <xs:documentation>The scaling_factor attribute is the scaling factor
+        to be applied to each stored value in order to recover an original
+        value. The observed value (Ov) is calculated from the stored value
+        (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. The default
+        value is 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Units_of_Spectra">
+    <xs:annotation>
+      <xs:documentation>The Units_of_Spectra class provides a union of
+        the three unit classes: Units_of_Frequency, Units_of_Length,
+        and Units_of_Wavenumber.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="pds:Units_of_Frequency pds:Units_of_Length pds:Units_of_Wavenumber"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="value_offset">
+    <xs:annotation>
+      <xs:documentation>The value_offset attribute is the offset to be
+        applied to each stored value in order to recover an original
+        value. The observed value (Ov) is calculated from the stored value
+        (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. The default
+        value is 0.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real"/>
+  </xs:simpleType>
+
+</xs:schema>

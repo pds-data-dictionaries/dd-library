@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model 
+    href="http://pds.nasa.gov/pds4/geom/v1/PDS4_GEOM_1B10_1700.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:geom="http://pds.nasa.gov/pds4/geom/v1" 
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1  https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.xsd 
+                      http://pds.nasa.gov/pds4/geom/v1 https://pds.nasa.gov/pds4/geom/v1/PDS4_GEOM_1B10_1700.xsd">
+  
+  <name>Juno Mission</name>
+  <ldd_version_id>1.1.1.0</ldd_version_id>
+  <full_name>Lyle Huber</full_name>
+  <steward_id>atm</steward_id>
+  <namespace_id>juno</namespace_id>
+  <last_modification_date_time>2020-03-17T12:00</last_modification_date_time>
+
+<!-- Modification History
+    v 1.0.0.0 created by Jordan Padams to provide Junocam attributes
+    v 1.1.0.0 modified by Lyle Huber to provide JIRAM attributes and to assume stewardship as lead node
+    v 1.1.1.0 to add geometry class that was inadvertently omitted
+    -->
+
+  <DD_Attribute>
+    <name>mission_phase_name</name>
+    <version_id>0.1</version_id>
+    <local_identifier>juno.mission_phase_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The mission_phase_name identifies a time period within the mission.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+      <DD_Permissible_Value>
+        <value>Inner Cruise 1</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Inner Cruise 2</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Inner Cruise 3</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Quiet Cruise</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Outer Cruise</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Jupiter Approach</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Capture Orbit</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Period Reduction Maneuver</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Orbits 1-2</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Science Orbits</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Deorbit</value>
+        <value_meaning>TBD</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>spacecraft_clock_start_count</name>
+    <version_id>0.1</version_id>
+    <local_identifier>juno.spacecraft_clock_start_count</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the actual start of image acquisition. There may be small inconsistencies with start_date_time due to varying correlation between UTC and the spacecraft clock. For purposes of data analysis the spacecraft clock value should be used. The format of this field is compatible with the NAIF Toolkit software where s = seconds converted from the clock's coarse counter and m = seconds converted from the clock's fine counter.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>sssssssss.mm[m]</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>spacecraft_clock_stop_count</name>
+    <version_id>0.1</version_id>
+    <local_identifier>juno.spacecraft_clock_stop_count</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the actual end of image acquisition. There may be small inconsistencies with stop_date_time due to varying correlation between UTC and the spacecraft clock. For purposes of data analysis the spacecraft clock value should be used. The format of this field is compatible with the NAIF Toolkit software where s = seconds converted from the clock's coarse counter and m = seconds converted from the clock's fine counter.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>sssssssss.mm[m]</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+<!--  <DD_Attribute>
+    <name>product_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.product_type</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The product_type identifies a group of data products within a collection that have
+      some property in common, such as processing level, resolution, or instrument-specific setting.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>EDR</value>
+        <value_meaning>Raw data product.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>RDR</value>
+        <value_meaning>Calibrated data product.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CDR</value>
+        <value_meaning>Calibrated data product.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DDR</value>
+        <value_meaning>Derived data product.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute> -->
+
+  <DD_Attribute>
+    <name>release_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.release_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>Release_number is the number of a scheduled release of JunoCam data from PDS. The
+      first Juno data release is Release 1. The release_number for a given product is always the
+      first release in which it appears, and does not change if the product is revised
+      later.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>orbit_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.orbit_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The orbit_number attribute identifies the number of the orbital revolution of the spacecraft around a target body. This value is N/A for cruise images.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <maximum_value>99</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>tdi_stages_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.tdi_stages_count</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The tdi_stages_count attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a JunoCam observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+
+  <DD_Class>
+    <name>Observation_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Observation_Information</local_identifier>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The Observation_Information class provides information about a science
+      observation.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>true</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>juno.mission_phase_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>juno.orbit_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>juno.product_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>juno.release_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>juno.spacecraft_clock_start_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>juno.spacecraft_clock_stop_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>juno.JunoCam_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>JunoCam_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.JunoCam_Parameters</local_identifier>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The JunoCam Parameters class contains attributes specific to JunoCam observations.</definition>
+    <abstract_flag>false</abstract_flag>
+    <DD_Association>
+      <identifier_reference>juno.tdi_stages_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>L_Band_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.L_Band_Parameters</local_identifier>
+    <submitter_name>Lyle Huber</submitter_name>
+    <definition>The L Band Parameters class contains attributes specific to JIRAM L Band observations.</definition>
+    <abstract_flag>false</abstract_flag>
+    <DD_Association>
+      <identifier_reference>geom.Surface_Geometry_Min_Max</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>geom.Pixel_Dimensions</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>  
+    <DD_Association>
+      <identifier_reference>geom.Derived_Geometry</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>    
+  </DD_Class>
+ 
+  <DD_Class>
+    <name>M_Band_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.M_Band_Parameters</local_identifier>
+    <submitter_name>Lyle Huber</submitter_name>
+    <definition>The L Band Parameters class contains attributes specific to JIRAM M Band observations.</definition>
+    <abstract_flag>false</abstract_flag>
+    <DD_Association>
+      <identifier_reference>geom.Surface_Geometry_Min_Max</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>geom.Pixel_Dimensions</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>  
+    <DD_Association>
+      <identifier_reference>geom.Derived_Geometry</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>JIRAM_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>juno.JIRAM_Parameters</local_identifier>
+    <submitter_name>Lyle Huber</submitter_name>
+    <definition>The JIRAM Parameters class contains attributes specific to JIRAM observations.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>juno.L_Band_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>juno.M_Band_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>  
+  </DD_Class>
+
+</Ingest_LDD>

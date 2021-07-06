@@ -1,0 +1,1220 @@
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "Version": "1.14.0.0" ,
+      "Date": "Wed Nov 25 19:46:18 UTC 2020" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "classDictionary": [
+        {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters" ,
+            "title": "Chandrayaan-1_Parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Container class for general Chandrayaan-1 related parameters."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.release_id" ,
+                "title": "release_id" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.release_id"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.mission_phase_name" ,
+                "title": "mission_phase_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.mission_phase_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orbit_number" ,
+                "title": "orbit_number" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orbit_number"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_clock_start_count" ,
+                "title": "spacecraft_clock_start_count" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_clock_start_count"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_clock_stop_count" ,
+                "title": "spacecraft_clock_stop_count" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_clock_stop_count"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.instrument_mode_id" ,
+                "title": "instrument_mode_id" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1060" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.instrument_mode_id"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.instrument_mode_desc" ,
+                "title": "instrument_mode_desc" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1070" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.instrument_mode_desc"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.producer_full_name" ,
+                "title": "producer_full_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1080" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.producer_full_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.producer_institution_name" ,
+                "title": "producer_institution_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1090" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.producer_institution_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_yaw_direction" ,
+                "title": "spacecraft_yaw_direction" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1100" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_yaw_direction"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orbit_limb_direction" ,
+                "title": "orbit_limb_direction" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1110" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orbit_limb_direction"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orientation_epoch_time" ,
+                "title": "orientation_epoch_time" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1120" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orientation_epoch_time"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_rotation_rate" ,
+                "title": "spacecraft_rotation_rate" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1130" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_rotation_rate"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.Initial_Spacecraft_Orientation" ,
+                "title": "Initial_Spacecraft_Orientation" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1140" ,
+                "classId": [
+                  "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.Spacecraft_Orientation" ,
+                "title": "Spacecraft_Orientation" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1150" ,
+                "classId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.Spacecraft_Orientation_Rates" ,
+                "title": "Spacecraft_Orientation_Rates" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1160" ,
+                "classId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.Spacecraft_Orientation_Axis_Vector" ,
+                "title": "Spacecraft_Orientation_Axis_Vector" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1170" ,
+                "classId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation" ,
+            "title": "Initial_Spacecraft_Orientation" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Class for the initial Chandrayaan-1 spacecraft orientation parameters, roll\/pitch\/yaw in degrees from 'ideal nadir'"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.roll" ,
+                "title": "roll" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.roll"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.pitch" ,
+                "title": "pitch" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.pitch"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.yaw" ,
+                "title": "yaw" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.yaw"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation" ,
+            "title": "Spacecraft_Orientation" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Class for Chandrayaan-1 spacecraft orientation parameters, roll\/pitch\/yaw in degrees from 'ideal nadir'"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.roll" ,
+                "title": "roll" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.roll"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.pitch" ,
+                "title": "pitch" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.pitch"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.yaw" ,
+                "title": "yaw" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.yaw"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector" ,
+            "title": "Spacecraft_Orientation_Axis_Vector" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Class for Chandrayaan-1 spacecraft orientation axis vector, x\/y\/z unit vector wrt J2000 describing rotation direction since epoch"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.x_unit" ,
+                "title": "x_unit" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.x_unit"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.y_unit" ,
+                "title": "y_unit" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.y_unit"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.z_unit" ,
+                "title": "z_unit" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.z_unit"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates" ,
+            "title": "Spacecraft_Orientation_Rates" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Class for Chandrayaan-1 spacecraft orientation rate parameters, roll\/pitch\/yaw in degrees\/second since epoch"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.roll_rate" ,
+                "title": "roll_rate" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.roll_rate"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.pitch_rate" ,
+                "title": "pitch_rate" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.pitch_rate"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.yaw_rate" ,
+                "title": "yaw_rate" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.yaw_rate"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      ]
+    , "attributeDictionary": [
+        {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.instrument_mode_desc" ,
+            "title": "instrument_mode_desc" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The instrument_mode_desc element describes the instrument mode that is identified by the instrument_mode_id element." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.instrument_mode_id" ,
+            "title": "instrument_mode_id" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The instrument_mode_id element provides an instrument-dependent designation of operating mode. This may be simply a number, letter, code, or a word. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.mission_phase_name" ,
+            "title": "mission_phase_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The mission_phase_name element provides the commonly-used identifier of a mission phase. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "Nominal Mission" ,
+                  "valueMeaning": " This value was used by the mini-RF data providers for all of their archived observational data. Presumably, data from a hypothetical Chandrayaan-1 extended mission, beyond its nominal design life of 2 years, might have been distinguished by other values of this attribute. As it did not survive to the end of this period, other values proved unnecessary. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Primary Mission" ,
+                  "valueMeaning": " This value was used by the M3 data providers for all of their archived observational data. Presumably, data from a hypothetical Chandrayaan-1 extended mission, beyond its nominal design life of 2 years, might have been distinguished by other values of this attribute. As it did not survive to the end of this period, other values proved unnecessary. " ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orbit_limb_direction" ,
+            "title": "orbit_limb_direction" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The orbit_limb attribute provides the direction of the spacecraft orbit with respect to the lunar limb. valids: \"Ascending\", \"Descending\" " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "Ascending" ,
+                  "valueMeaning": "Direction of the spacecraft orbit is ascending with respect to the lunar limb." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Descending" ,
+                  "valueMeaning": "Direction of the spacecraft orbit is descending with respect to the lunar limb." ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orbit_number" ,
+            "title": "orbit_number" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The orbit_number element identifies the number of the orbital revolution of the spacecraft around a target body. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_NonNegative_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_NonNegative_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "18446744073709551615" ,
+            "pattern": "[0-9]+" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.orientation_epoch_time" ,
+            "title": "orientation_epoch_time" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "orientation_epoch_time indicates time for the recorded orentiation. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Time" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Time" ,
+            "unitId": "day, hr, julian day, microseconds, min, ms, s, yr" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.producer_full_name" ,
+            "title": "producer_full_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The producer_full_name element provides the full_name of the individual mainly responsible for the production of a data set. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.producer_institution_name" ,
+            "title": "producer_institution_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The producer_institution_name element identifies a university, research center, NASA center or other institution associated with the production of a data set. This would generally be an institution associated with the element producer_full_name. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.release_id" ,
+            "title": "release_id" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Release_id is the identifier of a scheduled release of data by PDS. The first data release is Release 0001. The release_id for a given product is always the first release in which it appears, and does not change if the product is revised later." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_clock_start_count" ,
+            "title": "spacecraft_clock_start_count" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "([0-9]{1,2}\\\/)[0-9]{1,10}(\\.[0-9]{1,5})?" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_clock_stop_count" ,
+            "title": "spacecraft_clock_stop_count" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "([0-9]{1,2}\\\/)[0-9]{1,10}(\\.[0-9]{1,5})?" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_rotation_rate" ,
+            "title": "spacecraft_rotation_rate" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Scalar rotation rate in degrees\/second since epoch." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angular_Velocity" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angular_Velocity" ,
+            "unitId": "deg\/day, deg\/s, rad\/s" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Chandrayaan-1_Parameters.chan1.spacecraft_yaw_direction" ,
+            "title": "spacecraft_yaw_direction" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The spacecraft_yaw_direction attribute provides the spacecraft yaw (look) mode. valids: \"Forward\", \"Reverse\" " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "Forward" ,
+                  "valueMeaning": "Defines a forward spacecraft yaw (look) mode." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Reverse" ,
+                  "valueMeaning": "Defines a reverse spacecraft yaw (look) mode." ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.pitch" ,
+            "title": "pitch" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rotation about the Y-axis." ,
+            "isNillable": "true" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.roll" ,
+            "title": "roll" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rotation about the X-axis." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Initial_Spacecraft_Orientation.chan1.yaw" ,
+            "title": "yaw" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rotation about the Z-axis." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.pitch" ,
+            "title": "pitch" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rotation about the Y-axis." ,
+            "isNillable": "true" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.roll" ,
+            "title": "roll" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rotation about the X-axis." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation.chan1.yaw" ,
+            "title": "yaw" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rotation about the Z-axis." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.x_unit" ,
+            "title": "x_unit" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The x component of a unit Cartesian vector." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1" ,
+            "maximumValue": "1" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.y_unit" ,
+            "title": "y_unit" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The y component of a unit Cartesian vector." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1" ,
+            "maximumValue": "1" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Axis_Vector.chan1.z_unit" ,
+            "title": "z_unit" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The z component of a unit Cartesian vector." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1" ,
+            "maximumValue": "1" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.pitch_rate" ,
+            "title": "pitch_rate" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rate of rotation about the Y-axis in deg\/sec." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angular_Velocity" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angular_Velocity" ,
+            "unitId": "deg\/day, deg\/s, rad\/s" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.roll_rate" ,
+            "title": "roll_rate" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rate of rotation about the X-axis in deg\/sec." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angular_Velocity" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angular_Velocity" ,
+            "unitId": "deg\/day, deg\/s, rad\/s" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.chan1.Spacecraft_Orientation_Rates.chan1.yaw_rate" ,
+            "title": "yaw_rate" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "chan1" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Rate of rotation about the Z-axis in deg\/sec." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angular_Velocity" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angular_Velocity" ,
+            "unitId": "deg\/day, deg\/s, rad\/s" ,
+            "defaultUnitId": "null"
+          }
+        }
+      ]
+    }
+  }
+]

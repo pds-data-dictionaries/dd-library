@@ -1,0 +1,2476 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix pds: <http://pds.jpl.nasa.gov/pds4/schema/develop/pds/skos/> .
+
+pds:Agency rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Agency"@en;
+  skos:definition  "The Agency class provides a description of an entity that provides regional or national level governance over nodes within the federated Planetary Data System."@en;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Alias rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Alias"@en;
+  skos:definition  "The Alias class provides a single alternate name and identification for this product in this or some other archive or data system."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:alternate_title;
+  skos:semanticRelation pds:comment;
+  skos:semanticRelation pds:alternate_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Alias_List rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Alias_List"@en;
+  skos:definition  "The Alias_List class provides a list of paired alternate names and identifications for this product in this or some other archive or data system."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:Alias;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array"@en;
+  skos:definition  "The Array class defines a homogeneous N-dimensional array of scalars. The Array class is the parent class for all n-dimensional arrays of scalars."@en;
+  skos:broader pds:Byte_Stream;
+  skos:narrower pds:Array_1D;
+  skos:narrower pds:Array_2D;
+  skos:narrower pds:Array_3D;
+  skos:semanticRelation pds:offset;
+  skos:semanticRelation pds:axes;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:axis_index_order;
+  skos:semanticRelation pds:Object_Statistics;
+  skos:semanticRelation pds:Element_Array;
+  skos:semanticRelation pds:Local_Internal_Reference;
+  skos:semanticRelation pds:Special_Constants;
+  skos:semanticRelation pds:Axis_Array;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:Array_1D rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_1D"@en;
+  skos:definition  "The Array 1D class is the parent class for all one dimensional array based classes."@en;
+  skos:broader pds:Array;
+  skos:semanticRelation pds:axes;
+  skos:semanticRelation pds:Axis_Array;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array_2D rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_2D"@en;
+  skos:definition  "The Array 2D class is the parent class for all two dimensional array based classes."@en;
+  skos:broader pds:Array;
+  skos:narrower pds:Array_2D_Image;
+  skos:narrower pds:Array_2D_Map;
+  skos:narrower pds:Array_2D_Spectrum;
+  skos:semanticRelation pds:axes;
+  skos:semanticRelation pds:Axis_Array;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array_2D_Image rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_2D_Image"@en;
+  skos:definition  "The Array 2D Image class is an extension of the Array 2D class and defines a two dimensional image."@en;
+  skos:broader pds:Array_2D;
+  skos:semanticRelation pds:Display_2D_Image;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Array_2D_Map rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_2D_Map"@en;
+  skos:definition  "The Array 2D Map class is an extension of the Array 2D class and defines a  two dimensional map."@en;
+  skos:broader pds:Array_2D;
+  skos:semanticRelation pds:Display_2D_Image;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array_2D_Spectrum rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_2D_Spectrum"@en;
+  skos:definition  "The Array 2D Spectrum class is an extension of the Array 2D class and defines a  two dimensional spectrum."@en;
+  skos:broader pds:Array_2D;
+  skos:semanticRelation pds:Display_2D_Image;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array_3D rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_3D"@en;
+  skos:definition  "The Array 3D class is the parent class for all three dimensional array based classes."@en;
+  skos:broader pds:Array;
+  skos:narrower pds:Array_3D_Image;
+  skos:narrower pds:Array_3D_Movie;
+  skos:narrower pds:Array_3D_Spectrum;
+  skos:semanticRelation pds:axes;
+  skos:semanticRelation pds:Axis_Array;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array_3D_Image rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_3D_Image"@en;
+  skos:definition  "The Array 3D Image class is an extension of the Array 3D class and defines a  three dimensional image."@en;
+  skos:broader pds:Array_3D;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array_3D_Movie rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_3D_Movie"@en;
+  skos:definition  "The Array 3D  Movie class is an extension of the Array 3D class and defines a  movie as a set of two dimensional images in a time series."@en;
+  skos:broader pds:Array_3D;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Array_3D_Spectrum rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Array_3D_Spectrum"@en;
+  skos:definition  "The Array 3D Spectrum class is an extension of the Array 3D class and defines a  three dimensional spectrum."@en;
+  skos:broader pds:Array_3D;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Axis_Array rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Axis_Array"@en;
+  skos:definition  "The Axis Array class is used as a component of the array class and defines an axis of the array."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:sequence_number;
+  skos:semanticRelation pds:elements;
+  skos:semanticRelation pds:unit;
+  skos:semanticRelation pds:axis_name;
+  skos:semanticRelation pds:Band_Bin_Set;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:Bundle rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Bundle"@en;
+  skos:definition  "The Bundle class describes a collection of collections."@en;
+  skos:semanticRelation pds:bundle_type;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Bundle_Member_Entry rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Bundle_Member_Entry"@en;
+  skos:definition  "The Bundle Member Entry class provides a member reference to a collection."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:lid_reference;
+  skos:semanticRelation pds:lidvid_reference;
+  skos:semanticRelation pds:reference_type;
+  skos:semanticRelation pds:member_status;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Byte_Stream rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Byte_Stream"@en;
+  skos:definition  "The Byte Stream class defines a stream of bytes."@en;
+  skos:broader pds:Tagged_Digital_Object;
+  skos:narrower pds:Array;
+  skos:narrower pds:Encoded_Byte_Stream;
+  skos:narrower pds:Parsable_Byte_Stream;
+  skos:narrower pds:Table_Base;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:name;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Citation_Information rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Citation_Information"@en;
+  skos:definition  "The Citation_Information class provides specific fields often used in citing the product in journal articles, abstract services, and other reference contexts."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:editor_list;
+  skos:semanticRelation pds:keyword;
+  skos:semanticRelation pds:publication_year;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:author_list;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:Collection rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Collection"@en;
+  skos:definition  "The Collection class provides a description of a set of products."@en;
+  skos:semanticRelation pds:collection_type;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Context_Area rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Context_Area"@en;
+  skos:definition  "The Context Area provides context information for a product."@en;
+  skos:broader pds:Product_Components;
+  skos:narrower pds:Observation_Area;
+  skos:semanticRelation pds:comment;
+  skos:semanticRelation pds:Investigation_Area;
+  skos:semanticRelation pds:Primary_Result_Summary;
+  skos:semanticRelation pds:Mission_Area;
+  skos:semanticRelation pds:Observing_System;
+  skos:semanticRelation pds:Time_Coordinates;
+  skos:semanticRelation pds:Target_Identification;
+  skos:semanticRelation pds:Discipline_Area;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Discipline_Area rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Discipline_Area"@en;
+  skos:definition  "The Discipline area allows the insertion of discipline specific metadata."@en;
+  skos:broader pds:Product_Components;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Discipline_Facets rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Discipline_Facets"@en;
+  skos:definition  "The Discipline_Facets class contains the discipline-related search facets.  It is required and may not be repeated. Note that Science_Facets was modeled with Discipline_Facets as a component and Discipline_Facets was modeled with Group_Facet1 and Group_Facet2 as components. This dependency hierarchy was flattened and only Science_Facets exists in the schema."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:discipline_name;
+  skos:semanticRelation pds:Group_Facet2;
+  skos:semanticRelation pds:Group_Facet1;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Display_2D_Image rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Display_2D_Image"@en;
+  skos:definition  "The Display_2D_Image class provides attributes to enable the display of a 2 dimensional image."@en;
+  skos:semanticRelation pds:line_display_direction;
+  skos:semanticRelation pds:sample_display_direction;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Document rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Document"@en;
+  skos:definition  "The Document class describes a document."@en;
+  skos:semanticRelation pds:acknowledgement_text;
+  skos:semanticRelation pds:document_editions;
+  skos:semanticRelation pds:doi;
+  skos:semanticRelation pds:publication_date;
+  skos:semanticRelation pds:author_list;
+  skos:semanticRelation pds:editor_list;
+  skos:semanticRelation pds:document_name;
+  skos:semanticRelation pds:revision_id;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:copyright;
+  skos:semanticRelation pds:Document_Edition;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:Document_Edition rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Document_Edition"@en;
+  skos:definition  "A Document Edition is one complete version of the document in a set of files that is distinguished by language, a unique assemblage of file formats, or some other criteria."@en;
+  skos:broader pds:Tagged_NonDigital_Child;
+  skos:semanticRelation pds:edition_name;
+  skos:semanticRelation pds:starting_point_identifier;
+  skos:semanticRelation pds:files;
+  skos:semanticRelation pds:language;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Document_File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Document_File rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Document_File"@en;
+  skos:definition  "The Document File class describes a file which is a part of a document."@en;
+  skos:broader pds:File;
+  skos:semanticRelation pds:directory_path_name;
+  skos:semanticRelation pds:document_standard_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:Element_Array rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Element_Array"@en;
+  skos:definition  "The Element Array class is used as a component of the array class and defines an element of the array."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:semanticRelation pds:data_type;
+  skos:semanticRelation pds:unit;
+  skos:semanticRelation pds:scaling_factor;
+  skos:semanticRelation pds:value_offset;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Encoded_Binary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Encoded_Binary"@en;
+  skos:definition  "The Encoded Binary class describes a binary encoded byte stream. This class is used to describe files in the repository that are being registered using  Product_File_Repository."@en;
+  skos:broader pds:Encoded_Byte_Stream;
+  skos:semanticRelation pds:encoding_standard_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Encoded_Byte_Stream rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Encoded_Byte_Stream"@en;
+  skos:definition  "The Encoded Byte Stream class defines byte streams that must be decoded by software before use. These byte streams must only use standard encodings. The Encoded Byte Stream class is the parent class for all encoded byte streams."@en;
+  skos:broader pds:Byte_Stream;
+  skos:narrower pds:Encoded_Binary;
+  skos:narrower pds:Encoded_Header;
+  skos:narrower pds:Encoded_Image;
+  skos:narrower pds:Encoded_Native;
+  skos:semanticRelation pds:offset;
+  skos:semanticRelation pds:encoding_standard_id;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:object_length;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Encoded_Header rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Encoded_Header"@en;
+  skos:definition  "The Encoded Header class describes a header that has been encoded using an encoding scheme that is compliant to an external standard."@en;
+  skos:broader pds:Encoded_Byte_Stream;
+  skos:semanticRelation pds:encoding_standard_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Encoded_Image rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Encoded_Image"@en;
+  skos:definition  "The Encoded Image class is used for ancillary images in standard formats, such as JPEG."@en;
+  skos:broader pds:Encoded_Byte_Stream;
+  skos:semanticRelation pds:encoding_standard_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Encoded_Native rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Encoded_Native"@en;
+  skos:definition  "The Encoded Native class describes a binary encoded byte stream. This class is used to describe data objects for Product_Native."@en;
+  skos:broader pds:Encoded_Byte_Stream;
+  skos:semanticRelation pds:encoding_standard_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:External_Reference rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "External_Reference"@en;
+  skos:definition  "The External_Reference class is used to reference a source outside the PDS registry system."@en;
+  skos:broader pds:Product_Components;
+  skos:narrower pds:External_Reference_Extended;
+  skos:semanticRelation pds:doi;
+  skos:semanticRelation pds:reference_text;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Facility rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Facility"@en;
+  skos:definition  "The Facility class provides a name and address for a  terrestrial observatory or laboratory."@en;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:country;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:address;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Field rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Field"@en;
+  skos:definition  "The Field class defines a field of a record and is the parent class of all specific field classes.The Field class defines a field of a record or a field of a group and is the parent class of all specific field classes."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:narrower pds:Field_Binary;
+  skos:narrower pds:Field_Bit;
+  skos:narrower pds:Field_Character;
+  skos:narrower pds:Field_Delimited;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:field_number;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Field_Binary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Field_Binary"@en;
+  skos:definition  "The Field_Binary class defines a field of a binary record or a field of a binary group."@en;
+  skos:broader pds:Field;
+  skos:semanticRelation pds:data_type;
+  skos:semanticRelation pds:field_format;
+  skos:semanticRelation pds:unit;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:field_location;
+  skos:semanticRelation pds:scaling_factor;
+  skos:semanticRelation pds:value_offset;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:field_length;
+  skos:semanticRelation pds:Field_Statistics;
+  skos:semanticRelation pds:Special_Constants;
+  skos:semanticRelation pds:Packed_Data_Fields;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Field_Bit rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Field_Bit"@en;
+  skos:definition  "The Field_Bit class provides parameters for extracting one field out of a string of bytes which contains packed data (that is, data values either smaller than a single byte, or crossing byte boundaries, or both."@en;
+  skos:broader pds:Field;
+  skos:semanticRelation pds:stop_bit;
+  skos:semanticRelation pds:data_type;
+  skos:semanticRelation pds:start_bit;
+  skos:semanticRelation pds:field_format;
+  skos:semanticRelation pds:unit;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:scaling_factor;
+  skos:semanticRelation pds:value_offset;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Special_Constants;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Field_Character rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Field_Character"@en;
+  skos:definition  "The Field_Character class defines a field of a character record or a field of a character group."@en;
+  skos:broader pds:Field;
+  skos:semanticRelation pds:data_type;
+  skos:semanticRelation pds:field_format;
+  skos:semanticRelation pds:unit;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:field_location;
+  skos:semanticRelation pds:scaling_factor;
+  skos:semanticRelation pds:value_offset;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:field_length;
+  skos:semanticRelation pds:Field_Statistics;
+  skos:semanticRelation pds:Special_Constants;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Field_Delimited rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Field_Delimited"@en;
+  skos:definition  "The Field_Delimited class defines a field of a delimited record or a field of a delimited group."@en;
+  skos:broader pds:Field;
+  skos:semanticRelation pds:maximum_field_length;
+  skos:semanticRelation pds:data_type;
+  skos:semanticRelation pds:field_format;
+  skos:semanticRelation pds:unit;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:scaling_factor;
+  skos:semanticRelation pds:value_offset;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Field_Statistics;
+  skos:semanticRelation pds:Special_Constants;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Field_Statistics rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Field_Statistics"@en;
+  skos:definition  "The Field Statistics class provides a set of metrics for a column formed by a field in a repeating record."@en;
+  skos:semanticRelation pds:minimum;
+  skos:semanticRelation pds:mean;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:standard_deviation;
+  skos:semanticRelation pds:maximum;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:median;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:File rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File"@en;
+  skos:definition  "The File class consists of attributes that describe a file in a data store."@en;
+  skos:broader pds:Tagged_Digital_Object;
+  skos:narrower pds:Document_File;
+  skos:semanticRelation pds:md5_checksum;
+  skos:semanticRelation pds:records;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:file_size;
+  skos:semanticRelation pds:file_name;
+  skos:semanticRelation pds:comment;
+  skos:semanticRelation pds:creation_date_time;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:File_Area rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area"@en;
+  skos:definition  "The File_Area class defines a File and its component data objects."@en;
+  skos:broader pds:Product_Components;
+  skos:narrower pds:File_Area_Ancillary;
+  skos:narrower pds:File_Area_Binary;
+  skos:narrower pds:File_Area_Browse;
+  skos:narrower pds:File_Area_Checksum_Manifest;
+  skos:narrower pds:File_Area_Encoded_Image;
+  skos:narrower pds:File_Area_Inventory;
+  skos:narrower pds:File_Area_Native;
+  skos:narrower pds:File_Area_Observational;
+  skos:narrower pds:File_Area_Observational_Supplemental;
+  skos:narrower pds:File_Area_SIP_Deep_Archive;
+  skos:narrower pds:File_Area_SPICE_Kernel;
+  skos:narrower pds:File_Area_Service_Description;
+  skos:narrower pds:File_Area_Text;
+  skos:narrower pds:File_Area_Transfer_Manifest;
+  skos:narrower pds:File_Area_Update;
+  skos:narrower pds:File_Area_XML_Schema;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:File_Area_Ancillary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Ancillary"@en;
+  skos:definition  "The File Area Ancillary class describes a file and one or more tagged_data_objects contained within the file."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Array;
+  skos:semanticRelation pds:Array_2D;
+  skos:semanticRelation pds:Array_2D_Image;
+  skos:semanticRelation pds:Array_2D_Map;
+  skos:semanticRelation pds:Array_2D_Spectrum;
+  skos:semanticRelation pds:Array_3D;
+  skos:semanticRelation pds:Array_3D_Image;
+  skos:semanticRelation pds:Array_3D_Movie;
+  skos:semanticRelation pds:Array_3D_Spectrum;
+  skos:semanticRelation pds:Checksum_Manifest;
+  skos:semanticRelation pds:Encoded_Header;
+  skos:semanticRelation pds:Encoded_Image;
+  skos:semanticRelation pds:Header;
+  skos:semanticRelation pds:Stream_Text;
+  skos:semanticRelation pds:Table_Binary;
+  skos:semanticRelation pds:Table_Character;
+  skos:semanticRelation pds:Table_Delimited;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:File_Area_Browse rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Browse"@en;
+  skos:definition  "The File Area Browse class describes a file and one or more tagged_data_objects contained within the file."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Array;
+  skos:semanticRelation pds:Array_1D;
+  skos:semanticRelation pds:Array_2D;
+  skos:semanticRelation pds:Array_2D_Image;
+  skos:semanticRelation pds:Array_2D_Map;
+  skos:semanticRelation pds:Array_2D_Spectrum;
+  skos:semanticRelation pds:Array_3D;
+  skos:semanticRelation pds:Array_3D_Image;
+  skos:semanticRelation pds:Array_3D_Movie;
+  skos:semanticRelation pds:Array_3D_Spectrum;
+  skos:semanticRelation pds:Encoded_Header;
+  skos:semanticRelation pds:Encoded_Image;
+  skos:semanticRelation pds:Header;
+  skos:semanticRelation pds:Stream_Text;
+  skos:semanticRelation pds:Table_Binary;
+  skos:semanticRelation pds:Table_Character;
+  skos:semanticRelation pds:Table_Delimited;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:File_Area_Encoded_Image rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Encoded_Image"@en;
+  skos:definition  "The File Area Encoded Image class describes a file that contains an Encoded Image object."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Encoded_Image;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:File_Area_Inventory rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Inventory"@en;
+  skos:definition  "The File Area Inventory class describes a file and an inventory consisting of references to  members."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Inventory;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:File_Area_Native rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Native"@en;
+  skos:definition  "The File Area Native describes tagged_data_objects collected from an instrument."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Encoded_Native;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:File_Area_Observational rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Observational"@en;
+  skos:definition  "The File Area Observational class describes, for an observational product, a file and one or more tagged_data_objects contained within the file."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Array;
+  skos:semanticRelation pds:Array_1D;
+  skos:semanticRelation pds:Array_2D;
+  skos:semanticRelation pds:Array_2D_Image;
+  skos:semanticRelation pds:Array_2D_Map;
+  skos:semanticRelation pds:Array_2D_Spectrum;
+  skos:semanticRelation pds:Array_3D;
+  skos:semanticRelation pds:Array_3D_Image;
+  skos:semanticRelation pds:Array_3D_Movie;
+  skos:semanticRelation pds:Array_3D_Spectrum;
+  skos:semanticRelation pds:Encoded_Header;
+  skos:semanticRelation pds:Header;
+  skos:semanticRelation pds:Stream_Text;
+  skos:semanticRelation pds:Table_Binary;
+  skos:semanticRelation pds:Table_Character;
+  skos:semanticRelation pds:Table_Delimited;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:File_Area_Observational_Supplemental rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Observational_Supplemental"@en;
+  skos:definition  "The File Area Observational Supplemental class describes, for an observational product, additional files and tagged_data_objects contained within the file."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Array;
+  skos:semanticRelation pds:Array_1D;
+  skos:semanticRelation pds:Array_2D;
+  skos:semanticRelation pds:Array_2D_Image;
+  skos:semanticRelation pds:Array_2D_Map;
+  skos:semanticRelation pds:Array_2D_Spectrum;
+  skos:semanticRelation pds:Array_3D;
+  skos:semanticRelation pds:Array_3D_Image;
+  skos:semanticRelation pds:Array_3D_Movie;
+  skos:semanticRelation pds:Array_3D_Spectrum;
+  skos:semanticRelation pds:Encoded_Binary;
+  skos:semanticRelation pds:Encoded_Byte_Stream;
+  skos:semanticRelation pds:Encoded_Header;
+  skos:semanticRelation pds:Encoded_Image;
+  skos:semanticRelation pds:Header;
+  skos:semanticRelation pds:Parsable_Byte_Stream;
+  skos:semanticRelation pds:Stream_Text;
+  skos:semanticRelation pds:Table_Binary;
+  skos:semanticRelation pds:Table_Character;
+  skos:semanticRelation pds:Table_Delimited;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:File_Area_SPICE_Kernel rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_SPICE_Kernel"@en;
+  skos:definition  "The File Area SPICE Kernel class describes a file that contains a SPICE Kernel object."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:SPICE_Kernel;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:File_Area_Text rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_Text"@en;
+  skos:definition  "The File Area Text class describes a file that contains a text stream object."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:Stream_Text;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:File_Area_XML_Schema rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "File_Area_XML_Schema"@en;
+  skos:definition  "The File Area XML Schema class describes a file that contains a resource used for the PDS4 implementation into XML."@en;
+  skos:broader pds:File_Area;
+  skos:semanticRelation pds:XML_Schema;
+  skos:semanticRelation pds:File;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Geometry rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Geometry"@en;
+  skos:definition  "The Geometry class groups geometry information."@en;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:Vector;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Group rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Group"@en;
+  skos:definition  "The Group class defines a group of (repeating) fields and, possibly, (sub) groups; it is the parent class of all specific group classes."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:narrower pds:Group_Field_Binary;
+  skos:narrower pds:Group_Field_Character;
+  skos:narrower pds:Group_Field_Delimited;
+  skos:semanticRelation pds:fields;
+  skos:semanticRelation pds:repetitions;
+  skos:semanticRelation pds:groups;
+  skos:semanticRelation pds:group_number;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Group_Facet1 rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Group_Facet1"@en;
+  skos:definition  "The Group_Facet1 class contains a single facet restricted according to the value of discipline_name. It also contains zero or more subfacets restricted according to the value of the facet. Note that Science_Facets was modeled with Discipline_Facets as a component and Discipline_Facets was modeled with Group_Facet1 and Group_Facet2 as components. This dependency hierarchy was flattened and only Science_Facets exists in the schema."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:subfacet1;
+  skos:semanticRelation pds:facet1;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Group_Facet2 rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Group_Facet2"@en;
+  skos:definition  "The Group_Facet2 class contains a single facet restricted according to the value of discipline_name. It also contains zero or more subfacets restricted according to the value of the facet. Note that Science_Facets was modeled with Discipline_Facets as a component and Discipline_Facets was modeled with Group_Facet1 and Group_Facet2 as components. This dependency hierarchy was flattened and only Science_Facets exists in the schema."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:subfacet2;
+  skos:semanticRelation pds:facet2;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Group_Field_Binary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Group_Field_Binary"@en;
+  skos:definition  "The Group_Field_Binary class allows a group of table fields."@en;
+  skos:broader pds:Group;
+  skos:semanticRelation pds:group_length;
+  skos:semanticRelation pds:group_location;
+  skos:semanticRelation pds:Field_Binary;
+  skos:semanticRelation pds:Group_Field_Binary;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Group_Field_Character rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Group_Field_Character"@en;
+  skos:definition  "The Group_Field_Character class allows a group of table fields."@en;
+  skos:broader pds:Group;
+  skos:semanticRelation pds:group_length;
+  skos:semanticRelation pds:group_location;
+  skos:semanticRelation pds:Field_Character;
+  skos:semanticRelation pds:Group_Field_Character;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Group_Field_Delimited rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Group_Field_Delimited"@en;
+  skos:definition  "The Field_Group_Delimited class allows a group of delimited fields."@en;
+  skos:broader pds:Group;
+  skos:semanticRelation pds:Field_Delimited;
+  skos:semanticRelation pds:Group_Field_Delimited;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Header rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Header"@en;
+  skos:definition  "The Header class describes a data object header."@en;
+  skos:broader pds:Parsable_Byte_Stream;
+  skos:semanticRelation pds:parsing_standard_id;
+  skos:semanticRelation pds:object_length;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Identification_Area rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Identification_Area"@en;
+  skos:definition  "The identification area consists of attributes that identify and name an object."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:title;
+  skos:semanticRelation pds:logical_identifier;
+  skos:semanticRelation pds:version_id;
+  skos:semanticRelation pds:product_class;
+  skos:semanticRelation pds:information_model_version;
+  skos:semanticRelation pds:Modification_History;
+  skos:semanticRelation pds:Alias_List;
+  skos:semanticRelation pds:Citation_Information;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:Instrument rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Instrument"@en;
+  skos:definition  "The Instrument class provides a description of a physical object that collects data."@en;
+  skos:semanticRelation pds:naif_instrument_id;
+  skos:semanticRelation pds:model_id;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:serial_number;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:Instrument_Host rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Instrument_Host"@en;
+  skos:definition  "The Instrument Host class provides a description of the physical object upon which an instrument is mounted."@en;
+  skos:semanticRelation pds:instrument_host_version_id;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:serial_number;
+  skos:semanticRelation pds:naif_host_id;
+  skos:semanticRelation pds:version_id;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:Internal_Reference rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Internal_Reference"@en;
+  skos:definition  "The Internal_Reference class is used to cross-reference other products in the PDS registry system."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:lid_reference;
+  skos:semanticRelation pds:lidvid_reference;
+  skos:semanticRelation pds:comment;
+  skos:semanticRelation pds:reference_type;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Inventory rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Inventory"@en;
+  skos:definition  "The Inventory class defines the inventory for members of a collection."@en;
+  skos:broader pds:Table_Delimited;
+  skos:semanticRelation pds:reference_type;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:Investigation rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Investigation"@en;
+  skos:definition  "The Investigation class provides a description of activities involved in the collection of data."@en;
+  skos:semanticRelation pds:stop_date;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:start_date;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Investigation_Area rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Investigation_Area"@en;
+  skos:definition  "The Investigation_Area class provides information about an investigation (mission, observing campaign or other coordinated, large-scale data collection effort)."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:Internal_Reference;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Local_Internal_Reference rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Local_Internal_Reference"@en;
+  skos:definition  "The Local Internal_Reference class is used to cross-reference other Description Objects in a PDS4 label."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:comment;
+  skos:semanticRelation pds:local_identifier_reference;
+  skos:semanticRelation pds:local_reference_type;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Mission_Area rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Mission_Area"@en;
+  skos:definition  "The mission area allows the insertion of mission specific metadata."@en;
+  skos:broader pds:Product_Components;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Modification_Detail rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Modification_Detail"@en;
+  skos:definition  "The Modification_Detail class provides the details of one round of modification for the product.  The first, required, instance of this class documents the date the product was first registered."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:modification_date;
+  skos:semanticRelation pds:version_id;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Modification_History rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Modification_History"@en;
+  skos:definition  "The Modification_History class tracks the history of changes made to the product once it enters the registry system."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:Modification_Detail;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Node rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Node"@en;
+  skos:definition  "The Node class provides a description of an entity that provides local governance within the federated Planetary Data System."@en;
+  skos:semanticRelation pds:institution_name;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Object_Statistics rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Object_Statistics"@en;
+  skos:definition  "The Object Statistics class provides a set of values that provide metrics about the object."@en;
+  skos:semanticRelation pds:md5_checksum;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:bit_mask;
+  skos:semanticRelation pds:median;
+  skos:semanticRelation pds:minimum;
+  skos:semanticRelation pds:mean;
+  skos:semanticRelation pds:minimum_scaled_value;
+  skos:semanticRelation pds:standard_deviation;
+  skos:semanticRelation pds:maximum_scaled_value;
+  skos:semanticRelation pds:maximum;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Observation_Area rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Observation_Area"@en;
+  skos:definition  "The observation area consists of attributes that provide information about the circumstances under which the data were collected."@en;
+  skos:broader pds:Context_Area;
+  skos:semanticRelation pds:Investigation_Area;
+  skos:semanticRelation pds:Observing_System;
+  skos:semanticRelation pds:Time_Coordinates;
+  skos:semanticRelation pds:Target_Identification;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Observing_System rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Observing_System"@en;
+  skos:definition  "The Observing System class describes the entire suite used to collect the data."@en;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Observing_System_Component;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Observing_System_Component rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Observing_System_Component"@en;
+  skos:definition  "The Observing System Component class references one or more subsystems used to collect data. A subsystem can be an instrument_host, instrument, or any other similar product. Each subsystem is categorized as either a sensor or a source. If the observing system includes both a sensor and a source, Observing System Component occurs twice (once for each type) otherwise it only occurs once."@en;
+  skos:broader pds:Tagged_NonDigital_Child;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:External_Reference;
+  skos:semanticRelation pds:Internal_Reference;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Other rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Other"@en;
+  skos:definition  "The Other class provides a description of activities involved in the collection of data which are not otherwise modeled."@en;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:PDS_Affiliate rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "PDS_Affiliate"@en;
+  skos:definition  "The PDS Affiliate class provides a description of a person who has an association with the planetary science community and has access to PDS resources not normally allowed to the general public."@en;
+  skos:semanticRelation pds:alternate_telephone_number;
+  skos:semanticRelation pds:electronic_mail_address;
+  skos:semanticRelation pds:institution_name;
+  skos:semanticRelation pds:telephone_number;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:postal_address_text;
+  skos:semanticRelation pds:sort_name;
+  skos:semanticRelation pds:phone_book_flag;
+  skos:semanticRelation pds:affiliation_type;
+  skos:semanticRelation pds:team_name;
+  skos:semanticRelation pds:registration_date;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:PDS_Guest rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "PDS_Guest"@en;
+  skos:definition  "The PDS_Guest class is the default description of a person who has an association with the planetary science community and who has the most limited access to PDS resources."@en;
+  skos:semanticRelation pds:sort_name;
+  skos:semanticRelation pds:electronic_mail_address;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:registration_date;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Packed_Data_Fields rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Packed_Data_Fields"@en;
+  skos:definition  "The Packed_Data_Fields class contains field definitions for extracting packed data from the associated byte string field."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:semanticRelation pds:bit_fields;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Field_Bit;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Parsable_Byte_Stream rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Parsable_Byte_Stream"@en;
+  skos:definition  "The Parsable Byte Stream class defines byte streams that have standard parsing rules. The Parsable Byte Stream class is the parent class for all parsable byte streams."@en;
+  skos:broader pds:Byte_Stream;
+  skos:narrower pds:Checksum_Manifest;
+  skos:narrower pds:Header;
+  skos:narrower pds:SPICE_Kernel;
+  skos:narrower pds:Service_Description;
+  skos:narrower pds:Stream_Text;
+  skos:narrower pds:Table_Delimited;
+  skos:narrower pds:XML_Schema;
+  skos:semanticRelation pds:offset;
+  skos:semanticRelation pds:parsing_standard_id;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:object_length;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Primary_Result_Summary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Primary_Result_Summary"@en;
+  skos:definition  "The Primary_Result_Summary class provides a high-level description of the types of products included in the collection or bundle"@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:data_regime;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:processing_level;
+  skos:semanticRelation pds:purpose;
+  skos:semanticRelation pds:processing_level_id;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Science_Facets;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.3.0.0"@en.
+
+pds:Product rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product"@en;
+  skos:definition  "A Product is a uniquely identified object that is managed by a registry/repository. It consists of one or more tagged data objects."@en;
+  skos:broader pds:USER;
+  skos:narrower pds:Product_AIP;
+  skos:narrower pds:Product_Ancillary;
+  skos:narrower pds:Product_Attribute_Definition;
+  skos:narrower pds:Product_Browse;
+  skos:narrower pds:Product_Bundle;
+  skos:narrower pds:Product_Class_Definition;
+  skos:narrower pds:Product_Collection;
+  skos:narrower pds:Product_Context;
+  skos:narrower pds:Product_DIP;
+  skos:narrower pds:Product_DIP_Deep_Archive;
+  skos:narrower pds:Product_Data_Set_PDS3;
+  skos:narrower pds:Product_Document;
+  skos:narrower pds:Product_File_Repository;
+  skos:narrower pds:Product_File_Text;
+  skos:narrower pds:Product_Instrument_Host_PDS3;
+  skos:narrower pds:Product_Instrument_PDS3;
+  skos:narrower pds:Product_Mission_PDS3;
+  skos:narrower pds:Product_Native;
+  skos:narrower pds:Product_Observational;
+  skos:narrower pds:Product_Proxy_PDS3;
+  skos:narrower pds:Product_SIP;
+  skos:narrower pds:Product_SIP_Deep_Archive;
+  skos:narrower pds:Product_SPICE_Kernel;
+  skos:narrower pds:Product_Service;
+  skos:narrower pds:Product_Software;
+  skos:narrower pds:Product_Subscription_PDS3;
+  skos:narrower pds:Product_Target_PDS3;
+  skos:narrower pds:Product_Thumbnail;
+  skos:narrower pds:Product_Update;
+  skos:narrower pds:Product_Volume_PDS3;
+  skos:narrower pds:Product_Volume_Set_PDS3;
+  skos:narrower pds:Product_XML_Schema;
+  skos:narrower pds:Product_Zipped;
+  skos:semanticRelation pds:Identification_Area;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Product_Ancillary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Ancillary"@en;
+  skos:definition  "The Product_Ancillary class defines a product that contains data that are supplementary to observational data and cannot reasonably be associated with any other non-observational data class. Use of Product_Ancillary must be approved by the curating node."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Context_Area;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Ancillary;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Product_Browse rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Browse"@en;
+  skos:definition  "The Product Browse class defines a product consisting of one  encoded byte stream digital object."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Browse;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Product_Bundle rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Bundle"@en;
+  skos:definition  "A Product_Bundle is an aggregate product and has a table of references to one or more collections."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Context_Area;
+  skos:semanticRelation pds:Bundle_Member_Entry;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Text;
+  skos:semanticRelation pds:Bundle;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Product_Collection rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Collection"@en;
+  skos:definition  "A Product_Collection has a table of references to one or more basic products. The references are stored in a table called the inventory."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Context_Area;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:Collection;
+  skos:semanticRelation pds:File_Area_Inventory;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Product_Context rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Context"@en;
+  skos:definition  "The Product Context class describes something that provides context and provenance for an observational product."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:Agency;
+  skos:semanticRelation pds:Facility;
+  skos:semanticRelation pds:Instrument;
+  skos:semanticRelation pds:Instrument_Host;
+  skos:semanticRelation pds:Investigation;
+  skos:semanticRelation pds:Node;
+  skos:semanticRelation pds:Other;
+  skos:semanticRelation pds:PDS_Affiliate;
+  skos:semanticRelation pds:PDS_Guest;
+  skos:semanticRelation pds:Resource;
+  skos:semanticRelation pds:Target;
+  skos:semanticRelation pds:Telescope;
+  skos:semanticRelation pds:Discipline_Area;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Product_Document rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Document"@en;
+  skos:definition  "A Product Document is a product consisting of a single logical document that may comprise one or more document editions."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Context_Area;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:Document;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.1.0.0"@en.
+
+pds:Product_File_Text rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_File_Text"@en;
+  skos:definition  "The Product File Text consists of a single text file with ASCII character encoding."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Text;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Product_Native rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Native"@en;
+  skos:definition  "Product_Native is used to describe digital objects in the original format returned by the spacecraft or experimental system when that format  cannot be described using one of the PDS4 formats specified for observational data (tables or arrays,  excluding Array_1D)."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Context_Area;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Native;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:Product_Observational rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Observational"@en;
+  skos:definition  "A Product_Observational is a set of one or more information objects produced by an observing system."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Observational;
+  skos:semanticRelation pds:Observation_Area;
+  skos:semanticRelation pds:File_Area_Observational_Supplemental;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.7.0.0"@en.
+
+pds:Product_SPICE_Kernel rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_SPICE_Kernel"@en;
+  skos:definition  "The Product SPICE Kernel class defines a SPICE kernel product."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Context_Area;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_SPICE_Kernel;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Product_Thumbnail rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Thumbnail"@en;
+  skos:definition  "The Product Thumbnail class defines a product consisting of one encoded byte stream digital object."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Encoded_Image;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Product_Update rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_Update"@en;
+  skos:definition  "The Product Update class defines a product consisting of update information and optional references to other products."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_Update;
+  skos:semanticRelation pds:Update;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Product_XML_Schema rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Product_XML_Schema"@en;
+  skos:definition  "The Product_XML_Schema  describes a resource used for the PDS4 implementation into XML."@en;
+  skos:broader pds:Product;
+  skos:semanticRelation pds:Context_Area;
+  skos:semanticRelation pds:Reference_List;
+  skos:semanticRelation pds:File_Area_XML_Schema;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:Quaternion rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Quaternion"@en;
+  skos:definition  "The Quaternion class models a mathematical construct that consists of four individual numeric components.  Quaternions are a convenient mechanism for encapsulating orientation information since they require only four units of numeric storage, as opposed to the nine needed for a rotation matrix."@en;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Quaternion_Component;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Quaternion_Component rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Quaternion_Component"@en;
+  skos:definition  "The Quaternion_Component class provides a component of a quaternion."@en;
+  skos:broader pds:Tagged_NonDigital_Child;
+  skos:semanticRelation pds:sequence_number;
+  skos:semanticRelation pds:data_type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:value;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Record rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Record"@en;
+  skos:definition  "The Record class defines a record of a file and is the parent class of all specific record classes."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:narrower pds:Record_Binary;
+  skos:narrower pds:Record_Character;
+  skos:narrower pds:Record_Delimited;
+  skos:semanticRelation pds:fields;
+  skos:semanticRelation pds:groups;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Record_Binary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Record_Binary"@en;
+  skos:definition  "The Record_Binary class is a component of the table class and defines a record of the table."@en;
+  skos:broader pds:Record;
+  skos:semanticRelation pds:record_length;
+  skos:semanticRelation pds:Field_Binary;
+  skos:semanticRelation pds:Group_Field_Binary;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Record_Character rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Record_Character"@en;
+  skos:definition  "The Record_Character class is a component of the table class and defines a record of the table."@en;
+  skos:broader pds:Record;
+  skos:semanticRelation pds:record_length;
+  skos:semanticRelation pds:Field_Character;
+  skos:semanticRelation pds:Group_Field_Character;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Record_Delimited rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Record_Delimited"@en;
+  skos:definition  "The Record_Delimited class is a component of the delimited table (spreadsheet) class and defines a record of the delimited table."@en;
+  skos:broader pds:Record;
+  skos:semanticRelation pds:maximum_record_length;
+  skos:semanticRelation pds:Field_Delimited;
+  skos:semanticRelation pds:Group_Field_Delimited;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Reference_List rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Reference_List"@en;
+  skos:definition  "The Reference_List class provides lists general references and cross-references for the product.  References cited elsewhere in the label need not be repeated here."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:External_Reference;
+  skos:semanticRelation pds:Internal_Reference;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Resource rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Resource"@en;
+  skos:definition  "The Resource class provides a description of a web resource."@en;
+  skos:semanticRelation pds:url;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:SPICE_Kernel rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "SPICE_Kernel"@en;
+  skos:definition  "The SPICE Kernel class describes a SPICE object."@en;
+  skos:broader pds:Parsable_Byte_Stream;
+  skos:semanticRelation pds:encoding_type;
+  skos:semanticRelation pds:parsing_standard_id;
+  skos:semanticRelation pds:kernel_type;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Science_Facets rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Science_Facets"@en;
+  skos:definition  "The Science_Facets class contains the science-related search facets.  It is optional and may be repeated if an product has facets related to, for example, two different disciplines (as defined by the discipline_name facet). Note that Science_Facets was modeled with Discipline_Facets as a component and Discipline_Facets was modeled with Group_Facet1 and Group_Facet2 as components. This dependency hierarchy was flattened and only Science_Facets exists in the schema."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:domain;
+  skos:semanticRelation pds:wavelength_range;
+  skos:semanticRelation pds:Discipline_Facets;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Special_Constants rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Special_Constants"@en;
+  skos:definition  "The Special Constants class provides a set of values used to indicate special cases that occur in the data."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:semanticRelation pds:error_constant;
+  skos:semanticRelation pds:missing_constant;
+  skos:semanticRelation pds:valid_maximum;
+  skos:semanticRelation pds:valid_minimum;
+  skos:semanticRelation pds:low_representation_saturation;
+  skos:semanticRelation pds:high_representation_saturation;
+  skos:semanticRelation pds:invalid_constant;
+  skos:semanticRelation pds:high_instrument_saturation;
+  skos:semanticRelation pds:saturated_constant;
+  skos:semanticRelation pds:unknown_constant;
+  skos:semanticRelation pds:low_instrument_saturation;
+  skos:semanticRelation pds:not_applicable_constant;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Stream_Text rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Stream_Text"@en;
+  skos:definition  "The Stream text class defines a text object."@en;
+  skos:broader pds:Parsable_Byte_Stream;
+  skos:semanticRelation pds:record_delimiter;
+  skos:semanticRelation pds:parsing_standard_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Table_Base rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Table_Base"@en;
+  skos:definition  "The Table Base class defines a heterogeneous repeating record of scalars. The Table Base class is the parent class for all heterogeneous repeating record of scalars."@en;
+  skos:broader pds:Byte_Stream;
+  skos:narrower pds:Table_Binary;
+  skos:narrower pds:Table_Character;
+  skos:semanticRelation pds:offset;
+  skos:semanticRelation pds:records;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Table_Binary rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Table_Binary"@en;
+  skos:definition  "The Table Binary class is an extension of table base and defines a simple binary table."@en;
+  skos:broader pds:Table_Base;
+  skos:semanticRelation pds:record_delimiter;
+  skos:semanticRelation pds:Uniformly_Sampled;
+  skos:semanticRelation pds:Record_Binary;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Table_Character rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Table_Character"@en;
+  skos:definition  "The Table Character class is an extension of table base and defines a simple character table."@en;
+  skos:broader pds:Table_Base;
+  skos:narrower pds:Transfer_Manifest;
+  skos:semanticRelation pds:record_delimiter;
+  skos:semanticRelation pds:Uniformly_Sampled;
+  skos:semanticRelation pds:Record_Character;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Table_Delimited rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Table_Delimited"@en;
+  skos:definition  "The Table_Delimited class defines a simple table (spreadsheet) with delimited fields and records."@en;
+  skos:broader pds:Parsable_Byte_Stream;
+  skos:narrower pds:Inventory;
+  skos:narrower pds:Manifest_SIP_Deep_Archive;
+  skos:semanticRelation pds:records;
+  skos:semanticRelation pds:record_delimiter;
+  skos:semanticRelation pds:parsing_standard_id;
+  skos:semanticRelation pds:field_delimiter;
+  skos:semanticRelation pds:Uniformly_Sampled;
+  skos:semanticRelation pds:Record_Delimited;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Target rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Target"@en;
+  skos:definition  "The Target class provides a description of a physical object that is the object of data collection."@en;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:Target_Identification rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Target_Identification"@en;
+  skos:definition  "The Target_Identification class provides detailed target identification information."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:alternate_designation;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Internal_Reference;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:Telescope rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Telescope"@en;
+  skos:definition  "The Telescope class provides coordinates and parameters for terrestrial, ground-based telescopes."@en;
+  skos:semanticRelation pds:telescope_altitude;
+  skos:semanticRelation pds:coordinate_source;
+  skos:semanticRelation pds:aperture;
+  skos:semanticRelation pds:telescope_latitude;
+  skos:semanticRelation pds:telescope_longitude;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:altitude;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:Time_Coordinates rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Time_Coordinates"@en;
+  skos:definition  "The Time_Coordinates class provides a list of time coordinates."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:stop_date_time;
+  skos:semanticRelation pds:start_date_time;
+  skos:semanticRelation pds:local_mean_solar_time;
+  skos:semanticRelation pds:solar_longitude;
+  skos:semanticRelation pds:local_true_solar_time;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Uniformly_Sampled rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Uniformly_Sampled"@en;
+  skos:definition  "The Uniformly_Sampled class provides parameters for a uniformly sampled table."@en;
+  skos:broader pds:Tagged_Digital_Child;
+  skos:semanticRelation pds:sampling_parameters;
+  skos:semanticRelation pds:sampling_parameter_scale;
+  skos:semanticRelation pds:sampling_parameter_base;
+  skos:semanticRelation pds:sampling_parameter_unit;
+  skos:semanticRelation pds:first_sampling_parameter_value;
+  skos:semanticRelation pds:sampling_parameter_interval;
+  skos:semanticRelation pds:sampling_parameter_name;
+  skos:semanticRelation pds:last_sampling_parameter_value;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:Update rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Update"@en;
+  skos:definition  "The Update class consists of update information."@en;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:update_purpose;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Update_Entry;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Update_Entry rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Update_Entry"@en;
+  skos:definition  "The Update Entry class provides the date and description of an update."@en;
+  skos:broader pds:Product_Components;
+  skos:semanticRelation pds:full_name;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:date_time;
+  skos:semanticRelation pds:Internal_Reference;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Vector rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Vector"@en;
+  skos:definition  "The Vector class provides the components of either a velocity or position vector."@en;
+  skos:semanticRelation pds:local_identifier;
+  skos:semanticRelation pds:vector_components;
+  skos:semanticRelation pds:type;
+  skos:semanticRelation pds:data_type;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:reference_frame_id;
+  skos:semanticRelation pds:description;
+  skos:semanticRelation pds:Vector_Component;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Vector_Cartesian_3 rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Vector_Cartesian_3"@en;
+  skos:definition  "The Vector_Cartesian_3_Base class is the parent class of 3 element Cartesian vectors."@en;
+  skos:narrower pds:Vector_Cartesian_3_Acceleration;
+  skos:narrower pds:Vector_Cartesian_3_Pointing;
+  skos:narrower pds:Vector_Cartesian_3_Position;
+  skos:narrower pds:Vector_Cartesian_3_Velocity;
+  skos:semanticRelation pds:y;
+  skos:semanticRelation pds:x;
+  skos:semanticRelation pds:reference_frame_id;
+  skos:semanticRelation pds:z;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Vector_Cartesian_3_Acceleration rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Vector_Cartesian_3_Acceleration"@en;
+  skos:definition  "The Vector_Cartesian_3_Acceleration class is a 3 element Cartesian vector for acceleration coordinates."@en;
+  skos:broader pds:Vector_Cartesian_3;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Vector_Cartesian_3_Pointing rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Vector_Cartesian_3_Pointing"@en;
+  skos:definition  "The Vector_Cartesian_3_Pointing class is a 3 element normalized Cartesian vector for pointing."@en;
+  skos:broader pds:Vector_Cartesian_3;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Vector_Cartesian_3_Position rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Vector_Cartesian_3_Position"@en;
+  skos:definition  "The Vector_Cartesian_3_Position class is a 3 element Cartesian vector for position coordinates."@en;
+  skos:broader pds:Vector_Cartesian_3;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Vector_Cartesian_3_Velocity rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Vector_Cartesian_3_Velocity"@en;
+  skos:definition  "The Vector_Cartesian_3_Velocity class is a 3 element Cartesian vector for velocity coordinates."@en;
+  skos:broader pds:Vector_Cartesian_3;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:Vector_Component rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Vector_Component"@en;
+  skos:definition  "The Vector_Component class provides a component of a vector."@en;
+  skos:broader pds:Tagged_NonDigital_Child;
+  skos:semanticRelation pds:sequence_number;
+  skos:semanticRelation pds:unit;
+  skos:semanticRelation pds:name;
+  skos:semanticRelation pds:value;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:XML_Schema rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "XML_Schema"@en;
+  skos:definition  "The XML Schema class defines a resource used for the PDS4 implementation into XML."@en;
+  skos:broader pds:Parsable_Byte_Stream;
+  skos:semanticRelation pds:parsing_standard_id;
+  skos:semanticRelation pds:ldd_version_id;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:Zip rdf:type owl:Class;
+  a skos:Concept;
+  skos:prefLabel  "Zip"@en;
+  skos:definition  "The Zip class describes a zip file."@en;
+  skos:semanticRelation pds:container_type;
+  skos:semanticRelation pds:description;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:acknowledgement_text rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "acknowledgement_text"@en;
+  skos:definition  "The acknowledgement_text attribute is a character string which recognizes another&apos;s contribution, authority, or right."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:address rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "address"@en;
+  skos:definition  "The address attribute provides a mailing address."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:affiliation_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "affiliation_type"@en;
+  skos:definition  "The affiliation type attribute describes the type of relationship an individual has with the PDS.  Individuals with PDS affiliations are generally listed in the PDS Phone Book."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:alternate_designation rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "alternate_designation"@en;
+  skos:definition  "The alternate_designation attribute provides aliases."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:alternate_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "alternate_id"@en;
+  skos:definition  "The alternate_id attribute provides an additional identifier supplied by the data provider."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:alternate_telephone_number rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "alternate_telephone_number"@en;
+  skos:definition  "The telephone_number attribute provides a telephone number in  international notation in compliance with the E.164 telephone number format recommendation."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:alternate_title rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "alternate_title"@en;
+  skos:definition  "The alternate _title attribute provides an alternate title for the product."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:altitude rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "altitude"@en;
+  skos:definition  "The altitude attribute provides the height of anything above a given reference plane."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:aperture rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "aperture"@en;
+  skos:definition  "The aperture attribute provides the diameter of an opening, usually circular, that limits the quantity of light that can enter an optical instrument."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:author_list rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "author_list"@en;
+  skos:definition  "The author_list attribute provides a list of people to be cited as the authors of the asssociated product. Lists are constructed with last names first and first and middle names and/or initials following. Initials are terminated by periods and delimited by single spaces. Suffixes (if applicable) follow everything else, after a final comma. Hyphenated names may be reduced to initials as &quot;J.-P.&quot; Each person&apos;s full name is separated from the next by a semi-colon. There is no &quot;and&quot; before the last name. If there is no author list, editor_list must be present and non-null."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:axes rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "axes"@en;
+  skos:definition  "The axes attribute provides a count of the axes."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:axis_index_order rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "axis_index_order"@en;
+  skos:definition  "The axis_index_order attribute provides the axis index that varies fastest with respect to storage order."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:axis_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "axis_name"@en;
+  skos:definition  "The axis_name attribute provides a word or combination of words by which the axis is known."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:bit_fields rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "bit_fields"@en;
+  skos:definition  "The bit_fields attribute provides the number of defined bit fields (Field_Bit definitions) within the Packed_Data_Field."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:bit_mask rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "bit_mask"@en;
+  skos:definition  "The bit mask attribute is a series of ASCII binary digits identifying the active bits in a value; it has exactly the same number of bits as the array element to which it is applied. The bit mask must be specified from most significant to least significant bit (left to right)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:bundle_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "bundle_type"@en;
+  skos:definition  "The bundle_type attribute provides a classification for the bundle."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:collection_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "collection_type"@en;
+  skos:definition  "The collection_type attribute provides a classification for the collection."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:comment rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "comment"@en;
+  skos:definition  "The comment attribute is a character string expressing one or more remarks or thoughts relevant to the object."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:container_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "container_type"@en;
+  skos:definition  "The container type attribute indicates the method used to package the components."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:coordinate_source rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "coordinate_source"@en;
+  skos:definition  "The coordinate_source attribute provides the reference figure or datum."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:copyright rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "copyright"@en;
+  skos:definition  "The copyright attribute is a character string giving  information about the exclusive right to make copies, license, and otherwise exploit an object, whether physical or digital."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:country rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "country"@en;
+  skos:definition  "country"@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:creation_date_time rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "creation_date_time"@en;
+  skos:definition  "The creation_date_time attribute provides a date and time when the object was created."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:data_regime rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "data_regime"@en;
+  skos:definition  "The data_regime attribute provides the wavelength (or an analogous concept for things like particle detectors) of the observations, stated as a category."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.3.0.0"@en.
+
+pds:data_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "data_type"@en;
+  skos:definition  "The data_type attribute provides the hardware representation used to store a value in Vector (see PDS Standards Reference section &quot;Attribute Data Types&quot;)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:date_time rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "date_time"@en;
+  skos:definition  "The date_time attribute provides the date and time of an event."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:description rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "description"@en;
+  skos:definition  "The description attribute provides a statement, picture in words, or account that describes or is otherwise relevant to the object."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:directory_path_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "directory_path_name"@en;
+  skos:definition  "The directory_path_name attribute provides a sequence of names that locates a directory in a hierarchy of directories."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:discipline_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "discipline_name"@en;
+  skos:definition  "The discipline_name attribute describes the observing discipline (as opposed to a PDS Discipline Node Name, though the concepts and values are similar). Some of these values are, with respect to the PDS Nodes, inter-disciplinary and should be used when they are applicable in perference to the more restrictive values."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:document_editions rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "document_editions"@en;
+  skos:definition  "The document_editions attribute provides a count of the total number of complete, distinct editions of the document."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:document_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "document_name"@en;
+  skos:definition  "The document_title attribute provides the full name of the published document. This optional attribute is used only if the title in the identification area of the document product is not sufficient."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:document_standard_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "document_standard_id"@en;
+  skos:definition  "The document_standard_id attribute provides the formal name of a standard used for the structure of a document file."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:doi rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "doi"@en;
+  skos:definition  "The doi attribute provides the Digital Object Identifier for an object, assigned by the appropriate DOI System Registration Agency."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:domain rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "domain"@en;
+  skos:definition  "The radial &quot;zone&quot; or &quot;shell&quot; of the target for which the observations were collected or which are represented in the product(s).  The value may depend on wavelength_range and size of the target."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:edition_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "edition_name"@en;
+  skos:definition  "The edition name attribute provides a name by which the edition is known."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:editor_list rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "editor_list"@en;
+  skos:definition  "The editor_list attribute provides a list of people to be cited as the editors of the associated product. Lists are constructed with last names first and first and middle names and/or initials following. Initials are terminated by periods and delimited by single spaces. Suffixes (if applicable) follow everything else, after a final comma. Hyphenated names may be reduced to initials as &quot;J.-P.&quot; Each person&apos;s full name is separated from the next by a semi-colon. There is no &quot;and&quot; before the last name."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:electronic_mail_address rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "electronic_mail_address"@en;
+  skos:definition  "The electronic mail address attribute provides a multi-part email address: the first part (the user name), which identifies a unique user, is separated by an &quot;at sign&quot;  from the host name, which uniquely identifies the mail server."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:elements rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "elements"@en;
+  skos:definition  "The elements attribute provides the count of the number of elements along an array axis."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:encoding_standard_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "encoding_standard_id"@en;
+  skos:definition  "The encoding_standard_id attribute provides the formal name of a standard used for the structure of an Encoded Byte Stream digital object."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:encoding_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "encoding_type"@en;
+  skos:definition  "The encoding_type attribute provides the storage format (binary or character)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:error_constant rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "error_constant"@en;
+  skos:definition  "The error_constant attribute provides a value that indicates the original value was in error."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:facet1 rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "facet1"@en;
+  skos:definition  "The facet1 attribute provides a sub-categorization under the discipline_name.  The values are restricted according to the value of discipline_name."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:facet2 rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "facet2"@en;
+  skos:definition  "The facet2 attribute provides a sub-categorization (under the discipline_name) of the type of data being described by Primary_Result_Summary.  The  facet1  and  factet2  values are intended to provide independent sub-categorizations. The values are restricted according to the value of discipline_name. Type: ASCII_Short_String_Collapsed"@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:field_delimiter rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "field_delimiter"@en;
+  skos:definition  "The field_delimiter attribute provides the character that marks the boundary between two fields in a delimited table."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:field_format rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "field_format"@en;
+  skos:definition  "The field_format attribute gives the magnitude and precision of the data  value. The standard POSIX string formats are used."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:field_length rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "field_length"@en;
+  skos:definition  "The field_length attribute provides the number of bytes in the field."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:field_location rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "field_location"@en;
+  skos:definition  "The field_location attribute provides the starting byte for a field within a record or group, counting from &apos;1&apos;."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:field_number rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "field_number"@en;
+  skos:definition  "The field_number attribute provides the position of a field, within a series of fields, counting from 1. If two fields within a record are physically separated by one or more groups, they have consecutive field numbers; the fields within the intervening group(s) are numbered separately.  Fields within a group separated by one or more (sub)groups, will also have consecutive field numbers."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:fields rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "fields"@en;
+  skos:definition  "The fields attribute provides a count of the total number of scalar fields directly associated with a table record.  Fields within groups within the record are not included in this count."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:file_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "file_name"@en;
+  skos:definition  "The file_name attribute provides the name of a file."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:file_size rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "file_size"@en;
+  skos:definition  "The file_size attribute provides the size of the file."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:files rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "files"@en;
+  skos:definition  "The files attribute provides the number of files in the edition."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:first_sampling_parameter_value rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "first_sampling_parameter_value"@en;
+  skos:definition  "The first_sampling_parameter_value element provides the first value in an ascending series and is therefore the minimum value at which a given data item was sampled."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:full_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "full_name"@en;
+  skos:definition  "The full_name attribute provides the complete name for a person and includes titles and suffixes."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:group_length rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "group_length"@en;
+  skos:definition  "The group_length attribute provides the total length, in bytes, of a repeating field and/or group structure. It is the number of bytes in the repeating fields/groups plus any embedded unused bytes that are also repeated multiplied by the number of repetitions."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:group_location rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "group_location"@en;
+  skos:definition  "The group_location attribute provides the starting position for a Group_Field_Character within the containing Record_Character or Group_Field_Character class, in bytes. Location &apos;1&apos; denotes the first byte of the containing class."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:group_number rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "group_number"@en;
+  skos:definition  "The group_number attribute provides the position of a group, within a series of groups, counting from 1.  If two groups within a record are physically separated by one or more fields, they have consecutive group numbers; the intervening fields are numbered separately.  Groups within a parent group, but separated by one or more fields, will also have consecutive group numbers."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:groups rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "groups"@en;
+  skos:definition  "The groups attribute provides a count of the total number of groups directly associated with a table record.  Groups within groups within the record are not included in this count."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:high_instrument_saturation rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "high_instrument_saturation"@en;
+  skos:definition  "The high_instrument_saturation attribute specifies a special value whose presence indicates the measuring instrument was saturated at the high end. The value must be less than the value of the valid_minimum attribute or more than the value of the valid_maximum attribute. Values of this attribute should be represented in the same data_type as the elements in the object with which the Special_Constants class is associated."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:high_representation_saturation rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "high_representation_saturation"@en;
+  skos:definition  "The high_representative_saturation attribute specifies a special value whose presence indicates the true value cannot be represented in the chosen data type and length -- in this case being above the allowable range -- which may happen during conversion from another data type. The value must be less than the value of the valid_minimum attribute or more than the value of the valid_maximum attribute. Values of this attribute should be represented in the same data_type as the elements in the object with which the Special_Constants class is associated."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:information_model_version rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "information_model_version"@en;
+  skos:definition  "The information_model_version attribute provides the  version identification of the PDS Information Model on which the label and schema are based."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:institution_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "institution_name"@en;
+  skos:definition  "The institution_name attribute provides the name of the associated institution."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:instrument_host_version_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "instrument_host_version_id"@en;
+  skos:definition  "The instrument_host_version_id attribute provides the version of the instrument host."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:invalid_constant rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "invalid_constant"@en;
+  skos:definition  "The invalid_constant attribute provides a value that indicates the original value was outside the valid range for the parameter."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:kernel_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "kernel_type"@en;
+  skos:definition  "The kernel_type attribute identifies the type of SPICE kernel."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:keyword rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "keyword"@en;
+  skos:definition  "The keyword attribute provides one or more words to be used for  keyword search."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:language rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "language"@en;
+  skos:definition  "The language attribute provides the language used for definition and designation of the term."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:last_sampling_parameter_value rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "last_sampling_parameter_value"@en;
+  skos:definition  "The last_sampling_parameter_value element provides the last value in an ascending series and is therefore the maximum value at which a given data item was sampled."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:ldd_version_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "ldd_version_id"@en;
+  skos:definition  "The ldd_version_id attribute provides the version of the Local Data Dictionary."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:lid_reference rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "lid_reference"@en;
+  skos:definition  "The lid_reference attribute provides the logical_identifier for a  product."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:lidvid_reference rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "lidvid_reference"@en;
+  skos:definition  "The lidvid_reference attribute provides the logical_identifier plus version_id, which uniquely identifies a product."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:line_display_direction rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "line_display_direction"@en;
+  skos:definition  "The line_display_direction element is the preferred orientation of lines within an image for viewing on a display device. Note that if this keyword is present in a label, the sample_display_direction keyword must also be present and must contain a value orthogonal to the value selected for this keyword."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:local_identifier rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "local_identifier"@en;
+  skos:definition  "The local_identifier attribute provides a character string which uniquely identifies the containing object within the label."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:local_identifier_reference rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "local_identifier_reference"@en;
+  skos:definition  "The local_identifier_reference attribute provides the value of the local_identifier of the entity described by the referencing class. Note that a local_identifier attribute, with the same value as this local_identifier_reference, must be present within the label."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:local_mean_solar_time rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "local_mean_solar_time"@en;
+  skos:definition  "The local_mean_solar_time attribute provides the hour angle of the fictitious mean Sun at a fixed point on a rotating solar system body."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:local_reference_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "local_reference_type"@en;
+  skos:definition  "The local_reference_type attribute provides the name of an association between an entity identified by a local_identifier_reference and another corresponding entity identified by a local_identifier. The values for the local_reference_type are expected to be enumerated for appropriate contexts in the Schematron files of local (i.e., discipline and mission) data dictionaries."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:local_true_solar_time rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "local_true_solar_time"@en;
+  skos:definition  "The local_true_solar_time (LTST) attribute provides the local time on a rotating solar system body where LTST is 12 h at the sub-solar point (SSP) and increases 1 h for each 15 degree increase in east longitude away from the SSP for prograde rotation."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:logical_identifier rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "logical_identifier"@en;
+  skos:definition  "A logical identifier identifies the set of all versions of an object. It is an object identifier without a version."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:low_instrument_saturation rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "low_instrument_saturation"@en;
+  skos:definition  "The low_instrument_saturation attribute specifies a special value whose presence indicates the measuring instrument was saturated at the low end. The value must be less than the value of the valid_minimum attribute. Values of this attribute should be represented in the same data_type as the elements in the object with which the Special_Constants class is associated."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:low_representation_saturation rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "low_representation_saturation"@en;
+  skos:definition  "The low_representative_saturation attribute specifies a special value whose presence indicates the true value cannot be represented in the chosen data type and length -- in this case being below the allowable range -- which may happen during conversion from another data type. The value must be less than the value of the valid_minimum attribute. Values of this attribute should be represented in the same data_type as the elements in the object with which the Special_Constants class is associated."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:maximum rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "maximum"@en;
+  skos:definition  "The maximum attribute provides the largest value which appears in the stored array after application of any bit mask (Special_Constants values are excluded)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:maximum_field_length rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "maximum_field_length"@en;
+  skos:definition  "The maximum_field_length attribute sets an upper, inclusive bound on the number of bytes in the field."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:maximum_record_length rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "maximum_record_length"@en;
+  skos:definition  "The maximum_record_length attribute provides the maximum length of a record, including the record delimiter."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:maximum_scaled_value rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "maximum_scaled_value"@en;
+  skos:definition  "The maximum_scaled_value attribute provides the maximum value after application of scaling_factor and value_offset (see their definitions; maximum_scaled_value is the maximum of Ov)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:md5_checksum rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "md5_checksum"@en;
+  skos:definition  "The md5_checksum attribute is the 32-character hexadecimal number computed for a file using the MD5 algorithm."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:mean rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "mean"@en;
+  skos:definition  "The mean attribute provides the sum of the stored array element values (after application of any bit mask) divided by the number of elements (Special_Constants values are excluded from both the sum and the count)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:median rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "median"@en;
+  skos:definition  "The median attribute provides the number separating the larger half of stored array element values from the algebraically smaller half after application of any bit mask (Special_Constants values are excluded from the sort)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:member_status rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "member_status"@en;
+  skos:definition  "The member_status attribute indicates whether the collection is primary and whether the file_specification_name has been provided for the product_collection label."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:minimum rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "minimum"@en;
+  skos:definition  "The minimum attribute provides the algebraically smallest value which appears in the stored array after application of any bit mask (Special_Constants values are excluded)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:minimum_scaled_value rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "minimum_scaled_value"@en;
+  skos:definition  "The minimum_scaled_value attribute provides the minimum value after application of scaling_factor and value_offset (see their definitions; minimum_scaled_value is the minimum of Ov)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:missing_constant rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "missing_constant"@en;
+  skos:definition  "The missing_constant attribute provides a value that indicates the original value was missing, such as due to a gap in coverage."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:model_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "model_id"@en;
+  skos:definition  "The model_id attribute helps discriminate instrument hardware. For example &quot;flight&quot;, &quot;engineering&quot;, or &quot;proto&quot; have been used."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:modification_date rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "modification_date"@en;
+  skos:definition  "The modification_date attribute provides date the modifications were completed"@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:naif_host_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "naif_host_id"@en;
+  skos:definition  "The naif_host_id element provides the numeric ID used within the SPICE system to identify the spacecraft, spacecraft structure or science instrument."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:naif_instrument_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "naif_instrument_id"@en;
+  skos:definition  "The naif_instrument_id element provides the numeric ID used within the SPICE system to identify the spacecraft, spacecraft structure or science instrument."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "name"@en;
+  skos:definition  "The name attribute provides a word or combination of words by which the object is known."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:not_applicable_constant rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "not_applicable_constant"@en;
+  skos:definition  "The not_applicable_constant attribute provides a value that indicates the parameter is not applicable."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:object_length rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "object_length"@en;
+  skos:definition  "The object_length attribute provides the length of the digital object in bytes."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:offset rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "offset"@en;
+  skos:definition  "The offset attribute provides the displacement of the object starting position from the beginning of the parent structure (file, record, etc.).  If there is no displacement, offset=0."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:parsing_standard_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "parsing_standard_id"@en;
+  skos:definition  "The parsing_standard_id attribute provides the formal name of a standard used for the structure of a Parsable Byte Stream digital object."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:phone_book_flag rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "phone_book_flag"@en;
+  skos:definition  "The phone_book_flag attribute indicates whether or not this person should be included in the phone book."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:postal_address_text rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "postal_address_text"@en;
+  skos:definition  "The postal address text attribute provides a mailing address."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:processing_level rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "processing_level"@en;
+  skos:definition  "The processing_level attribute provides a broad classification of data processing level."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.3.0.0"@en.
+
+pds:processing_level_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "processing_level_id"@en;
+  skos:definition  "The processing_level_id attribute provides a broad indication of data processing level."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.3.0.0"@en.
+
+pds:product_class rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "product_class"@en;
+  skos:definition  "The product_class attribute provides the name of the product class."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:publication_date rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "publication_date"@en;
+  skos:definition  "The publication_date attribute provides the date on which an item was published."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:publication_year rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "publication_year"@en;
+  skos:definition  "The publication_year attribute provides the year in which the product should be considered as published. Generally, this will be the year the data were declared &quot;Certified&quot; or &quot;Archived&quot;."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:purpose rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "purpose"@en;
+  skos:definition  "The purpose attribute provides an indication of the primary purpose of the observations included."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.3.0.0"@en.
+
+pds:record_delimiter rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "record_delimiter"@en;
+  skos:definition  "The record_delimiter attribute provides the character or characters used to indicate the end of a record."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:record_length rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "record_length"@en;
+  skos:definition  "The record_length attribute provides the length of a record, including the record delimiter."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:records rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "records"@en;
+  skos:definition  "The records attribute provides a count of records."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:reference_frame_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "reference_frame_id"@en;
+  skos:definition  "The reference frame id attribute identifies a reference frame, an origin and set of axes, the physical realization of a reference system, i.e., the reference frame orientation and axes are established by the reported coordinates of datum points in the reference system."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:reference_text rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "reference_text"@en;
+  skos:definition  "The reference_text attribute provides a complete bibliographic citation for a published work."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:reference_type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "reference_type"@en;
+  skos:definition  "The reference_type attribute provides the name of the association."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.2.0.0"@en.
+
+pds:registration_date rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "registration_date"@en;
+  skos:definition  "The registration_date attribute provides the date of registration within the PDS system."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:repetitions rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "repetitions"@en;
+  skos:definition  "The repetitions attribute provides the number of times a set of repeating fields and, possibly, (sub)groups is replicated within a group."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:revision_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "revision_id"@en;
+  skos:definition  "The revision_id attribute provides the revision level of a document, which may be set outside PDS and may be different from its version_id."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 2.0.0.0"@en.
+
+pds:sample_display_direction rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sample_display_direction"@en;
+  skos:definition  "The sample_display_direction attribute provides the preferred orientation of samples within a line for viewing on a display device. The attribute sample_display_direction must be used with line_display_direction."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:sampling_parameter_base rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sampling_parameter_base"@en;
+  skos:definition  "The sampling_parameter_base attribute provides the base b by which exponentials are calculated in the definition of the attribute sampling_parameter_interval."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:sampling_parameter_interval rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sampling_parameter_interval"@en;
+  skos:definition  "The sampling_parameter_interval attribute provides the spacing of points at which data are sampled and at which values for an instrument or other parameter are available. If x1 and xn are the first and last sampling parameter values, respectively, xn is larger than x1, n is the number of sampling parameters, the caret symbol (^) denotes exponentiation, and b, a positive real number, is the base for exponentiation, then the value of sampling_parameter_interval is: (xn-x1)/(n-1) (for sampling_parameter_scale = Linear), (xn/x1)^(1/(n-1)) (for sampling_parameter_scale = Logarithmic), (b^xn-b^x1)/(n-1) (for sampling_parameter_scale = Exponential)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:sampling_parameter_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sampling_parameter_name"@en;
+  skos:definition  "The sampling_parameter_name element provides the name of the parameter which determines the sampling interval of a particular instrument or dataset parameter. For example, magnetic field intensity is sampled in time increments, and a spectrum is sampled in wavelength or frequency."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:sampling_parameter_scale rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sampling_parameter_scale"@en;
+  skos:definition  "The sampling_parameter_scale element specifies whether the sampling interval is linear or something other such as logarithmic."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:sampling_parameter_unit rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sampling_parameter_unit"@en;
+  skos:definition  "The sampling_parameter_unit element specifies the unit of measure of associated data sampling parameters."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:sampling_parameters rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sampling_parameters"@en;
+  skos:definition  "The sampling_parameters attribute provides the total number of sampling parameter values between first_sampling_parameter_value and last_sampling_parameter_value (inclusive)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:saturated_constant rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "saturated_constant"@en;
+  skos:definition  "The saturated_constant attribute provides a value that indicates the original value was invalid because of sensor saturation."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:scaling_factor rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "scaling_factor"@en;
+  skos:definition  "The scaling_factor attribute is the scaling factor to be applied to each stored value in order to recover an original  value. The observed value (Ov) is calculated from the stored value (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. The default value is 1."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:sequence_number rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sequence_number"@en;
+  skos:definition  "The sequence_number attribute provides a number that is used to order axes in an array."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:serial_number rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "serial_number"@en;
+  skos:definition  "The serial number attribute provides the manufacturer&apos;s serial number assigned to an instrument host."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:solar_longitude rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "solar_longitude"@en;
+  skos:definition  "The solar_longitude attribute provides the angle between the body-Sun line at the time of interest and the body-Sun line at its vernal equinox."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:sort_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "sort_name"@en;
+  skos:definition  "The sort name attribute provides a string to be used in ordering. For people, the last name (surname) is typically first, followed by a comma and then other names."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:standard_deviation rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "standard_deviation"@en;
+  skos:definition  "The standard_deviation attribute provides the standard deviation of the stored array element values after application of any bit mask (Special_Constants values are excluded from the computation)."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:start_bit rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "start_bit"@en;
+  skos:definition  "The start_bit attribute provides the position of the first bit within an ordered sequence of bits."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:start_date rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "start_date"@en;
+  skos:definition  "The start_date attribute provides the date when an activity began."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:start_date_time rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "start_date_time"@en;
+  skos:definition  "The start_date_time attribute provides the date and time appropriate to the beginning of the product being labeled."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:starting_point_identifier rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "starting_point_identifier"@en;
+  skos:definition  "The starting_point attribute provides the local_identifier of the object to be accessed first."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:stop_bit rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "stop_bit"@en;
+  skos:definition  "The stop-bit attribute provides the location of the last bit in this bit field relative to the first bit in the packed_data field.  Bits are numbered continuously across byte boundaries.  The first bit location in the packed data field is &quot;1&quot;."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:stop_date rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "stop_date"@en;
+  skos:definition  "The stop_date attribute provides the date when an activity ended."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:stop_date_time rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "stop_date_time"@en;
+  skos:definition  "The stop_date_time attribute provides the date and time appropriate to the end of the product being labeled."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:subfacet1 rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "subfacet1"@en;
+  skos:definition  "The subfacet1 attribute provides a sub-categorization under the facet1 value.  The allowed values are restricted according to the value of facet1."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:subfacet2 rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "subfacet2"@en;
+  skos:definition  "The subfacet2 attribute provides a sub-categorization under the facet2 value.  The allowed values are restricted according to the value of facet2."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:team_name rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "team_name"@en;
+  skos:definition  "The team_name attribute provides the name of a group of individuals working together."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:telephone_number rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "telephone_number"@en;
+  skos:definition  "The telephone_number attribute provides a telephone number in  international notation in compliance with the E.164 telephone number format recommendation."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:telescope_altitude rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "telescope_altitude"@en;
+  skos:definition  "The telescope_altitude attribute provides the height of the telescope above a plane tangent to the reference figure (or datum) at the telescope location."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:telescope_latitude rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "telescope_latitude"@en;
+  skos:definition  "The telescope_latitude attribute provides the angular distance of the telescope north (positive) from the equator, measured on the meridian of the telescope."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:telescope_longitude rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "telescope_longitude"@en;
+  skos:definition  "The telescope_longitude attribute provides the angular distance of the telescope east (positive), measured by the angle contained between the meridian of the telescope and the reference figure (or datum) prime meridian."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.3.0.0"@en.
+
+pds:title rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "title"@en;
+  skos:definition  "The name given to the resource. Typically, a Title will be a name by which the resource is formally known. - Dublin Core - The title is used to refer to an object in a version independent manner."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.4.0.0"@en.
+
+pds:type rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "type"@en;
+  skos:definition  "The type attribute classifies Vector according to the meaning of its contents."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:unit rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "unit"@en;
+  skos:definition  "The unit attribute provides the unit of measurement."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:unknown_constant rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "unknown_constant"@en;
+  skos:definition  "The unknown_constant attribute provides a value that indicates the original value was unknown."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:update_purpose rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "update_purpose"@en;
+  skos:definition  "The update purpose attribute indicates the intended objective of this update."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:url rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "url"@en;
+  skos:definition  "The url attribute provides a Uniform Resource Identifier (URI) that specifies where a resource is available and the mechanism for retrieving it."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:valid_maximum rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "valid_maximum"@en;
+  skos:definition  "The valid_maximum attribute specifies the maximum valid value in the field or digital object with which the Special_Constants class is associated. Values above the valid_maximum have a special meaning. Values of this attribute should be represented in the same data_type as the elements in the object or field described. (Note that PDS3 had no qube-related valid_maximum values because all special constants were set below the valid_minimum.)"@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:valid_minimum rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "valid_minimum"@en;
+  skos:definition  "The valid_minimum attribute specifies the minimum valid value in the field or digital object with which the Special_Constants class is associated. Values below the valid_minimum have a special meaning. Values of this attribute should be represented in the same data_type as the elements in the object or field described."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.1.0.0"@en.
+
+pds:value rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "value"@en;
+  skos:definition  "The value attribute provides a single, allowed numerical or character string value."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:value_offset rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "value_offset"@en;
+  skos:definition  "The value_offset attribute is the offset to be applied to each stored value in order to recover an original  value. The observed value (Ov) is calculated from the stored value (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. The default value is 0."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:vector_components rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "vector_components"@en;
+  skos:definition  "The vector_components attribute provides a count of vector components."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:version_id rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "version_id"@en;
+  skos:definition  "The version_id attribute provides the version of the product, expressed in the PDS [m.n] notation."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:wavelength_range rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "wavelength_range"@en;
+  skos:definition  "The wavelength range attribute specifies the wavelength range over which the data were collected or which otherwise characterizes the observation(s). Boundaries are vague, and there is overlap."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:x rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "x"@en;
+  skos:definition  "The x attribute provides the value of the x coordinate in a position vector."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:y rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "y"@en;
+  skos:definition  "The y attribute provides the value of the y coordinate in a position vector."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+
+pds:z rdf:type owl:ObjectProperty;
+  a skos:Concept;
+  skos:prefLabel  "z"@en;
+  skos:definition  "The z attribute provides the value of the z coordinate in a position vector."@en;
+  skos:historyNote  "PDS4 Information Model Version 1.6.0.0  Class Version 1.0.0.0"@en.
+  

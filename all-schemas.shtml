@@ -1,0 +1,11 @@
+<!--
+  Copyright (c) 2012-2018, California Institute of Technology.
+  ALL RIGHTS RESERVED. U.S. Government sponsorship acknowledged.
+-->
+
+<html>
+  <head>
+    <!-- Redirect to the Data Dictionaries page. -->
+    <meta http-equiv="refresh" content="0; url=/datastandards/dictionaries/all-dictionaries.shtml">
+  </head>
+</html>

@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD
+		xmlns="http://pds.nasa.gov/pds4/pds/v1"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation=" http://pds.nasa.gov/pds4/pds/v1  http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
+
+    <name>Chandrayaan-1 Mission Dictionary</name>
+    <ldd_version_id>1.1.1.0</ldd_version_id>
+    <dictionary_type>Mission</dictionary_type>
+    <full_name>Susan Slavney</full_name>
+    <steward_id>geo</steward_id>
+    <namespace_id>chan1</namespace_id>
+    <comment>
+        The Chandrayaan-1 mission dictionary contains a class with attributes specific to the 
+        Chandrayaan-1 mission and instruments. This dictionary was created for the migration
+        of Chandrayaan data products from PDS3 to PDS4.
+        
+        v1.0.0.0 GEO/EAG 
+        - Initial version of the Chandrayaan mission dictionary for PDS3 to PDS4 migration
+        
+        v1.1.0.0, T.Hare
+        - Initial updates for M3
+
+        v1.1.1.0, M. St. Clair
+        - Further updates for M3
+        
+    </comment>
+	<last_modification_date_time>2020-11-22T15:00:00Z</last_modification_date_time>
+
+<!-- Begin attributes (alphabetical order) Mini-RF
+        <chan1:instrument_mode_id>BASELINE_S_STEEP2</chan1:instrument_mode_id>
+        <chan1:instrument_mode_desc>SAR</chan1:instrument_mode_desc>
+        <chan1:mission_phase_name>Nominal Mission</chan1:<mission_phase_name>
+        <chan1:orbit_number>720</chan1:orbit_number>
+        <chan1:producer_full_name>MINI-RF POC TEAM</chan1:producer_full_name>
+        <chan1:producer_institution_name>JOHNS HOPKINS UNIVERSITY APPLIED PHYSICS LABORATORY</chan1:producer_institution_name>
+        <chan1:release_id>0001</chan1:release_id>
+-->
+    <DD_Attribute>
+        <name>instrument_mode_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.instrument_mode_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>
+            The instrument_mode_id element provides an instrument-dependent 
+            designation of operating mode. This may be simply a number, letter, 
+            code, or a word.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>instrument_mode_desc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.instrument_mode_desc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The instrument_mode_desc element describes the instrument mode 
+            that is identified by the instrument_mode_id element.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>mission_phase_name</name>
+        <version_id>1.1</version_id>
+        <local_identifier>chan1.mission_phase_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>
+            The mission_phase_name element provides the commonly-used identifier of a mission phase.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Primary Mission</value>
+                <value_meaning>
+                This value was used by the M3 data providers for all of their archived 
+                observational data. Presumably, data from a hypothetical Chandrayaan-1 
+                extended mission, beyond its nominal design life of 2 years, might have 
+                been distinguished by other values of this attribute. As it did not survive 
+                to the end of this period, other values proved unnecessary.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Nominal Mission</value>
+                <value_meaning>
+                This value was used by the mini-RF data providers for all of their archived
+                observational data. Presumably, data from a hypothetical Chandrayaan-1 
+                extended mission, beyond its nominal design life of 2 years, might have been 
+                distinguished by other values of this attribute. As it did not survive to the 
+                end of this period, other values proved unnecessary.
+                </value_meaning>
+          </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>orbit_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.orbit_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>
+            The orbit_number element identifies the number of the orbital revolution of the spacecraft around a target body.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>producer_full_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.producer_full_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>
+            The producer_full_name element provides the full_name of the individual mainly 
+            responsible for the production of a data set.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>producer_institution_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.producer_institution_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>
+            The producer_institution_name element identifies a university, research center, 
+            NASA center or other institution associated with the production of a data set. 
+            This would generally be an institution associated with the element producer_full_name.
+            </definition>
+        <comment>comment1</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>release_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.release_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Release_id is the identifier of a scheduled release of data by PDS. The
+            first data release is Release 0001. The release_id for a given product is always the
+            first release in which it appears, and does not change if the product is revised
+            later.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- spacecraft_clock_start_count -->
+        <name>spacecraft_clock_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.spacecraft_clock_start_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The spacecraft_clock_start_count attribute provides the value 
+            of the spacecraft clock at the beginning of a time period of 
+            interest.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <pattern>([0-9]{1,2}\/)[0-9]{1,10}(\.[0-9]{1,5})?</pattern>
+        </DD_Value_Domain>
+    </DD_Attribute>  
+    
+    <DD_Attribute> <!-- spacecraft_clock_stop_count -->
+        <name>spacecraft_clock_stop_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.spacecraft_clock_stop_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The spacecraft_clock_stop_count attribute provides the value of the spacecraft 
+            clock at the end of a time period of interest.
+        </definition>    
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <pattern>([0-9]{1,2}\/)[0-9]{1,10}(\.[0-9]{1,5})?</pattern>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+<!-- attributes (alphabetical order) M3 -->
+    
+    <DD_Attribute>
+        <name>pitch</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.pitch</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Rotation about the Y-axis.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>pitch_rate</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.pitch_rate</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Rate of rotation about the Y-axis in deg/sec.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+            <specified_unit_id>deg/s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>orbit_limb_direction</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.orbit_limb_direction</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>
+            The orbit_limb attribute provides the direction of the spacecraft orbit with respect to the lunar limb.
+            valids: "Ascending", "Descending"
+        </definition>
+        <DD_Value_Domain>
+          <enumeration_flag>true</enumeration_flag>
+          <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+          <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+          <DD_Permissible_Value>
+            <value>Ascending</value>
+            <value_meaning>Direction of the spacecraft orbit is ascending with respect to the lunar limb.</value_meaning>
+          </DD_Permissible_Value>
+          <DD_Permissible_Value>
+            <value>Descending</value>
+            <value_meaning>Direction of the spacecraft orbit is descending with respect to the lunar limb.</value_meaning>
+          </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>orientation_epoch_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.orientation_epoch_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>orientation_epoch_time indicates time for the recorded orentiation.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>roll</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.roll</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Rotation about the X-axis.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>roll_rate</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.roll_rate</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Rate of rotation about the X-axis in deg/sec.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+            <specified_unit_id>deg/s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>spacecraft_rotation_rate</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.spacecraft_rotation_rate</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Scalar rotation rate in degrees/second since epoch.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+            <specified_unit_id>deg/s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>spacecraft_yaw_direction</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.spacecraft_yaw_direction</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>
+            The spacecraft_yaw_direction attribute provides the spacecraft yaw (look) mode.
+            valids: "Forward", "Reverse"
+        </definition>
+        <DD_Value_Domain>
+          <enumeration_flag>true</enumeration_flag>
+          <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+          <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+          <DD_Permissible_Value>
+            <value>Forward</value>
+            <value_meaning>Defines a forward spacecraft yaw (look) mode.</value_meaning>
+          </DD_Permissible_Value>
+          <DD_Permissible_Value>
+            <value>Reverse</value>
+            <value_meaning>Defines a reverse spacecraft yaw (look) mode.</value_meaning>
+          </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>x_unit</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.x_unit</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>The x component of a unit Cartesian vector.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-1</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>yaw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.yaw</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Rotation about the Z-axis.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>yaw_rate</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.yaw_rate</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Rate of rotation about the Z-axis in deg/sec.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+            <specified_unit_id>deg/s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>y_unit</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.y_unit</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>The y component of a unit Cartesian vector.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-1</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>z_unit</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.z_unit</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>The z component of a unit Cartesian vector.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-1</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+<!-- End of Attributes -->    
+
+
+<!-- Classes -->
+
+    <!-- Classes built for Mini-RF and M3 -->
+
+    <DD_Class>
+        <name>Chandrayaan-1_Parameters</name>
+        <version_id>1.1</version_id>
+        <local_identifier>chan1.Chandrayaan_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Container class for general Chandrayaan-1 related parameters.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>chan1.release_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.mission_phase_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.orbit_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.spacecraft_clock_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.spacecraft_clock_stop_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.instrument_mode_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.instrument_mode_desc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.producer_full_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.producer_institution_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.spacecraft_yaw_direction</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association> 
+        <DD_Association>
+            <identifier_reference>chan1.orbit_limb_direction</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association> 
+        <DD_Association>
+            <identifier_reference>chan1.orientation_epoch_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.spacecraft_rotation_rate</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association> 
+        <DD_Association>
+            <identifier_reference>chan1.Initial_Spacecraft_Orientation</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.Spacecraft_Orientation</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.Spacecraft_Orientation_Rates</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.Spacecraft_Orientation_Axis_Vector</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <!-- Classes M3 -->
+
+    <DD_Class>
+        <name>Initial_Spacecraft_Orientation</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.Initial_Spacecraft_Orientation</local_identifier>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Class for the initial Chandrayaan-1 spacecraft orientation parameters, roll/pitch/yaw in degrees from 'ideal nadir'</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>chan1.roll</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.pitch</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.yaw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Spacecraft_Orientation</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.Spacecraft_Orientation</local_identifier>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Class for Chandrayaan-1 spacecraft orientation parameters, roll/pitch/yaw in degrees from 'ideal nadir'</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>chan1.roll</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.pitch</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.yaw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Spacecraft_Orientation_Rates</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.Spacecraft_Orientation_Rates</local_identifier>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Class for Chandrayaan-1 spacecraft orientation rate parameters, roll/pitch/yaw in degrees/second since epoch</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>chan1.roll_rate</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.pitch_rate</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.yaw_rate</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+
+    <DD_Class>
+        <name>Spacecraft_Orientation_Axis_Vector</name>
+        <version_id>1.0</version_id>
+        <local_identifier>chan1.Spacecraft_Orientation_Axis_Vector</local_identifier>
+        <submitter_name>Trent Hare</submitter_name>
+        <definition>Class for Chandrayaan-1 spacecraft orientation axis vector, 
+            x/y/z unit vector wrt J2000 describing rotation direction since epoch</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>chan1.x_unit</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.y_unit</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>chan1.z_unit</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+<!-- End of Classes -->
+</Ingest_LDD>

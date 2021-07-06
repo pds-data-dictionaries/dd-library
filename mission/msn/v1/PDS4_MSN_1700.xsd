@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.7.0.0 - Fri Oct 07 11:46:36 PDT 2016 -->
+  <!-- Generated from the PDS4 Information Model Version 1.7.0.0 - System Build 7a -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/msn/v1"
+    xmlns:msn="http://pds.nasa.gov/pds4/msn/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.7.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>This XML schema file has been generated from the
+      PDS4 Information Model.</xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Mission_Information" type="msn:Mission_Information"> </xs:element>
+
+  <xs:complexType name="Mission_Information">
+    <xs:annotation>
+      <xs:documentation>The Mission Information class provides a set of
+        optional attributes that have their value sets defined by the
+        mission.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" type="msn:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_identifier" type="msn:mission_phase_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_orbit_number" type="msn:start_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_orbit_number" type="msn:stop_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" type="msn:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" type="msn:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        pds namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="mission_phase_identifier">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_identifier attribute provides
+        an identifier for a mission phase.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name attribute provides the
+        commonly recognized name for a mission phase.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the beginning of a
+        time period of interest.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the end of a time
+        period of interest.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_orbit_number">
+    <xs:annotation>
+      <xs:documentation>The start_orbit_number attribute provides the
+        first in a series of numbers that represent a set of orbital
+        revolutions of one body around another.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_orbit_number">
+    <xs:annotation>
+      <xs:documentation>The stop_orbit_number attribute provides the
+        last in a series of numbers that represent s set of orbital
+        revolutions of one body around another.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

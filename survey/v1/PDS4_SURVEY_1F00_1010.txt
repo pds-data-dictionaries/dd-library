@@ -1,0 +1,326 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        13.0.2
+   LDD Version Id:        1.0.1.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Mon Jun 07 18:35:52 UTC 2021
+   Common Schema          [PDS4_PDS_1F00.xsd]
+   Common Schematron      [PDS4_PDS_1F00.sch]
+   IM Version Id:         1.15.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-survey/ldd-survey/src/PDS4_SURVEY_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                8
+   Attributes             16
+   Associations           24
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Survey
+   LDD Version            1.0.1.0
+   Full Name              Jesse Stone
+   Steward                sbn
+   Namespace Id           survey
+   Comment                The Survey dictionary contains classes that support ground based sky surveys.
+   Last Modification Time 2021-02-22T21:30:00.000Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   band_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The band for which the limiting magnitude specification is applicable
+
+   name                   reference_object_type
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The type of observed object used to calculate the limiting magnitude
+
+   name                   percentage
+   version                1.15
+   value data type        ASCII_Real
+   description            The percentage of known objects that are detected at the given magnitude for the specified band
+
+   name                   n_sigma_n
+   version                1.15
+   value data type        ASCII_Real
+   description            Represents the value of n for n-sigma limiting magnitude: The limiting magnitude of a point source at a significance of n-sigma (i.e. a S/N of n)
+
+   name                   limiting_magnitude
+   version                1.15
+   value data type        ASCII_Real
+   description            Magnitude at which a threshold known objects are detected
+
+   name                   rollover_magnitude
+   version                1.15
+   value data type        ASCII_Real
+   description            The magnitude of the peak of the histogram of stellar magnitudes in the image.
+
+   name                   rollover_snr
+   version                1.15
+   value data type        ASCII_Real
+   description            The SNR at the magnitude of the peak of the histogram of stellar magnitudes in the image.
+
+   name                   rollover_fwhm
+   version                1.15
+   value data type        ASCII_Real
+   description            The full width at half maximum of stellar sources at the magnitude of the peak of the histogram of stellar magnitudes in the image, in arcseconds
+   unit of measure type   Units_of_Angle
+
+   name                   corner_identification
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies which corner of the image is being located. This assumes that the image is displayed correctly according to the orientation information provided in the display dictionary
+
+   name                   equinox
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Time that defines the origin of a celestial coordinate system, given in fractional year. Type of year may also be indicated. For example, 'J2000.0' corresponds to an origin specified by January 1, 2000 at 12:00 Terrestrial Time in Julian years.
+
+   name                   right_ascension
+   version                1.15
+   value data type        ASCII_Real
+   description            The right ascension component of a coordinate, decimal degrees
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   declination
+   version                1.15
+   value data type        ASCII_Real
+   description            The declination component of a coordinate, decimal degrees
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   field_id
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Project-dependent field ID
+
+   name                   observation_purpose
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the intent of the observation, whether it is an actual survey observation, a followup, or a calibration image.
+
+   name                   observation_technique
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Further classifies survey observations by the technique used to acquire it.
+
+   name                   calibration_type
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Further classifies calibration images by the type of calibration field used.
+
+Parsed Input - Classes:
+
+   name                   Coordinate
+   description            A location on the celestial sphere, consisting of right ascension and declination.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      right_ascension
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      declination
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Corner_Position
+   description            The position of one corner of an image
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      corner_identification
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Coordinate
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Image_Corners
+   description            The portion of the sky contained within an image, identified by its four corners
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      equinox
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Corner_Position
+      minimum occurrences   4
+      maximum occurrences   4
+      reference type        component_of
+
+   name                   N_Sigma_Limit
+   description            The limiting magnitude of a point source at a significance of n-sigma (i.e. a S/N of n)
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      n_sigma_n
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      limiting_magnitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Percentage_Limit
+   description            The limiting magnitude of the image, expressed as a magnitude, and the percentage of known objects detected at that magnitude
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      percentage
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      limiting_magnitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Limiting_Magnitudes
+   description            The limiting magnitude of the image
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      band_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      reference_object_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      N_Sigma_Limit
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      Percentage_Limit
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Rollover
+   description            The properties of the peak of the histogram of stellar magnitudes within the image.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      rollover_magnitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      rollover_fwhm
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      rollover_snr
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Survey
+   description            Sky Survey related properties.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      field_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      observation_purpose
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      observation_technique
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      calibration_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Image_Corners
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Limiting_Magnitudes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Rollover
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

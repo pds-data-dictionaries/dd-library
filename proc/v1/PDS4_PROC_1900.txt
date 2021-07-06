@@ -1,0 +1,415 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        0.2.1.3
+   Time                   Fri Dec 29 20:43:48 PST 2017
+   Core Schemas           [PDS4_PDS_1900.xsd]
+   Core Schematrons       [PDS4_PDS_1900.sch]
+   Common Model Version   1.9.0.0
+   Object Model           [UpperModel.pont]
+   Data Dictionary        [dd11179.pins]
+   Configuration File     [MDPTNConfigClassDisp.xml]
+   Glossary               [Glossary.pins]
+   Document Spec          [DMDocument.pins]
+
+Parameters:
+   Input File             [PDS4_PROC_IngestLDD_1900.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Class Elements   false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                12
+   Attributes             10
+   Associations           43
+   Error messages         0
+   Warning messages       1
+   Information messages   0
+
+Detailed validation messages
+   WARNING  Header:  - New namespace id has been specified:proc
+
+Parsed Input - Header:
+   LDD Name               Processing_Information
+   LDD Version            1.0.0
+   Full Name              Jordan Padams
+   Steward                img
+   Namespace Id           proc
+   Comment                 The Processing_Information dictionary contains detailed information regarding the history of processing performed on data product(s) in order to produce the current product.
+   Last Modification Time 2017-06-05T12:00:00Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   process_owner_name
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The pprocess_owner_name attribute specifies the name of the person or organization that owns the software process.
+
+   name                   process_owner_institution_name
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The pprocess_owner_institution_name attribute specifies the name of the institution that owns the software process.
+
+   name                   program_type_name
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The program_type_name attribute specifies the type of software program used for this software processing. Some examples include: VICAR, ISIS, GDAL.
+
+   name                   program_user
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The program_user attribute specifies the username of the person responsible for running the software prgoram.
+
+   name                   program_hostname
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The program_hostname attribute specifies the machine hostname where the software program was executed.
+
+   name                   program_path
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The program_path attribute specifies the file path to the software program. This path can be absolute or relative depending on the desired usage.
+
+   name                   program_version
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The program_version attribute specifies the version of the software program.
+
+   name                   program_start_date_time
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The program_start_date_time specifies the datetime for the start of the software program execution.
+
+   name                   program_stop_date_time
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The program_start_date_time attribute specifies the datetime for the end of the software program execution.
+
+   name                   parameter_type
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The parameter_type attribute specifies the type of software parameter. Valid values: 'Input' - this parameter specifies input data, 'Output' - this parameter specifies output data, 'Log' - this parameter specifies log data
+   permissible value - value meaning
+      Input - this parameter specifies input data
+      Output - this parameter specifies output data
+      Log - this parameter specifies log data
+
+Parsed Input - Classes:
+
+   name                   Processing_Information
+   description            The Processing_Information class contains detailed information regarding the history of processing of the data product(s) described in the label. Information that can be specified using this class includes input products used to create a specific data product and the software and processes used to produce that product.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      XSChoice#11
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      Input_Product_List
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      Process
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   XSChoice#11
+   description            TBD_description
+   is abstract            true
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+   name                   Input_Product_List
+   description            The Input_Product_List class describes all of the product(s) most directly used as input to software for product creation, including raw, partially-processed, calibrated, or derived products. These Input Products can be explicitly described in this label using the Input_Product class, and/or a list of products can be specified in another product referenced by the Internal_Reference or Local_Internal_Reference.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      XSChoice#12
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      Input_Product
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   XSChoice#12
+   description            TBD_description
+   is abstract            true
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+   name                   Input_Product
+   description            The Input_Product class describes one of the product most directly used as input to software for product creation, including raw, partially-processed, calibrated, or derived products.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.local_identifier
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      XSChoice#13
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      pds.External_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   XSChoice#13
+   description            TBD_description
+   is abstract            true
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+   name                   Process
+   description            The Process class describes one of the software processes used to produce the data product referenced in the parent Processing_Information class. This class includes descriptions of the process owner as well as the data processing software used to create the data product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      process_owner_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      process_owner_institution_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Software
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Software
+   description            The Software class describes the data processing software used in order to produce the data product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.software_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.software_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.software_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Software_Program
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Software_Program
+   description            The Software_Program class describes the specific components or tasks of the Software executed in producing the data product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      program_type_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      program_user
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      program_hostname
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      program_path
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      program_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      program_start_date_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      program_stop_date_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Software_Program_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Software_Program_Parameters
+   description            The Software_Program_Parameters class specifies the set of 1 or more parameters for the software program. These parameters can be input, output, or log information. The premise being a way to capture as much information as possible about the software program execution.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      Parameter
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Parameter
+   description            The Parameter class describes any information about software program execution. Examples of information that can be captured here are software input arguments, software output arguments, log information, and references to specific data products. This class is intended to be freeform to allow data providers the ability to specify information they determine applicable and useful for their data processing software and data products.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      parameter_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.value
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      XSChoice#14
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      pds.External_Reference
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   XSChoice#14
+   description            TBD_description
+   is abstract            true
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+End of Report

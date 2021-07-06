@@ -1,0 +1,17 @@
+(defclass Type_List "The Type List class provides a list of values and their value meanings."
+  (is-a USER)
+  (role concrete)
+  (multislot type
+;+       (comment " The type attribute provides a character string which uniquely identifies the object. ")
+    (type STRING)
+;        (cardinality 1 ?VARIABLE)
+    (create-accessor read-write)
+;+		(value "Accelerometer" "Altimeter" "Atmospheric_Structure_Instrument" "Camera" "Charged_Particle_Detector" "Dust_Analyzer" "Electric_Field_Instrument" "Gamma_Ray_Detector" "Gas_Analyzer" "Gravimeter" "Imager" "Imaging_Spectrometer" "Interferometer" "Langmuir_Probe" "Lidar" "Magnetometer" "Mass_Spectrometer" "Meteorology" "Microphone" "Microscope" "Mutual_Impedance_Probe" "Nephelometer" "Neutral_Particle_Detector" "Neutron_Detector" "Photometer" "Polarimeter" "Radar" "Radio_Receiver" "Radio_Science" "Radiometer" "Relaxation_Sounder" "Seismometer" "Spacecraft_Sensor" "Spectrometer" "Spectrum_Analyzer" "Sub-Surface_Tool" "Surface_Tool" "Temperature_Sensor" "Weather_Station" "Wind_Tunnel" )
+  )
+  (multislot subtype
+;+       (comment "The subtype attribute provides additional nuance or clarity to the type attribute.")
+    (type STRING)
+;        (cardinality 0 ?VARIABLE)
+    (create-accessor read-write)
+  )
+)

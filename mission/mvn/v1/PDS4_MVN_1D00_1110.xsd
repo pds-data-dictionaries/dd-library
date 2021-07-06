@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:mvn  Version:1.1.1.0 - Mon Feb 22 22:46:08 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.13.0.0 - System Build 10a -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.13.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.1.1.0 - mvn: - MAVEN                                                    -->
+  <!--   file:/home/runner/work/ldd-mvn/ldd-mvn/src/PDS4_MVN_IngestLDD.xml       -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/mvn/v1"
+    xmlns:mvn="http://pds.nasa.gov/pds4/mission/mvn/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1.1.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+_TBD_Ingest_LDD
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="MAVEN" type="mvn:MAVEN"> </xs:element>
+
+  <xs:complexType name="MAVEN">
+    <xs:annotation>
+      <xs:documentation>The MAVEN class is the container for MAVEN
+        mission-specific metadata elements.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" nillable="true" type="mvn:mission_phase_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" type="mvn:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" type="mvn:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_event_time_start_count" type="mvn:mission_event_time_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_event_time_stop_count" type="mvn:mission_event_time_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Parameter" type="mvn:Parameter" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mvn:mission_phase_name = ('Cruise', 'EM-1', 'EM-2', 'EM-3', 'EM-4', 'EM-5', 'Mars Orbital Insertion', 'Prime Mission', 'Transition')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Parameter">
+    <xs:annotation>
+      <xs:documentation>The Parameter class provides information about a
+        specified data parameter.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="pds:name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="pds:description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="value" type="pds:value" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="mission_event_time_start_count">
+    <xs:annotation>
+      <xs:documentation>The mission_event_time_start_count attribute
+        provides the mission event time value at the beginning of a time
+        period of interest. These may be provided either as SCLK string
+        values, or as encoded double precision SCLK
+        values.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_event_time_stop_count">
+    <xs:annotation>
+      <xs:documentation>The mission_event_time_stop_count attribute
+        provides the mission event time value at the end of a time
+        period of interest.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name attribute provides the
+        mission-defined name of a mission phase.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the beginning of a
+        time period of interest.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([0-9]/[0-9]{10}(:[0-9]{5})?)|([0-9.]*(E[0-9]{2})?)'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the end of a time
+        period of interest. These may be provided either as SCLK string
+        values, or as encoded double precision SCLK
+        values.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([0-9]/[0-9]{10}(:[0-9]{5})?)|([0-9.]*(E[0-9]{2})?)'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

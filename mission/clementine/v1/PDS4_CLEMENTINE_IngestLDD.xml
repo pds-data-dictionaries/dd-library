@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.sch"
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD
+        xmlns="http://pds.nasa.gov/pds4/pds/v1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation=" http://pds.nasa.gov/pds4/pds/v1  http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd">
+
+    <name>Clementine Mission Dictionary</name>
+    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <dictionary_type>Mission</dictionary_type>
+    <full_name>Michael St. Clair</full_name>
+    <steward_id>img</steward_id>
+    <namespace_id>clementine</namespace_id>
+    <comment>
+        The Clementine mission dictionary contains a class with attributes specific to the 
+        Deep Space Program Science Experiment, including the Clementine orbiter and its 
+        instruments. This dictionary was created for the migration of Clementine data products 
+        from PDS3 to PDS4.
+        
+        v1.0.0.0 M. St. Clair
+        - Initial version of the Clementine mission dictionary for PDS3 to PDS4 migration
+    </comment>
+    <last_modification_date_time>2020-11-28T10:00:00Z</last_modification_date_time>
+
+    <!--Attributes -->    
+
+    <DD_Attribute>
+        <name>cryocooler_duration</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.cryocooler_duration</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The cryocooler_duration attribute provides the duration, in seconds, since
+            the activation of an imager's cooling device and the acquisition of an image.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+            <specified_unit_id>sec</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>original_product_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.original_product_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The original_product_id attribute provides the identifier used for a 
+            product during active mission operations, which may be distinct 
+            from the product id used for archival.
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "ORIGINAL_PRODUCT_ID."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>revolution_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.revolution_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The revolution_number attribute identifies the number of the observational pass of a spacecraft around a 
+            target body. Note: The Clementine Mission used this attribute in place of orbit number because orbit number 
+            changes half way through the observational pass over the Moon and would not be an ideal parameter when 
+            interrogating the data set. The revolution number equals orbit number at the start of the observational pass.
+        </definition>
+        <comment>
+            The name and definition of this attribute were copied almost directly from the PDS3 Planetary Science Data 
+            Dictionary Document (JPL D-7116), Revision F.  
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>producer_institution_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.producer_institution_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The producer_institution_name element identifies the institution primarily responsible for the production of 
+            a particular data product.
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "PRODUCER_INSTITUTION_NAME."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>frame_sequence_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.frame_sequence_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The frame_sequence_number attribute provides the position of an image within a sequence of images taken as 
+            part of an observational pass. 
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "FRAME_SEQUENCE_NUMBER."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>sequence_table_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.sequence_table_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The sequence_table_id attribute provides a code specifying the order in which cameras were shuttered 
+            and filters activated during a particular observation.
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "SEQUENCE_TABLE_ID." In the Clementine archive, it does 
+            not appear to have a fully-standardized format and the lookup table for these IDs is not given in documentation, 
+            so no pattern is enforced on this field. </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute> 
+  
+    <DD_Attribute>
+        <name>uncorrected_start_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.uncorrected_start_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The uncorrected_start_time attribute provides the starting time value originally assigned 
+            to a product before some corrective process.
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "UNCORRECTED_START_TIME."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>clem_jpeg_version</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.clem_jpeg_version</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The clem_jpeg_version attribute specifies the specific set of parameters fed to the Matra
+            compression chip that performed the onboard JPEG-variant discrete cosine transformation image
+            compression. Two settings are documented as commonly used in the primary mission: "CLEM-JPEG-0"
+            and, most often, "CLEM-JPEG-1." "CLEM-JPEG-2" and "CLEM-JPEG-3" also appear in some files but
+            are not described in documentation.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>CLEM-JPEG-0</value>
+                <value_meaning>
+                    CLEM-JPEG-0 denotes Matra's built-in quantization settings, weighted towards 
+                    lower-frequency image data.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CLEM-JPEG-1</value>
+                <value_meaning>
+                    CLEM-JPEG-1 denotes settings that utilized a flat quantization table.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CLEM-JPEG-2</value>
+                <value_meaning>
+                    CLEM-JPEG-2 denotes some other group of settings not detailed in documentation.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CLEM-JPEG-3</value>
+                <value_meaning>
+                    CLEM-JPEG-3 denotes some other group of settings not detailed in documentation.
+                </value_meaning>
+            </DD_Permissible_Value>
+          <DD_Permissible_Value>
+                <value>None</value>
+                <value_meaning>
+                    A value of None indicates that Clementine did not compress this particular image.
+                </value_meaning>
+          </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute> 
+
+    <DD_Attribute>
+        <name>twist_angle</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.twist_angle</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The twist_angle attribute provides the angle of rotation about an instrument's optical axis 
+            relative to celestial coordinates. Right ascension, declination, and twist angle together 
+            completely specify the pointing of an instrument in a celestial coordinate system.
+        </definition>
+        <comment>
+            The name and definition of this attribute were mostly copied from the PDS3 Planetary Science 
+            Data Dictionary Document (JPL D-7116), Revision F, which itself appears to have copied them largely 
+            from the Clementine EDRSIS.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>  
+    
+    <DD_Attribute>
+        <name>smear_magnitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.smear_magnitude</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            smear_magnitude gives the amount, in pixels, that the image is 'smeared' by spacecraft motion. More specifically, in Clementine, it is the magnitude of the velocity vector of camera boresight intercept with target (including spacecraft rotation) multiplied by exposure duration and image scale.
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "SMEAR_MAGNITUDE."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>  
+
+    <DD_Attribute>
+        <name>smear_azimuth</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.smear_azimuth</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            smear_azimuth gives the azimuth, in degrees, of the 'smear' velocity vector (velocity of image boresight intercept with target). The reference line for this angle extends from image center to image right edge; angle increases clockwise in the image plane.
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "SMEAR_AZIMUTH."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>  
+
+    <DD_Attribute>
+        <name>north_azimuth</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.north_azimuth</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            north_azimuth gives the azimuth, in degrees, of the vector between the image center and the target north pole. The reference line for this angle extends from image center to image right edge; angle increases clockwise in the image plane.
+        </definition>
+        <comment>
+            Direct analog of the PDS3 Data Dictionary element "NORTH_AZIMUTH." Included in this mission dictionary over geom:
+            north_azimuth because geom:Object_Orientation_North_East
+            also requires an east_azimuth value, which is not explicitly
+            given in the Clementine EDR labels.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>  
+
+    <DD_Attribute>
+        <name>reference_pixel_location</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.reference_pixel_location</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            reference_pixel_location describes the position, within an 
+            image associated with the labeled data product, of a pixel
+            referred to by other attributes of the containing class.
+        </definition>
+        <comment>Analog of geom:reference_pixel_location</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>   
+
+     <DD_Attribute>
+        <name>pixel_ra</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.pixel_ra</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The pixel_ra attribute gives the value 
+            of the right ascension of a particular pixel as projected
+            on the celestial sphere.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+     <DD_Attribute>
+        <name>pixel_dec</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.pixel_dec</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The pixel_dec attribute gives the value 
+            of the declination of a particular pixel as projected
+            on the celestial sphere.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-90</minimum_value>
+            <maximum_value>90</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>local_hour_angle</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.local_hour_angle</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The local_hour_angle attribute provides a measure of the instantaneous 
+            apparent sun position at the subspacecraft point. The local_hour_angle is the 
+            angle between the extension of the vector from the Sun to the target body and 
+            the vector projection on the target body’s ecliptic plane of a vector from the 
+            target body’s planetocentric center to the observer (usually, the spacecraft). 
+            This angle is measured in a counterclockwise direction when viewed from north 
+            of the ecliptic plane. It may be converted from an angle in degrees to a local 
+            time, using the conversion of 15 degrees per hour for those planets for which 
+            the rotational direction corresponds with the direction of measure of the angle.
+        </definition>
+        <comment>
+            The name and definition of this attribute were copied almost directly from the 
+            PDS3 Planetary Science Data Dictionary Document (JPL D-7116), Revision F.  
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+
+   <DD_Attribute>
+        <name>light_source_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.light_source_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            Name of light source to which other attributes of containing class apply.
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "LIGHT_SOURCE_NAME."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>light_source_distance</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.light_source_distance</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            Distance between the target body center and the light source whose 
+            illumination parameters are described in the containing class. 
+        </definition>
+        <comment>Direct analog of the PDS3 Data Dictionary element "LIGHT_SOURCE_DISTANCE."</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>sub_light_source_azimuth</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.sub_light_source_azimuth</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The sub_light_source_azimuth attribute provides the value of the                      
+            angle between the line from the center of an image to the                    
+            sub-light-source point on the target and a horizontal reference line (in the                       
+            image plane) extending from the image center to the middle right edge of the image.                                                     
+            The values of this angle increase in a clockwise direction.  
+        </definition>
+        <comment>
+            Slightly modified copy of geom:subsolar_azimuth. Direct analog of PDS3 Data 
+            Dictionary element SUB_LIGHT_SOURCE_AZIMUTH.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>sub_light_source_latitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.sub_light_source_latitude</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The sub_light_source_latitude attribute gives the value 
+            of the planetocentric latitude at the sub-light-source point on the target.
+        </definition>
+        <comment>Slightly modified copy of geom:subsolar_latitude. Direct analog of 
+            PDS3 Data Dictionary element SUB_LIGHT_SOURCE_LATITUDE.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-90</minimum_value>
+            <maximum_value>90</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+        <DD_Attribute>
+        <name>sub_light_source_longitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.sub_light_source_longitude</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The sub_light_source_longitude attribute gives the value 
+            of the planetocentric latitude at the sub-light-source point on the target.
+        </definition>
+        <comment>
+            Slightly modified copy of geom:subsolar_longitude. Direct analog of PDS3 
+            Data Dictionary element SUB_LIGHT_SOURCE_LONGITUDE.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+
+    <DD_Attribute>
+        <name>incidence_angle</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.incidence_angle</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The incidence_angle element provides a measure of the lighting condition at
+            the intercept point. Incidence angle is the angle between the local vertical at the
+            intercept point (surface) and a vector from the intercept point to the sun. The incidence_angle
+            varies from 0 degrees when the intercept point coincides with the subsolar point to 90 degrees
+            when the intercept point is at the terminator (i.e., in the shadowed or dark portion of
+            the target body).
+        </definition>
+        <comment>This is a copy of geom:incidence_angle v. 2.0.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>180</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>phase_angle</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.phase_angle</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The phase_angle element provides a measure of the relationship between 
+            the instrument viewing position and incident illumination (such as solar 
+            light). Phase angle is measured at the target; it is the angle between 
+            a vector to the illumination source and a vector to the instrument. If 
+            illumination is from behind the instrument, phase_angle will be small.
+        </definition>
+        <comment>This is a copy of geom:phase_angle v. 2.0.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>180</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <!-- End of Attributes -->    
+    <!-- Classes -->
+
+    <DD_Class>
+        <name>Clementine_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.Clementine_Parameters</local_identifier>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>Container class for Clementine-specific parameters.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>clementine.original_product_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.revolution_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.producer_institution_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.frame_sequence_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.sequence_table_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.uncorrected_start_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.clem_jpeg_version</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.twist_angle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.smear_magnitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.smear_azimuth</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.north_azimuth</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.Celestial_Footprint_Vertices</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.local_hour_angle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.Illumination_Secondary</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.cryocooler_duration</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+   <DD_Class>
+        <name>Celestial_Footprint_Vertices</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.Celestial_Footprint_Vertices</local_identifier>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The Celestial_Footprint_Vertices class provides a set 
+            of right ascension and declination pairs which are the vertices
+            of a polygon representing the footprint of the field of view on
+            the celestial sphere in the earth-centered J2000 (EME2000) 
+            coordinate system.
+
+            This and its associates are direct analogs of geom:Footprint_Vertices and 
+            its associates, intended for referencing FoV to the celestial sphere rather 
+            than a target body.
+
+            They can also be reconsidered reimplementations of the PDS3
+            Data Dictionary elements RETICLE_POINT_RA and RETICLE_POINT_DECLINATION.
+        </definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>clementine.Celestial_Reference_Pixel</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>5</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+     <DD_Class>
+        <name>Celestial_Reference_Pixel</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.Celestial_Reference_Pixel</local_identifier>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>
+            The Celestial_Reference_Pixel class provides the right ascension and declination 
+            of a specific designated pixel in the earth-centered J2000 (EME2000) coordinate system.
+        </definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>clementine.reference_pixel_location</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.pixel_ra</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.pixel_dec</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Illumination_Secondary</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clementine.Illumination_Secondary</local_identifier>
+        <submitter_name>Michael St. Clair</submitter_name>
+        <definition>The Illumination_Secondary class contains attributes 
+           providing illumination geometry for a secondary light source. It 
+           should be used only when parameters for a primary illumination source
+           have been specified elsewhere in the label (perhaps using
+           geom:Illumination_Geometry).
+       </definition>
+       <abstract_flag>false</abstract_flag>
+       <element_flag>false</element_flag>
+       <DD_Association>
+            <identifier_reference>clementine.light_source_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.light_source_distance</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.sub_light_source_azimuth</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.sub_light_source_latitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.sub_light_source_longitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.incidence_angle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clementine.phase_angle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+
+<!-- End of Classes -->
+</Ingest_LDD>

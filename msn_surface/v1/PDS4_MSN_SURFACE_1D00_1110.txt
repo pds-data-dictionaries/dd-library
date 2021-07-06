@@ -1,0 +1,369 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        0.2.2.8
+   LDD Version Id:        1.1.1.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Wed Jan 29 17:31:27 PST 2020
+   Common Schema          [PDS4_PDS_1D00.xsd]
+   Common Schematron      [PDS4_PDS_1D00.sch]
+   IM Version Id:         1.13.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.19
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [PDS4_MSN_SURFACE_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                3
+   Attributes             25
+   Associations           27
+   Error messages         0
+   Warning messages       1
+   Information messages   6
+
+Detailed validation messages
+   WARNING  Header:  - New namespace id has been specified:msn_surface
+   INFO     Attribute: <surface_gravity> - The default minimum value provided by the attribute's data type is being overridden with 0.0
+   INFO     Attribute: <sequence_execution_count> - The default minimum value provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <command_source_id> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <command_source_id> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <transport_protocol> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <transport_protocol> - The default maximum characters provided by the attribute's data type is being overridden with 255
+
+Parsed Input - Header:
+   LDD Name               Surface Mission
+   LDD Version            1.1.1.0
+   Full Name              Cristina De Cesare
+   Steward                img
+   Namespace Id           msn_surface
+   Comment                
+    ## CHANGE LOG ##
+    1.0.0.0
+    - Initial version
+    
+    1.1.0.0
+    - Upgraded to v1B00 of the IM.
+    - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+    - Renamed Surface_Mission_Parameters to Surface_Mission_Information, Command_Execution_Information to Command_Execution, and
+      Telemetry_Information to Telemetry.
+      
+    1.1.1.0
+    - Upgraded to v1D00 of the IM.
+    - Fixed bugs in download_priority attribute: removed min and max value constraints, made definition more generic.
+  
+   Last Modification Time 2019-07-23T19:19:00
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   surface_gravity
+   version                1.13
+   value data type        ASCII_Real
+   description            The surface_gravity attribute specifies the acceleration of gravity (magnitude, not direction).
+   minimum value          0.0
+   unit of measure type   Units_of_Acceleration
+
+   name                   sequence_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The sequence_id identifies the command sequence used to acquire this product.
+
+   name                   sequence_version_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The sequence_version_id identifies which of potentially several versions of a sequence_id were used to acquire this product.
+
+   name                   command_sequence_number
+   version                1.13
+   value data type        ASCII_NonNegative_Integer
+   description            The command_sequence_number attribute provides a numeric identifier for a sequence of commands sent to a spacecraft or instrument.
+
+   name                   sequence_execution_count
+   version                1.13
+   value data type        ASCII_NonNegative_Integer
+   description            The sequence_execution_count specifies how many times this sequence has executed since the last reset of the flight computer.
+   minimum value          1
+
+   name                   observation_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The observation_id specifies a unique identifier for a scientific observation within a data set.
+   nillable               true
+
+   name                   request_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The request_id is used to group related datasets together by science or engineering application or theme, such as frames in a mosaic.
+   nillable               true
+
+   name                   command_source_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description             The command_source_id attribute specifies the flight software element that was the source of a particular command. 
+   minimum characters     1
+   maximum characters     255
+
+   name                   application_id
+   version                1.13
+   value data type        ASCII_NonNegative_Integer
+   description            The application_id (often abbreviated APID) attribute identifies the process, or source, which created the data. This can include information such as an identification of the instrument which generated the telemetry stream, its operating mode at the time of data acquisition, and any onboard compression of the data.
+
+   name                   application_subtype_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The application_subtype_id attribute provides further distinction (i.e., greater specificity) among application_id types.
+
+   name                   application_name
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The application_name attribute provides the name associated with the source or process which created the data.
+
+   name                   provider_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The provider_id attribute identifies the organization or subsystem that supplied the telemetry data product to the producer of the raw (EDR) PDS data product. This is typically (but not always) the organization responsible for reassembling packetized data into a single product. These may vary by mission so the permissible values should be set by the mission dictionaries. 
+
+   name                   flight_software_version_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The flight_software_version_id attribute identifies the version of the instrument flight software used to acquire the image.
+
+   name                   telemetry_source_name
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The telemetry_source_name specifies the name source of the telemetry data described in the parent class.
+
+   name                   transport_protocol
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The transport_protocol attribute specifies the protocol used in the creation of the telemetry data products by the subsystem which generates the telemetry stream. 
+   minimum characters     1
+   maximum characters     255
+
+   name                   communication_session_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the communication session used to acquire this data.
+
+   name                   telemetry_source_start_time
+   version                1.13
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The telemetry_source_start_time specifies the creation time of the source product from which this product was derived. It is the same as the telemetry_source_sclk_start converted to Spacecraft Event Time (SCET).
+
+   name                   telemetry_source_sclk_start
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The telemetry_source_sclk_start attribute specifies the value of the spacecraft clock (in seconds) at the creation time of the source product from which this product was derived.
+
+   name                   product_completion_status
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_completion_status attribute indicates whether or not a product is complete or is in one of a number of incomplete states. Sample values might indicate that all portions of the product have been downlinked and received correctly, that all portions have not yet been received, or that the product contains transmission errors. The specific values are mission-dependent.
+
+   name                   earth_received_start_date_time
+   version                1.13
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The earth_received_start_date_time attribute provides the earliest time at which any component telemetry data for a particular product was received.
+
+   name                   earth_received_stop_date_time
+   version                1.13
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The earth_received_stop_date_time attribute provides the latest time at which any component telemetry data for a particular product was received.
+
+   name                   download_priority
+   version                1.13
+   value data type        ASCII_NonNegative_Integer
+   description            The download_priority attribute specifies which data to downlink/transmit, based on order of importance. The ranking and meaning of specific values will vary depending on the mission, and should be defined in the mission software interface specification (SIS).
+
+   name                   data_size
+   version                1.13
+   value data type        ASCII_NonNegative_Integer
+   description            The data_size specifies number of bytes in the compressed data stream, not including headers.
+
+   name                   expected_packets
+   version                1.13
+   value data type        ASCII_NonNegative_Integer
+   description            The expected_packets attribute provides the total number of telemetry packets which constitute a complete data product, i.e., a data product without missing data.
+
+   name                   received_packets
+   version                1.13
+   value data type        ASCII_NonNegative_Integer
+   description            The received_packets attribute provides the total number of telemetry packets actually used to construct this data product. cf. expected_packets.
+
+Parsed Input - Classes:
+
+   name                   Surface_Mission_Information
+   description            The Surface_Mission_Information class contains attributes specific to surface missions which apply across instrument types.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      surface_gravity
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Command_Execution
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Telemetry
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Command_Execution
+   description            The Command_Execution class contains information about how the command that acquired this data was executed, such as sequence or activity.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sequence_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sequence_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sequence_execution_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      command_sequence_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      command_source_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      observation_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      request_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Telemetry
+   description            The Telemetry class contains downlink-related attributes used primarily during mission operations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      application_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      application_subtype_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      application_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      provider_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      flight_software_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      telemetry_source_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      transport_protocol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      communication_session_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      telemetry_source_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      telemetry_source_sclk_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      product_completion_status
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      earth_received_start_date_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      earth_received_stop_date_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      download_priority
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      data_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      expected_packets
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      received_packets
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

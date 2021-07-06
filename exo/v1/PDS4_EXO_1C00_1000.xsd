@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:exo  Version:1.0.0.0 - Thu Jul 25 10:42:26 PDT 2019 -->
+  <!-- Generated from the PDS4 Information Model Version 1.12.0.0 - System Build 9b -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.12.0.0 - pds: - Common Dictionary - N/A                                 -->
+  <!-- 1.0.0.0 - exo: - exoPlanet Dictionary - IngestLDD-exo_1C00_20190701       -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/exo/v1"
+    xmlns:exo="http://pds.nasa.gov/pds4/exo/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+ 
+      v1.0  2019-06-05
+             -  initial version
+             -  added: System_Orbital_Parameters
+      v1.4  2019-07-01
+             - added: Observational_Parameters                
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Observational_Parameters" type="exo:Observational_Parameters"> </xs:element>
+  <xs:element name="Planetary_System_Parameters" type="exo:Planetary_System_Parameters"> </xs:element>
+
+  <xs:complexType name="Observational_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class is required for all exoPlanet curated
+        data products</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="local_identifier" type="pds:local_identifier" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_type" type="exo:observation_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="grade" type="exo:grade" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="reference" type="exo:reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="exo:observation_type = ('Direct imaging', 'Microlensing', 'Radial Velocity', 'Transit Spectroscopy')"/> -->
+    <!-- <xs:assert test="exo:grade = ('Science', 'Unusable')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Planet_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class is required for all exoPlanet curated
+        data products</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="local_identifier" type="pds:local_identifier" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="body_name" type="exo:body_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="body_type" type="exo:body_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Property" type="exo:Property" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="exo:body_type = ('planet', 'star')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Planetary_System_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class is required for all exoPlanet curated
+        data products</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Stellar_Parameters" type="exo:Stellar_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Planet_Parameters" type="exo:Planet_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Property">
+    <xs:annotation>
+      <xs:documentation>This class is required for all exoPlanet curated
+        data products</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="value_type" type="exo:value_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Property_Attributes" type="exo:Property_Attributes" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Property_Attributes">
+    <xs:annotation>
+      <xs:documentation>This class is required for all exoPlanet curated
+        data products</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="description" type="exo:description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="value" type="exo:value" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="lowerr" type="exo:lowerr" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="uperr" type="exo:uperr" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="units" type="exo:units" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="reference" type="exo:reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Stellar_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class is required for all exoPlanet curated
+        data products</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="local_identifier" type="pds:local_identifier" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="body_name" type="exo:body_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="body_type" type="exo:body_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Property" type="exo:Property" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="exo:body_type = ('planet', 'star')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="body_name">
+    <xs:annotation>
+      <xs:documentation> The name of either the 'star' or the 'planet'.
+        There is a 1:1 correspondance between the Star and the Planet
+        for each Product. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="body_type">
+    <xs:annotation>
+      <xs:documentation> The type of body: either 'star' or 'planet'.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="description">
+    <xs:annotation>
+      <xs:documentation> The name of the referenced document.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="grade">
+    <xs:annotation>
+      <xs:documentation> Grade types include: Unusable | Science
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="lowerr">
+    <xs:annotation>
+      <xs:documentation> The name of the measurement value for: lowerr.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_type">
+    <xs:annotation>
+      <xs:documentation> Observation types include: Transit Spectroscopy
+        | Direct imaging | Radial Velocity | Microlensing.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reference">
+    <xs:annotation>
+      <xs:documentation> The name of the referenced document.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="units">
+    <xs:annotation>
+      <xs:documentation> The name of the measurement value for: units.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="uperr">
+    <xs:annotation>
+      <xs:documentation> The name of the measurement value for: uperr.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="value">
+    <xs:annotation>
+      <xs:documentation> The name of the type of measurement value.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="value_type">
+    <xs:annotation>
+      <xs:documentation> The name of the type of measurement -- value
+        are dependent upon type of body. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

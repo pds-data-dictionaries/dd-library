@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:nucspec  Version:1.0.0.0 - Wed Oct 14 20:41:26 UTC 2020 -->
+  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - nucspec: - nucspec                                              -->
+  <!--   file:/home/runner/work/ldd-nucspec/ldd-nucspec/src/PDS4_NUCSPEC_IngestL -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/nucspec/v1"
+    xmlns:nucspec="http://pds.nasa.gov/pds4/nucspec/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+This dictionary covers nuclear spectroscopy observations.
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="NucSpec_Observation_Properties" type="nucspec:NucSpec_Observation_Properties"> </xs:element>
+
+  <xs:complexType name="Applicable_Records">
+    <xs:annotation>
+      <xs:documentation>The records to which this state
+        applies.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="First_Last" type="nucspec:First_Last"> </xs:element>
+        <xs:element name="First_Count" type="nucspec:First_Count"> </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Calibration_Reference">
+    <xs:annotation>
+      <xs:documentation>Contains a reference to a document that
+        describes the energy calibration for the
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Detector">
+    <xs:annotation>
+      <xs:documentation>Specifies a single detector which was active at
+        the time of observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="nucspec:name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="nucspec:description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="comment" type="nucspec:comment" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Detectors">
+    <xs:annotation>
+      <xs:documentation>Specifies which detectors were active on an
+        instrument at the time of observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Detector" type="nucspec:Detector" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Energy_Calibration">
+    <xs:annotation>
+      <xs:documentation>Specifies methods and data used to determine the
+        pulse height in energy units (e.g. MeV) for each channel of a
+        pulse height spectrum.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Polynomial" type="nucspec:Polynomial" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Calibration_Reference" type="nucspec:Calibration_Reference" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="First_Count">
+    <xs:annotation>
+      <xs:documentation>Defines the records to which this state applies
+        by identifying the first record (inclusive), and the number of
+        contiguous records, including the first.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="first_record" type="nucspec:first_record" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="record_count" type="nucspec:record_count" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="First_Last">
+    <xs:annotation>
+      <xs:documentation>Defines the first and last records for which
+        this state applies. The record numbers are one-based and
+        inclusive.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="first_record" type="nucspec:first_record" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="last_record" type="nucspec:last_record" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Instrument_Settings">
+    <xs:annotation>
+      <xs:documentation>This class specifies instrument settings.
+        Instrument settings may be driven via a state table, which may
+        be associated with specific observations within the data
+        product, either by directly indicating those records, or
+        indicating the observation times at which certain states
+        apply.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="State_Table" type="nucspec:State_Table" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NucSpec_Observation_Properties">
+    <xs:annotation>
+      <xs:documentation>This class specifies properties pertaining to a
+        nuclear spectroscopy observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Energy_Calibration" type="nucspec:Energy_Calibration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Instrument_Settings" type="nucspec:Instrument_Settings" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Detectors" type="nucspec:Detectors" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Observing_Conditions" type="nucspec:Observing_Conditions" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Observing_Condition">
+    <xs:annotation>
+      <xs:documentation>Describes the times that the activity affecting
+        nuclear spectroscopy observations was in effect, along with the
+        sources of the activity, if applicable.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="condition_active" nillable="true" type="nucspec:condition_active"> </xs:element>
+        <xs:element name="condition_source" nillable="true" type="nucspec:condition_source"> </xs:element>
+      </xs:choice>
+      <xs:element name="comment" type="nucspec:comment" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="Time_Range_UTC" type="nucspec:Time_Range_UTC"> </xs:element>
+        <xs:element name="Time_Range_ET" type="nucspec:Time_Range_ET"> </xs:element>
+        <xs:element name="Time_Range_SCLK" type="nucspec:Time_Range_SCLK"> </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Observing_Conditions">
+    <xs:annotation>
+      <xs:documentation>Describes activity that may affect nuclear
+        spectroscopy observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="condition_type" nillable="true" type="nucspec:condition_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Observing_Condition" type="nucspec:Observing_Condition" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nucspec:condition_type = ('Data Glitch', 'Electron Burst', 'Gamma-ray Burst', 'SEP', 'Solar Flare')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Polynomial">
+    <xs:annotation>
+      <xs:documentation>The pulse height in energy units (e.g. MeV) is
+        determined for a given channel number using the polynomial: H(x)
+        = a0 + a1 x + a2 x^2 + ..., where H is pulse height with energy
+        units and x is channel number.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Polynomial_Term" type="nucspec:Polynomial_Term" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Polynomial_Term">
+    <xs:annotation>
+      <xs:documentation>Describes a single term in the polynomial
+        function.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="order" type="nucspec:order" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="coefficient" type="nucspec:coefficient" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="State_Table">
+    <xs:annotation>
+      <xs:documentation>Specifies an additional look-up table that
+        provides additional information about specific observations
+        within the product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element ref="pds:Local_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="State_Table_Entry" type="nucspec:State_Table_Entry" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="State_Table_Entry">
+    <xs:annotation>
+      <xs:documentation>Associates individual observations in the data
+        product with a record in the state table, providing additonal
+        information on those observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="state_index" nillable="true" type="nucspec:state_index" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="comment" type="nucspec:comment" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="Applicable_Records" type="nucspec:Applicable_Records"> </xs:element>
+        <xs:element name="State_Time" type="nucspec:State_Time"> </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="State_Time">
+    <xs:annotation>
+      <xs:documentation>The time during which this state was applicable.
+        The state table entry is applicable to records in the referenced
+        data table if the time of the data record, as given by
+        state_time_field_name, is between the start time and stop time
+        given in State_Time.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="state_time_field_name" type="nucspec:state_time_field_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="Time_Range_ET" type="nucspec:Time_Range_ET"> </xs:element>
+        <xs:element name="Time_Range_SCLK" type="nucspec:Time_Range_SCLK"> </xs:element>
+        <xs:element name="Time_Range_UTC" type="nucspec:Time_Range_UTC"> </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Time_Range_ET">
+    <xs:annotation>
+      <xs:documentation>Ephemeris time, as defined by the referenced
+        field, for the first and last science data records for a
+        temporally contiguous block of records with the same state or
+        affected by the same conditions. These records need not be
+        contiguous within the file, but there must be no records with a
+        different state between the start and stop
+        time.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="et_start" type="nucspec:et_start" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="et_stop" type="nucspec:et_stop" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Time_Range_SCLK">
+    <xs:annotation>
+      <xs:documentation>Spacecraft clock time in ticks since spacecraft
+        clock start for the first and last science data records for a
+        temporally contiguous block of records with the same state or
+        affected by the same conditions. These records need not be
+        contiguous within the file, but there must be no records with a
+        different state between the start and stop
+        time.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sclk_start_time" type="nucspec:sclk_start_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="sclk_stop_time" type="nucspec:sclk_stop_time" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Time_Range_UTC">
+    <xs:annotation>
+      <xs:documentation>Universal Coordinated Time for the first and
+        last science data records for a temporally contiguous block of
+        records with the same state or affected by the same conditions.
+        These records need not be contiguous within the file, but there
+        must be no records with a different state between the start and
+        stop time.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="utc_start_time" type="nucspec:utc_start_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="utc_stop_time" type="nucspec:utc_stop_time" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="coefficient">
+    <xs:annotation>
+      <xs:documentation>The coefficient of a single term of the
+        polynomial relating channel number to pulse
+        height.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="comment">
+    <xs:annotation>
+      <xs:documentation>Any notes about the state at the time of
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Text_Preserved">
+     <xs:minLength value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="condition_active">
+    <xs:annotation>
+      <xs:documentation>A flag indicating whether the condition was in
+        effect at the given time.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Boolean">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="condition_source">
+    <xs:annotation>
+      <xs:documentation>A string identifying the source of the condition
+        at the given time.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="condition_type">
+    <xs:annotation>
+      <xs:documentation>Remarks about the containing
+        object.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="description">
+    <xs:annotation>
+      <xs:documentation>A description for the
+        detector.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Text_Preserved">
+     <xs:minLength value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="et_start">
+    <xs:annotation>
+      <xs:documentation>The earliest ephemeris time, as defined by the
+        referenced field, for which this state or condition is
+        applicable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="et_stop">
+    <xs:annotation>
+      <xs:documentation>The latest ephemeris time, as defined by the
+        referenced field, for which this state or condition is
+        applicable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="first_record">
+    <xs:annotation>
+      <xs:documentation>The first record for which the state applies,
+        inclusive.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="last_record">
+    <xs:annotation>
+      <xs:documentation>The last record for which this state applies,
+        inclusive.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="name">
+    <xs:annotation>
+<xs:documentation>The name of the detector.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="order">
+    <xs:annotation>
+      <xs:documentation>The order of a single term of the polynomial
+        relating channel number to pulse height.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="record_count">
+    <xs:annotation>
+      <xs:documentation>The number of consecutive records, including the
+        first, for which this state applies.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sclk_start_time">
+    <xs:annotation>
+      <xs:documentation>The earliest spacecraft clock time, in ticks
+        since spacecraft clock start, for which this state or condition
+        is applicable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sclk_stop_time">
+    <xs:annotation>
+      <xs:documentation>The latest spacecraft clock time, in ticks since
+        spacecraft clock start, for which this state or condition is
+        applicable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="state_index">
+    <xs:annotation>
+      <xs:documentation>The state_index points to a row of a look up
+        table containing the instrument settings.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="state_time_field_name">
+    <xs:annotation>
+      <xs:documentation>The name of the field in the referenced data
+        table that contains the time.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_String">
+     <xs:minLength value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="utc_start_time">
+    <xs:annotation>
+      <xs:documentation>The earliest Universal Coordinated Time for
+        which this state or condition is applicable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="utc_stop_time">
+    <xs:annotation>
+      <xs:documentation>The earliest Universal Coordinated Time for
+        which this state or condition is applicable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

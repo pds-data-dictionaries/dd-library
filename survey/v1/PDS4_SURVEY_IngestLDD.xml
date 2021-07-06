@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.sch"
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Ingest_LDD 
+	xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd">
+
+	<name>Survey</name>
+    <ldd_version_id>1.0.1.0</ldd_version_id>
+    <dictionary_type>Discipline</dictionary_type>
+	<full_name>Jesse Stone</full_name>
+	<steward_id>sbn</steward_id>
+	<namespace_id>survey</namespace_id>
+	<comment>The Survey dictionary contains classes that support ground based sky surveys.</comment>
+	<last_modification_date_time>2021-02-22T21:30:00.000Z</last_modification_date_time>
+
+    <DD_Attribute>
+        <name>band_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>band_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The band for which the limiting magnitude specification is applicable</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>reference_object_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>reference_object_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The type of observed object used to calculate the limiting magnitude</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Asteroid</value>
+                <value_meaning>Asteroid</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Comet</value>
+                <value_meaning>Comet</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Galaxy</value>
+                <value_meaning>Galaxy</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Star</value>
+                <value_meaning>Star</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>percentage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>percentage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The percentage of known objects that are detected at the given magnitude for the specified band</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>n_sigma_n</name>
+        <version_id>1.0</version_id>
+        <local_identifier>n_sigma_n</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Represents the value of n for n-sigma limiting magnitude: The limiting magnitude of a point source at a significance of n-sigma (i.e. a S/N of n)</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>limiting_magnitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>limiting_magnitude</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Magnitude at which a threshold known objects are detected</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+
+    <DD_Attribute>
+        <name>rollover_magnitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>rollover_magnitude</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The magnitude of the peak of the histogram of stellar magnitudes in the image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    
+    <DD_Attribute>
+        <name>rollover_snr</name>
+        <version_id>1.0</version_id>
+        <local_identifier>rollover_snr</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The SNR at the magnitude of the peak of the histogram of stellar magnitudes in the image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+
+    <DD_Attribute>
+        <name>rollover_fwhm</name>
+        <version_id>1.0</version_id>
+        <local_identifier>rollover_fwhm</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The full width at half maximum of stellar sources
+                    at the magnitude of the peak of the histogram of stellar magnitudes in
+                    the image, in arcseconds</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+
+    <!-- Attribute: Corner idenfication -->
+    <DD_Attribute>
+        <name>corner_identification</name>
+        <version_id>1.0</version_id>
+        <local_identifier>corner_identification</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Identifies which corner of the image is being located. This assumes that the image is displayed correctly according to the orientation information provided in the display dictionary</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Top Left</value>
+                <value_meaning>The top-left corner</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Top Right</value>
+                <value_meaning>The top-right corner</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Bottom Left</value>
+                <value_meaning>The bottom-left corner</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Bottom Right</value>
+                <value_meaning>The bottom-right corner</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <!-- Attribute: Equinox -->
+    <DD_Attribute>
+        <name>equinox</name>
+        <version_id>1.0</version_id>
+        <local_identifier>equinox</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Time that defines the origin of a celestial coordinate system, given in fractional year. Type of year may also be indicated. For example, 'J2000.0' corresponds to an origin specified by January 1, 2000 at 12:00 Terrestrial Time in Julian years.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+
+    <!-- Attribute: Right ascension -->
+    <DD_Attribute>
+        <name>right_ascension</name>
+        <version_id>1.0</version_id>
+        <local_identifier>right_ascension</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The right ascension component of a coordinate, decimal degrees</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <!-- Attribute: Declination -->
+    <DD_Attribute>
+        <name>declination</name>
+        <version_id>1.0</version_id>
+        <local_identifier>declination</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The declination component of a coordinate, decimal degrees</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-90</minimum_value>
+            <maximum_value>90</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <!-- Attribute: Field identification -->
+    <DD_Attribute>
+        <name>field_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>field_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Project-dependent field ID</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>	
+
+    <!-- Attribute: Observation purpose -->
+    <DD_Attribute>
+        <name>observation_purpose</name>
+        <version_id>1.0</version_id>
+        <local_identifier>observation_purpose</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Identifies the intent of the observation, whether it is an actual survey observation, a followup, or a calibration image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Followup</value>
+                <value_meaning>Followup observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Survey</value>
+                <value_meaning>A survey image of an area</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Calibration</value>
+                <value_meaning>A calibration image, such as a dark or flat field</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+
+    <!-- Attribute: Observation type -->
+    <DD_Attribute>
+        <name>observation_technique</name>
+        <version_id>1.0</version_id>
+        <local_identifier>observation_technique</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Further classifies survey observations by the technique used to acquire it.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Sidereal Drift Scan</value>
+                <value_meaning>A sidereal drift scan.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Non-Sidereal Drift Scan</value>
+                <value_meaning>A non-sidereal drift scan.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Sidereal Stare</value>
+                <value_meaning>Standard observations taken at sidereal rates.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Non-Sidereal Stare</value>
+                <value_meaning>Standard observations taken at non-sidereal rates.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Track-And-Stack</value>
+                <value_meaning>Combination of multiple images of the same field.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <!-- Attribute: Calibration type -->
+    <DD_Attribute>
+        <name>calibration_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>calibration_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Further classifies calibration images by the type of calibration field used.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Flat Field</value>
+                <value_meaning>CCD flat field image</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Dark</value>
+                <value_meaning>CCD dark image</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Bias</value>
+                <value_meaning>CCD bias image</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Fringe Correction</value>
+                <value_meaning>Fringe Correction image</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    
+
+    <!-- Class: Coordinate -->
+    <DD_Class>
+        <name>Coordinate</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Coordinate</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>A location on the celestial sphere, consisting of right ascension and declination.</definition>
+        <DD_Association>
+            <identifier_reference>right_ascension</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>declination</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <!-- Class: Corner Position -->
+    <DD_Class>
+        <name>Corner_Position</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Corner_Position</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The position of one corner of an image</definition>
+        <DD_Association>
+            <identifier_reference>corner_identification</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Coordinate</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <!-- Class: Image_Corners -->
+    <DD_Class>
+        <name>Image_Corners</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Image_Corners</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The portion of the sky contained within an image, identified by its four corners</definition>
+        <DD_Association>
+            <identifier_reference>equinox</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Corner_Position</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>4</minimum_occurrences>
+            <maximum_occurrences>4</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>N_Sigma_Limit</name>
+        <version_id>1.0</version_id>
+        <local_identifier>N_Sigma_Limit</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The limiting magnitude of a point source at a significance of n-sigma (i.e. a S/N of n)</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>n_sigma_n</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>limiting_magnitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Percentage_Limit</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Percentage_Limit</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The limiting magnitude of the image, expressed as a magnitude, and the percentage of known objects detected at that magnitude</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>percentage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>limiting_magnitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Limiting_Magnitudes</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Limiting_Magnitudes</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The limiting magnitude of the image</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>band_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>reference_object_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
+            <identifier_reference>N_Sigma_Limit</identifier_reference>
+            <identifier_reference>Percentage_Limit</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Rollover</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Rollover</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The properties of the peak of the histogram of stellar magnitudes within the image.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>rollover_magnitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>rollover_fwhm</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>rollover_snr</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+
+    <DD_Class>
+        <name>Survey</name>
+        <version_id>1.1</version_id>
+        <local_identifier>Survey</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Sky Survey related properties.</definition>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>field_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>observation_purpose</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>observation_technique</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>calibration_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Image_Corners</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Limiting_Magnitudes</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Rollover</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <!-- 
+
+        Schematron Rules 
+
+        * Ensure that each corner is identified. 
+        * Ensure that corner is identified only once. Given the existing 
+        restrictions on Image_Corners, this is satisfied by the above rule.
+
+    -->
+    <DD_Rule>
+        <local_identifier>rule_all_corners</local_identifier>
+        <rule_context>survey:Survey/survey:Image_Corners</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>survey:Corner_Position/survey:corner_identification = 'Top Left'</rule_test>
+            <rule_message>A top-left corner must be provided</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>survey:Corner_Position/survey:corner_identification = 'Top Right'</rule_test>
+            <rule_message>A top-right corner must be provided</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>survey:Corner_Position/survey:corner_identification = 'Bottom Left'</rule_test>
+            <rule_message>A bottom-left corner must be provided</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>survey:Corner_Position/survey:corner_identification = 'Bottom Right'</rule_test>
+            <rule_message>A bottom-right corner must be provided</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+    <DD_Rule>
+        <local_identifier>rule_image_corners_observations</local_identifier>
+        <rule_context>survey:Survey[survey:observation_purpose!='Calibration']</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>survey:Image_Corners</rule_test>
+            <rule_message>Observations that are not for calibration must specify the image corners.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+    <DD_Rule>
+        <local_identifier>rule_calibration_data_type</local_identifier>
+        <rule_context>survey:Survey[survey:observation_purpose='Calibration']</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>//pds:Primary_Result_Summary[pds:purpose='Calibration']</rule_test>
+            <rule_message>The "Calibration" observation type may only be used with Products with a purpose of "Calibration"</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+</Ingest_LDD>

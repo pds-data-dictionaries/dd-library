@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!-- InstanceBegin template="/Templates/main.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+	<!-- InstanceBeginEditable name="doctitle" --><title>PDS: Data Dictionaries - All Versions</title><!-- InstanceEndEditable -->
+	<!--#include virtual="/include/includes.html" -->
+	<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+	<!-- InstanceParam name="menu_section" type="text" value="schema" -->
+	<!-- InstanceParam name="menu_item" type="text" value="pds4_schema" -->
+	<!-- InstanceParam name="left_sidebar" type="boolean" value="true" -->
+	<!-- InstanceParam name="standard_sidebar" type="boolean" value="true" -->
+
+	<script src="/js/ldd.js" type="text/javascript"></script>
+	<link href="/css/ldd.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="sidebar menu_datastandards menu_item_datastandards_schema">
+<!--[if IE]>
+<div id="IE">
+<![endif]-->
+
+<div id="header-container">
+  <!--#include virtual="/include/header_logo.html" -->
+  <div id="menu-container">
+    <!--#include virtual="/include/main_menu.html" -->
+    <!--#include virtual="/include/datastandards_menu.html" -->
+  </div>
+  <!--#include virtual="/include/header_links.html" -->
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+  <!-- InstanceBeginEditable name="leftSidebar" -->
+  <!--#include virtual="/include/standard_sidebar.html" -->
+  <!-- InstanceEndEditable -->
+</div>
+
+<!-- Main content -->
+<div id="content">
+	<h1><a name="mainContent"></a><!-- InstanceBeginEditable name="pageTitle" -->Data Dictionaries - All Versions<!-- InstanceEndEditable --></h1>
+	<!-- InstanceBeginEditable name="content" -->
+	<div>
+		<p>
+			This page provides links to past versions of the PDS4 Informational Model Data Dictionaries.
+		</p>
+		<ul class="versionsList">
+			<li>
+				<b><a href="/datastandards/dictionaries/index-1.16.0.0.shtml">PDS4 Version 1.16.0.0</a></b>
+				<br>Released in June, 2021
+			</li>
+			<li>
+				<b><a href="/datastandards/dictionaries/index-1.15.0.0.shtml">PDS4 Version 1.15.0.0</a></b>
+				<br>Released in January, 2021
+			</li>
+			<li>
+				<b><a href="/datastandards/dictionaries/index-pre-1.15.0.0.shtml">PDS4 Version 1.14.0.0 and earlier</a></b>
+				<br>Prior to Version 1.15.0.0, data dictionaries were built independently of the PDS4 Information Model, and therefore, their versions were managed independent of PDS4 Standards Versions.
+			</li>
+		</ul>
+		
+		<hr>
+		<p>
+			<b><a href="/datastandards/dictionaries/index-missions.shtml">Mission Data Dictionaries</a></b>
+			<br>Managed separately from the PDS4 Information Model, this link lists all released versions of the Mission Data Dictionaries.
+		</p>
+	</div>
+
+	<!-- InstanceEndEditable -->
+</div>
+
+<!--#include virtual="/include/footer.html" -->
+
+<!--[if IE]>
+</div>
+<![endif]-->
+</body>
+<!-- InstanceEnd --></html>

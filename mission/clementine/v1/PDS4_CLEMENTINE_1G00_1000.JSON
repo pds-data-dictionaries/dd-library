@@ -1,0 +1,1099 @@
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "IM Version": "1.16.0.0" ,
+      "LDD Version": "1.0.0.0" ,
+      "Date": "Thu Jun 17 22:21:38 UTC 2021" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "namespaces": ["pds:", "clementine:"] ,
+      "classDictionary": [
+        {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.clementine.Celestial_Footprint_Vertices" ,
+            "title": "Celestial_Footprint_Vertices" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": " The Celestial_Footprint_Vertices class provides a set of right ascension and declination pairs which are the vertices of a polygon representing the footprint of the field of view on the celestial sphere in the earth-centered J2000 (EME2000) coordinate system. This and its associates are direct analogs of geom:Footprint_Vertices and its associates, intended for referencing FoV to the celestial sphere rather than a target body. They can also be reconsidered reimplementations of the PDS3 Data Dictionary elements RETICLE_POINT_RA and RETICLE_POINT_DECLINATION. "
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Celestial_Footprint_Vertices.clementine.Celestial_Reference_Pixel" ,
+                "title": "Celestial_Reference_Pixel" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "5" ,
+                "classOrder": "1010" ,
+                "classId": [
+                  "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel" ,
+            "title": "Celestial_Reference_Pixel" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": " The Celestial_Reference_Pixel class provides the right ascension and declination of a specific designated pixel in the earth-centered J2000 (EME2000) coordinate system. "
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.reference_pixel_location" ,
+                "title": "reference_pixel_location" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.reference_pixel_location"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.pixel_ra" ,
+                "title": "pixel_ra" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.pixel_ra"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.pixel_dec" ,
+                "title": "pixel_dec" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.pixel_dec"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters" ,
+            "title": "Clementine_Parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Container class for Clementine-specific parameters."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.original_product_id" ,
+                "title": "original_product_id" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.original_product_id"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.revolution_number" ,
+                "title": "revolution_number" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.revolution_number"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.producer_institution_name" ,
+                "title": "producer_institution_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.producer_institution_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.frame_sequence_number" ,
+                "title": "frame_sequence_number" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.frame_sequence_number"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.sequence_table_id" ,
+                "title": "sequence_table_id" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.sequence_table_id"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.uncorrected_start_time" ,
+                "title": "uncorrected_start_time" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1060" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.uncorrected_start_time"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.clem_jpeg_version" ,
+                "title": "clem_jpeg_version" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1070" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.clem_jpeg_version"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.twist_angle" ,
+                "title": "twist_angle" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1080" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.twist_angle"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.smear_magnitude" ,
+                "title": "smear_magnitude" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1090" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.smear_magnitude"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.smear_azimuth" ,
+                "title": "smear_azimuth" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1100" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.smear_azimuth"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.north_azimuth" ,
+                "title": "north_azimuth" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1110" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.north_azimuth"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.local_hour_angle" ,
+                "title": "local_hour_angle" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1130" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.local_hour_angle"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.cryocooler_duration" ,
+                "title": "cryocooler_duration" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1150" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.cryocooler_duration"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.Celestial_Footprint_Vertices" ,
+                "title": "Celestial_Footprint_Vertices" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1120" ,
+                "classId": [
+                  "0001_NASA_PDS_1.clementine.Celestial_Footprint_Vertices"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.Illumination_Secondary" ,
+                "title": "Illumination_Secondary" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1140" ,
+                "classId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary" ,
+            "title": "Illumination_Secondary" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Illumination_Secondary class contains attributes providing illumination geometry for a secondary light source. It should be used only when parameters for a primary illumination source have been specified elsewhere in the label (perhaps using geom:Illumination_Geometry). "
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.light_source_name" ,
+                "title": "light_source_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.light_source_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.light_source_distance" ,
+                "title": "light_source_distance" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.light_source_distance"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_azimuth" ,
+                "title": "sub_light_source_azimuth" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_azimuth"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_latitude" ,
+                "title": "sub_light_source_latitude" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_latitude"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_longitude" ,
+                "title": "sub_light_source_longitude" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_longitude"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.incidence_angle" ,
+                "title": "incidence_angle" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1060" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.incidence_angle"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.phase_angle" ,
+                "title": "phase_angle" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1070" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.phase_angle"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      ]
+    , "attributeDictionary": [
+        {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.pixel_dec" ,
+            "title": "pixel_dec" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The pixel_dec attribute gives the value of the declination of a particular pixel as projected on the celestial sphere. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-90" ,
+            "maximumValue": "90" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.pixel_ra" ,
+            "title": "pixel_ra" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The pixel_ra attribute gives the value of the right ascension of a particular pixel as projected on the celestial sphere. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "360" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Celestial_Reference_Pixel.clementine.reference_pixel_location" ,
+            "title": "reference_pixel_location" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " reference_pixel_location describes the position, within an image associated with the labeled data product, of a pixel referred to by other attributes of the containing class. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.clem_jpeg_version" ,
+            "title": "clem_jpeg_version" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " The clem_jpeg_version attribute specifies the specific set of parameters fed to the Matra compression chip that performed the onboard JPEG-variant discrete cosine transformation image compression. Two settings are documented as commonly used in the primary mission: \"CLEM-JPEG-0\" and, most often, \"CLEM-JPEG-1.\" \"CLEM-JPEG-2\" and \"CLEM-JPEG-3\" also appear in some files but are not described in documentation. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "CLEM-JPEG-0" ,
+                  "valueMeaning": " CLEM-JPEG-0 denotes Matra's built-in quantization settings, weighted towards lower-frequency image data. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CLEM-JPEG-1" ,
+                  "valueMeaning": " CLEM-JPEG-1 denotes settings that utilized a flat quantization table. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CLEM-JPEG-2" ,
+                  "valueMeaning": " CLEM-JPEG-2 denotes some other group of settings not detailed in documentation. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CLEM-JPEG-3" ,
+                  "valueMeaning": " CLEM-JPEG-3 denotes some other group of settings not detailed in documentation. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "None" ,
+                  "valueMeaning": " A value of None indicates that Clementine did not compress this particular image. " ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.cryocooler_duration" ,
+            "title": "cryocooler_duration" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " The cryocooler_duration attribute provides the duration, in seconds, since the activation of an imager's cooling device and the acquisition of an image. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Time" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Time" ,
+            "unitId": "day, hr, julian day, microseconds, min, ms, ns, s, yr" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.frame_sequence_number" ,
+            "title": "frame_sequence_number" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " The frame_sequence_number attribute provides the position of an image within a sequence of images taken as part of an observational pass. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_NonNegative_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_NonNegative_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "18446744073709551615" ,
+            "pattern": "[0-9]+" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.local_hour_angle" ,
+            "title": "local_hour_angle" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The local_hour_angle attribute provides a measure of the instantaneous apparent sun position at the subspacecraft point. The local_hour_angle is the angle between the extension of the vector from the Sun to the target body and the vector projection on the target body’s ecliptic plane of a vector from the target body’s planetocentric center to the observer (usually, the spacecraft). This angle is measured in a counterclockwise direction when viewed from north of the ecliptic plane. It may be converted from an angle in degrees to a local time, using the conversion of 15 degrees per hour for those planets for which the rotational direction corresponds with the direction of measure of the angle. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "360" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.north_azimuth" ,
+            "title": "north_azimuth" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " north_azimuth gives the azimuth, in degrees, of the vector between the image center and the target north pole. The reference line for this angle extends from image center to image right edge; angle increases clockwise in the image plane. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "360" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.original_product_id" ,
+            "title": "original_product_id" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " The original_product_id attribute provides the identifier used for a product during active mission operations, which may be distinct from the product id used for archival. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.producer_institution_name" ,
+            "title": "producer_institution_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " The producer_institution_name element identifies the institution primarily responsible for the production of a particular data product. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.revolution_number" ,
+            "title": "revolution_number" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " The revolution_number attribute identifies the number of the observational pass of a spacecraft around a target body. Note: The Clementine Mission used this attribute in place of orbit number because orbit number changes half way through the observational pass over the Moon and would not be an ideal parameter when interrogating the data set. The revolution number equals orbit number at the start of the observational pass. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_NonNegative_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_NonNegative_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "18446744073709551615" ,
+            "pattern": "[0-9]+" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.sequence_table_id" ,
+            "title": "sequence_table_id" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The sequence_table_id attribute provides a code specifying the order in which cameras were shuttered and filters activated during a particular observation. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.smear_azimuth" ,
+            "title": "smear_azimuth" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " smear_azimuth gives the azimuth, in degrees, of the 'smear' velocity vector (velocity of image boresight intercept with target). The reference line for this angle extends from image center to image right edge; angle increases clockwise in the image plane. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "360" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.smear_magnitude" ,
+            "title": "smear_magnitude" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " smear_magnitude gives the amount, in pixels, that the image is 'smeared' by spacecraft motion. More specifically, in Clementine, it is the magnitude of the velocity vector of camera boresight intercept with target (including spacecraft rotation) multiplied by exposure duration and image scale. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.twist_angle" ,
+            "title": "twist_angle" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " The twist_angle attribute provides the angle of rotation about an instrument's optical axis relative to celestial coordinates. Right ascension, declination, and twist angle together completely specify the pointing of an instrument in a celestial coordinate system. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "360" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Clementine_Parameters.clementine.uncorrected_start_time" ,
+            "title": "uncorrected_start_time" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The uncorrected_start_time attribute provides the starting time value originally assigned to a product before some corrective process. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Date_Time_YMD" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Date_Time_YMD" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.incidence_angle" ,
+            "title": "incidence_angle" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The incidence_angle element provides a measure of the lighting condition at the intercept point. Incidence angle is the angle between the local vertical at the intercept point (surface) and a vector from the intercept point to the sun. The incidence_angle varies from 0 degrees when the intercept point coincides with the subsolar point to 90 degrees when the intercept point is at the terminator (i.e., in the shadowed or dark portion of the target body). " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "180" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.light_source_distance" ,
+            "title": "light_source_distance" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " Distance between the target body center and the light source whose illumination parameters are described in the containing class. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Length" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Length" ,
+            "unitId": "AU, Angstrom, cm, km, m, micrometer, mm, nm" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.light_source_name" ,
+            "title": "light_source_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": " Name of light source to which other attributes of containing class apply. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.phase_angle" ,
+            "title": "phase_angle" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The phase_angle element provides a measure of the relationship between the instrument viewing position and incident illumination (such as solar light). Phase angle is measured at the target; it is the angle between a vector to the illumination source and a vector to the instrument. If illumination is from behind the instrument, phase_angle will be small. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "180" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_azimuth" ,
+            "title": "sub_light_source_azimuth" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The sub_light_source_azimuth attribute provides the value of the angle between the line from the center of an image to the sub-light-source point on the target and a horizontal reference line (in the image plane) extending from the image center to the middle right edge of the image. The values of this angle increase in a clockwise direction. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "360" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_latitude" ,
+            "title": "sub_light_source_latitude" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The sub_light_source_latitude attribute gives the value of the planetocentric latitude at the sub-light-source point on the target. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-90" ,
+            "maximumValue": "90" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.clementine.Illumination_Secondary.clementine.sub_light_source_longitude" ,
+            "title": "sub_light_source_longitude" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "clementine" ,
+            "steward": "img" ,
+            "versionId": "1.16" ,
+            "description": "The sub_light_source_longitude attribute gives the value of the planetocentric latitude at the sub-light-source point on the target. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "360" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Angle" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
+            "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      ]
+    }
+  }
+]

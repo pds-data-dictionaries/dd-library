@@ -1,0 +1,2476 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        10.1.2
+   LDD Version Id:        1.5.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Mon Feb 10 12:30:54 EST 2020
+   Common Schema          [PDS4_PDS_1D00.xsd]
+   Common Schematron      [PDS4_PDS_1D00.sch]
+   IM Version Id:         1.13.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.19
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [input_PDS4_Cassini_1D00_1500.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                8
+   Attributes             203
+   Associations           242
+   Error messages         0
+   Warning messages       13
+   Information messages   40
+
+Detailed validation messages
+   WARNING  Attribute: <background_sampling_mode_id> - This local attribute was not used in an Association.
+   WARNING  Attribute: <expected_maximum> - This local attribute was not used in an Association.
+   WARNING  Attribute: <fast_hk_item_name> - This local attribute was not used in an Association.
+   WARNING  Attribute: <filter_name> - This local attribute was not used in an Association.
+   WARNING  Attribute: <hdac_d_level> - This local attribute was not used in an Association.
+   WARNING  Attribute: <hdac_h_level> - This local attribute was not used in an Association.
+   WARNING  Attribute: <inst_cmprs_param> - This local attribute was not used in an Association.
+   WARNING  Attribute: <inst_cmprs_rate> - This local attribute was not used in an Association.
+   WARNING  Attribute: <instrument_temperature> - This local attribute was not used in an Association.
+   WARNING  Attribute: <optics_temperature> - This local attribute was not used in an Association.
+   WARNING  Attribute: <valid_maximum> - This local attribute was not used in an Association.
+   WARNING  Header:  - New steward has been specified:atm
+   WARNING  Header:  - New namespace id has been specified:cassini
+   INFO     Attribute: <command_sequence_number> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <electronics_bias> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <electronics_bias> - The default maximum value provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <expected_maximum_full_well> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <expected_maximum_DN_sat> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <expected_packets> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <expected_packets> - The default maximum value provided by the attribute's data type is being overridden with 2277
+   INFO     Attribute: <inst_cmprs_rate_expected_bits> - The default minimum value provided by the attribute's data type is being overridden with -999.
+   INFO     Attribute: <inst_cmprs_rate_expected_bits> - The default maximum value provided by the attribute's data type is being overridden with 16.
+   INFO     Attribute: <inst_cmprs_rate_actual_bits> - The default minimum value provided by the attribute's data type is being overridden with -999.
+   INFO     Attribute: <inst_cmprs_rate_actual_bits> - The default maximum value provided by the attribute's data type is being overridden with 16.
+   INFO     Attribute: <inst_cmprs_ratio> - The default minimum value provided by the attribute's data type is being overridden with -999
+   INFO     Attribute: <missing_lines> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <optics_temperature_front> - The default minimum value provided by the attribute's data type is being overridden with -999
+   INFO     Attribute: <optics_temperature_back> - The default minimum value provided by the attribute's data type is being overridden with -999
+   INFO     Attribute: <order_number> - The default minimum value provided by the attribute's data type is being overridden with -999
+   INFO     Attribute: <parallel_clock_voltage_index> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <parallel_clock_voltage_index> - The default maximum value provided by the attribute's data type is being overridden with 15
+   INFO     Attribute: <prepare_cycle_index> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <prepare_cycle_index> - The default maximum value provided by the attribute's data type is being overridden with 15
+   INFO     Attribute: <readout_cycle_index> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <readout_cycle_index> - The default maximum value provided by the attribute's data type is being overridden with 15
+   INFO     Attribute: <received_packets> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <sequence_number> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <sequence_number> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <sequence_number> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <sequence_number> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <valid_maximum> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <valid_maximum_full_well> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <compressor_id> - The default minimum value provided by the attribute's data type is being overridden with -1
+   INFO     Attribute: <mean_ring_boresight_emission_angle> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <mean_ring_boresight_emission_angle> - The default maximum value provided by the attribute's data type is being overridden with 180
+   INFO     Attribute: <mean_ring_boresight_local_time> - The default minimum value provided by the attribute's data type is being overridden with 0.
+   INFO     Attribute: <mean_ring_boresight_local_time> - The default maximum value provided by the attribute's data type is being overridden with 24.
+   INFO     Attribute: <mean_ring_boresight_longitude_zpd> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <mean_ring_boresight_longitude_zpd> - The default maximum value provided by the attribute's data type is being overridden with 360
+   INFO     Attribute: <mean_ring_boresight_solar_phase> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <mean_ring_boresight_solar_phase> - The default maximum value provided by the attribute's data type is being overridden with 180
+   INFO     Attribute: <mean_ring_boresight_solar_zenith> - The default minimum value provided by the attribute's data type is being overridden with -90
+   INFO     Attribute: <mean_ring_boresight_solar_zenith> - The default maximum value provided by the attribute's data type is being overridden with 90
+
+Parsed Input - Header:
+   LDD Name               Cassini Mission
+   LDD Version            1.5.0.0
+   Full Name              Lyle Huber
+   Steward                atm
+   Namespace Id           cassini
+   Comment                TBD_Ingest_LDD
+   Last Modification Time 2020-02-10T11:25:00
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   mission_phase_name
+   version                1.13
+   value data type        ASCII_Short_String_Preserved
+   description            The mission_phase_name identifies a time period within the mission.
+
+   name                   spacecraft_clock_count_partition
+   version                1.13
+   value data type        ASCII_Integer
+   description            The spacecraft_clock_count_partition element indicates the clock partition active for spacecraft_clock_start_count and spacecraft_clock_stop_count elements.
+
+   name                   spacecraft_clock_start_count
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the actual start of image acquisition. There may be small inconsistencies with start_date_time due to varying correlation between UTC and the spacecraft clock. For purposes of data analysis the spacecraft clock value should be used. The format of this field is compatible with the NAIF Toolkit software where s = seconds converted from the clock's coarse counter and m = seconds converted from the clock's fine counter.
+
+   name                   spacecraft_clock_stop_count
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the actual end of image acquisition. There may be small inconsistencies with stop_date_time due to varying correlation between UTC and the spacecraft clock. For purposes of data analysis the spacecraft clock value should be used. The format of this field is compatible with the NAIF Toolkit software where s = seconds converted from the clock's coarse counter and m = seconds converted from the clock's fine counter. A value of 9999999999.99 indicates the information was not provided in the PDS3 label or index.
+
+   name                   line_name
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            Coordinate name for the line axis
+
+   name                   sample_name
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            Coordinate name for the sample axis
+
+   name                   first_line_center
+   version                1.13
+   value data type        ASCII_Real
+   description            Line coordinate at the center of the first line element
+
+   name                   first_sample_center
+   version                1.13
+   value data type        ASCII_Real
+   description            Sample coordinate at the center of the first sample element
+
+   name                   last_line_center
+   version                1.13
+   value data type        ASCII_Real
+   description            Line coordinate at the center of the last line element
+
+   name                   last_sample_center
+   version                1.13
+   value data type        ASCII_Real
+   description            Sample coordinate at the center of the last sample element
+
+   name                   line_center
+   version                1.13
+   value data type        ASCII_Real
+   description            For equirectangular cubes, this is the latitude of the pixel center, in degrees. For point perspective cubes, it is the scaled offset from the body center, in the direction of increasing J2000 Declination, in milliradians.
+
+   name                   sample_center
+   version                1.13
+   value data type        ASCII_Real
+   description            For equirectangular cubes, this is the West longitude of the pixel center, in degrees. For point perspective cubes, it is the scaled offset from the body center, in the direction of decreasing J2000 Right Ascension, in milliradians.
+
+   name                   ul_corner_line
+   version                1.13
+   value data type        ASCII_Integer
+   description            The ul_corner_line element is an attribute used in the Detector_Window class. It identifies the line coordinate of the upper left corner of a specific window. 
+
+   name                   ul_corner_band
+   version                1.13
+   value data type        ASCII_Integer
+   description            The ul_corner_band element is an attribute used in the Detector_Window class. It identifies the band coordinate of the upper left corner of a specific window. 
+
+   name                   lr_corner_line
+   version                1.13
+   value data type        ASCII_Integer
+   description            The lr_corner_line element is an attribute used in the Detector_Window class. It identifies the line coordinate of the lower right corner of a specific window. 
+
+   name                   lr_corner_band
+   version                1.13
+   value data type        ASCII_Integer
+   description            The lr_corner_band element is an attribute used in the Detector_Window class. It identifies the band coordinate of the lower right corner of a specific window. 
+
+   name                   band_bin
+   version                1.13
+   value data type        ASCII_Integer
+   description            The band_bin element is an attribute used in the Detector_Window class. It identifies the amount of binning done within the window along the band axis. 
+
+   name                   line_bin
+   version                1.13
+   value data type        ASCII_Integer
+   description            The line_bin element is an attribute used in the Detector_Window class. It identifies the amount of binning done within the window along the line axis. 
+
+   name                   focal_plane
+   version                1.13
+   value data type        ASCII_Integer
+   description            Focal plane used in CIRS observations.
+
+   name                   total_spectral_power
+   version                1.13
+   value data type        ASCII_Real
+   description            The integrated radiance under the power spectrum.
+
+   name                   native_start_time
+   version                1.13
+   value data type        ASCII_Real
+   description            Ephemeris time in seconds past J2000 at the beginning of a time period of interest.
+
+   name                   native_stop_time
+   version                1.13
+   value data type        ASCII_Real
+   description            Ephemeris time in seconds past J2000 at the end of a time period of interest.
+
+   name                   antiblooming_state_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The antiblooming_state_flag element indicates whether antiblooming was used for this image. Blooming occurs when photons from an individual cell in a CCD array overflow into surrounding cells. Antiblooming measures are used to either prevent or correct for this effect.
+
+   name                   bias_strip_mean
+   version                1.13
+   value data type        ASCII_Real
+   description            The bias_strip_mean element provides the mean value of the bias strip (also known as overclocked pixels). The bias strip is an area of a CCD that provides a measure of the bias level of the electronics (ie., electronics noise). It is not affected by dark current. Note: For Cassini, this mean does not include the values from the first and last lines of the CCD.
+
+   name                   calibration_lamp_state_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The calibration_lamp_state_flag element indicates whether a lamp used for onboard camera calibration is turned on or off.
+
+   name                   command_file_name
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The command_file_name element provides the name of the file containing the commanded observation description for this product. Note: For Cassini, this comes from the Instrument Operations Interface (IOI) file.
+
+   name                   command_sequence_number
+   version                1.13
+   value data type        ASCII_Integer
+   description            The command_sequence_number element provides a numeric identifier for a sequence of commands sent to a spacecraft or instrument. For ISS, the permissible range is [1,65535]. For VIMS, the permissible range is [1,255]. For all instances, a value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+
+   name                   dark_strip_mean
+   version                1.13
+   value data type        ASCII_Real
+   description            The dark_strip_mean element provides the mean value of the pixels in the dark strip area of a CCD. The dark strip is an area of the CCD which is covered in such a way as to receive no light. The dark strip provides a measure of the dark current in the CCD. Note: For Cassini, the dark strip pixels were referred to as extended pixels. Also, the mean was calculated without the values from the first and last lines of the CCD.
+
+   name                   data_conversion_type
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The data_conversion_type element provides the method of conversion used to reduce an image from one bit depth to another. Note: For Cassini, this means conversion of a selected image from 12 to 8 bits.
+
+   name                   delayed_readout_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The delayed_readout_flag element provides an indication of whether or not an image had to remain stored on a CCD while some some other instrument function was taking place. Note: for Cassini, the delay in the image readout is due to the readout of the alternate camera image from the CCD.
+
+   name                   detector_temperature
+   version                1.13
+   value data type        ASCII_Real
+   description            The detector_temperature is the temperature that the instrument (detector) operated at while a measurement was made. For VIMS, this PDS3 keyword was multi-valued, with the specific meaning of each value based on the order of the given values. Consequently, for VIMS in PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] detector_temperature_IR_high_res [2] detector_temperature_IR_low_res [3] detector_temperature_visible 
+   unit of measure type   Units_of_Temperature
+
+   name                   detector_temperature_IR_high_res
+   version                1.13
+   value data type        ASCII_Real
+   description            The detector_temperature_IR_high_res element provides the temperature of the IR high resolution (small range) sensor. 
+   unit of measure type   Units_of_Temperature
+
+   name                   detector_temperature_IR_low_res
+   version                1.13
+   value data type        ASCII_Real
+   description            The detector_temperature_IR_low_res element provides the temperature of the IR low resolution (large range) sensor. 
+   unit of measure type   Units_of_Temperature
+
+   name                   detector_temperature_visible
+   version                1.13
+   value data type        ASCII_Real
+   description            The detector_temperature_visible element provides the temperature of the visible sensor. 
+   unit of measure type   Units_of_Temperature
+
+   name                   earth_received_start_time
+   version                1.13
+   value data type        ASCII_Date_Time_DOY
+   description            The earth_received_start_time element provides the earth Received time of the earliest record containing valid data for this image (UTC).
+
+   name                   earth_received_stop_time
+   version                1.13
+   value data type        ASCII_Date_Time_DOY
+   description            The earth_received_stop_time element provides the earth Received time of the latest record containing valid data for this image (UTC).
+
+   name                   electronics_bias
+   version                1.13
+   value data type        ASCII_Integer
+   description            The electronics_bias element provides the commanded electronics bias value that is used to ensure that all digital number (DN) values in the data are greater than zero. A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+   maximum value          255
+
+   name                   expected_maximum
+   version                2.0
+   value data type        ASCII_Real
+   description            The expected_maximum element represents expected value of the maximum data element expressed as a percentage of the VALID_MAXIMUM. This PDS3 keyword was multi-valued with the specific meaning of each value based on the order of the given values. For PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] expected_maximum_full_well [2] expected_maximum_DN_sat 
+
+   name                   expected_maximum_full_well
+   version                1.13
+   value data type        ASCII_Real
+   description            The expected_maximum_full_well element represents the ratio of the expected maximum DN in the image to the valid_maximum_full_well (minimum full well saturation level of the instrument). Valid values are greater than zero. A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+
+   name                   expected_maximum_DN_sat
+   version                1.13
+   value data type        ASCII_Real
+   description            The expected_maximum_DN_sat element represents the ratio of the expected maximum DN in the image to to the valid_maximum_DN_sat (maximum DN saturation level). Valid values are greater than zero. A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+
+   name                   expected_packets
+   version                1.13
+   value data type        ASCII_Integer
+   description            The expected_packets element provides the total number of telemetry packets which constitute a complete data product, i.e., a data product without missing data. Valid values are in the range [1,2277] A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+   maximum value          2277
+
+   name                   exposure_duration
+   version                1.13
+   value data type        ASCII_Real
+   description            The exposure_duration element for Cassini ISS provides the value of the time interval between the opening and closing of an instrument aperture (such as a camera shutter). For Cassini VIMS, the PDS3 keyword was multi-valued,with the specific meaning of each value based on the order of the given values. For VIMS in PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] exposure_duration_ir [2] exposure_duration_vis 
+   unit of measure type   Units_of_Time
+
+   name                   exposure_duration_ir
+   version                1.13
+   value data type        ASCII_Real
+   description            The exposure_duration_ir element provides integration duration | of each pixel of the VIMS IR channel. 
+   unit of measure type   Units_of_Time
+
+   name                   exposure_duration_vis
+   version                1.13
+   value data type        ASCII_Real
+   description            The exposure_duration_vis element provides integration duration | of each pixel of the VIMS visible channel. 
+   unit of measure type   Units_of_Time
+
+   name                   filter_name
+   version                2.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The filter_name element provides the commonly-used name of the instrument filter through which an image or measurement was acquired or which is associated with a given instrument mode. This PDS3 keyword was multi-valued for ISS,with the specific meaning of each value based on the order of the given values. For PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] filter_name_1 - the filter in filter wheel 1 [2] filter_name_2 - the filter in filter wheel 2 
+
+   name                   filter_name_1
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            Cassini ISS uses two filter wheels identified as Filter Wheel One and Filter Wheel Two. The filter_name_1 element provides the abbreviation for the filter in ISS Filter wheel One through which an image or measurement was acquired or which is associated with a given instrument mode. 
+
+   name                   filter_name_2
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            Cassini ISS uses two filter wheels identified as Filter Wheel One and Filter Wheel Two. The filter_name_2 element provides the abbreviation for the filter in ISS Filter wheel Two through which an image or measurement was acquired or which is associated with a given instrument mode. 
+
+   name                   filter_temperature
+   version                1.13
+   value data type        ASCII_Real
+   description            The filter_temperature element provides the temperature of the filter wheel housing.
+   unit of measure type   Units_of_Temperature
+
+   name                   flight_software_version_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The flight_software_version_id element identifies the version of the instrument flight software used to acquire the image.
+
+   name                   ground_software_version_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The ground_software_version_id element identifies the version of the ground software used to acquire the image.Corresponds to the PDS3 keyword SOFTWARE. 
+
+   name                   gain_mode_id
+   version                1.13
+   value data type        ASCII_Integer
+   description            The gain_mode_id element identifies the gain state of an instrument. Gain is a constant value which is multiplied with an instrument's output signal to increase or decrease the level of that output. For ISS the value is the approximate gain setting for the image, given in units of electrons per DN. The use of an approximate value allows the both cameras to use the same set of values. The enumerated values given here are for Cassini ISS. For VIMS, this PDS3 keyword was multi-valued, with the specific meaning of each value based on the order of the given values. For VIMS in PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] gain_mode_id_ir [2] gain_mode_id_vis 
+   nillable               true
+   unit of measure type   Units_of_Misc
+
+   name                   gain_mode_id_ir
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The gain_mode_id_ir element identifies the gain state of the IR channel. Gain is a constant value which is multiplied with an instrument's output signal to increase or decrease the level of that output. In PDS3, for VIMS the keyword GAIN_MODE_ID was multi-valued, with the specific meaning of each value based on the order of the given values. For VIMS in PDS4, this keyword has been replaced by two specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] gain_mode_id_ir [2] gain_mode_id_vis 
+   nillable               true
+
+   name                   gain_mode_id_vis
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The gain_mode_id_vis element identifies the gain state of the visual channel. Gain is a constant value which is multiplied with an instrument's output signal to increase or decrease the level of that output. In PDS3, for VIMS the keyword GAIN_MODE_ID was multi-valued, with the specific meaning of each value based on the order of the given values. For VIMS in PDS4, this keyword has been replaced by two specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] gain_mode_id_ir [2] gain_mode_id_vis 
+   nillable               true
+
+   name                   image_mid_time
+   version                1.13
+   value data type        ASCII_Date_Time_DOY
+   description            The image_mid_time element provides the time at which the exposure of the image was half way through its duration. This value is calculated from the formula, spacecraft_clock_stop_count - (exposure_duration/2), and then converted to UTC. Note: For Cassini, when the shutter is inhibited (i.e., shutter_state_id='Disabled'), the image_mid_time = start_date_time = stop_date_time, and all three represent the start of the exposure window during the prepare cycle of the image.
+
+   name                   image_time
+   version                1.13
+   value data type        ASCII_Date_Time_DOY
+   description            The image_time element is duplicated from the PDS3 label. It provides Time of shutter close calculated from spacecraft clock using both the coarse (seconds) and fine (subRTI) counters (UTC). (A subRTI is approximately 4 msec (1/256 second)). The value is identical to that given in start_time_doy, and start_date_time. Although it is redundant, it is retained here for historical reasons. When the shutter was inhibited (ie SHUTTER_STATE_ID=”DISABLED”), the IMAGE_TIME = START_TIME = STOP_TIME, and all three represent the start of the exposure window during the prepare cycle of the image. 
+
+   name                   image_number
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The image_number element is a value obtained from the spacecraft_clock_start_count. The image number is another commonly used identifier for an image.
+
+   name                   image_observation_type
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The image_observation_type element identifies the type or purpose of an observation that may be associated with an image. Image observation types include limb, black sky, spacecraft calibration, or other image attribute that may be used for identification.
+
+   name                   instrument_data_rate
+   version                1.13
+   value data type        ASCII_Real
+   description            The instrument_data_rate element provides the rate at which data were transmitted from an instrument to the spacecraft.
+
+   name                   instrument_mode_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The instrument_mode_id element provides an instrument-dependent designation of operating mode. This may be simply a number, letter or code, or a word such as 'normal', 'full resolution', 'near encounter', or 'fixed grating'.
+
+   name                   inst_cmprs_name
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The inst_cmprs_name element identifies the type of on-board compression used for data storage and transmission.
+
+   name                   inst_cmprs_param
+   version                2.0
+   value data type        ASCII_Integer
+   description             In PDS3, a four valued array describing lossy compression. (Applies only when INST_CMPRS_TYPE = “LOSSY”). This PDS3 keyword was multi-valued with the specific meaning of each value based on the order of the given values. For PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] inst_cmprs_param_malgo [2] inst_cmprs_param_tb [3] inst_cmprs_param_blocks [4] inst_cmprs_param_quant 
+
+   name                   inst_cmprs_param_malgo
+   version                1.13
+   value data type        ASCII_Integer
+   description            The inst_cmprs_param_malgo is applicable only when the value of inst_cmprs_type = “LOSSY”. This value defines the MALGO (algorithm) parameter. Valid values are in the range [0,1] A value of 999 indicates that lossy compression was not used, or that the information was not available in the original PDS3 label. 
+
+   name                   inst_cmprs_param_tb
+   version                1.13
+   value data type        ASCII_Integer
+   description            The inst_cmprs_param_tb is applicable only when the value of inst_cmprs_type = “LOSSY”. This value defines the TB (block type) parameter. Valid values are in the range [0,1] A value of 999 indicates that lossy compression was not used, or that the information was not available in the original PDS3 label. 
+
+   name                   inst_cmprs_param_blocks
+   version                1.13
+   value data type        ASCII_Integer
+   description            The inst_cmprs_param_blocks is applicable only when the value of inst_cmprs_type = “LOSSY”. This value defines the group-of-blocks (number of blocks per group) parameter. Valid values are in the range [1,255] A value of 999 indicates that lossy compression was not used, or that the information was not available in the original PDS3 label. 
+
+   name                   inst_cmprs_param_quant
+   version                1.13
+   value data type        ASCII_Integer
+   description            The inst_cmprs_param_quant is applicable only when the value of inst_cmprs_type = “LOSSY”. This value defines the compression rate parameter (quantization factor). Valid values are in the range [0,15] A value of 999 indicates that lossy compression was not used, or that the information was not available in the original PDS3 label. 
+
+   name                   inst_cmprs_rate
+   version                2.0
+   value data type        ASCII_Real
+   description            The inst_cmprs_rate element provides the average number of bits needed to represent a pixel for an on-board compressed image. This PDS3 keyword was multi-valued with the specific meaning of each value based on the order of the given values. For PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] inst_cmprs_rate_expected_bits [2] inst_cmprs_rate_actual_bits 
+
+   name                   inst_cmprs_rate_expected_bits
+   version                1.13
+   value data type        ASCII_Real
+   description            The inst_cmprs_rate_expected_bits element provides the average number of bits needed to represent a pixel for an on-board compressed image. It comes from the BITS_PER_PIXEL keyword in the IOI file. Valid values are in the range [0.0,16.0]. A value of -999. indicates that the information was not available in the original PDS3 label. 
+   minimum value          -999.
+   maximum value          16.
+
+   name                   inst_cmprs_rate_actual_bits
+   version                1.13
+   value data type        ASCII_Real
+   description            The inst_cmprs_rate_actual_bits element provides the average number of bits needed to represent a pixel for an on-board compressed image. It is the actual average number of bits and is calculated during telemetry processing. Valid values are in the range [0.0,16.0]. A value of -999. indicates that the information was not available in the original PDS3 label. 
+   minimum value          -999.
+   maximum value          16.
+
+   name                   inst_cmprs_ratio
+   version                1.13
+   value data type        ASCII_Real
+   description            The inst_cmprs_ratio element provides the ratio of the size, in bytes, of the original uncompressed data file to its compressed form. A value of -999 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -999
+
+   name                   inst_cmprs_type
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The inst_cmprs_type element identifies the type of on-board compression used for data storage and transmission.
+
+   name                   light_flood_state_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The light_flood_state_flag element indicates the mode (on or off) of light flooding for an instrument.
+
+   name                   limitations
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The limitation element repeats the content of the DESCRIPTION keyword in the PDS3 label. It proivdes known limitations of the data file (e.g., missing lines), as determined on the ground by IO validation and reconciliation software. A value of N/A indicates the software did not identify any issues. 
+
+   name                   method_description
+   version                1.13
+   value data type        ASCII_Text_Collapsed
+   description            The method_description element describes the method used to perform a particular observation.
+
+   name                   missing_lines
+   version                1.13
+   value data type        ASCII_Integer
+   description            The missing_lines element is the total number of lines of data missing from an image or observation when it was received on Earth. Note: For Cassini, this provides the number of missing or incomplete lines of image data. A value of -1 indicates that the value in the original PDS3 label was N/A. 
+   minimum value          -1
+
+   name                   missing_packet_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The missing_packet_flag element indicates whether or not there were telemetry packets that were expected but not received. 
+
+   name                   observation_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The observation_id element uniquely identifies a scientific observation.
+
+   name                   orbit_number
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The orbit_number element, if present, is the value assigned by the mission for the orbit number associated with the observation. Note due to the need to redesignate some early orbits, there are orbits for which the number includes letters.
+
+   name                   optics_temperature
+   version                2.0
+   value data type        ASCII_Real
+   description            The optics_temperature element provides the temperature of the optics of an instrument. This PDS3 keyword was multi-valued for both ISS and VIMS ,with the specific meaning of each value based on the order of the given values. For PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 ISS [1] optics_temperature_front - optics temperature at the front [2] optics_temperature_back - optics temperature at the back Note that there is no rear optics temperature for the WAC camera, so when INSTRUMENT_ID = ISSWA, the second element of the array will always be –999.0. VIMS [1] optics_temperature_ir_1 - optics temp of the IR primary optics [2] optics_temperature_ir_2 - optics temp of the IR secondary [3] optics_temperature_vis - optics temp of the visual optics Note: If the channel wasn't used, the respective value(s) were set to -999. 
+   unit of measure type   Units_of_Temperature
+
+   name                   optics_temperature_front
+   version                1.13
+   value data type        ASCII_Real
+   description            The optics_temperature_front element provides the temperature of the ISS front optics. A value of -999 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -999
+   unit of measure type   Units_of_Temperature
+
+   name                   optics_temperature_back
+   version                1.13
+   value data type        ASCII_Real
+   description            The optics_temperature_back element provides the temperature of the ISS back optics. A value of -999 indicates that the information was not available in the original PDS3 label, or is Not applicable Note that there is no rear optics temperature for the WAC camera, so when INSTRUMENT_ID = ISSWA, the value for optics_temperature_back will be –999.0. 
+   minimum value          -999
+   unit of measure type   Units_of_Temperature
+
+   name                   optics_temperature_ir_1
+   version                1.13
+   value data type        ASCII_Real
+   description            The optics_temperature_ir_1 element provides the temperature of the VIMS primary IR optics. 
+   unit of measure type   Units_of_Temperature
+
+   name                   optics_temperature_ir_2
+   version                1.13
+   value data type        ASCII_Real
+   description            The optics_temperature_ir_2 element provides the temperature of the VIMS secondary IR optics. 
+   unit of measure type   Units_of_Temperature
+
+   name                   optics_temperature_vis
+   version                1.13
+   value data type        ASCII_Real
+   description            The optics_temperature_vis element provides the temperature of the VIMS visual optics. Note: If the channel wasn't used, the respective value(s) were set to -999. 
+   unit of measure type   Units_of_Temperature
+
+   name                   order_number
+   version                1.13
+   value data type        ASCII_Integer
+   description            The order_number element is a unique system_generated number which is used to identify the order in which observations were executed. A value of -999 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -999
+
+   name                   parallel_clock_voltage_index
+   version                1.13
+   value data type        ASCII_Integer
+   description            The parallel_clock_voltage_index element provides the commanded parallel clock voltage value which controls clocking frequency. A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+   maximum value          15
+
+   name                   prepare_cycle_index
+   version                1.13
+   value data type        ASCII_Integer
+   description            The prepare_cycle_index element provides the element number within the Prepare Cycle table selected for this image. Prepare cycles include activities carried on within an instrument between sequential data acquisition and CCD readout operations. This includes such things as light flooding and erasure of the CCD and filter wheel stepping. Note: for Cassini, the Prepare Cycle table provides a translation of these values into cycle durations in seconds.
+   minimum value          0
+   maximum value          15
+
+   name                   pds3_product_creation_time
+   version                1.13
+   value data type        ASCII_Date_Time_DOY
+   description            The pds3_product_creation_time element provides the creation time of the original PDS3 product. It is included in the label for historical reasons.
+
+   name                   pds3_product_version_type
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The pds3_product_version_type element provides the instrument teams internal version type of the original PDS3 products. In products submitted to PDS, the only value for this keyword is FINAL. This attribute is included in the PDS4 label for historical reasons. 
+
+   name                   pds3_target_desc
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The pds3_target_desc element provides the value for TARGET_DESC given in the PDS3 label. The name of the intended target for which the exposure was calculated/selected in the given image. May include calibration type information. This frequently provides a more accurate clue to the actual target than does the PDS3 keyword TARGET_NAME. For many observations (e.g., those targeted at the rings) neither gives the correct information). 
+
+   name                   pds3_target_list
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The pds3_target_list element corresponds to TARGET_LIST in the PDS3 label. TARGET_LIST was intended to provide a list of all known targets in the image field-of-view. However this was not provided, so the only value for this keyword is N/A. This attribute is included in the PDS4 label for historical reasons. For lists of all know targets in the FoV of each image see the *_inventory.tab files in this collection (* is either cruise or saturn). 
+
+   name                   pds3_target_name
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The pds3_target_name element provides the value for TARGET_NAME given in the PDS3 label. The name of the intended target based on the Predicted Events File (PEF). For many observations the value is not the actual target (e.g., it may indicate Saturn, while the observation was of some other target based on an offset from Saturn). The most accurate, though potentially flawed identification of the intended target is given in the Target_Identification class elsewhere in the label. This attribute is included in the PDS4 label for historical reasons. 
+
+   name                   pre-pds_version_number
+   version                1.13
+   value data type        ASCII_Integer
+   description            The pre-pds_version_number element provides the version number product used internally by the provider. For ISS, the value was included in the PDS3 product filenames, but is not included in the PDS4 filenames. This attribute preserves the information primarily for historical reasons since only one of the internal versions of any ISS product was delivered to PDS. The internal versions were used because the same image may have been built multiple times due to multiple downlinks, or multiple TDS queries, etc. In every case, the best available internal version was the version submitted to PDS. 
+
+   name                   readout_cycle_index
+   version                1.13
+   value data type        ASCII_Integer
+   description            The readout_cycle_index element provides the element number within the Readout Cycle table selected for this image. The readout cycle of an instrument involves that part of its function involved in reading the light values out of a CCD array. Note: for Cassini, the Readout Cycle table provides a translation of these values into cycle durations in seconds. A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+   maximum value          15
+
+   name                   received_packets
+   version                1.13
+   value data type        ASCII_Integer
+   description            The received_packets element provides the total number of telemetry packets which constitute a reconstructed data product. A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+
+   name                   sensor_head_electronics_temperature
+   version                1.13
+   value data type        ASCII_Real
+   description            The sensor_head_electronics_temperature element provides the temperature of the sensor head electronics.
+   unit of measure type   Units_of_Temperature
+
+   name                   sequence_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            TThe sequence_id element provides an identification of the spacecraft sequence associated with the given product.
+
+   name                   sequence_number
+   version                1.13
+   value data type        ASCII_Integer
+   description            The sequence_number element indicates a number designating the place occupied by an item in an ordered sequence. A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+
+   name                   sequence_title
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The sequence_title element provides the team lead assigned title, if any, to a particular observation sequence of which this image was a part. 
+
+   name                   shutter_mode_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The shutter_mode_id element identifies the state of an imaging instrument's shutter during image acquisition. Note: the instrument shutter mode affects the radiometric properties of the camera.
+
+   name                   shutter_state_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The shutter_state_id element provides an indication of the state of an instrument's shutters at the time of an exposure.
+
+   name                   shutter_state_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The shutter_state_flag element indicates the state of of VIMS IR shutter at the time of an exposure.
+
+   name                   start_time_doy
+   version                1.13
+   value data type        ASCII_Date_Time_DOY
+   description            The start_time_doy element provides the time of shutter open. Calculated from spacecraft clock of shutter close less the exposure duration. Expressed in UTC format, and includes subRTI resolution. (A subRTI is approximately 4 msec (1/256 second)). When the shutter was inhibited (ie SHUTTER_STATE_ID=”DISABLED”), the START_TIME = STOP_TIME, and both represent the start of the exposure window during the prepare cycle of the image. This value corresponds to the value for start_date_time given in the Time Coordinates section of the label in the year day-of-year format of the original PDS3 label. 
+
+   name                   stop_time_doy
+   version                1.13
+   value data type        ASCII_Date_Time_DOY
+   description            The stop_time_doy element provides the time of shutter close from spacecraft clock (UTC). Identical to image_time. Includes subRTI resolution. (A subRTI is approximately 4 msec (1/256 second)). When the shutter was inhibited (ie SHUTTER_STATE_ID=”DISABLED”), the START_TIME = STOP_TIME, and both represent the start of the exposure window during the prepare cycle of the image. This value corresponds to the value for stop_date_time given in the Time Coordinates section of the label in the year day-of-year format of the original PDS3 label. 
+
+   name                   telemetry_format_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The telemetry_format_id element supplies a telemetry format code.
+
+   name                   valid_maximum
+   version                2.0
+   value data type        ASCII_Real
+   description            The valid_maximum element represents the maximum value that is valid for a data object. For ISS, this PDS3 keyword was multi-valued with the specific meaning of each value based on the order of the given values. For PDS4, this keyword has been replaced for ISS by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] valid_maximum_full_well [2] valid_maximum_DN_sat 
+
+   name                   valid_maximum_full_well
+   version                1.13
+   value data type        ASCII_Real
+   description            The valid_maximum_full_well element indicates the minimum full well saturation level of the instrument, which is a function of INSTRUMENT_MODE_ID, INSTRUMENT_ID, and GAIN_MODE_ID, expressed as a DN value. This may exceed 4095. 
+   minimum value          -1
+
+   name                   valid_maximum_DN_sat
+   version                1.13
+   value data type        ASCII_Integer
+   description            The valid_maximum_DN_sat element indicates the maximum DN saturation level for the signal returned by the A/D converter. Valid values are 255 and 4095. A value of -1 indicates that the information was not available in the original PDS3 label. 
+
+   name                   background_sampling_frequency
+   version                1.13
+   value data type        ASCII_Integer
+   description            The background_sampling_frequency element is used by VIMS. It identifies the number of lines between background samples. 
+
+   name                   background_sampling_mode_id
+   version                2.0
+   value data type        ASCII_Short_String_Collapsed
+   description            In PDS3, for VIMS the keyword BACKGROUND_SAMPLING_MODE_ID was multi-valued, with the specific meaning of each value based on the order of the given values. The keyword values indicate the resolution mode of the IR channel, and the spatial resolution of the visual channel. For VIMS in PDS4, this keyword has been replaced by two specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] background_sampling_mode_id_ir [2] background_sampling_mode_id_vis 
+
+   name                   background_sampling_mode_id_ir
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The background_sampling_mode_id_ir element is a VIMS attribute which indicates the background sampling mode for the IR channel. If background sampling is turned on, one, two, or four samples can be averaged for each background point. 
+
+   name                   background_sampling_mode_id_vis
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The background_sampling_mode_id_vis element is a VIMS attribute which indicates the spatial resolution of the visual channel. 
+
+   name                   bias_state_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The bias_state_id element identifies the bias state of the infrared channel of the VIMS instrument. 
+
+   name                   compressor_id
+   version                1.13
+   value data type        ASCII_Integer
+   description            The compressor_id element identifies the compressor through which the data was compressed.A value of -1 indicates that the information was not available in the original PDS3 label. 
+   minimum value          -1
+
+   name                   data_buffer_state_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The data_buffer_state_flag element indicates whether the data buffer onboard the spacecraft was enabled to allow for the temporary storage of the data before being downloaded.
+
+   name                   fast_hk_item_name
+   version                2.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The fast_hk_item_name element provides the names of the housekeeping items which were collected. Fast housekeeping is a partial gathering of the available engineering data values, or items, that pertain to and describe the condition of the instrument itself. Note: For Cassini, up to four items can be collected, via fast housekeeping, and stored in the band suffix, or backplane, of the spectral cube. The fast housekeeping value will always supercede the slow housekeeping value, if present. If fast housekeeping is not used, this item will not be present in the PDS3 label. This PDS3 keyword was an ordered multi-valued list, with the position in the list corresponding to the position of the backplane (first item indicates the what information is stored in the first backplane). For PDS4, this keyword has been replaced by multiple specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] fast_hk_item_name_1 - indicates the contents of the first backplane. [2] fast_hk_item_name_2 - indicates the contents of the second backplane. [3] fast_hk_item_name_3 - indicates the contents of the third backplane. [4] fast_hk_item_name_4 - indicates the contents of the fourth backplane. 
+
+   name                   fast_hk_item_name_1
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The fast_hk_item_name_1 element provides the name of the housekeeping item which was collected and stored in the first plane of band suffix array (backplanes). If fast housekeeping is not used, this item will have a value of 'not used'. Fast housekeeping is a partial gathering of the available engineering data values, or items, that pertain to and describe the condition of the instrument itself. If present, the fast housekeeping value will always supercede the slow housekeeping value. 
+
+   name                   fast_hk_item_name_2
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The fast_hk_item_name_2 element provides the name of the housekeeping item which was collected and stored in the second plane of band suffix array (backplanes). If fast housekeeping is not used, this item will have a value of 'not used'. Fast housekeeping is a partial gathering of the available engineering data values, or items, that pertain to and describe the condition of the instrument itself. If present, the fast housekeeping value will always supercede the slow housekeeping value. 
+
+   name                   fast_hk_item_name_3
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The fast_hk_item_name_3 element provides the name of the housekeeping item which was collected and stored in the third plane of band suffix array (backplanes). If fast housekeeping is not used, this item will have a value of 'not used'. Fast housekeeping is a partial gathering of the available engineering data values, or items, that pertain to and describe the condition of the instrument itself. If present, the fast housekeeping value will always supercede the slow housekeeping value. 
+
+   name                   fast_hk_item_name_4
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The fast_hk_item_name_4 element provides the name of the housekeeping item which was collected and stored in the fourth plane of band suffix array (backplanes). If fast housekeeping is not used, this item will have a value of 'not used'. Fast housekeeping is a partial gathering of the available engineering data values, or items, that pertain to and describe the condition of the instrument itself. If present, the fast housekeeping value will always supercede the slow housekeeping value. 
+
+   name                   fast_hk_pickup_rate
+   version                1.13
+   value data type        ASCII_Integer
+   description            The fast_hk_pickup_rate element provides the rate at which fast housekeeping is collected. Fast housekeeping is a partial gathering of the available engineering data values, or items, that pertain to and describe the condition of the instrument itself. Note: For Cassini, this value (n) is stored in the band suffix, or backplane, of the spectral cube for the infrared channel. If (n) is set to zero, then housekeeping values will be collected at every pixel (i.e., every pixel of the backplane will have a value). If (n) is set from 1 to swath_length, then housekeeping values will be collected every nth line (i.e., only the first pixel of every nth line of the backplane will have a value). If no infrared housekeeping items were selected for the cube, then this keyword will not be present.
+
+   name                   housekeeping_clock_count
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The housekeeping_clock_count element provides the spacecraft clock value at the time that slow housekeeping was collected. Slow housekeeping is the gathering of all available engineering data values, or items, that pertain to and describe the condition of the instrument itself. Typically this value is read from the last (most recent) housekeeping packet received before the end of the spectral cube downlink.
+
+   name                   instrument_temperature
+   version                2.0
+   value data type        ASCII_Real
+   description            In PDS3, for VIMS the keyword INSTRUMENT_TEMPERATURE was multi-valued, with the specific meaning of each value based on the order of the given values. The keyword values indicate temperatures of the IR spectrometer body and the IR grating. For VIMS in PDS4, this keyword has been replaced by two specific attributes. Following is a list of PDS3 keyword position indicies and the corresponding PDS4 attribute. PDS3 PDS4 [1] instrument_temperature_spectrometer [2] instrument_temperature_grating 
+
+   name                   instrument_temperature_spectrometer
+   version                1.13
+   value data type        ASCII_Real
+   description            The instrument_temperature_spectrometer element gives the nominal temperature of the spectrometer body. It is calculated as the mean of two samples of the spectrometer body temperature. 
+   unit of measure type   Units_of_Temperature
+
+   name                   instrument_temperature_grating
+   version                1.13
+   value data type        ASCII_Real
+   description            The instrument_temperature_grating element gives the nominal temperature of the spectrometer grating. 
+   unit of measure type   Units_of_Temperature
+
+   name                   integration_delay_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The integration_delay_flag indicates whether the integration time for a rapidly acquired spectral cube was extended by shrinking the pixel synch pulse.
+
+   name                   interframe_delay_duration
+   version                1.13
+   value data type        ASCII_Real
+   description            The interframe_delay_duration element provides the duration of the delay between the end of one frame and the start of the next to allow time for the scanning mirror to return to its starting position.
+   unit of measure type   Units_of_Time
+
+   name                   interline_delay_duration
+   version                1.13
+   value data type        ASCII_Real
+   description            The interline_delay_duration element provides the duration of the delay between the end of one line of an image and the start of the next. Note: For Cassini, this refers to the infrared line. Time is allowed for: 1) the infrared duration mirror to return to its starting point, 2) collection of background data and 3) the alignment of the exposure center times between the infrared and visible channels.
+   unit of measure type   Units_of_Time
+
+   name                   missing_pixels
+   version                1.13
+   value data type        ASCII_Integer
+   description            The missing_pixels element provides the number of pixels missing from an image or observation. Note: For Cassini, this refers to the core of a spectral cube, which indicates that the expected number of pixels (as determined by the commanded cube dimensions) did not arrive. The positions of these pixels are filled with CORE_NULL. Pixels purposefully set to CORE_NULL (e.g., due to time insertion) are not included in this total.
+
+   name                   offset_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The offset_flag element indicates whether an offset was used to shift or displace a data value. Note: For Cassini, this indicates whether an Occultation Mode spectral cube used the commanded X_OFFSET and Z_OFFSET ('OFF') or used offsets calculated by the flight software from the non- Occultation Mode spectral cube ('ON').
+
+   name                   overwritten_channel_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The overwritten_channel_flag element indicates whether spectral data was sacrificed in lieu of more precise timing information. Note: For Cassini, if the flag is set to 'On', the observation time values are collected for each pixel and stored in the backplanes of the spectral cube. The spectral data in channels 347-352 will be set to the value -8192.
+
+   name                   packing_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The packing_flag element indicates whether multiple spectral cubes were packed and stored as a single spectral cube product, due to their small size and lack of unique timing information.
+
+   name                   parameter_set_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The parameter_set_id element identifies the parameter set which was used to produce the data file. Note: For Cassini VIMS, is based on the observation ID. 
+
+   name                   power_state_flag_ir
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The power_state_flag_ir element indicates whether the infrared channel is turned on or off."
+
+   name                   power_state_flag_vis
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The power_state_flag_vis element indicates whether the visible channel is turned on or off."
+
+   name                   sampling_mode_id_ir
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The sampling_mode_id_ir element identifies the resolution mode of the infrared channel.
+
+   name                   sampling_mode_id_vis
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The sampling_mode_id_vis element identifies the resolution mode of the visible channel. 
+
+   name                   scan_mode_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The scan_mode_id element identifies one of several internal rates for data acquisition by an instrument.
+
+   name                   snapshot_mode_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The snapshot_mode_flag element indicates whether the instrument was to end data collection either after one instance or after the commanded duration.
+
+   name                   spectral_editing_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The spectral_editing_flag element indicates whether the spectral cube has been reduced to a subset of the bands in the original cube.
+
+   name                   spectral_summing_flag
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The spectral_summing_flag element indicates whether this cube has had its bands summed (in groups of 8) to reduce the SSR data volume. If so, each bin contains the sum of its group of 8. 
+
+   name                   swath_length
+   version                1.13
+   value data type        ASCII_Integer
+   description            The swath_length element provides the number of pixels (in the lines direction) collected for a spectral cube during an observation. Note: For Cassini, this will differ from CORE_ITEMS for Occultation Mode cubes.
+   unit of measure type   Units_of_Misc
+
+   name                   swath_width
+   version                1.13
+   value data type        ASCII_Integer
+   description            The swath_width element provides the number of pixels (in the samples direction) collected for a spectral cube during an observation. Note: For Cassini, this will differ from CORE_ITEMS for Occultation Mode cubes.
+   unit of measure type   Units_of_Misc
+
+   name                   x_offset
+   version                1.13
+   value data type        ASCII_Integer
+   description            The x_offset element indicates a shift or displacement of a data value in the x-direction. Note: For Cassini, this refers to the commanded mirror offset (in the x direction) within the infrared normal resolution field of view. For visible and infrared, the actual data collection area will differ when not in normal resolution mode.
+   unit of measure type   Units_of_Misc
+
+   name                   z_offset
+   version                1.13
+   value data type        ASCII_Integer
+   description            The z_offset element indicates a shift or displacement of a data value in the z-direction. Note: For Cassini, this refers to the commanded mirror offset (in the z direction) within the infrared normal resolution field of view. For visible and infrared, the actual data collection area will differ when not in normal resolution mode.
+   unit of measure type   Units_of_Misc
+
+   name                   compression_type
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description             The compression_type element indicates the type of compression/encoding used for data that was subsequently decompressed/unencoded before storage.
+
+   name                   high_voltage_power_supply_state
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The state of the high voltage power power supply on an instrument.
+
+   name                   integration_duration
+   version                1.13
+   value data type        ASCII_Real
+   description            The duration of a time over which a particular instrument is integrating.
+   unit of measure type   Units_of_Time
+
+   name                   occultation_port_state
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The state of the occultation port covering an instrument.
+
+   name                   odc_id
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The observation description command, the ID of the command sequence sent to the UVIS instrument to generate observations.
+
+   name                   reference_time_utc
+   version                1.13
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            reference_time_utc provides a date and time in UTC format. Given in a label when time values in a table are given as elapsed seconds offset from a reference time. Unless there are compelling reasons to do otherwise, reference_time_utc should correspond to the start of a day. Required anytime a table field is given relative to a specific date and time other than when Barycentric Dynamical Time is used (e.g., observed_event_tdb). 
+
+   name                   slit_state
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The position of the slit on the Cassini UVIS instrument.
+
+   name                   test_pulse_state
+   version                1.13
+   value data type        ASCII_Short_String_Collapsed
+   description            The state of the Cassini UVIS instrument's test pulse mechanism.
+
+   name                   hdac_dwell_time
+   version                1.13
+   value data type        ASCII_Real
+   description            The value associated with the HDAC channel which defines the number of integrations taken at a particular filament level. HDAC integration time is always 125 milliseconds.
+
+   name                   hdac_d_level
+   version                2.0
+   value data type        ASCII_Real
+   description            HDAC deuterium cell filter voltage levels. This was a PDS3 keyword which contained 16 values. It has been replaced by 16 PDS4 attributes, hdac_d_level[n], where n is 01, 02, ... 16. 
+
+   name                   hdac_h_level
+   version                2.0
+   value data type        ASCII_Real
+   description            HDAC deuterium cell filter voltage levels. This was a PDS3 keyword which contained 16 values. It has been replaced by 16 PDS4 attributes, hdac_h_level[n] where n is 01, 02, ... 16. 
+
+   name                   hdac_d_level_01
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_02
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_03
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_04
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_05
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_06
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_07
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_08
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_09
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_10
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_11
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_12
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_13
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_14
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_15
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_d_level_16
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC deuterium cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_d_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_01
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_02
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_03
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_04
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_05
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_06
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_07
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_08
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_09
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_10
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_11
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_12
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_13
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_14
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_15
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   hdac_h_level_16
+   version                1.13
+   value data type        ASCII_Real
+   description            Provides the value for the HDAC hydrogen cell filament voltage level for one step of 16 in a sequence. Values are integers from 0 (off) to 7 (max voltage and consequently temperature). In the attribute name, hdac_h_level_[n], [n] is one value from 01, 02, ... 16. The value for n gives the position in the sequence (e.g., _01 indicates the first position in the sequence, _02 indicates the second position in the sequence). 
+
+   name                   mean_body_angular_semidiameter
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean equatorial angular radius of the body as seen by the spacecraft
+   unit of measure type   Units_of_Angle
+
+   name                   mean_body_phase_angle
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean angle between the radial vector of the spacecraft and the radial vector of the Sun, from the center of the body. 
+   unit of measure type   Units_of_Angle
+
+   name                   mean_boresight_latitude_zpd
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean planetographic latitude of the boresight at the ZPD time.
+   unit of measure type   Units_of_Angle
+
+   name                   mean_boresight_local_time
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean local solar time in hours since midnight.
+
+   name                   mean_boresight_longitude_zpd
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean west longitude of the boresight at the ZPD time.
+   unit of measure type   Units_of_Angle
+
+   name                   mean_boresight_right_ascension
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean right ascension of the boresight in the J2000 coordinate system.
+   unit of measure type   Units_of_Angle
+
+   name                   mean_boresight_solar_phase
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean angle between the direction vector of the Sun and the normal to the surface at the point at which the boresight intersects the surface. 
+   unit of measure type   Units_of_Angle
+
+   name                   mean_boresight_solar_zenith
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean angle between the direction vector of the Sun and the normal to the surface at the point at which the boresight intersects the surface.
+   unit of measure type   Units_of_Angle
+
+   name                   mean_emission_angle_fov
+   version                1.13
+   value data type        ASCII_Real
+   description            The average of the values of the emission angle (angle between the surface normal and the spacecraft direction) over the field of view. Unit is degrees. 
+   unit of measure type   Units_of_Angle
+
+   name                   mean_ring_boresight_emission_angle
+   version                1.13
+   value data type        ASCII_Real
+   description            The emission angle, the angle between the surface normal vector at the intercept point and a vector from the intercept point to the spacecraft, measured at the intersection of the boresight and the ring plane. 
+   minimum value          0
+   maximum value          180
+   unit of measure type   Units_of_Angle
+
+   name                   mean_ring_boresight_local_time
+   version                1.13
+   value data type        ASCII_Real
+   description            The local solar time at the intersection of the boresight and the ring plane in the primary's coordinate system. Unit is fractional hours since midnight. Example : if the local time is 03:45:10 (HH:MM:SS) it will be stored as 3.4527778. 
+   minimum value          0.
+   maximum value          24.
+   unit of measure type   Units_of_Time
+
+   name                   mean_ring_boresight_longitude_zpd
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean_ring_boresight_longitude_zpd, is the longitude of the intersection of the boresight and the ring plane at the ZPD time. Longitudes are measured eastwards in an inertial frame from the intersection of the ascending node of the ring plane on the Earth’s mean equator of J2000. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   mean_ring_boresight_radius_zpd
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean_ring_boresight_radius_zpd, is the ring radius, in km, of the intersection of the boresight and the ring plane at the ZPD time. Ring radius is measured from the center of mass of the planet along the nominal ring plane. 
+   unit of measure type   Units_of_Length
+
+   name                   mean_ring_boresight_solar_phase
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean_ring_boresight_solar_phase is The mean angle between a vector to the Sun and the boresight vector, measured at the point at which the boresight vector intersects the ring plane. 
+   minimum value          0
+   maximum value          180
+   unit of measure type   Units_of_Angle
+
+   name                   mean_ring_boresight_solar_zenith
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean_ring_boresight_solar_zenith is the angle between the direction vector of the Sun and the normal to the ring plane at the point at which the boresight intersects the ring plane. Unit is degrees. 
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   mean_ring_boresight_spacecraft_range
+   version                1.13
+   value data type        ASCII_Real
+   description            The mean_ring_boresight_spacecraft_range, is the distance from the intersection of the boresight with the ring plane to the space-craft. 
+   unit of measure type   Units_of_Length
+
+Parsed Input - Classes:
+
+   name                   CIRS_Specific_Attributes
+   description            The CIRS Specific Attributes class provides local attributes used by CIRS observations and derived products.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      cassini.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_count_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.line_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sample_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.first_line_center
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.first_sample_center
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.last_line_center
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.last_sample_center
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.line_center
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sample_center
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.total_spectral_power
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.focal_plane
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   CIRS_Cubes_Specific_Attributes
+   description            The CIRS Cubes Specific Attributes class provides local attributes used by CIRS higher order products.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      cassini.mean_body_angular_semidiameter
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_body_phase_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_boresight_latitude_zpd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_boresight_local_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_boresight_longitude_zpd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_boresight_right_ascension
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_boresight_solar_phase
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_boresight_solar_zenith
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_emission_angle_fov
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_ring_boresight_emission_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_ring_boresight_local_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_ring_boresight_longitude_zpd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_ring_boresight_radius_zpd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_ring_boresight_solar_phase
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_ring_boresight_solar_zenith
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.mean_ring_boresight_spacecraft_range
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Detector_Window
+   description            The UVIS Detector Window class provides attributes to describe or more sub regions of the detector called windows. Windows are associated with some EUV and FUV observations. The detector is divided into a set of active rectangular sub regions (windows). Each window can also be binned. The data stored in the PDS Aray are located in the upper left hand corner of the window. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      cassini.ul_corner_line
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.ul_corner_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.lr_corner_line
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.lr_corner_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.band_bin
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.line_bin
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   UVIS_Specific_Attributes
+   description            The UVIS Specific Attributes class provides local attributes used by UVIS observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      cassini.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_count_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.compression_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.high_voltage_power_supply_state
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.integration_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.observation_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.occultation_port_state
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.odc_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.reference_time_utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.slit_state
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.start_time_doy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.stop_time_doy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.test_pulse_state
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_dwell_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_01
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_02
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_03
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_04
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_05
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_06
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_07
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_08
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_09
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_10
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_11
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_12
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_13
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_14
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_15
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_d_level_16
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_01
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_02
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_03
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_04
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_05
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_06
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_07
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_08
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_09
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_10
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_11
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_12
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_13
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_14
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_15
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.hdac_h_level_16
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.Detector_Window
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   ISS_Specific_Attributes
+   description            The ISS Specific Attributes class provides local attributes used by ISS observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      cassini.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_count_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.limitations
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.antiblooming_state_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.bias_strip_mean
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.calibration_lamp_state_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.command_file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.command_sequence_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.dark_strip_mean
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.data_conversion_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.delayed_readout_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.detector_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.electronics_bias
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.earth_received_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.earth_received_stop_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.expected_maximum_full_well
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.expected_maximum_DN_sat
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.expected_packets
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.exposure_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.filter_name_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.filter_name_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.filter_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.flight_software_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.gain_mode_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.ground_software_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.image_mid_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.image_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.image_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.image_observation_type
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      cassini.instrument_data_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.instrument_mode_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_param_malgo
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_param_tb
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_param_blocks
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_param_quant
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_rate_expected_bits
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_rate_actual_bits
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_ratio
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.light_flood_state_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.method_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.missing_lines
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.missing_packet_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.observation_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.optics_temperature_front
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.optics_temperature_back
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.order_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.parallel_clock_voltage_index
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_product_creation_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_product_version_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_target_desc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_target_list
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_target_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pre-pds_version_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.prepare_cycle_index
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.readout_cycle_index
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.received_packets
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sensor_head_electronics_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sequence_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sequence_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sequence_title
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.shutter_mode_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.shutter_state_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.start_time_doy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.stop_time_doy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.telemetry_format_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.valid_maximum_full_well
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.valid_maximum_DN_sat
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   VIMS_Specific_Attributes
+   description            The VIMS Specific Attributes class provides local attributes used by VIMS observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      cassini.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_count_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.limitations
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.antiblooming_state_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.background_sampling_frequency
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.background_sampling_mode_id_ir
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.background_sampling_mode_id_vis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.bias_state_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.command_file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.command_sequence_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.compressor_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.data_buffer_state_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.detector_temperature_IR_high_res
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.detector_temperature_IR_low_res
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.detector_temperature_visible
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.earth_received_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.earth_received_stop_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.exposure_duration_ir
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.exposure_duration_vis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.fast_hk_item_name_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.fast_hk_item_name_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.fast_hk_item_name_3
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.fast_hk_item_name_4
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.fast_hk_pickup_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.flight_software_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.gain_mode_id_ir
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.gain_mode_id_vis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.ground_software_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.housekeeping_clock_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.image_observation_type
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.inst_cmprs_ratio
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.instrument_data_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.instrument_mode_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.instrument_temperature_spectrometer
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.instrument_temperature_grating
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.integration_delay_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.interframe_delay_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.interline_delay_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.missing_packet_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.missing_pixels
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.native_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.native_stop_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.observation_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.offset_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.optics_temperature_ir_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.optics_temperature_ir_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.optics_temperature_vis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.overwritten_channel_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.packing_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.parameter_set_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_product_creation_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_product_version_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_target_desc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pds3_target_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.pre-pds_version_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.power_state_flag_ir
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.power_state_flag_vis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sampling_mode_id_ir
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sampling_mode_id_vis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.scan_mode_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sequence_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.sequence_title
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.shutter_state_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.snapshot_mode_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spectral_editing_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spectral_summing_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.start_time_doy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.stop_time_doy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.swath_length
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.swath_width
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.telemetry_format_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.x_offset
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.z_offset
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   PPI_Specific_Attributes
+   description            The PPI Specific Attributes class provides local attributes used by fields and particles instruments.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      cassini.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_count_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      cassini.orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Cassini
+   description            This is the umbrella class for the Cassini mission dictionary.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      CIRS_Attributes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      CIRS_Cubes_Attributes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      UVIS_Attributes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ISS_Attributes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      VIMS_Attributes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      PPI_Attributes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

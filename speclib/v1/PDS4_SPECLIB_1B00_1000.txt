@@ -1,0 +1,985 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        0.2.1.5b
+   Time                   Tue Apr 21 10:19:18 CDT 2020
+   Core Schemas           [PDS4_PDS_1B00.xsd]
+   Core Schematrons       [PDS4_PDS_1B00.sch]
+   Common Model Version   1.11.0.0
+   Object Model           [UpperModel.pont]
+   Data Dictionary        [dd11179.pins]
+   Configuration File     [MDPTNConfigClassDisp.xml]
+   Glossary               [Glossary.pins]
+   Document Spec          [DMDocument.pins]
+
+Parameters:
+   Input File             [lddtool_SPECLIB.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      true
+
+Summary:
+   Classes                6
+   Attributes             55
+   Associations           62
+   Error messages         0
+   Warning messages       1
+   Information messages   87
+
+Detailed validation messages
+   WARNING  Header:  - New namespace id has been specified:speclib
+   INFO     Attribute: <ancillary_product_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <ancillary_product_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <data_producer_name> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <data_producer_name> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <data_provider_name> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <data_provider_name> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <emission_angle> - The default minimum value provided by the attribute's data type is being overridden with -90
+   INFO     Attribute: <emission_angle> - The default maximum value provided by the attribute's data type is being overridden with 90
+   INFO     Attribute: <incidence_angle> - The default minimum value provided by the attribute's data type is being overridden with -90
+   INFO     Attribute: <incidence_angle> - The default maximum value provided by the attribute's data type is being overridden with 90
+   INFO     Attribute: <instrument_name> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <instrument_name> - The default maximum characters provided by the attribute's data type is being overridden with 100
+   INFO     Attribute: <instrument_name> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <material_common_name> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <material_common_name> - The default maximum characters provided by the attribute's data type is being overridden with 100
+   INFO     Attribute: <material_origin> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <material_origin> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <material_state> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <material_state> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <material_subtype> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <material_subtype> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <material_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <material_type> - The default maximum characters provided by the attribute's data type is being overridden with 30
+   INFO     Attribute: <measurement_atmosphere_composition> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_atmosphere_composition> - The default maximum characters provided by the attribute's data type is being overridden with 1000
+   INFO     Attribute: <measurement_atmosphere_description> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_atmosphere_description> - The default maximum characters provided by the attribute's data type is being overridden with 1000
+   INFO     Attribute: <measurement_atmosphere_relative_humidity> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <measurement_atmosphere_relative_humidity> - The default maximum value provided by the attribute's data type is being overridden with 100
+   INFO     Attribute: <measurement_geometry_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_geometry_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <measurement_notes> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_notes> - The default maximum characters provided by the attribute's data type is being overridden with 1000
+   INFO     Attribute: <measurement_reference_standard> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_reference_standard> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <measurement_requestor> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_requestor> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <measurement_source_description> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_source_description> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <measurement_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <measurement_type> - The default maximum characters provided by the attribute's data type is being overridden with 30
+   INFO     Attribute: <mineral_subtype> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <mineral_subtype> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <mineral_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <mineral_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <organic_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <organic_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <phase_angle> - The default minimum value provided by the attribute's data type is being overridden with -180
+   INFO     Attribute: <phase_angle> - The default maximum value provided by the attribute's data type is being overridden with 180
+   INFO     Attribute: <rock_subtype> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <rock_subtype> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <rock_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <rock_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <source_specimen_id> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <source_specimen_id> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <specimen_collection_location> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <specimen_collection_location> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <specimen_owner_location> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <specimen_owner_location> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <specimen_owner_name> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <specimen_owner_name> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <specimen_description> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <specimen_description> - The default maximum characters provided by the attribute's data type is being overridden with 1000
+   INFO     Attribute: <specimen_id> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <specimen_id> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <specimen_max_size> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <specimen_min_size> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <specimen_name> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <specimen_name> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <specimen_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <specimen_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <spectral_range_max> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <spectral_range_min> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <spectral_range_parameter_name> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spectral_range_parameter_name> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <spectral_range_unit> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spectral_range_unit> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <spectral_resolution_width_unit> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spectral_resolution_width_unit> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <spectral_sampling_interval_unit> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spectral_sampling_interval_unit> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <synthetic_processing_description> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <synthetic_processing_description> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <synthetic_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <synthetic_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <volatile_type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <volatile_type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+
+Parsed Input - Header:
+   LDD Name               Spectral Library
+   LDD Version            1.0.0.0
+   Full Name              Susan Slavney
+   Steward                geo
+   Namespace Id           speclib
+   Comment                Post-peer-review
+   Last Modification Time 2020-04-21T15:54:00
+   PDS4 Merge Flag        true
+
+Parsed Input - Attributes:
+
+   name                   ancillary_product_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The ancillary_product_type element provides the type of data found in an ancillary product.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Attenuated Total Reflectance Spectroscopy -  IR spectroscopic technique in which placing a sample next to a high refractive index crystal causes total internal reflection resulting in an evanescent wave that samples shallow properties of the sample 
+      Image -  An image of the sample 
+      Chemical Composition - Elemental or oxide abundances for samples
+      Differential Scanning Calorimetry -  Technique in which the sample is heated and temperature is monitored to evaluate exothermic and endothermic reactions that are indicative of composition 
+      Electron Microprobe Analysis -  Microprobe technique in which the sample is bombarded with electrons, with resultant X-ray emission spectra indicative of sample composition 
+      Modal Mineralogy -  Sample mineral abundances defined as weight or volume percentages 
+      Raman Spectroscopy -  Spectroscopic technique based on based on inelastic scattering of monochromatic light, usually from a laser source 
+      Reflectance Spectroscopy -  Spectroscopic technique based on measuring the spectral properties of light scattered from samples 
+      Thermogravimetric Analysis -  Technique in which sample mass is measured as its temperature is increased 
+      Transmission Spectroscopy -  Spectroscopic technique based on measuring the spectral properties of light transmitted through samples 
+      X-ray Diffraction -  X-rays diffracted by a sample as a function of incident angle are used to determine sample crystal structure 
+      X-ray Fluorescence -  Spectroscopic technique in which the sample is bombarded by high-energy X-rays or gamma rays, with fluorescent X-ray emission spectra indicative of sample composition 
+
+   name                   data_producer_name
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The data_producer_name element provides the name of the creator of the product. For products in RELAB, the value of data_producer_name is always "RELAB".
+   minimum characters     1
+   maximum characters     255
+
+   name                   data_provider_name
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The data_provider_name element provides the full name of the person who submitted the product to the library.
+   minimum characters     1
+   maximum characters     255
+
+   name                   emission_angle
+   version                1.11
+   value data type        ASCII_Real
+   description            The emission_angle element provides the angle between the local vertical at the intercept point and a vector from the intercept point to the sensor.
+   nillable               true
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   incidence_angle
+   version                1.11
+   value data type        ASCII_Real
+   description            The incidence_angle element provides the angle between the local vertical at the intercept point and a vector from the intercept point to the detector.
+   nillable               true
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   instrument_name
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The instrument_name element provides a descriptive name of the instrument that made a spectral measurement.
+   minimum characters     1
+   maximum characters     100
+
+   name                   material_common_name
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_common_name element gives the specific name of the specimen material, as specifically as it is known. For example, if a specimen is pure olivine, put "Olivine". If a specimen is a mixture of kaolinite and opal, put "Kaolinite/Opal". Indicate if "Unidentified".
+   minimum characters     1
+   maximum characters     100
+
+   name                   material_origin
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_origin element identifies whether the specimen is natural or synthetic.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Natural - The Natural value indicates that the specimen was not made in a laboratory.
+      Synthetic - The Synthetic value indicates that the specimen was made in a laboratory. A synthetic sample could be either a physical mixture of natural materials or a laboratory synthesized material.
+
+   name                   material_state
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_state element identifies the physical state of the specimen.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Solid - The Solid value indicates that the specimen is in the solid state.
+      Liquid - The Liquid value indicates that the specimen is in the liquid state.
+      Gas - The Gas value indicates that the specimen is in the gas state.
+
+   name                   material_subtype
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_subtype element identifies the material subtype of the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   material_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_type element indicates the general type of the specimen.
+   minimum characters     1
+   maximum characters     30
+   permissible value - value meaning
+      Amorphous -  Sample without crystalline structure or long range order, e.g., glass 
+      Consolidated Mixture -  Sample that is cemented or otherwise aggregated into a solid mass 
+      Element -  Sample composed of a single element such as metallic iron 
+      Ice -  Solid sample composed of gas or liquid (e.g., water vapor or water) now in solid form 
+      Mineral -  Sample with a given composition within a defined range of compositions and that exhibits a defined crystalline structure 
+      Organic -  Sample composed of organic materials 
+      Rock -  Solid sample composed of one or more minerals 
+      Single Particle -  Sample composed of a single particle 
+      Unconsolidated Mixture -  Sample of loose or disaggregated material that is a mixture of various minerals and/or other compounds 
+
+   name                   measurement_atmosphere_composition
+   version                1.11
+   value data type        UTF8_Text_Preserved
+   description            The measurement_atmosphere_composition element identifies any gas(es) present in measurement environment.
+   nillable               true
+   minimum characters     1
+   maximum characters     1000
+
+   name                   measurement_atmosphere_description
+   version                1.11
+   value data type        UTF8_Text_Preserved
+   description            The measurement_atmosphere_description decribes the atmospheric conditions through which the data was taken.
+   minimum characters     1
+   maximum characters     1000
+
+   name                   measurement_atmosphere_pressure
+   version                1.11
+   value data type        ASCII_Real
+   description            The measurement_atmosphere_pressure element provides the atmospheric pressure of the measurement environment.
+   nillable               true
+   unit of measure type   Units_of_Pressure
+
+   name                   measurement_atmosphere_relative_humidity
+   version                1.11
+   value data type        ASCII_Real
+   description            The measurement_atmosphere_relative_humidity element provides the relative humidity of the measurement environment.
+   nillable               true
+   minimum value          0
+   maximum value          100
+
+   name                   measurement_atmosphere_temperature
+   version                1.11
+   value data type        ASCII_Real
+   description            The measurement_atmosphere_temperature element provides the temperature of the measurement environment.
+   nillable               true
+   unit of measure type   Units_of_Temperature
+
+   name                   measurement_date_time
+   version                1.11
+   value data type        ASCII_Date_Time_YMD
+   description            The measurement_date_time element identifies the date and time of the observation and measurement.
+   nillable               true
+
+   name                   measurement_geometry_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_geometry_type element identifies the type of geometry at which a measurement is taken.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Bidirectional -  Measurement taken when light is sent in to the specimen at a narrow angular range and received over a narrow angular range 
+      Directional Hemispherical -  Measurement taken when light is sent in to the specimen at a certain direction and received in all directions (perhaps in an integrating sphere). 
+      Hemispherical Hemispherical -  Measurement taken when light is sent in to the specimen at all directions and received in all directions (perhaps in an integrating sphere) 
+      Biconical -  Measurement taken when light is sent in to the specimen at a certain direction and in a cone-like shape and received at a certain direction and in a cone-like shape. 
+      Unknown - The measurement geometry is unknown.
+
+   name                   measurement_notes
+   version                1.11
+   value data type        UTF8_Text_Preserved
+   description            The measurement_notes element contains relevant notes about how a measurement was made.
+   minimum characters     1
+   maximum characters     1000
+
+   name                   measurement_reference_standard
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_reference_standard element identifies the standard object on which observations are performed in order to calibrate a measurement.
+   minimum characters     1
+   maximum characters     255
+
+   name                   measurement_requestor
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_requestor element identifies the individual or laboratory who requested the measurement. It may occur more than once.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   measurement_segments
+   version                1.11
+   value data type        ASCII_NonNegative_Integer
+   description            The measurement_segments element gives the number of measurement segments that were combined to create the spectrum. If the spectrum is not merged from multiple segments, then the value of measurement_segments is 1.
+
+   name                   measurement_source_description
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_source_description element identifies the source used for the measurement such as the type of lamp, heating element, laser, or radioactive source.
+   minimum characters     1
+   maximum characters     255
+
+   name                   measurement_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_type element identifies the type of spectroscopy performed on a specimen.
+   minimum characters     1
+   maximum characters     30
+   permissible value - value meaning
+      Reflectance - The Reflectance value indicates reflectance spectroscopy, the study of light as a function of wavelength that has been reflected or scattered from a material.
+      Emission - The Emission value indicates emission spectroscpy, which examines the wavelengths emitted by atoms or molecules during their transition from an excited state to a lower energy state.
+      Raman - The Raman value indicates Raman spectroscopy, which determines information about a material by studying the Raman scattering of monochromatic light off the material.
+      X-Ray Fluorescence - The X-Ray Fluorescence value indicates x-ray flourescence spectroscopy, which examines the emission of x-rays from a material previously bombarded with high energy x-rays or gamma rays.
+      X-Ray Diffraction - The X-Ray Diffraction value indicates x-ray diffraction spectroscopy, which studies the diffraction patterns of x-rays scattered off a material.
+      LIBS - LIBS (Laser-Induced Breakdown Spectroscopy) uses a highly energetic laser pulse as its excitation source to produce emission spectra.
+      Transmission - The Transmission value indicates transmission spectroscopy, the study of light as a function of wavelength that has been transmitted through a material.
+      Attenuated Total Reflectance - Attenuated total reflectance (ATR) is a sampling technique used in conjunction with infrared spectroscopy which enables samples to be examined directly in the solid or liquid state without further preparation.
+
+   name                   mineral_subtype
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The mineral_subtype element identifies the mineral subtype of the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   mineral_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The mineral_type element identifies the type of mineral to which the specimen belongs.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Arsenate - The Arsenate value indicates the specimen is an arsenate.
+      Borate - The Borate valeu indicates the specimen is a borate.
+      Carbonate - The Carbonate value indicates the specimen is a carbonate.
+      Chromate - The Chromate value indicates the specimen is a chromate.
+      Cyclosilicate - The Cyclosiliate value indicates the specimen is a sorosilicate.
+      Halide - The Halide value indicates the specimen is a halide.
+      Hydroxide - The Hydroxide value indicates the specimen is a hydroxide.
+      Inosilicate - The Inosilicate value indicates the specimen is a inosilicate.
+      Iodate - The Iodate value indicates the specimen is an iodate.
+      Native Element - The Native Element value indicates the specimen is a native element or an alloy.
+      Nesosilicate - The Nesosiliacte value indicates the specimen is a nesosilicate.
+      Nitrate - The Nitrate value indicates the specimen is a nitrate.
+      Organic Compound - The Organic Compound value indicates the specimen is an organic compound.
+      Oxide - The Oxide value indicates the specimen is an oxide.
+      Phosphate - The Phosphate value indicates the specimen is a sulfate.
+      Phyllosilicate - The Phyllosilicate value indicates the specimen is a phyllosilicate.
+      Sorosilicate - The Sorosilicate value indicates the specimen is a sorosilicate.
+      Sulfate - The Sulfate value indicates the specimen is a sulfate.
+      Sulfide - The Sulfide value indicates the specimen is a sulfide.
+      Tectosilicate - The Tectosilicate value indicates the specimen is a tectosilicate.
+      Unclassified - The Unclassified value indicates that the specimen doesn't fit into any of these categories, but is still a mineral.
+      Vanadate - The Vanadate value indicates that the specimen is a vanadate.
+
+   name                   organic_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The organic_type element identifies the organic type to which the specimen belongs.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Inorganic - The Inorganic value indicates the specimen is not an organic material.
+      Organic - The Organic value indicates the specimen is an organic material.
+      Mixture - The Mixture value indicates the specimen is a mixture of organic and inorganic material.
+
+   name                   phase_angle
+   version                1.11
+   value data type        ASCII_Real
+   description            The phase_angle element provides the angle between incidence and emission vectors.
+   nillable               true
+   minimum value          -180
+   maximum value          180
+   unit of measure type   Units_of_Angle
+
+   name                   processing_description
+   version                1.11
+   value data type        UTF8_Text_Preserved
+   description            The processing_description element provides information about how measurement(s) for a particular product were made, in addition to the information given in the Measurement Parameters class. In the case of a product created by merging multiple measurements, this element describes how the merge was done.
+
+   name                   rock_subtype
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The rock_subtype element identifies the rock subtype of the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   rock_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The rock_type element identifies the type of rock the specimen is.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Igneous -  The Igneous value indicates that the specimen is volatile-poor and was formed by the cooling of magma or lava. 
+      Sedimentary -  The Sedimentary value indicates that the specimen was formed by sedimentary processes (e.g., lithification of unconsolidated material, direct chemical precipitation) 
+      Metamorphic -  The Metamorphic value indicates that the specimen was formed by metamorphic processes (e.g., increased temperature and/or pressure conditions that altered the rock composition without melting) 
+      Unknown -  The Unknown value indicates that there is not enough information about the specimen to assign it a rock type 
+
+   name                   segment_number
+   version                1.11
+   value data type        ASCII_NonNegative_Integer
+   description            The segment_number element identifies which segment of a merged spectrum is described by a Measurement_Parameters class. The first segment is segment number 1. If the spectrum is not merged from multiple segments, then the value of segment_number is 1.
+
+   name                   source_specimen_id
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The source_specimen_id element identifies the source specimen from which the observed specimen is derived.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_collection_location
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_collection_location element provides the place where the specimen was collected.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_owner_location
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_owner_location element provides the institution or laboratory name where the specimen resides.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_owner_name
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_owner_name element identifies the individual or laboratory to whom the specimen belongs.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_description
+   version                1.11
+   value data type        UTF8_Text_Preserved
+   description            The specimen_description element provides a short description of the specimen.
+   minimum characters     1
+   maximum characters     1000
+
+   name                   specimen_id
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_id element uniquely identifies the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_max_size
+   version                1.11
+   value data type        ASCII_Real
+   description            The specimen_max_size element identifies the maximum particle size of the observed specimen.
+   nillable               true
+   minimum value          0
+   unit of measure type   Units_of_Length
+
+   name                   specimen_min_size
+   version                1.11
+   value data type        ASCII_Real
+   description            The specimen_min_size element identifies the minimum particle size of the observed specimen.
+   nillable               true
+   minimum value          0
+   unit of measure type   Units_of_Length
+
+   name                   specimen_name
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_name element identifies the specimen as it is named where it is being kept.
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_type element gives one or more terms that classify the origin of the specimen. 
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Terrestrial Sample - The Terrestrial value means the specimen is a terrestrial sample.
+      Lunar Meteorite - The Lunar Meteorite value means the specimen is a sample from a lunar meteorite.
+      Mars Meteorite - The Mars Meteorite value means the specimen is a sample from a Mars meteorite.
+      Other Meteorite - The Other Meteorite value means the specimen is a sample from a meteorite that is not a lunar or Mars meteorite.
+      Returned Lunar Sample - The Returned Lunar Sample value means the specimen is a lunar sample returned by a mission.
+      Returned Asteroid Sample - The Returned Asteroid Sample value means the specimen is an asteroid sample returned by a mission.
+      Synthetic Sample - The Synthetic Sample value means the specimen is a laboratory-generated sample.
+
+   name                   spectral_range_max
+   version                1.11
+   value data type        ASCII_Real
+   description            The spectral_range_max element identifies the maximum value at which a given data item was sampled. For example, a spectrum that was measured in the 0.4 to 3.5 um spectral range would have a spectral_range_max value of 3.5.
+   minimum value          0
+
+   name                   spectral_range_min
+   version                1.11
+   value data type        ASCII_Real
+   description            The spectral_range_min element identifies the minimum value at which a given data item was sampled. For example, a spectrum that was measured in the 0.4 to 3.5 um spectral range would have a spectral_range_min value of 0.4.
+   minimum value          0
+
+   name                   spectral_range_parameter_name
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_range_parameter_name element identifies the name of the parameter which determines the sampling interval of the measurement.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Wavelength - The Wavelength value means the spectrum is a function of wavelength.
+      Frequency - The Frequency value means the spectrum is a function of frequency.
+      Wavenumber - The Wavenumber value means the spectrum is a function of wavenumber.
+      Time - The Time value means the spectra is a function of time.
+      Angle - The Angle value means the spectra is a function of angle.
+      Energy - The Energy value means the spectra is a function of energy.
+
+   name                   spectral_range_unit
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_range_unit element identifies the unit of measure for the values specified by spectral_range_min and spectral_range_max.
+   minimum characters     1
+   maximum characters     255
+
+   name                   spectral_resolution_width_max
+   version                1.11
+   value data type        ASCII_Real
+   description            The spectral_resolution_width_max element identifies the maximum width of a spectral band in a given spectrum. If all bands are the same width, spectral_resolution_width_min and spectral_resolution_width_max will have the same value.
+   nillable               true
+
+   name                   spectral_resolution_width_min
+   version                1.11
+   value data type        ASCII_Real
+   description            The spectral_resolution_width_min element identifies the minimum width of a spectral band in a given spectrum. If all bands are the same width, spectral_resolution_width_min and spectral_resolution_width_max will have the same value.
+   nillable               true
+
+   name                   spectral_resolution_width_unit
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_resolution_width_unit element identifies the unit of measure for the values specified by spectral_resolution_width_min and spectral_resolution_width_max.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   spectral_sampling_interval_max
+   version                1.11
+   value data type        ASCII_Real
+   description            The spectral_sampling_interval_max element identifies the maximum distance between band centers in a given spectrum. If all band centers are equally spaced, spectral_sampling_interval_min and spectral_sampling_interval_max will have the same value.
+   nillable               true
+
+   name                   spectral_sampling_interval_min
+   version                1.11
+   value data type        ASCII_Real
+   description            The spectral_sampling_interval_min element identifies the minimum distance between band centers in a given spectrum. If all band centers are equally spaced, spectral_sampling_interval_min and spectral_sampling_interval_max will have the same value.
+   nillable               true
+
+   name                   spectral_sampling_interval_unit
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_sampling_interval_unit element identifies the unit of measure for the values specified by spectral_sampling_interval_min and spectral_sampling_interval_max.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   synthetic_processing_description
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The synthetic_processing_description element describes how a synthetic specimen has been processed.
+   minimum characters     1
+   maximum characters     255
+
+   name                   synthetic_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The synthetic_type element identifies the process by which the specimen was produced synthetically.
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Entirely Synthetic - Sample that is entirely human-made
+      Natural and Synthetic -  Sample that is a mixture of human-made and naturally occurring components 
+      From Natural -  A natural product chemically or mineralogically altered by a laboratory treatment (e.g., heating). Does not include size and magnetic separates of natural samples or washing by water. 
+      Hardware -  Portions of an instrument, e.g., portions of a spectrometer that contribute to a spectroscopic signature and thus need to be characterized 
+
+   name                   volatile_type
+   version                1.11
+   value data type        UTF8_Short_String_Collapsed
+   description            The volatile_type element indicates whether the material was volatile-poor (less than 2.0% LOI) or volatile-rich (greater than 2.0% LOI). 
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+   permissible value - value meaning
+      Poor - The Poor value indicates the specimen had less than 2.0% LOI.
+      Rich - The Rich value indicates the specimen had greater than 2.0% LOI.
+      Unknown - The Unknown value indicates the specimen's volatile type is unknown.
+
+Parsed Input - Classes:
+
+   name                   Measurement_Instrument
+   description            The Measurement_Instrument class contains attributes that identify the instrument that made the measurement. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      instrument_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Measurement_Parameters
+   description            The Measurement_Parameters class contains attributes relevant to a single measurement of a specimen. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      segment_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Measurement_Instrument
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      measurement_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_range_parameter_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_range_min
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_range_max
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_range_unit
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_sampling_interval_min
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_sampling_interval_max
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_sampling_interval_unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_resolution_width_min
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_resolution_width_max
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spectral_resolution_width_unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_reference_standard
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_geometry_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      incidence_angle
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      emission_angle
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      phase_angle
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_source_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_atmosphere_pressure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_atmosphere_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_atmosphere_relative_humidity
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_atmosphere_composition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_atmosphere_description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_date_time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      data_producer_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      data_provider_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      measurement_requestor
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      measurement_notes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Specimen_Classification
+   description            The Specimen_Classification class provides information about how a specimen has been classified.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      specimen_type
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      material_common_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      material_origin
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      synthetic_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      material_state
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      organic_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      material_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      material_subtype
+      minimum occurrences   0
+      maximum occurrences   10
+      reference type        attribute_of
+
+      local identifier      mineral_type
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      mineral_subtype
+      minimum occurrences   0
+      maximum occurrences   10
+      reference type        attribute_of
+
+      local identifier      rock_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      rock_subtype
+      minimum occurrences   0
+      maximum occurrences   10
+      reference type        attribute_of
+
+      local identifier      volatile_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      synthetic_processing_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Specimen_Parameters
+   description            The Specimen_Parameters class provides information about a specimen for which measurements have been made.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      specimen_id
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      specimen_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      specimen_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      source_specimen_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      specimen_min_size
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      specimen_max_size
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      specimen_collection_location
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      specimen_owner_location
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      specimen_owner_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Ancillary_Product
+   description            The Ancillary_Product class identifies an ancillary measurement related to a Spectral Library specimen.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ancillary_product_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Spectral_Library_Product
+   description            The Spectral_Library_Product class provides information about a data product in the Spectral Library.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      processing_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Specimen_Parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Specimen_Classification
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      measurement_segments
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Measurement_Parameters
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      Ancillary_Product
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+End of Report

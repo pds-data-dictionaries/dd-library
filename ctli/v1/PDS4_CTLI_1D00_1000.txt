@@ -1,0 +1,91 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        1.19.1
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Tue Nov 26 06:57:17 PST 2019
+   Common Schema          [PDS4_PDS_1D00.xsd]
+   Common Schematron      [PDS4_PDS_1D00.sch]
+   IM Version Id:         1.13.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.19
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [input_IngestLDDTool_TypeList_1D00.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      true
+
+Summary:
+   Classes                1
+   Attributes             1
+   Associations           1
+   Error messages         0
+   Warning messages       2
+   Information messages   9
+
+Detailed validation messages
+   WARNING  Header:  - New steward has been specified:ctli
+   WARNING  Header:  - New namespace id has been specified:ctli
+   INFO     Attribute: <type> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <type> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <type> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <type> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <type> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <type> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <type> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <type> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <type> - This local attribute has a duplicate in the PDS4 data dictionary.
+
+Parsed Input - Header:
+   LDD Name               Type_List
+   LDD Version            1.0.0.0
+   Full Name              Lyle Huber
+   Steward                ctli
+   Namespace Id           ctli
+   Comment                
+    The Instrument Type List Dictionary provides a set of permissible values and their 
+    value meanings for use by the enumerated attribute  type  in the Instrument class.
+    Modification History:
+      2019-11-14: First version delivered by the Instrument Type Steward Team.
+  
+   Last Modification Time 2019-11-14T21:00:00Z
+   PDS4 Merge Flag        true
+
+Parsed Input - Attributes:
+
+   name                   type
+   version                1.13
+   value data type        UTF8_Short_String_Collapsed
+   description             The type attribute provides a character string which uniquely identifies the object. 
+   minimum characters     1
+   maximum characters     255
+
+Parsed Input - Classes:
+
+   name                   Type_List
+   description            The Type List class provides a list of values and their value meanings.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      type
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        attribute_of
+
+End of Report

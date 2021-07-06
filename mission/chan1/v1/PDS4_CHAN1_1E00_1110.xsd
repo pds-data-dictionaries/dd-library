@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:chan1  Version:1.1.1.0 - Wed Nov 25 19:46:18 UTC 2020 -->
+  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.1.1.0 - chan1: - Chandrayaan-1 Mission Dictionary                       -->
+  <!--   file:/home/runner/work/ldd-chan1/ldd-chan1/src/PDS4_CHAN1_IngestLDD.xml -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/chan1/v1"
+    xmlns:chan1="http://pds.nasa.gov/pds4/mission/chan1/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1.1.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The Chandrayaan-1 mission dictionary contains a class with attributes specific to the 
+        Chandrayaan-1 mission and instruments. This dictionary was created for the migration
+        of Chandrayaan data products from PDS3 to PDS4.
+        
+        v1.0.0.0 GEO/EAG 
+        - Initial version of the Chandrayaan mission dictionary for PDS3 to PDS4 migration
+        
+        v1.1.0.0, T.Hare
+        - Initial updates for M3
+
+        v1.1.1.0, M. St. Clair
+        - Further updates for M3
+        
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Chandrayaan-1_Parameters" type="chan1:Chandrayaan-1_Parameters"> </xs:element>
+  <xs:element name="Initial_Spacecraft_Orientation" type="chan1:Initial_Spacecraft_Orientation"> </xs:element>
+  <xs:element name="Spacecraft_Orientation" type="chan1:Spacecraft_Orientation"> </xs:element>
+  <xs:element name="Spacecraft_Orientation_Axis_Vector" type="chan1:Spacecraft_Orientation_Axis_Vector"> </xs:element>
+  <xs:element name="Spacecraft_Orientation_Rates" type="chan1:Spacecraft_Orientation_Rates"> </xs:element>
+
+  <xs:complexType name="Chandrayaan-1_Parameters">
+    <xs:annotation>
+      <xs:documentation>Container class for general Chandrayaan-1
+        related parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="release_id" type="chan1:release_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="chan1:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_number" type="chan1:orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" type="chan1:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" type="chan1:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_mode_id" type="chan1:instrument_mode_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_mode_desc" type="chan1:instrument_mode_desc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_full_name" type="chan1:producer_full_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_institution_name" type="chan1:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_yaw_direction" type="chan1:spacecraft_yaw_direction" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_limb_direction" type="chan1:orbit_limb_direction" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orientation_epoch_time" type="chan1:orientation_epoch_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_rotation_rate" type="chan1:spacecraft_rotation_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="chan1:Initial_Spacecraft_Orientation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="chan1:Spacecraft_Orientation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="chan1:Spacecraft_Orientation_Rates" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="chan1:Spacecraft_Orientation_Axis_Vector" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="chan1:mission_phase_name = ('Nominal Mission', 'Primary Mission')"/> -->
+    <!-- <xs:assert test="chan1:spacecraft_yaw_direction = ('Forward', 'Reverse')"/> -->
+    <!-- <xs:assert test="chan1:orbit_limb_direction = ('Ascending', 'Descending')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Initial_Spacecraft_Orientation">
+    <xs:annotation>
+      <xs:documentation>Class for the initial Chandrayaan-1 spacecraft
+        orientation parameters, roll/pitch/yaw in degrees from 'ideal
+        nadir'</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="roll" nillable="true" type="chan1:roll" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pitch" nillable="true" type="chan1:pitch" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="yaw" nillable="true" type="chan1:yaw" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test=")"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Spacecraft_Orientation">
+    <xs:annotation>
+      <xs:documentation>Class for Chandrayaan-1 spacecraft orientation
+        parameters, roll/pitch/yaw in degrees from 'ideal
+        nadir'</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="roll" nillable="true" type="chan1:roll" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pitch" nillable="true" type="chan1:pitch" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="yaw" nillable="true" type="chan1:yaw" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test=")"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Spacecraft_Orientation_Axis_Vector">
+    <xs:annotation>
+      <xs:documentation>Class for Chandrayaan-1 spacecraft orientation
+        axis vector, x/y/z unit vector wrt J2000 describing rotation
+        direction since epoch</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="x_unit" nillable="true" type="chan1:x_unit" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="y_unit" nillable="true" type="chan1:y_unit" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="z_unit" nillable="true" type="chan1:z_unit" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Spacecraft_Orientation_Rates">
+    <xs:annotation>
+      <xs:documentation>Class for Chandrayaan-1 spacecraft orientation
+        rate parameters, roll/pitch/yaw in degrees/second since
+        epoch</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="roll_rate" nillable="true" type="chan1:roll_rate" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pitch_rate" nillable="true" type="chan1:pitch_rate" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="yaw_rate" nillable="true" type="chan1:yaw_rate" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="instrument_mode_desc">
+    <xs:annotation>
+      <xs:documentation>The instrument_mode_desc element describes the
+        instrument mode that is identified by the instrument_mode_id
+        element.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="instrument_mode_id">
+    <xs:annotation>
+      <xs:documentation> The instrument_mode_id element provides an
+        instrument-dependent designation of operating mode. This may be
+        simply a number, letter, code, or a word. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation> The mission_phase_name element provides the
+        commonly-used identifier of a mission phase. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orbit_limb_direction">
+    <xs:annotation>
+      <xs:documentation> The orbit_limb attribute provides the direction
+        of the spacecraft orbit with respect to the lunar limb. valids:
+        "Ascending", "Descending" </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orbit_number">
+    <xs:annotation>
+      <xs:documentation> The orbit_number element identifies the number
+        of the orbital revolution of the spacecraft around a target
+        body. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orientation_epoch_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="orientation_epoch_time">
+    <xs:annotation>
+      <xs:documentation>orientation_epoch_time indicates time for the
+        recorded orentiation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:orientation_epoch_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pitch_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pitch">
+    <xs:annotation>
+<xs:documentation>Rotation about the Y-axis.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:pitch_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pitch_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pitch_rate">
+    <xs:annotation>
+      <xs:documentation>Rate of rotation about the Y-axis in
+        deg/sec.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:pitch_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angular_Velocity" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="producer_full_name">
+    <xs:annotation>
+      <xs:documentation> The producer_full_name element provides the
+        full_name of the individual mainly responsible for the
+        production of a data set. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="producer_institution_name">
+    <xs:annotation>
+      <xs:documentation> The producer_institution_name element
+        identifies a university, research center, NASA center or other
+        institution associated with the production of a data set. This
+        would generally be an institution associated with the element
+        producer_full_name. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="release_id">
+    <xs:annotation>
+      <xs:documentation>Release_id is the identifier of a scheduled
+        release of data by PDS. The first data release is Release 0001.
+        The release_id for a given product is always the first release
+        in which it appears, and does not change if the product is
+        revised later.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="roll_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="roll">
+    <xs:annotation>
+<xs:documentation>Rotation about the X-axis.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:roll_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="roll_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="roll_rate">
+    <xs:annotation>
+      <xs:documentation>Rate of rotation about the X-axis in
+        deg/sec.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:roll_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angular_Velocity" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the beginning of a
+        time period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([0-9]{1,2}\/)[0-9]{1,10}(\.[0-9]{1,5})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the end of a time
+        period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([0-9]{1,2}\/)[0-9]{1,10}(\.[0-9]{1,5})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_rotation_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_rotation_rate">
+    <xs:annotation>
+      <xs:documentation>Scalar rotation rate in degrees/second since
+        epoch.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:spacecraft_rotation_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angular_Velocity" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_yaw_direction">
+    <xs:annotation>
+      <xs:documentation> The spacecraft_yaw_direction attribute provides
+        the spacecraft yaw (look) mode. valids: "Forward", "Reverse"
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="x_unit">
+    <xs:annotation>
+      <xs:documentation>The x component of a unit Cartesian
+        vector.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="y_unit">
+    <xs:annotation>
+      <xs:documentation>The y component of a unit Cartesian
+        vector.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="yaw_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="yaw">
+    <xs:annotation>
+<xs:documentation>Rotation about the Z-axis.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:yaw_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="yaw_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="yaw_rate">
+    <xs:annotation>
+      <xs:documentation>Rate of rotation about the Z-axis in
+        deg/sec.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="chan1:yaw_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angular_Velocity" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="z_unit">
+    <xs:annotation>
+      <xs:documentation>The z component of a unit Cartesian
+        vector.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

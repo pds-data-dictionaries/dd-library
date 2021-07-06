@@ -1,0 +1,375 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        13.0.2
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Thu Jun 17 22:21:38 UTC 2021
+   Common Schema          [PDS4_PDS_1G00.xsd]
+   Common Schematron      [PDS4_PDS_1G00.sch]
+   IM Version Id:         1.16.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-clementine/ldd-clementine/src/PDS4_CLEMENTINE_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                4
+   Attributes             23
+   Associations           26
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Clementine Mission Dictionary
+   LDD Version            1.0.0.0
+   Full Name              Michael St. Clair
+   Steward                img
+   Namespace Id           clementine
+   Comment                
+        The Clementine mission dictionary contains a class with attributes specific to the 
+        Deep Space Program Science Experiment, including the Clementine orbiter and its 
+        instruments. This dictionary was created for the migration of Clementine data products 
+        from PDS3 to PDS4.
+        
+        v1.0.0.0 M. St. Clair
+        - Initial version of the Clementine mission dictionary for PDS3 to PDS4 migration
+    
+   Last Modification Time 2020-11-28T10:00:00Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   cryocooler_duration
+   version                1.16
+   value data type        ASCII_Real
+   description             The cryocooler_duration attribute provides the duration, in seconds, since the activation of an imager's cooling device and the acquisition of an image. 
+   unit of measure type   Units_of_Time
+
+   name                   original_product_id
+   version                1.16
+   value data type        ASCII_Short_String_Collapsed
+   description             The original_product_id attribute provides the identifier used for a product during active mission operations, which may be distinct from the product id used for archival. 
+
+   name                   revolution_number
+   version                1.16
+   value data type        ASCII_NonNegative_Integer
+   description             The revolution_number attribute identifies the number of the observational pass of a spacecraft around a target body. Note: The Clementine Mission used this attribute in place of orbit number because orbit number changes half way through the observational pass over the Moon and would not be an ideal parameter when interrogating the data set. The revolution number equals orbit number at the start of the observational pass. 
+
+   name                   producer_institution_name
+   version                1.16
+   value data type        ASCII_Short_String_Collapsed
+   description             The producer_institution_name element identifies the institution primarily responsible for the production of a particular data product. 
+
+   name                   frame_sequence_number
+   version                1.16
+   value data type        ASCII_NonNegative_Integer
+   description             The frame_sequence_number attribute provides the position of an image within a sequence of images taken as part of an observational pass. 
+
+   name                   sequence_table_id
+   version                1.16
+   value data type        ASCII_Short_String_Collapsed
+   description            The sequence_table_id attribute provides a code specifying the order in which cameras were shuttered and filters activated during a particular observation. 
+
+   name                   uncorrected_start_time
+   version                1.16
+   value data type        ASCII_Date_Time_YMD
+   description            The uncorrected_start_time attribute provides the starting time value originally assigned to a product before some corrective process. 
+
+   name                   clem_jpeg_version
+   version                1.16
+   value data type        ASCII_Short_String_Collapsed
+   description             The clem_jpeg_version attribute specifies the specific set of parameters fed to the Matra compression chip that performed the onboard JPEG-variant discrete cosine transformation image compression. Two settings are documented as commonly used in the primary mission: "CLEM-JPEG-0" and, most often, "CLEM-JPEG-1." "CLEM-JPEG-2" and "CLEM-JPEG-3" also appear in some files but are not described in documentation. 
+
+   name                   twist_angle
+   version                1.16
+   value data type        ASCII_Real
+   description             The twist_angle attribute provides the angle of rotation about an instrument's optical axis relative to celestial coordinates. Right ascension, declination, and twist angle together completely specify the pointing of an instrument in a celestial coordinate system. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   smear_magnitude
+   version                1.16
+   value data type        ASCII_Real
+   description             smear_magnitude gives the amount, in pixels, that the image is 'smeared' by spacecraft motion. More specifically, in Clementine, it is the magnitude of the velocity vector of camera boresight intercept with target (including spacecraft rotation) multiplied by exposure duration and image scale. 
+
+   name                   smear_azimuth
+   version                1.16
+   value data type        ASCII_Real
+   description             smear_azimuth gives the azimuth, in degrees, of the 'smear' velocity vector (velocity of image boresight intercept with target). The reference line for this angle extends from image center to image right edge; angle increases clockwise in the image plane. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   north_azimuth
+   version                1.16
+   value data type        ASCII_Real
+   description             north_azimuth gives the azimuth, in degrees, of the vector between the image center and the target north pole. The reference line for this angle extends from image center to image right edge; angle increases clockwise in the image plane. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   reference_pixel_location
+   version                1.16
+   value data type        ASCII_Short_String_Collapsed
+   description             reference_pixel_location describes the position, within an image associated with the labeled data product, of a pixel referred to by other attributes of the containing class. 
+
+   name                   pixel_ra
+   version                1.16
+   value data type        ASCII_Real
+   description            The pixel_ra attribute gives the value of the right ascension of a particular pixel as projected on the celestial sphere. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   pixel_dec
+   version                1.16
+   value data type        ASCII_Real
+   description            The pixel_dec attribute gives the value of the declination of a particular pixel as projected on the celestial sphere. 
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   local_hour_angle
+   version                1.16
+   value data type        ASCII_Real
+   description            The local_hour_angle attribute provides a measure of the instantaneous apparent sun position at the subspacecraft point. The local_hour_angle is the angle between the extension of the vector from the Sun to the target body and the vector projection on the target body’s ecliptic plane of a vector from the target body’s planetocentric center to the observer (usually, the spacecraft). This angle is measured in a counterclockwise direction when viewed from north of the ecliptic plane. It may be converted from an angle in degrees to a local time, using the conversion of 15 degrees per hour for those planets for which the rotational direction corresponds with the direction of measure of the angle. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   light_source_name
+   version                1.16
+   value data type        ASCII_Short_String_Collapsed
+   description             Name of light source to which other attributes of containing class apply. 
+
+   name                   light_source_distance
+   version                1.16
+   value data type        ASCII_Real
+   description             Distance between the target body center and the light source whose illumination parameters are described in the containing class. 
+   unit of measure type   Units_of_Length
+
+   name                   sub_light_source_azimuth
+   version                1.16
+   value data type        ASCII_Real
+   description            The sub_light_source_azimuth attribute provides the value of the angle between the line from the center of an image to the sub-light-source point on the target and a horizontal reference line (in the image plane) extending from the image center to the middle right edge of the image. The values of this angle increase in a clockwise direction. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   sub_light_source_latitude
+   version                1.16
+   value data type        ASCII_Real
+   description            The sub_light_source_latitude attribute gives the value of the planetocentric latitude at the sub-light-source point on the target. 
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   sub_light_source_longitude
+   version                1.16
+   value data type        ASCII_Real
+   description            The sub_light_source_longitude attribute gives the value of the planetocentric latitude at the sub-light-source point on the target. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   incidence_angle
+   version                1.16
+   value data type        ASCII_Real
+   description            The incidence_angle element provides a measure of the lighting condition at the intercept point. Incidence angle is the angle between the local vertical at the intercept point (surface) and a vector from the intercept point to the sun. The incidence_angle varies from 0 degrees when the intercept point coincides with the subsolar point to 90 degrees when the intercept point is at the terminator (i.e., in the shadowed or dark portion of the target body). 
+   minimum value          0
+   maximum value          180
+   unit of measure type   Units_of_Angle
+
+   name                   phase_angle
+   version                1.16
+   value data type        ASCII_Real
+   description            The phase_angle element provides a measure of the relationship between the instrument viewing position and incident illumination (such as solar light). Phase angle is measured at the target; it is the angle between a vector to the illumination source and a vector to the instrument. If illumination is from behind the instrument, phase_angle will be small. 
+   minimum value          0
+   maximum value          180
+   unit of measure type   Units_of_Angle
+
+Parsed Input - Classes:
+
+   name                   Clementine_Parameters
+   description            Container class for Clementine-specific parameters.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      clementine.original_product_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.revolution_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.producer_institution_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.frame_sequence_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.sequence_table_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.uncorrected_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.clem_jpeg_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.twist_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.smear_magnitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.smear_azimuth
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.north_azimuth
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.local_hour_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.cryocooler_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.Celestial_Footprint_Vertices
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      clementine.Illumination_Secondary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Celestial_Footprint_Vertices
+   description             The Celestial_Footprint_Vertices class provides a set of right ascension and declination pairs which are the vertices of a polygon representing the footprint of the field of view on the celestial sphere in the earth-centered J2000 (EME2000) coordinate system. This and its associates are direct analogs of geom:Footprint_Vertices and its associates, intended for referencing FoV to the celestial sphere rather than a target body. They can also be reconsidered reimplementations of the PDS3 Data Dictionary elements RETICLE_POINT_RA and RETICLE_POINT_DECLINATION. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      clementine.Celestial_Reference_Pixel
+      minimum occurrences   1
+      maximum occurrences   5
+      reference type        component_of
+
+   name                   Celestial_Reference_Pixel
+   description             The Celestial_Reference_Pixel class provides the right ascension and declination of a specific designated pixel in the earth-centered J2000 (EME2000) coordinate system. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      clementine.reference_pixel_location
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.pixel_ra
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.pixel_dec
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Illumination_Secondary
+   description            The Illumination_Secondary class contains attributes providing illumination geometry for a secondary light source. It should be used only when parameters for a primary illumination source have been specified elsewhere in the label (perhaps using geom:Illumination_Geometry). 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      clementine.light_source_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.light_source_distance
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.sub_light_source_azimuth
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.sub_light_source_latitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.sub_light_source_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.incidence_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clementine.phase_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

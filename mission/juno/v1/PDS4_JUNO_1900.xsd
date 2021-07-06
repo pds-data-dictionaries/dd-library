@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:juno  Version:1.7.0.0 - Mon Aug 22 17:49:56 PDT 2016 -->
+  <!-- Generated from the PDS4 Information Model Version 1.7.0.0 - System Build 7a -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.9.0.0 - pds: - Common Dictionary - N/A                                  -->
+  <!-- 1.9.0.0 - juno: - Juno Mission - PDS4_JUNO_IngestLDD_1700.xml             -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/juno/v1"
+    xmlns:juno="http://pds.nasa.gov/pds4/mission/juno/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.9.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1900.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+Draft
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="JunoCam_Parameters" type="juno:JunoCam_Parameters"> </xs:element>
+  <xs:element name="Observation_Information" type="juno:Observation_Information"> </xs:element>
+
+  <xs:complexType name="JunoCam_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Observation_Information class provides
+        information about a science observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tdi_stages_count" nillable="true" type="juno:tdi_stages_count" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Information">
+    <xs:annotation>
+      <xs:documentation>The Observation_Information class provides
+        information about a science observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" nillable="true" type="juno:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_number" nillable="true" type="juno:orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="product_type" nillable="true" type="juno:product_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="release_number" nillable="true" type="juno:release_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" nillable="true" type="juno:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="JunoCam_Parameters" type="juno:JunoCam_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="juno:mission_phase_name = ('CAPTURE ORBIT', 'DEORBIT', 'INNER CRUISE 1', 'INNER CRUISE 2', 'INNER CRUISE 3', 'N/A', 'ORBITS 1-2', 'PERIOD REDUCTION MANEUVER', 'QUIET CRUISE', 'SCIENCE ORBITS', 'UNK')"/> -->
+    <!-- <xs:assert test="juno:product_type = ('EDR', 'RDR')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        pds namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:complexType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name identifies a time period
+        within the mission.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Preserved">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="orbit_number">
+    <xs:annotation>
+      <xs:documentation>The orbit_number attribute identifies the number
+        of the orbital revolution of the spacecraft around a target
+        body. This value is N/A for cruise images.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="product_type">
+    <xs:annotation>
+      <xs:documentation>The product_type identifies a group of data
+        products within a collection that have some property in common,
+        such as processing level, resolution, or instrument-specific
+        setting. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="release_number">
+    <xs:annotation>
+      <xs:documentation>Release_number is the number of a scheduled
+        release of JunoCam data from PDS. The first Juno data release is
+        Release 1. The release_number for a given product is always the
+        first release in which it appears, and does not change if the
+        product is revised later.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the actual start
+        of image acquisition. There may be small inconsistencies with
+        start_date_time due to varying correlation between UTC and the
+        spacecraft clock. For purposes of data analysis the spacecraft
+        clock value should be used. The format of this field is
+        compatible with the NAIF Toolkit software where s = seconds
+        converted from the clock's coarse counter and m = seconds
+        converted from the clock's fine counter.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="tdi_stages_count">
+    <xs:annotation>
+      <xs:documentation>The tdi_stages_count attribute provides the
+        number of time delay and integration (TDI) stages used to
+        increase the exposure time of a JunoCam
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+ 
+  <xs:annotation>
+    <xs:documentation>
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "Version": "1.7.0.0" ,
+      "Date": "Mon Aug 22 17:49:56 PDT 2016" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "PropertyMapDictionary": [
+      ]
+    }
+  }
+]
+    </xs:documentation>
+  </xs:annotation>
+</xs:schema>

@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 
+                        https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"
+                        >
+  <name>Type_List</name>
+  <ldd_version_id>1.2.0.0</ldd_version_id>
+  <dictionary_type>Discipline</dictionary_type>
+  <full_name>Lyle Huber</full_name>
+  <steward_id>ctli</steward_id>
+  <namespace_id>ctli</namespace_id>
+  <comment>
+    The Instrument Type List Dictionary provides a set of permissible values and their 
+    value meanings for use by the enumerated attribute  type  in the Instrument class.
+    Modification History:
+      2019-11-14: First version delivered by the Instrument Type Steward Team.
+  </comment>
+  <last_modification_date_time>2020-03-04T21:00:00Z</last_modification_date_time>
+  <!-- Modification History
+    Version 1.0.0.0 - initial dictionary
+    Version 1.1.0.0 - added subtype
+    Version 1.2.0.0 - added Photometer
+    -->
+
+  <DD_Attribute>
+    <name>type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Lyle Huber</submitter_name> <!-- As chair of Instrument Type Steward Team -->
+    <definition>
+      The type attribute provides a character string which uniquely identifies the object.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+      
+      <DD_Permissible_Value>
+        <value>Accelerometer</value>
+        <value_meaning>
+          An accelerometer measures acceleration -- rate of change of velocity -- in its own rest frame. 
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Altimeter</value>
+        <value_meaning>
+          An altimeter measures distance above a surface.
+        </value_meaning>
+        <Terminological_Entry>
+          <name>Lidar</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            A lidar measures distance to a target by illuminating it with a pulsed laser
+            and measuring the time delay of the reflected signal.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Atmospheric Structure Instrument</value>
+        <value_meaning>
+          An atmospheric structure instrument measures one or more structural properties of an atmosphere.
+          These properties may include -- but are not limited to -- pressure, temperature,
+          density, wind speed, and wind direction.
+        </value_meaning>
+        <Terminological_Entry>
+          <name>Meteorology</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            A meteorology instrument measures in situ meteorological conditions.
+            These may include -- but are not limited to -- pressure, temperature, 
+            wind speed, and wind direction.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+        <Terminological_Entry>
+          <name>Weather Station</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            A weather station is a suite of instruments that measures in situ meteorological conditions. These may include -- but are 
+            not limited to -- pressure, temperature, wind speed and wind direction.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Camera</value>
+        <value_meaning>
+          A camera is an optical instrument that captures a still image or a sequence of images on physical media.
+        </value_meaning>
+        <Terminological_Entry>
+          <name>Imager</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            An imager detects and converts information into a digital image.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value>
+
+      <DD_Permissible_Value>
+        <value>Charged Particle Detector</value>
+        <value_meaning>
+          A charged particle detector detects and/or counts charged particles, and provides information
+          about particle properties and distributions.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Dust Analyzer</value>
+        <value_meaning>
+          A dust analyzer measures the size and/or energy distribution of dust particles.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Electric Field Instrument</value>
+        <value_meaning>
+          An electric field instrument measures the direction and/or strength of an electric field.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Gamma Ray Detector</value>
+        <value_meaning>
+          A gamma ray detector is an instrument that detects gamma rays.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Gas Analyzer</value>
+        <value_meaning>
+          A gas analyzer measures the concentration of one or more species in a mixture of neutral gases.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Gravimeter</value>
+        <value_meaning>
+          A gravimeter measures gravitational acceleration.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Imager</value>
+        <value_meaning>
+          An imager detects and converts information into a digital image.
+        </value_meaning>
+        <Terminological_Entry>
+          <name>Camera</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            A camera is an optical instrument that captures a still image or a sequence of images on physical media.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Imaging Spectrometer</value>
+        <value_meaning>
+          An imaging spectrometer acquires a spectrally-resolved image of an object or scene.
+          Two axes of the image correspond to orthogonal spatial dimensions and the third corresponds to wavelength.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Interferometer</value>
+        <value_meaning>
+          An interferometer superposes waves such that constructive and destructive interference
+          results in patterns that can be interpreted as very small displacements at the signal source.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Langmuir Probe</value>
+        <value_meaning>
+          A Langmuir probe consists of one or more electrodes used to determine in-situ plasma 
+          properties such as density and temperature from the measured potentials and currents.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Lidar</value>
+        <value_meaning>
+          A lidar measures distance to a target by illuminating it with a pulsed laser
+          and measuring the time delay of the reflected signal.
+        </value_meaning>
+        <Terminological_Entry>
+          <name>Altimeter</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            An altimeter measures distance above a surface.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Magnetometer</value>
+        <value_meaning>
+          A magnetometer measures the direction and/or strength of a magnetic field.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Mass Spectrometer</value>
+        <value_meaning>
+          A mass spectrometer sorts and counts atoms, ions, and/or molecules based on their masses.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Meteorology</value>
+        <value_meaning>
+          A meteorology instrument measures in situ meteorological conditions.
+          These may include -- but are not limited to -- pressure, temperature, 
+          wind speed, and wind direction.
+        </value_meaning>
+        <Terminological_Entry>
+          <name>Weather Station</name>
+<!--          <skos_relation_name>exactMatch</skos_relation_name> -->
+          <definition>
+            A weather station is a suite of instruments that measures in situ meteorological conditions. 
+            These may include -- but are not limited to -- pressure, temperature, wind speed and wind direction.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry>        
+        <Terminological_Entry>
+          <name>Atmospheric Structure Instrument</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            An atmospheric structure instrument measures one or more structural properties of an atmosphere.
+            These properties may include -- but are not limited to -- pressure, temperature,
+            density, wind speed, and wind direction.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Microphone</value>
+        <value_meaning>
+          A microphone converts sound waves into electrical signals.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Microscope</value>
+        <value_meaning>
+          A microscope magnifies objects that are too small to be seen with the naked eye.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Mutual Impedance Probe</value>
+        <value_meaning>
+          A mutual impedance probe measures in situ bulk plasma properties at radio frequencies.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Nephelometer</value>
+        <value_meaning>
+          A nephelometer measures the concentration of suspended (cloud) particulates.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Neutral Particle Detector</value>
+        <value_meaning>
+          A neutral particle detector detects and/or counts neutral particles, and provides information
+          about particle properties and distributions.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Neutron Detector</value>
+        <value_meaning>
+          A neutron detector detects and/or counts neutrons.
+        </value_meaning>
+      </DD_Permissible_Value>
+        
+      <DD_Permissible_Value>
+        <value>Photometer</value>
+        <value_meaning>
+          A photometer measures the intensity of electromagnetic radiation over a wavelength range at infrared and shorter wavelengths.
+        </value_meaning>
+      </DD_Permissible_Value>
+
+      <DD_Permissible_Value>
+        <value>Polarimeter</value>
+        <value_meaning>
+          A polarimeter measures the polarization of an electromagnetic wave.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Radar</value>
+        <value_meaning>
+          A radar transmits an electromagnetic wave, then measures amplitude, time delay, frequency shift,
+          phase shift, and/or polarization of the echo from a distant target.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Radio Receiver</value>
+        <value_meaning>
+          A radio receiver detects the information in propagating electromagnetic waves 
+          collected by an antenna.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Radio Science</value>
+        <value_meaning>
+          Radio science is the use of active and/or passive electromagnetic waves to probe the environment.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Radiometer</value>
+        <value_meaning>
+          A radiometer measures radiant flux (power) of electromagnetic radiation. 
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Relaxation Sounder</value>
+        <value_meaning>A relaxation sounder determines the properties of a plasma by actively probing at radio frequencies at and near the plasma frequency.</value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Seismometer</value>
+        <value_meaning>
+          A seismometer measures ground motions such as might be caused by earthquakes, volcanic eruptions,
+          or explosions.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+<!--      <DD_Permissible_Value>
+        <value>Spectrograph</value>
+        <value_meaning>A spectrograph ... an energy spectrum.</value_meaning>
+        <Terminological_Entry>
+          <name>Spectrometer</name>
+          <skos_relation_name>closeMatch</skos_relation_name> 
+          <definition>A spectrometer measures an energy spectrum.</definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value> -->
+      
+      <DD_Permissible_Value>
+        <value>Spacecraft Sensor</value>
+        <value_meaning>
+          A spacecraft sensor captures information on the status or physical condition of a spacecraft or its components.
+          These may include, but are not limited to, temperatures, mechanical friction, currents, voltages, etc.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Spectrometer</value>
+        <value_meaning>
+          A spectrometer measures an energy spectrum.
+        </value_meaning>
+<!--    <Terminological_Entry>
+          <name>Spectrograph</name>
+          <skos_relation_name>closeMatch</skos_relation_name>
+          <definition>
+              A spectrograph ... 
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> -->
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Spectrum Analyzer</value>
+        <value_meaning>
+          A spectrum analyzer measures the properties of photons, charged particles, or electrical signals as a function 
+          of frequency or energy.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Sub-Surface Tool</value>
+        <value_meaning> 
+          A sub-surface tool probes the upper few meters of a surface to infer its properties.
+          Examples include (but are not limited to) drills and penetrators.
+          </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Surface Tool</value>
+        <value_meaning> 
+          A surface tool physically probes a surface to infer its properties.
+          Examples include (but are not limited to) brush and deployment systems.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Temperature Sensor</value>
+        <value_meaning>A temperature sensor measures temperature.</value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Weather Station</value>
+        <value_meaning>
+          A weather station is a suite of instruments that measures in situ meteorological conditions. These may include -- but are 
+          not limited to -- pressure, temperature, wind speed and wind direction.
+        </value_meaning>
+        <Terminological_Entry>
+          <name>Meteorology</name>
+<!--          <skos_relation_name>exactMatch</skos_relation_name> -->
+          <definition>A meteorology instrument measures in situ meteorological conditions.
+            These may include -- but are not limited to -- pressure, temperature, 
+            wind speed, and wind direction.</definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+        <Terminological_Entry>
+          <name>Atmospheric Structure Instrument</name>
+<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <definition>
+            An atmospheric structure instrument measures one or more structural properties of an atmosphere.
+            These properties may include -- but are not limited to -- pressure, temperature,
+            density, wind speed, and wind direction.
+          </definition>
+          <language>English</language>
+          <preferred_flag>false</preferred_flag>
+        </Terminological_Entry> 
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
+        <value>Wind Tunnel</value>
+        <value_meaning>
+          A wind tunnel is used to study the effects of air moving past solid objects.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>subtype</name>
+    <version_id>1.0</version_id>
+    <local_identifier>subtype</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Lyle Huber</submitter_name>
+    <definition>The subtype attribute provides additional nuance or clarity to the type attribute.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Class>
+    <name>Type_List</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Type_List</local_identifier>
+    <submitter_name>Lyle Huber</submitter_name>
+    <definition>The Type List class provides a list of values and their value meanings.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>subtype</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>  
+  </DD_Class>
+  
+</Ingest_LDD>

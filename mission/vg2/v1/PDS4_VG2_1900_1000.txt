@@ -1,0 +1,105 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        0.2.1.3
+   Time                   Fri Nov 30 11:00:33 PST 2018
+   Core Schemas           [PDS4_PDS_1900.xsd]
+   Core Schematrons       [PDS4_PDS_1900.sch]
+   Common Model Version   1.9.0.0
+   Object Model           [UpperModel.pont]
+   Data Dictionary        [dd11179.pins]
+   Configuration File     [MDPTNConfigClassDisp.xml]
+   Glossary               [Glossary.pins]
+   Document Spec          [DMDocument.pins]
+
+Parameters:
+   Input File             [ldd-voyager-2.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Class Elements   false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                1
+   Attributes             3
+   Associations           3
+   Error messages         0
+   Warning messages       2
+   Information messages   4
+
+Detailed validation messages
+   WARNING  Header:  - New steward has been specified:ppi
+   WARNING  Header:  - New namespace id has been specified:vg2
+   INFO     Attribute: <mission_phase_name> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <mission_phase_name> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <spacecraft_clock_start_count> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <spacecraft_clock_stop_count> - This local attribute has a duplicate in the PDS4 data dictionary.
+
+Parsed Input - Header:
+   LDD Name               Voyager2
+   LDD Version            1.0.0.0
+   Full Name              Debra Kazden
+   Steward                ppi
+   Namespace Id           vg2
+   Comment                The Voyager 2 dictionary contains classes that describe aspects of the Voyager 2 mission and related instruments.
+   Last Modification Time 2018-04-24T10:11:46.802Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   mission_phase_name
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The mission_phase_name attribute provides the mission-defined name of a mission phase.
+   maximum characters     255
+   permissible value - value meaning
+      Launch - 1977-08-20 (1977-232) to 1977-08-20 (1977-232)
+      Earth-Jupiter Cruise - )1977-08-20 (1977-232) to 1979-04-25 (1979-115)
+      Jupiter Encounter - 1979-04-25 (1979-115) to 1979-08-05 (1979-217)
+      Jupiter-Saturn Cruise - 1979-08-05 (1979-217) to 1981-06-05 (1981-156)
+      Saturn Encounter - 1981-06-05 (1981-156) to 1981-09-25 (1981-268)
+      Saturn-Uranus Cruise - 1981-09-25 (1981-268) to 1985-11-04 (1985-308)
+      Uranus Encounter - 1985-11-04 (1985-308) to 1986-02-25 (1986-056)
+      Uranus-Neptune Cruise - 1986-02-25 (1986-056) to 1989-06-05 (1989-156)
+      Neptune Encounter - 1989-06-05 (1989-156) to 1989-10-02 (1989-275)
+      Interstellar Mission - 1989-10-02 (1989-275) to UNK
+
+   name                   spacecraft_clock_start_count
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. 
+
+   name                   spacecraft_clock_stop_count
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. 
+
+Parsed Input - Classes:
+
+   name                   Voyager2
+   description            The VG2 class is the container for mission-specific metadata elements.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      vg2.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vg2.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vg2.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================ -->
+<!-- NameSpace identification                                     -->
+<!--        (1) the global namespace (pds)                        -->
+<!--        (2) the locally defined namespace (ladee)             -->
+<!--                                                              -->
+<!--   - each namespace is further identified by release          -->
+<!-- ============================================================ -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://pds.nasa.gov/pds4/ladee/v1"
+  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+  xmlns:ladee="http://pds.nasa.gov/pds4/ladee/v1" 
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified" version="1.1.0.0">
+  
+  <xsd:annotation>
+    <xsd:documentation> The puropse of this schema is to support the 
+      definition of locally defined attributes / classes used by  
+      the DPH example products 
+    </xsd:documentation>
+  </xsd:annotation>
+  
+  <xsd:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/schema/released/pds/v1/PDS4_PDS_1100.xsd">
+    <xsd:annotation>
+      <xsd:documentation>This import is done so the type definitions in 
+        this file can build on the base types. 
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:import>
+  
+  
+  
+  <!-- ======== -->  
+  <!-- latitude -->  
+  <!-- ======== -->
+  <xsd:element name="latitude" type="ladee:latitude"/>
+    
+  <xsd:simpleType name="latitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,1}(\.\d{1})"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+  <!-- ========= -->
+  <!-- longitude -->
+  <!-- ========= -->
+  
+  <xsd:element name="longitude" type="ladee:longitude"/>
+  
+  <xsd:simpleType name="longitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+	   </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ============== -->
+  <!-- solar_latitude -->
+  <!-- ============== -->
+  <xsd:element name="solar_latitude" type="ladee:solar_latitude"/>
+  
+  <xsd:simpleType name="solar_latitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,1}(\.\d{1})"/>
+        <xsd:minInclusive value="0"/>
+        <xsd:maxInclusive value="90"/>
+      </xsd:restriction>
+  </xsd:simpleType>
+
+  <!-- =============== -->
+  <!-- solar_longitude -->
+  <!-- =============== -->
+  
+  <xsd:element name="solar_longitude" type="ladee:solar_longitude"/>
+  
+  <xsd:simpleType name="solar_longitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+
+  <!-- ========================== -->
+  <!-- spacecraft_position_vector -->
+  <!-- ========================== -->
+  
+  <xsd:element name="spacecraft_position_vector" type="pds:Vector_Cartesian_3_Position">
+    <xsd:annotation>
+      <xsd:documentation>
+        The position of the Spacecraft with respect to the Lunar center of mass.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  
+  <!-- ============= -->
+  <!-- activity_type -->
+  <!-- ============= -->
+  <xsd:element name="activity_type" type="ladee:activity_type"/>
+  
+  <xsd:simpleType name="activity_type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="North_South"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ================== -->
+  <!-- accumulation_count -->
+  <!-- ================== -->
+  
+  <xsd:element name="accumulation_count" type="ladee:accumulation_count"/>
+  
+  <xsd:simpleType name="accumulation_count">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="120"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ======== -->
+  <!-- aperture -->
+  <!-- ======== -->
+  <xsd:element name="aperture" type="ladee:aperture"/>
+  
+  <xsd:simpleType name="aperture">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="telescope"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ================ -->
+  <!-- integration_time -->
+  <!-- ================ -->
+  
+  <xsd:element name="integration_time" type="ladee:integration_time"/>
+  
+  <xsd:simpleType name="integration_time">
+    <xsd:restriction base="xsd:integer">
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+  <!-- ============= -->
+  <!-- detector_temp -->
+  <!-- ============= -->
+  
+  <xsd:element name="detector_temp" type="ladee:detector_temp"/>
+  
+  <xsd:simpleType name="detector_temp">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+  <!-- ====================== -->
+  <!-- occulation_view_vector -->
+  <!-- ====================== -->
+  
+  <xsd:element name="occulation_view_vector" type="pds:Vector_Cartesian_3_Position">
+    <xsd:annotation>
+      <xsd:documentation>
+        The position of the Spacecraft with respect to the Lunar center of mass.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  
+  <!-- ============================ -->
+  <!-- occultation_grazing_altitude -->
+  <!-- ============================ -->
+  
+  <xsd:element name="occultation_grazing_altitude" type="ladee:occultation_grazing_altitude"/>
+  
+  <xsd:simpleType name="occultation_grazing_altitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,7}(\.\d{1})"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ================================== -->
+  <!-- occultation_grazing_point_latitude -->
+  <!-- ================================== -->
+  
+  <xsd:element name="occultation_grazing_point_latitude" type="ladee:occultation_grazing_point_latitude"/>
+  
+  <xsd:simpleType name="occultation_grazing_point_latitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- =================================== -->
+  <!-- occultation_grazing_point_longitude -->
+  <!-- =================================== -->
+  
+  <xsd:element name="occultation_grazing_point_longitude" type="ladee:occultation_grazing_point_longitude"/>
+  
+  <xsd:simpleType name="occultation_grazing_point_longitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ======================================== -->
+  <!-- occultation_grazing_point_solar_latitude -->
+  <!-- ======================================== -->
+  
+  <xsd:element name="occultation_grazing_point_solar_latitude" type="ladee:occultation_grazing_point_solar_latitude"/>
+
+  <xsd:simpleType name="occultation_grazing_point_solar_latitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ========================================= -->
+  <!-- occultation_grazing_point_solar_longitude -->
+  <!-- ========================================= -->
+  
+  <xsd:element name="occultation_grazing_point_solar_longitude" type="ladee:occultation_grazing_point_solar_longitude"/>
+  
+  <xsd:simpleType name="occultation_grazing_point_solar_longitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <!-- ================== -->
+  <!-- occultation_target -->
+  <!-- ================== -->
+  <xsd:element name="occultation_target" type="ladee:occultation_target"/>
+  
+  <xsd:simpleType name="occultation_target">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="sky"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ========================== -->
+  <!-- telescope_grazing_altitude -->
+  <!-- ========================== -->
+  
+  <xsd:element name="telescope_grazing_altitude" type="ladee:telescope_grazing_altitude"/>
+  
+  <xsd:simpleType name="telescope_grazing_altitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,5}(\.\d{1})"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ================================ -->
+  <!-- telescope_grazing_point_latitude -->
+  <!-- ================================ -->
+  
+  <xsd:element name="telescope_grazing_point_latitude" type="ladee:telescope_grazing_point_latitude"/>
+  
+  <xsd:simpleType name="telescope_grazing_point_latitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ================================ -->
+  <!--telescope_grazing_point_longitude -->
+  <!-- ================================ -->
+  
+  <xsd:element name="telescope_grazing_point_longitude" type="ladee:telescope_grazing_point_longitude"/>
+  
+  <xsd:simpleType name="telescope_grazing_point_longitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ====================================== -->
+  <!-- telescope_grazing_point_solar_latitude -->
+  <!-- ====================================== -->
+  
+  <xsd:element name="telescope_grazing_point_solar_latitude" type="ladee:telescope_grazing_point_solar_latitude"/>
+  
+  <xsd:simpleType name="telescope_grazing_point_solar_latitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ======================================= -->
+  <!-- telescope_grazing_point_solar_longitude -->
+  <!-- ======================================= -->
+  
+  <xsd:element name="telescope_grazing_point_solar_longitude" type="ladee:telescope_grazing_point_solar_longitude"/>
+  
+  <xsd:simpleType name="telescope_grazing_point_solar_longitude">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ================ -->
+  <!-- telescope_target -->
+  <!-- ================ -->
+  <xsd:element name="telescope_target" type="ladee:telescope_target"/>
+  
+  <xsd:simpleType name="telescope_target">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="sky"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  <!-- ===================== -->
+  <!-- telescope_view_vector -->
+  <!-- ===================== -->
+  
+  <xsd:element name="telescope_view_vector" type="pds:Vector_Cartesian_3_Position"></xsd:element>
+  
+  <!-- =========== -->
+  <!-- scan_number -->
+  <!-- =========== -->
+  
+  <xsd:element name="scan_number" type="ladee:scan_number"/>
+  
+  <xsd:simpleType name="scan_number">
+    <xsd:restriction base="xsd:integer">
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ==================== -->
+  <!-- spacecraft_timestamp -->
+  <!-- ==================== -->
+  
+  <xsd:element name="spacecraft_timestamp" type="ladee:spacecraft_timestamp"/>
+  
+  <xsd:simpleType name="spacecraft_timestamp">
+    <xsd:restriction base="xsd:integer">
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ====================== -->
+  <!-- spectrometer_timestamp -->
+  <!-- ====================== -->
+  
+  <xsd:element name="spectrometer_timestamp" type="ladee:spectrometer_timestamp"/>
+  
+  <xsd:simpleType name="spectrometer_timestamp">
+    <xsd:restriction base="xsd:integer">
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- ====================== -->
+  <!-- integration_start_time -->
+  <!-- ====================== -->
+  
+  <xsd:element name="integration_start_time" type="ladee:integration_start_time"/>
+  
+  <xsd:simpleType name="integration_start_time">
+    <xsd:restriction base="xsd:integer">
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- =========== -->
+  <!-- tec_enabled -->
+  <!-- =========== -->
+  <xsd:element name="tec_enabled" type="ladee:tec_enabled"/>
+  
+  <xsd:simpleType name="tec_enabled">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="32"/>
+      <xsd:enumeration value="True"/>
+      <xsd:enumeration value="False"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+  
+  
+  <!-- ================= -->
+  <!-- tec_hot_side_temp -->
+  <!-- ================= -->
+  
+  <xsd:element name="tec_hot_side_temp" type="ladee:tec_hot_side_temp"/>
+  
+  <xsd:simpleType name="tec_hot_side_temp">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+  
+  
+  <!-- ============ -->
+  <!-- tec_setpoint -->
+  <!-- ============ -->
+  
+  <xsd:element name="tec_setpoint" type="ladee:tec_setpoint"/>
+  
+  <xsd:simpleType name="tec_setpoint">
+    <xsd:restriction base="xsd:float">
+      <xsd:pattern value="[-]?[0-9]\d{0,2}(\.\d{1})"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+  <!-- ============== -->
+  <!-- valid_checksum -->
+  <!-- ============== -->
+  <xsd:element name="valid_checksum" type="ladee:valid_checksum"/>
+  
+  <xsd:simpleType name="valid_checksum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="True"/>
+      <xsd:enumeration value="False"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+  
+  
+  
+</xsd:schema>

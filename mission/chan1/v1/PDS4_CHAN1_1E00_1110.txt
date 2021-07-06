@@ -1,0 +1,387 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        0.0.0
+   LDD Version Id:        1.1.1.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Wed Nov 25 19:46:18 UTC 2020
+   Common Schema          [PDS4_PDS_1E00.xsd]
+   Common Schematron      [PDS4_PDS_1E00.sch]
+   IM Version Id:         1.14.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.20
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-chan1/ldd-chan1/src/PDS4_CHAN1_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                5
+   Attributes             22
+   Associations           29
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Chandrayaan-1 Mission Dictionary
+   LDD Version            1.1.1.0
+   Full Name              Susan Slavney
+   Steward                geo
+   Namespace Id           chan1
+   Comment                
+        The Chandrayaan-1 mission dictionary contains a class with attributes specific to the 
+        Chandrayaan-1 mission and instruments. This dictionary was created for the migration
+        of Chandrayaan data products from PDS3 to PDS4.
+        
+        v1.0.0.0 GEO/EAG 
+        - Initial version of the Chandrayaan mission dictionary for PDS3 to PDS4 migration
+        
+        v1.1.0.0, T.Hare
+        - Initial updates for M3
+
+        v1.1.1.0, M. St. Clair
+        - Further updates for M3
+        
+    
+   Last Modification Time 2020-11-22T15:00:00Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   instrument_mode_id
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The instrument_mode_id element provides an instrument-dependent designation of operating mode. This may be simply a number, letter, code, or a word. 
+
+   name                   instrument_mode_desc
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The instrument_mode_desc element describes the instrument mode that is identified by the instrument_mode_id element.
+
+   name                   mission_phase_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The mission_phase_name element provides the commonly-used identifier of a mission phase. 
+
+   name                   orbit_number
+   version                1.14
+   value data type        ASCII_NonNegative_Integer
+   description             The orbit_number element identifies the number of the orbital revolution of the spacecraft around a target body. 
+
+   name                   producer_full_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The producer_full_name element provides the full_name of the individual mainly responsible for the production of a data set. 
+
+   name                   producer_institution_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The producer_institution_name element identifies a university, research center, NASA center or other institution associated with the production of a data set. This would generally be an institution associated with the element producer_full_name. 
+
+   name                   release_id
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Release_id is the identifier of a scheduled release of data by PDS. The first data release is Release 0001. The release_id for a given product is always the first release in which it appears, and does not change if the product is revised later.
+
+   name                   spacecraft_clock_start_count
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. 
+
+   name                   spacecraft_clock_stop_count
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest. 
+
+   name                   pitch
+   version                1.14
+   value data type        ASCII_Real
+   description            Rotation about the Y-axis.
+   nillable               true
+   unit of measure type   Units_of_Angle
+
+   name                   pitch_rate
+   version                1.14
+   value data type        ASCII_Real
+   description            Rate of rotation about the Y-axis in deg/sec.
+   nillable               true
+   unit of measure type   Units_of_Angular_Velocity
+
+   name                   orbit_limb_direction
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The orbit_limb attribute provides the direction of the spacecraft orbit with respect to the lunar limb. valids: "Ascending", "Descending" 
+
+   name                   orientation_epoch_time
+   version                1.14
+   value data type        ASCII_Real
+   description            orientation_epoch_time indicates time for the recorded orentiation. 
+   unit of measure type   Units_of_Time
+
+   name                   roll
+   version                1.14
+   value data type        ASCII_Real
+   description            Rotation about the X-axis.
+   nillable               true
+   unit of measure type   Units_of_Angle
+
+   name                   roll_rate
+   version                1.14
+   value data type        ASCII_Real
+   description            Rate of rotation about the X-axis in deg/sec.
+   nillable               true
+   unit of measure type   Units_of_Angular_Velocity
+
+   name                   spacecraft_rotation_rate
+   version                1.14
+   value data type        ASCII_Real
+   description            Scalar rotation rate in degrees/second since epoch.
+   unit of measure type   Units_of_Angular_Velocity
+
+   name                   spacecraft_yaw_direction
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The spacecraft_yaw_direction attribute provides the spacecraft yaw (look) mode. valids: "Forward", "Reverse" 
+
+   name                   x_unit
+   version                1.14
+   value data type        ASCII_Real
+   description            The x component of a unit Cartesian vector.
+   nillable               true
+   minimum value          -1
+   maximum value          1
+
+   name                   yaw
+   version                1.14
+   value data type        ASCII_Real
+   description            Rotation about the Z-axis.
+   nillable               true
+   unit of measure type   Units_of_Angle
+
+   name                   yaw_rate
+   version                1.14
+   value data type        ASCII_Real
+   description            Rate of rotation about the Z-axis in deg/sec.
+   nillable               true
+   unit of measure type   Units_of_Angular_Velocity
+
+   name                   y_unit
+   version                1.14
+   value data type        ASCII_Real
+   description            The y component of a unit Cartesian vector.
+   nillable               true
+   minimum value          -1
+   maximum value          1
+
+   name                   z_unit
+   version                1.14
+   value data type        ASCII_Real
+   description            The z component of a unit Cartesian vector.
+   nillable               true
+   minimum value          -1
+   maximum value          1
+
+Parsed Input - Classes:
+
+   name                   Chandrayaan-1_Parameters
+   description            Container class for general Chandrayaan-1 related parameters.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      chan1.release_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.instrument_mode_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.instrument_mode_desc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.producer_full_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.producer_institution_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.spacecraft_yaw_direction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.orbit_limb_direction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.orientation_epoch_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.spacecraft_rotation_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.Initial_Spacecraft_Orientation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      chan1.Spacecraft_Orientation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      chan1.Spacecraft_Orientation_Rates
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      chan1.Spacecraft_Orientation_Axis_Vector
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Initial_Spacecraft_Orientation
+   description            Class for the initial Chandrayaan-1 spacecraft orientation parameters, roll/pitch/yaw in degrees from 'ideal nadir'
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      chan1.roll
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.pitch
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.yaw
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Spacecraft_Orientation
+   description            Class for Chandrayaan-1 spacecraft orientation parameters, roll/pitch/yaw in degrees from 'ideal nadir'
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      chan1.roll
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.pitch
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.yaw
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Spacecraft_Orientation_Rates
+   description            Class for Chandrayaan-1 spacecraft orientation rate parameters, roll/pitch/yaw in degrees/second since epoch
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      chan1.roll_rate
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.pitch_rate
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.yaw_rate
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Spacecraft_Orientation_Axis_Vector
+   description            Class for Chandrayaan-1 spacecraft orientation axis vector, x/y/z unit vector wrt J2000 describing rotation direction since epoch
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      chan1.x_unit
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.y_unit
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      chan1.z_unit
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

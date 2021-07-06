@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!-- InstanceBegin template="/Templates/main.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+	<!-- InstanceBeginEditable name="doctitle" --><title>PDS: Data Dictionaries - Missions</title><!-- InstanceEndEditable -->
+	<!--#include virtual="/include/includes.html" -->
+	<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+	<!-- InstanceParam name="menu_section" type="text" value="schema" -->
+	<!-- InstanceParam name="menu_item" type="text" value="pds4_schema" -->
+	<!-- InstanceParam name="left_sidebar" type="boolean" value="true" -->
+	<!-- InstanceParam name="standard_sidebar" type="boolean" value="true" -->
+
+		<script src="/js/ldd.js" type="text/javascript"></script>
+		<link href="/css/ldd.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="sidebar menu_datastandards menu_item_datastandards_schema">
+<!--[if IE]>
+<div id="IE">
+<![endif]-->
+
+<div id="header-container">
+  <!--#include virtual="/include/header_logo.html" -->
+  <div id="menu-container">
+    <!--#include virtual="/include/main_menu.html" -->
+    <!--#include virtual="/include/datastandards_menu.html" -->
+  </div>
+  <!--#include virtual="/include/header_links.html" -->
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+	<!-- InstanceBeginEditable name="leftSidebar" -->
+	<!--#include virtual="/include/toc_ldd.html" -->
+	<!-- InstanceEndEditable -->
+</div>
+
+<!-- Main content -->
+<div id="content">
+	<h1><a name="mainContent"></a><!-- InstanceBeginEditable name="pageTitle" -->Data Dictionaries - Missions<!-- InstanceEndEditable --></h1>
+	<!-- InstanceBeginEditable name="content" -->
+	<div>
+		<p>
+			The following page links to all released Mission Data Dictionaries, including XML Schema and Schematrons for the applicable PDS4 namespace.
+		</p>
+		<p>
+			<b>All versions of the data dictionaries can be found <a href="/datastandards/dictionaries/index-versions.shtml">here</a>.</b>
+		</p>
+		<p>
+			Need help with creating a dictionary or where to start, please contact the <a href="mailto:pds_operator@jpl.nasa.gov">PDS Operator</a> at pds_operator@jpl.nasa.gov.
+		</p>
+	</div>
+	<hr>
+	<div id="ldd-search">
+		<h2>Data Dictionary Search</h2>
+		<p><a href="/datastandards/documents/dd/current/PDS4_PDS_DD_1F00/webhelp/all/">Browse and search</a> all data dictionary classes and attributes online.</p>
+		<hr>
+	</div>
+	<div id="ldd-intro">
+		<h2>What are you looking for?</h2>
+		<ul>
+			<li>The latest release of the main <a href="#pds-common">PDS Common</a> dictionary</li>
+			<li><a href="#discipline-dictionaries">Discipline dictionaries</a> to go with my main dictionary</li>
+			<li>A <a href="#mission-dictionaries">mission or project dictionary</a> from the archive</li>
+			<li>A <a href="#create-dictionary">how-to</a> on creating a dictionary</li>
+			<li>A <a href="#submit-new-version">how-to</a> on submitting my dictionary for archiving</li>
+			<li>Something else? See the <a href="#toc">Table of Contents</a> for more details</li>
+		</ul>
+	</div>
+	<hr>
+	<div id="data-dictionaries">
+		<h2>Data Dictionaries</h2>
+		<div id="compatible-versions">
+			<h3>Compatible Versions</h3>
+			<p>
+				For each version of the PDS Common Data Dictionary, there are specific discipline and mission dictionary that are compatible.
+				You can find this information in our <a href="/datastandards/schema/pds-dictionary-stacks.pdf">Dictionary Stacks</a> database.
+			</p>
+			<a class="toTop">Back to top</a>
+		</div>
+		<hr class="minihr">
+		<div id="pds-common" class="lddList">
+			<h3>PDS Common</h3>
+			<p>All versions of the PDS Common data dictionaries can be found <a href="/datastandards/dictionaries/index-versions.shtml">here</a>.</p>
+			<a class="toTop">Back to top</a>
+		</div>
+		<hr class="minihr">
+		<div id="discipline-dictionaries" class="lddList">
+			<h3>Discipline Dictionaries</h3>
+			<p>All versions of the Discipline data dictionaries can be found <a href="/datastandards/dictionaries/index-versions.shtml">here</a>.</p>
+			<a class="toTop">Back to top</a>
+		</div>
+		<hr class="minihr">
+		<div id="mission-dictionaries" class="lddList">
+			<h3>Mission Dictionaries</h3>
+			<ul class="lddListToc">
+				<li><a href="#cassini">Cassini</a></li>
+				<li><a href="#chan1">Chandrayaan-1</a></li>
+				<li><a href="#clementine">Clementine</a></li>
+				<li><a href="#dawn">DAWN</a></li>
+				<li><a href="#hyb2">Hayabusa2</a></li>
+				<li><a href="#insight">InSight</a></li>
+				<li><a href="#juno">Juno</a></li>
+				<li><a href="#ladee">LADEE</a></li>
+				<li><a href="#mvn">MAVEN</a></li>
+				<li><a href="#mer">MER</a></li>
+				<li><a href="#mess">MESSENGER</a></li>
+				<li><a href="#orex">OSIRIS-REx</a></li>
+				<li><a href="#vg1">VOYAGER 1</a></li>
+				<li><a href="#vg2">VOYAGER 2</a></li>
+			</ul>
+
+			<div id="cassini">
+				<h4>Cassini (cassini)</h4>
+				<p>The Cassini Mission Dictionary (cassini) contains classes, attributes and rules specific to the Cassini Mission and its instruments (Note: Huygens classes will be in a separate dictionary).</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.13.0.0</li>
+					<li><b>Posted:</b> 02/11/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1D00_1500.xsd">PDS4_CASSINI_1D00_1500.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1D00_1500.sch">PDS4_CASSINI_1D00_1500.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1D00_1500.xml">PDS4_CASSINI_1D00_1500.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1D00_1500.zip">PDS4_CASSINI_1D00_1500.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.12.0.0</li>
+					<li><b>Posted:</b> 02/11/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1C00_1400.xsd">PDS4_CASSINI_1C00_1400.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1C00_1400.sch">PDS4_CASSINI_1C00_1400.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1C00_1400.xml">PDS4_CASSINI_1C00_1400.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1C00_1400.zip">PDS4_CASSINI_1C00_1400.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 02/11/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_Cassini_1B00_1300.xsd">PDS4_CASSINI_1B00_1300.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_Cassini_1B00_1300.sch">PDS4_CASSINI_1B00_1300.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_Cassini_1B00_1300.xml">PDS4_CASSINI_1B00_1300.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1300.zip">PDS4_CASSINI_1B00_1300.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 02/12/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.xsd">PDS4_CASSINI_1B00_1200.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.sch">PDS4_CASSINI_1B00_1200.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.xml">PDS4_CASSINI_1B00_1200.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.JSON">PDS4_CASSINI_1B00_1200.JSON</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_LDD_1B00_1200.zip">PDS4_CASSINI_LDD_1B00_1200.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 12/04/2018</li>
+					<ul>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.xsd">PDS4_CASSINI_1B00.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.sch">PDS4_CASSINI_1B00.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.xml">PDS4_CASSINI_1B00.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.JSON">PDS4_CASSINI_1B00.JSON</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_LDD_1B00.zip">PDS4_CASSINI_LDD_1B00.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="chan1">
+				<h4>Chandrayaan-1 (chan1)</h4>
+				<p>The Chandrayaan-1 Mission Dictionary (chan1) contains classes, attributes and rules specific to the Chandrayaan-1 Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.14.0.0</li>
+					<li><b>Posted:</b> 11/25/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1E00_1110.xsd">PDS4_CHAN1_1E00_1110.xsd</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1E00_1110.sch">PDS4_CHAN1_1E00_1110.sch</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1E00_1110.xml">PDS4_CHAN1_1E00_1110.xml</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1E00_1110.JSON">PDS4_CHAN1_1E00_1110.JSON</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1E00_1110.zip">PDS4_CHAN1_1E00_1110.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="clementine">
+				<h4>Clementine (clementine)</h4>
+				<p>The Clementine Mission Dictionary (clementine) contains classes, attributes and rules specific to the Clementine Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.16.0.0</li>
+					<li><b>Posted:</b> 06/18/2021</li>
+					<ul>
+						<li><a href="/pds4/mission/clementine/v1/PDS4_CLEMENTINE_1G00_1000.xsd">PDS4_CLEMENTINE_1G00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/clementine/v1/PDS4_CLEMENTINE_1G00_1000.sch">PDS4_CLEMENTINE_1G00_1000.sch</a></li>
+						<li><a href="/pds4/mission/clementine/v1/PDS4_CLEMENTINE_1G00_1000.xml">PDS4_CLEMENTINE_1G00_1000.xml</a></li>
+						<li><a href="/pds4/mission/clementine/v1/PDS4_CLEMENTINE_1G00_1000.JSON">PDS4_CLEMENTINE_1G00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/clementine/v1/PDS4_CLEMENTINE_1G00_1000.zip">PDS4_CLEMENTINE_1G00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="dawn">
+				<h4>DAWN (dawn)</h4>
+				<p>The DAWN Mission Dictionary (dawn) contains classes, attributes and rules specific to the DAWN Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 10/22/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1100.xsd">PDS4_DAWN_1B00_1100.xsd</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1100.sch">PDS4_DAWN_1B00_1100.sch</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1100.xml">PDS4_DAWN_1B00_1100.xml</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1100.JSON">PDS4_DAWN_1B00_1100.JSON</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1100.zip">PDS4_DAWN_1B00_1100.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 01/31/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.xsd">PDS4_DAWN_1B00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.sch">PDS4_DAWN_1B00_1000.sch</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.xml">PDS4_DAWN_1B00_1000.xml</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.JSON">PDS4_DAWN_1B00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.zip">PDS4_DAWN_1B00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="hyb2">
+				<h4>Hayabusa2 (hyb2)</h4>
+				<p>The Hayabusa2 Dictionary (hyb2) contains classes, attributes and rules specific to the Hayabusa2 Mission and its instruments.
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.14.0.0</li>
+					<li><b>Posted:</b> 12/31/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/hyb2/v1/PDS4_HYB2_1E00_1000.xsd">PDS4_HYB2_1E00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/hyb2/v1/PDS4_HYB2_1E00_1000.sch">PDS4_HYB2_1E00_1000.sch</a></li>
+						<li><a href="/pds4/mission/hyb2/v1/PDS4_HYB2_1E00_1000.xml">PDS4_HYB2_1E00_1000.xml</a></li>
+						<li><a href="/pds4/mission/hyb2/v1/PDS4_HYB2_1E00_1000.JSON">PDS4_HYB2_1E00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/hyb2/v1/PDS4_HYB2_1E00_1000.zip">PDS4_HYB2_1E00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="insight">
+				<h4>InSight (insight)</h4>
+				<p>The InSight Mission Dictionary (insight) contains classes, attributes and rules specific to the InSight Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.15.0.0</li>
+					<li><b>Posted:</b> 07/01/2021</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1F00_1900.xsd">PDS4_INSIGHT_1F00_1900.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1F00_1900.sch">PDS4_INSIGHT_1F00_1900.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1F00_1900.xml">PDS4_INSIGHT_1F00_1900.xml</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1F00_1900.JSON">PDS4_INSIGHT_1F00_1900.JSON</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1F00_1900.zip">PDS4_INSIGHT_1F00_1900.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 11/27/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1870.xsd">PDS4_INSIGHT_1B00_1870.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1870.sch">PDS4_INSIGHT_1B00_1870.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1870.xml">PDS4_INSIGHT_1B00_1870.xml</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1870.JSON">PDS4_INSIGHT_1B00_1870.JSON</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1870.zip">PDS4_INSIGHT_1B00_1870.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 07/01/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1860.xsd">PDS4_INSIGHT_1B00_1860.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1860.sch">PDS4_INSIGHT_1B00_1860.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1860.xml">PDS4_INSIGHT_1B00_1860.xml</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1860.JSON">PDS4_INSIGHT_1B00_1860.JSON</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1860.zip">PDS4_INSIGHT_1B00_1860.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 05/09/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1850.xsd">PDS4_INSIGHT_1B00_1850.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1850.sch">PDS4_INSIGHT_1B00_1850.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1850.xml">PDS4_INSIGHT_1B00_1850.xml</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1850.JSON">PDS4_INSIGHT_1B00_1850.JSON</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1850.zip">PDS4_INSIGHT_1B00_1850.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 01/03/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1840.xsd">PDS4_INSIGHT_1B00_1840.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1840.sch">PDS4_INSIGHT_1B00_1840.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1840.xml">PDS4_INSIGHT_1B00_1840.xml</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1B00_1840.JSON">PDS4_INSIGHT_1B00_1840.JSON</a></li>
+					</ul>
+					<li><b>Version:</b> 1.10.1.0</li>
+					<li><b>Posted:</b> 07/10/2018</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1A10_1830.xsd">PDS4_INSIGHT_1A10_1830.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1A10_1830.sch">PDS4_INSIGHT_1A10_1830.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1A10_1830.xml">PDS4_INSIGHT_1A10_1830.xml</a></li>
+					</ul>
+					<li><b>Version:</b> 1.8.0.0</li>
+					<li><b>Posted:</b> 07/17/2017</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.xsd">PDS4_INSIGHT_1600.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.sch">PDS4_INSIGHT_1600.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.xml">PDS4_INSIGHT_1600.xml</a></li>
+					</ul>
+					<li><b>Version:</b> 1.5.0.0</li>
+					<li><b>Posted:</b> 10/30/2015</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1500.xsd">PDS4_INSIGHT_1500.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1500.sch">PDS4_INSIGHT_1500.sch</a></li>
+					</ul>
+					<li><b>Version:</b> 1.0.0.0</li>
+					<li><b>Posted:</b> 06/26/2017</li>
+					<ul>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1000.xsd">PDS4_INSIGHT_1000.xsd</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1000.sch">PDS4_INSIGHT_1000.sch</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1000.xml">PDS4_INSIGHT_1000.xml</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="juno">
+				<h4>Juno (juno)</h4>
+				<p>The JUNO Mission Dictionary (juno) contains classes, attributes and rules specific to the JUNO Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.13.0.0</li>
+					<li><b>Posted:</b> 04/02/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1110.xsd">PDS4_JUNO_1D00_1110.xsd</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1110.sch">PDS4_JUNO_1D00_1110.sch</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1110.xml">PDS4_JUNO_1D00_1110.xml</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1110.JSON">PDS4_JUNO_1D00_1110.JSON</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1110.zip">PDS4_JUNO_1D00_1110.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.13.0.0</li>
+					<li><b>Posted:</b> 03/09/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1100.xsd">PDS4_JUNO_1D00_1100.xsd</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1100.sch">PDS4_JUNO_1D00_1100.sch</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1100.xml">PDS4_JUNO_1D00_1100.xml</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1100.JSON">PDS4_JUNO_1D00_1100.JSON</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1D00_1100.zip">PDS4_JUNO_1D00_1100.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.9.0.0</li>
+					<li><b>Posted:</b> 08/22/2016</li>
+					<ul>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1900.xsd">PDS4_JUNO_1900.xsd</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1900.sch">PDS4_JUNO_1900.sch</a></li>
+						<li><a href="/pds4/mission/juno/v1/PDS4_JUNO_1900.xml">PDS4_JUNO_1900.xml</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="ladee">
+				<h4>LADEE (ladee)</h4>
+				<p>The LADEE Mission Dictionary (ladee) contains classes, attributes and rules specific to the LADEE Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.1.0.0</li>
+					<li><b>Posted:</b> 10/01/2013</li>
+					<ul>
+						<li><a href="/pds4/ladee/v1/ladee_1100.xsd">ladee_1100.xsd</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="mvn">
+				<h4>MAVEN (mvn)</h4>
+				<p>The MAVEN Mission Dictionary (mvn) contains classes, attributes and rules specific to the MAVEN mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.13.0.0</li>
+					<li><b>Posted:</b> 02/26/2021</li>
+					<ul>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1D00_1110.xsd">PDS4_MVN_1D00_1110.xsd</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1D00_1110.sch">PDS4_MVN_1D00_1110.sch</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1D00_1110.xml">PDS4_MVN_1D00_1110.xml</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1D00_1110.JSON">PDS4_MVN_1D00_1110.JSON</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1D00_1110.zip">PDS4_MVN_1D00_1110.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.4.0.0</li>
+					<li><b>Posted:</b> 08/16/2016</li>
+					<ul>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1021.xsd">PDS4_MVN_1021.xsd</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1021.sch">PDS4_MVN_1021.sch</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1021.xml">PDS4_MVN_1021.xml</a></li>
+					</ul>
+					<li><b>Version:</b> 1.4.0.0</li>
+					<li><b>Posted:</b> 05/18/2015</li>
+					<ul>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1011.xsd">PDS4_MVN_1011.xsd</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1011.sch">PDS4_MVN_1011.sch</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1011.xml">PDS4_MVN_1011.xml</a></li>
+					</ul>
+					<li><b>Version:</b> 1.4.0.0</li>
+					<li><b>Posted:</b> 04/24/2015</li>
+					<ul>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1000.xsd">PDS4_MVN_1000.xsd</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1000.sch">PDS4_MVN_1000.sch</a></li>
+						<li><a href="/pds4/mission/mvn/v1/PDS4_MVN_1000.xml">PDS4_MVN_1000.xml</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="mer">
+				<h4>MER (mer)</h4>
+				<p>The Mars Exploration Rover Mission Dictionary (mer) contains classes, attributes and rules specific to the MER Mission and its instruments.
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.11.1.0</li>
+					<li><b>Posted:</b> 04/15/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B10_1000.xsd">PDS4_MER_1B10_1000.xsd</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B10_1000.sch">PDS4_MER_1B10_1000.sch</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B10_1000.xml">PDS4_MER_1B10_1000.xml</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B10_1000.JSON">PDS4_MER_1B10_1000.JSON</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B10_1000.zip">PDS4_MER_1B10_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="mess">
+				<h4>MESSENGER (mess)</h4>
+				<p>The MESSENGER Mission Dictionary (mess) contains classes, attributes and rules specific to the MESSENGER Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 12/07/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1101.xsd">PDS4_MESS_1B00_1101.xsd</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1101.sch">PDS4_MESS_1B00_1101.sch</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1101.xml">PDS4_MESS_1B00_1101.xml</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1101.JSON">PDS4_MESS_1B00_1101.JSON</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1101.zip">PDS4_MESS_1B00_1101.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 06/21/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1100.xsd">PDS4_MESS_1B00_1100.xsd</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1100.sch">PDS4_MESS_1B00_1100.sch</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1100.xml">PDS4_MESS_1B00_1100.xml</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1100.JSON">PDS4_MESS_1B00_1100.JSON</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1100.zip">PDS4_MESS_1B00_1100.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 01/31/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1020.xsd">PDS4_MESS_1B00_1020.xsd</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1020.sch">PDS4_MESS_1B00_1020.sch</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1020.xml">PDS4_MESS_1B00_1020.xml</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1020.JSON">PDS4_MESS_1B00_1020.JSON</a></li>
+						<li><a href="/pds4/mission/mess/v1/PDS4_MESS_1B00_1020.zip">PDS4_MESS_1B00_1020.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="orex">
+				<h4>OSIRIS-REx (orex)</h4>
+				<p>The OSIRIS-REx Mission Dictionary (orex) contains classes, attributes and rules specific to the OSIRIS-REx Mission and its instruments.
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.7.0.0</li>
+					<li><b>Posted:</b> 11/12/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.xsd">orex_ldd_OREX_1400.xsd</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.sch">orex_ldd_OREX_1400.sch</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.xml">orex_ldd_OREX_1400.xml</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.JSON">orex_ldd_OREX_1400.JSON</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.zip">orex_ldd_OREX_1400.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.7.0.0</li>
+					<li><b>Posted:</b> 07/22/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1300.xsd">orex_ldd_OREX_1300.xsd</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1300.sch">orex_ldd_OREX_1300.sch</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1300.xml">orex_ldd_OREX_1300.xml</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1300.JSON">orex_ldd_OREX_1300.JSON</a></li>
+						<li><a href="/pds4/mission/orex/v1/Orex_schema_1300.zip">Orex_schema_1300.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.7.0.0</li>
+					<li><b>Posted:</b> 09/27/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1200.xsd">orex_ldd_OREX_1200.xsd</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1200.sch">orex_ldd_OREX_1200.sch</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1200.xml">orex_ldd_OREX_1200.xml</a></li>
+						<li><a href="/pds4/mission/orex/v1/PDS4_OREX_1700_1200.zip">PDS4_OREX_1700_1200.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.7.0.0</li>
+					<li><b>Posted:</b> 09/27/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1100.xsd">orex_ldd_OREX_1100.xsd</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1100.sch">orex_ldd_OREX_1100.sch</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1100.xml">orex_ldd_OREX_1100.xml</a></li>
+						<li><a href="/pds4/mission/orex/v1/PDS4_OREX_1700_1100.zip">PDS4_OREX_1700_1100.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="vg1">
+				<h4>VOYAGER 1 (vg1)</h4>
+				<p>The VOYAGER-1 Mission Dictionary (vg1) contains classes, attributes and rules specific to the Voyager-1 Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.13.0.0</li>
+					<li><b>Posted:</b> 02/26/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1D00_1001.xsd">PDS4_VG1_1D00_1001.xsd</a></li>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1D00_1001.sch">PDS4_VG1_1D00_1001.sch</a></li>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1D00_1001.xml">PDS4_VG1_1D00_1001.xml</a></li>
+						<li><a href="/pds4/mission/vg1/v1/V1_LDD_1D00_1001.zip">V1_LDD_1D00_1001.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.9.0.0</li>
+					<li><b>Posted:</b> 01/31/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1900_1000.xsd">PDS4_VG1_1900_1000.xsd</a></li>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1900_1000.sch">PDS4_VG1_1900_1000.sch</a></li>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1900_1000.xml">PDS4_VG1_1900_1000.xml</a></li>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1900_1000.JSON">PDS4_VG1_1900_1000.JSON</a></li>
+						<li><a href="/pds4/mission/vg1/v1/PDS4_VG1_1900_1000.zip">PDS4_VG1_1900_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="vg2">
+				<h4>VOYAGER 2 (vg2)</h4>
+				<p>The VOYAGER-2 Mission Dictionary (vg2) contains classes, attributes and rules specific to the Voyager-2 Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.13.0.0</li>
+					<li><b>Posted:</b> 02/26/2020</li>
+					<ul>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1D00_1001.xsd">PDS4_VG2_1D00_1001.xsd</a></li>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1D00_1001.sch">PDS4_VG2_1D00_1001.sch</a></li>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1D00_1001.xml">PDS4_VG2_1D00_1001.xml</a></li>
+						<li><a href="/pds4/mission/vg2/v1/V2_LDD_1D00_1001.zip">V2_LDD_1D00_1001.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.9.0.0</li>
+					<li><b>Posted:</b> 01/31/2019</li>
+					<ul>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1900_1000.xsd">PDS4_VG2_1900_1000.xsd</a></li>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1900_1000.sch">PDS4_VG2_1900_1000.sch</a></li>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1900_1000.xml">PDS4_VG2_1900_1000.xml</a></li>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1900_1000.JSON">PDS4_VG2_1900_1000.JSON</a></li>
+						<li><a href="/pds4/mission/vg2/v1/PDS4_VG2_1900_1000.zip">PDS4_VG2_1900_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div id="namespaces">
+		<h2>Namespaces</h2>
+		<p>
+			The PDS4 XML Schema and Schematron files are organized by namespace.
+			Links to documentation on a particular dictionary can be found <a href="https://github.com/pds-data-dictionaries/PDS-Data-Dictionaries.github.io/blob/master/docs/source/overview.md">here</a>.
+		</p>
+		<p>
+			For a list of existing namespaces, refer to the <a href="/datastandards/dictionaries/pds-namespace-registry.pdf">PDS Namespace Registry</a>.
+		</p>
+
+		<a class="toTop">Back to top</a>
+	</div>
+	<hr>
+	<div id="create-dictionary">
+		<h2>How To Create A Dictionary</h2>
+		<p>
+			Please contact your applicable discipline node to ensure a new dictionary is necessary prior to beginning development.
+			Once agreed upon, there are several places to go when trying to learn how to create a dictionary.
+		</p>
+		<ul>
+			<li>The <a href="https://pds.nasa.gov/datastandards/documents/sr/current/">PDS4 Standards Reference</a> for basic information on schema and schematrons</li><br>
+			<li><a href="https://nasa-pds.github.io/pds4-information-model/model-lddtool/install/index.html">Local Data Dictionary Tool Installation Guide</a></li><br>
+			<li>Wiki pages with some helpful information on creating Local Dictionaries:
+				<ul>
+					<li><a href="http://sbndev.astro.umd.edu/wiki/Installing_and_Configuring_LDDTool">Installing and Configuring LDDTool</a></li>
+					<li><a href="http://sbndev.astro.umd.edu/wiki/Creating_the_Ingest_LDD_Dictionary_Input_File">Creating the Ingest LDD Dictionary Input File</a></li>
+					<li><a href="http://sbndev.astro.umd.edu/wiki/Running_LDDTool_and_Verifying_the_Output">Running LDDTool and Verifying the Output</a></li>
+				</ul>
+			</li><br>
+			<li>Existing <a href="#discipline-dictionaries">Discipline Dictionaries</a> may provide some help in understanding how to data model</li><br>
+		</ul>
+		<p>
+			In order for a newly created dictionary to be published, it must first be registered with the PDS Namespace Registry. 
+			Create a ticket <a href="https://github.com/NASA-PDS/pds4-information-model/issues/new?assignees=c-suh%2C+jshughes&labels=&template=pds-namespace-request.md&title=%5Bnamespace-registry%5D+add+new+namespace+%22%3Cproposed+namespace+ID%3E%22">here</a> to request your new <a href="#namespaces">namespace</a> be added to the registry.
+		</p>
+
+		<a class="toTop">Back to top</a>
+	</div>
+	<hr>
+	<div id="submit-new-version">
+		<h2>Submitting A New Version</h2>
+		<p>
+			When a Local Data Dictionary (LDD) Steward is ready to submit a new version of an LDD for release,
+			create a request ticket <a href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh%2C+elawsgh&labels=ldd-release&template=pds-ldd-release-request.md&title=%5Bldd-release%5D+%3CLDD+Name%3E+LDD+Version%3A%3CLDD_version%3E+IM+Version%3A%3CIM_Version%3E">here</a>.
+		</p>
+		<p>
+			<em>Note: Assume <a href="#dictionary-validation">validation</a> has been completed by steward.</em>
+		</p>
+		<div id="dictionary-validation">
+			<h3>Dictionary Validation</h3>
+			<p>
+				The <b><em>LDD steward</em></b> is encouraged to perform test/validation via one/both of the testing mechanisms:
+			</p>
+			<p>
+				<em>Note: Currently, there is no explicit way to run validate to check out the schemas,
+					but by reading the schemas into the tool, it will raise an error if they are invalid.</em>
+			</p>
+			<ul>
+				<li>Open in Oxygen and click the red checkbox at the top.</li>
+				<li>Execute latest validate (version 1.16.0+) and specify the schemas via the command-line, for example:
+					<pre>$ validate -x PDS4_CART_1C00_1932.xsd -S PDS4_CART_1C00_1932.xsd -t PDS4_CART_1C00_1932.xml
+				</pre></li>
+			</ul>
+			<p>
+				The <b><em>PDS Engineering Node</em></b> will also perform some basic testing and validation when a release
+				is requested to ensure nothing makes it out as &quot;released&quot; that is invalid.
+			</p>
+			<p>
+				If there is an error, an email will be sent to the steward with error message(s).
+			</p>
+			<p>
+				If no error is found, the LDD will be posted to both latest and all schemas pages.
+				An email will be sent to the steward indicating posting is completed.
+			</p>
+		</div>
+		<a class="toTop">Back to top</a>
+	</div>
+	<!-- InstanceEndEditable -->
+</div>
+
+<!--#include virtual="/include/footer.html" -->
+
+<!--[if IE]>
+</div>
+<![endif]-->
+</body>
+<!-- InstanceEnd --></html>

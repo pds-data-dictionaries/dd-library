@@ -1,0 +1,444 @@
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "Version": "1.13.0.0" ,
+      "Date": "Mon Feb 22 22:46:08 UTC 2021" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "classDictionary": [
+        {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mvn.MAVEN" ,
+            "title": "MAVEN" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mvn" ,
+            "steward": "ppi" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The MAVEN class is the container for MAVEN mission-specific metadata elements."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_phase_name" ,
+                "title": "mission_phase_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_phase_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.spacecraft_clock_start_count" ,
+                "title": "spacecraft_clock_start_count" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.MAVEN.mvn.spacecraft_clock_start_count"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.spacecraft_clock_stop_count" ,
+                "title": "spacecraft_clock_stop_count" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.MAVEN.mvn.spacecraft_clock_stop_count"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_event_time_start_count" ,
+                "title": "mission_event_time_start_count" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_event_time_start_count"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_event_time_stop_count" ,
+                "title": "mission_event_time_stop_count" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_event_time_stop_count"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.Parameter" ,
+                "title": "Parameter" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1060" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mvn.Parameter"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mvn.Parameter" ,
+            "title": "Parameter" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mvn" ,
+            "steward": "ppi" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Parameter class provides information about a specified data parameter."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.Parameter.pds.name" ,
+                "title": "name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.Parameter.pds.name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.Parameter.pds.description" ,
+                "title": "description" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.Parameter.pds.description"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mvn.Parameter.pds.value" ,
+                "title": "value" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mvn.Parameter.pds.value"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      ]
+    , "attributeDictionary": [
+        {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_event_time_start_count" ,
+            "title": "mission_event_time_start_count" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mvn" ,
+            "steward": "ppi" ,
+            "versionId": "1.13" ,
+            "description": "The mission_event_time_start_count attribute provides the mission event time value at the beginning of a time period of interest. These may be provided either as SCLK string values, or as encoded double precision SCLK values." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_event_time_stop_count" ,
+            "title": "mission_event_time_stop_count" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mvn" ,
+            "steward": "ppi" ,
+            "versionId": "1.13" ,
+            "description": "The mission_event_time_stop_count attribute provides the mission event time value at the end of a time period of interest." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.mission_phase_name" ,
+            "title": "mission_phase_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mvn" ,
+            "steward": "ppi" ,
+            "versionId": "1.13" ,
+            "description": "The mission_phase_name attribute provides the mission-defined name of a mission phase." ,
+            "isNillable": "true" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "Cruise" ,
+                  "valueMeaning": "The period of observations during the MAVEN's flight from Earth to Mars." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "EM-1" ,
+                  "valueMeaning": "Extended Mission 1: The period of observations during the first extension of the MAVEN mission covering 2015-11-17T00:00:00 to 2016-10-01T00:00:00." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "EM-2" ,
+                  "valueMeaning": "Extended Mission 2: The period of observations during the second extension of the MAVEN mission covering 2016-10-01T00:00:00 to 2018-10-01T00:00:00." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "EM-3" ,
+                  "valueMeaning": "Extended Mission 3: The period of observations during the third extension of the MAVEN mission covering 2018-10-01T00:00:00 to 2019-10-01T00:00:00." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "EM-4" ,
+                  "valueMeaning": "Extended Mission 4: The period of observations during the fourth extension of the MAVEN mission covering 2019-10-01T00:00:00 to 2021-10-01T00:00:00." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "EM-5" ,
+                  "valueMeaning": "Extended Mission 5: The period of observations during the fifth extension of the MAVEN mission covering 2021-10-01T00:00:00 and extending indefinitely." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Mars Orbital Insertion" ,
+                  "valueMeaning": "The period of observations during the MAVEN's entry into Mar's orbit." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Prime Mission" ,
+                  "valueMeaning": "The period of observations during the primary objective of the mission." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Transition" ,
+                  "valueMeaning": "The period of time when the spacecraft was changing from cruise to orbital operations. Also referred to as 'Comissioning'." ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.spacecraft_clock_start_count" ,
+            "title": "spacecraft_clock_start_count" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mvn" ,
+            "steward": "ppi" ,
+            "versionId": "1.13" ,
+            "description": "The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "([0-9]\/[0-9]{10}(:[0-9]{5})?)|([0-9.]*(E[0-9]{2})?)" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.MAVEN.mvn.spacecraft_clock_stop_count" ,
+            "title": "spacecraft_clock_stop_count" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mvn" ,
+            "steward": "ppi" ,
+            "versionId": "1.13" ,
+            "description": "The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest. These may be provided either as SCLK string values, or as encoded double precision SCLK values." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "([0-9]\/[0-9]{10}(:[0-9]{5})?)|([0-9.]*(E[0-9]{2})?)" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.Parameter.pds.description" ,
+            "title": "description" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "pds" ,
+            "steward": "pds" ,
+            "versionId": "1.13" ,
+            "description": "The description attribute provides a statement, picture in words, or account that describes or is otherwise relevant to the object." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "UTF8_Text_Preserved" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.UTF8_Text_Preserved" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.Parameter.pds.name" ,
+            "title": "name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "pds" ,
+            "steward": "pds" ,
+            "versionId": "1.13" ,
+            "description": "The name attribute provides a word or combination of words by which the object is known." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "UTF8_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.UTF8_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mvn.Parameter.pds.value" ,
+            "title": "value" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "pds" ,
+            "steward": "pds" ,
+            "versionId": "1.13" ,
+            "description": "The value attribute provides a single, allowed numerical or character string value." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      ]
+    }
+  }
+]

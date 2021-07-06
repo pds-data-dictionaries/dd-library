@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD 
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:msn="http://pds.nasa.gov/pds4/msn/v1" 
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 
+    https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
+    <name>Mission Information Commons</name>
+    <ldd_version_id>1.3.0.0</ldd_version_id>
+    <dictionary_type>Discipline</dictionary_type>
+    <full_name>Trent Hare</full_name>
+    <steward_id>img</steward_id>
+    <namespace_id>msn</namespace_id>
+    <comment>
+      ## CHANGE LOG ##
+      1.0.0.0
+      - Initial version
+      
+      1.1.0.0
+      - Upgraded to v1B00 of the IM.
+      - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+      - Renamed Orbital_Mission_Information to Orbital_Mission, Surface_Mission_Information to Surface_Mission
+      
+      1.2.0.0
+      - Upgraded to v1D00 of the IM.
+      - Add instrument_clock_start and allow helicopter use case.
+      - Add instrument_start_time. This is instrument_clock_start converted to UTC.
+      - Updated the definition for start_sol_number to allow a primary sol to be 
+        defined for mosaic products inplace of the actual starting sol value.
+       
+      1.3.0.0
+      - Upgraded to v1E00 of the IM
+      - Add year_number, year_number_reference attributes to Surface_Mission
+      - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
+
+    </comment>
+    <last_modification_date_time>2020-08-19T13:00:00</last_modification_date_time>
+  
+  <!-- Begin attribute definitions -->
+  
+  <!-- Begin attribute definitions for the Mission_Information class --> 
+  <DD_Attribute>
+    <name>mission_phase_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mission_phase_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The mission_phase_name identifies a time period within the mission.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mission_phase_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mission_phase_identifier</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The mission_phase_identifier attribute provides
+      an identifier for a mission phase.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute> 
+  <DD_Attribute>
+    <name>release_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>release_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>Release_number is the number of a scheduled release of data from the provider to PDS. The
+      first data release is typically Release 1. The release_number for a given product is always the
+      first release in which it appears, and does not change if the product is revised
+      later.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute> 
+  
+  <DD_Attribute>
+    <name>product_type_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>product_type_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The product_type_name identifies a group of data products within a collection that have
+      some property in common, such as processing level, resolution, or instrument-specific setting.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <!-- End attribute definitions for the Mission_Information class -->
+  
+  <!-- Start attribute definitions for Orbital_Mission class -->
+  <DD_Attribute>
+    <name>start_orbit_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_orbit_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The start_orbit_number attribute provides the
+      first in a series of numbers that represent a set of orbital
+      revolutions of one body around another.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_orbit_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_orbit_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The stop_orbit_number attribute provides the
+      last in a series of numbers that represent s set of orbital
+      revolutions of one body around another.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <!-- End attribute definitions for Orbital_Mission class -->
+  
+  <!-- Start attribute definitions for Surface_Mission class -->
+  <DD_Attribute>
+    <name>spacecraft_clock_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>spacecraft_clock_start</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <!-- TODO finesse definition -->
+    <definition>The spacecraft_clock_start is the value of the spacecraft clock at the beginning of the observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>spacecraft_clock_stop</name>
+    <version_id>1.0</version_id>
+    <local_identifier>spacecraft_clock_stop</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <!-- TODO finesse definition -->
+    <definition>The spacecraft_clock_stop is the value of the spacecraft clock at the end of the observation.
+      spacecraft_clock_stop should only be used if there's also a spacecraft_clock_start value.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>spacecraft_clock_partition</name>
+    <version_id>1.0</version_id>
+    <local_identifier>spacecraft_clock_partition</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Amy Culver</submitter_name>
+    <definition>The spacecraft_clock_partition provides the clock partition active for the
+      spacecraft_clock attribute.</definition>
+    <comment>Definition taken from PDS3 dictionary; may need updating. -- EDR</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>instrument_clock_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_clock_start</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>The value of the clock returned by the instrument at the beginning of 
+      the observation. This may differ from the spacecraft clock due to several factors 
+      such as clock drift, or differences in definition of start time (for example, 
+      spacecraft clock might be when an image was commanded, but instrument clock might 
+      be after autoexpoure or autofocus processes), or differences in the time epoch 
+      between the instrument and the main spacecraft.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>instrument_start_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_start_time</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>This is instrument_clock_start converted to UTC</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>start_sol_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_sol_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The start_sol_number is the number of the Mars day on which an observation began.
+      Landing day is Sol 0. For multi-sol observations, such as mosaics, if start_sol_number is 
+      given but stop_sol_number is not, the start_sol_number may instead be interpreted as the 
+      primary, or most important, sol for this observation.</definition>
+    <comment>See comment for start_sol_number.</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_sol_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_sol_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The stop_sol_number is the number of the Mars day on which an observation ended.
+      Landing day is Sol 0. The stop_sol_number should only be used if there's also a start_sol_number.</definition>
+    <comment>See comment for start_sol_number.</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>start_local_mean_solar_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_local_mean_solar_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <!-- TODO fix definition -->
+    <definition>start_local_mean_solar_time is the local mean solar time, as defined in the main
+      PDS4 data dictionary.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>8</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_local_mean_solar_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_local_mean_solar_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <!-- TODO fix definition -->
+    <definition>stop_local_mean_solar_time is the local mean solar time, as defined in the main
+      PDS4 data dictionary.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>8</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>start_local_true_solar_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_local_true_solar_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <!-- TODO fix definition -->
+    <definition>start_local_true_solar_time is the local true solar time, as defined in the main
+      PDS4 data dictionary.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>8</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_local_true_solar_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_local_true_solar_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <!-- TODO fix definition -->
+    <definition>stop_local_true_solar_time is the local true solar time, as defined in the main
+      PDS4 data dictionary.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>8</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>solar_longitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>solar_longitude</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>solar_longitude is the solar longitude, as defined in the main PDS4 data
+      dictionary.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>360</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>start_local_mean_solar_time_sol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_local_mean_solar_time_sol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Amy Culver</submitter_name>
+    <definition>The start_local_mean_solar_time_sol element specifies the number of solar days elapsed
+      since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar
+      time (LMST). Days are measured in rotations of the planet in question from midnight to
+      midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value
+      will be less than or equal to '0'and can be negative.</definition>
+    <comment>Definition was adapted from PDS3 PSDD definition for msl:local_true_solar_time_sol and
+      needs to be verified. -- EDR</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_local_mean_solar_time_sol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_local_mean_solar_time_sol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Amy Culver</submitter_name>
+    <definition>The stop_local_mean_solar_time_sol element specifies the number of solar days elapsed
+      since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar
+      time (LMST). Days are measured in rotations of the planet in question from midnight to
+      midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value
+      will be less than or equal to '0'and can be negative. 
+      The stop_local_mean_solar_time_sol should only be used if there's also a start_local_mean_solar_time_sol.</definition>
+    <comment>Definition was adapted from PDS3 PSDD definition for msl:local_true_solar_time_sol and
+      needs to be verified. -- EDR</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>start_local_true_solar_time_sol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_local_true_solar_time_sol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Amy Culver</submitter_name>
+    <definition>The start_local_true_solar_time_sol element specifies the number of solar days elapsed
+      since a reference day (e.g. the day on which a landing vehicle set down) for local true solar
+      time (LTST). Days are measured in rotations of the planet in question from midnight to
+      midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value
+      will be less than or equal to '0'and can be negative.</definition>
+    <comment>Definition taken from PDS3 PSDD (msl:local_true_solar_time_sol) and may need updating.
+      (Particularly need to verify reference day.) -- EDR</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_local_true_solar_time_sol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_local_true_solar_time_sol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Amy Culver</submitter_name>
+    <definition>The stop_local_true_solar_time_sol element specifies the number of solar days elapsed
+      since a reference day (e.g. the day on which a landing vehicle set down) for local true solar
+      time (LTST). Days are measured in rotations of the planet in question from midnight to
+      midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value
+      will be less than or equal to '0'and can be negative.
+      The stop_local_true_solar_time_sol should only be used if there is also a start_local_true_solar_time_sol.</definition>
+    <comment>Definition taken from PDS3 PSDD (msl:local_true_solar_time_sol) and may need updating.
+      (Particularly need to verify reference day.) -- EDR</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>year_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>year_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Identifies the year of the observation, using the definition for year 
+      specified in year_number_reference.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>year_number_reference</name>
+    <version_id>1.0</version_id>
+    <local_identifier>year_number_reference</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Identifies the system used to measure year_number. Current values 
+      include: Mars Year: Mars year as defined by Piqueaux et al (2015), extending 
+      Clancy et al (2000). Mars Year 1 started on April 11, 1955 at Ls 
+      (areocentric solar longitude) = 0, with subsequent years starting at 
+      Ls=0. Reference: https://doi.org/10.1016/j.icarus.2014.12.014</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <!-- End attribute definitions for Surface_Mission class -->
+
+  <!-- Start attribute definitions for Observation_Context class -->
+  
+  <DD_Attribute>
+    <name>active_flight_computer</name>
+    <version_id>1.0</version_id>
+    <local_identifier>active_flight_computer</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Identifies which of potentially several flight computers were 
+      used for this observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>active_flight_imu</name>
+    <version_id>1.0</version_id>
+    <local_identifier>active_flight_imu</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Identifies which of potentially several inertial measurement 
+      units (IMUs) were used for this observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <!-- End attribute definitions for Observation_Context class -->
+
+  <!-- End attribute definitions --> 
+
+
+
+  <!-- Begin class definitions -->
+  
+  <!--  Mission_Information Class Definition -->
+  <DD_Class>
+    <name>Mission_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Mission_Information</local_identifier>
+    <submitter_name>Susan Slavney</submitter_name>
+    <!-- TODO improve definition -->
+    <definition>The Mission_Information class provides information about a mission.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>mission_phase_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mission_phase_identifier</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>release_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>product_type_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>spacecraft_clock_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>spacecraft_clock_stop</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>spacecraft_clock_partition</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>instrument_clock_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>instrument_start_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Orbital_Mission</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Surface_Mission</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Observation_Context</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!--  End of Mission_Information Class Definition -->
+  
+  
+  <DD_Class>
+    <name>Orbital_Mission</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Orbital_Mission</local_identifier>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <!-- TODO improve definition -->
+    <definition>The Orbital_Mission class provides information about an orbital mission.</definition>
+    <abstract_flag>false</abstract_flag>
+    <DD_Association>
+      <identifier_reference>start_orbit_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_orbit_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Surface_Mission</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Surface_Mission</local_identifier>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <!-- TODO improve definition -->
+    <definition>The Surface_Mission class provides information about a surface mission.</definition>
+    <abstract_flag>false</abstract_flag>
+    <DD_Association>
+      <identifier_reference>start_sol_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_sol_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>start_local_mean_solar_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_local_mean_solar_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>start_local_mean_solar_time_sol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_local_mean_solar_time_sol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>start_local_true_solar_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_local_true_solar_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>start_local_true_solar_time_sol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_local_true_solar_time_sol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>solar_longitude</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>year_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>year_number_reference</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>Observation_Context</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Observation_Context</local_identifier>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Describes the vehicle context at the time the observation was taken.</definition>
+    <abstract_flag>false</abstract_flag>
+    <DD_Association>
+      <identifier_reference>active_flight_computer</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>active_flight_imu</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+  <!-- End class definitions -->
+  
+  
+  <!-- Begin rule definitions -->
+  
+  <!-- TODO make this specific to InSight? 
+    Is there some way to have this rule only trigger when some attribute from another namespace is "InSight"? -->
+  <!--
+  <DD_Rule>
+    <local_identifier>product_type_name_value_check</local_identifier>
+    <rule_context>//msn:Mission_Information</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>msn:product_type_name = ('EDR', 'EJP', 'ERP', 'LIN', 'BAY', 'ILC', 'ILM', 'ILP', 'ILT', 'MSK', 'IOF', 'IOI', 'RAD', 'RAF', 'RAS', 'RDM',
+        'RIE', 'RIF', 'RSM', 'DDD', 'DDL', 'DDS', 'DSE', 'DSG', 'DSL', 'DSP', 'DSR', 'DSS', 'MDS', 'RUF', 'DFF', 'DFL', 'DFS', 'MXY', 'XYE', 'XYR', 'XYZ',
+        'XRM', 'XYM', 'XYF', 'XYO', 'DEM', 'XXX', 'YYY', 'ZZZ', 'XXF', 'YYF', 'ZZF', 'UVF', 'UVO', 'UVP', 'UVS', 'UVT', 'UVW', 'UUU', 'VVV', 'WWW', 'UUF',
+        'VVF', 'WWF', 'RNE', 'RNF', 'RNG', 'RNM', 'RNO', 'RNR', 'ARK', 'ARM', 'ARO', 'MAR', 'SEN', 'SHD', 'SHO', 'SLO', 'SLP', 'SMG', 'SMO', 'SNO', 'SNT',
+        'SRD', 'IEF', 'IEP', 'GUH', 'GUS', 'RUH', 'RUS', 'RUW', 'RUK', 'TDS', 'TFH', 'TFS', 'TFW', 'WSH', 'WSS', 'UIH', 'UIS', 'UIW', 'UPH', 'UPS', 'UPW',
+        'ZIH', 'ZIS', 'ZIW', 'XIH', 'XIS', 'XIW', 'TAU', 'TEN', 'TER', 'CNR', 'CNS', 'CNF', 'CNB', 'CNG', 'CSR', 'CSS', 'CSF', 'CSB', 'CSG', 'CPR', 'CPS',
+        'CPF', 'CPB', 'CPG', 'CWR', 'CWS', 'CWF', 'CWB', 'CWG', 'MNR', 'MNS', 'MNF', 'MNB', 'MNG', 'MSR', 'MSS', 'MSF', 'MSB', 'MSG', 'MPR', 'MPS', 'MPF',
+        'MPB', 'MPG', 'MWR', 'MWS', 'MWF', 'MWB', 'MWG')</rule_test>
+      <rule_message>MSN:error:product_type_name_value_check: The attribute msn:product_type_name must be equal to one of the following values: .</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  -->
+  
+  <!-- End rule defintions -->
+  
+</Ingest_LDD>

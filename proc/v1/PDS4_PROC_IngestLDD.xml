@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- PDS4 Local Data Dictionary Extended Ingest File for Imaging Node            -->
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
+    
+    <name>Processing_Information</name>
+    <ldd_version_id>1.2.1.0</ldd_version_id>
+    <dictionary_type>Discipline</dictionary_type>
+    <full_name>Minh Le</full_name>
+    <steward_id>img</steward_id>
+    <namespace_id>proc</namespace_id>
+    <comment> The Processing_Information dictionary contains detailed information regarding the history 
+        of processing performed on data product(s) in order to produce the current product.
+                
+        ## CHANGE LOG ##
+        1.2.0.0, T.Hare
+        - upgraded to v1.13.0.0 of the IM
+        - Allow Software to be many (unbounded) to allow for many applictions to be listed for one process.
+    
+        1.2.1.0 T.Hare
+        - update for 1.E.0.0 and 1.F.0.0 and new github C.I. environment
+        - Changed all class local_identifier to identifier_reference per v1900 IM update
+    
+    </comment>
+    <last_modification_date_time>2020-12-08T20:00:00Z</last_modification_date_time>
+    
+    <!-- Attributes START -->
+    
+    <!--<DD_Attribute>
+        <name>curating_institution_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>curating_institution_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The curating_institution_name attribute provides the name
+            of the institution currently maintaining the data set or volume or publication.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>curating_node_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>curating_node_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The curating_node_id attribute provides the id
+            of the node currently maintaining the data set or volume and is
+            responsible for maintaining catalog
+            information.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+            <DD_Permissible_Value>
+                <value>EN</value>
+                <value_meaning>Engineering Node</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>GEO</value>
+                <value_meaning>Geosciences Node</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>IMG</value>
+                <value_meaning>Cartography and Imaging Sciences Node</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>NAIF</value>
+                <value_meaning>Navigation and Ancillary Information Facility</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>ATMOS</value>
+                <value_meaning>Planetary Atmospheres Node</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>PPI</value>
+                <value_meaning>Planetary Plasma Interactions Node</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RINGS</value>
+                <value_meaning>Planetary Rings Node</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>PSA</value>
+                <value_meaning>Planetary Science Archive</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RS</value>
+                <value_meaning>Radio Science</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>SBN</value>
+                <value_meaning>Small Bodies Node</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>external_lid_pds</name>
+        <version_id>1.0</version_id>
+        <local_identifier>external_lid_pds</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The external_lid_pds attribute is a logical identifier for products that are PDS archival products not registered in the PDS. These PDS products are those that use 
+        previous versions of the PDS standard (PDS3, PDS2, PDS1). The external_lid_pds should follow the following format, depending on version:
+        PDS3 - urn:nasa:pds3:mission:data_set_id:product_id , PDS2 - urn:nasa:pds2:mission:data_set_id:product_id , PDS1 - urn:nasa:pds1:mission:data_set_id:product_id . The data_set_id is a unique alphanumeric identifier for a data set. 
+        The product_id represents a permanent, unique identifier assigned to a data product by its producer. If either of these are not available for the product being referenced, work with the curating PDS node to determine the values 
+        that should be used to represent these fields. </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>external_lid</name>
+        <version_id>1.0</version_id>
+        <local_identifier>external_lid</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The external_lid attribute is a logical identifier for data products outside the PDS registry system. The external_lid should follow a similar format to the PDS4 logical_identifier:
+            urn:nasa:external_reference_type:mission:data_set_id:product_id . The external_reference_type should be the lowercase equivalent of the external_reference_type attribute value. The data_set_id 
+            is a unique alphanumeric identifier for a data set and product_id represents a permanent, unique identifier assigned to a data product by its producer. If either data_set_id or product_id are 
+            not available or unknown for the product being referenced, work with the curating PDS node to determine the values that should be used to represent these fields. </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>external_reference_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>external_reference_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+            <DD_Permissible_Value>
+                <value>PDS3</value>
+                <value_meaning>data product archived in PDS3</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>PDS2</value>
+                <value_meaning>data product archived in PDS2</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>PDS1</value>
+                <value_meaning>data product archived in PDS1</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Publication</value>
+                <value_meaning>publication</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Other</value>
+                <value_meaning>data product not archived in the PDS</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>-->
+
+    <DD_Attribute>
+        <name>process_owner_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>process_owner_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The pprocess_owner_name attribute specifies the name of the person or organization that owns the software process.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>process_owner_institution_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>process_owner_institution_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The pprocess_owner_institution_name attribute specifies the name of the institution that owns the software process.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>program_type_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>program_type_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The program_type_name attribute specifies the type of software program used for this software processing. Some examples include: VICAR, ISIS, GDAL.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>program_user</name>
+        <version_id>1.0</version_id>
+        <local_identifier>program_user</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The program_user attribute specifies the username of the person responsible for running the software prgoram.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>program_hostname</name>
+        <version_id>1.0</version_id>
+        <local_identifier>program_hostname</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The program_hostname attribute specifies the machine hostname where the software program was executed.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>program_path</name>
+        <version_id>1.0</version_id>
+        <local_identifier>program_path</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The program_path attribute specifies the file path to the software program. This path can be absolute or relative depending on the desired usage.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>program_version</name>
+        <version_id>1.0</version_id>
+        <local_identifier>program_version</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The program_version attribute specifies the version of the software program.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>program_start_date_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>program_start_date_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The program_start_date_time specifies the datetime for the start of the software program execution.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>program_stop_date_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>program_stop_date_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The program_start_date_time attribute specifies the datetime for the end of the software program execution.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>parameter_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>parameter_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The parameter_type attribute specifies the type of software parameter. Valid values: 'Input' - this parameter specifies input data, 'Output' - this parameter specifies output data, 'Log' - this parameter specifies log data</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+            <DD_Permissible_Value>
+                <value>Input</value>
+                <value_meaning>this parameter specifies input data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Output</value>
+                <value_meaning>this parameter specifies output data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Log</value>
+                <value_meaning>this parameter specifies log data</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <!-- Attributes END -->
+    
+    
+    <!-- Classes START    -->
+    
+    <DD_Class>
+        <name>Processing_Information</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Processing_Information</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Processing_Information class contains detailed information regarding the history of processing of the data product(s) described in the label. Information that can be specified 
+        using this class includes input products used to create a specific data product and the software and processes used to produce that product.</definition>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+<!--        <DD_Association>
+            <local_identifier>Source_Product_List</local_identifier>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>-->
+        <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
+            <identifier_reference>Input_Product_List</identifier_reference>
+            <identifier_reference>Process</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        
+<!--        <DD_Association>
+            <local_identifier>Processing_History</local_identifier>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>-->
+    </DD_Class>
+    
+    <!--<DD_Class>
+        <name>Source_Product_List</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Source_Product_List</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Source_Product_List class specifies all of the original raw, partially-processed, calibrated, or derived product(s) used as 
+            the base for this image. Contrast this to the img:Input_Product_List class, which includes references to the direct input products for the 
+            creation of this product. Products specified here may overlap with those specified in the Input_Product_List. These Source Products can be 
+            explicitly described in this label using the Source_Product class, and/or a list of products can be specified in another product referenced 
+            by the Internal_Reference or Local_Internal_Reference.</definition>
+        <DD_Association>
+            <local_identifier>pds.Internal_Reference</local_identifier>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>pds.Local_Internal_Reference</local_identifier>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>Source_Product</local_identifier>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Source_Product</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Source_Product</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>TBD</definition>
+        <DD_Association>
+            <local_identifier>pds.local_identifier</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>XSChoice#</local_identifier>
+            <local_identifier>pds.Internal_Reference</local_identifier>
+            <local_identifier>External_Reference</local_identifier>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>-->
+    
+    <DD_Class>
+        <name>Input_Product_List</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Input_Product_List</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Input_Product_List class describes all of the product(s) most directly used as input to software for product creation,
+            including raw, partially-processed, calibrated, or derived products. These Input Products can be explicitly described in this label 
+            using the Input_Product class, and/or a list of products can be specified 
+            in another product referenced by the Internal_Reference or Local_Internal_Reference.</definition>
+        <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
+            <identifier_reference>pds.Internal_Reference</identifier_reference>
+            <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+            <identifier_reference>Input_Product</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Input_Product</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Input_Product</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Input_Product class describes one of the product most directly used as input to software for product creation,
+            including raw, partially-processed, calibrated, or derived products.</definition>
+        <DD_Association>
+            <identifier_reference>pds.local_identifier</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
+            <identifier_reference>pds.Internal_Reference</identifier_reference>
+            <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+            <identifier_reference>pds.External_Reference</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <!--<DD_Class>
+        <name>External_Reference</name>
+        <version_id>1.0</version_id>
+        <local_identifier>External_Reference</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The External_Reference class is used to reference a source outside the PDS registry system, including publications, PDS archival products not archived in PDS4, 
+        or data products not archived in PDS.</definition>
+        <DD_Association>
+            <local_identifier>pds.doi</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>XSChoice#</local_identifier>
+            <local_identifier>pds.reference_text</local_identifier>
+            <local_identifier>external_lid</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>2</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>pds.description</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>external_reference_type</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>curating_node_id</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>curating_institution_name</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>-->
+    
+<!--    <DD_Class>
+        <name>External_Reference_PDS_Product</name>
+        <version_id>1.0</version_id>
+        <local_identifier>External_Reference_PDS_Product</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The External_Reference_PDS_Product class specifies a reference to a PDS Product that is not registered as a PDS4 product.</definition>
+        <DD_Association>
+            <local_identifier>external_lid_pds</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>external_reference_type</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>pds.description</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>curating_node_id</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>curating_institution_name</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <local_identifier>pds.doi</local_identifier>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>-->
+    
+   <!-- <DD_Class>
+        <name>Processing_History</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Processing_History</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>TBD</definition>
+        <DD_Association>
+            <local_identifier>Process</local_identifier>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>-->
+    
+    <DD_Class>
+        <name>Process</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Process</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Process class describes one of the software processes used to produce the data product referenced in the parent Processing_Information class. This class includes descriptions of 
+        the process owner as well as the data processing software used to create the data product.</definition>
+        <DD_Association>
+            <identifier_reference>pds.name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>process_owner_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>process_owner_institution_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Software</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>        
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Software</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Software</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Software class describes the data processing software used in order to produce the data product.</definition>
+        <DD_Association>
+            <identifier_reference>pds.name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.software_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.software_version_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.software_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.Internal_Reference</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Software_Program</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Software_Program</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Software_Program</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Software_Program class describes the specific components or tasks of the Software executed in producing the data product.</definition>
+        <DD_Association>
+            <identifier_reference>pds.name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>program_type_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>program_user</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>program_hostname</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>program_path</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>program_version</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>program_start_date_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>program_stop_date_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Software_Program_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Software_Program_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Software_Program_Parameters</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Software_Program_Parameters class specifies the set of 1 or more parameters for the software program. These parameters can be input, output, or log information. The premise being 
+        a way to capture as much information as possible about the software program execution.</definition>
+        <DD_Association>
+            <identifier_reference>Parameter</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Parameter</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Parameter</local_identifier>
+        <submitter_name>Jordan Padams</submitter_name>
+        <definition>The Parameter class describes any information about software program execution. Examples of information that can be captured here are software input arguments, software output arguments, 
+        log information, and references to specific data products. This class is intended to be freeform to allow data providers the ability to specify information they determine applicable and useful for their 
+        data processing software and data products.</definition>
+        <DD_Association>
+            <identifier_reference>pds.name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>parameter_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
+            <identifier_reference>pds.Internal_Reference</identifier_reference>
+            <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+            <identifier_reference>pds.External_Reference</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <!-- Classes END    -->
+    
+    <!-- Rules START -->
+    
+<!--    <DD_Rule>
+        <local_identifier>Source_Product.child_check</local_identifier>
+        <rule_context>//proc:Source_Product</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>count(child::*) > 0</rule_test>
+            <rule_message>PROC:error:Source_Product.child_check: proc:Source_Product class must contain at least 1 attribute or class.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>-->
+    
+    <DD_Rule>
+        <local_identifier>Input_Product.child_check</local_identifier>
+        <rule_context>//proc:Input_Product</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>count(child::*) > 0</rule_test>
+            <rule_message>PROC:error:Input_Product.child_check: proc:Input_Product class must contain at least 1 attribute or class.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+    <DD_Rule>
+        <local_identifier>Software_Program.child_check</local_identifier>
+        <rule_context>//proc:Software_Program</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>count(child::*) > 0</rule_test>
+            <rule_message>PROC:error:Software_Program.child_check: proc:Software_Program class must contain at least 1 attribute or class.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+    <DD_Rule>
+        <local_identifier>Software.child_check</local_identifier>
+        <rule_context>//proc:Software</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>count(child::*) > 0</rule_test>
+            <rule_message>PROC:error:Software.child_check: proc:Software class must contain at least 1 attribute or class.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+    <DD_Rule>
+        <local_identifier>Process.child_check</local_identifier>
+        <rule_context>//proc:Process</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>count(child::*) > 0</rule_test>
+            <rule_message>PROC:error:Process.child_check: proc:Process class must contain at least 1 attribute or class.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+    <DD_Rule>
+        <local_identifier>local_reference_type_check</local_identifier>
+        <rule_context>//proc:Processing_Information/pds:Local_Internal_Reference</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>pds:local_reference_type = 'processing_information_to_data_object'</rule_test>
+            <rule_message>PROC:error:local_reference_type_check: pds:local_reference_type must have value 'processing_information_to_data_object'</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+    <DD_Rule>
+        <local_identifier>input_product_reference_type_check</local_identifier>
+        <rule_context>//proc:Input_Product_List/pds:Internal_Reference</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>pds:reference_type = 'data_to_input_product'</rule_test>
+            <rule_message>PROC:error:input_product_reference_type_check: pds:reference_type must have value 'data_to_input_product'</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+    <DD_Rule>
+        <local_identifier>software_reference_type_check</local_identifier>
+        <rule_context>//proc:Software/pds:Internal_Reference</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>pds:reference_type = 'data_to_software'</rule_test>
+            <rule_message>PROC:error:software_reference_type_check: pds:reference_type must have value 'data_to_software'</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+<!--    <DD_Rule>
+        <local_identifier>External_Reference_Non_PDS_Product.child_check</local_identifier>
+        <rule_context>//proc:External_Reference_Non_PDS_Product</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>count(child::*) > 0</rule_test>
+            <rule_message>PROC:error:External_Reference_Non_PDS_Product.child_check: proc:External_Reference_Non_PDS_Product class must contain at least 1 attribute or class.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>-->
+    
+    <!-- Rules END -->
+</Ingest_LDD>

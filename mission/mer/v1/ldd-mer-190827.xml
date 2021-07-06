@@ -1,0 +1,1881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- 03/14/19 GEO/EAG Initial version of MER mission dictionary for PDS3 to PDS4 migration
+     04/09/19 GEO/SHS Changed integer release_number to ASCII text release_id
+     04/11/19 GEO/EAG Added RAT attributes and classes
+     05/02/19 GEO/EAG Added MiniTES attributes and classes
+     07/12/19 GEO/EAG Added download_priority because the MER ranage is larger than the range defined in msn_surface.
+                      Also change magnet_id so that is was not nillable. I think there is an issue with having an
+                      attribute nillable that has emnumerated values. Schematron throws an error because the attribute
+                      has no value if when nilled.
+     08/27/19 GEO/EAG Added zone2_width to the MiniTES command parameters class                 
+    -->
+
+<!-- TBD List
+        -->
+
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1  https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd">
+    <name>MER Mission Dictionary</name>
+    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <full_name>Susan Slavney</full_name>
+    <steward_id>geo</steward_id>
+    <namespace_id>mer</namespace_id>
+    <comment>
+        The MER mission dictionary contains classes and attributes specific to the
+        MER mission and instruments. This dictionary was created for the migration
+        of MER data products from PDS3 to PDS4.
+        
+        Built with LDDTool -plMJ  ldd-mer.xml
+    </comment>
+    <last_modification_date_time>2019-08-27Z</last_modification_date_time>
+
+    <!-- Attribute Definitions 
+         In alphabetical order, the attributes are:
+         
+         downlink_priority
+         local_true_solar_time_sol
+         magnet_id
+         mission_phase_name
+         producer_institution_name
+         product_type
+         product_version_id
+         release_number
+         sol_number
+         spacecraft_clock_count_partition
+         spacecraft_clock_start_count
+         spacecraft_clock_stop_count
+         [more attributes and classes added for RAT and MiniTES products]
+    -->  
+    
+    <DD_Attribute>
+        <name>download_priority</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.download_priority</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The download_priority attribute specifies which
+            data to downlink/transmit, based on order of importance. The
+            lower numerical priority (higher-ranked number) data products
+            are transmitted before higher numerical priority (lower-ranked
+            number) data products. For example, an image with a downlink
+            priority of 24 will be transmitted before an image with a
+            downlink priority of 62. The allowable range is 0 to 99.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>99</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>local_true_solar_time_sol</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.local_true_solar_time_sol</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The local_true_solar_time_sol element specifies the number of solar days elapsed
+            since a reference day (e.g. the day on which a landing vehicle set down) for local true solar
+            time (LTST). Days are measured in rotations of the planet in question from midnight to
+            midnight. The reference day is '1', as landing day is Sol 1.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>magnet_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.magnet_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The magnet_id specifies a magnet that is visible in an image or measured by an instrument.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Capture</value>
+                <value_meaning>Target is the capture magnet located at the base of the PMA.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Filter</value>
+                <value_meaning>Target is the filter magnet located at the base of the PMA.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Sweep</value>
+                <value_meaning>Target is the sweep magnet located at the rear of the rover deck 
+                    next to the Pancam calibration target.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RAT</value>
+                <value_meaning>Target is one or more of the magnets mounted on the outer ring of the RAT.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Null</value>
+                <value_meaning>No magnet target was specified.
+                </value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>mission_phase_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mission_phase_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The mission_phase_name identifies a time period within the mission.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+            <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+            <!-- Are there more? -->
+            <DD_Permissible_Value>
+                <value>Extended Mission</value>
+                <value_meaning>TBD
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Primary Mission</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>producer_institution_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.producer_institution_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The producer_institution_name specifies the identity of the facility or institution that
+            produced the product.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>product_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.product_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The product_type identifies a group of data products within a collection that have
+            some property in common, such as processing level, resolution, or instrument-specific setting.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>product_version_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.product_version_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The product_version_id specifies the version of the product. It usually begins with a 'V' and 
+            followed by an identifier for the controlling camera SIS.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>release_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.release_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Release_id is the identifier of a scheduled release of MER data from PDS. The
+            first MER data release is Release 0001. The release_id for a given product is always the
+            first release in which it appears, and does not change if the product is revised
+            later.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>sol_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.sol_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Sol_number is the number of the Mars day on which an observation was acquired.
+            Landing day is Sol 1.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>spacecraft_clock_count_partition</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.spacecraft_clock_count_partition</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spacecraft_clock_count_partition provides the clock partition active for the
+            spacecraft_clock_start_count and spacecraft_clock_stop_count attributes.
+            This attribute may be used when the spacecraft_clock values
+            do not include a partition number.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>spacecraft_clock_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.spacecraft_clock_start_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spacecraft_clock_start_count is the value of the spacecraft clock at the
+            beginning of an observation. It represents the number of ticks. If a fractional value
+            is present, in some cases it means a true decimal fraction (i.e. milliseconds) while 
+            in other cases it stands for a count of 1/256th of a second (which stems from the fact 
+            that the fractional part was represented by a single byte in the original telemetry stream.) 
+            When comparing SCLK times or converting them to other time systems, it is important to know 
+            which of the two representations the SCLK string follows. Normally the documentation 
+            accompanying a particular data set defines which type of SCLK fractional part was used 
+            in that data set.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <formation_rule>[p/]ddddddddd[.fff] - In MER science product labels and accompanying
+                documentation, and in supporting data products, the on-board clock (SCLK) times are
+                represented by a string in the "SSSSSSSSS.FFF" format. In this string "SSSSSSSSS"
+                represents integer SCLK seconds while "FFF" represents fractional SCLK seconds.
+            </formation_rule>
+            <minimum_characters>13</minimum_characters>
+            <maximum_characters>15</maximum_characters>
+            <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{3})?</pattern> 
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>spacecraft_clock_stop_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.spacecraft_clock_stop_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spacecraft_clock_stop_count is the value of the spacecraft clock at the end of
+            an observation. It represents the number of ticks. If a fractional value
+            is present, in some cases it means a true decimal fraction (i.e. milliseconds) while 
+            in other cases it stands for a count of 1/256th of a second (which stems from the fact 
+            that the fractional part was represented by a single byte in the original telemetry stream.) 
+            When comparing SCLK times or converting them to other time systems, it is important to 
+            know which of the two representations the SCLK string follows. Normally the documentation 
+            accompanying a particular data set defines which type of SCLK fractional part was used in 
+            that data set.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <formation_rule>[p/]ddddddddd[.fff] - In MER science product labels and accompanying
+                documentation, and in supporting data products, the on-board clock (SCLK) times are
+                represented by a string in the "SSSSSSSSS.FFF" format. In this string "SSSSSSSSS"
+                represents integer SCLK seconds while "FFF" represents fractional SCLK seconds.
+                Unfortunately the meaning of "FFF" varies across different data sets. 
+            </formation_rule>
+            <minimum_characters>13</minimum_characters>
+            <maximum_characters>15</maximum_characters>
+            <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{3})?</pattern> 
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+<!-- RAT attributes -->
+    <DD_Attribute>
+        <name>angular_distance</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.angular_distance</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The amount of radians to move around the RAT revolve axis before a scan completes
+        or amount of radians to move before moving the RAT z-axis down one step.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>rad</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>angular_distance_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.angular_distance_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The name of the operation with the RAT revolve motor movement.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Grind Completion</value>
+                <value_meaning>The operation was a RAT grind.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Dwell Operation</value>
+                <value_meaning>The operation was a RAT dwell.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>angular_velocity</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.angular_velocity</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The angular velocity used in the operation of the RAT revolve axis.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+            <specified_unit_id>rad/s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+       
+    <DD_Attribute>
+        <name>clearance_distance</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.clearance_distance</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The RAT z-axix backoff distance for a dwell operation after a grind to clear
+        the RAT hole of dust.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>command_opcode</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.command_opcode</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>This value is a code that defines the command operation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>error_condition</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.error_condition</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>RAT error condition, mostly likely related to the butterfly contact switchs.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>None</value>
+                <value_meaning>No error occurred.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Contact1</value>
+                <value_meaning>Problem with contact switch 1.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Contact2</value>
+                <value_meaning>Problem with contact switch 2.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Both</value>
+                <value_meaning>Problem with both switches.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>error_state</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.error_state</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Flags to indicate various RAT error states. See the RAT SIS for more details.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>maximum_angular_velocity</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.maximum_angular_velocity</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The maximum RAT revolve motor velocity for a scan and grind operation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+            <specified_unit_id>rad/s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>maximum_current_persistence</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.maximum_current_persistence</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Number of RTIs at maximum current.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>maximum_travel_distance</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.maximum_travel_distance</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The maximum allowable travel distance relative to the RAT z-axis hard stop.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>rotation_noload_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.rotation_noload_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifics the RAT noload current value. Units are mA, but not given in the label.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>rotation_torque_parameter</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.rotation_torque_parameter</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifics a torque value for the RAT grinding wheel rotation during a scan or grind operation.
+        Given in units of mN*meter, but units are not listed in the label.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>rotation_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.rotation_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Value of the voltage applied to the RAT grinding wheel rotation motor.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>rotation_voltage_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.rotation_voltage_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The name of the RAT operation that the rotation voltage applies.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Seek</value>
+                <value_meaning>The operation was a RAT seek.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Scan</value>
+                <value_meaning>The operation was a RAT scan.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>sampling_parameter_interval</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.sampling_parameter_interval</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifics the number of RTIs that are skipped between telemetry samples in detailed RAT reports.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>timeout_parameter</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.timeout_parameter</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifics the time limit for the RAT revolve moter to make a complete revolution during a grind
+            operation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+            <specified_unit_id>s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>torque_constant</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.torque_constant</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Ratio of RAT rotate motor torque to current. Units are mN*meter/mA, but unit is not listed in label.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>torque_gain</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.torque_gain</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>RAT torque controller gain value. See RAT SIS, appendix B for units.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>torque_gain_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.torque_gain_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The name for the type of RAT torque gain.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Proportional</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Derivative</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Integral</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>z_axis_distance</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.z_axis_distance</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>This is the offset for the RAT z-axis position at the start of a diagnostic, calibration, grind, or
+        brush command.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>z_axis_position</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.z_axis_position</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>This is the RAT z-axis offset relative to the lower hard stop that the RAT will move to at the
+        start of a brush command.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>z_axis_step_size</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.z_axis_step_size</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The is the distance that the z-axis will step after a complete revolution.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>z_axis_velocity</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.z_axis_velocity</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifics the z-axis velocity during a movement. Units are in mm/s, but are not listed in the label.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>z_axis_velocity_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.z_axis_velocity_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The name of the RAT operation that the z-axis velocity applies.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Seek</value>
+                <value_meaning>The operation was a RAT seek.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Scan</value>
+                <value_meaning>The operation was a RAT scan.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+<!-- End of RAT attribute definitions -->
+
+<!-- Start of MiniTES attribute definitions -->
+    
+    <DD_Attribute>
+        <name>linear_motor_status_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.linear_motor_status_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Provides the status of the Michelson motor.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>On</value>
+                <value_meaning>Motor status flag is on.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Off</value>
+                <value_meaning>Motor status flag is off.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>field_of_view</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.field_of_view</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The instantaneous field of view of the instrument that was used while
+          acquiring the data.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>mrad</specified_unit_id>
+            <DD_Permissible_Value>
+                <value>8</value>
+                <value_meaning>The field of view was 8 mrad.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>20</value>
+                <value_meaning>The field of view was 20 mrad.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>gain_state</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.gain_state</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifies the gain state of the MiniTES analog signal amplifier.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Low</value>
+                <value_meaning>The gain state parameter was set to low.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>High</value>
+                <value_meaning>The gain state parameter was set to high.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>optical_switch_state</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.optical_switch_state</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Indicates which of the optical switches was used by the miniTES
+          optical mirror. There are two switches for redundancy in case one fails.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Primary</value>
+                <value_meaning>The primary optical switch was used while acquired the data.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Redundant</value>
+                <value_meaning>The redundant optical switch was used while acquired the data.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>laser_1_status_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.laser_1_status_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Status of the primary laser. Only onen laser can be on at one time.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>On</value>
+                <value_meaning>The primary laser is on.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Off</value>
+                <value_meaning>The primary laser is off.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>laser_2_status_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.laser_2_status_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Status of the backup laser. Only onen laser can be on at one time.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>On</value>
+                <value_meaning>The backup laser is on.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Off</value>
+                <value_meaning>The backup laser is off.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>laser_heater_status_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.laser_heater_status_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The status of the laser heater.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>On</value>
+                <value_meaning>The laser heater is on.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Off</value>
+                <value_meaning>The laser heater is off.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>spare_bit_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.spare_bit_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The status of the spare bit within the command word.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>On</value>
+                <value_meaning>The spare bit is on.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Off</value>
+                <value_meaning>The spare bit is off.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>coordinate_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.coordinate_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Identifies the frame in which the coordinate values are given.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>coordinate_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.coordinate_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Name associated with each coordinate in the Coordinate_Parameters class.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>coordinate_value</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.coordinate_value</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The value of the coordinate named by coordinate_name 
+            in the Coordinate_Parameters class.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>coordinate_unit</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.coordinate_unit</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The unit for the coordinate value by coordinate_name 
+            in the Coordinate_Parameters class.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>center_azimuth</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.center_azimuth</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The commanded center azimuth of the acquired data.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>rad</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>center_elevation</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.center_elevation</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The commanded center elevation of the acquired data.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>rad</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>columns</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.columns</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the number of columns (azimuth steps) to acquire.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>rows</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.rows</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the number of rows (elevation steps) to acquire.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>dwell</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.dwell</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the number of icks to acquire at one azimuth/elevation position.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>vertical_space</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.vertical_space</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the vertical spacing between consecutive rows.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>rad</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>horizontal_space</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.horizontal_space</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the horizontal spacing between consecutive columns.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>rad</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>co_add</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.co_add</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded number of spectra to average together.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>cal_frequency</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.cal_frequency</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the minimum number of icks between internal calibration looks.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>cal_dwell</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.cal_dwell</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the number of icks to acquire during a calibration observation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>cal_co_add</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.cal_co_add</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded number of calibration observations to average together.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>phase_algorithm_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.phase_algorithm_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the phase correction algorithm to use on board.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>None</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mertz</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RSS</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>low_channel</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.low_channel</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the start channel number to acquire. Channel numbers 
+          start at zero.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>high_channel</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.high_channel</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded value of the end channel number to acquire minus one.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>zone2_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.zone2_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Commanded length of the center-burst region of the interferogram, which
+            is compressed separately from zone1 and zone-3.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <!-- End of the MiniTES attribute definitions -->
+
+    
+    <!-- MER_Parameters Class Definition -->
+<!-- Attributes are listed in the order required in the label:
+        product_type (optional)
+        product_version_id (optional)
+        release_number (optional)
+        mission_phase_name (optional)
+        sol_number (optional)
+        local_true_solar_time_sol (optional)
+        spacecraft_clock_count_partition (optional)
+        spacecraft_clock_start_count (optional)
+        spacecraft_clock_stop_count (optional)
+        magnet_id (optional)
+        download_priority (optional)
+        producer_institution_name (optional)
+        
+     Currently all are optional. Should some be required?
+-->
+    
+    <DD_Class>
+        <name>MER_Parameters</name> 
+        <version_id>1.0</version_id>
+        <local_identifier>MER_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>
+            Container class for general MER related parameters.
+        </definition>
+        <!-- Setting element_flag to true exposes this class in the product labels -->
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.product_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.product_version_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.release_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mission_phase_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.sol_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.local_true_solar_time_sol</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.spacecraft_clock_count_partition</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.spacecraft_clock_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.spacecraft_clock_stop_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.magnet_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.download_priority</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.producer_institution_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.RAT_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.MiniTES_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+<!-- Start of the RAT classes -->
+
+<!-- RAT subclasses -->
+    
+    <DD_Class>
+        <name>RAT_Request_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.RAT_Request_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>RAT operation parameters</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.command_opcode</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.error_condition</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.error_state</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.maximum_current_persistence</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.maximum_travel_distance</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.sampling_parameter_interval</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_noload_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.torque_constant</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_distance</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>RAT_Diagnostics_Cal_Request_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.RAT_Diagnostics_Cal_Request_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>RAT diagnostics and calibration parameters.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.angular_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+<!-- Subclasses of seek scan request -->    
+    
+    <DD_Class>
+        <name>Rotation_Voltage_Index</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.Rotation_Voltage_Index</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Subclass for values of rotation motor voltages.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_voltage_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Torque_Gain_Index</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.Torque_Gain_Index</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Subclass for values of torque gain.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.torque_gain</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.torque_gain_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Z_Axis_Velocity_Index</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.Z_Axis_Velocity_Index</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Subclass for values of z-axis velocity.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_velocity_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+<!-- End of subclasses -->
+    
+    <DD_Class>
+        <name>RAT_Seek_Scan_Request_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.RAT_Seek_Scan_Request_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Class of RAT seek scan parameters.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.angular_distance</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.maximum_angular_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_torque_parameter</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.Rotation_Voltage_Index</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>2</minimum_occurrences>
+            <maximum_occurrences>2</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.Torque_Gain_Index</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>3</minimum_occurrences>
+            <maximum_occurrences>3</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_step_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.Z_Axis_Velocity_Index</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>2</minimum_occurrences>
+            <maximum_occurrences>2</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+<!-- Subclases for RAT Grind parameters -->   
+    
+    <DD_Class>
+        <name>Angular_Distance_Index</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.Angular_Distance_Index</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Subclass for values of angular distance.</definition>
+        <DD_Association>
+            <identifier_reference>mer.rat.angular_distance</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.angular_distance_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+<!-- End of Subclasses -->
+    
+    <DD_Class>
+        <name>RAT_Grind_Request_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.RAT_Grind_Request_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Class of RAT grind request parameters.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.Angular_Distance_Index</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>2</minimum_occurrences>
+            <maximum_occurrences>2</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.angular_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.clearance_distance</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.maximum_angular_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_torque_parameter</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.Torque_Gain_Index</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>3</minimum_occurrences>
+            <maximum_occurrences>3</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.timeout_parameter</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_step_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>RAT_Brush_Request_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.RAT_Brush_Request_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Class for RAT brush request parameters</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.rat.angular_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.rotation_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_position</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.z_axis_velocity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+<!-- Main RAT class -->    
+    <DD_Class>
+        <name>RAT_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.rat.RAT_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Container class for RAT parameters</definition>
+        <DD_Association>
+            <identifier_reference>mer.rat.RAT_Request_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.RAT_Diagnostics_Cal_Request_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.RAT_Seek_Scan_Request_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.RAT_Grind_Request_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.rat.RAT_Brush_Request_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+<!-- End of the RAT classes -->
+    
+<!-- Start of the MiniTES classes -->  
+    
+    <!-- Subclasses -->
+    
+    <DD_Class>
+        <name>MiniTES_Coordinate_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.MiniTES_Coordinate_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifies one of several coordinate parameters for a miniTES observation.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.mtes.coordinate_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.coordinate_value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.coordinate_unit</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>MiniTES_Command_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.MiniTES_Command_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Specifies the set of commands used to acquire a miniTES observation.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.mtes.center_azimuth</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.center_elevation</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.columns</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.rows</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.dwell</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.vertical_space</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.horizontal_space</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.co_add</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.cal_frequency</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.cal_dwell</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.cal_co_add</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.phase_algorithm_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.low_channel</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.high_channel</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.zone2_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+<!-- Main MiniTES class -->    
+    <DD_Class>
+        <name>MiniTES_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mer.mtes.MiniTES_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Main class to hold parameters related to a miniTES observation.</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mer.mtes.linear_motor_status_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.field_of_view</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.gain_state</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.optical_switch_state</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.laser_1_status_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.laser_2_status_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.laser_heater_status_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.spare_bit_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.coordinate_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.MiniTES_Coordinate_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>3</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mer.mtes.MiniTES_Command_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+<!-- End of MiniTES classes -->    
+    
+<!-- Schematron Rules  -->
+<!-- Rules for spacecraft clock values for all MER data product labels -->
+<DD_Rule>
+    <local_identifier>mer_sclk_rules</local_identifier>
+    <rule_context>/pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mer:MER_Parameters</rule_context>
+    
+    <DD_Rule_Statement>
+        <rule_type>Assert</rule_type>
+        <rule_test>
+            if ( 
+               (mer:spacecraft_clock_count_partition) 
+               or
+               ( (contains(mer:spacecraft_clock_start_count, '/')) 
+                  and
+                 (contains(mer:spacecraft_clock_stop_count, '/'))
+               )
+               or
+               ( (not (mer:spacecraft_clock_count_partition))
+                  and
+                 (not (mer:spacecraft_clock_start_count))
+                  and
+                 (not (mer:spacecraft_clock_stop_count))
+                )
+                ) then true() else false()
+        </rule_test>
+        <rule_message>
+            mer:error:sclk_rule_0: If spacecraft_clock_start_count and spacecraft_clock_stop_count
+            are present, they must begin with a partition number followed by a forward slash,
+            OR the partition number must be given by spacecraft_clock_count_partition.
+        </rule_message>
+    </DD_Rule_Statement>
+</DD_Rule>
+    
+<!-- End of Schematron Rules -->
+
+</Ingest_LDD>

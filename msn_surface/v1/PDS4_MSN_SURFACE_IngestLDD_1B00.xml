@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:msn="http://pds.nasa.gov/pds4/msn/v1" xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+  xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 
+    https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd">
+  <name>Surface Mission</name>
+  <ldd_version_id>1.1.0.0</ldd_version_id>
+  <full_name>Cristina De Cesare</full_name>
+  <steward_id>img</steward_id>
+  <namespace_id>msn_surface</namespace_id>
+  <comment>
+    ## CHANGE LOG ##
+    1.0.0.0
+    - Initial version
+    
+    1.1.0.0
+    - Upgraded to v1B00 of the IM.
+    - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+    - Renamed Surface_Mission_Parameters to Surface_Mission_Information, Command_Execution_Information to Command_Execution, and
+      Telemetry_Information to Telemetry.
+  </comment>
+  <last_modification_date_time>2019-05-02T14:00:00</last_modification_date_time>
+
+  <!-- Begin attribute definitions -->
+
+  <!-- Start attributes for Surface_Mission_Information -->
+  <DD_Attribute>
+    <name>surface_gravity</name>
+    <version_id>1.0</version_id>
+    <local_identifier>surface_gravity</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The surface_gravity attribute specifies the acceleration of gravity (magnitude, not
+      direction).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Acceleration</unit_of_measure_type>
+      <specified_unit_id>m/s**2</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <!-- End attributes for Surface_Mission_Information -->
+
+  <!-- Start attributes for Command_Execution -->
+  <DD_Attribute>
+    <name>sequence_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>sequence_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The sequence_id identifies the command sequence used to 
+      acquire this product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>sequence_version_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>sequence_version_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The sequence_version_id identifies which of 
+      potentially several versions of a sequence_id were used to acquire this 
+      product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>command_sequence_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>command_sequence_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>E. Rye</submitter_name>
+    <definition>The command_sequence_number attribute provides a numeric identifier for a sequence
+      of commands sent to a spacecraft or instrument.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>sequence_execution_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>sequence_execution_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The sequence_execution_count specifies how many 
+      times this sequence has executed since the last reset of the flight computer.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>observation_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>observation_id</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The observation_id specifies a unique identifier for a scientific observation within a data set.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>request_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>request_id</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The request_id is used to group related datasets together 
+      by science or engineering application or theme, such as frames in a mosaic.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>command_source_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>command_source_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition> The command_source_id attribute specifies the flight software element that was the
+      source of a particular command. </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <!-- End attributes for Command_Execution -->
+
+
+  <!-- Start attributes for Telemetry -->
+  <DD_Attribute>
+    <name>application_id</name>
+    <version_id>0.1</version_id>
+    <local_identifier>application_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The application_id (often abbreviated APID) attribute identifies the process, or 
+      source, which created the data. This can include information such as an identification of the 
+      instrument which generated the telemetry stream, its operating mode at the time of data acquisition, 
+      and any onboard compression of the data.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>application_subtype_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>application_subtype_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The application_subtype_id attribute provides further distinction (i.e.,
+      greater specificity) among application_id types.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>application_name</name>
+    <version_id>0.1</version_id>
+    <local_identifier>application_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The application_name attribute provides the name associated with the
+      source or process which created the data.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>provider_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>provider_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The provider_id attribute identifies the organization or subsystem that
+      supplied the telemetry data product to the producer of the raw (EDR) PDS data product. This is
+      typically (but not always) the organization responsible for reassembling packetized data into
+      a single product. These may vary by mission so the permissible values should be set 
+      by the mission dictionaries. 
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>flight_software_version_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>flight_software_version_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The flight_software_version_id attribute identifies the version of the instrument flight software used to acquire the image.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>telemetry_source_name</name>
+    <version_id>0.1</version_id>
+    <local_identifier>telemetry_source_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The telemetry_source_name specifies the name source of the telemetry data described in the parent class.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>transport_protocol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>transport_protocol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The transport_protocol attribute specifies the protocol used 
+      in the creation of the telemetry data products by the subsystem which generates the telemetry stream.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+      <DD_Permissible_Value>
+        <value>SFDU</value>
+        <value_meaning>Standard Formatted Data Unit</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Data Product</value>
+        <value_meaning>A complete file of raw telemetry as delivered from the 
+          spacecraft to the ground.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>communication_session_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>communication_session_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>Identifies the communication session used to 
+      acquire this data.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>telemetry_source_start_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>telemetry_source_start_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The telemetry_source_start_time specifies the creation time of the source product 
+      from which this product was derived. It is the same as the telemetry_source_sclk_start converted
+      to Spacecraft Event Time (SCET).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>telemetry_source_sclk_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>telemetry_source_sclk_start</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The telemetry_source_sclk_start attribute specifies the value of the spacecraft clock (in seconds) 
+      at the creation time of the source product from which this product was derived.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>product_completion_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>product_completion_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The product_completion_status attribute indicates whether or not a product is complete or is in 
+      one of a number of incomplete states. Sample values might indicate that all portions of the product have 
+      been downlinked and received correctly, that all portions have not yet been received, or that the product 
+      contains transmission errors. The specific values are mission-dependent.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+      <DD_Permissible_Value>
+        <value>PARTIAL</value>
+        <value_meaning>partially downlinked product</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>COMPLETE</value>
+        <value_meaning>complete downlinked product</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>earth_received_start_date_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>earth_received_start_date_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The earth_received_start_date_time attribute provides the earliest time at which any
+      component telemetry data for a particular product was received.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>earth_received_stop_date_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>earth_received_stop_date_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The earth_received_stop_date_time attribute provides the latest time at which any
+      component telemetry data for a particular product was received.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>download_priority</name>
+    <version_id>1.0</version_id>
+    <local_identifier>download_priority</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition> The download_priority attribute specifies which data to downlink/transmit, based on order of importance. 
+      The lower numerical priority (higher-ranked number) data products are transmitted before higher numerical priority 
+      (lower-ranked number) data products. For example, an image with a downlink priority of 1 will be transmitted 
+      before an image with a downlink priority of 6. Value of 0 specifies use of on-board default.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <maximum_value>6</maximum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>data_size</name>
+    <version_id>0.1</version_id>
+    <local_identifier>data_size</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The data_size specifies number of bytes in the compressed data stream, not including headers.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>expected_packets</name>
+    <version_id>0.1</version_id>
+    <local_identifier>expected_packets</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The expected_packets attribute provides the total number of telemetry packets which
+      constitute a complete data product, i.e., a data product without missing data.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>received_packets</name>
+    <version_id>0.1</version_id>
+    <local_identifier>received_packets</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The received_packets attribute provides the total number of telemetry packets actually used 
+      to construct this data product. cf. expected_packets.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <!-- End attributes for Telemetry -->
+
+
+  <!-- End attribute definitions -->
+
+
+
+  <!-- Begin class definitions -->
+
+  <!-- Start of Surface_Mission_Information class Definition -->
+  <DD_Class>
+    <name>Surface_Mission_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Surface_Mission_Information</local_identifier>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The Surface_Mission_Information class contains attributes specific to surface missions 
+      which apply across instrument types.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>Command_Execution</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Telemetry</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>surface_gravity</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of Surface_Mission_Information class Definition -->
+
+  <!-- Start of Command_Execution Class Definition -->
+  <DD_Class>
+    <name>Command_Execution</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Command_Execution</local_identifier>
+    <submitter_name>Jordan Padams</submitter_name>
+    <definition>The Command_Execution class contains information about how the command 
+      that acquired this data was executed, such as sequence or activity.</definition>
+    <DD_Association>
+      <identifier_reference>sequence_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>sequence_version_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>sequence_execution_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>command_sequence_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>command_source_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>observation_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>request_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of Command_Execution Class Definition -->
+
+  <!-- Start of Telemetry Class Definition -->
+  <DD_Class>
+    <name>Telemetry</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Telemetry</local_identifier>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The Telemetry class contains downlink-related attributes 
+      used primarily during mission operations.</definition>
+    <DD_Association>
+      <identifier_reference>application_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>application_subtype_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>application_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>provider_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>flight_software_version_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>telemetry_source_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>transport_protocol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>communication_session_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>telemetry_source_start_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>telemetry_source_sclk_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>product_completion_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>earth_received_start_date_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>earth_received_stop_date_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>download_priority</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>data_size</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>expected_packets</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>received_packets</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of Telemetry Class Definition -->
+
+
+  <!-- End class definitions -->
+
+
+  <!-- Begin rule definitions -->
+  
+  <!-- TODO make this specific to InSight? 
+    Is there some way to have this rule only trigger when some attribute from another namespace is "InSight"? -->
+  <!--
+  <DD_Rule>
+    <local_identifier>application_name_value_check</local_identifier>
+    <rule_context>//msn_surface:Telemetry</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>msn_surface:application_name = ('ICC_1', 'ICC_2', 'ICC_3', 'ICC_4', 'ICC_5',
+        'ICC_6', 'ICC_UNRECOG', 'IDC_1', 'IDC_2', 'IDC_3', 'IDC_4', 'IDC_5', 'IDC_6',
+        'IDC_UNRECOG')</rule_test>
+      <rule_message>MSN_SURFACE:error:application_name_value_check: The attribute
+        msn_surface:application_name must be equal to one of the following values: 'ICC_1', 'ICC_2',
+        'ICC_3', 'ICC_4', 'ICC_5', 'ICC_6', 'ICC_UNRECOG', 'IDC_1', 'IDC_2', 'IDC_3', 'IDC_4',
+        'IDC_5', 'IDC_6', 'IDC_UNRECOG'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  <DD_Rule>
+    <local_identifier>provider_id_value_check</local_identifier>
+    <rule_context>//msn_surface:Telemetry</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>msn_surface:provider_id = ('TTACS')</rule_test>
+      <rule_message>MSN_SURFACE:error:provider_id_value_check: The attribute msn_surface:provider_id
+        must be equal to one of the following values: 'TTACS'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  -->
+
+
+  <!-- End rule definitions -->
+
+</Ingest_LDD>

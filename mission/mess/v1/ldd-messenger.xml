@@ -1,0 +1,3311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1900.sch"
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD
+		xmlns="http://pds.nasa.gov/pds4/pds/v1"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation=" http://pds.nasa.gov/pds4/pds/v1  http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1900.xsd">
+
+	<name>MESSENGER Mission Dictionary</name>
+	<ldd_version_id>1.1.0.0</ldd_version_id>
+	<full_name>J. Mafi</full_name>
+	<steward_id>ppi</steward_id>
+	<namespace_id>mess</namespace_id>
+	<comment>
+		The MESSENGER mission dictionary contains classes that describe aspects 
+		of the MESSENGER mission and related instruments.
+
+		1.0.0.0 (2018-05-02)
+		Updated PDS4 model to 1.9.0.0, may want to further update to 1.A.0.0.
+		Corrections and additions by E. Guinness, Geo Node, as noted in comments
+		below. Also changed all DD_Assocation clasess to have identifier_reference instead of 
+		local_identifier so that the ingest file works with 1.9.0.0
+
+		1.0.1.0 (2018-06-22) 
+		S. Slavney: Added orbit_number element. Removed erroneous leading space from mission 
+		phase name value "Mercury 4 Cruise".
+		Build with lddtool -lpMs
+
+		1.0.2.0 (2018-10-29)
+		T. King: Add ec_factor and make img_id_lsb, img_id_msb, piv_pos_motor and piv_goal nillable as requested by Paul Geissler.
+		Also made mission_phase_name multiple occurrence.
+
+		1.1.0.0 (2019-06-07)
+		T. King: Add observation_id, observation_type, data_quality_id, smear_magnitude, dark_strip_mean, missing_pixel_count, saturated_pixel_count and ec_factor as requested by Paul Geissler.
+	</comment>
+
+	<last_modification_date_time>2018-06-13T21:04:00Z</last_modification_date_time>
+
+	<!-- MESSENGER Mission LDD Attributes -->
+
+	<DD_Attribute>
+		<name>mission_phase_name</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mission_phase_name</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The mission_phase_name attribute provides the mission-defined 
+			name of a mission phase.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+			<maximum_characters>255</maximum_characters>
+			<DD_Permissible_Value>
+				<value>Launch</value>
+				<value_meaning>2004-08-03 (2004-216)to 2004-09-12 (2004-256)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Earth Cruise</value>
+				<value_meaning>2004-09-13 (2004-257) to 2005-07-18 (2005-199)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Earth Flyby</value>
+				<value_meaning>2005-07-19 (2005-200) to 2005-08-16 (2005-228)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Venus 1 Cruise</value>
+				<value_meaning>2005-08-17 (2005-229) to 2006-10-09 (2006-282)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Venus 1 Flyby</value>
+				<value_meaning>2006-10-10 (2006-283) to 2006-11-07 (2006-311)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Venus 2 Cruise</value>
+				<value_meaning>2006-11-08 (2006-312) to 2007-05-22 (2007-142)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Venus 2 Flyby</value>
+				<value_meaning>2007-05-23 (2007-143) to 2007-06-20 (2007-171)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury 1 Cruise</value>
+				<value_meaning>2007-06-21 (2007-172) to 2007-12-30 (2007-364)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury 1 Flyby</value>
+				<value_meaning>2007-12-31 (2007-365) to 2008-01-28 (2008-028)</value_meaning>
+			</DD_Permissible_Value>                   
+			<DD_Permissible_Value>
+				<value>Mercury 2 Cruise</value>
+				<value_meaning>2008-01-29 (2008-029) to 2008-09-21 (2008-265)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury 2 Flyby</value>
+				<value_meaning>2008-09-22 (2008-266) to  2008-10-20 (2008-294)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury 3 Cruise</value>
+				<value_meaning>2008-10-21 (2008-295) to 2009-10-14 (2009-287)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury 3 Flyby</value>
+				<value_meaning>2009-09-16 (2009-259) to 2009-10-14 (2009-287)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury 4 Cruise</value>
+				<value_meaning>2009-10-15 (2009-288) to 2011-03-03 (2011-062)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury Orbit</value>
+				<value_meaning>2011-03-04 (2011-063) to 2012-03-17 (2012-077) This phase began at Mercury orbit insertion and continued through the first year of orbital operations.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury Orbit Year 2</value>
+				<value_meaning>2012-03-18 (2012-078) to 2013-03-17 (2013-076)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury Orbit Year 3</value>
+				<value_meaning>2013-03-18 (2013-077) to 2014-03-17 (2014-076)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury Orbit Year 4</value>
+				<value_meaning>2014-03-18 (2014-077) to 2015-03-17 (2015-076)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Mercury Orbit Year 5</value>
+				<value_meaning>2015-03-18 (2014-077) to 2015-04-30 (2015-120).
+					The Orbit phase year 5 continued the extended mission through 
+					to the end of orbital operations. This phase continued the most 
+					intensive science portion of the mission with full instrument 
+					utilization through near the end of the period which ended when 
+					the spacecraft impacted Mercury as expected on 30 April 2015.</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+
+	<!-- orbit_number - used by MLA [added by Slavney] -->
+	<DD_Attribute>
+		<name>orbit_number</name>
+		<version_id>0.9</version_id>
+		<local_identifier>mess.orbit_number</local_identifier>
+		<nillable_flag>true</nillable_flag>
+		<submitter_name>S. Slavney</submitter_name>
+		<definition>The orbit_number attribute identifies the number of the
+			orbital revolution of a spacecraft around a target body.
+			For MESSENGER, the orbit number was incremented at apoapsis.
+			For observations made before the spacecraft was in orbit,
+			orbit_number has no value, and its nilReason attribute is "inapplicable". 
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_NonNegative_Integer</value_data_type>
+		</DD_Value_Domain>
+	</DD_Attribute>
+
+	<DD_Attribute>
+		<name>spacecraft_clock_start_count</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.spacecraft_clock_start_count</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The spacecraft_clock_start_count attribute provides the value 
+			of the spacecraft clock at the beginning of a time period of 
+			interest.
+
+			A planned reset of the on-board clock of the MESSENGER spacecraft
+			occurred on January 8, 2013. This was commanded by Mission Operations and
+			was done because the integer seconds part of the on-board mission-
+			elapsed-time (MET) counter is not long enough to contain the larger MET
+			values that would occur due to the extended mission. The MESSENGER team
+			elected to command the clock reset and set MET to a small non-zero value
+			to prevent disruptions in on-board timekeeping and other effects (that
+			might have occurred if the clock were allowed to automatically rollover
+			to 0 in early 2013) and to ensure that the MET counter would accomodate
+			the remaining extended mission.
+
+			As a result of the spacecraft clock reset, a discontinuity was introduced
+			and MET values are no longer guaranteed to be unique throughout the
+			mission. This ambiguity is resolved in ground processing by the use of
+			SPICE 'clock partitions' (partition 1 for pre-reset METs and partition 2
+			for post-reset METs) in the Spacecraft Clock (SCLK) kernel (which
+			supports mapping MET to other time forms using SPICE routines as
+			described below) and with MET values stored in PDS products, labels, and
+			for some instruments, product file names.  For MET values in products or
+			labels,  a '1/' or '2/' preceding MET indicates the partition, as in:
+
+			SPACECRAFT_CLOCK_START_COUNT   = '1/265485874'
+			SPACECRAFT_CLOCK_STOP_COUNT    = '2/000100005'
+
+			When using SPICE routines, clock partition numbers should be included
+			with MET input values. METs expressed without an explicit partition
+			number are associated with clock partition 1 by default. Use of clock
+			partition numbers in file names for some MDIS products is described in
+			the MDIS EDR and CDR/RDR SIS documents with those data sets. </definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+			<pattern>[1-9]/[0-9]{9}(.[0-9]{3})?</pattern>
+			<!-- Some data sets don't have the partition and some have only 8 digits -->
+		</DD_Value_Domain>
+	</DD_Attribute>    
+	<DD_Attribute>
+		<name>spacecraft_clock_stop_count</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.spacecraft_clock_stop_count</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The spacecraft_clock_stop_count attribute provides the value of the spacecraft 
+			clock at the beginning of a time period of interest.
+
+			A planned reset of the on-board clock of the MESSENGER spacecraft             
+			occurred on January 8, 2013. This was commanded by Mission Operations and     
+			was done because the integer seconds part of the on-board mission-            
+			elapsed-time (MET) counter is not long enough to contain the larger MET       
+			values that would occur due to the extended mission. The MESSENGER team       
+			elected to command the clock reset and set MET to a small non-zero value      
+			to prevent disruptions in on-board timekeeping and other effects (that        
+			might have occurred if the clock were allowed to automatically rollover       
+			to 0 in early 2013) and to ensure that the MET counter would accomodate       
+			the remaining extended mission.                                               
+
+			As a result of the spacecraft clock reset, a discontinuity was introduced     
+			and MET values are no longer guaranteed to be unique throughout the           
+			mission. This ambiguity is resolved in ground processing by the use of        
+			SPICE 'clock partitions' (partition 1 for pre-reset METs and partition 2      
+			for post-reset METs) in the Spacecraft Clock (SCLK) kernel (which             
+			supports mapping MET to other time forms using SPICE routines as              
+			described below) and with MET values stored in PDS products, labels, and      
+			for some instruments, product file names.  For MET values in products or      
+			labels,  a '1/' or '2/' preceding MET indicates the partition, as in:         
+
+			SPACECRAFT_CLOCK_START_COUNT   = '1/265485874'                                
+			SPACECRAFT_CLOCK_STOP_COUNT    = '2/000100005'                                
+
+			When using SPICE routines, clock partition numbers should be included         
+			with MET input values. METs expressed without an explicit partition           
+			number are associated with clock partition 1 by default. Use of clock         
+			partition numbers in file names for some MDIS products is described in        
+			the MDIS EDR and CDR/RDR SIS documents with those data sets. </definition>    
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+			<pattern>[1-9]/[0-9]{9}(.[0-9]{3})?</pattern>
+			<!-- See comment above -->
+		</DD_Value_Domain>
+	</DD_Attribute>       
+	<DD_Attribute>
+		<name>standard_data_product_id</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.standard_data_product_id</local_identifier>
+		<nillable_flag>true</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The standard_data_product_id keyword is used to identify
+			data products of the same processing level that
+			are not otherwise indentified by being in different
+			collections within the bundle.</definition>    
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+		</DD_Value_Domain>
+	</DD_Attribute>       
+
+	<!-- software_name [added by Guinness] -->
+	<DD_Attribute>
+		<name>software_name</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.software_name</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>E. Guinness</submitter_name>
+		<definition>The name of the software used to generate the product.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+		</DD_Value_Domain>
+	</DD_Attribute>  
+
+	<!--  software_version_id (this exists in core dictionary) [added by Guinness] -->
+	<DD_Attribute>
+		<name>software_version_id</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.software_version_id</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>E. Guinness</submitter_name>
+		<definition>The version of the software used to generate the product. It 
+			usually has the form m.n</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+		</DD_Value_Domain>
+	</DD_Attribute>  
+
+	<!-- detector_id - used by GRS [added by Guinness] -->
+	<DD_Attribute>
+		<name>detector_id</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.detector_id</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>E. Guinness</submitter_name>
+		<definition>The value indicates what detector of the GRS instrument measured
+			the observation.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+			<DD_Permissible_Value>
+				<value>shield</value>
+				<value_meaning>Measurement from the GRS shield detector</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>acs</value>
+				<value_meaning>Measurement from the GRS anti-coincidence shield.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>hpge</value>
+				<value_meaning>Measurement from the high purity Germanium (HPGe) detector.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>microphonics</value>
+				<value_meaning>Measurement from the microphoncis detector.</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>  
+
+	<!-- MESSENGER MDIS LDD Attributes --> 
+
+	<DD_Attribute>
+		<name>aex_bacb</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.aex_bacb</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The background brightness used for MDIS 
+			automatic exposure time calculation.
+
+			In a test image that it analyzed to 
+			determine an exposure time using 
+			automatic exposure, DPU hardware 
+			generates a histogram of the image. 
+			The histogram is analyzed by the 
+			software to determine if the image is 
+			overexposed or underexposed, and the 
+			exposure time is adjusted accordingly 
+			by analyzing the histogram of raw DN 
+			values in different brightness bins. 
+			The background or dark current level 
+			(mess.mdis.aex_bacb) is taken into account an 
+			is assumed to be a constant value.
+
+			A threshold of number of pixels 
+			(mess.mdis.aex_sthr) is allowed to exceed a 
+			target brightness  (mess.mdis.aex_tgtb). 
+			Starting with the maximum value, the 
+			number of pixels exceeding the target 
+			is counted, and the brightness of the 
+			histogram bin in which that threshold is 
+			reached (mess.mdis.aex_stat) is reported. The 
+			exposure time is scaled back by the 
+			ratio of mess.mdis.aex_tgtb/mess.mdis.aex_stat.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>4095</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>aex_maxe</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.aex_maxe</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The maximum allowable exposure time 
+			from an MDIS automatic exposure time 
+			calculation.
+
+			In a test image that it analyzed to 
+			determine an exposure time using 
+			automatic exposure, DPU hardware 
+			generates a histogram of the image. 
+			The histogram is analyzed by the 
+			software to determine if the image is 
+			overexposed or underexposed, and the 
+			exposure time is adjusted accordingly 
+			by analyzing the histogram of raw DN 
+			values in different brightness bins. 
+			The background or dark current level 
+			(mess.mdis.aex_bacb) is taken into account an 
+			is assumed to be a constant value.
+
+			A threshold of number of pixels 
+			(mess.mdis.aex_sthr) is allowed to exceed a 
+			target brightness  (mess.mdis.aex_tgtb). 
+			Starting with the maximum value, the 
+			number of pixels exceeding the target 
+			is counted, and the brightness of the 
+			histogram bin in which that threshold is 
+			reached (mess.mdis.aex_stat) is reported. The 
+			exposure time is scaled back by the 
+			ratio of mess.mdis.aex_tgtb/mess.mdis.aex_stat.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>989</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>aex_mine</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.aex_mine</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The minimum allowable exposure time 
+			from an MDIS automatic exposure time 
+			calculation.
+
+			In a test image that it analyzed to 
+			determine an exposure time using 
+			automatic exposure, DPU hardware 
+			generates a histogram of the image. 
+			The histogram is analyzed by the 
+			software to determine if the image is 
+			overexposed or underexposed, and the 
+			exposure time is adjusted accordingly 
+			by analyzing the histogram of raw DN 
+			values in different brightness bins. 
+			The background or dark current level 
+			(mess.mdis.aex_bacb) is taken into account an 
+			is assumed to be a constant value.
+
+			A threshold of number of pixels 
+			(mess.mdis.aex_sthr) is allowed to exceed a 
+			target brightness  (mess.mdis.aex_tgtb). 
+			Starting with the maximum value, the 
+			number of pixels exceeding the target 
+			is counted, and the brightness of the 
+			histogram bin in which that threshold is 
+			reached (mess.mdis.aex_stat) is reported. The 
+			exposure time is scaled back by the 
+			ratio of mess.mdis.aex_tgtb/mess.mdis.aex_stat.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>989</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>aex_stat</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.aex_stat</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The bin in a DPU histogram of image 
+			brightness used for MDIS automatic 
+			exposure time calculation.
+
+			In a test image that it analyzed to 
+			determine an exposure time using 
+			automatic exposure, DPU hardware 
+			generates a histogram of the image. 
+			The histogram is analyzed by the 
+			software to determine if the image is 
+			overexposed or underexposed, and the 
+			exposure time is adjusted accordingly 
+			by analyzing the histogram of raw DN 
+			values in different brightness bins. 
+			The background or dark current level 
+			(mess.mdis.aex_bacb) is taken into account an 
+			is assumed to be a constant value.
+
+			A threshold of number of pixels 
+			(mess.mdis.aex_sthr) is allowed to exceed a 
+			target brightness  (mess.mdis.aex_tgtb). 
+			Starting with the maximum value, the 
+			number of pixels exceeding the target 
+			is counted, and the brightness of the 
+			histogram bin in which that threshold is 
+			reached (mess.mdis.aex_stat) is reported. The 
+			exposure time is scaled back by the 
+			ratio of mess.mdis.aex_tgtb/mess.mdis.aex_stat.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>4095</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>aex_sthr</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.aex_sthr</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of pixels allowed to exceed
+			target brightness during an MDIS 
+			automatic exposure time calculation.
+
+			In a test image that it analyzed to 
+			determine an exposure time using 
+			automatic exposure, DPU hardware 
+			generates a histogram of the image. 
+			The histogram is analyzed by the 
+			software to determine if the image is 
+			overexposed or underexposed, and the 
+			exposure time is adjusted accordingly 
+			by analyzing the histogram of raw DN 
+			values in different brightness bins. 
+			The background or dark current level 
+			(mess.mdis.aex_bacb) is taken into account an 
+			is assumed to be a constant value.
+
+			A threshold of number of pixels 
+			(mess.mdis.aex_sthr) is allowed to exceed a 
+			target brightness  (mess.mdis.aex_tgtb). 
+			Starting with the maximum value, the 
+			number of pixels exceeding the target 
+			is counted, and the brightness of the 
+			histogram bin in which that threshold is 
+			reached (mess.mdis.aex_stat) is reported. The 
+			exposure time is scaled back by the 
+			ratio of mess.mdis.aex_tgtb/mess.mdis.aex_stat.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>65535</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>aex_tgtb</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.aex_tgtb</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The target brightness used for MDIS 
+			automatic exposure time calculation.
+
+			In a test image that it analyzed to 
+			determine an exposure time using 
+			automatic exposure, DPU hardware 
+			generates a histogram of the image. 
+			The histogram is analyzed by the 
+			software to determine if the image is 
+			overexposed or underexposed, and the 
+			exposure time is adjusted accordingly 
+			by analyzing the histogram of raw DN 
+			values in different brightness bins. 
+			The background or dark current level 
+			(mess.mdis.aex_bacb) is taken into account an 
+			is assumed to be a constant value.
+
+			A threshold of number of pixels 
+			(mess.mdis.aex_sthr) is allowed to exceed a 
+			target brightness  (mess.mdis.aex_tgtb). 
+			Starting with the maximum value, the 
+			number of pixels exceeding the target 
+			is counted, and the brightness of the 
+			histogram bin in which that threshold is 
+			reached (mess.mdis.aex_stat) is reported. The 
+			exposure time is scaled back by the 
+			ratio of mess.mdis.aex_tgtb/mess.mdis.aex_stat.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>4095</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>att_clock_count</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.att_clock_count</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The mission-elapsed-time, or MET, in
+			seconds since MESSENGER launch, of 
+			the second during which the spacecraft 
+			attitude measurement in the header of 
+			an MDIS image was acquired.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<!-- 	leave out, can't use UNK   (Guinness)
+	                 <minimum_value>0</minimum_value>
+		           <maximum_value>UNK</maximum_value>
+		            -->
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>att_flag</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.att_flag</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Attitude quality flag for the 
+			spacecraft attitude quaternion in the
+			header of an MDIS image:
+
+			7 = Attitude Knowledge OK (At least 1 
+			Star Tracker is available and at 
+			least 50% of gyro data is valid)
+
+			6 = Attitude Knowledge OK (No Star 
+			Tracker is available but at least 
+			50% of gyro data is valid)
+
+			5 = Attitude Knowledge OK (No Star 
+			Tracker is and between 10% and 50% 
+			of gyro data is valid -OR- At least 
+			1 Star Tracker is valid and between 
+			0% and 50% of gyro data valid)
+
+			4 = not a legal option
+
+			3 = Attitude Knowledge BAD (At least 1 
+			Star Tracker is available and at 
+			least 50% of gyro data is valid)
+
+			2 = Attitude Knowledge BAD (No Star 
+			Tracker is available but at least 
+			50% of gyro data is valid)
+
+			1 = Attitude Knowledge BAD (No Star 
+			Tracker is available and between 10% 
+			and 50% of gyro data is valid -OR- 
+			At least 1 Star Tracker is valid and 
+			between 0% and 50% of gryo data is 
+			valid)
+
+			0 = Attitude Knowledge BAD (No Star 
+			Tracker data fewer than 10% of gyro 
+			data valid).</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>7</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>att_q1</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.att_q1</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The roll value of the vector component 
+			of the attitude quaternion representing 
+			spacecraft attitude, in the header 
+			of an MDIS image.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+			<minimum_value>-1.0</minimum_value>
+			<maximum_value>1.0</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>att_q2</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.att_q2</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The pitch value of the vector component 
+			of the attitude quaternion representing 
+			spacecraft attitude, in the header 
+			of an MDIS image.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+			<minimum_value>-1.0</minimum_value>
+			<maximum_value>1.0</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>att_q3</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.att_q3</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The yaw value of the vector component 
+			of the attitude quaternion representing 
+			spacecraft attitude, in the header 
+			of an MDIS image.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+			<minimum_value>-1.0</minimum_value>
+			<maximum_value>1.0</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>att_q4</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.att_q4</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The scalar component of the attitude 
+			quaternion representing spacecraft 
+			attitude, in the header of an MDIS 
+			image.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+			<minimum_value>-1.0</minimum_value>
+			<maximum_value>1.0</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>cam_t1</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.cam_t1</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The temperature of the focal plane 
+			array in raw counts at observation time. 
+			The conversion formula to degrees 
+			Celsius depends on the camera performing 
+			the observation:
+
+			For WAC: 
+			Temperature = -263.2584 + Raw * 0.5022
+
+			For NAC:
+			Temperature = -268.8441 + Raw * 0.5130
+
+			Where Raw is the raw counts in 
+			telemetry (mess.mdis.cam_t1).</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>cam_t2</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.cam_t2</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Camera temperature 2 in raw counts. 
+			The meaning depends on whether it is 
+			being reported by the WAC or NAC. A 
+			single telemetry point is used to 
+			return the raw value of filter wheel 
+			temperature (WAC), FILTER_TEMPERATURE 
+			once converted to units of degrees 
+			Celsius, or the raw value of telescope 
+			temperature (NAC), OPTICS_TEMPERATURE 
+			once converted to units of degrees 
+			Celsius, depending on which camera is 
+			in use. 
+
+			For the WAC, this is temperature of the 
+			filter wheel.  Thus, FILTER_TEMPERATURE 
+			is 'N/A' if the NAC was used for the 
+			observation because the telemetry point 
+			will be a measurement of the NAC 
+			telescope temperature. For the WAC the 
+			conversion from raw counts to degrees 
+			Celsius is:
+
+			T = -292.7603 + Raw * 0.5553
+
+			where Raw is the raw counts in 
+			MESS:CAM_T2.
+
+			For the NAC, this is temperature of 
+			the NAC telescope. Thus 
+			OPTICS_TEMPERATURE is 'N/A' if the 
+			WAC was used for observation because 
+			the telemetry point will be a measurement 
+			of the WAC filter wheel temperature. 
+			For the NAC the conversion from raw 
+			counts to degrees Celsius is:
+
+			T = -269.7180 + Raw * 0.4861
+
+			where Raw is the raw counts in 
+			telemetry (mess.mdis.cam_t2).</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>ccd_temp</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.ccd_temp</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>MDIS CCD temperature in raw counts. The 
+			conversion formula to degrees Celsius 
+			depends on the camera performing the 
+			observation:
+
+			For WAC:
+			Temperature = -318.4553 + Raw * 0.2718
+
+			For NAC:
+			Temperature = -323.3669 + Raw * 0.2737 
+
+			Where Raw is the raw counts in telemetry 
+			(mess.mdis.ccd_temp).</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>4095</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>comp12_8</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.comp12_8</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>12 to 8 bit image compression enabled
+			or disabled. Which algorithm is used
+			is specified by MESS.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>disabled: images are 12-bit</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>enabled: images are 8-bit</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>comp_alg</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.comp_alg</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>12 to 8 bit compression algorithm 
+			(0-7) used to compress images from
+			12 to 8 bits. Whether this option is
+			enabled is indicated by mess.mdis.comp12_8.
+			The compression is implemented using
+			one of eight lookup tables, which are
+			optimized to the lower WAC CCD read 
+			noise and higher NAC read noise, light 
+			levels, and bias level (nominal or 
+			after inflight drift).
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>Low-noise hi-bias SNR proportional. 
+					Case: Either NAC or WAC, for nominal 
+					bias (all DNs greater than 12-bit 230).
+					Formulation: Maps 12-bit DNs between 
+					bias and saturation into 8 bits, 
+					proportional to SNR. Information loss 
+					is spread evenly over dynamic range. 
+					Usage: Typical imaging with varied 
+					brightness.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Low-noise hi-bias DN-weighted SNR 
+					proportional. Case: Low-noise (WAC) 
+					CCD, bias nominal (all DNs greater 
+					than 12-bit 230). Formulation: Maps 12 
+					bits between bias and saturation into 
+					8 bits proportional to sliding scale. 
+					Information is preferentially retained 
+					at the low DN end. Usage: Faint 
+					objects. Saturates at a DN of 3000.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>High-noise hi-bias DN-weighted SNR 
+					proportional. Case: High-noise (NAC) 
+					CCD, bias nominal (all DNs greater than 
+					12-bit 230). Formulation: Maps 12 bits 
+					between bias and saturation into 8 
+					bits proportional to sliding scale. 
+					Information is preferentially retained 
+					at the low DN end. Usage: B/W, mostly 
+					low brightness.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>3</value>
+				<value_meaning>Low-noise med-bias SNR 
+					proportional. Case: Either CCD, 
+					assuming bias has dropped tens DN (all 
+					DNs greater than 12-bit 180).  
+					Formulation: Maps 12-bit DNs between 
+					bias and saturation into 8 bits, 
+					proportional to SNR. Information loss 
+					is spread over dynamic range. Usage: 
+					Typical imaging, varied brightness.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>4</value>
+				<value_meaning>Low-noise med-bias DN-weighted SNR 
+					proportional. Case: Lo-noise (WAC) CCD, 
+					assuming bias has dropped tens DN (all 
+					DNs greater than 12-bit 180).  
+					Formulation: Maps 12 bits between bias 
+					and saturation into 8 bits proportional 
+					to sliding scale. Information retained 
+					at low DN end. Usage: Faint objects. 
+					Saturates at a DN of 3000.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>5</value>
+				<value_meaning>High-noise med-bias DN-weighted SNR 
+					proportional. Case: High-noise (NAC) CCD,
+					assuming bias has dropped tens DN (all 
+					DNs greater than 12-bit 180).  
+					Formulation: Maps 12 bits between bias 
+					and saturation into 8 bits proportional 
+					to sliding scale. Information is 
+					retained preferentially at the low end 
+					of the DN range. Usage: B/W, mostly 
+					low brightness.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>6</value>
+				<value_meaning>Zero-bias SNR proportional. Case: 
+					Contingency; assuming bias decreased to 
+					near 0 from the nominal 230 12-bit DNs. 
+					Formulation: Maps 12-bit DNs between 
+					bias and saturation into 8 bits, 
+					proportional to SNR. Information loss 
+					is spread over the dynamic range. 
+					Usage: Typical imaging, varied 
+					brightness.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>7</value>
+				<value_meaning>Linear. Case: either CCD, bias or 
+					read noise. Formulation: Maps 12-bit 
+					DNs between the bias level and 
+					saturation linearly into 8-bit space. 
+					Usage: High brightness mapping; 
+					information loss greatest at low DNs, 
+					preserves information at high DNs.</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>comp_fst</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.comp_fst</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Status of lossless Fast compression
+			of MDIS images. This is applied to 
+			images by the instrument itself. The 
+			images are first uncompressed on the
+			solid-state recorder if lossy wavelet
+			compression is applied.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>TBD</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>TBD</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>critopnv</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.critopnv</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>When true, this indicates that the 
+			MDIS image is a critical optical 
+			navigation image and will be compressed 
+			by the MESSENGER Main Processor (MP) 
+			before other images. Normally, the MP 
+			compresses images in the order that 
+			they are received.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>TBD</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>TBD</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>dark_strip_mean</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.dark_strip_mean</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The dark_strip_mean element provides the mean value of the pixels in the dark 
+			strip area of a CCD. The dark strip is an area of the CCD which is covered in such a way 
+			as to receive no light. The dark strip provides a measure of the dark current in the CCD.
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+			<minimum_value>0.0</minimum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>data_quality_id</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.data_quality_id</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The data_quality_id element provides a numeric key which identifies the quality 
+			of data available for a particular time period. The data_quality_id scheme is unique to a 
+			given instrument and is described by the associated data_quality_desc element.
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>dlnkprio</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.dlnkprio</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Priority for downlink of an MDIS image 
+			file from the MESSENGER spacecraft.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>Priority #0 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Priority #1 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>Priority #2 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>3</value>
+				<value_meaning>Priority #3 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>4</value>
+				<value_meaning>Priority #4 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>5</value>
+				<value_meaning>Priority #5 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>6</value>
+				<value_meaning>Priority #6 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>7</value>
+				<value_meaning>Priority #7 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>8</value>
+				<value_meaning>Priority #8 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>9</value>
+				<value_meaning>Priority #9 where zero is highest and 9 is lowest</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>dpu_id</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.dpu_id</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The identified of the DPU used during
+			acquisition of an MDIS image.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>DPU-A</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>DPU-B</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>ec_factor</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.ec_factor</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The ec_factor element records the empirical correction factor used to process MDIS WAC CDRs.
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>exp_mode</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.exp_mode</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Exposure time mode used for 
+			acquisition of an MDIS image. Manual
+			exposure uses a pre-commanded exposure
+			time. Autoexposure determines the 
+			exposure time from test images taken
+			before the exposure, targeting a 
+			specific brightness value.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>Manual</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Automatic</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>exposure</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.exposure</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>MDIS exposure time in milliseconds.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>9990</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>fpu_bin</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.fpu_bin</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>On-chip image binning option for MDIS.
+			Images may be taken either without 
+			on-chip binning or with 2x2 binning,
+			which decreases the size of a full 
+			image from 1024x1024 pixels to 
+			512x512 pixels. On-chip binning can
+			be used to manage the size of raw
+			images being stored on the spacecraft
+			solid-state recorder, or to increase
+			CCD sensitivity. If this option is
+			used, sensitivity increases by about
+			a factor of four but read noise is
+			similar.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>1x1 binning (none)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>2x2 binning</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>fw_goal</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.fw_goal</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The goal position, in raw counts of 
+			the position resolver on the MDIS 
+			filter wheel. For each commanded filter 
+			number, the instrument software will try 
+			to place the filter wheel at the 
+			following positions:
+
+			FILTER_NUMBER mess.mdis.fw_goal
+			1             17376
+			2             11976
+			3              6492
+			4              1108
+			5             61104
+			6             55684
+			7             50148
+			8             44760
+			9             39256
+			10            33796
+			11            28252
+			12            22852
+
+			Actual position attained is reported 
+			in mess.mdis.fw_pos.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>65535</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>fw_pos</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.fw_pos</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The actual position, in raw counts of 
+			the position resolver on the MDIS 
+			filter wheel. For each commanded filter 
+			number, the instrument software will try 
+			to place the filter wheel at the 
+			following positions:
+
+			FILTER_NUMBER mess.mdis.fw_goal
+			1             17376
+			2             11976
+			3              6492
+			4              1108
+			5             61104
+			6             55684
+			7             50148
+			8             44760
+			9             39256
+			10            33796
+			11            28252
+			12            22852
+
+			Commanded position is reported 
+			in mess.mdis.fw_goal. There is a tolerance
+			of 240 resolver counts around 
+			mess.mdis.fw_goal for mess.mdis.fw_pos to 
+			indicate that the filter wheel is 
+			correctly positioned.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>65535</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>fw_pv</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.fw_pv</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Validity flag for position of the MDIS
+			filter wheel given in mess.mdis.fw_pos.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>invalid</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>valid</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>fw_read</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.fw_read</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The raw value from the MDIS filter 
+			wheel resolver in resolver counts.  It 
+			is used by the flight software to 
+			compute mess.mdis.fw_pos. For each commanded 
+			filter number, the instrument software 
+			will try to place the filter wheel at 
+			the following positions:
+
+			FILTER_NUMBER mess.mdis.fw_goal
+			1             17376
+			2             11976
+			3              6492
+			4              1108
+			5             61104
+			6             55684
+			7             50148
+			8             44760
+			9             39256
+			10            33796
+			11            28252
+			12            22852
+
+			Commanded position is reported 
+			in mess.mdis.fw_goal. There is a tolerance
+			of 240 resolver counts around 
+			mess.mdis.fw_goal for mess.mdis.fw_pos to 
+			indicate that the filter wheel is 
+			correctly positioned.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>65535</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>fw_rv</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.fw_rv</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Validity flag for reading of the MDIS
+			filter wheel given in mess.mdis.fw_read.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>invalid</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>valid</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>imager</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.imager</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Which of the two cameras was used 
+			during acquisition of an MDIS image.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>WAC</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>NAC</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>img_id_lsb</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.img_id_lsb</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The 16 least-significant-bits of
+			the 24-bit unique image identifier
+			from the raw image header.  This item
+			was added to images effective with 
+			an instrument software update 
+			2009-08-18 and will be set to N/A 
+			in images aquired earlier.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>65535</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>img_id_msb</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.img_id_msb</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The 8 most-significant-bits of
+			the 24-bit unique image identifier
+			from the raw image header. This item
+			was added to images effective with 
+			an instrument software update 
+			2009-08-18 and will be set to N/A 
+			in images aquired earlier.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>255</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>jailbars</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.jailbars</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>When true, this indicates that an MDIS 
+			image is subsampled by jailbars, a 
+			subset of all the image columns that 
+			are downlinked to save data volume in 
+			optical navigation images. The start 
+			column, stop column, and column spacing 
+			are indicated by mess:jb_x0, mess:jb_x1, 
+			and mess:jb_space respectively. Jailbars 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>False</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>True</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>jb_space</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.jb_space</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The column spacing for jailbars in an 
+			MDIS image, a subset of all the 
+			image columns that are downlinked 
+			to save data volume in optical 
+			navigation images. Jailbars 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>jb_x0</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.jb_x0</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The start column for jailbars in an 
+			MDIS image, a subset of all the 
+			image columns that are downlinked 
+			to save data volume in optical 
+			navigation images. Jailbars 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>jb_x1</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.jb_x1</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The stop column for jailbars in an 
+			MDIS image, a subset of all the 
+			image columns that are downlinked 
+			to save data volume in optical 
+			navigation images. Jailbars 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>latch_up</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.latch_up</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Indicator if MDIS FPU is latched up. 
+			If the value is 1 then the image data 
+			are probably invalid.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>OK</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Latched</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>met_exp</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.met_exp</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The mission-elapsed-time, or MET, in
+			seconds since MESSENGER launch of 
+			the second during which an MDIS image 
+			completes its exposure.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<!-- 	leave out, can't use UNK (Guinness)
+                       <minimum_value>0</minimum_value>
+		           <maximum_value>UNK</maximum_value>
+		            -->
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>missing_pixel_count</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.missing_pixel_count</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The missing_pixel_count element provides the number of pixels missing from an image or observation. 
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>observation_id</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.observation_id</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The observation_id element uniquely identifies a scientific observation within a data set.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>observation_type</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.observation_type</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The observation_type element identifies the general type of an observation.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+			<DD_Permissible_Value>
+				<value>Albedo</value>
+				<value_meaning>Either a NAC image or a WAC 750-nm filter image, targeted or part of global mapping during the extended mission, with a goal of near-nadir pointing and low solar incidence angle.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Co-align Calibration</value>
+				<value_meaning>Pairs of NAC and WAC clear filter images acquired over the course of the mission to track relative pointing of the cameras and to determine camera focal length and distortion parameters as a function of temperature.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Color</value>
+				<value_meaning>Always WAC images, 3- or 8-color targeted, or part of global 8-color mapping during the primary mission with a goal of near-nadir pointing and low solar incidence angle.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Comet</value>
+				<value_meaning>Images of Comet ISON and Encke.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Dark Current</value>
+				<value_meaning>NAC or WAC 430-nm filter images taken with MDIS stowed.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Dark Polar Craters</value>
+				<value_meaning>NAC or clear filter WAC images near or including permanently shadowed polar regions, taken as part of a search for features illuminated indirectly by sunlight crater walls.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Eleven Color</value>
+				<value_meaning>Observations made with all eleven spectral filters spanning the range from 395 to 1040 nm to cover wavelengths diagnostic of different potential surface materials.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Emission Phase Function</value>
+				<value_meaning>Beginning in Extended Mission 2, 3-color targets using 430-, 750-, and 1000-nm WAC spectral filters at 2 to 5 phase angles were acquired within single orbits or groups of two orbits, to measure spatial differences in photometric properties of targets including pyroclastic vents, hollows, and fresh crater materials.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Engineering</value>
+				<value_meaning>Images with no dedicated science purpose.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>High Incidence</value>
+				<value_meaning>Either a NAC image or a WAC 750-nm filter image, part of global mapping during the extended mission with a goal of near-nadir pointing and solar incidence angle near 80 degrees.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Limb</value>
+				<value_meaning>Always a WAC 750-nm filter image, taken in groups from high orbit.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Min Phase Five Color</value>
+				<value_meaning>Images of the northern plains region in 5 colors at a variable angle off-nadir, to attain a uniform low phase angle near 30 degrees.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Monochrome</value>
+				<value_meaning>Either a NAC image or a WAC 750-nm filter image, targeted or part of global mapping during the primary mission, with a goal of near-nadir pointing and solar incidence angle near 68 degrees.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>NAC WAC Calibration</value>
+				<value_meaning>11-color image sets of Mercury acquired to use landmarks in the images to determine differences filter to filter in pointing and geometric distortion.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Northern Polar</value>
+				<value_meaning>A WAC 750-nm filter image taken as part of a recurrent series to map permanent shadow near the northpole.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Photometry</value>
+				<value_meaning>Orbital color WAC observations that repeatedly cover representative areas  at wide variety of incidence, emission, and phase angles, initially using the same 8-color filter set as for the global 8-color map. Images of the same target are taken multiple times, as the planet's rotation varies the incidence angle as the target region moves from the terminator to near the sub-solar longitude. Later in the mission the number of filters was increased to 11 to improve photometric correction of 11-color targeted observations.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Pivot Calibration</value>
+				<value_meaning>WAC clear filter star images taken weekly near apoapsis in at least 3 pivot positions, to track long-term drift in pointing due to thermally-driven plastic deformation of spacecraft between MDIS base and star cameras.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Oblique</value>
+				<value_meaning>High emission angle images of selected area of Mercury for profile views of high-relief features.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Ridealong NAC</value>
+				<value_meaning>NAC image taken at low altitude as part of untargeted high resolution coverage.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Satellite Search</value>
+				<value_meaning>WAC clear filter image of part of Mercury's gravitational sphere of influence, taken as part of a search for satellites.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Southern Polar</value>
+				<value_meaning>A WAC 750-nm filter image 1st solar day in orbit, or a NAC image 2nd solar day, taken as part of a recurrent series to map permanent shadow near the south pole.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Stereo</value>
+				<value_meaning>Either a NAC image or a WAC 750-nm filter image, targeted or part of global mapping during the primary mission as the stereo complement to the global monochrome map, or part of global mapping during the extended mission as the stereo complement to the albedo map.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Targeted</value>
+				<value_meaning>NAC high resolution or stereo, NAC images that ride along with MASCS or MLA targets, WAC unbinned 3-color, or WAC 8-color photometric measurements.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Three Color</value>
+				<value_meaning>Part of global 3-color mapping in the extended mission with a goal of near-nadir pointing and low solar incidence angle, with less pixel binning and thus higher spatial resolution than the 8-color map.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Thermal Calibration</value>
+				<value_meaning>WAC clear filter star images taken every several months over one orbit, in groups with multiple pivot positions, to track thermally-driven elastic deformation of the spacecraft between the MDIS base and star cameras.</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>Vulcanoid Search</value>
+				<value_meaning>WAC clear filter image of space near the ecliptic plane interior to Mercury's orbit, taken as part of a search for vulcanoid asteroids.</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_cal</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_cal</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The offset in measured pivot position
+			applied to mess.mdis.piv_pos and 
+			mess.mdis.piv_goal so that zero is as 
+			close as possible to true spacecraft
+			nadir (+z axis). The correction 
+			is in increments of 
+			(180 DEGREES / (2**15)).</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>-32768</minimum_value>
+			<maximum_value>32768</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_goal</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_goal</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The commanded position of the MDIS 
+			pivot during exposure of an MDIS 
+			image, in increments of 
+			(180 DEGREES / (2**15)) with zero
+			at nadir. -180 degrees is stowed.
+			This item is not available after
+			an instrument sofware upload 
+			2009-08-18 and will be set to 
+			N/A in images acquired later.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>-32768</minimum_value>
+			<maximum_value>32768</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_mpen</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_mpen</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Status of main processor (MP) control
+			of the MDIS pivot. If this is enabled,
+			then the pivot goes to a position 
+			broadcast by the MP that points MDIS
+			to nadir or some other aimpoint. If 
+			not enabled then a discrete pivot 
+			position is commanded.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>Disabled</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Enabled</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_pos</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_pos</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The actual position of the MDIS 
+			pivot during exposure of an MDIS 
+			image, in increments of 
+			(180 DEGREES / (2**15)) with zero
+			at nadir. -180 degrees is stowed.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>-32768</minimum_value>
+			<maximum_value>32768</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_pos_motor</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_pos_motor</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The actual position of the MDIS 
+			pivot during exposure of an MDIS 
+			image, in motor step units.  This
+			item is not available prior to
+			an instrument software upload 
+			2009-08-18 and will be set to N/A
+			in images taken earlier.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>65535</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_pv</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_pv</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Validity flag for position of the MDIS
+			pivot given in mess.mdis.piv_pos.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>invalid</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>valid</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_read</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_read</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Raw pivot reading from resolver (in 
+			units of resolver counts). The pivot 
+			platform resolver only covers 45 degrees 
+			of motion; the resolver read-out values 
+			repeat eight times over the entire 360 
+			degrees that an unconstrained platform 
+			could travel.  This value is used along 
+			with dead-reckoning knowledge of which 
+			octant the platform is in to give the 
+			value in mess.mdis.piv_pos.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>65535</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_rv</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_rv</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Validity flag for reading of the MDIS
+			pivot given in mess.mdis.piv_read.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>invalid</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>valid</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>piv_stat</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.piv_stat</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Pivot control state of MDIS.
+
+			A resolver provides a position reading 
+			of the pivot platform.  The resolver 
+			only covers 45 degrees of motion; the 
+			resolver read-out values repeat eight 
+			times over the entire 360 degrees that 
+			an unconstrained platform could travel. 
+			The DPU software must determine in which 
+			of the eight octants the platform is 
+			located before the resolver reading is 
+			meaningful.  The software combines the 
+			octant with the resolver reading to 
+			form a position that covers the entire 
+			360 degrees.  
+
+			To determine the octant the DPU 
+			software must be commanded to 'home' 
+			the platform.  To home the pivot 
+			platform, the software drives the motor 
+			open loop backwards into the hard stop 
+			at -185 degrees.  Then the software 
+			drives the motor forward, open loop, 
+			prepositioning it to -179 degrees. 
+			Until homing is completed, the pivot 
+			platform is considered 'lost' and all 
+			other pivot commands will remain 
+			pending. 
+
+			This status item describes that state
+			of the pivot in determining this 
+			position knowledge.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>Lost</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Searching</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>Found</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>3</value>
+				<value_meaning>OK</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>pixelbin</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.pixelbin</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Pixel binning done to MDIS images by
+			the MESSENGER spacecraft main 
+			processor (MP). This is in addition
+			to on-chip binning as described by
+			mess_fpu_bin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>no further binning</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>2x2 binning</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>4</value>
+				<value_meaning>4x4 binning</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>8</value>
+				<value_meaning>8x8 binning</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>saturated_pixel_count</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.saturated_pixel_count</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The saturated_pixel_count element provides a count of the number of pixels 
+			in the array that are at or exceed the maximum DN value.
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>smear_magnitude</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.smear_magnitude</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The smear_magnitude element indicates how far an image was smeared during an exposure.
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+			<minimum_value>0.0</minimum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>smear_azimuth</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.smear_azimuth</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>Paul Geissler</submitter_name>
+		<definition>The smear_azimuth element indicates the direction in which an image was smeared. The values of this angle increment in a clockwise direction from a horizontal reference line.
+		</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Real</value_data_type>
+			<minimum_value>0.0</minimum_value>
+			<maximum_value>360.0</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>source</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.source</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Source of an MDIS image, either a 
+			scene image from the CCD or one of 
+			two test patterns.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>CCD</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Test pattern</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>Inverted test pattern</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dx1</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dx1</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of columns in the 
+			FIRST rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dx2</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dx2</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of columns in the 
+			SECOND rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dx3</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dx3</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of columns in the 
+			THIRD rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dx4</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dx4</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of columns in the 
+			FOURTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dx5</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dx5</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of columns in the 
+			FIFTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dy1</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dy1</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of rows in the 
+			FIRST rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dy2</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dy2</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of rows in the 
+			SECOND rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dy3</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dy3</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of rows in the 
+			THIRD rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dy4</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dy4</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of rows in the 
+			FOURTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_dy5</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_dy5</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The number of rows in the 
+			FIFTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess_subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1024</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subframe</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subframe</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Number of rectangular subframes within 
+			an MDIS image to be retained after 
+			image compression by the MESSENGER 
+			spacecraft main processor (MP). 
+			Subframes may overlap each other, and
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin.
+			Either a full image may be specified,
+			or up to five discrete regions within
+			the full image. In all cases, the 
+			first four columns of the original 
+			1024x1024 image, which are physically
+			masked and serve as a dark current 
+			reference, are downlinked as subframe
+			0, even if the full image case is 
+			described. Within the subframes, 
+			pixel binning as described by 
+			mess:fpu_bin and mess:pixelbin
+			is performed.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>no subframes (full image)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>1 subframe</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>2 subframes</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>3</value>
+				<value_meaning>3 subframes</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>4</value>
+				<value_meaning>4 subframes</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>5</value>
+				<value_meaning>5 subframes</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_x1</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_x1</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting column of the 
+			FIRST rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_x2</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_x2</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting column of the 
+			SECOND rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_x3</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_x3</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting column of the 
+			THIRD rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_x4</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_x4</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting column of the 
+			FOURTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_x5</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_x5</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting column of the 
+			FIFTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_y1</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_y1</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting row of the 
+			FIRST rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_y2</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_y2</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting row of the 
+			SECOND rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_y3</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_y3</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting row of the 
+			THIRD rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_y4</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_y4</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting row of the 
+			FOURTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>subf_y5</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.subf_y5</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The zero-based starting row of the 
+			FIFTH rectangular subframe within an 
+			MDIS image to be retained after image 
+			compression by the MESSENGER spacecraft 
+			main processor (MP). There may be up to 
+			five subframes per image as defined by 
+			mess:subframe. Subframes 
+			are defined in the original 1024x1024 
+			pixel MDIS coordinate system before 
+			pixel binning as described by 
+			mess_fpu_bin and mess:pixelbin.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>0</minimum_value>
+			<maximum_value>1023</maximum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>time_pls</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.time_pls</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Source of the 1 Hz time pulse used in
+			time-tagging MDIS images.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>Software</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>Main Processor A (MP-A)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>Main Processor B (MP-B)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>3</value>
+				<value_meaning>Software</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	<DD_Attribute>
+		<name>wvlratio</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.wvlratio</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>Commanded (lossy) wavelet compression 
+			ratio for an MDIS image.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>true</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<DD_Permissible_Value>
+				<value>0</value>
+				<value_meaning>no wavelet compression (note: 
+					this expands an 8 or 12 bit image 
+					to 16 bits per pixel)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>1</value>
+				<value_meaning>'1x' compression (actually 
+					lossless, with an indeterminate 
+					ratio)</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>2</value>
+				<value_meaning>2x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>3</value>
+				<value_meaning>3x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>4</value>
+				<value_meaning>4x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>5</value>
+				<value_meaning>5x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>6</value>
+				<value_meaning>6x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>7</value>
+				<value_meaning>7x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>8</value>
+				<value_meaning>8x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>9</value>
+				<value_meaning>9x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>10</value>
+				<value_meaning>10x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>11</value>
+				<value_meaning>11x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>12</value>
+				<value_meaning>12x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>13</value>
+				<value_meaning>13x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>14</value>
+				<value_meaning>14x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>15</value>
+				<value_meaning>15x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>16</value>
+				<value_meaning>16x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>17</value>
+				<value_meaning>17x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>18</value>
+				<value_meaning>18x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>19</value>
+				<value_meaning>19x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>20</value>
+				<value_meaning>20x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>21</value>
+				<value_meaning>21x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>22</value>
+				<value_meaning>22x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>23</value>
+				<value_meaning>23x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>24</value>
+				<value_meaning>24x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>25</value>
+				<value_meaning>25x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>26</value>
+				<value_meaning>26x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>27</value>
+				<value_meaning>27x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>28</value>
+				<value_meaning>28x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>29</value>
+				<value_meaning>29x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>30</value>
+				<value_meaning>30x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>31</value>
+				<value_meaning>31x compression</value_meaning>
+			</DD_Permissible_Value>
+			<DD_Permissible_Value>
+				<value>32</value>
+				<value_meaning>32x compression</value_meaning>
+			</DD_Permissible_Value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+
+	<DD_Class>
+		<name>MDIS</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis</local_identifier>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The MESSENGER MDIS class is the container for MESSENGER MDIS
+			specific metadata elements.
+		</definition>
+		<!-- Guinness added the next attribute so that this class does not have element definition 
+	         in the schema -->
+		<element_flag>false</element_flag>
+
+		<DD_Association>
+			<identifier_reference>mess.mdis.aex_bacb</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.aex_maxe</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.aex_mine</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.aex_stat</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.aex_sthr</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.aex_tgtb</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.att_clock_count</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.att_flag</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.att_q1</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.att_q2</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.att_q3</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.att_q4</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.cam_t1</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.cam_t2</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.ccd_temp</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.comp12_8</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.comp_alg</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.comp_fst</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.critopnv</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.dlnkprio</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.data_quality_id</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.dark_strip_mean</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.dpu_id</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.ec_factor</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.exp_mode</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.exposure</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.fpu_bin</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.fw_goal</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.fw_pos</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.fw_pv</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.fw_read</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.fw_rv</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.imager</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.img_id_lsb</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.img_id_msb</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.jailbars</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.jb_space</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.jb_x0</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.jb_x1</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.latch_up</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.met_exp</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.missing_pixel_count</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.observation_id</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.observation_type</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>*</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_cal</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_goal</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_mpen</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_pos</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_pos_motor</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_pv</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_read</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_rv</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.piv_stat</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.pixelbin</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.saturated_pixel_count</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.smear_azimuth</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.smear_magnitude</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.source</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dx1</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dx2</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dx3</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dx4</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dx5</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dy1</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dy2</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dy3</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dy4</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_dy5</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subframe</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_x1</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_x2</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_x3</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_x4</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_x5</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_y1</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_y2</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_y3</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_y4</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.subf_y5</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.time_pls</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.mdis.wvlratio</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+
+	<DD_Class>
+		<name>MESSENGER</name>
+		<version_id>1.0</version_id>
+		<local_identifier>mess.mdis.MESSENGER</local_identifier>
+		<submitter_name>PDS3 Migration</submitter_name>
+		<definition>The MESSENGER class is the container for MESSENGER mission-specific metadata elements.
+		</definition>
+		<!-- Guinness added the next attribute so that this class has element definition 
+	         in the schema -->
+		<element_flag>true</element_flag>
+		<DD_Association>
+			<identifier_reference>mess.mission_phase_name</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>*</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.orbit_number</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.spacecraft_clock_start_count</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.spacecraft_clock_stop_count</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.standard_data_product_id</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+
+		<!-- Guinness added the next three attribute as optional members of this class -->
+		<DD_Association>
+			<identifier_reference>mess.software_name</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.software_version_id</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>mess.detector_id</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+
+		<DD_Association>
+			<identifier_reference>mess.mdis</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+
+</Ingest_LDD>

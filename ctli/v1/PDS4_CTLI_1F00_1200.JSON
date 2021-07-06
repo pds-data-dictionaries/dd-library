@@ -1,0 +1,353 @@
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "Version": "1.15.0.0" ,
+      "Date": "Wed Oct 14 02:55:43 UTC 2020" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "classDictionary": [
+        {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.ctli.Type_List" ,
+            "title": "Type_List" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "ctli" ,
+            "steward": "ctli" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Type List class provides a list of values and their value meanings."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.ctli.Type_List.ctli.type" ,
+                "title": "type" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.ctli.Type_List.ctli.type"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.ctli.Type_List.ctli.subtype" ,
+                "title": "subtype" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.ctli.Type_List.ctli.subtype"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      ]
+    , "attributeDictionary": [
+        {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.ctli.Type_List.ctli.subtype" ,
+            "title": "subtype" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "ctli" ,
+            "steward": "ctli" ,
+            "versionId": "1.15" ,
+            "description": "The subtype attribute provides additional nuance or clarity to the type attribute." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "UTF8_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.UTF8_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.ctli.Type_List.ctli.type" ,
+            "title": "type" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "ctli" ,
+            "steward": "ctli" ,
+            "versionId": "1.15" ,
+            "description": " The type attribute provides a character string which uniquely identifies the object. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "UTF8_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.UTF8_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "Accelerometer" ,
+                  "valueMeaning": " An accelerometer measures acceleration -- rate of change of velocity -- in its own rest frame. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Altimeter" ,
+                  "valueMeaning": " An altimeter measures distance above a surface. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Atmospheric Structure Instrument" ,
+                  "valueMeaning": " An atmospheric structure instrument measures one or more structural properties of an atmosphere. These properties may include -- but are not limited to -- pressure, temperature, density, wind speed, and wind direction. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Camera" ,
+                  "valueMeaning": " A camera is an optical instrument that captures a still image or a sequence of images on physical media. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Charged Particle Detector" ,
+                  "valueMeaning": " A charged particle detector detects and\/or counts charged particles, and provides information about particle properties and distributions. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Dust Analyzer" ,
+                  "valueMeaning": " A dust analyzer measures the size and\/or energy distribution of dust particles. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Electric Field Instrument" ,
+                  "valueMeaning": " An electric field instrument measures the direction and\/or strength of an electric field. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Gamma Ray Detector" ,
+                  "valueMeaning": " A gamma ray detector is an instrument that detects gamma rays. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Gas Analyzer" ,
+                  "valueMeaning": " A gas analyzer measures the concentration of one or more species in a mixture of neutral gases. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Gravimeter" ,
+                  "valueMeaning": " A gravimeter measures gravitational acceleration. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Imager" ,
+                  "valueMeaning": " An imager detects and converts information into a digital image. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Imaging Spectrometer" ,
+                  "valueMeaning": " An imaging spectrometer acquires a spectrally-resolved image of an object or scene. Two axes of the image correspond to orthogonal spatial dimensions and the third corresponds to wavelength. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Interferometer" ,
+                  "valueMeaning": " An interferometer superposes waves such that constructive and destructive interference results in patterns that can be interpreted as very small displacements at the signal source. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Langmuir Probe" ,
+                  "valueMeaning": " A Langmuir probe consists of one or more electrodes used to determine in-situ plasma properties such as density and temperature from the measured potentials and currents. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Lidar" ,
+                  "valueMeaning": " A lidar measures distance to a target by illuminating it with a pulsed laser and measuring the time delay of the reflected signal. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Magnetometer" ,
+                  "valueMeaning": " A magnetometer measures the direction and\/or strength of a magnetic field. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Mass Spectrometer" ,
+                  "valueMeaning": " A mass spectrometer sorts and counts atoms, ions, and\/or molecules based on their masses. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Meteorology" ,
+                  "valueMeaning": " A meteorology instrument measures in situ meteorological conditions. These may include -- but are not limited to -- pressure, temperature, wind speed, and wind direction. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Microphone" ,
+                  "valueMeaning": " A microphone converts sound waves into electrical signals. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Microscope" ,
+                  "valueMeaning": " A microscope magnifies objects that are too small to be seen with the naked eye. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Mutual Impedance Probe" ,
+                  "valueMeaning": " A mutual impedance probe measures in situ bulk plasma properties at radio frequencies. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Nephelometer" ,
+                  "valueMeaning": " A nephelometer measures the concentration of suspended (cloud) particulates. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Neutral Particle Detector" ,
+                  "valueMeaning": " A neutral particle detector detects and\/or counts neutral particles, and provides information about particle properties and distributions. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Neutron Detector" ,
+                  "valueMeaning": " A neutron detector detects and\/or counts neutrons. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Photometer" ,
+                  "valueMeaning": " A photometer measures the intensity of electromagnetic radiation over a wavelength range at infrared and shorter wavelengths. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Polarimeter" ,
+                  "valueMeaning": " A polarimeter measures the polarization of an electromagnetic wave. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Radar" ,
+                  "valueMeaning": " A radar transmits an electromagnetic wave, then measures amplitude, time delay, frequency shift, phase shift, and\/or polarization of the echo from a distant target. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Radio Receiver" ,
+                  "valueMeaning": " A radio receiver detects the information in propagating electromagnetic waves collected by an antenna. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Radio Science" ,
+                  "valueMeaning": " Radio science is the use of active and\/or passive electromagnetic waves to probe the environment. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Radiometer" ,
+                  "valueMeaning": " A radiometer measures radiant flux (power) of electromagnetic radiation. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Relaxation Sounder" ,
+                  "valueMeaning": "A relaxation sounder determines the properties of a plasma by actively probing at radio frequencies at and near the plasma frequency." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Seismometer" ,
+                  "valueMeaning": " A seismometer measures ground motions such as might be caused by earthquakes, volcanic eruptions, or explosions. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Spacecraft Sensor" ,
+                  "valueMeaning": " A spacecraft sensor captures information on the status or physical condition of a spacecraft or its components. These may include, but are not limited to, temperatures, mechanical friction, currents, voltages, etc. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Spectrometer" ,
+                  "valueMeaning": " A spectrometer measures an energy spectrum. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Spectrum Analyzer" ,
+                  "valueMeaning": " A spectrum analyzer measures the properties of photons, charged particles, or electrical signals as a function of frequency or energy. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Sub-Surface Tool" ,
+                  "valueMeaning": " A sub-surface tool probes the upper few meters of a surface to infer its properties. Examples include (but are not limited to) drills and penetrators. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Surface Tool" ,
+                  "valueMeaning": " A surface tool physically probes a surface to infer its properties. Examples include (but are not limited to) brush and deployment systems. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Temperature Sensor" ,
+                  "valueMeaning": "A temperature sensor measures temperature." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Weather Station" ,
+                  "valueMeaning": " A weather station is a suite of instruments that measures in situ meteorological conditions. These may include -- but are not limited to -- pressure, temperature, wind speed and wind direction. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Wind Tunnel" ,
+                  "valueMeaning": " A wind tunnel is used to study the effects of air moving past solid objects. " ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      ]
+    }
+  }
+]

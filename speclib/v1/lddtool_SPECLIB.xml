@@ -1,0 +1,2075 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- 
+    4/21/20 SHS: Post-peer-review version          
+
+    The SPECLIB dictionary contains classes and attributes specific to
+    spectral reflectance measurements of laboratory specimens.
+    
+    SPECLIB version 1.0.0.0 last updated 2019-11-22
+    PDS Build 1.11.0.0
+    LDDTool version 9.0.0
+    Built with lddtool -plcamJs1 lddtool_SPECLIB.xml
+              
+              
+-->
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 
+                        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd">
+    <name>Spectral Library</name>
+    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <full_name>Susan Slavney</full_name>
+    <steward_id>geo</steward_id>
+    <namespace_id>speclib</namespace_id>
+    <comment>Post-peer-review</comment>
+    <last_modification_date_time>2020-04-21T15:54:00</last_modification_date_time>
+    <!-- Begin definitions of Spectral Library attributes  -->
+    <!-- Definitions for attributes of these Spectral Library classes:
+           Spectral Library Product superclass
+              Measurement_Parameters class
+                 Measurement_Instrument class
+              Specimen_Classification class
+                 Synthetic_Specimen subclass
+                 Natural Specimen subclass
+              Specimen_Parameters class
+              Ancillary_Product class
+              
+          In alphabetical order, the attributes are:
+          
+          ancillary_product_type
+          data_producer_name
+          data_provider_name
+          emission_angle
+          incidence_angle
+          instrument_name
+          material_common_name
+          material_origin
+          material_state
+          material_subtype
+          material_type
+          measurement_atmosphere_composition
+          measurement_atmosphere_description
+          measurement_atmosphere_pressure
+          measurement_atmosphere_relative_humidity
+          measurement_atmosphere_temperature
+          measurement_date_time
+          measurement_geometry_type
+          measurement_notes
+          measurement_reference_standard
+          measurement_requestor
+          measurement_segments
+          measurement_source_description
+          measurement_type
+          mineral_subtype
+          mineral_type
+          organic_type
+          phase_angle
+          processing_description
+          rock_subtype
+          rock_type
+          segment_number
+          source_specimen_id
+          specimen_collection_location
+          specimen_owner_location
+          specimen_owner_name
+          specimen_description
+          specimen_id
+          specimen_max_size
+          specimen_min_size
+          specimen_name
+          specimen_type
+          spectral_range_max
+          spectral_range_min
+          spectral_range_parameter_name
+          spectral_range_unit
+          spectral_resolution_width_min
+          spectral_resolution_width_max
+          spectral_resolution_width_unit
+          spectral_sampling_interval_min
+          spectral_sampling_interval_max
+          spectral_sampling_interval_unit
+          synthetic_processing_description
+          synthetic_type
+          volatile_type
+          
+    -->
+    <DD_Attribute>
+        <name>ancillary_product_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>ancillary_product_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ralph Milliken</submitter_name>
+        <definition>The ancillary_product_type element provides the type of data found in an ancillary product.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Attenuated Total Reflectance Spectroscopy</value>
+                <value_meaning>
+                    IR spectroscopic technique in which placing a sample next to a high refractive 
+                    index crystal causes total internal reflection resulting in an evanescent wave 
+                    that samples shallow properties of the sample
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Image</value>
+                <value_meaning>
+                    An image of the sample
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Chemical Composition</value>
+                <value_meaning>Elemental or oxide abundances for samples</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Differential Scanning Calorimetry</value>
+                <value_meaning>
+                    Technique in which the sample is heated and temperature is monitored to evaluate 
+                    exothermic and endothermic reactions that are indicative of composition
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Electron Microprobe Analysis</value>
+                <value_meaning>
+                    Microprobe technique in which the sample is bombarded with electrons, 
+                    with resultant X-ray emission spectra indicative of sample composition
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Modal Mineralogy</value>
+                <value_meaning>
+                    Sample mineral abundances defined as weight or volume percentages
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Raman Spectroscopy</value>
+                <value_meaning>
+                    Spectroscopic technique based on based on inelastic scattering of 
+                    monochromatic light, usually from a laser source
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Reflectance Spectroscopy</value>
+                <value_meaning>
+                    Spectroscopic technique based on measuring the spectral properties of 
+                    light scattered from samples
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Thermogravimetric Analysis</value>
+                <value_meaning>
+                    Technique in which sample mass is measured as its temperature is increased
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Transmission Spectroscopy</value>
+                <value_meaning>
+                    Spectroscopic technique based on measuring the spectral 
+                    properties of light transmitted through samples
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>X-ray Diffraction</value>
+                <value_meaning>
+                    X-rays diffracted by a sample as a function of incident angle are 
+                    used to determine sample crystal structure
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>X-ray Fluorescence</value>
+                <value_meaning>
+                    Spectroscopic technique in which the sample is bombarded by high-energy 
+                    X-rays or gamma rays, with fluorescent X-ray emission spectra indicative 
+                    of sample composition
+                </value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>data_producer_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>data_producer_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The data_producer_name element provides the name of the creator of the product.
+            For products in RELAB, the value of data_producer_name is always "RELAB".</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>data_provider_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>data_provider_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The data_provider_name element provides the full name of the person who submitted
+        	the product to the library.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>emission_angle</name>
+        <version_id>0.1</version_id>
+        <local_identifier>emission_angle</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The emission_angle element provides the angle between the local vertical at the 
+            intercept point and a vector from the intercept point to the sensor.</definition>
+        <comment>
+            N/A for some measurement_geometry_types.  Will make it optional in the class.
+            Ralph M. says negative values are permitted; the sign indicates direction.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-90</minimum_value>
+            <maximum_value>90</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>incidence_angle</name>
+        <version_id>0.1</version_id>
+        <local_identifier>incidence_angle</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The incidence_angle element provides the angle between the local vertical at the
+            intercept point and a vector from the intercept point to the detector.</definition>
+        <comment>
+            N/A for some measurement_geometry_types. Will make it optional in the class.
+            Ralph M. says negative values are permitted; the sign indicates direction.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-90</minimum_value>
+            <maximum_value>90</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>instrument_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>instrument_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The instrument_name element provides a descriptive name of the 
+            instrument that made a spectral measurement.</definition>
+        <comment>User-friendly name; should be unique within the label.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>100</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>material_common_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>material_common_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The material_common_name element gives the specific name of the specimen material,
+            as specifically as it is known.  For example, if a specimen is pure olivine, put "Olivine".  If a specimen
+            is a mixture of kaolinite and opal, put "Kaolinite/Opal".  Indicate if "Unidentified".</definition>
+        <comment>I would like these to be searchable items/keywords.  If something like "Kaolinite/Opal" is included,
+            could it be found by only searching for "opal" or would it have to be specifically searched for as 
+            "Kaolinite/Opal"?  (AZ)
+            Changed this from material_identification and made it optional. (EG)</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>100</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>material_origin</name>
+        <version_id>0.1</version_id>
+        <local_identifier>material_origin</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The material_origin element identifies whether the specimen is natural or synthetic.</definition>
+        <comment>Is it possible to organize these specimen classification attributes so that the form changes
+            depending on which option they choose?  Or by doing away with the whole hierarchical system, does that 
+            no longer matter?  We could also put a N/A option on each of the subtypes so that if something's not a
+            mineral (or whatever it may not be), they just have to fill in N/A.  I'm still a bit unsure about the 
+            non-hierarchical idea as it relates to the classification.
+            Also, once something is marked as "Unclassified", it's not going to have any further classification. 
+            Will they just have to fill in N/A for everything else after that?</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Natural</value>
+                <value_meaning>The Natural value indicates that the specimen was not made in a laboratory.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Synthetic</value>
+                <value_meaning>The Synthetic value indicates that the specimen was made in a laboratory. 
+                    A synthetic sample could be either a physical mixture of natural materials or a
+                    laboratory synthesized material.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>material_state</name>
+        <version_id>0.1</version_id>
+        <local_identifier>material_state</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The material_state element identifies the physical state of the specimen.</definition>
+        <comment>Pertains to all specimens.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Solid</value>
+                <value_meaning>The Solid value indicates that the specimen is in the solid state.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Liquid</value>
+                <value_meaning>The Liquid value indicates that the specimen is in the liquid state.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Gas</value>
+                <value_meaning>The Gas value indicates that the specimen is in the gas state.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>material_subtype</name>
+        <version_id>0.1</version_id>
+        <local_identifier>material_subtype</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ed Guinness</submitter_name>
+        <definition>The material_subtype element identifies the material subtype of the specimen.</definition>
+        <comment>Material_subtype does not have enumerated values because there are too many to list.
+            This is a place to put "Particulate" or "Nonparticulate" as RELAB suggests.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>material_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>material_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ralph Milliken</submitter_name>
+        <definition>The material_type element indicates the general type of the specimen.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>30</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Amorphous</value>
+                <value_meaning>
+                    Sample without crystalline structure or long range order, e.g., glass
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Consolidated Mixture</value>
+                <value_meaning>
+                    Sample that is cemented or otherwise aggregated into a solid mass
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Element</value>
+                <value_meaning>
+                    Sample composed of a single element such as metallic iron
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Ice</value>
+                <value_meaning>
+                    Solid sample composed of gas or liquid (e.g., water vapor or water) now in solid form
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mineral</value>
+                <value_meaning>
+                    Sample with a given composition within a defined range of compositions and that 
+                    exhibits a defined crystalline structure
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Organic</value>
+                <value_meaning>
+                    Sample composed of organic materials
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Rock</value>
+                <value_meaning>
+                    Solid sample composed of one or more minerals
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Single Particle</value>
+                <value_meaning>
+                    Sample composed of a single particle
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Unconsolidated Mixture</value>
+                <value_meaning>
+                    Sample of loose or disaggregated material that is a mixture of various 
+                    minerals and/or other compounds
+                </value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_atmosphere_composition</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_atmosphere_composition</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_atmosphere_composition element identifies any gas(es) present in
+            measurement environment.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Text_Preserved</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>1000</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_atmosphere_description</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_atmosphere_description</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_atmosphere_description decribes the atmospheric conditions through which
+            the data was taken.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Text_Preserved</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>1000</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_atmosphere_pressure</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_atmosphere_pressure</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_atmosphere_pressure element provides the atmospheric pressure of the measurement environment.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Pressure</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_atmosphere_relative_humidity</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_atmosphere_relative_humidity</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_atmosphere_relative_humidity element provides the relative humidity of the measurement environment.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>100</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_atmosphere_temperature</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_atmosphere_temperature</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_atmosphere_temperature element provides the temperature of the measurement environment.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_date_time</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_date_time</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_date_time element identifies the date and time of the observation
+            and measurement.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_geometry_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_geometry_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ralph Milliken</submitter_name>
+        <definition>The measurement_geometry_type element identifies the type of geometry at which
+            a measurement is taken.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Bidirectional</value>
+                <value_meaning>
+                    Measurement taken when light is sent in to the specimen at a narrow angular 
+                    range and received over a narrow angular range
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Directional Hemispherical</value>
+                <value_meaning>
+                    Measurement taken when light is sent in to the specimen at a certain direction 
+                    and received in all directions (perhaps in an integrating sphere).
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Hemispherical Hemispherical</value>
+                <value_meaning>
+                    Measurement taken when light is sent in to the specimen at all directions and 
+                    received in all directions (perhaps in an integrating sphere)
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Biconical</value>
+                <value_meaning>
+                    Measurement taken when light is sent in to the specimen at a certain direction 
+                    and in a cone-like shape and received at a certain direction and in a cone-like shape.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Unknown</value>
+                <value_meaning>The measurement geometry is unknown.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_notes</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_notes</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_notes element contains relevant notes about how a measurement was made.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Text_Preserved</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>1000</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_reference_standard</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_reference_standard</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_reference_standard element identifies the standard object on which
+            observations are performed in order to calibrate a measurement.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_requestor</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_requestor</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_requestor element identifies the individual or laboratory who
+            requested the measurement. It may occur more than once.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_segments</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_segments</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The measurement_segments element gives the number of measurement segments 
+            that were combined to create the spectrum. If the spectrum is not
+            merged from multiple segments, then the value of measurement_segments is 1.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_source_description</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_source_description</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_source_description element identifies the source used for the measurement such
+            as the type of lamp, heating element, laser, or radioactive source.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>measurement_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>measurement_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The measurement_type element identifies the type of spectroscopy performed
+            on a specimen.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>30</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Reflectance</value>
+                <value_meaning>The Reflectance value indicates reflectance spectroscopy, the study of light as a 
+                    function of wavelength that has been reflected or scattered from a material.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Emission</value>
+                <value_meaning>The Emission value indicates emission spectroscpy, which examines the wavelengths emitted 
+                    by atoms or molecules during their transition from an excited state to a lower energy state.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Raman</value>
+                <value_meaning>The Raman value indicates Raman spectroscopy, which determines information about a 
+                    material by studying the Raman scattering of monochromatic light off the material.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>X-Ray Fluorescence</value>
+                <value_meaning>The X-Ray Fluorescence value indicates x-ray flourescence spectroscopy, which examines
+                    the emission of x-rays from a material previously bombarded with high energy x-rays or gamma rays.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>X-Ray Diffraction</value>
+                <value_meaning>The X-Ray Diffraction value indicates x-ray diffraction spectroscopy, which studies the
+                    diffraction patterns of x-rays scattered off a material.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>LIBS</value>
+                <value_meaning>LIBS (Laser-Induced Breakdown Spectroscopy) uses a highly
+                    energetic laser pulse as its excitation source to produce emission spectra.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Transmission</value>
+                <value_meaning>The Transmission value indicates transmission spectroscopy, the study of light as a 
+                    function of wavelength that has been transmitted through a material.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Attenuated Total Reflectance</value>
+                <value_meaning>Attenuated total reflectance (ATR) is a sampling technique used in conjunction with 
+                    infrared spectroscopy which enables samples to be examined directly in the solid or liquid 
+                    state without further preparation.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>mineral_subtype</name>
+        <version_id>0.1</version_id>
+        <local_identifier>mineral_subtype</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ed Guinness</submitter_name>
+        <definition>The mineral_subtype element identifies the mineral subtype of the specimen.</definition>
+        <comment>Mineral_subtype does not have enumerated values because there are too many to list.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>mineral_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>mineral_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The mineral_type element identifies the type of mineral to which the specimen belongs.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Arsenate</value>
+                <value_meaning>The Arsenate value indicates the specimen is an arsenate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Borate</value>
+                <value_meaning>The Borate valeu indicates  the specimen is a borate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Carbonate</value>
+                <value_meaning>The Carbonate value indicates the specimen is a carbonate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Chromate</value>
+                <value_meaning>The Chromate value indicates the specimen is a chromate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Cyclosilicate</value>
+                <value_meaning>The Cyclosiliate value indicates the specimen is a sorosilicate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Halide</value>
+                <value_meaning>The Halide value indicates the specimen is a halide.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Hydroxide</value>
+                <value_meaning>The Hydroxide value indicates the specimen is a hydroxide.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Inosilicate</value>
+                <value_meaning>The Inosilicate value indicates the specimen is a inosilicate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Iodate</value>
+                <value_meaning>The Iodate value indicates the specimen is an iodate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Native Element</value>
+                <value_meaning>The Native Element value indicates the specimen is a native element or an alloy.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Nesosilicate</value>
+                <value_meaning>The Nesosiliacte value indicates the specimen is a nesosilicate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Nitrate</value>
+                <value_meaning>The Nitrate value indicates the specimen is a nitrate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Organic Compound</value>
+                <value_meaning>The Organic Compound value indicates the specimen is an organic compound.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Oxide</value>
+                <value_meaning>The Oxide value indicates the specimen is an oxide.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Phosphate</value>
+                <value_meaning>The Phosphate value indicates the specimen is a sulfate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Phyllosilicate</value>
+                <value_meaning>The Phyllosilicate value indicates the specimen is a phyllosilicate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Sorosilicate</value>
+                <value_meaning>The Sorosilicate value indicates the specimen is a sorosilicate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Sulfate</value>
+                <value_meaning>The Sulfate value indicates the specimen is a sulfate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Sulfide</value>
+                <value_meaning>The Sulfide value indicates the specimen is a sulfide.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Tectosilicate</value>
+                <value_meaning>The Tectosilicate value indicates the specimen is a tectosilicate.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Unclassified</value>
+                <value_meaning>The Unclassified value indicates that the specimen doesn't fit into any of these
+            			categories, but is still a mineral.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Vanadate</value>
+                <value_meaning>The Vanadate value indicates that the specimen is a vanadate.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>organic_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>organic_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The organic_type element identifies the organic type to which the specimen belongs.</definition>
+        <comment>Need Ray's input here too.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Inorganic</value>
+                <value_meaning>The Inorganic value indicates the specimen is not an organic material.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Organic</value>
+                <value_meaning>The Organic value indicates the specimen is an organic material.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mixture</value>
+                <value_meaning>The Mixture value indicates the specimen is a mixture of organic and inorganic material.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>phase_angle</name>
+        <version_id>0.1</version_id>
+        <local_identifier>phase_angle</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Ed Guinness</submitter_name>
+        <definition>The phase_angle element provides the angle between incidence and emission vectors.</definition>
+        <comment>
+            N/A for some measurement_geometry_types. Will make it optional in the class.
+            Ralph M. says negative values are permitted; the sign indicates direction.
+        </comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-180</minimum_value>
+            <maximum_value>180</maximum_value>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+            <specified_unit_id>deg</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>processing_description</name>
+        <version_id>0.1</version_id>
+        <local_identifier>processing_description</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ralph Milliken</submitter_name>
+        <definition>The processing_description element provides information about how measurement(s) for
+            a particular product were made, in addition to the information given in the Measurement
+            Parameters class. In the case of a product created by merging multiple measurements,
+            this element describes how the merge was done.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Text_Preserved</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>rock_subtype</name>
+        <version_id>0.1</version_id>
+        <local_identifier>rock_subtype</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ed Guinness</submitter_name>
+        <definition>The rock_subtype element identifies the rock subtype of the specimen.</definition>
+        <comment>Rock_subtype does not have enumerated values because there are too many to list.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>rock_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>rock_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ralph Milliken</submitter_name>
+        <definition>The rock_type element identifies the type of rock the specimen is.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Igneous</value>
+                <value_meaning>
+                    The Igneous value indicates that the specimen is volatile-poor and was formed
+                	by the cooling of magma or lava.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Sedimentary</value>
+                <value_meaning>
+                    The Sedimentary value indicates that the specimen was formed by sedimentary 
+                    processes (e.g., lithification of unconsolidated material, direct chemical 
+                    precipitation)
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Metamorphic</value>
+                <value_meaning>
+                    The Metamorphic value indicates that the specimen was formed by 
+                    metamorphic processes (e.g., increased temperature and/or pressure conditions 
+                    that altered the rock composition without melting)
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Unknown</value>
+                <value_meaning>
+                    The Unknown value indicates that there is not enough information about
+                    the specimen to assign it a rock type
+                </value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>segment_number</name>
+        <version_id>0.1</version_id>
+        <local_identifier>segment_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The segment_number element identifies which segment of a merged spectrum
+            is described by a Measurement_Parameters class. The first segment is segment
+            number 1. If the spectrum is not merged from multiple segments, then the value
+            of segment_number is 1.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>source_specimen_id</name>
+        <version_id>0.1</version_id>
+        <local_identifier>source_specimen_id</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The source_specimen_id element identifies the source specimen
+            from which the observed specimen is derived.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_collection_location</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_collection_location</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The specimen_collection_location element provides the place where the specimen was collected.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_owner_location</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_owner_location</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The specimen_owner_location element provides the institution or laboratory name where
+            the specimen resides.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_owner_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_owner_name</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The specimen_owner_name element identifies the individual or laboratory to whom
+            the specimen belongs.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_description</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_description</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The specimen_description element provides a short description of the specimen.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Text_Preserved</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>1000</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_id</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The specimen_id element uniquely identifies the specimen.</definition>
+        <comment>Unique within what group? This is not a LID because a specimen is not a PDS product.
+                 It's used to relate multiple measurements of the same specimen.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_max_size</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_max_size</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The specimen_max_size element identifies the maximum particle size of the observed specimen.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_min_size</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_min_size</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The specimen_min_size element identifies the minimum particle size of the observed specimen.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The specimen_name element identifies the specimen as it is named where it is being kept.</definition>
+        <comment>The name is typically assigned by the specimen owner or data provider. It is not
+            guaranteed to be unique. Use specimen_id for the unique identifier.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>specimen_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>specimen_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The specimen_type element gives one or more terms that classify the origin of the specimen. </definition>
+        <comment>Permissible values include relevant PDS4 Target_Identification types. More specific types to be added as needed.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Terrestrial Sample</value>
+                <value_meaning>The Terrestrial value means the specimen is a terrestrial sample.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Lunar Meteorite</value>
+                <value_meaning>The Lunar Meteorite value means the specimen is a sample from a lunar meteorite.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mars Meteorite</value>
+                <value_meaning>The Mars Meteorite value means the specimen is a sample from a Mars meteorite.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Other Meteorite</value>
+                <value_meaning>The Other Meteorite value means the specimen is a sample from a meteorite that is
+                    not a lunar or Mars meteorite.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Returned Lunar Sample</value>
+                <value_meaning>The Returned Lunar Sample value means the specimen is a lunar sample returned by a mission.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Returned Asteroid Sample</value>
+                <value_meaning>The Returned Asteroid Sample value means the specimen is an asteroid sample returned by a mission.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Synthetic Sample</value>
+                <value_meaning>The Synthetic Sample value means the specimen is a laboratory-generated sample.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_range_max</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_range_max</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_range_max element identifies the maximum value at which a given data 
+            item was sampled.  For example, a spectrum that was measured in the 0.4 to 3.5 um spectral range
+            would have a spectral_range_max value of 3.5.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_range_min</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_range_min</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The spectral_range_min element identifies the minimum value at which a given data 
+            item was sampled.  For example, a spectrum that was measured in the 0.4 to 3.5 um spectral range
+            would have a spectral_range_min value of 0.4.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_range_parameter_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_range_parameter_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Allison Zastrow</submitter_name>
+        <definition>The spectral_range_parameter_name element identifies the name of the parameter which
+            determines the sampling interval of the measurement.</definition>
+        <comment>If it would be possible for there to be another option that I'm not currently aware of,
+            is it possible to have an "other" option that then can be filled in and added to the search list
+            of the database site?  Also, these particular values are fairly self-explanatory (i.e. if you're looking
+            at spectra and don't know what wavelength is.....), is the value_meaning tag a necessary component 
+            of the definition, and if so, what would you suggest putting in its place? EAG - These 4 are a good start.
+            If others are needed, we can revise the dictionary to add it.</comment>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Wavelength</value>
+                <value_meaning>The Wavelength value means the spectrum is a function of wavelength.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Frequency</value>
+                <value_meaning>The Frequency value means the spectrum is a function of frequency.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Wavenumber</value>
+                <value_meaning>The Wavenumber value means the spectrum is a function of wavenumber.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Time</value>
+                <value_meaning>The Time value means the spectra is a function of time.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Angle</value>
+                <value_meaning>The Angle value means the spectra is a function of angle.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Energy</value>
+                <value_meaning>The Energy value means the spectra is a function of energy.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_range_unit</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_range_unit</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_range_unit element identifies the unit of measure for the
+            values specified by spectral_range_min and spectral_range_max.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_resolution_width_max</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_resolution_width_max</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_resolution_width_max element identifies the maximum width of 
+            a spectral band in a given spectrum. If all bands are the same width,
+            spectral_resolution_width_min and spectral_resolution_width_max will have
+            the same value.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_resolution_width_min</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_resolution_width_min</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_resolution_width_min element identifies the minimum width of
+            a spectral band in a given spectrum. If all bands are the same width,
+            spectral_resolution_width_min and spectral_resolution_width_max will have
+            the same value.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_resolution_width_unit</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_resolution_width_unit</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_resolution_width_unit element identifies the unit of 
+            measure for the values specified by spectral_resolution_width_min and
+            spectral_resolution_width_max.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_sampling_interval_max</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_sampling_interval_max</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_sampling_interval_max element identifies the maximum distance
+            between band centers in a given spectrum. If all band centers are equally spaced,
+            spectral_sampling_interval_min and spectral_sampling_interval_max will have
+            the same value.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_sampling_interval_min</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_sampling_interval_min</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_sampling_interval_min element identifies the minimum distance
+            between band centers in a given spectrum. If all band centers are equally spaced,
+            spectral_sampling_interval_min and spectral_sampling_interval_max will have
+            the same value.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>spectral_sampling_interval_unit</name>
+        <version_id>0.1</version_id>
+        <local_identifier>spectral_sampling_interval_unit</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The spectral_sampling_interval_unit element identifies the unit of 
+            measure for the values specified by spectral_sampling_interval_min and
+            spectral_sampling_interval_max.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>synthetic_processing_description</name>
+        <version_id>0.1</version_id>
+        <local_identifier>synthetic_processing_description</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ed Guinness</submitter_name>
+        <definition>The synthetic_processing_description element describes how a synthetic specimen has been processed.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>synthetic_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>synthetic_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Ralph Milliken</submitter_name>
+        <definition>The synthetic_type element identifies the process by which the specimen
+            was produced synthetically.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Entirely Synthetic</value>
+                <value_meaning>Sample that is entirely human-made</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Natural and Synthetic</value>
+                <value_meaning>
+                    Sample that is a mixture of human-made and naturally occurring components
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>From Natural</value>
+                <value_meaning>
+                    A natural product chemically or mineralogically altered by a laboratory 
+                    treatment (e.g., heating).  Does not include size and magnetic separates
+                    of natural samples or washing by water.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Hardware</value>
+                <value_meaning>
+                    Portions of an instrument, e.g., portions of a spectrometer that contribute 
+                    to a spectroscopic signature and thus need to be characterized
+                </value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>volatile_type</name>
+        <version_id>0.1</version_id>
+        <local_identifier>volatile_type</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>Ed Guinness</submitter_name>
+        <definition>The volatile_type element indicates whether the material was volatile-poor (less than 2.0% LOI)
+            or volatile-rich (greater than 2.0% LOI).
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+            <DD_Permissible_Value>
+                <value>Poor</value>
+                <value_meaning>The Poor value indicates the specimen had less than 2.0% LOI.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Rich</value>
+                <value_meaning>The Rich value indicates the specimen had greater than 2.0% LOI.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Unknown</value>
+                <value_meaning>The Unknown value indicates the specimen's volatile type is unknown.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <!-- End definitions of Spectral Library attributes-->
+
+    <!-- Begin definitions of Spectral Library classes -->
+
+    <!-- Definition of Measurement_Instrument class
+         Attributes are in the order required in the label.
+            instrument_name
+            pds.Internal_Reference
+    -->
+    <DD_Class>
+        <name>Measurement_Instrument</name>
+        <version_id>0.1</version_id>
+        <local_identifier>Measurement_Instrument</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The Measurement_Instrument class contains attributes that
+            identify the instrument that made the measurement. </definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>instrument_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <!--        LID or LIDVID of instrument that took the measurement -->
+            <identifier_reference>pds.Internal_Reference</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End definition of Measurement_Instrument class -->
+
+    <!-- Definition of Measurement_Parameters class 
+         Attributes are in the order required in the label. R=required, R/N=required but can be null, O=optional, O/N=optional but can be null. 
+            segment_number (R)
+            Measurement_Instrument class (R)
+            measurement_type (R)
+            spectral_range_parameter_name (R)
+            spectral_range_min (R)
+            spectral_range_max (R)
+            spectral_range_unit (R)
+            spectral_sampling_interval_min (O/N)
+            spectral_sampling_interval_max (O/N)
+            spectral_sampling_interval_unit (O/N)
+            spectral_resolution_width_min (O/N)
+            spectral_resolution_width_max (O/N)
+            spectral_resolution_width_unit (O/N)
+            measurement_reference_standard (O)
+            measurement_geometry_type (R)
+            incidence_angle (R/N)
+            emission_angle (R/N)
+            phase_angle (R/N)
+            measurement_source_description (O)
+            measurement_atmosphere_pressure (O/N)
+            measurement_atmosphere_temperature (O/N)
+            measurement_atmosphere_relative_humidity (R/N)
+            measurement_atmosphere_composition (O/N)
+            measurement_atmosphere_description (R)
+            measurement_date_time (R/N)
+            data_producer_name (O)
+            data_provider_name (R)
+            measurement_requestor (R/N)
+            measurement_notes (O)
+    -->
+    <DD_Class>
+        <name>Measurement_Parameters</name>
+        <version_id>0.1</version_id>
+        <local_identifier>Measurement_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The Measurement_Parameters class contains attributes relevant 
+            to a single measurement of a specimen. </definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>segment_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Measurement_Instrument</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_range_parameter_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_range_min</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_range_max</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_range_unit</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_sampling_interval_min</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_sampling_interval_max</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_sampling_interval_unit</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_resolution_width_min</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_resolution_width_max</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spectral_resolution_width_unit</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_reference_standard</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_geometry_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>incidence_angle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>emission_angle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>phase_angle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_source_description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_atmosphere_pressure</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_atmosphere_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_atmosphere_relative_humidity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_atmosphere_composition</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_atmosphere_description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_date_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>data_producer_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>data_provider_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_requestor</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_notes</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End definition of Measurement_Parameters class -->
+
+    <!-- Definition of Specimen_Classification class 
+         Attributes are in the order required in the label. R=required, R/N=required but can be null, O=optional, O/N = optional but can be null.
+            specimen_type (R) (e.g. Terrestrial Sample, Lunar Meteorite, Synthetic Sample; enumerated)
+            material_common_name (O) (e.g. Volcanic tephra; not enumerated)
+            material_origin (R) (Synthetic or Natural)
+            (if material_origin = 'Synthetic', then include synthetic_type)
+                synthetic_type (O) (Entirely Synthetic, Natural and Synthetic, From Natural, Hardware)
+            material_state (R) (Solid, Liquid or Gas)
+            organic_type (R) (Inorganic, Organic, or Mixture)
+            (if material_state = 'Solid' then include material_type)
+            material_type (R) (Mineral, Rock, Ice, Unconsolidated Mixture, Single Particle)
+            (if material_state = 'Solid' then material_subtype = 'Particulate' or 'Nonparticulate')
+            (if material_type = 'Unconsolidated Mixture' then material_subtype = 'Nonparticulate')
+            material_subtype (O) (not enumerated; can have more than one)
+            (if material_type = 'Mineral' then include mineral_type)
+            mineral_type (O) (Native Element, Sulfide, Oxide, Halogenide, Carbonate, Nitrate/Iodate/Borate, 
+                              Sulfate, Phosphate, Organic Compound, Nesosilicate, Sorosilicate, Cyclosilicate,
+                              Inosilicate, Phyllosilicate, Tektosilicate, Unclassified; can have more than one)
+            mineral_subtype (O) (not enumerated; can have more than one)
+            (if material_type = 'Rock' then include rock_type)
+            rock_type (O) (Igneous, Sedimentary, Metamorphic)
+            rock_subtype (O) (not enumerated; can have more than one)
+            volatile_type (O/N) (Rich, Poor, Unknown)
+            synthetic_processing_description (O) (How was the material created? If mixture, from what? Etc.)               
+    -->
+    <DD_Class>
+        <name>Specimen_Classification</name>
+        <version_id>0.1</version_id>
+        <local_identifier>Specimen_Classification</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The Specimen_Classification class provides information about
+            how a specimen has been classified.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>specimen_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>material_common_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>material_origin</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>synthetic_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>material_state</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>organic_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>material_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>material_subtype</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>10</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mineral_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mineral_subtype</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>10</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>rock_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>rock_subtype</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>10</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>volatile_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>synthetic_processing_description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End definition of Specimen_Classification class -->
+
+    <!-- Definition of Specimen_Parameters class 
+         Attributes are in the order required in the label. R=required, R/N=required but can be null, O=optional, O/N= optional but can be null.
+            specimen_id (R)
+            specimen_name (O)
+            specimen_description (O)
+            source_specimen_id (O/N)
+            specimen_min_size (R/N)
+            specimen_max_size (R/N)
+            specimen_collection_location (R)
+            specimen_owner_location (R/N)
+            specimen_owner_name (R/N)
+    -->
+    <DD_Class>
+        <name>Specimen_Parameters</name>
+        <version_id>0.1</version_id>
+        <local_identifier>Specimen_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The Specimen_Parameters class provides information about a 
+           specimen for which measurements have been made.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>specimen_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>source_specimen_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_min_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_max_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_collection_location</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_owner_location</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_owner_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End definition of Specimen_Parameters class -->
+    <!-- Definition of Ancillary_Product class 
+         Attributes are in the order required in the label. R=required, R/N=required but can be null, O=optional.
+            ancillary_product_type (R)
+    -->
+    <DD_Class>
+        <name>Ancillary_Product</name>
+        <version_id>0.1</version_id>
+        <local_identifier>Ancillary_Product</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The Ancillary_Product class identifies an ancillary measurement
+            related to a Spectral Library specimen.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <!-- LID or LIDVID of ancillary product -->
+        <DD_Association>
+            <identifier_reference>pds.Internal_Reference</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>ancillary_product_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- Definition of Spectral_Library_Product superclass
+         Attributes are in the order required in the label. R=required, R/N=required but can be null, O=optional, O/N= optional but can be null.
+              processing_description (O)
+    -->
+    <DD_Class>
+        <name>Spectral_Library_Product</name>
+        <version_id>0.1</version_id>
+        <local_identifier>Spectral_Library_Product</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The Spectral_Library_Product class provides information about
+           a data product in the Spectral Library.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>processing_description</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Specimen_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Specimen_Classification</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>measurement_segments</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Measurement_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Ancillary_Product</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End definition of Spectral_Library_Product superclass -->
+    <!-- End definitions of Spectral Library classes -->
+
+    <!-- Begin definitions of Spectral Library rules -->
+
+    <!-- RULES ABOUT MEASUREMENT SEGMENTS -->
+    <DD_Rule>
+        <local_identifier>speclib_segments_rule</local_identifier>
+        <rule_context>pds:Product_Observational/pds:Observation_Area/pds:Discipline_Area/speclib:Spectral_Library_Product</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:measurement_segments =
+                count(speclib:Measurement_Parameters))</rule_test>
+            <rule_message>speclib_measurement_segments_rule: The value of the attribute
+                measurement_segments must equal the number of occurrences of the class
+                Measurement_Parameters.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+    <!-- RULES ABOUT MEASUREMENT INSTRUMENT-->
+    <DD_Rule>
+        <local_identifier>speclib_measurement_instrument_rule</local_identifier>
+        <rule_context>pds:Product_Observational/pds:Observation_Area/pds:Discipline_Area/speclib:Spectral_Library_Product/speclib:Measurement_Parameters/speclib:Measurement_Instrument</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(pds:Internal_Reference/pds:reference_type =
+                'is_instrument')</rule_test>
+            <rule_message>speclib_measurement_instrument_rule_0: In the
+                Measurement_Instrument/Internal_Reference class, the value of the reference_type
+                attribute must be "is_instrument".</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+    <!-- RULES ABOUT MEASUREMENT_PARAMETERS-->
+    <DD_Rule>
+        <local_identifier>speclib_measurement_parameters_rule</local_identifier>
+        <rule_context>pds:Product_Observational/pds:Observation_Area/pds:Discipline_Area/speclib:Spectral_Library_Product/speclib:Measurement_Parameters</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(number(speclib:spectral_range_min) le number(speclib:spectral_range_max))</rule_test>
+            <rule_message>speclib_measurement_parameters_rule_0: speclib:spectral_range_min must be less than or equal to speclib:spectral_range_max.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+    <!-- RULES ABOUT SPECIMEN PARAMETERS -->
+    <DD_Rule>
+        <local_identifier>speclib_specimen_parameters_rule</local_identifier>
+        <rule_context>pds:Product_Observational/pds:Observation_Area/pds:Discipline_Area/speclib:Spectral_Library_Product/speclib:Specimen_Parameters</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>if (string-length(speclib:specimen_min_size) eq 0 or string-length(speclib:specimen_max_size) eq 0)
+                       then true()
+                       else (if (number(speclib:specimen_min_size) le number(speclib:specimen_max_size))
+                            then true() 
+                            else false()
+                            )
+            </rule_test>
+            <rule_message>speclib_specimen_parameters_rule_0: speclib:specimen_min_size must be less than or equal to speclib:specimen_max_size.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    
+    <!-- RULES ABOUT SPECIMEN CLASSIFICATION -->
+    <DD_Rule>
+        <local_identifier>speclib_classification_rule</local_identifier>
+        <rule_context>pds:Product_Observational/pds:Observation_Area/pds:Discipline_Area/speclib:Spectral_Library_Product/speclib:Specimen_Classification</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:material_state = 'Solid' and 
+                speclib:material_type and
+                (speclib:material_subtype = 'Particulate' or speclib:material_subtype = 'Nonparticulate')) or 
+                (speclib:material_state != 'Solid')
+            </rule_test>
+            <rule_message>speclib_classification_rule_solid_material: In the Specimen_Classification
+                class, if material_state is Solid, then the attributes material_type and
+                material_subtype must be present, and material_subtype must include either
+                Particulate or Nonparticulate.</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:material_state = 'Solid' and speclib:material_type = 'Organic' and speclib:organic_type = 'Organic') or
+                (speclib:material_state = 'Solid' and speclib:material_type != 'Organic') or
+                (speclib:material_state != 'Solid')
+            </rule_test>
+            <rule_message>speclib:classification_rule_organic_material: In the
+                Specimen_Classification class, if material_type is Organic, then the 
+                attribute organic_type must also be Organic.</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:material_state = 'Solid' and speclib:material_type = 'Mineral' and speclib:mineral_type) or
+                       (speclib:material_state = 'Solid' and speclib:material_type != 'Mineral') or
+                       (speclib:material_state != 'Solid')
+            </rule_test>
+            <rule_message>speclib_classification_rule_mineral: In the Specimen_Classification class,
+                if material_type is Mineral, then the attribute mineral_type must be
+                present.</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:material_state = 'Solid' and speclib:material_type = 'Rock' and speclib:rock_type) or
+                       (speclib:material_state = 'Solid' and speclib:material_type != 'Rock') or
+                       (speclib:material_state != 'Solid')
+            </rule_test>
+            <rule_message>speclib_classification_rule_rock: In the Specimen_Classification class, if
+                material_type is Rock, then the attribute rock_type must be present.</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:material_subtype and speclib:material_type) or 
+                       (not (speclib:material_subtype))
+            </rule_test>
+            <rule_message>speclib_classification_rule_material_subtype: In the
+                Specimen_Classification class, if the attribute material_subtype is present, then
+                the attribute material_type must also be present.</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:mineral_subtype and speclib:mineral_type) or 
+                       (not (speclib:mineral_subtype))
+            </rule_test>
+            <rule_message>speclib_classification_rule_mineral_subtype: In the
+                Specimen_Classification class, if the attribute mineral_subtype is present, then the
+                attribute mineral_type must also be present.</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:rock_subtype and speclib:rock_type) or 
+                       (not (speclib:rock_subtype))
+            </rule_test>
+            <rule_message>speclib_classification_rule_rock_subtype: In the Specimen_Classification
+                class, if the attribute rock_subtype is present, then the attribute rock_type must
+                also be present.</rule_message>
+        </DD_Rule_Statement>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>(speclib:material_origin = 'Synthetic' and speclib:synthetic_type) or
+                       (speclib:material_origin != 'Synthetic' and not (speclib:synthetic_type))
+            </rule_test>
+            <rule_message>speclib_classification_rule_synthetic: In the Specimen_Classification
+                class, if material_origin is Synthetic, then the attribute synthetic_type must be
+                present. If material_origin is not Synthetic, then the attribute synthetic type must
+                not be present.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+    <!-- End definitions of Spectral Library rules -->
+</Ingest_LDD>

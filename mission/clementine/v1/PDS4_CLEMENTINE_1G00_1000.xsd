@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:clementine  Version:1.0.0.0 - Thu Jun 17 22:21:38 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.16.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - clementine: - Clementine Mission Dictionary                     -->
+  <!--   file:/home/runner/work/ldd-clementine/ldd-clementine/src/PDS4_CLEMENTIN -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/clementine/v1"
+    xmlns:clementine="http://pds.nasa.gov/pds4/mission/clementine/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The Clementine mission dictionary contains a class with attributes specific to the 
+        Deep Space Program Science Experiment, including the Clementine orbiter and its 
+        instruments. This dictionary was created for the migration of Clementine data products 
+        from PDS3 to PDS4.
+        
+        v1.0.0.0 M. St. Clair
+        - Initial version of the Clementine mission dictionary for PDS3 to PDS4 migration
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Clementine_Parameters" type="clementine:Clementine_Parameters"> </xs:element>
+
+  <xs:complexType name="Celestial_Footprint_Vertices">
+    <xs:annotation>
+      <xs:documentation> The Celestial_Footprint_Vertices class provides
+        a set of right ascension and declination pairs which are the
+        vertices of a polygon representing the footprint of the field of
+        view on the celestial sphere in the earth-centered J2000
+        (EME2000) coordinate system. This and its associates are direct
+        analogs of geom:Footprint_Vertices and its associates, intended
+        for referencing FoV to the celestial sphere rather than a target
+        body. They can also be reconsidered reimplementations of the
+        PDS3 Data Dictionary elements RETICLE_POINT_RA and
+        RETICLE_POINT_DECLINATION. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Celestial_Reference_Pixel" type="clementine:Celestial_Reference_Pixel" minOccurs="1" maxOccurs="5"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Celestial_Reference_Pixel">
+    <xs:annotation>
+      <xs:documentation> The Celestial_Reference_Pixel class provides
+        the right ascension and declination of a specific designated
+        pixel in the earth-centered J2000 (EME2000) coordinate system.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reference_pixel_location" type="clementine:reference_pixel_location" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pixel_ra" type="clementine:pixel_ra" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pixel_dec" type="clementine:pixel_dec" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test=")"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Clementine_Parameters">
+    <xs:annotation>
+      <xs:documentation>Container class for Clementine-specific
+        parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="original_product_id" type="clementine:original_product_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="revolution_number" type="clementine:revolution_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_institution_name" type="clementine:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="frame_sequence_number" type="clementine:frame_sequence_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sequence_table_id" type="clementine:sequence_table_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="uncorrected_start_time" type="clementine:uncorrected_start_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="clem_jpeg_version" type="clementine:clem_jpeg_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="twist_angle" type="clementine:twist_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="smear_magnitude" type="clementine:smear_magnitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="smear_azimuth" type="clementine:smear_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="north_azimuth" type="clementine:north_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Celestial_Footprint_Vertices" type="clementine:Celestial_Footprint_Vertices" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="local_hour_angle" type="clementine:local_hour_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Illumination_Secondary" type="clementine:Illumination_Secondary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cryocooler_duration" type="clementine:cryocooler_duration" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="clementine:clem_jpeg_version = ('CLEM-JPEG-0', 'CLEM-JPEG-1', 'CLEM-JPEG-2', 'CLEM-JPEG-3', 'None')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Illumination_Secondary">
+    <xs:annotation>
+      <xs:documentation>The Illumination_Secondary class contains
+        attributes providing illumination geometry for a secondary light
+        source. It should be used only when parameters for a primary
+        illumination source have been specified elsewhere in the label
+        (perhaps using geom:Illumination_Geometry). </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="light_source_name" type="clementine:light_source_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="light_source_distance" type="clementine:light_source_distance" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sub_light_source_azimuth" type="clementine:sub_light_source_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sub_light_source_latitude" type="clementine:sub_light_source_latitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sub_light_source_longitude" type="clementine:sub_light_source_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="incidence_angle" type="clementine:incidence_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="phase_angle" type="clementine:phase_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="clem_jpeg_version">
+    <xs:annotation>
+      <xs:documentation> The clem_jpeg_version attribute specifies the
+        specific set of parameters fed to the Matra compression chip
+        that performed the onboard JPEG-variant discrete cosine
+        transformation image compression. Two settings are documented as
+        commonly used in the primary mission: "CLEM-JPEG-0" and, most
+        often, "CLEM-JPEG-1." "CLEM-JPEG-2" and "CLEM-JPEG-3" also
+        appear in some files but are not described in documentation.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cryocooler_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="cryocooler_duration">
+    <xs:annotation>
+      <xs:documentation> The cryocooler_duration attribute provides the
+        duration, in seconds, since the activation of an imager's
+        cooling device and the acquisition of an image.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:cryocooler_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="frame_sequence_number">
+    <xs:annotation>
+      <xs:documentation> The frame_sequence_number attribute provides
+        the position of an image within a sequence of images taken as
+        part of an observational pass. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="incidence_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="180"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="incidence_angle">
+    <xs:annotation>
+      <xs:documentation>The incidence_angle element provides a measure
+        of the lighting condition at the intercept point. Incidence
+        angle is the angle between the local vertical at the intercept
+        point (surface) and a vector from the intercept point to the
+        sun. The incidence_angle varies from 0 degrees when the
+        intercept point coincides with the subsolar point to 90 degrees
+        when the intercept point is at the terminator (i.e., in the
+        shadowed or dark portion of the target body). </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:incidence_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="light_source_distance_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="light_source_distance">
+    <xs:annotation>
+      <xs:documentation> Distance between the target body center and the
+        light source whose illumination parameters are described in the
+        containing class. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:light_source_distance_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="light_source_name">
+    <xs:annotation>
+      <xs:documentation> Name of light source to which other attributes
+        of containing class apply. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="local_hour_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="local_hour_angle">
+    <xs:annotation>
+      <xs:documentation>The local_hour_angle attribute provides a
+        measure of the instantaneous apparent sun position at the
+        subspacecraft point. The local_hour_angle is the angle between
+        the extension of the vector from the Sun to the target body and
+        the vector projection on the target body’s ecliptic plane of a
+        vector from the target body’s planetocentric center to the
+        observer (usually, the spacecraft). This angle is measured in a
+        counterclockwise direction when viewed from north of the
+        ecliptic plane. It may be converted from an angle in degrees to
+        a local time, using the conversion of 15 degrees per hour for
+        those planets for which the rotational direction corresponds
+        with the direction of measure of the angle. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:local_hour_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="north_azimuth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="north_azimuth">
+    <xs:annotation>
+      <xs:documentation> north_azimuth gives the azimuth, in degrees, of
+        the vector between the image center and the target north pole.
+        The reference line for this angle extends from image center to
+        image right edge; angle increases clockwise in the image plane.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:north_azimuth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="original_product_id">
+    <xs:annotation>
+      <xs:documentation> The original_product_id attribute provides the
+        identifier used for a product during active mission operations,
+        which may be distinct from the product id used for archival.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="phase_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="180"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="phase_angle">
+    <xs:annotation>
+      <xs:documentation>The phase_angle element provides a measure of
+        the relationship between the instrument viewing position and
+        incident illumination (such as solar light). Phase angle is
+        measured at the target; it is the angle between a vector to the
+        illumination source and a vector to the instrument. If
+        illumination is from behind the instrument, phase_angle will be
+        small. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:phase_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pixel_dec_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pixel_dec">
+    <xs:annotation>
+      <xs:documentation>The pixel_dec attribute gives the value of the
+        declination of a particular pixel as projected on the celestial
+        sphere. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:pixel_dec_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pixel_ra_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pixel_ra">
+    <xs:annotation>
+      <xs:documentation>The pixel_ra attribute gives the value of the
+        right ascension of a particular pixel as projected on the
+        celestial sphere. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:pixel_ra_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="producer_institution_name">
+    <xs:annotation>
+      <xs:documentation> The producer_institution_name element
+        identifies the institution primarily responsible for the
+        production of a particular data product. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reference_pixel_location">
+    <xs:annotation>
+      <xs:documentation> reference_pixel_location describes the
+        position, within an image associated with the labeled data
+        product, of a pixel referred to by other attributes of the
+        containing class. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="revolution_number">
+    <xs:annotation>
+      <xs:documentation> The revolution_number attribute identifies the
+        number of the observational pass of a spacecraft around a target
+        body. Note: The Clementine Mission used this attribute in place
+        of orbit number because orbit number changes half way through
+        the observational pass over the Moon and would not be an ideal
+        parameter when interrogating the data set. The revolution number
+        equals orbit number at the start of the observational pass.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sequence_table_id">
+    <xs:annotation>
+      <xs:documentation>The sequence_table_id attribute provides a code
+        specifying the order in which cameras were shuttered and filters
+        activated during a particular observation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="smear_azimuth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="smear_azimuth">
+    <xs:annotation>
+      <xs:documentation> smear_azimuth gives the azimuth, in degrees, of
+        the 'smear' velocity vector (velocity of image boresight
+        intercept with target). The reference line for this angle
+        extends from image center to image right edge; angle increases
+        clockwise in the image plane. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:smear_azimuth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="smear_magnitude">
+    <xs:annotation>
+      <xs:documentation> smear_magnitude gives the amount, in pixels,
+        that the image is 'smeared' by spacecraft motion. More
+        specifically, in Clementine, it is the magnitude of the velocity
+        vector of camera boresight intercept with target (including
+        spacecraft rotation) multiplied by exposure duration and image
+        scale. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sub_light_source_azimuth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sub_light_source_azimuth">
+    <xs:annotation>
+      <xs:documentation>The sub_light_source_azimuth attribute provides
+        the value of the angle between the line from the center of an
+        image to the sub-light-source point on the target and a
+        horizontal reference line (in the image plane) extending from
+        the image center to the middle right edge of the image. The
+        values of this angle increase in a clockwise direction.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:sub_light_source_azimuth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sub_light_source_latitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sub_light_source_latitude">
+    <xs:annotation>
+      <xs:documentation>The sub_light_source_latitude attribute gives
+        the value of the planetocentric latitude at the sub-light-source
+        point on the target. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:sub_light_source_latitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sub_light_source_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sub_light_source_longitude">
+    <xs:annotation>
+      <xs:documentation>The sub_light_source_longitude attribute gives
+        the value of the planetocentric latitude at the sub-light-source
+        point on the target. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:sub_light_source_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="twist_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="twist_angle">
+    <xs:annotation>
+      <xs:documentation> The twist_angle attribute provides the angle of
+        rotation about an instrument's optical axis relative to
+        celestial coordinates. Right ascension, declination, and twist
+        angle together completely specify the pointing of an instrument
+        in a celestial coordinate system. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clementine:twist_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="uncorrected_start_time">
+    <xs:annotation>
+      <xs:documentation>The uncorrected_start_time attribute provides
+        the starting time value originally assigned to a product before
+        some corrective process. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSS(Z)" -->
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
