@@ -1,4 +1,0 @@
-# <FilesMatch "^PDS4_PDS_.*1G00\..*$">
-#    Require ip 128.149.0.0/16 137.78.0.0/16 137.79.0.0/16
-# </FilesMatch>
-
