@@ -549,10 +549,7 @@
 	<div id="namespaces">
 		<h2>Namespaces</h2>
 		<p>
-			The PDS4 XML Schema and Schematron files are organized by namespace.
-			Links to documentation on a particular dictionary can be found <a href="https://github.com/pds-data-dictionaries/PDS-Data-Dictionaries.github.io/blob/main/docs/source/overview.md">here</a>.
-		</p>
-		<p>
+			The PDS4 XML Schema and Schematron files are organized by namespace. 
 			For a list of existing namespaces, refer to the <a href="https://github.com/NASA-PDS/pds4-information-model/raw/main/docs/namespace-registry/pds-namespace-registry.pdf">PDS Namespace Registry</a>.
 		</p>
 
