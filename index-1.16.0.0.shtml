@@ -382,16 +382,16 @@ utilizes the existing Federal Geographic Data Committee (FGDC) Content Standard 
 
                 </p>
                 <ul>
-                    <li><b>Last Updated:</b> </li>
+                    <li><b>Last Updated:</b>  08/09/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-particle">https://github.com/pds-data-dictionaries/ldd-particle</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
-                                PDS4  Information Model. To submit a request the have the LDD generated, please contact the
-                                <a href="mailto:pds-operator@jpl.nasa.gov">PDS Operator</a>, or create an issue in the
-                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
-                            </li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1G00_2010.xsd">PDS4_PARTICLE_1G00_2010.xsd</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1G00_2010.sch">PDS4_PARTICLE_1G00_2010.sch</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1G00_2010.xml">PDS4_PARTICLE_1G00_2010.xml</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1G00_2010.JSON">PDS4_PARTICLE_1G00_2010.JSON</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1G00_2010.zip">PDS4_PARTICLE_1G00_2010.zip</a></li>
                         </ul>
                     </li>
                 </ul>
