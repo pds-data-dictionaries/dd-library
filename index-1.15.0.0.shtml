@@ -348,7 +348,7 @@ with modifications and extensions applied by PDS as needed for planetary mapping
 			</div>
 			<div id="particle">
 				<h4>Particle (particle)</h4>
-				<p>The Particle dictionary contains classes that describe the composition of multidimensional particle data consisting of Array (and Array subclass) data objects.
+				<p>The Particle dictionary contains attributes that may be used to help identify particle parameters included in a PDS4 product to supplement the information provided in the Primary_Result_Summary and in order to support enhanced data discovery.
 				</p>
 				<ul>
 					<li><b>Last Updated:</b> 05/05/2021</li>
