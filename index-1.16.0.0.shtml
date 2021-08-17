@@ -222,6 +222,19 @@ utilizes the existing Federal Geographic Data Committee (FGDC) Content Standard 
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 08/16/2021</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1G00_1860.xsd">PDS4_IMG_1G00_1860.xsd</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1G00_1860.sch">PDS4_IMG_1G00_1860.sch</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1G00_1860.xml">PDS4_IMG_1G00_1860.xml</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1G00_1860.JSON">PDS4_IMG_1G00_1860.JSON</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1G00_1860.zip">PDS4_IMG_1G00_1860.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 06/10/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
@@ -313,6 +326,19 @@ utilizes the existing Federal Geographic Data Committee (FGDC) Content Standard 
                     This dictionary is for a class of cameras developed by Malin Space Science Systems (MSSS) that share a common architecture or digital electronics assembly. Example cameras include Mastcam, MAHLI, MARDI, Mastcam-Z, SHERLOC-Watson and SHERLOC-ACI
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 08/16/2021</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-msss_cam_mh">https://github.com/pds-data-dictionaries/ldd-msss_cam_mh</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1G00_1030.xsd">PDS4_MSSS_CAM_MH_1G00_1030.xsd</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1G00_1030.sch">PDS4_MSSS_CAM_MH_1G00_1030.sch</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1G00_1030.xml">PDS4_MSSS_CAM_MH_1G00_1030.xml</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1G00_1030.JSON">PDS4_MSSS_CAM_MH_1G00_1030.JSON</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1G00_1030.zip">PDS4_MSSS_CAM_MH_1G00_1030.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 06/10/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-msss_cam_mh">https://github.com/pds-data-dictionaries/ldd-msss_cam_mh</a></li>
@@ -485,8 +511,8 @@ utilizes the existing Federal Geographic Data Committee (FGDC) Content Standard 
                             <li><a href="/pds4/sp/v1/PDS4_SP_1G00_1310.JSON">PDS4_SP_1G00_1310.JSON</a></li>
                             <li><a href="/pds4/sp/v1/PDS4_SP_1G00_1310.zip">PDS4_SP_1G00_1310.zip</a></li>
                         </ul>
-		    </li>
-		    <br/>
+        		    </li>
+        		    <br/>
                     <li><b>Last Updated:</b> 05/18/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-spectral">https://github.com/pds-data-dictionaries/ldd-spectral</a></li>

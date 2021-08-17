@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:msss_cam_mh  Version:1.0.3.0 - Wed Jul 14 17:59:46 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.16.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.8.5.0 - img: - Imaging                                                  -->
+  <!--   file:/home/runner/work/ldd-msss_cam_mh/ldd-msss_cam_mh/src/dependencies -->
+  <!-- 1.8.5.0 - img: - Imaging                                                  -->
+  <!--   file:/home/runner/work/ldd-msss_cam_mh/ldd-msss_cam_mh/src/dependencies -->
+  <!-- 1.0.3.0 - msss_cam_mh: - MSSS Camera Mini-header                          -->
+  <!--   file:/home/runner/work/ldd-msss_cam_mh/ldd-msss_cam_mh/src/PDS4_MSSS_CA -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/msss_cam_mh/v1"
+    xmlns:msss_cam_mh="http://pds.nasa.gov/pds4/msss_cam_mh/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:img="http://pds.nasa.gov/pds4/img/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.3.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1G00_1850.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+    ## CHANGE LOG ##
+    1.0.0.0
+    - Initial version
+    
+     1.0.1.0
+    - bump to use IMG v1E00_1810
+
+    1.0.2.0
+    - bump to use IMG v1E00_1820
+    
+    1.0.3.0 T. Hare
+    - added start_camera_product_id, exposure_count, focus_merge_blending_flag, and focus_merge_registration_flag
+    - moved attributes listing in alpha order (not in the class, just the att. listing here)
+
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="MSSS_Camera_Mini_Header" type="msss_cam_mh:MSSS_Camera_Mini_Header"> </xs:element>
+
+  <xs:complexType name="MSSS_Camera_Mini_Header">
+    <xs:annotation>
+      <xs:documentation>The MSSS_Camera_Mini_Header class contains
+        information for cameras developed by Malin Space Science Systems
+        (MSSS) that share a common architecture or digital electronics
+        assembly. Example cameras include Mastcam, MAHLI, MARDI,
+        Mastcam-Z, SHERLOC-Watson and SHERLOC-ACI.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="camera_product_id" type="msss_cam_mh:camera_product_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="magic_initial" type="msss_cam_mh:magic_initial" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="magic_final" type="msss_cam_mh:magic_final" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start" nillable="true" type="msss_cam_mh:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop" nillable="true" type="msss_cam_mh:spacecraft_clock_stop" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_mode_id" type="msss_cam_mh:instrument_mode_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_serial_number" type="msss_cam_mh:instrument_serial_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="initial_size" type="msss_cam_mh:initial_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="analog_offset" type="msss_cam_mh:analog_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_camera_product_id" type="msss_cam_mh:start_camera_product_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="exposure_count" type="msss_cam_mh:exposure_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="focus_merge_blending_flag" type="msss_cam_mh:focus_merge_blending_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="focus_merge_registration_flag" type="msss_cam_mh:focus_merge_registration_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Detector" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Exposure" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Focus" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Onboard_Compression" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element ref="img:Optical_Filter" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element ref="img:Sampling" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Subframe" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Instrument_State" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="analog_offset">
+    <xs:annotation>
+      <xs:documentation>The analog_offset attribute identifies the
+        analog value that is subtracted from the signal prior to the
+        analog/digital conversion.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="camera_product_id">
+    <xs:annotation>
+      <xs:documentation>Identifier assigned by the camera to this image
+        (aka CDPID). The identifier is unique among all products stored
+        on the camera at the time of acquisition, but is not necessarily
+        unique across the mission.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="exposure_count">
+    <xs:annotation>
+      <xs:documentation>The camera_product_id of the first frame used to
+        make a focus merge (Zstack) product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="focus_merge_blending_flag">
+    <xs:annotation>
+      <xs:documentation>Indicates whether intra-stack image blending has
+        been performed during a focus merge (Zstack)
+        operation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="focus_merge_registration_flag">
+    <xs:annotation>
+      <xs:documentation>Indicates whether intra-stack image
+        resgistration has been performed during a focus merge
+        operation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="initial_size">
+    <xs:annotation>
+      <xs:documentation>Initially-allocated size of data product by the
+        camera (for compressed data, may not match actual
+        size).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="instrument_mode_id">
+    <xs:annotation>
+      <xs:documentation>Specifies the image or video readout mode, which
+        determines the rate the image is read out.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="instrument_serial_number">
+    <xs:annotation>
+      <xs:documentation>The instrument serial number element provides
+        the manufacturer's serial number assigned to an instrument. This
+        number may be used to uniquely identify a particular instrument
+        for tracing its components or determining its calibration
+        history, for example.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="magic_final">
+    <xs:annotation>
+      <xs:documentation>Bit pattern (hexadecimal value) at the end of
+        the mini-header used to help identify product boundaries for
+        flash fault recovery. For MSL, this is a constant
+        0x1010CC28.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="magic_initial">
+    <xs:annotation>
+      <xs:documentation>Bit pattern (hexadecimal value) at the beginning
+        of the mini-header used to help identify product boundaries for
+        flash fault recovery. For MSL, this is a constant
+        0xFF00F0CA.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_clock_start">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start is the value of the
+        spacecraft clock at the beginning of the
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spacecraft_clock_stop">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop is the value of the
+        spacecraft clock at the end of the observation.
+        spacecraft_clock_stop should only be used if there's also a
+        spacecraft_clock_start value.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="start_camera_product_id">
+    <xs:annotation>
+      <xs:documentation>The start_camera_product_id of the first frame
+        used to make a focus merge (Zstack) product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

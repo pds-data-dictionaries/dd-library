@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-model 
-    href="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.sch"
+    href="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1G00_1850.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <!-- for testing validation
@@ -16,9 +16,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:img="http://pds.nasa.gov/pds4/img/v1"
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"    
-    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd 
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd 
                         https://pds.nasa.gov/pds4/img/v1
-                        https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.xsd">
+                        https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1G00_1850.xsd">
 
 <!-- for testing validation
                         https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.xsd">
@@ -26,7 +26,7 @@
 -->
 
   <name>MSSS Camera Mini-header</name>
-  <ldd_version_id>1.0.2.0</ldd_version_id>
+  <ldd_version_id>1.0.3.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Trent Hare</full_name>
   <steward_id>img</steward_id>
@@ -41,13 +41,32 @@
 
     1.0.2.0
     - bump to use IMG v1E00_1820
+    
+    1.0.3.0 T. Hare
+    - added start_camera_product_id, exposure_count, focus_merge_blending_flag, and focus_merge_registration_flag
+    - moved attributes listing in alpha order (not in the class, just the att. listing here)
 
   </comment>
-  <last_modification_date_time>2020-09-09T09:10:00</last_modification_date_time>
+  <last_modification_date_time>2021-06-21T15:00:00</last_modification_date_time>
 
   <!-- Begin attribute definitions -->
 
   <!-- Start attributes for MSSS_Camera_Mini_Header -->
+  <DD_Attribute>
+    <name>analog_offset</name>
+    <version_id>1.0</version_id>
+    <local_identifier>analog_offset</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Elizabeth D. Rye</submitter_name>
+    <definition>The analog_offset attribute identifies the analog value that is subtracted from the
+      signal prior to the analog/digital conversion.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
   <DD_Attribute>
     <name>camera_product_id</name>
     <version_id>1.0</version_id>
@@ -65,6 +84,105 @@
   </DD_Attribute>
 
   <DD_Attribute>
+    <name>exposure_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>exposure_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>The camera_product_id of the first frame used to make a focus merge (Zstack) product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>focus_merge_blending_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>focus_merge_blending_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Indicates whether intra-stack image blending has been performed during a focus merge (Zstack) operation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>focus_merge_registration_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>focus_merge_registration_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Indicates whether intra-stack image resgistration has been performed during a focus merge operation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>initial_size</name>
+    <version_id>1.0</version_id>
+    <local_identifier>initial_size</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Initially-allocated size of data product by the camera (for compressed data, 
+      may not match actual size).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>  
+  
+  <DD_Attribute>
+    <name>instrument_mode_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_mode_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Specifies the image or video readout mode, which determines the rate the image is read out.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>  
+  
+  <DD_Attribute>
+    <name>instrument_serial_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_serial_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Cristina De Cesare</submitter_name>
+    <definition>The instrument serial number element provides
+      the manufacturer's serial number assigned to an instrument. This
+      number may be used to uniquely identify a particular instrument
+      for tracing its components or determining its calibration
+      history, for example.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>magic_final</name>
+    <version_id>1.0</version_id>
+    <local_identifier>magic_final</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Bit pattern (hexadecimal value) at the end of the mini-header used to help identify product 
+      boundaries for flash fault recovery.  For MSL, this is a constant 0x1010CC28.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>  
+  
+  <DD_Attribute>
     <name>magic_initial</name>
     <version_id>1.0</version_id>
     <local_identifier>magic_initial</local_identifier>
@@ -79,18 +197,17 @@
   </DD_Attribute>
 
   <DD_Attribute>
-    <name>magic_final</name>
+    <name>start_camera_product_id</name>
     <version_id>1.0</version_id>
-    <local_identifier>magic_final</local_identifier>
+    <local_identifier>start_camera_product_id</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>Trent Hare</submitter_name>
-    <definition>Bit pattern (hexadecimal value) at the end of the mini-header used to help identify product 
-    boundaries for flash fault recovery.  For MSL, this is a constant 0x1010CC28.</definition>
+    <definition>The start_camera_product_id of the first frame used to make a focus merge (Zstack) product.</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
     </DD_Value_Domain>
-  </DD_Attribute>  
+  </DD_Attribute>
 
   <DD_Attribute>
     <name>spacecraft_clock_start</name>
@@ -122,67 +239,6 @@
       <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
       <minimum_characters>1</minimum_characters>
       <maximum_characters>255</maximum_characters>
-    </DD_Value_Domain>
-  </DD_Attribute>
-
-  <DD_Attribute>
-    <name>instrument_mode_id</name>
-    <version_id>1.0</version_id>
-    <local_identifier>instrument_mode_id</local_identifier>
-    <nillable_flag>false</nillable_flag>
-    <submitter_name>Trent Hare</submitter_name>
-    <definition>Specifies the image or video readout mode, which determines the rate the image is read out.</definition>
-    <DD_Value_Domain>
-      <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-    </DD_Value_Domain>
-  </DD_Attribute>  
-
-  <DD_Attribute>
-    <name>instrument_serial_number</name>
-    <version_id>1.0</version_id>
-    <local_identifier>instrument_serial_number</local_identifier>
-    <nillable_flag>false</nillable_flag>
-    <submitter_name>Cristina De Cesare</submitter_name>
-    <definition>The instrument serial number element provides
-      the manufacturer's serial number assigned to an instrument. This
-      number may be used to uniquely identify a particular instrument
-      for tracing its components or determining its calibration
-      history, for example.</definition>
-    <DD_Value_Domain>
-      <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
-    </DD_Value_Domain>
-  </DD_Attribute>
-
-  <DD_Attribute>
-    <name>initial_size</name>
-    <version_id>1.0</version_id>
-    <local_identifier>initial_size</local_identifier>
-    <nillable_flag>false</nillable_flag>
-    <submitter_name>Trent Hare</submitter_name>
-    <definition>Initially-allocated size of data product by the camera (for compressed data, 
-      may not match actual size).</definition>
-    <DD_Value_Domain>
-      <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
-      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
-    </DD_Value_Domain>
-  </DD_Attribute>  
-
-  <DD_Attribute>
-    <name>analog_offset</name>
-    <version_id>1.0</version_id>
-    <local_identifier>analog_offset</local_identifier>
-    <nillable_flag>false</nillable_flag>
-    <submitter_name>Elizabeth D. Rye</submitter_name>
-    <definition>The analog_offset attribute identifies the analog value that is subtracted from the
-      signal prior to the analog/digital conversion.</definition>
-    <DD_Value_Domain>
-      <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type>
-      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
 
@@ -254,6 +310,30 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>analog_offset</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>start_camera_product_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>exposure_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>focus_merge_blending_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>focus_merge_registration_flag</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
