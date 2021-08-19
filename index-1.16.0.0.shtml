@@ -258,6 +258,19 @@ utilizes the existing Federal Geographic Data Committee (FGDC) Content Standard 
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 08/19/2021</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img_surface">https://github.com/pds-data-dictionaries/ldd-img_surface</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1G00_1260.xsd">PDS4_IMG_SURFACE_1G00_1260.xsd</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1G00_1260.sch">PDS4_IMG_SURFACE_1G00_1260.sch</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1G00_1260.xml">PDS4_IMG_SURFACE_1G00_1260.xml</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1G00_1260.JSON">PDS4_IMG_SURFACE_1G00_1260.JSON</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1G00_1260.zip">PDS4_IMG_SURFACE_1G00_1260.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 06/10/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img_surface">https://github.com/pds-data-dictionaries/ldd-img_surface</a></li>
