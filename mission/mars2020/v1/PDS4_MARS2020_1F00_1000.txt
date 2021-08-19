@@ -1,0 +1,3919 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        13.0.2
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Wed Aug 11 22:17:11 UTC 2021
+   Common Schema          [PDS4_PDS_1F00.xsd]
+   Common Schematron      [PDS4_PDS_1F00.sch]
+   IM Version Id:         1.15.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-mars2020/ldd-mars2020/src/PDS4_MARS2020_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                54
+   Attributes             278
+   Associations           367
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Mars 2020 Mission Dictionary
+   LDD Version            1.0.0.0
+   Full Name              Susan Slavney
+   Steward                geo
+   Namespace Id           mars2020
+   Comment                
+    The Mars 2020 mission dictionary contains classes and attributes specific to
+    the Mars 2020 (Perseverance Rover) mission and its instruments.
+    
+    Mars 2020 version 1.0.0.0 
+    PDS Build 1.16.0.0
+    LDDTool version 13.0.2
+    
+    Built with LDDTool -plJ  PDS4_IMG_Ingest_LDD.xml PDS4_MARS2020_IngestLDD.xml
+     
+    2020-07-29 Confirmed spacecraft clock count notation (Bob Deen)
+    2020-08-11 Revised some attribute names to be consistent with msn discipline dictionary, for efficient searches:
+      product_type_name replaces product_type
+      release_number replaces release_id (but it is still an ASCII string)
+      spacecraft_clock_start replaces spacecraft_clock_start_count
+      spacecraft_clock_stop replaces spacecraft_clock_stop_count
+      spacecraft_clock_partition replaces spacecraft_clock_count_partition
+      start_local_true_solar_time_sol and stop_local_true_solar_time_sol replace local_true_solar_time_sol
+    2020-08-19 Removed enumerated values list for product_type_name, until we know what values to use, if any
+    2020-08-20 Changed mars2020:error:sclk_rule_0 to allow spacecraft_clock_start and stop to be evaluated independently
+    2020-08-25 Added container class Mars2020_Parameters
+    2020-08-28 Added classes PIXL_Illumination and SuperCam_RMI_Mini_Header and their attributes, from Bob Deen
+    2020-10-21 Built with IM 1.15.0.0. Added RIMFAX_Parameters classes and attributes.
+    2020-10-28 Made a few adjustments for RIMFAX (removed second delay parameters and removed number in the name of the 
+    remaining delay parameters). Moved position of rfax_setup_file to match its location in the ODL labels. Added 
+    attribute active_flight_computer to Observation_Information class.
+    2020-12-29 Changed max occurrences of PIXL_Illumination class from 1 to 2. Corrected pattern for rules 
+    mars2020:error:ltst_rule_0 and mars2020:error:ltst_rule_1.
+    2020-12-30 Add MOXIE_Parameters classes and attributes
+    2021-01-20 Added SHERLOC Calibration_Target class
+    2021-01-22 Added more PIXL_Parameters classes and attributes
+    2021-01-26 Made PIXL attributes both nillable and optional
+    2021-03-10 Changed attribute mars2020:unit to optional in MOXIE classes Run_Control_Table_Field,
+       Algorithm_Parameter_Table_Field, Safety_Parameter_Table_Field, and Run_Parameter_Table_Field.
+       Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
+       Changed MOXIE attribute names *_enable to *_en. 
+    2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
+    2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
+    2021-04-27 Added pixl_rtt to class PIXL_Parameters. 
+       Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
+    2021-05-06 Added Digital_Number_to_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters.
+       Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
+    2021-05-25 Changed the class MOXIE_Parameters/.../Digital_Number_To_Calibrated_Unit_Conversions and its subclasses
+       from required to optional. They should appear only for calibrated products, but the MOXIE team will do that check.
+       Corrected error in the definitions of MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
+    2021-06-08 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
+    2021-07-15 Added attributes start/stop_utc, start/stop_jdate, start/stop_sounding_counter, min/max rover_lat, 
+       min/max_rover_lon, and min/max_rover_elev to RIMFAX_Parameters class. 
+       Changed RIMFAX_Parameters/config_id maximum_occurrences from 1 to *.
+       Added missing definitions for RIMFAX_Parameters decimation, sinetable, and time_cut_samples.
+       Commented out time_cut_samples because it is not used in any class.
+       Changed sinetable data type from ASCII_Integer to ASCII_Short_String_Collapsed.
+       Built for IM 1G00 (1.16.0.0).
+    2021-07-23 Changed definitions of MOXIE_Parameters/.../Ancillary_Data_*/ classes back to using DD_Association
+       instead of DD_Associate_External_Class due to a bug in LDDTool. 
+       Corrected rule_context in rules for validating MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
+       Changed minimum_occurrences from 1 to 0 for all MOXIE_Parameters/.../Algorithm_Parameter_Table calibrated attributes.
+  
+   Last Modification Time 2021-07-23T16:15Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   active_flight_computer
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             The active_flight_computer indicates which flight computer "string" (separate sets of electronics) was active when a product was acquired. For Mars 2020 there are two redundant flight computers called "strings", also known as Rover Compute Elements (RCEs). Either string, A or B, may be active at any given time. 
+
+   name                   mission_phase_name
+   version                1.15
+   value data type        ASCII_Short_String_Preserved
+   description            The mission_phase_name identifies a time period within the mission.
+
+   name                   product_type_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_type_name identifies a group of data products within a collection that have some property in common, such as processing level, resolution, or instrument-specific setting. 
+
+   name                   release_number
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            release_number is the identifier of a scheduled release of Mars 2020 data from PDS. The first Mars 2020 data release has release_number "01". The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
+   nillable               true
+   minimum characters     1
+
+   name                   sol_number
+   version                1.15
+   value data type        ASCII_Integer
+   description            Sol_number is the number of the Mars day on which an observation was acquired. Landing day is Sol 0.
+   minimum value          0
+
+   name                   spacecraft_clock_partition
+   version                1.15
+   value data type        ASCII_Integer
+   description            The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock_start and spacecraft_clock_stop attributes. This attribute may be used when the spacecraft_clock values do not include a partition number.
+   minimum value          1
+
+   name                   spacecraft_clock_start
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             The spacecraft_clock_start is the value of the spacecraft clock at the beginning of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .fffffffff is an optional fraction of a second up to 9 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
+   minimum characters     1
+   maximum characters     19
+
+   name                   spacecraft_clock_stop
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             The spacecraft_clock_stop is the value of the spacecraft clock at the end of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .fffffffff is an optional fraction of a second up to 9 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
+   minimum characters     1
+   maximum characters     19
+
+   name                   start_local_mean_solar_time
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Start_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary, at the beginning of an observation.
+   minimum characters     10
+   maximum characters     24
+
+   name                   start_local_true_solar_time
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Start_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the beginning of an observation.
+   minimum characters     8
+   maximum characters     24
+
+   name                   start_local_true_solar_time_sol
+   version                1.15
+   value data type        ASCII_Integer
+   description            The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Start_local_true_solar_time_sol should accompany the attribute start_local_true_solar_time if that attribute's value does not include a sol number prefix.
+   minimum value          0
+
+   name                   start_mars_year
+   version                1.15
+   value data type        ASCII_Integer
+   description             The start_mars_year element gives the Mars year at the beginning of the observation. Mars Year 1 began on April 11, 1955. The year number is incremented by 1 for each Martian spring equinox (solar longitude 0 degrees). 
+
+   name                   start_sol_number
+   version                1.15
+   value data type        ASCII_Integer
+   description            Start_sol_number is the number of the Mars day on which a multiple-day observation was begun. Landing day is Sol 0.
+   minimum value          0
+
+   name                   start_solar_longitude
+   version                1.15
+   value data type        ASCII_Real
+   description            Start_solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary, at the beginning of an observation.
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   stop_local_mean_solar_time
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Stop_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary, at the end of an observation.
+   minimum characters     10
+   maximum characters     24
+
+   name                   stop_local_true_solar_time
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Stop_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the end of an observation.
+   minimum characters     8
+   maximum characters     24
+
+   name                   stop_local_true_solar_time_sol
+   version                1.15
+   value data type        ASCII_Integer
+   description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Stop_local_true_solar_time_sol should accompany the attribute stop_local_true_solar_time if that attribute's value does not include a sol number prefix.
+   minimum value          0
+
+   name                   stop_mars_year
+   version                1.15
+   value data type        ASCII_Integer
+   description             The stop_mars_year element gives the Mars year at the end of the observation. Mars Year 1 began on April 11, 1955. The year number is incremented by 1 for each Martian spring equinox (solar longitude 0 degrees). 
+
+   name                   stop_sol_number
+   version                1.15
+   value data type        ASCII_Integer
+   description            Stop_sol_number is the number of the Mars day on which a multiple-day observation was ended. Landing day is Sol 0.
+   minimum value          0
+
+   name                   stop_solar_longitude
+   version                1.15
+   value data type        ASCII_Real
+   description            Stop_solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary, at the end of an observation.
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   cl_ics123_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Gas composition sensors CS1, CS2 and CS3 upper current limit in calibrated units 
+   unit of measure type   Units_of_Current
+
+   name                   cl_ics123_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Gas composition sensors CS1, CS2 and CS3 upper current limit in digital numbers 
+
+   name                   cl_ics123_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Gas composition sensors CS1, CS2 and CS3 current limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   cl_ics4_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Gas composition sensor CS4 upper current limit in calibrated units 
+   unit of measure type   Units_of_Current
+
+   name                   cl_ics4_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Gas composition sensor CS4 upper current limit in digital numbers 
+
+   name                   cl_ics4_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Gas composition sensor CS4 current limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   comments
+   version                1.15
+   value data type        ASCII_Short_String_Preserved
+   description             Comments associated with MOXIE_Parameters/Run_Control_Table_Step or with MOXIE_Parameters/.../Digital_Number_To_Calibrated_Unit_Equations. 
+
+   name                   cs123_en
+   version                1.15
+   value data type        ASCII_Boolean
+   description             For MOXIE: Gas composition sensors 1, 2 and 3 enable bit 
+
+   name                   cs4_en
+   version                1.15
+   value data type        ASCII_Boolean
+   description             For MOXIE: Gas composition sensor 4 enable bit 
+
+   name                   digital_number_to_calibrated_unit_conversion_software_version
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Version number of the software used to convert digital numbers to calibrated units
+
+   name                   equation
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Digital number to calibrated unit equation
+
+   name                   experiment_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             For MOXIE: Name of a MOXIE_Parameters experiment configuration 
+
+   name                   file_name_binary
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the Run Parameter Table binary file, as uplinked to the rover
+
+   name                   file_name_calibration_table
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the calibration table file containing the digital number to calibrated unit conversions
+
+   name                   file_name_derived_parameters
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters not in telemetry
+
+   name                   file_name_digital_numbers
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             For MOXIE: Name of a MOXIE_Parameters table comma-separated value file containing the experiment intent, after conversion into digital numbers 
+
+   name                   file_name_experiment_intent
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             For MOXIE: Name of a MOXIE_Parameters table comma-separated value file containing the experiment intent 
+
+   name                   file_name_extended_parameters
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters in extended telemetry
+
+   name                   file_name_standard_parameters
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters in standard telemetry
+
+   name                   file_name_stem
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             For MOXIE: Stem of the file names used when creating the experiment configuration 
+
+   name                   hb_vbh_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is on in calibrated units 
+
+   name                   hb_vbh_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is on in digital numbers 
+
+   name                   hb_vbl_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is off in calibrated units 
+
+   name                   hb_vbl_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is off in digital numbers 
+
+   name                   hs_en
+   version                1.15
+   value data type        ASCII_Boolean
+   description             For MOXIE: SOXE heater enable bit 
+
+   name                   ht_vth_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is on in calibrated units 
+
+   name                   ht_vth_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is on in digital numbers 
+
+   name                   ht_vtl_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is off in calibrated units 
+
+   name                   ht_vtl_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is off in digital numbers 
+
+   name                   m1_en
+   version                1.15
+   value data type        ASCII_Boolean
+   description             For MOXIE: Scroll compressor motor enable bit 
+
+   name                   major_version_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Major version number of the experiment configuration 
+
+   name                   minor_version_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Minor version number of the experiment configuration 
+
+   name                   ol_p4_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure upper operational limit in calibrated units 
+   unit of measure type   Units_of_Pressure
+
+   name                   ol_p4_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure upper operational limit in digital numbers 
+
+   name                   ol_p4_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure lower operational limit in calibrated units 
+   unit of measure type   Units_of_Pressure
+
+   name                   ol_p4_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure lower operational limit in digital numbers 
+
+   name                   ol_p4_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure operational limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   ol_tb_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack temperature upper operational limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   ol_tb_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack temperature upper operational limit in digital numbers 
+
+   name                   ol_tb_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack temperature lower operational limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   ol_tb_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack temperature lower operational limit in digital numbers 
+
+   name                   ol_tb_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack temperature operational limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   ol_tt_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack temperature upper operational limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   ol_tt_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack temperature upper operational limit in digital numbers 
+
+   name                   ol_tt_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack temperature lower operational limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   ol_tt_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack temperature lower operational limit in digital numbers 
+
+   name                   ol_tt_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack temperature operational limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   ol_xibp4_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure upper operational limit in calibrated units 
+
+   name                   ol_xibp4_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure upper operational limit in digital numbers 
+
+   name                   ol_xibp4_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure lower operational limit in calibrated units 
+
+   name                   ol_xibp4_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure lower operational limit in digital numbers 
+
+   name                   ol_xibp4_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure operational limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   ol_xitp4_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure upper operational limit in calibrated units 
+
+   name                   ol_xitp4_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure upper operational limit in digital numbers 
+
+   name                   ol_xitp4_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure lower operational limit in calibrated units 
+
+   name                   ol_xitp4_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure lower operational limit in digital numbers 
+
+   name                   ol_xitp4_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure operational limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   parameter
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the field to which the digital number to calibrated unit equation applies
+
+   name                   persistence_en
+   version                1.15
+   value data type        ASCII_Boolean
+   description             For MOXIE: MOXIE_Parameters persistence time enable flag 
+
+   name                   primary_objective
+   version                1.15
+   value data type        ASCII_Short_String_Preserved
+   description             For MOXIE: Primary objective of the experiment configuration 
+
+   name                   run_id
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             For MOXIE: Unique identifier for the experiment configuration 
+
+   name                   secondary_objective
+   version                1.15
+   value data type        ASCII_Short_String_Preserved
+   description             For MOXIE: Secondary objective of the experiment configuration 
+
+   name                   sl_ib_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack current upper safety limit in calibrated units 
+   unit of measure type   Units_of_Current
+
+   name                   sl_ib_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current upper safety limit in digital numbers 
+
+   name                   sl_ib_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_it_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack current upper safety limit in calibrated units 
+   unit of measure type   Units_of_Current
+
+   name                   sl_it_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current upper safety limit in digital numbers 
+
+   name                   sl_it_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_p2_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Pressure between check valve and flow sensor upper safety limit in calibrated units 
+   unit of measure type   Units_of_Pressure
+
+   name                   sl_p2_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure between check valve and flow sensor upper safety limit in digital numbers 
+
+   name                   sl_p2_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure between check valve and flow sensor safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_p3_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Pressure between flow sensor and SOXE upper safety limit in calibrated units 
+   unit of measure type   Units_of_Pressure
+
+   name                   sl_p3_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure between flow sensor and SOXE upper safety limit in digital numbers 
+
+   name                   sl_p3_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure between flow sensor and SOXE safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_p4_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Pressure at CO/CO2 VFCD inlet (SOXE cathode pressure) upper safety limit in calibrated units 
+   unit of measure type   Units_of_Pressure
+
+   name                   sl_p4_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure at CO/CO2 VFCD inlet (SOXE cathode pressure) upper safety limit in digital numbers 
+
+   name                   sl_p4_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure at CO/CO2 VFCD inlet (SOXE cathode pressure) safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_p5_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Pressure at O2 VFCD inlet (SOXE anode pressure) upper safety limit in calibrated units 
+   unit of measure type   Units_of_Pressure
+
+   name                   sl_p5_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure at O2 VFCD inlet (SOXE anode pressure) upper safety limit in digital numbers 
+
+   name                   sl_p5_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Pressure at O2 VFCD inlet (SOXE anode pressure) safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_t1_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Temperature at sensor panel upper safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_t1_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at sensor panel upper safety limit in digital numbers 
+
+   name                   sl_t1_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at sensor panel safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_t22_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Temperature at electronics control board upper safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_t22_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at electronics control board upper safety limit in digital numbers 
+
+   name                   sl_t22_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at electronics control board safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_t3_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Temperature at compressor housing upper safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_t3_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at compressor housing upper safety limit in digital numbers 
+
+   name                   sl_t3_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at compressor housing safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_t4_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Temperature at compressor motor upper safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_t4_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at compressor motor upper safety limit in digital numbers 
+
+   name                   sl_t4_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at compressor motor safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_t7_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Temperature at baseplate upper safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_t7_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at baseplate upper safety limit in digital numbers 
+
+   name                   sl_t7_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Temperature at baseplate lower safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_t7_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at baseplate lower safety limit in digital numbers 
+
+   name                   sl_t7_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Temperature at baseplate safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_tb_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack temperature upper safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_tb_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack temperature upper safety limit in digital numbers 
+
+   name                   sl_tb_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack temperature safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_tt_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack temperature upper safety limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   sl_tt_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack temperature upper safety limit in digital numbers 
+
+   name                   sl_tt_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack temperature safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_v28vm_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Main 28 V power supply upper voltage safety limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   sl_v28vm_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Main 28 V power supply upper voltage safety limit in digital numbers 
+
+   name                   sl_v28vm_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Main 28 V power supply lower voltage safety limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   sl_v28vm_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Main 28 V power supply lower voltage safety limit in digital numbers 
+
+   name                   sl_v28vm_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Main 28 V power supply voltage safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_v28vs_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE heaters 28 V power supply upper voltage safety limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   sl_v28vs_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE heaters 28 V power supply upper voltage safety limit in digital numbers 
+
+   name                   sl_v28vs_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE heaters 28 V power supply lower voltage safety limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   sl_v28vs_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE heaters 28 V power supply lower voltage safety limit in digital numbers 
+
+   name                   sl_v28vs_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE heaters 28 V power supply voltage safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_vb_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack voltage upper safety limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   sl_vb_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack voltage upper safety limit in digital numbers 
+
+   name                   sl_vb_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack voltage safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   sl_vt_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack voltage upper safety limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   sl_vt_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack voltage upper safety limit in digital numbers 
+
+   name                   sl_vt_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack voltage safety limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   step_duration
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Step duration 
+   unit of measure type   Units_of_Time
+
+   name                   step_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Step number 
+
+   name                   symbol
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Symbol of the constant in the digital number to calibrated unit equation
+
+   name                   tl_ics1234_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: Gas composition sensors CS1, CS2, CS3 and CS4 upper temperature limit in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   tl_ics1234_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Gas composition sensors CS1, CS2, CS3 and CS4 upper temperature limit in digital numbers 
+
+   name                   tl_ics1234_t
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: Gas composition sensors CS1, CS2, CS3 and CS4 temperature limit persistence time 
+   unit of measure type   Units_of_Time
+
+   name                   value
+   version                1.15
+   value data type        ASCII_Real
+   description            Numerical value of the constant in the digital number to calibrated unit equation
+
+   name                   vb_en
+   version                1.15
+   value data type        ASCII_Boolean
+   description             For MOXIE: SOXE bottom half-stack power supply enable bit 
+
+   name                   vt_en
+   version                1.15
+   value data type        ASCII_Boolean
+   description             For MOXIE: SOXE top half-stack power supply enable bit 
+
+   name                   zib_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack current control loop voltage output upper limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   zib_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current control loop voltage output upper limit in digital numbers 
+
+   name                   zib_i_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack current control loop integral gain in calibrated units 
+
+   name                   zib_i_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current control loop integral gain in digital numbers 
+
+   name                   zib_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack current control loop voltage output lower limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   zib_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current control loop voltage output lower limit in digital numbers 
+
+   name                   zib_os_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack current control loop voltage offset in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   zib_os_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current control loop voltage offset in digital numbers 
+
+   name                   zib_p_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack current control loop proportional gain in calibrated units 
+
+   name                   zib_p_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current control loop proportional gain in digital numbers 
+
+   name                   zib_sp_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack current control loop setpoint in calibrated units 
+   unit of measure type   Units_of_Current
+
+   name                   zib_sp_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack current control loop setpoint in digital numbers 
+
+   name                   zit_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack current control loop voltage output upper limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   zit_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current control loop voltage output upper limit in digital numbers 
+
+   name                   zit_i_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack current control loop integral gain in calibrated units 
+
+   name                   zit_i_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current control loop integral gain in digital numbers 
+
+   name                   zit_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack current control loop voltage output lower limit in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   zit_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current control loop voltage output lower limit in digital numbers 
+
+   name                   zit_os_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack current control loop voltage offset in calibrated units 
+   unit of measure type   Units_of_Voltage
+
+   name                   zit_os_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current control loop voltage offset in digital numbers 
+
+   name                   zit_p_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack current control loop proportional gain in calibrated units 
+
+   name                   zit_p_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current control loop proportional gain in digital numbers 
+
+   name                   zit_sp_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack current control loop setpoint in calibrated units 
+   unit of measure type   Units_of_Current
+
+   name                   zit_sp_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack current control loop setpoint in digital numbers 
+
+   name                   zp4_h_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output upper limit in calibrated units 
+
+   name                   zp4_h_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output upper limit in digital numbers 
+
+   name                   zp4_i_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure control loop integral gain in calibrated units 
+
+   name                   zp4_i_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure control loop integral gain in digital numbers 
+
+   name                   zp4_l_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output lower limit in calibrated units 
+
+   name                   zp4_l_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output lower limit in digital numbers 
+
+   name                   zp4_os_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM offset in calibrated units 
+
+   name                   zp4_os_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM offset in digital numbers 
+
+   name                   zp4_p_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure control loop proportional gain in calibrated units 
+
+   name                   zp4_p_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure control loop proportional gain in digital numbers 
+
+   name                   zp4_sp_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE cathode pressure control loop setpoint in calibrated units 
+   unit of measure type   Units_of_Pressure
+
+   name                   zp4_sp_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE cathode pressure control loop setpoint in digital numbers 
+
+   name                   ztb_i_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack heater temperature control loop integral gain in calibrated units 
+
+   name                   ztb_i_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack heater temperature control loop integral gain in digital numbers 
+
+   name                   ztb_p_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack temperature control loop proportional gain in calibrated units 
+
+   name                   ztb_p_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack temperature control loop proportional gain in digital numbers 
+
+   name                   ztb_sp_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE bottom half-stack temperature control loop setpoint in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   ztb_sp_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE bottom half-stack temperature control loop setpoint in digital numbers 
+
+   name                   ztt_i_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack heater temperature control loop integral gain in calibrated units 
+
+   name                   ztt_i_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack heater temperature control loop integral gain in digital numbers 
+
+   name                   ztt_p_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack temperature control loop proportional gain in calibrated units 
+
+   name                   ztt_p_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack temperature control loop proportional gain in digital numbers 
+
+   name                   ztt_sp_calibrated
+   version                1.15
+   value data type        ASCII_Real
+   description             For MOXIE: SOXE top half-stack temperature control loop setpoint in calibrated units 
+   unit of measure type   Units_of_Temperature
+
+   name                   ztt_sp_digital_number
+   version                1.15
+   value data type        ASCII_Integer
+   description             For MOXIE: SOXE top half-stack temperature control loop setpoint in digital numbers 
+
+   name                   current_value
+   version                1.15
+   value data type        ASCII_Real
+   description            The current_value attribute provides provides the current, in the specified units, of an imaging instrument or some part of the imaging instrument.
+   unit of measure type   Units_of_Current
+
+   name                   device_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The device_name attribute supplies the formal name for an imaging instrument, an imaging instrument device, or some point on the instrument or device.
+
+   name                   flash_duration
+   version                1.15
+   value data type        ASCII_Real
+   description            The flash_duration attribute provides the duration of a single component of the flash for the PIXL MCC illumination.
+   unit of measure type   Units_of_Time
+
+   name                   inst_compression_mode
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The inst_compression_mode identifies the type of compression applied to a data product.
+   nillable               true
+
+   name                   inst_compression_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The inst_compression_name gives the name of the compression algorithm applied to a data product.
+   nillable               true
+
+   name                   pdp_category
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_category identifies the PIXL data product category number.
+   nillable               true
+
+   name                   pdp_category_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The pdp_category_name identifies the PIXL data product category name.
+   nillable               true
+
+   name                   pdp_nvm_block
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_nvm_block identifies the Non Volatile Memory block from which Anomalous Retrieved data was read. Applies only to anomalous data.
+   nillable               true
+
+   name                   pdp_nvm_chunks
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_nvm_chunks gives the number of Non Volatile Memory chunks that make up a PIXL data product.
+   nillable               true
+
+   name                   pdp_nvm_page
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_nvm_page identifies the page in Non Volatile Memory from which Anomalous Retrieved Data was read. Applies only to anomalous data.
+   nillable               true
+
+   name                   pdp_nvm_usn
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The pdp_nvm_usn gives the Universal Sequence Number of the data product as it was stored in Non-Volatile Memory.
+   nillable               true
+
+   name                   pdp_size
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_size gives the size of the PIXL data product as it was stored in Non-Volatile Memory.
+   nillable               true
+
+   name                   pixl_motion_counter
+   version                1.15
+   value data type        ASCII_NonNegative_Integer
+   description             The PIXL Motion Counter is a counter representing a change to the PIXL Hexapod position. The counter starts at 0 when PIXL is powered on (presumably with the hexapod in the "homed" position) and increases by 1 each time the hexapod is moved. 
+   nillable               true
+
+   name                   pixl_rtt
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             The pixl_rtt attribute is the PIXL-specific 9-character Round-Trip Tracking code. A specific pixl_rtt value is assigned to all products collected during the same PIXL observation set. The pixl_rtt value also appears in characters 36-44 of the PIXL data file name. The code is typically a string of digits with leading zeroes.
+   nillable               true
+   minimum characters     9
+   maximum characters     9
+
+   name                   temperature_value
+   version                1.15
+   value data type        ASCII_Real
+   description            The temperature_value attribute provides the temperature, in the specified units, of some point on an imaging instrument or other imaging instrument device.
+   unit of measure type   Units_of_Temperature
+
+   name                   voltage_value
+   version                1.15
+   value data type        ASCII_Real
+   description            The voltage_value attribute provides provides the voltage, in the specified units, of an imaging instrument or some part of the imaging instrument.
+   unit of measure type   Units_of_Voltage
+
+   name                   calibration
+   version                1.15
+   value data type        ASCII_Boolean
+   description            True if the radar is connected to the calibration cable, false if it is connected to the antenna cable. 
+   nillable               true
+
+   name                   config_id
+   version                1.15
+   value data type        ASCII_Integer
+   description            Identifier of current RIMFAX configuration mode
+   nillable               true
+
+   name                   decimation
+   version                1.15
+   value data type        ASCII_Integer
+   description            Onboard decimation of acquired soundings, in number of soundings removed per each sounding downlinked.
+   nillable               true
+
+   name                   gate_frequency
+   version                1.15
+   value data type        ASCII_Real
+   description            Frequency of the gate signal
+   nillable               true
+   unit of measure type   Units_of_Frequency
+
+   name                   group_spacing
+   version                1.15
+   value data type        ASCII_Integer
+   description             Distance between sounding groups (i.e. distance between soundings of a given mode) as set in activity uplink (actual distance may deviate slightly); 0 if not a Traverse sounding 
+   nillable               true
+
+   name                   lis_soundings
+   version                1.15
+   value data type        ASCII_Integer
+   description             The number of soundings in a Long Integration Sounding (LIS) observation. 
+   nillable               true
+
+   name                   max_rover_elev
+   version                1.15
+   value data type        ASCII_Real
+   description            The maximum value of rover_elev, the planetary elevation of the rover RNAV frame origin
+   nillable               true
+
+   name                   max_rover_lat
+   version                1.15
+   value data type        ASCII_Real
+   description            The maximum value of rover_lat, the planetocentric latitude of the rover RNAV frame origin
+   nillable               true
+
+   name                   max_rover_lon
+   version                1.15
+   value data type        ASCII_Real
+   description            The maximum value of rover_lon, the east longitude of the rover RNAV frame
+   nillable               true
+
+   name                   min_rover_elev
+   version                1.15
+   value data type        ASCII_Real
+   description            The minimum value of rover_elev, the planetary elevation of the rover RNAV frame origin
+   nillable               true
+
+   name                   min_rover_lat
+   version                1.15
+   value data type        ASCII_Real
+   description            The minimum value of rover_lat, the planetocentric latitude of the rover RNAV frame origin
+   nillable               true
+
+   name                   min_rover_lon
+   version                1.15
+   value data type        ASCII_Real
+   description            The minimum value of rover_lon, the east longitude of the rover RNAV frame
+   nillable               true
+
+   name                   note
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             This note field can be used to indicate that the attenuation values are in dB because there is no unit_of_measure for such units. 
+   nillable               true
+
+   name                   number_of_samples
+   version                1.15
+   value data type        ASCII_Integer
+   description            Number of samples in each sounding.
+   nillable               true
+
+   name                   number_of_sweeps
+   version                1.15
+   value data type        ASCII_Integer
+   description            Number of sweeps that are integrated internally in the radar.
+   nillable               true
+
+   name                   receive_only
+   version                1.15
+   value data type        ASCII_Boolean
+   description            True if the radar is in passive mode, false if it is in active (normal radar) mode. 
+   nillable               true
+
+   name                   rx_attenuation
+   version                1.15
+   value data type        ASCII_Integer
+   description             Attenuation in the receive path; higher values represent more dampening of the received signal 
+   nillable               true
+
+   name                   rx_delay
+   version                1.15
+   value data type        ASCII_Integer
+   description            Time delay of receiver gate
+   nillable               true
+   unit of measure type   Units_of_Time
+
+   name                   setup_file
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the setup file.
+   nillable               true
+
+   name                   sinetable
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Sine table used to create the radar bandwidth sweep.
+   nillable               true
+
+   name                   start_frequency
+   version                1.15
+   value data type        ASCII_Integer
+   description             Start frequency of recorded bandwidth range (same as stop_frequency for single-frequency Passive Meas) 
+   nillable               true
+   unit of measure type   Units_of_Frequency
+
+   name                   start_jdate
+   version                1.15
+   value data type        ASCII_Real
+   description            Start time in Julian date of first activity in the data product
+   nillable               true
+
+   name                   start_sounding_counter
+   version                1.15
+   value data type        ASCII_Integer
+   description             Start value of sounding counter of first activity in the data product. The sounding counter records absolute total count of soundings since start of M2020 mission. 
+   nillable               true
+
+   name                   start_utc
+   version                1.15
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Start time in UTC of first activity in the data product
+   nillable               true
+
+   name                   stop_frequency
+   version                1.15
+   value data type        ASCII_Integer
+   description             Stop frequency of recorded bandwidth range (same as start_frequency for single-frequency Passive Meas) 
+   nillable               true
+   unit of measure type   Units_of_Frequency
+
+   name                   stop_jdate
+   version                1.15
+   value data type        ASCII_Real
+   description            Stop time in Julian date of last activity in the data product.
+   nillable               true
+
+   name                   stop_sounding_counter
+   version                1.15
+   value data type        ASCII_Integer
+   description            Stop value of sounding counter of last activity in the data product. The sounding counter records absolute total count of soundings since start of M2020 mission.
+   nillable               true
+
+   name                   stop_utc
+   version                1.15
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Stop time in UTC of last activity in the data product
+   nillable               true
+
+   name                   sweep_time
+   version                1.15
+   value data type        ASCII_Real
+   description             Duration of radar-signal generation sweep through frequency bandwidth, for Active Meas; Duration of receive-only sweep through frequency bandwidth, for Passive Meas 
+   nillable               true
+   unit of measure type   Units_of_Time
+
+   name                   tx_attenuation
+   version                1.15
+   value data type        ASCII_Integer
+   description             Attenuation in the transmit path, higher values represent lower output power 
+   nillable               true
+
+   name                   tx_delay
+   version                1.15
+   value data type        ASCII_Integer
+   description            Time delay of transmitter gate
+   nillable               true
+   unit of measure type   Units_of_Time
+
+   name                   calibration_target_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             The calibration_target_name gives the name of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target name is associated with a calibration target number: (0) NA (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
+   nillable               true
+
+   name                   calibration_target_number
+   version                1.15
+   value data type        ASCII_NonNegative_Integer
+   description             The calibration_target_name gives the number of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target number is associated with a calibration target name: (0) Not Applicable (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
+   nillable               true
+   minimum value          0
+   maximum value          10
+
+   name                   sherloc_config_file
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The sherloc_config_file provides the name of the configuration file used to process a SHERLOC data product.
+
+   name                   bu_hardware_identifier
+   version                1.15
+   value data type        ASCII_Integer
+   description             Hardware identifier for a specific BU CNDH board. Used to know which SOH engineering unit conversion factors to apply to the data. 
+
+   name                   bu_software_version
+   version                1.15
+   value data type        ASCII_Integer
+   description             Unique identifier for the software version. Is a unix timestamp of when the software was built. 
+
+   name                   cndh_firmware_version
+   version                1.15
+   value data type        ASCII_Integer
+   description             Unique identifier for the CNDH firmware version. Is a unix timestamp of when the firmware was built. 
+
+   name                   data_definition_version
+   version                1.15
+   value data type        ASCII_Integer
+   description             Version number of the instrument command dictionary, which defines specifics of each command parameter, and the structure of individual data products like SOH. 
+
+   name                   data_length
+   version                1.15
+   value data type        ASCII_NonNegative_Integer
+   description            Specifies the size of the image (in the telemetry stream) in bytes for SuperCam RMI.
+
+   name                   generic_data_buffer_size
+   version                1.15
+   value data type        ASCII_Integer
+   description             The number of bytes of the entire generic buffer. Includes commands, data, header, and trailer, every byte from the packet header marker through the Fletcher checksum. 
+
+   name                   marker_pad
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Static value used by the SuperCam RMI Body Unit (BU).
+
+   name                   memory_bank
+   version                1.15
+   value data type        ASCII_Integer
+   description            For SuperCam RMI this specifies the Mast Unit (MU) memory bank used to hold image before transfer to RCE. There are 64 memory banks in the MU. 
+
+   name                   milliseconds_count
+   version                1.15
+   value data type        ASCII_Integer
+   description            Millisecond count from RCE time sync when image received from mast unit by SuperCam RMI.
+
+   name                   mu_hardware_identifier
+   version                1.15
+   value data type        ASCII_Integer
+   description             Hardware identifier for a specific MU board. Used to know which housekeeping engineering unit conversion factors to apply to the data. 
+
+   name                   mu_version_identifier
+   version                1.15
+   value data type        ASCII_Integer
+   description             Version of the MU, response from the MU send version command. 
+
+   name                   num_images_transmitted
+   version                1.15
+   value data type        ASCII_NonNegative_Integer
+   description            For SuperCam RMI, this is the number of images transmitted to the RCE.
+
+   name                   number_of_sections
+   version                1.15
+   value data type        ASCII_Integer
+   description             Number of command or data sections contained in this buffer. Does not include the header section or the trailer section. 
+
+   name                   nv_xmit_buffer_count
+   version                1.15
+   value data type        ASCII_Integer
+   description             Non-volatile count of the number of times the generic buffer has been transmitted to the RCE. Acts as a unique identifier for the buffer. 
+
+   name                   rce_time_sync
+   version                1.15
+   value data type        ASCII_Integer
+   description            Last time sync value received from RCE by SuperCam RMI
+
+   name                   reserved_1
+   version                1.15
+   value data type        ASCII_Integer
+   description            Reserved field for SuperCam RMI mini-header
+
+   name                   reserved_2
+   version                1.15
+   value data type        ASCII_Integer
+   description            Reserved field for SuperCam RMI mini-header
+
+   name                   rmi_cmos_registers
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Dump of SuperCam RMI hardware registers
+
+   name                   rmi_fpga_registers
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            Dump of all SuperCam RMI FPGA registers
+
+   name                   rmi_header_size
+   version                1.15
+   value data type        ASCII_NonNegative_Integer
+   description            For SuperCam RMI this is the total number of bytes in MU and BU headers
+
+   name                   scam_lastats_flag
+   version                1.15
+   value data type        ASCII_Boolean
+   description            Logical to indicate if LIBS active are statistics
+
+   name                   scam_ldark
+   version                1.15
+   value data type        ASCII_Integer
+   description            Indicates whether darks were collected after LIBS active, before LIBS active, or both
+
+   name                   scam_ldstats_flag
+   version                1.15
+   value data type        ASCII_Boolean
+   description            Logical to indicate if LIBS dark are statistics
+
+   name                   scam_point_number
+   version                1.15
+   value data type        ASCII_Integer
+   description            Point number in the raster
+
+   name                   scam_rastats_flag
+   version                1.15
+   value data type        ASCII_Boolean
+   description            Logical to indicate if Raman active are statistics
+
+   name                   scam_rdark
+   version                1.15
+   value data type        ASCII_Integer
+   description            Indicates whether darks were collected after Raman active, before Raman active, or both
+
+   name                   scam_rdstats_flag
+   version                1.15
+   value data type        ASCII_Boolean
+   description            Logical to indicate if Raman darks are statistics
+
+   name                   scam_two_d_flag
+   version                1.15
+   value data type        ASCII_Boolean
+   description            Flag indicating a 2D collect
+
+   name                   scam_type
+   version                1.15
+   value data type        ASCII_Integer
+   description            Bit mask indicating technique type
+
+   name                   se_firmware_version
+   version                1.15
+   value data type        ASCII_Integer
+   description             Unique identifier for the SE firmware version. Is a unix timestamp of when the firmware was built. 
+
+   name                   se_hardware_identifier
+   version                1.15
+   value data type        ASCII_Integer
+   description             Hardware identifier for a specific SE board. Used to know which SOH engineering unit conversion factors to apply to the data. 
+
+   name                   xmit_data_id
+   version                1.15
+   value data type        ASCII_Integer
+   description            The data_id parameter sent with the XMIT_DATA command
+
+Parsed Input - Classes:
+
+   name                   Observation_Information
+   description            The Observation_Information class provides information about a science observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.release_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.product_type_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.spacecraft_clock_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.spacecraft_clock_stop
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.spacecraft_clock_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_local_mean_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_local_mean_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_local_true_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_local_true_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_solar_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_solar_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.active_flight_computer
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_mars_year
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_mars_year
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Run_Control_Table_Metadata
+   description             MOXIE Run Control Table metadata 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.file_name_experiment_intent
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_digital_numbers
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_binary
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Run_Control_Table_Field
+   description             MOXIE Run Control Table field 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Run_Control_Table_Fields
+   description             MOXIE Run Control Table Fields 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Run_Control_Table_Field
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Run_Control_Table_Step
+   description             MOXIE Run Control Table step 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.step_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.step_duration
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztt_sp_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztt_sp_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztb_sp_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztb_sp_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_sp_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_sp_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_os_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_os_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_sp_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_sp_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_os_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_os_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_sp_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_sp_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_os_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_os_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tt_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tt_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tt_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tt_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tb_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tb_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tb_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tb_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_p4_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_p4_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_p4_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_p4_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xitp4_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xitp4_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xitp4_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xitp4_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xibp4_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xibp4_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xibp4_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xibp4_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.hs_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cs123_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cs4_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.m1_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.vt_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.vb_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.comments
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Run_Control_Table_Values
+   description            MOXIE Run Control Table Values
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Run_Control_Table_Step
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Run_Control_Table
+   description            MOXIE Run Control Table
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Run_Control_Table_Metadata
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Run_Control_Table_Fields
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Run_Control_Table_Values
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Algorithm_Parameter_Table_Metadata
+   description            MOXIE Algorithm Parameter Table Metadata
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.file_name_experiment_intent
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_digital_numbers
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_binary
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Algorithm_Parameter_Table_Field
+   description            MOXIE Algorithm Parameter Table Field
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Algorithm_Parameter_Table_Fields
+   description            MOXIE Algorithm Parameter Table Fields
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Algorithm_Parameter_Table_Field
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Algorithm_Parameter_Table_Values
+   description            MOXIE Algorithm Parameter Table Values
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.persistence_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztt_p_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztt_p_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztb_p_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztb_p_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztt_i_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztt_i_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztb_i_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ztb_i_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_p_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_p_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_i_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_i_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_l_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_h_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zp4_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_p_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_p_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_p_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_p_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_i_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_i_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_h_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_i_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_i_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_l_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zib_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_h_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_l_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.zit_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ht_vtl_h_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ht_vtl_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ht_vth_h_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ht_vth_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.hb_vbl_h_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.hb_vbl_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.hb_vbh_h_calibrated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.hb_vbh_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tt_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_tb_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_p4_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xitp4_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.ol_xibp4_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Algorithm_Parameter_Table
+   description            MOXIE Algorithm Parameter Table
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Algorithm_Parameter_Table_Metadata
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Algorithm_Parameter_Table_Fields
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Algorithm_Parameter_Table_Values
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Safety_Parameter_Table_Metadata
+   description            MOXIE Safety Parameter Table Metadata
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.file_name_experiment_intent
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_digital_numbers
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_binary
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Safety_Parameter_Table_Field
+   description            MOXIE Safety Parameter Table Field
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Safety_Parameter_Table_Fields
+   description            MOXIE Safety Parameter Table Fields
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Safety_Parameter_Table_Field
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Safety_Parameter_Table_Values
+   description            MOXIE Safety Parameter Table Values
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.persistence_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p2_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p2_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p3_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p3_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p4_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p4_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p5_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p5_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_vt_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_vt_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_vb_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_vb_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vm_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vm_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vm_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vm_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vs_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vs_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vs_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vs_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_it_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_it_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_ib_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_ib_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_tt_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_tt_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_tb_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_tb_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t3_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t3_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t4_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t4_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t1_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t1_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t22_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t22_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t7_l_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t7_l_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t7_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t7_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p2_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p3_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p4_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_p5_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_vt_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_vb_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vm_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_v28vs_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_it_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_ib_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_tt_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_tb_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t3_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t4_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t1_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t22_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.sl_t7_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Safety_Parameter_Table
+   description            MOXIE Safety Parameter Table
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Safety_Parameter_Table_Metadata
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Safety_Parameter_Table_Fields
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Safety_Parameter_Table_Values
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Run_Parameter_Table_Metadata
+   description            MOXIE Run Parameter Table Metadata
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.file_name_experiment_intent
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_digital_numbers
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_binary
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Run_Parameter_Table_Field
+   description            MOXIE Run Parameter Table Field
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Run_Parameter_Table_Fields
+   description            MOXIE Run Parameter Table Fields
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Run_Parameter_Table_Field
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Run_Parameter_Table_Values
+   description            MOXIE Run Parameter Table Values
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.persistence_en
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.tl_ics1234_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.tl_ics1234_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cl_ics123_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cl_ics123_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cl_ics4_h_calibrated
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cl_ics4_h_digital_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.tl_ics1234_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cl_ics123_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.cl_ics4_t
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Run_Parameter_Table
+   description            MOXIE Run Parameter Table
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Run_Parameter_Table_Metadata
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Run_Parameter_Table_Fields
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Run_Parameter_Table_Values
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Experiment_Configuration_Metadata
+   description            MOXIE Experiment Configuration Metadata
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.run_id
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.experiment_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.major_version_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.minor_version_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_stem
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.primary_objective
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.secondary_objective
+      minimum occurrences   0
+      maximum occurrences   9
+      reference type        attribute_of
+
+   name                   Experiment_Configuration
+   description            MOXIE Experiment Configuration
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Experiment_Configuration_Metadata
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Run_Control_Table
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Algorithm_Parameter_Table
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Safety_Parameter_Table
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Run_Parameter_Table
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Digital_Number_To_Calibrated_Unit_Constant
+   description            Digital number to calibrated unit constant
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.symbol
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.value
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Digital_Number_To_Calibrated_Unit_Equation
+   description            Digital number to calibrated unit equation
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.parameter
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.equation
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Constant
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Digital_Number_To_Calibrated_Unit_Equations
+   description            Digital number to calibrated unit equations
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.comments
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equation
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Digital_Number_To_Calibrated_Unit_Conversions_Metadata
+   description            Digital number to calibrated unit conversions metadata
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.file_name_calibration_table
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_standard_parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_extended_parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.file_name_derived_parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.moxie.digital_number_to_calibrated_unit_conversion_software_version
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Digital_Number_To_Calibrated_Unit_Conversions
+   description            Digital number to calibrated unit conversions
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions_Metadata
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equations
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Ancillary_Data_MEDA
+   description            References to ancillary data acquired by the MEDA instrument
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Ancillary_Data_Supercam
+   description            References to ancillary data acquired by the Supercam instrument microphone
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Ancillary_Data_EDLCAM
+   description            References to ancillary data acquired by the EDLCam instrument microphone
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Ancillary_Data_Rover
+   description            References to ancillary data acquired by the rover
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Ancillary_Data
+   description            References to ancillary data acquired by other instruments and/or the rover
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Ancillary_Data_MEDA
+      minimum occurrences   0
+      maximum occurrences   99
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Ancillary_Data_Supercam
+      minimum occurrences   0
+      maximum occurrences   99
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Ancillary_Data_EDLCAM
+      minimum occurrences   0
+      maximum occurrences   99
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Ancillary_Data_Rover
+      minimum occurrences   0
+      maximum occurrences   99
+      reference type        component_of
+
+   name                   MOXIE_Parameters
+   description            The MOXIE_Parameters class provides metadata specific to MOXIE observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.moxie.Experiment_Configuration
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.moxie.Ancillary_Data
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Device_Current
+   description            The Device_Current class provides the current of some point on an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.current_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Currents
+   description            The Device_Currents class provides a container for the set of currents of an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Current
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Device_Flash
+   description            The Device_Flash class provides the duration of a single identified component of the flash for the PIXL MCC illumination.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.flash_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Flashes
+   description            The Device_Flashes class provides a container for the set of flash durations for the PIXL MCC illumination.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Flash
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Device_Temperature
+   description            The Device_Temperature class provides a container for the temperature of some point on an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.temperature_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Temperatures
+   description            The Device_Temperatures class provides a container for the set of temperatures of an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Temperature
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Device_Voltage
+   description            The Device_Voltage class provides the voltage of some point on an imaging instrument or other imaging device. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.voltage_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Voltages
+   description            The Device_Voltage class provides a container for the set of voltages of an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Voltage
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   PIXL_Illumination
+   description            Container class containing information related to the illumination devices on PIXL. There are two, flood light and structured light. Note that some of the illumination is in the img:Illumination class; the information here is instrument-specific information that does not fit into the img: framework.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Currents
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.Device_Flashes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.Device_Temperatures
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.Device_Voltages
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   PIXL_Compression
+   description            The PIXL Compression class provides information about the compression applied to the data product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.pixl.inst_compression_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.inst_compression_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   PIXL_Parameters
+   description            The PIXL Parameters class provides metadata specific to PIXL observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.pixl.pixl_motion_counter
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pixl_rtt
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_category
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_category_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_usn
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_chunks
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_block
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_page
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.PIXL_Illumination
+      minimum occurrences   0
+      maximum occurrences   2
+      reference type        component_of
+
+      local identifier      mars2020.PIXL_Compression
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   RIMFAX_Parameters
+   description            Container for the attributes describing a RIMFAX observation
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.rfax.config_id
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.decimation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.setup_file
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.calibration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.gate_frequency
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.number_of_samples
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.number_of_sweeps
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.receive_only
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.rx_delay
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.rx_attenuation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.start_frequency
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.stop_frequency
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.sweep_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.tx_delay
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.tx_attenuation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.group_spacing
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.sinetable
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.lis_soundings
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.note
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.start_utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.stop_utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.start_jdate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.stop_jdate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.start_sounding_counter
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.stop_sounding_counter
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.min_rover_lat
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.max_rover_lat
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.min_rover_lon
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.max_rover_lon
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.min_rover_elev
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.max_rover_elev
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Calibration_Target
+   description             The Calibration_Target class contains information about the target of a calibration measurement. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.srlc.calibration_target_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.srlc.calibration_target_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   SHERLOC_Parameters
+   description            Container for the attributes describing a SHERLOC observation
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.srlc.sherloc_config_file
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.srlc.calibration_target
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   SuperCam_RMI_Mini_Header
+   description             This class contains the "mini-header" for the SuperCam RMI camera on Mars 2020. The mini- header is a set of information that is tightly tied to the camera hardware, and the instrument team finds value in keeping the set of mini- header information together. Much (but not all) of the information is also included in appropriate sections of the discipline dictionaries, which is where general users should go. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.rmi_header_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.memory_bank
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rmi_cmos_registers
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rmi_fpga_registers
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.marker_pad
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rce_time_sync
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.milliseconds_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.num_images_transmitted
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.reserved_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.reserved_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.data_length
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      img.Exposure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      img.Subframe
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      img.High_Dynamic_Range
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   SuperCam_Ancillary_Header
+   description            The SuperCam_Ancillary_Header class provides ancillary metadata specific to SuperCam observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.scam_point_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_two_d_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_ldark
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_rdark
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_rdstats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_rastats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_ldstats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_lastats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   SuperCam_Generic_Packet_Header
+   description            The SuperCam Generic_Packet_Header class provides metadata from the SuperCam product generic packet header.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.rce_time_sync
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.data_definition_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.nv_xmit_buffer_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.bu_software_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.cndh_firmware_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.bu_hardware_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.se_firmware_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.se_hardware_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.mu_version_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.mu_hardware_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.xmit_data_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.reserved_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.number_of_sections
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.generic_data_buffer_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   SuperCam_Parameters
+   description            The SuperCam_Parameters class provides metadata specific to SuperCam observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.SuperCam_RMI_Mini_Header
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SuperCam_Ancillary_Header
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SuperCam_Generic_Packet_Header
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Mars2020_Parameters
+   description            The Mars2020_Parameters class is a superclass containing all Mars2020 mission classes.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Observation_Information
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.MOXIE_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.PIXL_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.RIMFAX_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SHERLOC_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SuperCam_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report
