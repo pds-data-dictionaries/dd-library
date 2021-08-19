@@ -200,6 +200,17 @@ with modifications and extensions applied by PDS as needed for planetary mapping
 				<p>The Imaging Dictionary contains classes, attributes, and rules for specifying the metadata associated with imaging and spectrometer data products.
 				</p>
 				<ul>
+					<li><b>Last Updated:</b> 08/19/2021</li>
+					<li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+					<li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
+					<ul>
+						<li><a href="/pds4/img/v1/PDS4_IMG_1F00_1860.xsd">PDS4_IMG_1F00_1860.xsd</a></li>
+						<li><a href="/pds4/img/v1/PDS4_IMG_1F00_1860.sch">PDS4_IMG_1F00_1860.sch</a></li>
+						<li><a href="/pds4/img/v1/PDS4_IMG_1F00_1860.xml">PDS4_IMG_1F00_1860.xml</a></li>
+						<li><a href="/pds4/img/v1/PDS4_IMG_1F00_1860.JSON">PDS4_IMG_1F00_1860.JSON</a></li>
+						<li><a href="/pds4/img/v1/PDS4_IMG_1F00_1860.zip">PDS4_IMG_1F00_1860.zip</a></li>
+					</ul>
+					<br/>
 					<li><b>Last Updated:</b> 10/31/2020</li>
 					<li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
 					<li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
