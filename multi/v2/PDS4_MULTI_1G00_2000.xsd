@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:multi  Version:2.0.0.0 - Wed Sep 08 17:42:57 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.16.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 2.0.0.0 - multi: - Multi                                                  -->
+  <!--   file:/home/runner/work/ldd-multi/ldd-multi/src/PDS4_MULTI_IngestLDD.xml -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/multi/v2"
+    xmlns:multi="http://pds.nasa.gov/pds4/multi/v2"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="2.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+		The Multi dictionary contains classes that describe the composition of multidimensional 
+		data consisting of Array (and Array subclass) data objects. It provides a way to 
+		associate data objects and align the objects in general multi-dimensional structures. 
+		
+		Modification History:
+		
+		1.0.0.0 (Todd King, 2018-Sep-29): 
+		   - Initial version
+		
+		2.0.0.0 (J. Mafi, 2021-Feb-23):
+		   - Changed base class name from "Particle_Observation" to "Multidimensional_Data"
+		   - Changed value class names from plural to singular ("Primary_Values" to 
+		     "Primary_Value", etc.)
+		   - Updated DD_Attribute, DD_Association objects to comply with PDS4 V.1.15.0.0
+		   - Eliminated local re-definition of Local_Internal_Reference class, and 
+		     local_reference_type attribute
+		   - Changed "Face_Plane" class to "Face_Axis"
+		   - changed "axis_number" to "primary_axis_number" and added "face_axis_number" 
+		     attribute
+		   - Added DD_Rule to set permissible values for 
+		     Local_Internal_Reference/local_reference_type in Multidimensional_Data
+	
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Multidimensional_Data" type="multi:Multidimensional_Data"> </xs:element>
+
+  <xs:complexType name="Aligned_Value">
+    <xs:annotation>
+      <xs:documentation>The Aligned_Value class identifies a value which
+        aligns element-by-element with the main (primary) data array.
+        The aligned values array must have the same dimensions as the
+        observation array.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pds:Local_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Axis_Value">
+    <xs:annotation>
+      <xs:documentation>The Axis_Value class identifies the data object
+        which is associated with the one of the axes of the main data
+        array.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pds:Local_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="primary_axis_number" type="multi:primary_axis_number" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Face_Axis">
+    <xs:annotation>
+      <xs:documentation>The Face_Axis class associates one of the axes
+        of a face data array with one of those of the main (primary)
+        data array.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="primary_axis_number" type="multi:primary_axis_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="face_axis_number" type="multi:face_axis_number" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Face_Value">
+    <xs:annotation>
+      <xs:documentation>The Face_Value class identifies the data object
+        which contains parameters associated with two or more axes of
+        the main (primary) data array.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pds:Local_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Face_Axis" type="multi:Face_Axis" minOccurs="2" maxOccurs="16"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Multidimensional_Data">
+    <xs:annotation>
+      <xs:documentation>The Multidimensional_Data describes the data
+        values which are associated with the elements along an axis or
+        on the face of a observation data array.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="pds:name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element ref="pds:local_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="pds:description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Primary_Value" type="multi:Primary_Value" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Axis_Value" type="multi:Axis_Value" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Face_Value" type="multi:Face_Value" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Aligned_Value" type="multi:Aligned_Value" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Primary_Value">
+    <xs:annotation>
+      <xs:documentation>The Primary_Value class identifies the data
+        object which constitutes the main data array.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pds:Local_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="face_axis_number">
+    <xs:annotation>
+      <xs:documentation>The index of the axis in the face array. The
+        first axis is numbered as 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="primary_axis_number">
+    <xs:annotation>
+      <xs:documentation>The index of the axis in the primary array. The
+        first axis is numbered as 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
