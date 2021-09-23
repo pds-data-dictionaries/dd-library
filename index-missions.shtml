@@ -449,6 +449,15 @@
 						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B10_1000.JSON">PDS4_MER_1B10_1000.JSON</a></li>
 						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B10_1000.zip">PDS4_MER_1B10_1000.zip</a></li>
 					</ul>
+					<li><b>Version:</b> 1.11.0.0</li>
+					<li><b>Posted:</b> 09/23/2021</li>
+					<ul>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B00_1000.xsd">PDS4_MER_1B00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B00_1000.sch">PDS4_MER_1B00_1000.sch</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B00_1000.xml">PDS4_MER_1B00_1000.xml</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B00_1000.JSON">PDS4_MER_1B00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/mer/v1/PDS4_MER_1B00_1000.zip">PDS4_MER_1B00_1000.zip</a></li>
+					</ul>
 				</ul>
 				<a class="toTop">Back to top</a>
 			</div>
