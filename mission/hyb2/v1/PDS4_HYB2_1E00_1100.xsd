@@ -1,0 +1,3494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:hyb2  Version:1.1.0.0 - Fri Aug 20 15:14:21 JST 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.1.0.0 - hyb2: - Hayabusa2 Local Data Dictionary                         -->
+  <!--   file:PDS4_HYB2_IngestLDD.xml                                            -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://darts.isas.jaxa.jp/pds4/mission/hyb2/v1"
+    xmlns:hyb2="http://darts.isas.jaxa.jp/pds4/mission/hyb2/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        This is the Hayabusa2 Mission Specific Data Dictionary.
+
+        1.1.0.0
+          - Updated definition for better wording.
+          - Updated mission_phase_name and added mission_phase_id.
+          - Fixed bug in the formation_rule text on spacecraft_clock_start_count,
+            spacecraft_clock_stop_count, and spacecraft_clock_count.
+          - Changed nillable_flag from false to true for many attributes.
+          - Set false to enumeration_flag for TIR_Instrument_Attributes/number_of_accumulated_images.
+          - Renamed filter_wheel_driver_step_counter with filter_wheel_driver_step_count.
+          - Renamed normalization with normalization_status and image_area_trimming with image_area_trimming_status.
+          - Removed calibration_lookup_table_file_name of TIR_Instrument_Attributes.
+          - Removed horizontal_instantaneous_field_of_view and vertical_instantaneous_field_of_view and flip_rotation_flag attributes.
+          - Removed image_compression_type, image_compression_algorithm, image_compression_initial_subsampling_interval,
+            and image_compression_quality. Use IMG LDD instead.
+          - Removed {right_ascension,declination}_at_{center,{lower,upper}_{left,right}_corner}. Use GEO LDD instead.
+
+        1.0.0.0
+          - Initial version
+
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Image_Observation_Information" type="hyb2:Image_Observation_Information"> </xs:element>
+  <xs:element name="Mission_Information" type="hyb2:Mission_Information"> </xs:element>
+  <xs:element name="NIRS3_Instrument_Attributes" type="hyb2:NIRS3_Instrument_Attributes"> </xs:element>
+  <xs:element name="ONC_Calibration_Data_Information" type="hyb2:ONC_Calibration_Data_Information"> </xs:element>
+  <xs:element name="ONC_Image_Information" type="hyb2:ONC_Image_Information"> </xs:element>
+  <xs:element name="ONC_Image_Processing_Parameters" type="hyb2:ONC_Image_Processing_Parameters"> </xs:element>
+  <xs:element name="ONC_Instrument_Attributes" type="hyb2:ONC_Instrument_Attributes"> </xs:element>
+  <xs:element name="ONC_Multiband_Observation_Information" type="hyb2:ONC_Multiband_Observation_Information"> </xs:element>
+  <xs:element name="Observation_Geometry" type="hyb2:Observation_Geometry"> </xs:element>
+  <xs:element name="Observation_Information" type="hyb2:Observation_Information"> </xs:element>
+  <xs:element name="TIR_Instrument_Attributes" type="hyb2:TIR_Instrument_Attributes"> </xs:element>
+
+  <xs:complexType name="Image_Observation_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains observation information for
+        image data.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exposure_duration" type="hyb2:exposure_duration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_name" type="hyb2:filter_name" minOccurs="0" maxOccurs="8"> </xs:element>
+      <xs:element name="band_center" type="hyb2:band_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bandwidth" type="hyb2:bandwidth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="number_of_binning" type="hyb2:number_of_binning" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="image_processing_return_status" type="hyb2:image_processing_return_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="actual_bitdepth" type="hyb2:actual_bitdepth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="unit_count_value" type="hyb2:unit_count_value" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:filter_name = ('No. 1: 390 nm', 'No. 2: WIDE', 'No. 3: 550 nm', 'No. 4: 700 nm', 'No. 5: 860 nm', 'No. 6: 589 nm', 'No. 7: 950 nm', 'No. 8: 480 nm', 'None')"/> -->
+    <!-- <xs:assert test="hyb2:number_of_binning = ('1', '2', '4', '8')"/> -->
+    <!-- <xs:assert test="hyb2:image_processing_return_status = ('Buffer Size Error', 'Hardware Operation Error', 'Normal End', 'Operation Interruption', 'Overflow', 'Overflow and Underflow', 'Parameter Error', 'Underflow', 'Zero Division')"/> -->
+    <!-- <xs:assert test="hyb2:actual_bitdepth = ('10', '12', '8')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Mission_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains information about the
+        Hayabusa2 mission. The attributes in this class are common to
+        all mission data products.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" type="hyb2:mission_phase_name" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="mission_phase_id" type="hyb2:mission_phase_id" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:mission_phase_name = ('Approach Phase', 'Asteroid Proximity Phase', 'Commissioning Phase', 'EDVEGA Phase', 'Earth Swing-by Phase', 'Reentry Phase', 'Return Phase', 'Transfer Phase')"/> -->
+    <!-- <xs:assert test="hyb2:mission_phase_id = ('approach', 'commissioning', 'earth_swing-by', 'edvega', 'proximity', 'reentry', 'return', 'transfer')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="NIRS3_Instrument_Attributes">
+    <xs:annotation>
+      <xs:documentation>NIRS3 instrument-specific
+        parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exposure_duration" type="hyb2:exposure_duration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_gain" type="hyb2:detector_gain" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="number_of_stack" type="hyb2:number_of_stack" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="sampling_mode" type="hyb2:sampling_mode" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_status" type="hyb2:chopper_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="heater_status" type="hyb2:heater_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="radiometric_calibration_lamp_status" type="hyb2:radiometric_calibration_lamp_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="wavelength_calibration_lamp_status" type="hyb2:wavelength_calibration_lamp_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="optics_temperature_average" type="hyb2:optics_temperature_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="optics_temperature_maximum" type="hyb2:optics_temperature_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="optics_temperature_minimum" type="hyb2:optics_temperature_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_temperature_average" type="hyb2:detector_temperature_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_temperature_maximum" type="hyb2:detector_temperature_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_temperature_minimum" type="hyb2:detector_temperature_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="s_base_plate_temperature_average" type="hyb2:s_base_plate_temperature_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="s_base_plate_temperature_maximum" type="hyb2:s_base_plate_temperature_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="s_base_plate_temperature_minimum" type="hyb2:s_base_plate_temperature_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="analog_electronics_base_plate_temperature_average" type="hyb2:analog_electronics_base_plate_temperature_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="analog_electronics_base_plate_temperature_maximum" type="hyb2:analog_electronics_base_plate_temperature_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="analog_electronics_base_plate_temperature_minimum" type="hyb2:analog_electronics_base_plate_temperature_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_frequency_average" type="hyb2:chopper_frequency_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_frequency_maximum" type="hyb2:chopper_frequency_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_frequency_minimum" type="hyb2:chopper_frequency_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_amplitude_average" type="hyb2:chopper_amplitude_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_amplitude_maximum" type="hyb2:chopper_amplitude_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_amplitude_minimum" type="hyb2:chopper_amplitude_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_current_average" type="hyb2:chopper_current_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_current_maximum" type="hyb2:chopper_current_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="chopper_current_minimum" type="hyb2:chopper_current_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="preamplifier_current_average" type="hyb2:preamplifier_current_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="preamplifier_current_maximum" type="hyb2:preamplifier_current_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="preamplifier_current_minimum" type="hyb2:preamplifier_current_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="heater_current_average" type="hyb2:heater_current_average" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="heater_current_maximum" type="hyb2:heater_current_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="heater_current_minimum" type="hyb2:heater_current_minimum" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:detector_gain = ('High', 'Low')"/> -->
+    <!-- <xs:assert test="hyb2:sampling_mode = ('C11', 'C31', 'C42', 'FPGA')"/> -->
+    <!-- <xs:assert test="hyb2:chopper_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:heater_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:radiometric_calibration_lamp_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:wavelength_calibration_lamp_status = ('Off', 'On')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="ONC_Band_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains information of each band for
+        co-registered data.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="filter_axis_number" type="hyb2:filter_axis_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="band_file_name" type="hyb2:band_file_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="exposure_duration" type="hyb2:exposure_duration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_name" type="hyb2:filter_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_start_date_time" type="hyb2:observation_start_date_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_date_time" type="hyb2:observation_date_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_stop_date_time" type="hyb2:observation_stop_date_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="flat_field_lamp_a_status" type="hyb2:flat_field_lamp_a_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="flat_field_lamp_b_status" type="hyb2:flat_field_lamp_b_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="data_maximum" type="hyb2:data_maximum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_mininimum" type="hyb2:data_mininimum" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_mean" type="hyb2:data_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_standard_deviation" type="hyb2:data_standard_deviation" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:filter_name = ('No. 1: 390 nm', 'No. 2: WIDE', 'No. 3: 550 nm', 'No. 4: 700 nm', 'No. 5: 860 nm', 'No. 6: 589 nm', 'No. 7: 950 nm', 'No. 8: 480 nm', 'None')"/> -->
+    <!-- <xs:assert test="hyb2:flat_field_lamp_a_status = ('High', 'Low', 'Off')"/> -->
+    <!-- <xs:assert test="hyb2:flat_field_lamp_b_status = ('High', 'Low', 'Off')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="ONC_Calibration_Data_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains calibration data information
+        for the ONC image.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="naif_instrument_name" type="hyb2:naif_instrument_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_name" type="hyb2:filter_name" minOccurs="0" maxOccurs="8"> </xs:element>
+      <xs:element name="reference_ccd_temperature" type="hyb2:reference_ccd_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="normalization_status" type="hyb2:normalization_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="image_area_trimming_status" type="hyb2:image_area_trimming_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sensitivity_calibration_period" type="hyb2:sensitivity_calibration_period" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:naif_instrument_name = ('HAYABUSA2_LIDAR', 'HAYABUSA2_NIRS3-S', 'HAYABUSA2_ONC-T', 'HAYABUSA2_ONC-W1', 'HAYABUSA2_ONC-W2', 'HAYABUSA2_TIR-S')"/> -->
+    <!-- <xs:assert test="hyb2:filter_name = ('No. 1: 390 nm', 'No. 2: WIDE', 'No. 3: 550 nm', 'No. 4: 700 nm', 'No. 5: 860 nm', 'No. 6: 589 nm', 'No. 7: 950 nm', 'No. 8: 480 nm', 'None')"/> -->
+    <!-- <xs:assert test="hyb2:normalization_status = ('Normalized', 'Not Normalized')"/> -->
+    <!-- <xs:assert test="hyb2:image_area_trimming_status = ('Not Trimmed', 'Trimmed')"/> -->
+    <!-- <xs:assert test="hyb2:sensitivity_calibration_period = ('After Touch Down 2', 'All Periods', 'Before Touch Down 1', 'Between Touch Down 1 and Touch Down 2')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="ONC_Image_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains ONC-specific image
+        observation information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dynamic_range" type="hyb2:dynamic_range" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="linearity_guaranteed_range" type="hyb2:linearity_guaranteed_range" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_mode" type="hyb2:observation_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stray_light_status" type="hyb2:stray_light_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="first_rotation_angle_for_stray_light" type="hyb2:first_rotation_angle_for_stray_light" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="second_rotation_angle_for_stray_light" type="hyb2:second_rotation_angle_for_stray_light" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="number_of_subimage" type="hyb2:number_of_subimage" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Sub_Image_Information" type="hyb2:Sub_Image_Information" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:observation_mode = ('Navigation Dump', 'Science')"/> -->
+    <!-- <xs:assert test="hyb2:stray_light_status = ('Affected', 'Not Affected')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="ONC_Image_Processing_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class contains ONC-specific image
+        processing parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="smear_correction_status" nillable="true" type="hyb2:smear_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bias_correction_status" nillable="true" type="hyb2:bias_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dark_correction_status" nillable="true" type="hyb2:dark_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radiance_conversion_status" nillable="true" type="hyb2:radiance_conversion_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="hardware_correction_status" type="hyb2:hardware_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="hardware_correction_file_name" nillable="true" type="hyb2:hardware_correction_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nonlinearity_correction_status" nillable="true" type="hyb2:nonlinearity_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nonlinearity_correction_file_name" nillable="true" type="hyb2:nonlinearity_correction_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="flat_field_correction_status" nillable="true" type="hyb2:flat_field_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="flat_field_correction_file_name" type="hyb2:flat_field_correction_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="flat_field_correction_parameter_file_name" type="hyb2:flat_field_correction_parameter_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_dependent_flat_field_correction_status" type="hyb2:temperature_dependent_flat_field_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_dependent_flat_field_correction_file_name" nillable="true" type="hyb2:temperature_dependent_flat_field_correction_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stray_light_correction_status" nillable="true" type="hyb2:stray_light_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stray_light_mean_file_name" type="hyb2:stray_light_mean_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stray_light_first_principal_component_file_name" type="hyb2:stray_light_first_principal_component_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stray_light_second_principal_component_file_name" type="hyb2:stray_light_second_principal_component_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="alignment_offset_correction_status" type="hyb2:alignment_offset_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="distortion_correction_status" type="hyb2:distortion_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="distortion_correction_file_name" nillable="true" type="hyb2:distortion_correction_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radiometric_calibration_status" type="hyb2:radiometric_calibration_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radiometric_calibration_file_name" type="hyb2:radiometric_calibration_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_sensitivity_calibration_status" type="hyb2:ccd_sensitivity_calibration_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_sensitivity_calibration_file_name" nillable="true" type="hyb2:ccd_sensitivity_calibration_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_sensitivity" type="hyb2:ccd_sensitivity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sensitivity_calibration_period" type="hyb2:sensitivity_calibration_period" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="elapsed_time_for_sensitivity_calibration" type="hyb2:elapsed_time_for_sensitivity_calibration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_distance_correction_status" type="hyb2:solar_distance_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_distance_for_calibration" type="hyb2:solar_distance_for_calibration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="effective_solar_irradiance" type="hyb2:effective_solar_irradiance" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="photometric_correction_status" type="hyb2:photometric_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="photometric_correction_file_name" nillable="true" type="hyb2:photometric_correction_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:smear_correction_status = ('Applied on ground', 'Applied onboard', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:bias_correction_status = ('Applied on ground', 'Applied onboard', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:dark_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:radiance_conversion_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:hardware_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:nonlinearity_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:flat_field_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:temperature_dependent_flat_field_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:stray_light_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:alignment_offset_correction_status = ('Conducted', 'Not Conducted')"/> -->
+    <!-- <xs:assert test="hyb2:distortion_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:radiometric_calibration_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:ccd_sensitivity_calibration_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:sensitivity_calibration_period = ('After Touch Down 2', 'All Periods', 'Before Touch Down 1', 'Between Touch Down 1 and Touch Down 2')"/> -->
+    <!-- <xs:assert test="hyb2:solar_distance_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- <xs:assert test="hyb2:photometric_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="ONC_Instrument_Attributes">
+    <xs:annotation>
+      <xs:documentation>This class contains ONC instrument-specific
+        parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bus_line_voltage" type="hyb2:bus_line_voltage" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="onc_electric_current" type="hyb2:onc_electric_current" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="fla_c_electric_current" type="hyb2:fla_c_electric_current" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="onc_analog_electronics_temperature" type="hyb2:onc_analog_electronics_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="t_optics_temperature" type="hyb2:t_optics_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="t_ccd_temperature" type="hyb2:t_ccd_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="t_electric_circuit_temperature" type="hyb2:t_electric_circuit_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w1_optics_temperature" type="hyb2:w1_optics_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w1_ccd_temperature" type="hyb2:w1_ccd_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w1_electric_circuit_temperature" type="hyb2:w1_electric_circuit_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w2_optics_temperature" type="hyb2:w2_optics_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w2_ccd_temperature" type="hyb2:w2_ccd_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w2_electric_circuit_temperature" type="hyb2:w2_electric_circuit_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="fla_c_temperature" type="hyb2:fla_c_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ONC_Multiband_Observation_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains ONC Multiband observation
+        information for co-registered image data.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reference_frame_filter_axis_number" type="hyb2:reference_frame_filter_axis_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="reference_frame_filter_name" type="hyb2:reference_frame_filter_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="reference_frame_date_time" type="hyb2:reference_frame_date_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="x_lower_left_corner" type="hyb2:x_lower_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="y_lower_left_corner" type="hyb2:y_lower_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="x_upper_right_corner" type="hyb2:x_upper_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="y_upper_right_corner" type="hyb2:y_upper_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stray_light_status" type="hyb2:stray_light_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="alignment_offset_correction_status" type="hyb2:alignment_offset_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="distortion_correction_status" type="hyb2:distortion_correction_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_center" nillable="true" type="hyb2:ryugu_latitude_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_center" nillable="true" type="hyb2:ryugu_longitude_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="distance_to_ryugu_at_center" nillable="true" type="hyb2:distance_to_ryugu_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spatial_resolution_of_ryugu_at_center" nillable="true" type="hyb2:spatial_resolution_of_ryugu_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_lower_left_corner" nillable="true" type="hyb2:ryugu_latitude_at_lower_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_lower_left_corner" nillable="true" type="hyb2:ryugu_longitude_at_lower_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_lower_right_corner" nillable="true" type="hyb2:ryugu_latitude_at_lower_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_lower_right_corner" nillable="true" type="hyb2:ryugu_longitude_at_lower_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_upper_left_corner" nillable="true" type="hyb2:ryugu_latitude_at_upper_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_upper_left_corner" nillable="true" type="hyb2:ryugu_longitude_at_upper_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_upper_right_corner" nillable="true" type="hyb2:ryugu_latitude_at_upper_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_upper_right_corner" nillable="true" type="hyb2:ryugu_longitude_at_upper_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="backplane_data_version" type="hyb2:backplane_data_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="backplane_spice_kernel_file_name" type="hyb2:backplane_spice_kernel_file_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="backplane_shape_model_spice_kernel_file_name" type="hyb2:backplane_shape_model_spice_kernel_file_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="backplane_file_name" type="hyb2:backplane_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ONC_Band_Information" type="hyb2:ONC_Band_Information" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:stray_light_status = ('Affected', 'Not Affected')"/> -->
+    <!-- <xs:assert test="hyb2:alignment_offset_correction_status = ('Conducted', 'Not Conducted')"/> -->
+    <!-- <xs:assert test="hyb2:distortion_correction_status = ('Applied', 'Not Applied')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Geometry">
+    <xs:annotation>
+      <xs:documentation>This class contains information about
+        observation geometry. The attributes in this class are common to
+        all mission data products.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ryugu_distance_from_spacecraft" type="hyb2:ryugu_distance_from_spacecraft" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="earth_distance_from_spacecraft" type="hyb2:earth_distance_from_spacecraft" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sun_distance_from_spacecraft" type="hyb2:sun_distance_from_spacecraft" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sun_distance_from_ryugu" type="hyb2:sun_distance_from_ryugu" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_x_position" type="hyb2:spacecraft_x_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_y_position" type="hyb2:spacecraft_y_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_z_position" type="hyb2:spacecraft_z_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sun_direction_spacecraft_x_axis_angle" type="hyb2:sun_direction_spacecraft_x_axis_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sun_direction_spacecraft_y_axis_angle" type="hyb2:sun_direction_spacecraft_y_axis_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sun_direction_spacecraft_z_axis_angle" type="hyb2:sun_direction_spacecraft_z_axis_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_center" nillable="true" type="hyb2:ryugu_latitude_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_center" nillable="true" type="hyb2:ryugu_longitude_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="distance_to_ryugu_at_center" nillable="true" type="hyb2:distance_to_ryugu_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spatial_resolution_of_ryugu_at_center" nillable="true" type="hyb2:spatial_resolution_of_ryugu_at_center" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_lower_left_corner" nillable="true" type="hyb2:ryugu_latitude_at_lower_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_lower_left_corner" nillable="true" type="hyb2:ryugu_longitude_at_lower_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_lower_right_corner" nillable="true" type="hyb2:ryugu_latitude_at_lower_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_lower_right_corner" nillable="true" type="hyb2:ryugu_longitude_at_lower_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_upper_left_corner" nillable="true" type="hyb2:ryugu_latitude_at_upper_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_upper_left_corner" nillable="true" type="hyb2:ryugu_longitude_at_upper_left_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_latitude_at_upper_right_corner" nillable="true" type="hyb2:ryugu_latitude_at_upper_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ryugu_longitude_at_upper_right_corner" nillable="true" type="hyb2:ryugu_longitude_at_upper_right_corner" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="backplane_data_version" type="hyb2:backplane_data_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="backplane_spice_kernel_file_name" type="hyb2:backplane_spice_kernel_file_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="backplane_shape_model_spice_kernel_file_name" type="hyb2:backplane_shape_model_spice_kernel_file_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="backplane_file_name" type="hyb2:backplane_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains information about
+        observation. The attributes in this class are common to all
+        mission data products.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="observation_start_date_time" type="hyb2:observation_start_date_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_date_time" type="hyb2:observation_date_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_stop_date_time" type="hyb2:observation_stop_date_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" type="hyb2:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" type="hyb2:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="naif_instrument_name" type="hyb2:naif_instrument_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="raw_file_name" type="hyb2:raw_file_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:naif_instrument_name = ('HAYABUSA2_LIDAR', 'HAYABUSA2_NIRS3-S', 'HAYABUSA2_ONC-T', 'HAYABUSA2_ONC-W1', 'HAYABUSA2_ONC-W2', 'HAYABUSA2_TIR-S')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Sub_Image_Information">
+    <xs:annotation>
+      <xs:documentation>This class contains ONC sub image
+        parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sequence_number" type="hyb2:sequence_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_count" type="hyb2:spacecraft_clock_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="analog_electronics_mode" type="hyb2:analog_electronics_mode" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="digital_electronics_selection" type="hyb2:digital_electronics_selection" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="t_driving_status" type="hyb2:t_driving_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="t_camera_selection_status" type="hyb2:t_camera_selection_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="t_exposure_duration" type="hyb2:t_exposure_duration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="t_filter_name" type="hyb2:t_filter_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="flat_field_lamp_a_status" type="hyb2:flat_field_lamp_a_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="flat_field_lamp_b_status" type="hyb2:flat_field_lamp_b_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w1_driving_status" type="hyb2:w1_driving_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w1_camera_selection_status" type="hyb2:w1_camera_selection_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w1_exposure_duration" type="hyb2:w1_exposure_duration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="flash_lamp_status" type="hyb2:flash_lamp_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w2_driving_status" type="hyb2:w2_driving_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w2_camera_selection_status" type="hyb2:w2_camera_selection_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="w2_exposure_duration" type="hyb2:w2_exposure_duration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_wheel_driver_timeout_error_count" type="hyb2:filter_wheel_driver_timeout_error_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_wheel_driver_null_position_flag" type="hyb2:filter_wheel_driver_null_position_flag" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_wheel_driver_position_sensor_status" type="hyb2:filter_wheel_driver_position_sensor_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_wheel_driver_reset_status" type="hyb2:filter_wheel_driver_reset_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_wheel_driver_driving_status" type="hyb2:filter_wheel_driver_driving_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_wheel_driver_step_count" type="hyb2:filter_wheel_driver_step_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_wheel_driver_step_counter_error_count" type="hyb2:filter_wheel_driver_step_counter_error_count" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:analog_electronics_mode = ('Shot', 'Standby')"/> -->
+    <!-- <xs:assert test="hyb2:digital_electronics_selection = ('DE', 'ONC-E')"/> -->
+    <!-- <xs:assert test="hyb2:t_driving_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:t_camera_selection_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:t_filter_name = ('No. 1: 390 nm', 'No. 2: WIDE', 'No. 3: 550 nm', 'No. 4: 700 nm', 'No. 5: 860 nm', 'No. 6: 589 nm', 'No. 7: 950 nm', 'No. 8: 480 nm')"/> -->
+    <!-- <xs:assert test="hyb2:flat_field_lamp_a_status = ('High', 'Low', 'Off')"/> -->
+    <!-- <xs:assert test="hyb2:flat_field_lamp_b_status = ('High', 'Low', 'Off')"/> -->
+    <!-- <xs:assert test="hyb2:w1_driving_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:w1_camera_selection_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:flash_lamp_status = ('Disable', 'Enable')"/> -->
+    <!-- <xs:assert test="hyb2:w2_driving_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:w2_camera_selection_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:filter_wheel_driver_null_position_flag = ('Detected', 'Not Detected')"/> -->
+    <!-- <xs:assert test="hyb2:filter_wheel_driver_position_sensor_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:filter_wheel_driver_reset_status = ('In Reset Sequence', 'Not In Reset Sequence')"/> -->
+    <!-- <xs:assert test="hyb2:filter_wheel_driver_driving_status = ('Driving', 'Stop')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="TIR_Instrument_Attributes">
+    <xs:annotation>
+      <xs:documentation>TIR instrument-specific
+        parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tir_image_type" type="hyb2:tir_image_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="number_of_accumulated_images" type="hyb2:number_of_accumulated_images" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="number_of_bit_shift" type="hyb2:number_of_bit_shift" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="peltier_power_status" type="hyb2:peltier_power_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="peltier_desired_temperature" type="hyb2:peltier_desired_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="coarse_grained_temperature_status" type="hyb2:coarse_grained_temperature_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="fine_grained_temperature_status" type="hyb2:fine_grained_temperature_status" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="bolometer_temperature" type="hyb2:bolometer_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="package_temperature" type="hyb2:package_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="case_temperature" type="hyb2:case_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="shutter_temperature" type="hyb2:shutter_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="lens_temperature" type="hyb2:lens_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="hyb2:tir_image_type = ('OPN', 'PIC', 'SHT')"/> -->
+    <!-- <xs:assert test="hyb2:number_of_bit_shift = ('0', '1', '2', '3', '4')"/> -->
+    <!-- <xs:assert test="hyb2:peltier_power_status = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="hyb2:peltier_desired_temperature = ('10', '40')"/> -->
+    <!-- <xs:assert test="hyb2:coarse_grained_temperature_status = ('Not ready', 'Ready')"/> -->
+    <!-- <xs:assert test="hyb2:fine_grained_temperature_status = ('Ready', 'Standby')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="actual_bitdepth">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the actual bit-depth
+        for each pixel. This value corresponds to a dynamic range of the
+        raw (l2a) image for ONC. Although the l2a data is stored in a
+        16-bit integer image array, the bit depth used for nominal image
+        acquisition is 12. A bit depth is reduced to 10 or 8 bit for
+        some images during digital processing in DE or ONC-E dividing
+        the original data by 2 or 4.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="alignment_offset_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        alignment offset correction. This value is only valid for the
+        product that is equal to or higher than the l2c
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="analog_electronics_base_plate_temperature_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="analog_electronics_base_plate_temperature_average">
+    <xs:annotation>
+      <xs:documentation>Average of AE base plate temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:analog_electronics_base_plate_temperature_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="analog_electronics_base_plate_temperature_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="analog_electronics_base_plate_temperature_maximum">
+    <xs:annotation>
+      <xs:documentation>Maximum of AE base plate temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:analog_electronics_base_plate_temperature_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="analog_electronics_base_plate_temperature_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="analog_electronics_base_plate_temperature_minimum">
+    <xs:annotation>
+      <xs:documentation>Minimum of AE base plate temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:analog_electronics_base_plate_temperature_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="analog_electronics_mode">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the mode of ONC-AE, ONC
+        analogue data processing unit. The possible values are Standby
+        and Shot.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="backplane_data_version">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the version of
+        backplane data.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="backplane_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the backplane file
+        name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="backplane_shape_model_spice_kernel_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the SPICE
+        DSK file which contains the necessary shape model to create
+        backplane data for the photometric correction required to create
+        the l2e product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="backplane_spice_kernel_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the SPICE kernel file
+        name used to calculate the backplanes such as longitude,
+        latitude, and viewing geometories of Ryugu using the shape model
+        specified by the backplane_shape_model_spice_kernel_file_name
+        attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="band_center_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="band_center">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the effective band
+        center of the selected band and/or the camera. For the ONC
+        image, this value is calculated using the system efficiency of
+        the specific camera and/or the band, and this value is used to
+        calculate the sensitivity and the effective solar irradiance
+        utilized in the creation of the l2c and the l2d
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:band_center_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="band_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the source file name of
+        this band.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bandwidth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bandwidth">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the effective band with
+        of the selected band and/or the camera. For the ONC image, this
+        value is calculated using the system efficiency of the specific
+        camera and/or the band, and this value is used to calculate the
+        sensitivity and the effective solar irradiance utilized in the
+        creation of the l2c and the l2d products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:bandwidth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="bias_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the bias
+        correction. This value is only valid for the product that is
+        equal to or higher than the l2b product. The bias correction is
+        included in the smear correction.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bolometer_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bolometer_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the uncooled
+        micro-bolometer array temperature in the detector package of
+        TIR-S. This is kept at the temperature specified by the
+        peltier_desired_temperature attribute (nominally 40 degrees
+        Celsius) +/- 0.5 degrees Celsius during the observation period.
+        This temperature is sampled in the timing of acquiring the
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:bolometer_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bus_line_voltage_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.23"/>
+     <xs:maxInclusive value="74.68"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bus_line_voltage">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the bus line voltage.
+        This value is estimated by the interpolation in time at the
+        value of the observation_date_time attribute from the house
+        keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:bus_line_voltage_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="case_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="case_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the case temperature of
+        TIR-S. This is kept at constant temperature during the
+        observation period. This temperature is sampled in the timing of
+        acquiring the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:case_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ccd_sensitivity">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the sensitivity of the
+        selected band and/or the camera in
+        (counts/s)/(W/m2/micrometer/str) used to create the l2c
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ccd_sensitivity_calibration_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the file
+        which contains necessary data for the calibration of the CCD
+        sensitivity dependence on the CCD temperature.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_File_Name">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ccd_sensitivity_calibration_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the CCD
+        sensitivity calibration that depends on the CCD
+        temperature.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="chopper_amplitude_average">
+    <xs:annotation>
+<xs:documentation>Average of chopper amplitude</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="chopper_amplitude_maximum">
+    <xs:annotation>
+<xs:documentation>Maximum of chopper amplitude</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="chopper_amplitude_minimum">
+    <xs:annotation>
+<xs:documentation>Minimum of chopper amplitude</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="chopper_current_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="chopper_current_average">
+    <xs:annotation>
+      <xs:documentation>Average of chopper current
+        (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:chopper_current_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="chopper_current_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="chopper_current_maximum">
+    <xs:annotation>
+      <xs:documentation>Maximum of chopper current
+        (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:chopper_current_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="chopper_current_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="chopper_current_minimum">
+    <xs:annotation>
+      <xs:documentation>Minimum of chopper current
+        (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:chopper_current_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="chopper_frequency_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="chopper_frequency_average">
+    <xs:annotation>
+      <xs:documentation>Average of chopper frequency
+        (Hz)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:chopper_frequency_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="chopper_frequency_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="chopper_frequency_maximum">
+    <xs:annotation>
+      <xs:documentation>Maximum of chopper frequency
+        (Hz)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:chopper_frequency_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="chopper_frequency_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="chopper_frequency_minimum">
+    <xs:annotation>
+      <xs:documentation>Minimum of chopper frequency
+        (Hz)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:chopper_frequency_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="chopper_status">
+    <xs:annotation>
+<xs:documentation>Chopper power status</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="coarse_grained_temperature_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the coarse-grained
+        temperature status.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="dark_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the dark
+        correction. This value is only valid for the product that is
+        equal to or higher than the l2b product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="data_maximum">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the maximum value of
+        the data of the context.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_mean">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the mean value of the
+        data of the context.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_mininimum">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the minimum value of
+        the data of the context.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_standard_deviation">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the standard deviation
+        value of the data of the context.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="detector_gain">
+    <xs:annotation>
+<xs:documentation>InAs detector gain (High/Low)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="detector_temperature_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="detector_temperature_average">
+    <xs:annotation>
+      <xs:documentation>Average of InAs detector temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:detector_temperature_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="detector_temperature_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="detector_temperature_maximum">
+    <xs:annotation>
+      <xs:documentation>Maximum of InAs detector temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:detector_temperature_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="detector_temperature_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="detector_temperature_minimum">
+    <xs:annotation>
+      <xs:documentation>Minimum of InAs detector temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:detector_temperature_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="digital_electronics_selection">
+    <xs:annotation>
+      <xs:documentation>This attribute describes which digital
+        electronics, either of ONC-E or DE is selected for processing of
+        the n-th sub image, where n is sequence_number. Basically, DE is
+        selected for digital processing for the scientific purpose,
+        whereas ONC-E is selected for the optical navigation. The
+        possible values are DE and ONC-E.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="distance_to_ryugu_at_center_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="distance_to_ryugu_at_center">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the distance to the
+        surface of Ryugu at the center of the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:distance_to_ryugu_at_center_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="distortion_correction_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the file
+        which contains necessary data for the distortion correction
+        required to create the l2c product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_File_Name">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="distortion_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        distortion correction. This value is only valid for the product
+        that is equal to or higher than the l2c
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dynamic_range">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the full dynamic range
+        of pixel value at the center of the field-of-view, that is 4095
+        DN - bias in the l2a product, where bias is typically about 300
+        DN in the l2a product. A dynamic range of pixel value at other
+        place on the detector is less than the value at the center of
+        the field-of-view because of the vignetting effect. When the
+        linearity correction is not conducted, values between the
+        linearity_guaranteed_range attribute and this value are not
+        trustworthy. The unit of this attribute depends on a kind of the
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="earth_distance_from_spacecraft_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="earth_distance_from_spacecraft">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the distance between
+        the center of the spacecraft and the center of
+        Earth.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:earth_distance_from_spacecraft_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="effective_solar_irradiance_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="effective_solar_irradiance">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the effective solar
+        irradiance calclulated at the solar distance of 1 AU for the
+        selected band and/or the camera in [W/m2/um].</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:effective_solar_irradiance_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Spectral_Irradiance" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="elapsed_time_for_sensitivity_calibration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="elapsed_time_for_sensitivity_calibration">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the elapsed time for
+        the sensitivity calibration from the start of the calibration
+        period specified by the value of the
+        sensitivity_calibration_period attribute, because the
+        sensitivity has time dependence after the second
+        touchdown.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:elapsed_time_for_sensitivity_calibration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="exposure_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="178.26"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="exposure_duration">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the exposure time of
+        the observation in units of seconds. When the number of sub
+        images is 2 for ONC image, this value is for the main image.
+        When the number of sub images is more than 2 for ONC image, this
+        value indicates an exposure time for each
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:exposure_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="filter_axis_number">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the filter axis number
+        for this band.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the filter
+        that was used during the observation to select or modify the
+        radiation that was transmitted to the detector. The value 'None'
+        indicates that no filter was used. The possible values are None,
+        No. 1: 390 nm, No. 2: WIDE, No. 3: 550 nm, No. 4: 700 nm, No. 5:
+        860 nm, No. 6: 589 nm, No. 7: 950 nm, and No. 8: 480
+        nm.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_wheel_driver_driving_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the driving status of
+        the ONC-T filter wheel driver for the n-th sub image, where n is
+        sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_wheel_driver_null_position_flag">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the filter wheel driver
+        null position flag for the n-th sub image, where n is
+        sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_wheel_driver_position_sensor_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        filter wheel position sensor for the n-th sub image, where n is
+        sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_wheel_driver_reset_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes whether the filter
+        wheel driver is in reset sequence or not for the n-th sub image,
+        where n is sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_wheel_driver_step_count">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the step count of the
+        filter wheel driver for the n-th sub image, where n is
+        sequence_counter. This value increases every 1/4800 rotation,
+        thus this value increases 4800 after one filter wheel
+        rotation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-32768"/>
+     <xs:maxInclusive value="32767"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_wheel_driver_step_counter_error_count">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the error count of the
+        filter wheel driver step counter.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="15"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_wheel_driver_timeout_error_count">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the filter wheel driver
+        timeout error count in 4 bits for the n-th sub image, where n is
+        sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="15"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fine_grained_temperature_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the fine-grained
+        temperature status.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="first_rotation_angle_for_stray_light_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-180.0"/>
+     <xs:maxInclusive value="180.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="first_rotation_angle_for_stray_light">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the rotation angle
+        around the spacecraft +Y-axis from the reference spacecraft
+        attitude which has the spacecraft +Z-axis is same as the
+        Sun-direction vector. This angle is utilized to define the
+        magnitude of the radiator stray light in the ONC-T image. When
+        the value of the second_rotation_angle_for_stray_light attribute
+        is larger than -7 degrees and the value of the
+        first_rotation_angle_for_stray_light attribute is smaller than
+        -5 degrees, the radiator stray light in the ONC-T image exceeds
+        1 count per second.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:first_rotation_angle_for_stray_light_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="fla_c_electric_current_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.00"/>
+     <xs:maxInclusive value="5.81"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="fla_c_electric_current">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the FLA-C (the
+        capacitor bank of the flash lamp) current. This value is
+        estimated by the interpolation in time at the value of the
+        observation_date_time attribute from the house keeping
+        data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:fla_c_electric_current_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="fla_c_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-52.27"/>
+     <xs:maxInclusive value="80.62"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="fla_c_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the FLA-C temperature.
+        This value is estimated by interpolation in time at the value of
+        the observation_date_time attribute from the house keeping
+        data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:fla_c_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="flash_lamp_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the flash
+        lamp for the n-th sub image, where n is sequence_number. The
+        flash lamp is attached to illuminate the target marker(s) for
+        the ONC-W1 image. This value is usually set to be "Disable", and
+        is switched to "Enable" for the target marker
+        tracking.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="flat_field_correction_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the file name of the
+        flat field that is an independent component with the CCD
+        temperature.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="flat_field_correction_parameter_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the file name of the
+        flat field parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="flat_field_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        flat-field correction. This value is only valid for the product
+        that is equal to or higher than the l2b
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="flat_field_lamp_a_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the flat
+        field (FF) lamp A for the n-th sub image, where n is
+        sequence_number. FF lamp A and B are attached in front of the
+        ONC-T lens system for calibration. The possible values are Off,
+        Low, and High. If the value is Off, the lamp A is off, and if
+        the value is Low or High, the lamp A is on and the voltage mode
+        is set to low or high, respectively.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="flat_field_lamp_b_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of flat
+        field (FF) lamp B for the n-th sub image, where n is
+        sequence_number. FF lamp A and B are attached in front of the
+        ONC-T lens system for calibration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="hardware_correction_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the file
+        which contains necessary parameters related to the hardware
+        correction.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_File_Name">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="hardware_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        hardware correction.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="heater_current_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="heater_current_average">
+    <xs:annotation>
+<xs:documentation>Average of heater current (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:heater_current_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="heater_current_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="heater_current_maximum">
+    <xs:annotation>
+<xs:documentation>Maximum of heater current (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:heater_current_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="heater_current_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="heater_current_minimum">
+    <xs:annotation>
+<xs:documentation>Minimum of heater current (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:heater_current_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="heater_status">
+    <xs:annotation>
+<xs:documentation>Heater power status</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="image_area_trimming_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes whether the image area
+        of the calibration data is trimmed or not for the image
+        co-registration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="image_processing_return_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the return status of
+        the image processing onboard. The possible values are Normal
+        End, Parameter Error, Buffer Size Error, Hardware Operation
+        Error, Overflow, Underflow, Overflow and Underflow, Zero
+        Division, and Operation Interruption.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="lens_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="lens_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the lens temperature of
+        TIR-S. The lens of TIR-S is kept at constant temperature during
+        the observation period. This temperature is sampled in the
+        timing of acquiring the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:lens_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="linearity_guaranteed_range">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the maximum value of
+        the linearity guaranteed range at the center of the
+        field-of-view. This value corresponds to about 3100 counts at
+        the center of the field-of-view in the l2a product. A maximum
+        value of the linearity guaranteed range at other pixels on the
+        detector is less than the value at the center of the
+        field-of-view because of the vignetting effect. The values less
+        than this value are trustworthy even if the nonlinearity
+        correction is not conducted.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_id">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the mission phase
+        identifier. The possible values are commissioning, edvega,
+        earth_swing-by, transfer, approach, proximity, return, and
+        reentry.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the mission phase name.
+        The possible values are Commissioning Phase, EDVEGA Phase, Earth
+        Swing-by Phase, Transfer Phase, Approarch Phase, Asteroid
+        Proximity Phase, Return Phase, and Reentry
+        Phase.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="naif_instrument_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the NAIF name of the
+        instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="nonlinearity_correction_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the file
+        which contains necessary parameters related to the nonlinearity
+        correction.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_File_Name">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="nonlinearity_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        nonlinearity correction. This value is only valid for the
+        product that is equal to or higher than the l2b
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="normalization_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of
+        normalization. This normalization is conducted only for the flat
+        fields. All pixel values of the flat fields are divided by the
+        average of the pixels in the central area (300 x 300
+        pixels).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="number_of_accumulated_images">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the scacking frame
+        number of the images. The value should be 1, 2, 4, 8, 16, 32,
+        64, and 128.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="128"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="number_of_binning">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the size of the area
+        used for the onboard binning. For example, if this value is 1,
+        no binning was conducted. If this value is 2, the area of 2 x 2
+        pixels is binned to one pixel. The possible values are 1, 2, 4,
+        and 8.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="number_of_bit_shift">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the number of bit
+        shifts applied to the image onboard. The raw image is the 12-bit
+        data without any bit shifts. The stacked images have bit depth
+        of 16-, 17-, 18-, and 19-bits before the bit shifts, and are
+        applied the bit shift of 1, 2, 3, and 4, respectively, to
+        acquire the data with the bitdepth of 15-bit.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="number_of_stack">
+    <xs:annotation>
+      <xs:documentation>This value shall contain a positive integer that
+        indicates number of stack of data for each
+        spectrum.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="1024"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="number_of_subimage">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the number of sub
+        images used to create image onboard. For the ONC-T image,
+        typical numbers are 1 for a raw image, 2 for a onboard smear
+        reduction image, and more than 2 for onboard stacking
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="32"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_date_time">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the reference
+        observation time in UTC.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_mode">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the observation mode.
+        If the value is Science, the image is acquired for the
+        scientific purpose. Such images are basically used to be applied
+        science product procedure (Level 2a and later). If the value is
+        Navigation Dump, the image is acquired for the navigation
+        purpose.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_start_date_time">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the start time of the
+        observation in UTC.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_stop_date_time">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the stop time of the
+        observation in UTC.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="onc_analog_electronics_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-52.67045737"/>
+     <xs:maxInclusive value="80.21838988"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="onc_analog_electronics_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-AE temperature.
+        This value is estimated by interpolation in time at the value of
+        the observation_date_time attribute from the house keeping
+        data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:onc_analog_electronics_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="onc_electric_current_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.00"/>
+     <xs:maxInclusive value="2.93"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="onc_electric_current">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the current in the ONC
+        instrument. This value is estimated by the interpolation in time
+        at the value of the observation_date_time attribute from the
+        house keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:onc_electric_current_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="optics_temperature_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="optics_temperature_average">
+    <xs:annotation>
+      <xs:documentation>Average of optics temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:optics_temperature_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="optics_temperature_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="optics_temperature_maximum">
+    <xs:annotation>
+      <xs:documentation>Maximum of optics temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:optics_temperature_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="optics_temperature_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="optics_temperature_minimum">
+    <xs:annotation>
+      <xs:documentation>Minimum of optics temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:optics_temperature_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="package_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="package_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the detector package
+        temperature of TIR-S. This is kept at constant temperature
+        during the observation period. This temperature is sampled in
+        the timing of acquiring the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:package_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="peltier_desired_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="peltier_desired_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the setting of the
+        desired temprerature by the Peltier temperature
+        controller.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:peltier_desired_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="peltier_power_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the Peltier
+        cooler/heater power status.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="photometric_correction_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the file
+        which contains necessary data for the photometric correction
+        required to create the l2e product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_File_Name">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="photometric_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        photometric correction. This value is only valid for the product
+        that is equal to or higher than the l2e
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="preamplifier_current_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="preamplifier_current_average">
+    <xs:annotation>
+      <xs:documentation>Average of preamplifier current
+        (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:preamplifier_current_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="preamplifier_current_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="preamplifier_current_maximum">
+    <xs:annotation>
+      <xs:documentation>Maximum of preamplifier current
+        (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:preamplifier_current_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="preamplifier_current_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="preamplifier_current_minimum">
+    <xs:annotation>
+      <xs:documentation>Minimum of preamplifier current
+        (mA)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:preamplifier_current_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiance_conversion_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        conversion to the radiance. This value is only valid for the
+        product that is equal to or higher than the l2c
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="radiometric_calibration_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the file
+        which contains necessary data for the radiometric correction
+        required to create the l2c product and parameters required for
+        the l2d (I/F) product creation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="radiometric_calibration_lamp_status">
+    <xs:annotation>
+      <xs:documentation>Radiometric calibration lamp power
+        status</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="radiometric_calibration_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the
+        radiometric correction. This value is only valid for the product
+        that is equal to or higher than the l2c
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="raw_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the file name of the
+        raw data in level 0 that is the source of this
+        file.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reference_ccd_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="reference_ccd_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the reference CCD
+        temperature for the calibration data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:reference_ccd_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="reference_frame_date_time">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the reference
+        observation time of the reference image frame in
+        UTC.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reference_frame_filter_axis_number">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the filter axis number
+        of the reference image frame.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reference_frame_filter_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the filter name of the
+        reference image frame.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ryugu_distance_from_spacecraft_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_distance_from_spacecraft">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the distance between
+        the center of the spacecraft and the center of
+        Ryugu.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_distance_from_spacecraft_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_latitude_at_center_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_latitude_at_center">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the latitude of Ryugu
+        at the center of the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_latitude_at_center_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_latitude_at_lower_left_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_latitude_at_lower_left_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the latitude of the
+        Ryugu's surface at the lower-left corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the lower-left vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_latitude_at_lower_left_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_latitude_at_lower_right_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_latitude_at_lower_right_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the latitude of the
+        Ryugu's surface at the lower-right corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the lower-right vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_latitude_at_lower_right_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_latitude_at_upper_left_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_latitude_at_upper_left_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the latitude of the
+        Ryugu's surface at the upper-left corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the upper-left vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_latitude_at_upper_left_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_latitude_at_upper_right_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_latitude_at_upper_right_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the latitude of the
+        Ryugu's surface at the upper-right corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the upper-right vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_latitude_at_upper_right_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_longitude_at_center_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_longitude_at_center">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the longitude of Ryugu
+        at the center of the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_longitude_at_center_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_longitude_at_lower_left_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_longitude_at_lower_left_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the longitude of the
+        Ryugu's surface at the lower-left corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the lower-left vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_longitude_at_lower_left_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_longitude_at_lower_right_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_longitude_at_lower_right_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the longitude of the
+        Ryugu's surface at the lower-right corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the lower-right vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_longitude_at_lower_right_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_longitude_at_upper_left_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_longitude_at_upper_left_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the longitude of the
+        Ryugu's surface at the upper-left corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the upper-left vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_longitude_at_upper_left_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ryugu_longitude_at_upper_right_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ryugu_longitude_at_upper_right_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the longitude of the
+        Ryugu's surface at the upper-right corner pixel of the image.
+        Note that this value represents value at the center of the
+        pixel, instead of value at the upper-right vertex of the
+        pixel.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:ryugu_longitude_at_upper_right_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="s_base_plate_temperature_average_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="s_base_plate_temperature_average">
+    <xs:annotation>
+      <xs:documentation>Average of S base plate temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:s_base_plate_temperature_average_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="s_base_plate_temperature_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="s_base_plate_temperature_maximum">
+    <xs:annotation>
+      <xs:documentation>Maximum of S base plate temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:s_base_plate_temperature_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="s_base_plate_temperature_minimum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="s_base_plate_temperature_minimum">
+    <xs:annotation>
+      <xs:documentation>Minimum of S base plate temperature
+        (degC)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:s_base_plate_temperature_minimum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sampling_mode">
+    <xs:annotation>
+      <xs:documentation>Sampling mode
+        (FPGA/C11/C31/C42)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="second_rotation_angle_for_stray_light_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-180.0"/>
+     <xs:maxInclusive value="180.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="second_rotation_angle_for_stray_light">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the rotation angle
+        around the spacecraft +Z-axis from the spacecraft attitude after
+        the rotation around the spacecraft +Y-axis of the value of the
+        first_rotation_angle_for_stray_light attribute from the
+        reference spacecraft attitude which has the spacecraft +Z-axis
+        is same as the Sun-direction vector. This angle is utilized to
+        define the magnitude of the radiator stray light in the ONC-T
+        image. When the value of the
+        second_rotation_angle_for_stray_light attribute is larger than
+        -7 degrees and the value of the
+        first_rotation_angle_for_stray_light attribute is smaller than
+        -5 degrees, the radiator stray light in the ONC-T image exceeds
+        1 count per second.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:second_rotation_angle_for_stray_light_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sensitivity_calibration_period">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the sensitivity
+        calibration period to describe the sensitivity variation after
+        the two touch down events.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sequence_number">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the sequence number of
+        a series of sub images.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="32"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="shutter_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="shutter_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the shutter temperature
+        of TIR-S. The shutter as a blackbody calibration target of TIR-S
+        is kept at constant temperature during the observation period.
+        This temperature is sampled in the timing of acquiring the
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:shutter_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="smear_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the smear
+        correction. This value is only valid for the product that is
+        equal to or higher than the l2b product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="solar_distance_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the solar
+        distance correction nominally conducted during the creation of
+        the l2d product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="solar_distance_for_calibration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="solar_distance_for_calibration">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the solar distance used
+        to create the l2d product. This value is considered to be
+        consistent with the value of the sun_distance_from_spacecraft
+        attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:solar_distance_for_calibration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_clock_count">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the spacecraft clock
+        count at the end of image acquisition for the n-th sub image,
+        where n is sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[1-9][0-9]*\/[0-9]{10}'/>
+     <xs:minLength value="12"/>
+     <xs:maxLength value="12"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the start time of the
+        observation expressed in the spacecraft clock
+        count.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[1-9][0-9]*\/[0-9]{10}'/>
+     <xs:minLength value="12"/>
+     <xs:maxLength value="12"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the stop time of the
+        observation expressed in the spacecraft clock
+        count.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[1-9][0-9]*\/[0-9]{10}'/>
+     <xs:minLength value="12"/>
+     <xs:maxLength value="12"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_x_position_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_x_position">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the spacecraft
+        x-position from the Sun in the J2000 coordinate system. This
+        value is calculated without light time correction nor stellar
+        aberration.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:spacecraft_x_position_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_y_position_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_y_position">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the spacecraft
+        y-position from the Sun in the J2000 coordinate system. This
+        value is calculated without light time correction nor stellar
+        aberration.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:spacecraft_y_position_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_z_position_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_z_position">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the spacecraft
+        z-position from the Sun in the J2000 coordinate system. This
+        value is calculated without light time correction nor stellar
+        aberration.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:spacecraft_z_position_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spatial_resolution_of_ryugu_at_center_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spatial_resolution_of_ryugu_at_center">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the spatial resolution
+        of the Ryugu's surface at the center of the
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:spatial_resolution_of_ryugu_at_center_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Pixel_Resolution_Linear" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="stray_light_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the status of the stray
+        light correction of the ONC-T image. This value is only valid
+        for the product that is equal to or higher than the l2b product
+        of the ONC-T image when the value of the stray_light_status
+        attribute is "AFFECTED".</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="stray_light_first_principal_component_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the file name of the
+        first principal component of the stray light pattern
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stray_light_mean_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the file name of the
+        mean stray light pattern image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stray_light_second_principal_component_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the file name of the
+        second principal component of the stray light pattern
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stray_light_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes whether stray light
+        from the backward space of ONC-T exists or not. This value is
+        only applied to the ONC-T image. This value is estimated from
+        the values of the first_rotation_angle_for_stray_light
+        attribute, the second_rotation_angle_for_stray_light attribute,
+        and the empirical formula written in the SIS. See Suzuki+2018,
+        Tatsumi+2019, and/or the SIS for the details. If the value is
+        Affected, this image is estimated as affected by stray light
+        from the backside of the camera, and if the value is Not
+        Affected, this image is estimated as not affected by
+        it.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sun_direction_spacecraft_x_axis_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="180.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sun_direction_spacecraft_x_axis_angle">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the angle of the
+        spacecraft's x-axis and the Sun direction.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:sun_direction_spacecraft_x_axis_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sun_direction_spacecraft_y_axis_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="180.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sun_direction_spacecraft_y_axis_angle">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the angle of the
+        spacecraft's y-axis and the Sun direction.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:sun_direction_spacecraft_y_axis_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sun_direction_spacecraft_z_axis_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="180.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sun_direction_spacecraft_z_axis_angle">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the angle of the
+        spacecraft's z-axis and the Sun direction</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:sun_direction_spacecraft_z_axis_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sun_distance_from_ryugu_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sun_distance_from_ryugu">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the distance between
+        the center of the Sun and the center of Ryugu.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:sun_distance_from_ryugu_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sun_distance_from_spacecraft_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sun_distance_from_spacecraft">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the distance between
+        the center of the spacecraft and the center of the
+        Sun.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:sun_distance_from_spacecraft_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="t_camera_selection_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the selection status of
+        the ONC-T camera head by ONC-AE for the n-th sub image, where n
+        is sequence_number. The possible values are Off (not selected)
+        and On (selcted).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_ccd_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-52.17"/>
+     <xs:maxInclusive value="80.72"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="t_ccd_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-T CCD
+        temperature. This value is estimated by interpolation in time at
+        the value of the observation_date_time attribute from the house
+        keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:t_ccd_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="t_driving_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the driving status of
+        the ONC-T camera head for the n-th sub image, where n is
+        sequence_number. The possible values are Off (not driving) and
+        On (driving).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_electric_circuit_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-52.62"/>
+     <xs:maxInclusive value="80.27"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="t_electric_circuit_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-T electric
+        circuit temperature. This value is estimated by interpolation in
+        time at the value of the observation_date_time attribute from
+        the house keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:t_electric_circuit_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="t_exposure_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="178.26"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="t_exposure_duration">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the exposure time in
+        seconds of the ONC-T observation for the n-th sub image, where n
+        is sequence_number. This value is valid when ONC-T is selected
+        as a valid camera, i.e., value of the t_camera_selection_status
+        attribute is "On". The list of values is 0, 0.00544, 0.00820,
+        0.01088, 0.01640, 0.02176, 0.03280, 0.04352, 0.06560, 0.08704,
+        0.13120, 0.17408, 0.26240, 0.34816, 0.52480, 0.69632, 1.04960,
+        1.39264, 2.09920, 2.78528, 4.19840, 5.57056, 8.39680, 11.14112,
+        16.79360, 22.28224, 33.58720, 44.56448, 67.17440, 89.12896,
+        134.34880, and 178.25792.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:t_exposure_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="t_filter_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the name of the
+        selected filter of ONC-T for the n-th sub image, where n is
+        sequence_number. This value should be neglected when ONC-T is
+        not selected. The possible values are No. 1: 390 nm, No. 2:
+        WIDE, No. 3: 550 nm, No. 4: 700 nm, No. 5: 860 nm, No. 6: 589
+        nm, No. 7: 950 nm, and No. 8: 480 nm.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_optics_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-53.40"/>
+     <xs:maxInclusive value="79.49"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="t_optics_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-T optics
+        temperature. This value is estimated by interpolation in time at
+        the value of the observation_date_time attribute from the house
+        keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:t_optics_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="temperature_dependent_flat_field_correction_file_name">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the file name of the
+        flat field that is the dependent component with the CCD
+        temperature. This calibration is only applied to the ONC-T image
+        with x- or p-filters.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_File_Name">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="temperature_dependent_flat_field_correction_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the correction status
+        of the CCD temperature dependent component of the flat-field.
+        This calibration is only applied to the ONC-T image with x- or
+        p-filters.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tir_image_type">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the type of the TIR
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="unit_count_value">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the value at the
+        current product corresponding to unit count at the raw data,
+        i.e., the l2a product. This value indicates resolution of the
+        value.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="w1_camera_selection_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the selection status of
+        the ONC-W1 camera head by ONC-AE for the n-th sub image, where n
+        is sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="w1_ccd_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-50.69"/>
+     <xs:maxInclusive value="82.20"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w1_ccd_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-W1 CCD
+        temperature. This value is estimated by interpolation in time at
+        the value of the observation_date_time attribute from the house
+        keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w1_ccd_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="w1_driving_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the driving status of
+        the ONC-W1 camera head for the n-th image, where n is
+        sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="w1_electric_circuit_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-51.03"/>
+     <xs:maxInclusive value="81.86"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w1_electric_circuit_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-W1 electric
+        circuit temperature. This value is estimated by interpolation in
+        time at the value of the observation_date_time attribute from
+        the house keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w1_electric_circuit_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="w1_exposure_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="5.57056"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w1_exposure_duration">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the exposure time in
+        seconds for the ONC-W1 observation for the n-th sub image, where
+        n is sequence_number. This values is valid when ONC-W1 is
+        selected as a valid camera, i.e., value of the
+        w1_camera_selection_status attribute is "On". The list of values
+        is 0, 0.00017000, 0.00025625, 0.00034000, 0.00051250,
+        0.00068000, 0.00102500, 0.00136, 0.00205, 0.00272, 0.00410,
+        0.00544, 0.00820, 0.01088, 0.01640, 0.02176, 0.03280, 0.04352,
+        0.06560, 0.08704, 0.13120, 0.17408, 0.26240, 0.34816, 0.52480,
+        0.69632, 1.04960, 1.39264, 2.09920, 2.78528, 4.19840, and
+        5.57056.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w1_exposure_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="w1_optics_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-52.16"/>
+     <xs:maxInclusive value="80.73"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w1_optics_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-W1 optics
+        temperature. This value is estimated by interpolation in time at
+        the value of the observation_date_time attribute from the house
+        keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w1_optics_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="w2_camera_selection_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the selection status of
+        the ONC-W2 camera head by ONC-AE for the n-th sub image, where n
+        is sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="w2_ccd_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-52.98"/>
+     <xs:maxInclusive value="79.90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w2_ccd_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-W2 CCD
+        temperature. This value is estimated by interpolation in time at
+        the value of the observation_date_time attribute from the house
+        keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w2_ccd_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="w2_driving_status">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the driving status of
+        the ONC-W2 camera head for the n-th image, where n is
+        sequence_number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="w2_electric_circuit_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-53.10"/>
+     <xs:maxInclusive value="79.79"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w2_electric_circuit_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-W2 electric
+        circuit temperature. This value is estimated by interpolation in
+        time at the value of the observation_date_time attribute from
+        the house keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w2_electric_circuit_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="w2_exposure_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="44.56448"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w2_exposure_duration">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the exposure time in
+        seconds for the ONC-W2 observation for the n-th sub image, where
+        n is sequence_number. This values is valid when ONC-W2 is
+        selected as a valid camera, i.e., value of the
+        w2_camera_selection_status attribute is "On". The list of values
+        is 0, 0.00136, 0.00205, 0.00272, 0.00410, 0.00544, 0.00820,
+        0.01088, 0.01640, 0.02176, 0.03280, 0.04352, 0.06560, 0.08704,
+        0.13120, 0.17408, 0.26240, 0.34816, 0.52480, 0.69632, 1.04960,
+        1.39264, 2.09920, 2.78528, 4.19840, 5.57056, 8.39680, 11.14112,
+        16.79360, 22.28224, 33.58720, and 44.56448.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w2_exposure_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="w2_optics_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-52.37"/>
+     <xs:maxInclusive value="80.52"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="w2_optics_temperature">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the ONC-W2 optics
+        temperature. This value is estimated by interpolation in time at
+        the value of the observation_date_time attribute from the house
+        keeping data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:w2_optics_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="wavelength_calibration_lamp_status">
+    <xs:annotation>
+      <xs:documentation>Wavelength calibration lamp power
+        status</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="x_lower_left_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="897"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="x_lower_left_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the horizontal position
+        of the lower-left corner of the area selected as ROI (region of
+        interest) in the full-size image coordinate system. Note that
+        the origin is (1, 1) and the position in integer means center of
+        the pixel. Possible values are 1, 129, 385, 513, 641, 769, and
+        897 for ONC image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:x_lower_left_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="x_upper_right_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="1024"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="x_upper_right_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the horizontal position
+        of the upper-right corner of the area selected as ROI (region of
+        interest) in the full-size image coordinate system. Note that
+        the origin is (1, 1) and the position in integer means center of
+        the pixel. Possible values are 129, 385, 513, 641, 769, 897, and
+        1024 for ONC frame image, and 32 for ONC optical black
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:x_upper_right_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="y_lower_left_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="897"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="y_lower_left_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the vertical-position
+        of the lower-left corner of the area selected as ROI (region of
+        interest) in the full-size image coordinate system. Note that
+        the origin is (1, 1) and the position in integer means center of
+        the pixel. Possible values are 1, 129, 385, 513, 641, 769, and
+        897 for ONC image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:y_lower_left_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="y_upper_right_corner_WO_Units">
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="129"/>
+     <xs:maxInclusive value="1024"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="y_upper_right_corner">
+    <xs:annotation>
+      <xs:documentation>This attribute describes the vertical position
+        of the upper-right corner of the area selected as ROI (region of
+        interest) in the full-size image coordinate system. Note that
+        the origin is (1, 1) and the position in integer means center of
+        the pixel. Possbile values are 129, 385, 513, 641, 769, 897,
+        1024 for ONC image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="hyb2:y_upper_right_corner_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
