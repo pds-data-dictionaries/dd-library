@@ -199,6 +199,19 @@ utilizes the existing Federal Geographic Data Committee (FGDC) Content Standard 
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 11/08/2021</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1G00_1930.xsd">PDS4_GEOM_1G00_1930.xsd</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1G00_1930.sch">PDS4_GEOM_1G00_1930.sch</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1G00_1930.xml">PDS4_GEOM_1G00_1930.xml</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1G00_1930.JSON">PDS4_GEOM_1G00_1930.JSON</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1G00_1930.zip">PDS4_GEOM_1G00_1930.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 06/09/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
