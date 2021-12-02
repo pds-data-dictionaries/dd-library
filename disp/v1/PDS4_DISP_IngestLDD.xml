@@ -12,7 +12,7 @@
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd ">
 
   <name>Display</name>
-  <ldd_version_id>1.5.0.0</ldd_version_id>
+  <ldd_version_id>1.5.1.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Trent Hare</full_name>
   <steward_id>img</steward_id>
@@ -29,9 +29,12 @@
       the local_identifier attribute under Array_*
       - This rule also seems to be inserted during LDDtool build 
         so currently it is being duplicated.
+      
+    1.5.1.0 
+    - Added display_settings_validate_axis rules and tests for the new rules by Jesse S.
   
   </comment>
-  <last_modification_date_time>2020-12-15T13:06:00Z</last_modification_date_time>
+  <last_modification_date_time>2021-10-20T14:40:00Z</last_modification_date_time>
 
   <!--  Attributes: BEGIN  -->
   
@@ -523,6 +526,26 @@
     </DD_Rule_Statement>
   </DD_Rule>
 
+
+
+
+  <DD_Rule>
+    <local_identifier>display_settings_validate_axis</local_identifier>
+    <rule_context>disp:Display_Settings</rule_context>
+    <rule_assign>name="horizontal_display_axis" value="disp:Display_Direction/disp:horizontal_display_axis"</rule_assign>
+    <rule_assign>name="vertical_display_axis" value="disp:Display_Direction/disp:vertical_display_axis"</rule_assign>
+    <rule_assign>name="local_identifier_reference" value="pds:Local_Internal_Reference/pds:local_identifier_reference"</rule_assign>
+    <DD_Rule_Statement>
+        <rule_type>Assert</rule_type>
+        <rule_test>//pds:*[pds:local_identifier=$local_identifier_reference]/pds:Axis_Array[pds:axis_name=$horizontal_display_axis]</rule_test>
+        <rule_message>The horizontal display axis (&lt;sch:value-of select='$horizontal_display_axis'/&gt;) in display direction must match the name of an axis in the referenced Array (&lt;sch:value-of select='$local_identifier_reference'/&gt;)</rule_message>
+    </DD_Rule_Statement>
+    <DD_Rule_Statement>
+        <rule_type>Assert</rule_type>
+        <rule_test>//pds:*[pds:local_identifier=$local_identifier_reference]/pds:Axis_Array[pds:axis_name=$vertical_display_axis]</rule_test>
+        <rule_message>The vertical display axis (&lt;sch:value-of select='$vertical_display_axis'/&gt;) in display direction must match the name of an axis in the referenced Array (&lt;sch:value-of select='$local_identifier_reference'/&gt;)</rule_message>
+    </DD_Rule_Statement>
+</DD_Rule>
   <!-- Schematron Rule definitions: END                                -->
   
 </Ingest_LDD>

@@ -44,12 +44,16 @@
 		</p>
 		<ul class="versionsList">
 			<li>
+				<b><a href="/datastandards/dictionaries/index-1.17.0.0.shtml">PDS4 Version 1.17.0.0</a></b>
+				<br>Released in December 2021
+			</li>
+			<li>
 				<b><a href="/datastandards/dictionaries/index-1.16.0.0.shtml">PDS4 Version 1.16.0.0</a></b>
-				<br>Released in June, 2021
+				<br>Released in June 2021
 			</li>
 			<li>
 				<b><a href="/datastandards/dictionaries/index-1.15.0.0.shtml">PDS4 Version 1.15.0.0</a></b>
-				<br>Released in January, 2021
+				<br>Released in January 2021
 			</li>
 			<li>
 				<b><a href="/datastandards/dictionaries/index-pre-1.15.0.0.shtml">PDS4 Version 1.14.0.0 and earlier</a></b>

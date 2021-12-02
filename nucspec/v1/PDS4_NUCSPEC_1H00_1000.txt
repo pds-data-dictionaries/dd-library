@@ -1,0 +1,541 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        13.1.0
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.23
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Mon Nov 01 15:18:18 UTC 2021
+   Common Schema          [PDS4_PDS_1H00.xsd]
+   Common Schematron      [PDS4_PDS_1H00.sch]
+   IM Version Id:         1.17.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.23
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-nucspec/ldd-nucspec/src/PDS4_NUCSPEC_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                19
+   Attributes             19
+   Associations           46
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               nucspec
+   LDD Version            1.0.0.0
+   Full Name              Small Bodies Node
+   Steward                sbn
+   Namespace Id           nucspec
+   Comment                This dictionary covers nuclear spectroscopy observations.
+   Last Modification Time 2019-05-21T18:44:16Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   coefficient
+   version                1.17
+   value data type        ASCII_Real
+   description            The coefficient of a single term of the polynomial relating channel number to pulse height.
+
+   name                   order
+   version                1.17
+   value data type        ASCII_Integer
+   description            The order of a single term of the polynomial relating channel number to pulse height.
+
+   name                   state_index
+   version                1.17
+   value data type        ASCII_Integer
+   description            The state_index points to a row of a look up table containing the instrument settings.
+   nillable               true
+
+   name                   first_record
+   version                1.17
+   value data type        ASCII_Integer
+   description            The first record for which the state applies, inclusive.
+   minimum value          1
+
+   name                   last_record
+   version                1.17
+   value data type        ASCII_Integer
+   description            The last record for which this state applies, inclusive.
+   minimum value          1
+
+   name                   record_count
+   version                1.17
+   value data type        ASCII_Integer
+   description            The number of consecutive records, including the first, for which this state applies.
+   minimum value          1
+
+   name                   state_time_field_name
+   version                1.17
+   value data type        UTF8_String
+   description            The name of the field in the referenced data table that contains the time.
+
+   name                   et_start
+   version                1.17
+   value data type        ASCII_Real
+   description            The earliest ephemeris time, as defined by the referenced field, for which this state or condition is applicable.
+
+   name                   et_stop
+   version                1.17
+   value data type        ASCII_Real
+   description            The latest ephemeris time, as defined by the referenced field, for which this state or condition is applicable.
+
+   name                   sclk_start_time
+   version                1.17
+   value data type        ASCII_Integer
+   description            The earliest spacecraft clock time, in ticks since spacecraft clock start, for which this state or condition is applicable.
+   minimum value          0
+
+   name                   sclk_stop_time
+   version                1.17
+   value data type        ASCII_Integer
+   description            The latest spacecraft clock time, in ticks since spacecraft clock start, for which this state or condition is applicable.
+   minimum value          0
+
+   name                   utc_start_time
+   version                1.17
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The earliest Universal Coordinated Time for which this state or condition is applicable.
+
+   name                   utc_stop_time
+   version                1.17
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The earliest Universal Coordinated Time for which this state or condition is applicable.
+
+   name                   name
+   version                1.17
+   value data type        UTF8_Short_String_Collapsed
+   description            The name of the detector.
+
+   name                   description
+   version                1.17
+   value data type        UTF8_Text_Preserved
+   description            A description for the detector.
+
+   name                   comment
+   version                1.17
+   value data type        UTF8_Text_Preserved
+   description            Any notes about the state at the time of observation.
+
+   name                   condition_type
+   version                1.17
+   value data type        ASCII_Short_String_Collapsed
+   description            Remarks about the containing object.
+   nillable               true
+
+   name                   condition_active
+   version                1.17
+   value data type        ASCII_Boolean
+   description            A flag indicating whether the condition was in effect at the given time.
+   nillable               true
+
+   name                   condition_source
+   version                1.17
+   value data type        ASCII_Short_String_Collapsed
+   description            A string identifying the source of the condition at the given time.
+   nillable               true
+
+Parsed Input - Classes:
+
+   name                   NucSpec_Observation_Properties
+   description            This class specifies properties pertaining to a nuclear spectroscopy observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.Energy_Calibration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nucspec.Instrument_Settings
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nucspec.Detectors
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nucspec.Observing_Conditions
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Energy_Calibration
+   description            Specifies methods and data used to determine the pulse height in energy units (e.g. MeV) for each channel of a pulse height spectrum.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.Polynomial
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nucspec.Calibration_Reference
+      minimum occurrences   0
+      maximum occurrences   unbounded
+      reference type        component_of
+
+   name                   Calibration_Reference
+   description            Contains a reference to a document that describes the energy calibration for the product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Instrument_Settings
+   description            This class specifies instrument settings. Instrument settings may be driven via a state table, which may be associated with specific observations within the data product, either by directly indicating those records, or indicating the observation times at which certain states apply.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.State_Table
+      minimum occurrences   1
+      maximum occurrences   unbounded
+      reference type        component_of
+
+   name                   Polynomial
+   description            The pulse height in energy units (e.g. MeV) is determined for a given channel number using the polynomial: H(x) = a0 + a1 x + a2 x^2 + ..., where H is pulse height with energy units and x is channel number.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.Polynomial_Term
+      minimum occurrences   1
+      maximum occurrences   unbounded
+      reference type        component_of
+
+   name                   Polynomial_Term
+   description            Describes a single term in the polynomial function.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.order
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.coefficient
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   State_Table
+   description            Specifies an additional look-up table that provides additional information about specific observations within the product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nucspec.State_Table_Entry
+      minimum occurrences   1
+      maximum occurrences   unbounded
+      reference type        component_of
+
+   name                   State_Table_Entry
+   description            Associates individual observations in the data product with a record in the state table, providing additonal information on those observations.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.state_index
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Applicable_Records
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      State_Time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Applicable_Records
+   description            The records to which this state applies.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      First_Last
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      First_Count
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   State_Time
+   description            The time during which this state was applicable. The state table entry is applicable to records in the referenced data table if the time of the data record, as given by state_time_field_name, is between the start time and stop time given in State_Time.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.state_time_field_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Time_Range_ET
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Time_Range_SCLK
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Time_Range_UTC
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   First_Last
+   description            Defines the first and last records for which this state applies. The record numbers are one-based and inclusive.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.first_record
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.last_record
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   First_Count
+   description            Defines the records to which this state applies by identifying the first record (inclusive), and the number of contiguous records, including the first.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.first_record
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.record_count
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Detectors
+   description            Specifies which detectors were active on an instrument at the time of observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.Detector
+      minimum occurrences   1
+      maximum occurrences   unbounded
+      reference type        component_of
+
+   name                   Detector
+   description            Specifies a single detector which was active at the time of observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Time_Range_ET
+   description            Ephemeris time, as defined by the referenced field, for the first and last science data records for a temporally contiguous block of records with the same state or affected by the same conditions. These records need not be contiguous within the file, but there must be no records with a different state between the start and stop time.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.et_start
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.et_stop
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Time_Range_SCLK
+   description            Spacecraft clock time in ticks since spacecraft clock start for the first and last science data records for a temporally contiguous block of records with the same state or affected by the same conditions. These records need not be contiguous within the file, but there must be no records with a different state between the start and stop time.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.sclk_start_time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.sclk_stop_time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Time_Range_UTC
+   description            Universal Coordinated Time for the first and last science data records for a temporally contiguous block of records with the same state or affected by the same conditions. These records need not be contiguous within the file, but there must be no records with a different state between the start and stop time.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.utc_start_time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.utc_stop_time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observing_Conditions
+   description            Describes activity that may affect nuclear spectroscopy observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.condition_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.Observing_Condition
+      minimum occurrences   1
+      maximum occurrences   unbounded
+      reference type        component_of
+
+   name                   Observing_Condition
+   description            Describes the times that the activity affecting nuclear spectroscopy observations was in effect, along with the sources of the activity, if applicable.
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      nucspec.condition_active
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.condition_source
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nucspec.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Time_Range_UTC
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Time_Range_ET
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Time_Range_SCLK
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

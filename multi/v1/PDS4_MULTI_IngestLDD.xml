@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- PDS4 Local Data Dictionary Ingest File -->
+
+<Ingest_LDD
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://pds.nasa.gov/pds4/pds/v1 
+        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd ">
+
+	<name>Multi</name>
+	<ldd_version_id>2.0.0.0</ldd_version_id>
+	<dictionary_type>Discipline</dictionary_type>
+	<full_name>Joseph N. Mafi</full_name>
+	<steward_id>ppi</steward_id>
+	<namespace_id>multi</namespace_id>
+	<comment>
+		The Multi dictionary contains classes that describe the composition of multidimensional 
+		data consisting of Array (and Array subclass) data objects. It provides a way to 
+		associate data objects and align the objects in general multi-dimensional structures. 
+		
+		Modification History:
+		
+		1.0.0.0 (Todd King, 2018-Sep-29): 
+		   - Initial version
+		
+		2.0.0.0 (J. Mafi, 2021-Feb-23):
+		   - Changed base class name from "Particle_Observation" to "Multidimensional_Data"
+		   - Changed value class names from plural to singular ("Primary_Values" to 
+		     "Primary_Value", etc.)
+		   - Updated DD_Attribute, DD_Association objects to comply with PDS4 V.1.15.0.0
+		   - Eliminated local re-definition of Local_Internal_Reference class, and 
+		     local_reference_type attribute
+		   - Changed "Face_Plane" class to "Face_Axis"
+		   - changed "axis_number" to "primary_axis_number" and added "face_axis_number" 
+		     attribute
+		   - Added DD_Rule to set permissible values for 
+		     Local_Internal_Reference/local_reference_type in Multidimensional_Data
+	</comment>
+	<last_modification_date_time>2021-08-31T17:21:00</last_modification_date_time>
+
+	<DD_Attribute>
+		<name>primary_axis_number</name>
+		<version_id>1.1</version_id>
+		<local_identifier>multi.primary_axis_number</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The index of the axis in the primary array. The first axis is numbered as 1.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>1</minimum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+
+	<DD_Attribute>
+		<name>face_axis_number</name>
+		<version_id>1.1</version_id>
+		<local_identifier>multi.face_axis_number</local_identifier>
+		<nillable_flag>false</nillable_flag>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The index of the axis in the face array. The first axis is numbered as 1.</definition>
+		<DD_Value_Domain>
+			<enumeration_flag>false</enumeration_flag>
+			<value_data_type>ASCII_Integer</value_data_type>
+			<minimum_value>1</minimum_value>
+		</DD_Value_Domain>
+	</DD_Attribute>
+	
+	<DD_Class>
+		<name>Axis_Value</name>
+		<version_id>1.0</version_id>
+		<local_identifier>multi.Axis_Value</local_identifier>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The Axis_Value class identifies the data object which is associated with the one of the axes of the main data array.</definition>
+		<DD_Association>
+			<identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>multi.primary_axis_number</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+
+	<DD_Class>
+		<name>Face_Axis</name>
+		<version_id>1.0</version_id>
+		<local_identifier>multi.Face_Axis</local_identifier>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The Face_Axis class associates one of the axes of a face data array with one of those of the main (primary) data array.</definition>
+		<DD_Association>
+			<identifier_reference>multi.primary_axis_number</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>multi.face_axis_number</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+
+	<DD_Class>
+		<name>Face_Value</name>
+		<version_id>1.0</version_id>
+		<local_identifier>multi.Face_Value</local_identifier>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The Face_Value class identifies the data object which contains parameters associated with two or more axes of the main (primary) data array.</definition>
+		<DD_Association>
+			<identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>multi.Face_Axis</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>2</minimum_occurrences>
+			<maximum_occurrences>16</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+	
+	<DD_Class>
+		<name>Aligned_Value</name>
+		<version_id>1.0</version_id>
+		<local_identifier>multi.Aligned_Value</local_identifier>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The Aligned_Value class identifies a value which aligns element-by-element with the main (primary) data array. The aligned values array must have the same dimensions as the observation array.</definition>
+		<DD_Association>
+			<identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+	
+	<DD_Class>
+		<name>Primary_Value</name>
+		<version_id>1.0</version_id>
+		<local_identifier>multi.Primary_Value</local_identifier>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The Primary_Value class identifies the data object which constitutes the main data array.</definition>
+		<DD_Association>
+			<identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+	
+	<DD_Class>
+		<name>Multidimensional_Data</name>
+		<version_id>2.0</version_id>
+		<local_identifier>multi.Multidimensional_Data</local_identifier>
+		<submitter_name>J. Mafi</submitter_name>
+		<definition>The Multidimensional_Data describes the data values which are associated with the elements along an axis or on the face of a observation data array.</definition>
+		<abstract_flag>false</abstract_flag>
+		<element_flag>true</element_flag> 
+		
+		<DD_Association>
+			<identifier_reference>pds.name</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>pds.local_identifier</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>pds.description</identifier_reference>
+			<reference_type>attribute_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>multi.Primary_Value</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>1</minimum_occurrences>
+			<maximum_occurrences>1</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>multi.Axis_Value</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>*</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>multi.Face_Value</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>*</maximum_occurrences>
+		</DD_Association>
+		<DD_Association>
+			<identifier_reference>multi.Aligned_Value</identifier_reference>
+			<reference_type>component_of</reference_type>
+			<minimum_occurrences>0</minimum_occurrences>
+			<maximum_occurrences>*</maximum_occurrences>
+		</DD_Association>
+	</DD_Class>
+	
+	<DD_Rule>
+		<local_identifier>primary_value_reference_type</local_identifier>
+		<rule_context>multi:Primary_Value/pds:Local_Internal_Reference</rule_context>
+		<DD_Rule_Statement>
+			<rule_type>Assert</rule_type>
+			<rule_test>pds:local_reference_type = 'multi_to_primary_value'
+			</rule_test>
+			<rule_message>For Local_Internal_Reference in multi:Primary_Value, pds:local_reference_type must be 'multi_to_primary_value'.
+			</rule_message>
+		</DD_Rule_Statement>
+	</DD_Rule>
+	
+	<DD_Rule>
+		<local_identifier>face_value_reference_type</local_identifier>
+		<rule_context>multi:Face_Value/pds:Local_Internal_Reference</rule_context>
+		<DD_Rule_Statement>
+			<rule_type>Assert</rule_type>
+			<rule_test>pds:local_reference_type = 'multi_to_face_value'</rule_test>
+			<rule_message>For Local_Internal_Reference in multi:Face_Value, pds:local_reference_type must be 'multi_to_face_value'.</rule_message>
+		</DD_Rule_Statement>
+	</DD_Rule>
+	
+	<DD_Rule>
+		<local_identifier>aligned_value_reference_type</local_identifier>
+		<rule_context>multi:Aligned_Value/pds:Local_Internal_Reference</rule_context>
+		<DD_Rule_Statement>
+			<rule_type>Assert</rule_type>
+			<rule_test>pds:local_reference_type = 'multi_to_aligned_value'</rule_test>
+			<rule_message>For Local_Internal_Reference in multi:Aligned_Value, pds:local_reference_type must be 'multi_to_aligned_value'.</rule_message>
+		</DD_Rule_Statement>
+	</DD_Rule>
+	
+	<DD_Rule>
+		<local_identifier>axis_value_reference_type</local_identifier>
+		<rule_context>multi:Axis_Value/pds:Local_Internal_Reference</rule_context>
+		<DD_Rule_Statement>
+			<rule_type>Assert</rule_type>
+			<rule_test>pds:local_reference_type = 'multi_to_axis_value'</rule_test>
+			<rule_message>For Local_Internal_Reference in multi:Axis_Value, pds:local_reference_type must be 'multi_to_axis_value'.</rule_message>
+		</DD_Rule_Statement>
+	</DD_Rule>
+	
+</Ingest_LDD>
