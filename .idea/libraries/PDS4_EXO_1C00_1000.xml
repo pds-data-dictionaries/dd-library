@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_EXO_1C00_1000">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/exo/v1/PDS4_EXO_1C00_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

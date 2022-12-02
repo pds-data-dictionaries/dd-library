@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="v19">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/disp/v1/PDS4_DISP_1B00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/disp/v1/PDS4_DISP_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/disp/v1/PDS4_DISP_1F00_1500.zip!/" />
+      <root url="jar://$PROJECT_DIR$/disp/v1/PDS4_DISP_1004.zip!/" />
+      <root url="jar://$PROJECT_DIR$/disp/v1/PDS4_DISP_1700.zip!/" />
+      <root url="jar://$PROJECT_DIR$/disp/v1/PDS4_DISP_1H00_1510.zip!/" />
+      <root url="jar://$PROJECT_DIR$/disp/v1/PDS4_DISP_1G00_1500.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

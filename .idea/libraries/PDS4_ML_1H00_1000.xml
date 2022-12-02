@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_ML_1H00_1000">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ml/v1/PDS4_ML_1H00_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

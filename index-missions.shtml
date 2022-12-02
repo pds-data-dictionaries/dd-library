@@ -9,8 +9,11 @@
 	<!-- InstanceParam name="left_sidebar" type="boolean" value="true" -->
 	<!-- InstanceParam name="standard_sidebar" type="boolean" value="true" -->
 
-		<script src="/js/ldd.js" type="text/javascript"></script>
-		<link href="/css/ldd.css" type="text/css" rel="stylesheet">
+	<script src="/js/ldd.js" type="text/javascript"></script>
+	<link href="/css/ldd.css" type="text/css" rel="stylesheet">
+	<style>
+        .lddListToc li { width: calc(10em + 7px); }
+	</style>
 </head>
 
 <body class="sidebar menu_datastandards menu_item_datastandards_schema">
@@ -93,23 +96,42 @@
 		<div id="mission-dictionaries" class="lddList">
 			<h3>Mission Dictionaries</h3>
 			<ul class="lddListToc">
+				<li><a href="#apollo">Apollo</a></li>
 				<li><a href="#cassini">Cassini</a></li>
 				<li><a href="#chan1">Chandrayaan-1</a></li>
 				<li><a href="#clementine">Clementine</a></li>
-				<li><a href="#dawn">DAWN</a></li>
+				<li><a href="#dawn">Dawn</a></li>
 				<li><a href="#hyb2">Hayabusa2</a></li>
 				<li><a href="#insight">InSight</a></li>
 				<li><a href="#juno">Juno</a></li>
 				<li><a href="#ladee">LADEE</a></li>
+				<li><a href="#lro">LRO</a></li>
 				<li><a href="#mars2020">Mars 2020</a></li>
 				<li><a href="#mvn">MAVEN</a></li>
 				<li><a href="#mer">MER</a></li>
 				<li><a href="#mess">MESSENGER</a></li>
 				<li><a href="#orex">OSIRIS-REx</a></li>
-				<li><a href="#vg1">VOYAGER 1</a></li>
-				<li><a href="#vg2">VOYAGER 2</a></li>
+				<li><a href="#vg1">Voyager 1</a></li>
+				<li><a href="#vg2">Voyager 2</a></li>
 			</ul>
 
+			<div id="apollo">
+				<h4>Apollo (apollo)</h4>
+				<p>The Apollo Mission Dictionary (apollo) contains classes, attributes and rules specific to the Apollo missions and their instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.18.0.0</li>
+					<li><b>Posted:</b> 10/12/2022</li>
+					<ul>
+						<li><a href="/pds4/mission/apollo/v1/PDS4_APOLLO_1I00_1000.xsd">PDS4_APOLLO_1I00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/apollo/v1/PDS4_APOLLO_1I00_1000.sch">PDS4_APOLLO_1I00_1000.sch</a></li>
+						<li><a href="/pds4/mission/apollo/v1/PDS4_APOLLO_1I00_1000.xml">PDS4_APOLLO_1I00_1000.xml</a></li>
+						<li><a href="/pds4/mission/apollo/v1/PDS4_APOLLO_1I00_1000.JSON">PDS4_APOLLO_1I00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/apollo/v1/PDS4_APOLLO_1I00_1000.zip">PDS4_APOLLO_1I00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
 			<div id="cassini">
 				<h4>Cassini (cassini)</h4>
 				<p>The Cassini Mission Dictionary (cassini) contains classes, attributes and rules specific to the Cassini Mission and its instruments (Note: Huygens classes will be in a separate dictionary).</br>
@@ -134,9 +156,9 @@
 					<li><b>Version:</b> 1.11.0.0</li>
 					<li><b>Posted:</b> 02/11/2020</li>
 					<ul>
-						<li><a href="/pds4/mission/cassini/v1/PDS4_Cassini_1B00_1300.xsd">PDS4_CASSINI_1B00_1300.xsd</a></li>
-						<li><a href="/pds4/mission/cassini/v1/PDS4_Cassini_1B00_1300.sch">PDS4_CASSINI_1B00_1300.sch</a></li>
-						<li><a href="/pds4/mission/cassini/v1/PDS4_Cassini_1B00_1300.xml">PDS4_CASSINI_1B00_1300.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1300.xsd">PDS4_CASSINI_1B00_1300.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1300.sch">PDS4_CASSINI_1B00_1300.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1300.xml">PDS4_CASSINI_1B00_1300.xml</a></li>
 						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1300.zip">PDS4_CASSINI_1B00_1300.zip</a></li>
 					</ul>
 					<li><b>Version:</b> 1.11.0.0</li>
@@ -146,7 +168,7 @@
 						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.sch">PDS4_CASSINI_1B00_1200.sch</a></li>
 						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.xml">PDS4_CASSINI_1B00_1200.xml</a></li>
 						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.JSON">PDS4_CASSINI_1B00_1200.JSON</a></li>
-						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_LDD_1B00_1200.zip">PDS4_CASSINI_LDD_1B00_1200.zip</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00_1200.zip">PDS4_CASSINI_1B00_1200.zip</a></li>
 					</ul>
 					<li><b>Version:</b> 1.11.0.0</li>
 					<li><b>Posted:</b> 12/04/2018</li>
@@ -155,7 +177,7 @@
 						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.sch">PDS4_CASSINI_1B00.sch</a></li>
 						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.xml">PDS4_CASSINI_1B00.xml</a></li>
 						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.JSON">PDS4_CASSINI_1B00.JSON</a></li>
-						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_LDD_1B00.zip">PDS4_CASSINI_LDD_1B00.zip</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1B00.zip">PDS4_CASSINI_1B00.zip</a></li>
 					</ul>
 				</ul>
 				<a class="toTop">Back to top</a>
@@ -195,8 +217,8 @@
 				<a class="toTop">Back to top</a>
 			</div>
 			<div id="dawn">
-				<h4>DAWN (dawn)</h4>
-				<p>The DAWN Mission Dictionary (dawn) contains classes, attributes and rules specific to the DAWN Mission and its instruments.</br>
+				<h4>Dawn (dawn)</h4>
+				<p>The Dawn Mission Dictionary (dawn) contains classes, attributes and rules specific to the DAWN Mission and its instruments.</br>
 				</p>
 				<ul>
 					<li><b>Version:</b> 1.11.0.0</li>
@@ -303,11 +325,13 @@
 						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1A10_1830.xml">PDS4_INSIGHT_1A10_1830.xml</a></li>
 					</ul>
 					<li><b>Version:</b> 1.8.0.0</li>
-					<li><b>Posted:</b> 07/17/2017</li>
+					<li><b>Posted:</b> 07/17/2017 and 08/17/2022</li>
 					<ul>
 						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.xsd">PDS4_INSIGHT_1600.xsd</a></li>
 						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.sch">PDS4_INSIGHT_1600.sch</a></li>
 						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.xml">PDS4_INSIGHT_1600.xml</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.JSON">PDS4_INSIGHT_1600.JSON</a></li>
+						<li><a href="/pds4/mission/insight/v1/PDS4_INSIGHT_1600.zip">PDS4_INSIGHT_1600.zip</a></li>
 					</ul>
 					<li><b>Version:</b> 1.5.0.0</li>
 					<li><b>Posted:</b> 10/30/2015</li>
@@ -371,11 +395,55 @@
 				</ul>
 				<a class="toTop">Back to top</a>
 			</div>
+			<div id="lro">
+				<h4>LRO (lro)</h4>
+				<p>The LRO Mission Dictionary (lro) contains classes that describe aspects of the LRO mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>Version:</b> 1.17.0.0</li>
+					<li><b>Posted:</b> 01/28/2022</li>
+					<ul>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.xsd">PDS4_LRO_1H00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.sch">PDS4_LRO_1H00_1000.sch</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.xml">PDS4_LRO_1H00_1000.xml</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.JSON">PDS4_LRO_1H00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.zip">PDS4_LRO_1H00_1000.zip</a></li>
+					</ul>
+					<li><b>Version:</b> 1.16.0.0</li>
+					<li><b>Posted:</b> 01/28/2022</li>
+					<ul>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1000.xsd">PDS4_LRO_1G00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1000.sch">PDS4_LRO_1G00_1000.sch</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1000.xml">PDS4_LRO_1G00_1000.xml</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1000.JSON">PDS4_LRO_1G00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1000.zip">PDS4_LRO_1G00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
 			<div id="mars2020">
 				<h4>Mars 2020 (mars2020)</h4>
 				<p>The Mars 2020 Mission Dictionary contains classes and attributes that describe data products from the Mars 2020 Perseverance Rover Mission.</br>
 				</p>
 				<ul>
+          <li><b>Version:</b> 1.17.0.0</li>
+          <li><b>Posted:</b> 06/07/2022</li>
+          <ul>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1H00_1010.xsd">PDS4_MARS2020_1H00_1010.xsd</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1H00_1010.sch">PDS4_MARS2020_1H00_1010.sch</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1H00_1010.xml">PDS4_MARS2020_1H00_1010.xml</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1H00_1010.JSON">PDS4_MARS2020_1H00_1010.JSON</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1H00_1010.zip">PDS4_MARS2020_1H00_1010.zip</a></li>
+          </ul>
+          <li><b>Version:</b> 1.16.0.0</li>
+          <li><b>Posted:</b> 06/07/2022</li>
+          <ul>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1G00_1010.xsd">PDS4_MARS2020_1G00_1010.xsd</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1G00_1010.sch">PDS4_MARS2020_1G00_1010.sch</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1G00_1010.xml">PDS4_MARS2020_1G00_1010.xml</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1G00_1010.JSON">PDS4_MARS2020_1G00_1010.JSON</a></li>
+              <li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1G00_1010.zip">PDS4_MARS2020_1G00_1010.zip</a></li>
+          </ul>
 					<li><b>Version:</b> 1.16.0.0</li>
 					<li><b>Posted:</b> 08/19/2021</li>
 					<ul>
@@ -517,7 +585,7 @@
 						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.sch">orex_ldd_OREX_1400.sch</a></li>
 						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.xml">orex_ldd_OREX_1400.xml</a></li>
 						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.JSON">orex_ldd_OREX_1400.JSON</a></li>
-						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1400.zip">orex_ldd_OREX_1400.zip</a></li>
+						<li><a href="/pds4/mission/orex/v1/PDS4_OREX_1700_1400.zip">PDS4_OREX_1700_1400.zip</a></li>
 					</ul>
 					<li><b>Version:</b> 1.7.0.0</li>
 					<li><b>Posted:</b> 07/22/2020</li>
@@ -526,7 +594,7 @@
 						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1300.sch">orex_ldd_OREX_1300.sch</a></li>
 						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1300.xml">orex_ldd_OREX_1300.xml</a></li>
 						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1300.JSON">orex_ldd_OREX_1300.JSON</a></li>
-						<li><a href="/pds4/mission/orex/v1/Orex_schema_1300.zip">Orex_schema_1300.zip</a></li>
+						<li><a href="/pds4/mission/orex/v1/PDS4_OREX_1700_1300.zip">PDS4_OREX_1700_1300.zip</a></li>
 					</ul>
 					<li><b>Version:</b> 1.7.0.0</li>
 					<li><b>Posted:</b> 09/27/2019</li>
@@ -544,12 +612,21 @@
 						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1100.xml">orex_ldd_OREX_1100.xml</a></li>
 						<li><a href="/pds4/mission/orex/v1/PDS4_OREX_1700_1100.zip">PDS4_OREX_1700_1100.zip</a></li>
 					</ul>
+					<li><b>Version:</b> 1.7.0.0</li>
+					<li><b>Posted:</b> 12/16/2021</li>
+					<ul>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1000.xsd">orex_ldd_OREX_1000.xsd</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1000.sch">orex_ldd_OREX_1000.sch</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1000.xml">orex_ldd_OREX_1000.xml</a></li>
+						<li><a href="/pds4/mission/orex/v1/orex_ldd_OREX_1000.JSON">orex_ldd_OREX_1000.JSON</a></li>
+						<li><a href="/pds4/mission/orex/v1/PDS4_OREX_1700_1000.zip">PDS4_OREX_1700_1000.zip</a></li>
+					</ul>
 				</ul>
 				<a class="toTop">Back to top</a>
 			</div>
 			<div id="vg1">
-				<h4>VOYAGER 1 (vg1)</h4>
-				<p>The VOYAGER-1 Mission Dictionary (vg1) contains classes, attributes and rules specific to the Voyager-1 Mission and its instruments.</br>
+				<h4>Voyager 1 (vg1)</h4>
+				<p>The Voyager-1 Mission Dictionary (vg1) contains classes, attributes and rules specific to the Voyager 1 Mission and its instruments.</br>
 				</p>
 				<ul>
 					<li><b>Version:</b> 1.13.0.0</li>
@@ -573,8 +650,8 @@
 				<a class="toTop">Back to top</a>
 			</div>
 			<div id="vg2">
-				<h4>VOYAGER 2 (vg2)</h4>
-				<p>The VOYAGER-2 Mission Dictionary (vg2) contains classes, attributes and rules specific to the Voyager-2 Mission and its instruments.</br>
+				<h4>Voyager 2 (vg2)</h4>
+				<p>The Voyager-2 Mission Dictionary (vg2) contains classes, attributes and rules specific to the Voyager 2 Mission and its instruments.</br>
 				</p>
 				<ul>
 					<li><b>Version:</b> 1.13.0.0</li>

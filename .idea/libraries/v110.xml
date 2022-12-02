@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="v110">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1E00_1800.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1F00_1910.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1B10_1700.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1700_1401.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1G00_1920.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1A10_1530.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1B00_1610.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1E00_1810.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1H00_1930.zip!/" />
+      <root url="jar://$PROJECT_DIR$/geom/v1/PDS4_GEOM_1G00_1930.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

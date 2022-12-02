@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model
-    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD
     xmlns="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 
-                        https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"
+                        https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd"
                         >
   <name>Type_List</name>
-  <ldd_version_id>1.2.0.0</ldd_version_id>
+  <ldd_version_id>2.0.0.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Lyle Huber</full_name>
   <steward_id>ctli</steward_id>
@@ -20,12 +20,14 @@
     value meanings for use by the enumerated attribute  type  in the Instrument class.
     Modification History:
       2019-11-14: First version delivered by the Instrument Type Steward Team.
+      2021-08-31: Version 2.0 to reorganize the Type_List class.
   </comment>
-  <last_modification_date_time>2020-03-04T21:00:00Z</last_modification_date_time>
+  <last_modification_date_time>2021-08-31T21:00:00Z</last_modification_date_time>
   <!-- Modification History
     Version 1.0.0.0 - initial dictionary
     Version 1.1.0.0 - added subtype
     Version 1.2.0.0 - added Photometer
+    Version 2.0.0.0 - reorganized Type_List class
     -->
 
   <DD_Attribute>
@@ -300,14 +302,14 @@
           A neutron detector detects and/or counts neutrons.
         </value_meaning>
       </DD_Permissible_Value>
-        
+
       <DD_Permissible_Value>
         <value>Photometer</value>
         <value_meaning>
           A photometer measures the intensity of electromagnetic radiation over a wavelength range at infrared and shorter wavelengths.
         </value_meaning>
       </DD_Permissible_Value>
-
+      
       <DD_Permissible_Value>
         <value>Polarimeter</value>
         <value_meaning>
@@ -476,7 +478,7 @@
   
   <DD_Class>
     <name>Type_List</name>
-    <version_id>1.0</version_id>
+    <version_id>2.0</version_id>
     <local_identifier>Type_List</local_identifier>
     <submitter_name>Lyle Huber</submitter_name>
     <definition>The Type List class provides a list of values and their value meanings.</definition>
@@ -485,7 +487,7 @@
       <identifier_reference>type</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
-      <maximum_occurrences>*</maximum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>subtype</identifier_reference>

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.sch"
    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1F00_1500.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
 <Ingest_LDD 
 	xmlns="http://pds.nasa.gov/pds4/pds/v1" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd">
+    xmlns:survey="http://pds.nasa.gov/pds4/survey/v1" 
+	xmlns:disp="http://pds.nasa.gov/pds4/disp/v1" 
+	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd
+                        http://pds.nasa.gov/pds4/disp/v1 https://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1F00_1500.xsd">
 
 	<name>Survey</name>
-    <ldd_version_id>1.0.1.0</ldd_version_id>
+    <ldd_version_id>1.1.0.0</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
 	<full_name>Jesse Stone</full_name>
 	<steward_id>sbn</steward_id>
 	<namespace_id>survey</namespace_id>
 	<comment>The Survey dictionary contains classes that support ground based sky surveys.</comment>
-	<last_modification_date_time>2021-02-22T21:30:00.000Z</last_modification_date_time>
+	<last_modification_date_time>2021-09-27T21:30:00.000Z</last_modification_date_time>
 
     <DD_Attribute>
         <name>band_name</name>
@@ -509,7 +514,7 @@
         <DD_Association>
             <identifier_reference>observation_purpose</identifier_reference>
             <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
+            <minimum_occurrences>1</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
@@ -550,7 +555,7 @@
 
         * Ensure that each corner is identified. 
         * Ensure that corner is identified only once. Given the existing 
-        restrictions on Image_Corners, this is satisfied by the above rule.
+        restrictions on Image_Corners, this is satisfied by the first rule below.
 
     -->
     <DD_Rule>
@@ -578,6 +583,7 @@
         </DD_Rule_Statement>
     </DD_Rule>
 
+    
     <DD_Rule>
         <local_identifier>rule_image_corners_observations</local_identifier>
         <rule_context>survey:Survey[survey:observation_purpose!='Calibration']</rule_context>
@@ -597,5 +603,28 @@
             <rule_message>The "Calibration" observation type may only be used with Products with a purpose of "Calibration"</rule_message>
         </DD_Rule_Statement>
     </DD_Rule>
+    
+    <!-- Rule to enforce use of arcseconds in rollover_fwhm -->
+    <DD_Rule>
+        <local_identifier>rule_units_rollover_fwhm</local_identifier>
+        <rule_context>survey:Rollover/survey:rollover_fwhm</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>@unit = 'arcsec'</rule_test>
+            <rule_message>The rollover_fwhm must have unit = 'arcsec'.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+    <DD_Rule>
+        <local_identifier>rule_corners_display_dictionary</local_identifier>
+        <rule_context>survey:Image_Corners</rule_context>
+        <rule_assign>name="is_image" value="//(pds:Array|pds:Array_2D|pds:Array_2D_Image|pds:Array_2D_Map|pds:Array_2D_Spectrum|pds:Array_3D|pds:Array_3D_Image|pds:Array_3D_Movie|pds:Array_3D_Spectrum)"</rule_assign>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>if ($is_image) then //disp:Display_Settings else true()</rule_test>
+            <rule_message>If "Image_Corners" is specified and the product contains an image, a "Display_Settings" must be specified, as well.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
 
 </Ingest_LDD>

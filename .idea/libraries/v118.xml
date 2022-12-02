@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="v118">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/rings/v1/RINGS_1C00_1800.zip!/" />
+      <root url="jar://$PROJECT_DIR$/rings/v1/PDS4_RINGS_1H00_1B00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/rings/v1/PDS4_RINGS_1C00_1800.zip!/" />
+      <root url="jar://$PROJECT_DIR$/rings/v1/PDS4_RINGS_1F00_1A00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/rings/v1/RINGS_1D00_1900.zip!/" />
+      <root url="jar://$PROJECT_DIR$/rings/v1/PDS4_RINGS_1E00_1A00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/rings/v1/PDS4_RINGS_1G00_1A00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/rings/v1/PDS4_RINGS_1D00_1900.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

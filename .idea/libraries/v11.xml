@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="v11">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/mars2020/v1/PDS4_MARS2020_1G00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/mars2020/v1/PDS4_MARS2020_1F00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/mars2020/v1/PDS4_MARS2020_1E00_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

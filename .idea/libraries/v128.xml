@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="v128">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ctli/v1/PDS4_CTLI_1E00_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/ctli/v1/PDS4_CTLI_1D00_1101.zip!/" />
+      <root url="jar://$PROJECT_DIR$/ctli/v1/PDS4_CTLI_1G00_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/ctli/v1/PDS4_CTLI_1F00_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/ctli/v1/PDS4_CTLI_1D00_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

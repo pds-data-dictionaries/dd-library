@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="v16">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/hyb2/v1/PDS4_HYB2_1E00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/hyb2/v1/PDS4_HYB2_1E00_1100.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

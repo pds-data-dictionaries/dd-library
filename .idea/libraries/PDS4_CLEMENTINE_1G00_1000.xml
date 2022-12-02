@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_CLEMENTINE_1G00_1000">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/clementine/v1/PDS4_CLEMENTINE_1G00_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

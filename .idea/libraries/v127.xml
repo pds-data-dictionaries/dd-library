@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="v127">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/orex/v1/orex_ldd_OREX_1400.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/orex/v1/PDS4_OREX_1700_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/orex/v1/Orex_schema_1300.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/orex/v1/PDS4_OREX_1700_1100.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

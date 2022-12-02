@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_WAVE_1000">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/wave/v1/PDS4_WAVE_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

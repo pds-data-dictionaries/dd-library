@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_MULTI_1H00_2000">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/multi/v1/PDS4_MULTI_1H00_2000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

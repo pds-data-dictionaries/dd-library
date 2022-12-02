@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_ALT_1000">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/alt/v1/PDS4_ALT_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

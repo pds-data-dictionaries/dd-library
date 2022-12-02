@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_CHAN1_1E00_1110">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/chan1/v1/PDS4_CHAN1_1E00_1110.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

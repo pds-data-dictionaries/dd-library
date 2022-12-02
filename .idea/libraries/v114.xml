@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="v114">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/insight/v1/PDS4_INSIGHT_1F00_1900.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/insight/v1/PDS4_INSIGHT_1B00_1850.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/insight/v1/InSight_1A10_1830.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/insight/v1/InSight_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/insight/v1/PDS4_INSIGHT_1B00_1870.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/insight/v1/PDS4_INSIGHT_1B00_1860.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

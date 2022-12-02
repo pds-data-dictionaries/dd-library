@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="v17">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/speclib/v1/PDS4_SPECLIB_1H00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/speclib/v1/PDS4_SPECLIB_1G00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/speclib/v1/PDS4_SPECLIB_1F00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/speclib/v1/PDS4_SPECLIB_1B00_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

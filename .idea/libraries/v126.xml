@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="v126">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/proc/v1/PDS4_PROC_1F00_1210.zip!/" />
+      <root url="jar://$PROJECT_DIR$/proc/v1/PDS4_PROC_1B00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/proc/v1/PDS4_PROC_1H00_1210.zip!/" />
+      <root url="jar://$PROJECT_DIR$/proc/v1/PDS4_PROC_1G00_1210.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

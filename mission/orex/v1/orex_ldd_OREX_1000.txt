@@ -1,0 +1,3013 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        0.2.1.0
+   Time                   Tue Jan 29 11:44:39 MST 2019
+   Core Schemas           [PDS4_PDS_1700.xsd]
+   Core Schematrons       [PDS4_PDS_1700.sch]
+   Common Model Version   1.7.0.0
+   Object Model           [UpperModel.pont]
+   Data Dictionary        [dd11179.pins]
+   Configuration File     [MDPTNConfigClassDisp.xml]
+   Glossary               [Glossary.pins]
+   Document Spec          [DMDocument.pins]
+
+Parameters:
+   Input File             [orex_ldd.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Class Elements   true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                10
+   Attributes             275
+   Associations           275
+   Error messages         0
+   Warning messages       2
+   Information messages   0
+
+Detailed validation messages
+   WARNING  Header:  - New steward has been specified:sbn
+   WARNING  Header:  - New namespace id has been specified:orex
+
+Parsed Input - Header:
+   LDD Name               OSIRIS-REX_Local_Data_Dictionary
+   LDD Version            1.0
+   Full Name              Dr. M. Katherine Crombie
+   Steward                sbn
+   Namespace Id           orex
+   Comment                This is the OSIRIS-REx Mission Specific Data Dictionary.  It includes 
+   Last Modification Time 2019-01-29T18:44:38.641Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   action_mode
+   version                1.5
+   value data type        ASCII_Integer
+   description            Action sequence enable mode: 0 equals off, 1 equals on
+
+   name                   active
+   version                1.5
+   value data type        ASCII_Integer
+   description            Camera number of active camera (1-Map, 2-Sam, 3-Poly). Note that the numeric values are different than those of the CAMERAID.
+
+   name                   adc_clamp_enable
+   version                1.5
+   value data type        ASCII_Integer
+   description            Analog to digital converter clamp enable during imaging. Enable equals 1.
+
+   name                   apid
+   version                1.5
+   value data type        ASCII_Real
+   description            Application Identification Number
+
+   name                   att_rate_x
+   version                1.5
+   value data type        ASCII_Real
+   description            The x-axis component of the spacecraft angular momentum rate in spacecraft body frame at the ATT_TIME
+
+   name                   att_rate_y
+   version                1.5
+   value data type        ASCII_Real
+   description            The y-axis component of the spacecraft angular momentum rate in spacecraft body frame at the ATT_TIME
+
+   name                   att_rate_z
+   version                1.5
+   value data type        ASCII_Real
+   description            The z-axis component of the spacecraft angular momentum rate in spacecraft body frame at the ATT_TIME
+
+   name                   att_time
+   version                1.5
+   value data type        ASCII_Real
+   description            The spacecraft clock time when attitude data was collected
+
+   name                   bennana
+   version                1.5
+   value data type        ASCII_Real
+   description            Azimuth of the North polar Axis of the target named in FITS keyword BENNURDT (typically Bennu), positive from the +NAXIS2 direction toward the +NAXIS1 direction; see also BENNURDQ for a statement of the quality of this value; assumes undistorted optics; will be -999 if the calculation fails
+   unit of measure type   Units_of_Angle
+
+   name                   bennu_dec
+   version                1.5
+   value data type        ASCII_Real
+   description            Declination of the vector, expressed in the Earth Mean Equator of the J2000 Epoch, from the ORX spacecraft toward the target named in FITS keyword BENNURDT (typically Bennu); see also BENNURDQ for a statement of the quality of this value
+   unit of measure type   Units_of_Angle
+
+   name                   bennu_naxis1_offset
+   version                1.5
+   value data type        ASCII_Real
+   description            Approximate offset from CRPIX1 pixel in +NAXIS1 direction of the location of the center of the target named in FITS keyword BENNURDT (typically Bennu); see also BENNURDQ for a statement of the quality of this value; assumes undistorted optics
+   unit of measure type   Units_of_Misc
+
+   name                   bennu_naxis2_offset
+   version                1.5
+   value data type        ASCII_Real
+   description            Approximate offset from CRPIX2 pixel in +NAXIS2 direction of the location of the center of the target named in FITS keyword BENNURDT (typically Bennu); see also BENNURDQ for a statement of the quality of this value; assumes undistorted optics
+   unit of measure type   Units_of_Misc
+
+   name                   bennu_ra
+   version                1.5
+   value data type        ASCII_Real
+   description            Right Ascension of the vector, expressed in the Earth Mean Equator of the J2000 Epoch, from the ORX spacecraft toward the target named in FITS keyword BENNURDT (typically Bennu); see also BENNURDQ for a statement of the quality of this value
+   unit of measure type   Units_of_Angle
+
+   name                   bennu_radec_quality
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            (Quality: provenance) for the BENNURA, BENNUDEC, BENNUNX1, BENNUNX2 FITS keywords. This will be one of three values: (BEST: SPK), meaning the geometry was obtained from SPICE SP-Kernels; (POOR: osculating elements; +/-1E6km), meaning the geometry was obtained from osculating orbital elements of Bennu w.r.t the Sun, and will have uncertainties of order 1E6km; (NONE: FAILURE), meaning both the SPK and elements methods failed; the parentheses, (), are only delimiters here and not part of the quality:provenance values.
+
+   name                   bennu_radec_target
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Target for the BENNURA, BENNUDEC, BENNUNX1 and BENNUNX2 FTIS keywords; typically BENNU; may be NONE if the calculation failed. Target is not required to be in the field of view.
+
+   name                   board_rev_num
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD board revision number
+
+   name                   bore_angle
+   version                1.5
+   value data type        ASCII_Real
+   description            Angle between boresight and origin of Bennu in planetocentric Cartesian coordinates
+   unit of measure type   Units_of_Angle
+
+   name                   bore_flag
+   version                1.5
+   value data type        ASCII_Real
+   description            Boresight flag 0-Boresight does not intersect surface of asteroid; 1-Boresight intersects surface of asteroid
+
+   name                   boresight_lat
+   version                1.5
+   value data type        ASCII_Real
+   description            Boresight latitude of the imaging location
+
+   name                   boresight_lon
+   version                1.5
+   value data type        ASCII_Real
+   description            Boresight longitude of the imaging location
+
+   name                   boresight_range
+   version                1.5
+   value data type        ASCII_Real
+   description            Range from spacecraft to the closest boresight intersection to spacecraft. Must be positive number . If Boresight Flag NE 1, then value shall be 0.0
+   unit of measure type   Units_of_Length
+
+   name                   boresight_x
+   version                1.5
+   value data type        ASCII_Real
+   description            X coordinate of boresight intersection with surface in planetocentric Cartesian coordinates. Allowed range 0 to 1000.0. If Boresight Flag NE 1, then value shall be 0.0
+   unit of measure type   Units_of_Length
+
+   name                   boresight_y
+   version                1.5
+   value data type        ASCII_Real
+   description            Y coordinate of boresight intersection with surface in planetocentric Cartesian coordinates. Allowed range 0 to 1000.0. If Boresight Flag NE 1, then value shall be 0.0
+   unit of measure type   Units_of_Length
+
+   name                   boresight_z
+   version                1.5
+   value data type        ASCII_Real
+   description            Z coordinate of boresight intersection with surface in planetocentric Cartesian coordinates. Allowed range 0 to 1000.0. If Boresight Flag NE 1, then value shall be 0.0
+   unit of measure type   Units_of_Length
+
+   name                   bpp
+   version                1.5
+   value data type        ASCII_Real
+   description            Records the pixel depth of the transmitted image. If the image was initially acquired as 12 bits, then it can be sent as 12 bits or 8 bits. If the image was initially acquired as 8 bits, then this value is ignored and the output is always 8 bits. The companding mode is only significant if companding is turned on. Keyword may be blank if the transmit-image-raw command was used to acquire image.
+
+   name                   cal_lamp_sel
+   version                1.5
+   value data type        ASCII_Integer
+   description            Bitwise Camera of the active illumination lamp
+
+   name                   camera_head_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Camera head temperature in digital number (if available).
+   unit of measure type   Units_of_Misc
+
+   name                   camera_id
+   version                1.5
+   value data type        ASCII_Integer
+   description            ID of camera in use. 0- Map, 1-Sam, 2-Poly. Note that the numeric values for ACTV_CAM are different, but the named camera will be identical.
+
+   name                   ccd_csr_reserved
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD control status register reserve bit
+
+   name                   ccd_rev_num
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD revision number
+
+   name                   ccd_rst_l_pulse
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD control status reg left reset pulse indicator. 1 equals 25 ns RST_L pulse , 0 equals 12.5 ns (Control/Status) Note: if ADC_INCLK equals 10 MHz, RST_L is forced to 12.5 ns.
+
+   name                   ccd_rst_r_pulse
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD control status reg right reset pulse indicator. 1 equals 25 ns RST_R pulse, 0 equals 12.5 ns (Control/Status) Note: if ADC_INCLK equals 10 MHz, RST_R is forced to 12.5 ns.
+
+   name                   cd1_1
+   version                1.5
+   value data type        ASCII_Real
+   description            Change in RA per pixel along first axis (sample) evaluated at reference pixel
+   unit of measure type   Units_of_Angle
+
+   name                   cd1_2
+   version                1.5
+   value data type        ASCII_Real
+   description            Change in RA per pixel along second axis (line) evaluated at reference pixel
+   unit of measure type   Units_of_Angle
+
+   name                   cd2_1
+   version                1.5
+   value data type        ASCII_Real
+   description            Change in DEC per pixel along first axis (sample) evaluated at reference pixel
+   unit of measure type   Units_of_Angle
+
+   name                   cd2_2
+   version                1.5
+   value data type        ASCII_Real
+   description            Change in DEC per pixel along second axis (line) evaluated at reference pixel
+   unit of measure type   Units_of_Angle
+
+   name                   chan1_course_dac_reg_val
+   version                1.5
+   value data type        ASCII_Integer
+   description            Channel 1 coarse DAC register. 0 equals off, 1 equals on.
+
+   name                   chan1_fine_dac_reg_val
+   version                1.5
+   value data type        ASCII_Integer
+   description            Channel 1 fine DAC register. 0 equals off, 1 equals on.
+
+   name                   chan2_course_dac_reg_val
+   version                1.5
+   value data type        ASCII_Integer
+   description            Channel 2 coarse DAC register. 0 equals off, 1 equals on.
+
+   name                   chan2_fine_dac_reg_val
+   version                1.5
+   value data type        ASCII_Integer
+   description            Channel 2 fine DAC register. 0 equals off, 1 equals on.
+
+   name                   checksum_result
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            The pass/fail state of the image check sum
+
+   name                   ckqual
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Quality of C-Kernel (nominal equals RECONSTRUCT, contingency equals PREDICT)
+
+   name                   control_file
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Data origin/provenance information
+
+   name                   creator
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Creator of this product
+
+   name                   cs1h_ccd
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD Storage clock pattern. CCD Storage clock patterns during a storage to horizontal register transfer. There are 8 bit periods per storage clock cycle. The CS1H_CCD determines the high to low ratio incremented each VFREQCSR count cycle.
+
+   name                   cs2h_ccd
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD Storage clock pattern. CCD Storage clock patterns during a storage to horizontal register transfer. There are 8 bit periods per storage clock cycle. The CS2H_CCD determines the high to low ratio incremented each VFREQCSR count cycle.
+
+   name                   cs3h_ccd
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD Storage clock patterns during a storage to horizontal register transfer. There are 8 bit periods per storage clock cycle. The CS3H_CCD determines the high to low ratio incremented each VFREQCSR count cycle.
+
+   name                   cs4h_ccd
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD Storage clock patterns during a storage to horizontal register transfer. There are 8 bit periods per storage clock cycle. The CS4H_CCD determines the high to low ratio incremented each VFREQCSR count cycle.
+
+   name                   ctype1
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Coordinate type for reference pixel, values are either RA---TAN equals gnomic or tangent plane or SIP - simple image polynomial.
+
+   name                   ctype2
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Coordinate type for the reference pixel, values are either DEC--TAN equals gnomic or tangent plane or SIP - simple image polynomial.
+
+   name                   cunit1
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Units for reference pixel 1 (CRPIX1)
+   unit of measure type   Units_of_Angle
+
+   name                   cunit2
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Units for reference pixel 2 (CRPIX2)
+   unit of measure type   Units_of_Angle
+
+   name                   cur_detector_minus_24
+   version                1.5
+   value data type        ASCII_Integer
+   description            -24 V current detector
+   unit of measure type   Units_of_Misc
+
+   name                   cur_detector_minus_24_x
+   version                1.5
+   value data type        ASCII_Real
+   description            -24 V current detector
+   unit of measure type   Units_of_Current
+
+   name                   cur_detector_plus_24
+   version                1.5
+   value data type        ASCII_Integer
+   description            +24 V current detector
+   unit of measure type   Units_of_Misc
+
+   name                   cur_detector_plus_24_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +24 V current detector
+   unit of measure type   Units_of_Current
+
+   name                   cur_detector_plus_5
+   version                1.5
+   value data type        ASCII_Integer
+   description            +5 V current detector
+   unit of measure type   Units_of_Misc
+
+   name                   cur_detector_plus_5_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +5 V current detector
+   unit of measure type   Units_of_Current
+
+   name                   cur_htr
+   version                1.5
+   value data type        ASCII_Integer
+   description            Heater Current
+   unit of measure type   Units_of_Misc
+
+   name                   cur_htr_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Heater Current
+   unit of measure type   Units_of_Current
+
+   name                   cur_index
+   version                1.5
+   value data type        ASCII_Integer
+   description            Index Lamp Current
+   unit of measure type   Units_of_Misc
+
+   name                   cur_index_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Index Lamp Current
+   unit of measure type   Units_of_Current
+
+   name                   cur_lamp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Illumination Lamp Current
+   unit of measure type   Units_of_Misc
+
+   name                   cur_lamp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Illumination Lamp Current
+   unit of measure type   Units_of_Current
+
+   name                   cur_motor
+   version                1.5
+   value data type        ASCII_Integer
+   description            Motor Current
+   unit of measure type   Units_of_Misc
+
+   name                   cur_motor_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Motor Current
+   unit of measure type   Units_of_Current
+
+   name                   cx_pattern
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD vertical clock pattern. There are 8 bit periods per vertical clock cycle. CX_PATT determines the high to low ratio incremented each VFREQCSR count cycle.
+
+   name                   data_source
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Origin of image data TEST or FLIGHT
+
+   name                   date_of_observation
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Observation start time in UTC (YYYY-MM-DDThh:mm:ss.sss)
+
+   name                   declination
+   version                1.5
+   value data type        ASCII_Real
+   description            Boresight Declination (DEC) in J2000 frame
+   unit of measure type   Units_of_Angle
+
+   name                   delta_obs
+   version                1.5
+   value data type        ASCII_Real
+   description            Delta between mid-observation time and spacecraft clock string (Mid-observation time) - (SCLK_STR timestamp), in seconds used to verify exposure time.
+   unit of measure type   Units_of_Time
+
+   name                   detector_mode
+   version                1.5
+   value data type        ASCII_Integer
+   description            Imaging command mode.
+
+   name                   device_id
+   version                1.5
+   value data type        ASCII_Integer
+   description            Analog to digital converter device revision identifier
+
+   name                   dispornt
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Image origin (0,0) is located in the bottom-left corner of the display. This is the standard FITS display orientation.
+
+   name                   dpu_brd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Digital processing unit (DPU) board temperature.
+   unit of measure type   Units_of_Misc
+
+   name                   dpu_brd_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            DPU Board Temperature
+   unit of measure type   Units_of_Temperature
+
+   name                   effective_exposure
+   version                1.5
+   value data type        ASCII_Real
+   description            The effective exposure time after charge smear removal
+
+   name                   egain
+   version                1.5
+   value data type        ASCII_Real
+   description            Electronic gain in electrons per analog-to-digital units
+
+   name                   emission_angle
+   version                1.5
+   value data type        ASCII_Real
+   description            Emission angle. The angle between the vector normal to the surface at the location of the boresight intersection with the surface and the vector pointing to the Spacecraft. If Boresight Flag NE 1, then value shall be -9999. Allowed range is 0.0 to 90.0
+   unit of measure type   Units_of_Angle
+
+   name                   encode_upper_pixel_bits
+   version                1.5
+   value data type        ASCII_Integer
+   description            Charge couple device control status register 1 equals encode upper pixel bits
+
+   name                   equinox
+   version                1.5
+   value data type        ASCII_Real
+   description            Epoch of mean equator and equinox (J2000)
+
+   name                   expo_ms
+   version                1.5
+   value data type        ASCII_Real
+   description            Exposure time in milliseconds
+   unit of measure type   Units_of_Time
+
+   name                   exposec
+   version                1.5
+   value data type        ASCII_Real
+   description            Exposure time in seconds
+   unit of measure type   Units_of_Time
+
+   name                   exposure
+   version                1.5
+   value data type        ASCII_Real
+   description            Exposure time in seconds
+   unit of measure type   Units_of_Time
+
+   name                   file_creation
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Date of creation of this file
+
+   name                   filtname
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Filter name: SS - sun safe, X - 860 nm filter, W - 700 nm filter, V - 550 nm filter, B - 470 nm filter, PAN - panchromatic filter focused at greater than or equal to 125 m, SSCAL - sun safe blocking filter calibration prosition, PAN30 - panchromatic filter focuses at 30 m, PAN1 - panchromatic filter focused at 5 m, PAN4 - panchromatic filter focused at 5 m , PAN5 - panchromatic filter focused at 5 m
+
+   name                   fov_fill_factor
+   version                1.5
+   value data type        ASCII_Real
+   description            Fill Factor. If FOV Flag equals 2, describes the fraction of the FOV that intersects the asteroid surface. If FOV Flag equals 0, value shall be 0.0. If FOV Flag equals 1, value shall be 1.0. Allowed range is 0.0 to 1.0
+
+   name                   fov_fill_flag
+   version                1.5
+   value data type        ASCII_Real
+   description            Field of view flag 0-Entire FOV images empty space; 1-Entire FOV image s asteroid surface; 2-Portion of FOV images empty space
+
+   name                   fpga_rev_num
+   version                1.5
+   value data type        ASCII_Integer
+   description            FPGA revision number
+
+   name                   gain
+   version                1.5
+   value data type        ASCII_Real
+   description            The sensor analog gain value to use. Legal values are 8-31 and 40-63. Values from 8 to 31 specify gains in the range 1 to 3.875 in steps of 0.125; values from 40 to 63 specify gain in the range 2 to 7.75 in steps of 0.25. Gains in the range [2, 4) should be commanded using the first range
+
+   name                   ground
+   version                1.5
+   value data type        ASCII_Integer
+   description            Ground (Analog)
+   unit of measure type   Units_of_Misc
+
+   name                   ground_receipt_time
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Ground Receive Time in UTC (YYYY-MM-DDThh:mm:ss.sss)
+
+   name                   ground_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Ground (Analog)
+   unit of measure type   Units_of_Voltage
+
+   name                   hcte_csr
+   version                1.5
+   value data type        ASCII_Integer
+   description            Horizontal over scan count
+
+   name                   htr_brd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Heater board temperature (unbuffered)
+   unit of measure type   Units_of_Misc
+
+   name                   htr_brd_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Heater_BRD_Temp (unbuffered)
+   unit of measure type   Units_of_Temperature
+
+   name                   htr_test_pt
+   version                1.5
+   value data type        ASCII_Integer
+   description            Ground (Analog)
+   unit of measure type   Units_of_Misc
+
+   name                   htr_test_pt_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Ground (Analog)
+   unit of measure type   Units_of_Voltage
+
+   name                   image_id
+   version                1.5
+   value data type        ASCII_Integer
+   description            Identifier that is associated with an image
+
+   name                   image_len
+   version                1.5
+   value data type        ASCII_Integer
+   description            Recorded image length
+   unit of measure type   Units_of_Storage
+
+   name                   image_size_estimate
+   version                1.5
+   value data type        ASCII_Integer
+   description            initial size estimate for image in flash
+   unit of measure type   Units_of_Storage
+
+   name                   image_type_code
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Type of image commanded. LIGHT (science observation), BIAS (calibration) , DARK (calibration), LAMP (calibration), OTHER
+
+   name                   img_cmd_cam
+   version                1.5
+   value data type        ASCII_Integer
+   description            Specifies which camera to use. Legal values are 1 (for both DVR-4s) and 2 (for the DVR-4 with StowCam attached).
+
+   name                   img_cmd_compress
+   version                1.5
+   value data type        ASCII_Integer
+   description            Take image hardware image compression mode. 0 means no compression; 0xff means lossless compression; 1-99 means JPEG compression quality N, 4:2:2 color subsampling if applicable; 101-199 means JPEG compression quality N, 4:4:4 color subsampling if applicable. Hardware compression is only available in 8-bit mode; if companding is turned off, this value must be 0.
+
+   name                   img_cmd_exp
+   version                1.5
+   value data type        ASCII_Integer
+   description            The commanded 16-bit exposure time for each image. For values from 0 to 5000, exposure time is in units of 0.1 msec, providing exposures of 0 to 0.5 seconds. From 5001 to 65535, exposure time is in units of 0.5msec with an offset of 0.5 seconds, so that the maximum exposure time is 0.5e-3*(65535-5000)+0.5 equals 30.7675 seconds.
+
+   name                   img_cmd_gain
+   version                1.5
+   value data type        ASCII_Integer
+   description            The sensor analog gain value. Legal values are 8-31 and 40-63. Values from 8 to 31 specify gains in the range 1 to 3.875 in steps of 0.125; values from 40 to 63 specify gain in the range 2 to 7.75 in steps of 0.25. Gains in the range (2, 4) are commanded using the first range
+
+   name                   img_cmd_h
+   version                1.5
+   value data type        ASCII_Integer
+   description            The starting height of the area of the image sensor to read, in multiples of 16 pixels. If 0 is used for all values, then the full frame is read (2592x1944 pixels with dark pixels off, 2752x2004 pixels with dark pixels on.) Reading outside the bounds of the image array is illegal.
+   unit of measure type   Units_of_Misc
+
+   name                   img_cmd_int
+   version                1.5
+   value data type        ASCII_Integer
+   description            The 16-bit time interval between images in seconds, from 0 (as fast as possible) to 65535 seconds.
+   unit of measure type   Units_of_Time
+
+   name                   img_cmd_mode
+   version                1.5
+   value data type        ASCII_Integer
+   description            0- 12-to-8 bit companding on/off; 1-3 companding mode (0 equals square root, 1-7 linear divide by exp2(N-1)); 4- dark pixels on/off; test pattern control (on equals 1/off equals 0); 6 enable additional sensor register settings (enable equals 1/disable equals 0); 7 reserved
+
+   name                   img_cmd_num_imgs
+   version                1.5
+   value data type        ASCII_Integer
+   description            The number of images to acquire in this sequence. Legal values are 1 to 255.
+
+   name                   img_cmd_opcode
+   version                1.5
+   value data type        ASCII_Integer
+   description            TAGCAMS Command 8-bit Operations Code (Opcode)
+
+   name                   img_cmd_seq
+   version                1.5
+   value data type        ASCII_Integer
+   description            The sequence identifier to assign to these images. Legal values are 1 to 255.
+
+   name                   img_cmd_subsample
+   version                1.5
+   value data type        ASCII_Integer
+   description            The subsampling to use when acquiring the image. Legal values for this field are 0 (no subsampling), 1 (bin 2x2), 4 (bin 4x4), and 16-23 (skip (N-14)*(N-14)).
+
+   name                   img_cmd_sx
+   version                1.5
+   value data type        ASCII_Integer
+   description            The starting X of the area of the image sensor to read, in multiples of 16 pixels. If 0 is used for all values, then the full frame is read (2592x1944 pixels with dark pixels off, 2752x2004 pixels with dark pixels on.) Reading outside the bounds of the image array is illegal.
+   unit of measure type   Units_of_Misc
+
+   name                   img_cmd_sy
+   version                1.5
+   value data type        ASCII_Integer
+   description            The starting Y of the area of the image sensor to read, in multiples of 16 pixels. If 0 is used for all values, then the full frame is read (2592x1944 pixels with dark pixels off, 2752x2004 pixels with dark pixels on.) Reading outside the bounds of the image array is illegal.
+   unit of measure type   Units_of_Misc
+
+   name                   img_cmd_w
+   version                1.5
+   value data type        ASCII_Integer
+   description            The starting Z of the area of the image sensor to read, in multiples of 16 pixels. If 0 is used for all values, then the full frame is read (2592x1944 pixels with dark pixels off, 2752x2004 pixels with dark pixels on.) Reading outside the bounds of the image array is illegal.
+   unit of measure type   Units_of_Misc
+
+   name                   imgs_to_capture
+   version                1.5
+   value data type        ASCII_Integer
+   description            Number of images to capture (Control/Status) Minimum/Default equals 1; Maximum equals 28
+
+   name                   incidence_angle
+   version                1.5
+   value data type        ASCII_Real
+   description            Incidence angle. The angle between the vector normal to the surface at the location of the boresight intersection with the surface and the vector pointing at the Sun. If Boresight Flag NE 1, then value shall be -9999. Allowed range is 0.0 to 90.0
+   unit of measure type   Units_of_Angle
+
+   name                   index_led_read
+   version                1.5
+   value data type        ASCII_Integer
+   description            Bitwise read of the active LED sensors
+
+   name                   index_led_sel
+   version                1.5
+   value data type        ASCII_Integer
+   description            Camera number of the active motor index LED set
+
+   name                   int_time
+   version                1.5
+   value data type        ASCII_Integer
+   description            Commanded exposure time in milliseconds
+   unit of measure type   Units_of_Time
+
+   name                   latitude
+   version                1.5
+   value data type        ASCII_Real
+   description            Planetocentric latitude of boresight intersection with the surface. Allowed range +90.0 to -90.0. If Boresight Flag NE 1, then value shall be -9999
+   unit of measure type   Units_of_Angle
+
+   name                   linearity_limit
+   version                1.5
+   value data type        ASCII_Real
+   description            Linearity Limit.
+
+   name                   longitude
+   version                1.5
+   value data type        ASCII_Real
+   description            Planetocentric longitude of boresight intersection with the surface. Allowed range 0 to 360. If Boresight Flag NE 1, then value shall be -9999
+   unit of measure type   Units_of_Angle
+
+   name                   lut
+   version                1.5
+   value data type        ASCII_Integer
+   description            Currently selected LUT number: 0 equals None. The description of this field will be updated as more LUTS are added.
+
+   name                   lvps_brd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Low voltage power supply (LVPS) board temperature
+   unit of measure type   Units_of_Misc
+
+   name                   lvps_brd_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            LVPS Board Temperature
+   unit of measure type   Units_of_Temperature
+
+   name                   main_config
+   version                1.5
+   value data type        ASCII_Integer
+   description            Main configuration
+
+   name                   mapcam_ccd_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            MapCam CCD heater, on/off state
+
+   name                   mapcam_ccd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            MapCam CCD resistance temperature detector temperature
+   unit of measure type   Units_of_Misc
+
+   name                   mapcam_ccd_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            MapCam CCD resistance temperature detector (RTD) temperature
+   unit of measure type   Units_of_Temperature
+
+   name                   mapcam_filt_house_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   mapcam_filt_motor_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   mapcam_fwh_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            MapCam Filter Wheel Housing Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   mapcam_fwh_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            MapCam Filter Wheel Housing Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   mapcam_fwm_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            MapCam Filter Wheel Motor Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   mapcam_fwm_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            MapCam Filter Wheel Housing Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   mapcam_len_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            MapCam Lens Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   mapcam_len_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            MapCam Lens Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   mapcam_lens_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   mapcam_readout_elect_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   mapcam_roe_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            MapCam Read Out Electronics Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   mapcam_roe_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            MapCam Read Out Electronics Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   max_pixel_value
+   version                1.5
+   value data type        ASCII_Real
+   description            Max image pixel value in dynamic range recorded by the instrument.
+
+   name                   meta_ker
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Metakernel that holds all the spice kernels used for processing
+
+   name                   mid_obs
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Spacecraft mid-exposure time, UTC [Cal d] (DATE_OBS - .5*EXPTIME). 
+
+   name                   mid_obs_et
+   version                1.5
+   value data type        ASCII_Real
+   description            The ephemeris time of the mid-exposure time, mid_obs
+   unit of measure type   Units_of_Time
+
+   name                   mid_obs_sclk
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            The SCLK string of the mid-exposure time, mid_obs
+
+   name                   min_cnt
+   version                1.5
+   value data type        ASCII_Integer
+   description            Number of minutes since reset
+   unit of measure type   Units_of_Time
+
+   name                   min_pixel_value
+   version                1.5
+   value data type        ASCII_Real
+   description            Max image pixel value in dynamic range recorded by the instrument.
+
+   name                   mission_phase_identifier
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Abbreviation used to indicate the OSIRIS-REx mission phase. Accepted values are lau for Launch, obc for Outbound Cruise, app for Approach, psv for Preliminary Survey, ora for Orbit A, dsv for Detailed Survey, orb for Orbit B, rec for Recon, tar for TAG Rehearsal, tag for Touch-and-Go, and rtn for Return Cruise.
+
+   name                   mission_phase_name
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Mission phase of the OSIRIS REx mission. Mission phase possibilities include cruise, approach, preliminary survey, orbital a, detailed survey, orbital b, reconnaissance, rehearsal, and TAG (Touch-and-go)
+
+   name                   misspxla
+   version                1.5
+   value data type        ASCII_Real
+   description            Number of pixels in the 1024x1024 active area that were zero filled as a result of data loss
+
+   name                   misspxls
+   version                1.5
+   value data type        ASCII_Real
+   description            Number of pixels in the entire 1112x1044 CCD that were zero filled as a result of data loss
+
+   name                   motor_brd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Motor Board Temperature
+   unit of measure type   Units_of_Misc
+
+   name                   motor_brd_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Motor Board Temperature
+   unit of measure type   Units_of_Temperature
+
+   name                   motor_pos
+   version                1.5
+   value data type        ASCII_Integer
+   description            Filter wheel or focus position
+
+   name                   motor_select
+   version                1.5
+   value data type        ASCII_Integer
+   description            Camera number of the active motor
+
+   name                   motor_zone
+   version                1.5
+   value data type        ASCII_Integer
+   description            Width of the last home command’s index (greater than 31 is 31)
+
+   name                   object
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Object Name
+
+   name                   ocams_pl_ver
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            TBD_Ingest_LDD
+
+   name                   pga1_gain_amp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Channel 1 Programmable Gain Amplifier Value
+   unit of measure type   Units_of_Misc
+
+   name                   pga2_gain_amp
+   version                1.5
+   value data type        ASCII_Integer
+   description            Channel 2 Programmable Gain Amplifier Value
+   unit of measure type   Units_of_Misc
+
+   name                   phase_angle
+   version                1.5
+   value data type        ASCII_Real
+   description            Phase Angle. The angle between the vector pointing to the Sun and the vector pointing to the Spacecraft. If Boresight Flag NE 1, then value shall be -9999. Allowed range is 0.0 to 180.0
+   unit of measure type   Units_of_Angle
+
+   name                   polycam_ccd_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam CCD heater, on/off state
+
+   name                   polycam_ccd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam CCD resistance temperature detector (RTD) temperature
+   unit of measure type   Units_of_Misc
+
+   name                   polycam_ccd_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            PolyCam CCD resistance temperature detector (RTD) temperature
+   unit of measure type   Units_of_Temperature
+
+   name                   polycam_focus_house_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   polycam_focus_motor_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   polycam_foh_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam Focus Housing Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   polycam_foh_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            PolyCam Focus Housing Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   polycam_fom_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam Focus Motor Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   polycam_fom_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            PolyCam Focus Motor Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   polycam_mirror_1_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam Primary Mirror Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   polycam_mirror_1_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            PolyCam Primary Mirror Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   polycam_mirror_2_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam Secondary Mirror Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   polycam_primary_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   polycam_readout_elect_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   polycam_roe_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam Read Out Electronics Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   polycam_roe_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            PolyCam Read Out Electronics Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   polycam_secondary_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   polycam_tbd_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   polycam_tbd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            PolyCam TBD Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   power_control
+   version                1.5
+   value data type        ASCII_Integer
+   description            Power down control
+
+   name                   powered_on_dvr
+   version                1.5
+   value data type        ASCII_Integer
+   description            Touch and Go Camera Suite Powered On Digital Video Recorder: 0 equals TAGCAMS_DVR_1, 1 equals TAGCAMS_DVR_2
+
+   name                   proc_desc_flag
+   version                1.5
+   value data type        ASCII_Real
+   description            Processing description flag, where the different processing levels are described in the CALIB section of the PDS volume.
+
+   name                   pwr_mon_vdd_l_override
+   version                1.5
+   value data type        ASCII_Integer
+   description            Power monitor on-chip amplifier drain override. Enable equals 1.
+
+   name                   pwr_mon_vod_l_override
+   version                1.5
+   value data type        ASCII_Integer
+   description            Power monitor high-performance charge couple device (HCCD) drain override. Enable equals 1.
+
+   name                   pwr_mon_wbb_l_override
+   version                1.5
+   value data type        ASCII_Integer
+   description            Power monitor substrate bias override. Enable equals 1.
+
+   name                   quality_flag
+   version                1.5
+   value data type        ASCII_Real
+   description            Data quality flag, 0 equals good. Other flags to be added at a later date.
+
+   name                   quaternion0
+   version                1.5
+   value data type        ASCII_Real
+   description            Spacecraft quaternion in J2000 (q0 equals cos(t/2)) obtained at the ATT_TIME. Quaternion values are telemetry values based on the ATT_TIME parameter and may differ from the SPICE calculated quaternions at mid-observation time by several seconds. This value is to be used with caution as the timing many not be for the boresight of the corresponding image. SPICE quaternion standard is that Q0 is the scalar value which is followed here.
+
+   name                   quaternion1
+   version                1.5
+   value data type        ASCII_Real
+   description            Spacecraft quaternion in J2000 (q1 equals sin(theta/2) obtained at the ATT_TIME. Quaternion values are telemetry values based on the ATT_TIME parameter and may differ from the SPICE calculated quaternions at mid-observation time by several seconds. This value is to be used with caution as the timing many not be for the boresight of the corresponding image.
+
+   name                   quaternion2
+   version                1.5
+   value data type        ASCII_Real
+   description            Spacecraft quaternion in J2000 (q2 equals sin(theta/2))obtained at the ATT_TIME. Quaternion values are telemetry values based on the ATT_TIME parameter and may differ from the SPICE calculated quaternions at mid-observation time by several seconds. This value is to be used with caution as the timing many not be for the boresight of the corresponding image.
+
+   name                   quaternion3
+   version                1.5
+   value data type        ASCII_Real
+   description            Spacecraft quaternion in J2000 (q3 equals sin(theta/2)) obtained at the ATT_TIME. Quaternion values are telemetry values based on the ATT_TIME parameter and may differ from the SPICE calculated quaternions at mid-observation time by several seconds. This value is to be used with caution as the timing many not be for the boresight of the corresponding image.
+
+   name                   rad_units
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Reflectance (unitless).
+
+   name                   radesys
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            International Celestial Reference System (ICRS)
+
+   name                   range
+   version                1.5
+   value data type        ASCII_Real
+   description            Range from S/C to boresight intersection
+   unit of measure type   Units_of_Length
+
+   name                   rdpxlmap
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            TBD_Ingest_LDD
+
+   name                   readout_mode
+   version                1.5
+   value data type        ASCII_Integer
+   description            Readout mode of detector
+
+   name                   right_ascension
+   version                1.5
+   value data type        ASCII_Real
+   description            Boresight Right Ascension (RA) in J2000 frame
+   unit of measure type   Units_of_Angle
+
+   name                   samcam_ccd_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            SamCam CCD heater, on/off state
+
+   name                   samcam_ccd_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            SamCam CCD resistance temperature detector (RTD) temperature
+   unit of measure type   Units_of_Misc
+
+   name                   samcam_ccd_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            SamCam CCD resistance temperature device (RTD) temperature
+   unit of measure type   Units_of_Temperature
+
+   name                   samcam_filt_house_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   samcam_filt_motor_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   samcam_fwh_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            SamCam Filter Wheel Housing Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   samcam_fwh_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            SamCam Filter Wheel Housing Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   samcam_fwm_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            SamCam Filter Wheel Motor Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   samcam_fwm_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            SamCam filter wheel motor heater, on/off state
+   unit of measure type   Units_of_Temperature
+
+   name                   samcam_len_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            SamCam Lens Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   samcam_len_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            SamCam Lens Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   samcam_lens_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   samcam_readout_elect_heater
+   version                1.5
+   value data type        ASCII_Integer
+   description            State of the heater: 0 equals off, 1 equals on
+
+   name                   samcam_roe_temp
+   version                1.5
+   value data type        ASCII_Integer
+   description            SamCam Read Out Electronics Thermistor
+   unit of measure type   Units_of_Misc
+
+   name                   samcam_roe_temp_x
+   version                1.5
+   value data type        ASCII_Real
+   description            SamCam Read Out Electronics Thermistor
+   unit of measure type   Units_of_Temperature
+
+   name                   saturation_limit
+   version                1.5
+   value data type        ASCII_Real
+   description            Saturation Limit.
+
+   name                   sc2sun_phi_deg
+   version                1.5
+   value data type        ASCII_Real
+   description            Phi component (angle from XY plane, positive toward +Z) of spherical coordinate system vector, pointing from the ORX spacecraft toward the Sun, in the ORX_SPACECRAFT frame
+   unit of measure type   Units_of_Angle
+
+   name                   sc2sun_range_km
+   version                1.5
+   value data type        ASCII_Real
+   description            Range component of spherical coordinate system vector, pointing from the ORX spacecraft toward the Sun, in the ORX_SPACECRAFT frame
+   unit of measure type   Units_of_Length
+
+   name                   sc2sun_theta_deg
+   version                1.5
+   value data type        ASCII_Real
+   description            Theta component (angle around +Z from XZ plane, positive from +X toward +Y) of spherical coordinate system vector, pointing from the ORX spacecraft toward the Sun, in the ORX_SPACECRAFT frame
+   unit of measure type   Units_of_Angle
+
+   name                   sc2sun_uvx
+   version                1.5
+   value data type        ASCII_Real
+   description            X component of Cartesian coordinate system unit vector, pointing from the ORX spacecraft toward the Sun, in the ORX_SPACECRAFT frame
+
+   name                   sc2sun_uvy
+   version                1.5
+   value data type        ASCII_Real
+   description            Y component of Cartesian coordinate system unit vector, pointing from the ORX spacecraft toward the Sun, in the ORX_SPACECRAFT frame
+
+   name                   sc2sun_uvz
+   version                1.5
+   value data type        ASCII_Real
+   description            Z component of Cartesian coordinate system unit vector, pointing from the ORX spacecraft toward the Sun, in the ORX_SPACECRAFT frame
+
+   name                   sclk_string
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Spacecraft Clock String at start of image observation
+
+   name                   sdram_csr
+   version                1.5
+   value data type        ASCII_Integer
+   description            SDRAM Memory Control/Status Register: 0 equals off, 1 equals 0n
+
+   name                   secondary_ik_num
+   version                1.5
+   value data type        ASCII_Real
+   description            Secondary I-Kernel number for variable focal length
+
+   name                   seconds
+   version                1.5
+   value data type        ASCII_Real
+   description            TAGCAMS Mini Header spacecraft clock time in seconds. The spacecraft clock time tag is the start of exposure for line 1 of the image plus or minus 0.1 seconds.
+   unit of measure type   Units_of_Time
+
+   name                   seconds_raw
+   version                1.5
+   value data type        ASCII_Integer
+   description            Camera control module (CCM) seconds for start of exposure
+   unit of measure type   Units_of_Time
+
+   name                   semimajor_axis
+   version                1.5
+   value data type        ASCII_Real
+   description            Semimajor axis of FOV ellipse on surface
+   unit of measure type   Units_of_Length
+
+   name                   semiminor_axis
+   version                1.5
+   value data type        ASCII_Real
+   description            Semiminor axis of FOV ellipse on surface
+   unit of measure type   Units_of_Length
+
+   name                   sequence_id
+   version                1.5
+   value data type        ASCII_Integer
+   description            TAGCAMS commanded sequence identifier
+
+   name                   spare
+   version                1.5
+   value data type        ASCII_Integer
+   description            Spare
+
+   name                   spoc_date
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Coordinated Universal Time file was created by SPOC (YYYY-MM-DDThh:mm:ss.sss).
+
+   name                   spoc_version
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            TBD_Ingest_LDD
+
+   name                   standby
+   version                1.5
+   value data type        ASCII_Integer
+   description            Bitwise non-Off state of the cameras: 1 equals MapCam, 2 equals SamCam, 4 equals PolyCam
+
+   name                   start_sclk
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            SCLK Time (#/SSSSSSSSSS.sssss) of the first frame in the science sequence.
+
+   name                   stop_sclk
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            SCLK Time (#/SSSSSSSSSS.sssss) of the last record in the science sequence
+
+   name                   storage_flush_block_flag
+   version                1.5
+   value data type        ASCII_Integer
+   description            Charge couple device control status register storage flush block flag. Enable equals 1.
+
+   name                   storage_flush_cnt
+   version                1.5
+   value data type        ASCII_Integer
+   description            Milliseconds between storage portion flushes
+   unit of measure type   Units_of_Time
+
+   name                   subseconds
+   version                1.5
+   value data type        ASCII_Real
+   description            TAGCAMS Mini Header spacecraft clock time in sub-seconds. The spacecraft clock time tag is the start of exposure for line 1 of the image plus or minus 0.1 seconds.!important
+   unit of measure type   Units_of_Time
+
+   name                   subseconds_raw
+   version                1.5
+   value data type        ASCII_Integer
+   description            Camera control module sub-seconds for start of exposure
+
+   name                   sun_range
+   version                1.5
+   value data type        ASCII_Real
+   description            Range from Sun to center of Bennu
+   unit of measure type   Units_of_Length
+
+   name                   sunbeamr
+   version                1.5
+   value data type        ASCII_Real
+   description            Range to Sun from SunBEAM target
+   unit of measure type   Units_of_Length
+
+   name                   sunbeams
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Status of SunBEAM calculation, will be either SUCCESS or FAILURE
+
+   name                   sunbeamt
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Target for SunBEAM quantities; will be one of Bennu, Earth, And Moon; if observation target is not Earth or Moon, then this will be BENNU
+
+   name                   sunbeamx
+   version                1.5
+   value data type        ASCII_Real
+   description            J2000 X-component of vector to Sun from SunBEAM target
+   unit of measure type   Units_of_Length
+
+   name                   sunbeamy
+   version                1.5
+   value data type        ASCII_Real
+   description            J2000 Y-component of vector to Sun from SunBEAM target
+   unit of measure type   Units_of_Length
+
+   name                   sunbeamz
+   version                1.5
+   value data type        ASCII_Real
+   description            J2000 Z-component of vector to Sun from SunBEAM target
+   unit of measure type   Units_of_Length
+
+   name                   target_range
+   version                1.5
+   value data type        ASCII_Real
+   description            Range from S/C to target body center
+   unit of measure type   Units_of_Length
+
+   name                   tck_pattern
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD transfer clock pattern. There are 8 bit periods per the clock cycle. TCK_PATTERN determines the high to low ratio.
+
+   name                   total_checksum
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            The pass/fail state of the image check sum as transmitted from the instrument.
+
+   name                   trans_cmd_compression
+   version                1.5
+   value data type        ASCII_Integer
+   description            Compression mode. 0 means no compression; 0xff means lossless compression; 1-99 means JPEG compression quality N, grayscale; 101-199 means JPEG compression quality N, 4:2:2 color subsampling. JPEG compression can only be applied to 8-bit data. Note that if a color camera image is compressed as grayscale, compression efficiency may be degraded. Keyword may be blank if the transmit-image-raw command was used to acquire image.
+
+   name                   trans_cmd_summing
+   version                1.5
+   value data type        ASCII_Integer
+   description            Turns 2x2 summing on or off. Legal values are 1 (no summing) and 2 (2x2 summing.) Summing can only be applied to 8-bit data. Images with both compression and summing selected will be compressed but not summed. Keyword may be blank if the transmit-image-raw command was used to acquire image.
+
+   name                   units
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            Raw ADC data numbers.
+
+   name                   utc
+   version                1.5
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            YYYY-MM-DDThh:mm:ss.sss observation start
+
+   name                   vcte_csr
+   version                1.5
+   value data type        ASCII_Integer
+   description            Vertical over scan count
+
+   name                   vfreq_csr
+   version                1.5
+   value data type        ASCII_Integer
+   description            CCD vertical clock frequency control, i.e., number of system clock cycles for each of the 8 vertical clock periods
+
+   name                   volt_4_5_therm_mon_1
+   version                1.5
+   value data type        ASCII_Integer
+   description            +4.5 V Thermistor Monitor #1
+   unit of measure type   Units_of_Misc
+
+   name                   volt_4_5_therm_mon_1_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +4.5 V Thermistor Monitor #1
+   unit of measure type   Units_of_Voltage
+
+   name                   volt_4_5_therm_mon_2
+   version                1.5
+   value data type        ASCII_Integer
+   description            +4.5 V Thermistor Monitor #2
+   unit of measure type   Units_of_Misc
+
+   name                   volt_4_5_therm_mon_2_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +4.5 V Thermistor Monitor #2
+   unit of measure type   Units_of_Voltage
+
+   name                   volt_mon_minus_12
+   version                1.5
+   value data type        ASCII_Integer
+   description            -12 V Monitor
+   unit of measure type   Units_of_Misc
+
+   name                   volt_mon_minus_12_x
+   version                1.5
+   value data type        ASCII_Real
+   description            -12 V Monitor
+   unit of measure type   Units_of_Voltage
+
+   name                   volt_mon_minus_24
+   version                1.5
+   value data type        ASCII_Integer
+   description            -24 V Monitor (buffered)
+   unit of measure type   Units_of_Misc
+
+   name                   volt_mon_minus_24_x
+   version                1.5
+   value data type        ASCII_Real
+   description            -24 V Monitor (buffered)
+   unit of measure type   Units_of_Voltage
+
+   name                   volt_mon_plus_12
+   version                1.5
+   value data type        ASCII_Integer
+   description            +12 V Monitor
+   unit of measure type   Units_of_Misc
+
+   name                   volt_mon_plus_12_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +12 V Monitor
+   unit of measure type   Units_of_Voltage
+
+   name                   volt_mon_plus_24
+   version                1.5
+   value data type        ASCII_Integer
+   description            +24 V Monitor
+   unit of measure type   Units_of_Misc
+
+   name                   volt_mon_plus_24_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +24 V Monitor
+   unit of measure type   Units_of_Voltage
+
+   name                   volt_mon_plus_5
+   version                1.5
+   value data type        ASCII_Integer
+   description            +5 V Monitor
+   unit of measure type   Units_of_Misc
+
+   name                   volt_mon_plus_5_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +5 V Monitor
+   unit of measure type   Units_of_Voltage
+
+   name                   volt_mon_sc
+   version                1.5
+   value data type        ASCII_Integer
+   description            Primary Voltage from S/C
+   unit of measure type   Units_of_Misc
+
+   name                   volt_mon_sc_x
+   version                1.5
+   value data type        ASCII_Real
+   description            Primary Voltage from S/C
+   unit of measure type   Units_of_Voltage
+
+   name                   vref_mon_plus_5
+   version                1.5
+   value data type        ASCII_Integer
+   description            +5 V Reference Monitor
+   unit of measure type   Units_of_Misc
+
+   name                   vref_mon_plus_5_x
+   version                1.5
+   value data type        ASCII_Real
+   description            +5 V Reference Monitor
+   unit of measure type   Units_of_Voltage
+
+   name                   wrpxlmap
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            TBD_Ingest_LDD
+
+Parsed Input - Classes:
+
+   name                   common_instrument_attributes
+   description            Attributes that describe instrument characteristics such as times, temperatures, voltages or pressures that are common to more than one instrument aboard the OSIRIS-REx Spacecraft.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.common_instrument_attributes.image_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   data_processing_information
+   description            This class contains the data processing information for a specific observation or set of observations. Items included in this class include names of input files used in the data processing, the source (test or flight) of the data, who or where the data was processed, and if necessary software names and version numbers.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.data_processing_information.control_file
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.creator
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.data_source
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.dispornt
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.file_creation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.linearity_limit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.max_pixel_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.min_pixel_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.ocams_pl_ver
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.proc_desc_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.rad_units
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.saturation_limit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.spoc_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_processing_information.units
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   data_quality
+   description            This class contains data quality information for a specific observation or set of observations. Attributes can include data quality flags, as well as checksum status.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.data_quality.checksum_result
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_quality.ckqual
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_quality.meta_ker
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_quality.misspxla
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_quality.misspxls
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_quality.quality_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.data_quality.total_checksum
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   instrument_telemetry_identification
+   description            This class contains the spacecraft telemetry packet type identification information for a specific observation or set of observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.instrument_telemetry_identification.apid
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   mission_information
+   description            This class contains information about the OSIRIS-REx mission and mission phases. The attributes in this class are common to all mission data products.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.mission_information.mission_phase_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.mission_information.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   ocm_image_properties
+   description            This class contains the OSIRIS-REx Camera Suite (OCAMS) image properties. Attributes specify the type of image taken for the specific observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.ocm_image_properties.image_type_code
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   ocm_instrument_attributes
+   description            This class contains instrument attributes specific to the OSIRIS-REx Camera Suite (OCAMS). These instrument attributes are such items as instrument set-up parameters for each image or sequence of images taken, instrument temperatures, voltages and currents, or other parameters recorded by the instrument on an image by image basis.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.ocm_instrument_attributes.action_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.active
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.adc_clamp_enable
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.board_rev_num
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cal_lamp_sel
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.camera_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.ccd_csr_reserved
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.ccd_rev_num
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.ccd_rst_l_pulse
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.ccd_rst_r_pulse
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.chan1_course_dac_reg_val
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.chan1_fine_dac_reg_val
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.chan2_course_dac_reg_val
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.chan2_fine_dac_reg_val
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cs1h_ccd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cs2h_ccd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cs3h_ccd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cs4h_ccd
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_detector_minus_24
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_detector_minus_24_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_detector_plus_24
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_detector_plus_24_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_detector_plus_5
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_detector_plus_5_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_htr
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_htr_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_index
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_index_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_lamp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_lamp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_motor
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cur_motor_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.cx_pattern
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.detector_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.device_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.dpu_brd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.dpu_brd_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.egain
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.encode_upper_pixel_bits
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.filtname
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.fpga_rev_num
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.ground
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.ground_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.hcte_csr
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.htr_brd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.htr_brd_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.htr_test_pt
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.htr_test_pt_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.imgs_to_capture
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.index_led_read
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.index_led_sel
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.lut
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.lvps_brd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.lvps_brd_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.main_config
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_ccd_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_ccd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_ccd_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_filt_house_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_filt_motor_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_fwh_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_fwh_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_fwm_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_fwm_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_len_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_len_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_lens_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_readout_elect_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_roe_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.mapcam_roe_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.min_cnt
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.motor_brd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.motor_brd_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.motor_pos
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.motor_select
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.motor_zone
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.pga1_gain_amp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.pga2_gain_amp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_ccd_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_ccd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_ccd_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_focus_house_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_focus_motor_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_foh_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_foh_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_fom_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_fom_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_mirror_1_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_mirror_1_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_mirror_2_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_primary_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_readout_elect_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_roe_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_roe_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_secondary_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_tbd_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.polycam_tbd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.power_control
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.pwr_mon_vdd_l_override
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.pwr_mon_vod_l_override
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.pwr_mon_wbb_l_override
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.rdpxlmap
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.readout_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_ccd_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_ccd_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_ccd_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_filt_house_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_filt_motor_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_fwh_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_fwh_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_fwm_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_fwm_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_len_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_len_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_lens_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_readout_elect_heater
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_roe_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.samcam_roe_temp_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.sdram_csr
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.secondary_ik_num
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.seconds_raw
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.standby
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.storage_flush_block_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.storage_flush_cnt
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.subseconds_raw
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.tck_pattern
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.vcte_csr
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.vfreq_csr
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_4_5_therm_mon_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_4_5_therm_mon_1_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_4_5_therm_mon_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_4_5_therm_mon_2_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_minus_12
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_minus_12_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_minus_24
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_minus_24_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_plus_12
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_plus_12_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_plus_24
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_plus_24_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_plus_5
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_plus_5_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_sc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.volt_mon_sc_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.vref_mon_plus_5
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.vref_mon_plus_5_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.ocm_instrument_attributes.wrpxlmap
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   spatial
+   description            This class contains spatial information for a specific observation or set of observations that is not otherwise found in the GEOMETRY Discipline Dictionary. Attributes included may be ancillary World Coordinate System (WCS) values or additional quaternion information that should be used with caution.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.spatial.bennana
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bennu_dec
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bennu_naxis1_offset
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bennu_naxis2_offset
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bennu_ra
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bennu_radec_quality
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bennu_radec_target
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bore_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.bore_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.boresight_lat
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.boresight_lon
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.boresight_range
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.boresight_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.boresight_y
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.boresight_z
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.cd1_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.cd1_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.cd2_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.cd2_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.ctype1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.ctype2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.cunit1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.cunit2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.declination
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.emission_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.equinox
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.fov_fill_factor
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.fov_fill_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.incidence_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.latitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.object
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.phase_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.radesys
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.range
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.right_ascension
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sc2sun_phi_deg
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sc2sun_range_km
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sc2sun_theta_deg
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sc2sun_uvx
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sc2sun_uvy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sc2sun_uvz
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.semimajor_axis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.semiminor_axis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sun_range
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sunbeamr
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sunbeams
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sunbeamt
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sunbeamx
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sunbeamy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.sunbeamz
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.spatial.target_range
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   tcm_instrument_attributes
+   description            This class contains instrument attributes specific to the OSIRIS-REx Navigation Camera (TagCam). These instrument attributes are such items as instrument set-up parameters for each image or sequence of images taken, instrument temperatures or other parameters recorded by the instrument on an image by image basis.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.tcm_instrument_attributes.att_rate_x
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.att_rate_y
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.att_rate_z
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.att_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.bpp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.camera_head_temp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.gain
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.image_len
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.image_size_estimate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_cam
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_compress
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_exp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_gain
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_h
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_int
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_num_imgs
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_opcode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_seq
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_subsample
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_sx
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_sy
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.img_cmd_w
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.powered_on_dvr
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.quaternion0
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.quaternion1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.quaternion2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.quaternion3
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.seconds
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.sequence_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.spare
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.subseconds
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.trans_cmd_compression
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.tcm_instrument_attributes.trans_cmd_summing
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   time
+   description            This class contains timing information for a specific observation or set of observations. This class is a mission type class meaning that the timing values given in this class have been calculated using standard SPICE libraries and the appropriate mission specific SPICE kernels based on the instrument specific spacecraft clock values recorded at the time of the observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      orex.time.date_of_observation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.delta_obs
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.effective_exposure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.expo_ms
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.exposec
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.exposure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.ground_receipt_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.int_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.mid_obs
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.mid_obs_et
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.mid_obs_sclk
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.sclk_string
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.spoc_date
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.start_sclk
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.stop_sclk
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      orex.time.utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

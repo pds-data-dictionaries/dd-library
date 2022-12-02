@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="v121">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/PDS4_CASSINI_LDD_1B00_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/CASSINI_LDD_1B00_1200_20190212.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/CASSINI_LDD_1B00_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/CASSINI_1D00_1500.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/PDS4_CASSINI_1C00_1400.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/cassini_1B00_1300.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/CASSINI_1C00_1400.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/PDS4_CASSINI_1B00_1300.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/PDS4_CASSINI_1D00_1500.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/cassini/v1/PDS4_CASSINI_LDD_1B00.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

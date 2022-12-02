@@ -98,10 +98,10 @@
         <div id="discipline-dictionaries" class="lddList">
             <h3>Discipline Dictionaries</h3>
             <ul class="lddListToc">
-            				<li><a href="#cart">Cartography</a></li>
+				<li><a href="#cart">Cartography</a></li>
 				<li><a href="#ctli">Context Type List: Instrument</a></li>
 				<li><a href="#disp">Display</a></li>
-				<li><a href="#example">Example LDD</a></li>
+				<li><a href="#ebt">Earth-Based Telescope</a></li>
 				<li><a href="#geom">Geometry Dictionary Full</a></li>
 				<li><a href="#img">Imaging</a></li>
 				<li><a href="#img_surface">Surface Imaging</a></li>
@@ -113,12 +113,11 @@
 				<li><a href="#nucspec">Nuclear Spectroscopy</a></li>
 				<li><a href="#particle">Particle</a></li>
 				<li><a href="#proc">Processing_Information</a></li>
-				<li><a href="#example">Example LDD</a></li>
+				<li><a href="#radar">Radar</a></li>
 				<li><a href="#rings">Rings Dictionary</a></li>
 				<li><a href="#speclib">Spectral Library</a></li>
 				<li><a href="#sp">Spectral Discipline Dictionary</a></li>
 				<li><a href="#survey">Survey</a></li>
-
             </ul>
 
         
@@ -191,8 +190,8 @@
                 <p><a class="toTop">Back to top</a></p>
             </div>
 
-            <div id="example">
-                <h4>Example LDD (example)</h4>
+            <div id="ebt">
+                <h4>Earth-Based Telescope (ebt)</h4>
                 <p>
                     The Earth-Based Telescope Dictionary contains classes, attributes, and rules for specifying the metadata associated with observing parameters, provenance, and geometry relevant to ground-based telescopes on Earth and for Earth-orbiting (or Lagrange point) telescopes.
 
@@ -221,6 +220,19 @@
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 01/28/2022</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1H00_1950.xsd">PDS4_GEOM_1H00_1950.xsd</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1H00_1950.sch">PDS4_GEOM_1H00_1950.sch</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1H00_1950.xml">PDS4_GEOM_1H00_1950.xml</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1H00_1950.JSON">PDS4_GEOM_1H00_1950.JSON</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1H00_1950.zip">PDS4_GEOM_1H00_1950.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 11/19/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
@@ -387,11 +399,11 @@
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-multi">https://github.com/pds-data-dictionaries/ldd-multi</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><a href="/pds4/multi/v1/PDS4_MULTI_1H00_2000.xsd">PDS4_MULTI_1H00_2000.xsd</a></li>
-                            <li><a href="/pds4/multi/v1/PDS4_MULTI_1H00_2000.sch">PDS4_MULTI_1H00_2000.sch</a></li>
-                            <li><a href="/pds4/multi/v1/PDS4_MULTI_1H00_2000.xml">PDS4_MULTI_1H00_2000.xml</a></li>
-                            <li><a href="/pds4/multi/v1/PDS4_MULTI_1H00_2000.JSON">PDS4_MULTI_1H00_2000.JSON</a></li>
-                            <li><a href="/pds4/multi/v1/PDS4_MULTI_1H00_2000.zip">PDS4_MULTI_1H00_2000.zip</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1H00_2000.xsd">PDS4_MULTI_1H00_2000.xsd</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1H00_2000.sch">PDS4_MULTI_1H00_2000.sch</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1H00_2000.xml">PDS4_MULTI_1H00_2000.xml</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1H00_2000.JSON">PDS4_MULTI_1H00_2000.JSON</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1H00_2000.zip">PDS4_MULTI_1H00_2000.zip</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -433,11 +445,11 @@
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-particle">https://github.com/pds-data-dictionaries/ldd-particle</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><a href="/pds4/particle/v1/PDS4_PARTICLE_1H00_2010.xsd">PDS4_PARTICLE_1H00_2010.xsd</a></li>
-                            <li><a href="/pds4/particle/v1/PDS4_PARTICLE_1H00_2010.sch">PDS4_PARTICLE_1H00_2010.sch</a></li>
-                            <li><a href="/pds4/particle/v1/PDS4_PARTICLE_1H00_2010.xml">PDS4_PARTICLE_1H00_2010.xml</a></li>
-                            <li><a href="/pds4/particle/v1/PDS4_PARTICLE_1H00_2010.JSON">PDS4_PARTICLE_1H00_2010.JSON</a></li>
-                            <li><a href="/pds4/particle/v1/PDS4_PARTICLE_1H00_2010.zip">PDS4_PARTICLE_1H00_2010.zip</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1H00_2010.xsd">PDS4_PARTICLE_1H00_2010.xsd</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1H00_2010.sch">PDS4_PARTICLE_1H00_2010.sch</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1H00_2010.xml">PDS4_PARTICLE_1H00_2010.xml</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1H00_2010.JSON">PDS4_PARTICLE_1H00_2010.JSON</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1H00_2010.zip">PDS4_PARTICLE_1H00_2010.zip</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -467,8 +479,8 @@
                 <p><a class="toTop">Back to top</a></p>
             </div>
 
-            <div id="example">
-                <h4>Example LDD (example)</h4>
+            <div id="radar">
+                <h4>Radar (radar)</h4>
                 <p>
                     The Radar dictionary describes the circumstances surrounding radar observations.
 
@@ -520,6 +532,19 @@
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 01/28/2022</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-speclib">https://github.com/pds-data-dictionaries/ldd-speclib</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1H00_1300.xsd">PDS4_SPECLIB_1H00_1300.xsd</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1H00_1300.sch">PDS4_SPECLIB_1H00_1300.sch</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1H00_1300.xml">PDS4_SPECLIB_1H00_1300.xml</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1H00_1300.JSON">PDS4_SPECLIB_1H00_1300.JSON</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1H00_1300.zip">PDS4_SPECLIB_1H00_1300.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 11/10/2021</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-speclib">https://github.com/pds-data-dictionaries/ldd-speclib</a></li>

@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="v14">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1F00_1310.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1A00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1A00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1C00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1G00_1300.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1E00_1310.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1900.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1800_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1F00_1300.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1C00_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1A10_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1800.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1H00_1311.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1G00_1310.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1E00_1300.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1B00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1A10.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1700.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1700_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sp/v1/PDS4_SP_1900_1100.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

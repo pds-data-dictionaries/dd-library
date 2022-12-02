@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:apollo  Version:1.0.0.0 - Wed Oct 12 13:19:53 UTC 2022 -->
+  <!-- Generated from the PDS4 Information Model Version 1.18.0.0 - System Build 12.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.18.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - apollo: - Apollo                                                -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/apollo/v1"
+    xmlns:apollo="http://pds.nasa.gov/pds4/mission/apollo/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The Apollo dictionary contains classes that describe aspects of the 
+        Apollo missions and related instruments.
+        
+        10/15/21 SHS
+        - Changed definition of Internal_Reference in Metadata_Location, SEED_Equivalent, and ASCII_Equivalent classes,
+        using DD_Association instead of DD_Associate_External_Class. Added rules to validate the reference_type.
+        This is a workaround recommended by Anne Raugh, Small Bodies Node, because LDDTool is currently not
+        correctly handling DD_Associate_External_Class. The original definitions are commented out, and may
+        be restored if LDDTool is revised appropriately.
+        
+        08/05/2022 GEO/JGW Rebuilt with 1I00 IM
+
+        Apollo version 1.0.0.0
+        PDS Build 1.18.0.0 (1I00)
+        LDDTool version 14.0.13
+        
+        Built with lddtool -plJ PDS4_Apollo_IngestLDD.xml 
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Observation_Information" type="apollo:Observation_Information"> </xs:element>
+  <xs:element name="Seismic_Parameters" type="apollo:Seismic_Parameters"> </xs:element>
+
+  <xs:complexType name="ASCII_Equivalent">
+    <xs:annotation>
+      <xs:documentation> The ASCII_Equivalent class contains attributes
+        that identify and locate the ASCII data product equivalent to a
+        given Apollo PSE SEED data product. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ascii_equivalent_file_name" type="apollo:ascii_equivalent_file_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Metadata_Location">
+    <xs:annotation>
+      <xs:documentation> The Metadata_Location class contains attributes
+        that identify and locate the metadata associated with a given
+        Apollo PSE data product. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="metadata_file_name" type="apollo:metadata_file_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Information">
+    <xs:annotation>
+      <xs:documentation>The Observation_Information class provides
+        information about a science observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="product_type" type="apollo:product_type" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="apollo:product_type = ('Dataless-SEED', 'GeoCSV', 'Mini-SEED', 'StationXML')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="SEED_Equivalent">
+    <xs:annotation>
+      <xs:documentation> The SEED_Equivalent class contains attributes
+        that identify and locate the SEED data product equivalent to a
+        given Apollo PSE ASCII data product. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seed_file_name" type="apollo:seed_file_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Seismic_Parameters">
+    <xs:annotation>
+      <xs:documentation> Attributes specific to the Apollo Passive
+        Seismic Experiment (PSE) data products. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pse_data_type" type="apollo:pse_data_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Metadata_Location" type="apollo:Metadata_Location" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ASCII_Equivalent" type="apollo:ASCII_Equivalent" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SEED_Equivalent" type="apollo:SEED_Equivalent" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="station" type="apollo:station" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="channel" type="apollo:channel" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="location" type="apollo:location" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sampling_rate" type="apollo:sampling_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sample_count" type="apollo:sample_count" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="apollo:pse_data_type = ('metadata', 'waveform')"/> -->
+    <!-- <xs:assert test="apollo:station = ('S11', 'S12', 'S14', 'S15', 'S16')"/> -->
+    <!-- <xs:assert test="apollo:channel = ('ATT', 'MH1', 'MH2', 'MHZ', 'SHZ')"/> -->
+    <!-- <xs:assert test="apollo:location = ('00', '01')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="ascii_equivalent_file_name">
+    <xs:annotation>
+      <xs:documentation> Apollo PSE data products are archived in their
+        native SEED format and in a PDS-compatible ASCII format. The
+        ascii_equivalent_file_name attribute gives the name of the file
+        that is the ASCII equivalent of a SEED format file.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="channel">
+    <xs:annotation>
+<xs:documentation> Apollo PSE channel. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="location">
+    <xs:annotation>
+<xs:documentation> Apollo PSE location. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="metadata_file_name">
+    <xs:annotation>
+      <xs:documentation> Apollo PSE observations are stored with the
+        seismic data from the instrument in one file (mini-SEED or
+        GeoCSV format) and the metadata for the measurements in another
+        file (dataless SEED or StationXML format). The
+        metadata_file_name attribute gives the name of the file
+        containing the metadata associated with a given data file.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type">
+    <xs:annotation>
+      <xs:documentation>The product_type identifies a group of data
+        products within a collection that have some property in common,
+        such as processing level, resolution, or instrument-specific
+        setting. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pse_data_type">
+    <xs:annotation>
+      <xs:documentation>Apollo PSE mini-SEED products and their
+        equivalent GeoCSV products contain only seismic data, and
+        therefore have the data_type "waveform". Apollo PSE dataless
+        SEED products and their equivalent StationXML products contain
+        only metadata for the seismic data files, and therefore have the
+        data_type "metadata". </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sample_count">
+    <xs:annotation>
+      <xs:documentation>Sample_count is the number of samples in a
+        Apollo PSE mini-SEED or GeoCSV product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sampling_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sampling_rate">
+    <xs:annotation>
+      <xs:documentation>Sampling_rate represents the number of samples
+        per second. The sampling rate is nominal, and there is a small
+        variation between the nominal sampling rate and the actual
+        sampling rate, which can be estimated using the timing trace
+        ATT. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="apollo:sampling_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="seed_file_name">
+    <xs:annotation>
+      <xs:documentation> Apollo PSE data products are archived in their
+        native SEED format and in a PDS-compatible ASCII format. The
+        seed_file_name attribute gives the name of the file that is the
+        SEED equivalent of an ASCII data file. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_File_Name">
+  <!-- format="file_name.file_extension" -->
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="station">
+    <xs:annotation>
+<xs:documentation> Apollo seismic station. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

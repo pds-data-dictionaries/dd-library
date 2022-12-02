@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="v113">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/juno/v1/PDS4_JUNO_1D00_1110.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/juno/v1/PDS4_JUNO_1D00_1100.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

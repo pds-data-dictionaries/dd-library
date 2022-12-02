@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="v117">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/vg1/v1/V1_LDD_1D00_1001.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/vg1/v1/PDS4_VG1_1900_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

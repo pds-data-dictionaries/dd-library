@@ -1,0 +1,764 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        14.0.1
+   LDD Version Id:        1.1.0.0
+   LDD Label Version Id:  1.24
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Tue May 17 20:40:21 UTC 2022
+   Common Schema          [PDS4_PDS_1I00.xsd]
+   Common Schematron      [PDS4_PDS_1I00.sch]
+   IM Version Id:         1.18.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.24
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-survey/ldd-survey/src/PDS4_SURVEY_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                16
+   Attributes             44
+   Associations           66
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Survey
+   LDD Version            1.1.0.0
+   Full Name              Jesse Stone
+   Steward                sbn
+   Namespace Id           survey
+   Comment                The Survey dictionary contains classes that support ground based sky surveys.
+   Last Modification Time 2021-09-27T21:30:00.000Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   horizontal_display_axis
+   version                1.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The horizontal_display_axis attribute identifies, by name, the axis of an Array (or Array subclass) that is intended to be displayed in the horizontal or "sample" dimension on a display device. The value of this attribute must match the value of one, and only one, axis_name attribute in an Axis_Array class of the associated Array.
+
+   name                   horizontal_display_direction
+   version                1.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The horizontal_display_direction attribute specifies the direction across the screen of a display device that data along the horizontal axis of an Array is supposed to be displayed.
+   minimum characters     13
+   maximum characters     13
+
+   name                   vertical_display_axis
+   version                1.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The vertical_display_axis attribute identifies, by name, the axis of an Array (or Array subclass) that is intended to be displayed in the vertical or "line" dimension on a display device. The value of this attribute must match the value of one, and only one, axis_name attribute in an Axis_Array class of the associated Array.
+
+   name                   vertical_display_direction
+   version                1.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The vertical_display_direction attribute specifies the direction along the screen of a display device that data along the vertical axis of an Array is supposed to be displayed.
+   minimum characters     13
+   maximum characters     13
+
+   name                   color_display_axis
+   version                1.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The color_display_axis attribute identifies, by name, the axis of an Array (or Array subclass) that is intended to be displayed in the color dimension of a display device. I.e., bands from this dimension will be loaded into the red, green, and blue bands of the display device. The value of this attribute must match the value of one, and only one, axis_name attribute in an Axis_Array class of the associated Array.
+
+   name                   red_channel_band
+   version                1.0
+   value data type        ASCII_Integer
+   description            The red_channel_band attribute identifies the number of the band, along the band axis, that should be loaded, by default, into the red channel of a display device. The first band along the band axis has band number 1.
+   minimum value          1
+
+   name                   green_channel_band
+   version                1.0
+   value data type        ASCII_Integer
+   description            The green_channel_band attribute identifies the number of the band, along the band axis, that should be loaded, by default, into the green channel of a display device. The first band along the band axis has band number 1.
+   minimum value          1
+
+   name                   blue_channel_band
+   version                1.0
+   value data type        ASCII_Integer
+   description            The blue_channel_band attribute identifies the number of the band, along the band axis, that should be loaded, by default, into the blue channel of a display device. The first band along the band axis has band number 1.
+   minimum value          1
+
+   name                   time_display_axis
+   version                1.0
+   value data type        ASCII_Short_String_Collapsed
+   description            The time_display_axis attribute identifies, by name, the axis of an Array (or Array subclass), the bands of which are intended to be displayed sequentially in time on a display device. The frame_rate attribute, if present, provides the rate at which these bands are to be displayed.
+
+   name                   frame_rate
+   version                1.0
+   value data type        ASCII_Real
+   description            The frame_rate attribute indicates the number of still pictures (or frames) that should be displayed per unit of time in a video. Note this is NOT necessarily the same as the rate at which the images were acquired.
+   minimum value          1.0
+   unit of measure type   Units_of_Frame_Rate
+
+   name                   loop_flag
+   version                1.0
+   value data type        ASCII_Boolean
+   description            The loop_flag attribute specifies whether or not a movie object should be played repeatedly without prompting from the user.
+
+   name                   loop_count
+   version                1.0
+   value data type        ASCII_Integer
+   description            The loop_count attribute specifies the number of times a movie should be "looped" or replayed before stopping.
+   minimum value          1
+
+   name                   loop_delay
+   version                1.0
+   value data type        ASCII_Real
+   description            The loop_delay attribute specifies the amount of time to pause between "loops" or repeated playbacks of a movie.
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   loop_back_and_forth_flag
+   version                1.0
+   value data type        ASCII_Boolean
+   description            The loop_back_and_forth_flag attribute specifies whether or not a movie should only be "looped" or played repeatedly in the forward direction, or whether it should be played forward followed by played in reverse, iteratively.
+
+   name                   horizontal_display_axis
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The horizontal_display_axis attribute identifies, by name, the axis of an Array (or Array subclass) that is intended to be displayed in the horizontal or "sample" dimension on a display device. The value of this attribute must match the value of one, and only one, axis_name attribute in an Axis_Array class of the associated Array.
+
+   name                   horizontal_display_direction
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The horizontal_display_direction attribute specifies the direction across the screen of a display device that data along the horizontal axis of an Array is supposed to be displayed.
+   minimum characters     13
+   maximum characters     13
+
+   name                   vertical_display_axis
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The vertical_display_axis attribute identifies, by name, the axis of an Array (or Array subclass) that is intended to be displayed in the vertical or "line" dimension on a display device. The value of this attribute must match the value of one, and only one, axis_name attribute in an Axis_Array class of the associated Array.
+
+   name                   vertical_display_direction
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The vertical_display_direction attribute specifies the direction along the screen of a display device that data along the vertical axis of an Array is supposed to be displayed.
+   minimum characters     13
+   maximum characters     13
+
+   name                   color_display_axis
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The color_display_axis attribute identifies, by name, the axis of an Array (or Array subclass) that is intended to be displayed in the color dimension of a display device. I.e., bands from this dimension will be loaded into the red, green, and blue bands of the display device. The value of this attribute must match the value of one, and only one, axis_name attribute in an Axis_Array class of the associated Array.
+
+   name                   red_channel_band
+   version                1.18
+   value data type        ASCII_Integer
+   description            The red_channel_band attribute identifies the number of the band, along the band axis, that should be loaded, by default, into the red channel of a display device. The first band along the band axis has band number 1.
+   minimum value          1
+
+   name                   green_channel_band
+   version                1.18
+   value data type        ASCII_Integer
+   description            The green_channel_band attribute identifies the number of the band, along the band axis, that should be loaded, by default, into the green channel of a display device. The first band along the band axis has band number 1.
+   minimum value          1
+
+   name                   blue_channel_band
+   version                1.18
+   value data type        ASCII_Integer
+   description            The blue_channel_band attribute identifies the number of the band, along the band axis, that should be loaded, by default, into the blue channel of a display device. The first band along the band axis has band number 1.
+   minimum value          1
+
+   name                   time_display_axis
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The time_display_axis attribute identifies, by name, the axis of an Array (or Array subclass), the bands of which are intended to be displayed sequentially in time on a display device. The frame_rate attribute, if present, provides the rate at which these bands are to be displayed.
+
+   name                   frame_rate
+   version                1.18
+   value data type        ASCII_Real
+   description            The frame_rate attribute indicates the number of still pictures (or frames) that should be displayed per unit of time in a video. Note this is NOT necessarily the same as the rate at which the images were acquired.
+   minimum value          1.0
+   unit of measure type   Units_of_Frame_Rate
+
+   name                   loop_flag
+   version                1.18
+   value data type        ASCII_Boolean
+   description            The loop_flag attribute specifies whether or not a movie object should be played repeatedly without prompting from the user.
+
+   name                   loop_count
+   version                1.18
+   value data type        ASCII_Integer
+   description            The loop_count attribute specifies the number of times a movie should be "looped" or replayed before stopping.
+   minimum value          1
+
+   name                   loop_delay
+   version                1.18
+   value data type        ASCII_Real
+   description            The loop_delay attribute specifies the amount of time to pause between "loops" or repeated playbacks of a movie.
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   loop_back_and_forth_flag
+   version                1.18
+   value data type        ASCII_Boolean
+   description            The loop_back_and_forth_flag attribute specifies whether or not a movie should only be "looped" or played repeatedly in the forward direction, or whether it should be played forward followed by played in reverse, iteratively.
+
+   name                   band_name
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The band for which the limiting magnitude specification is applicable
+
+   name                   reference_object_type
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            The type of observed object used to calculate the limiting magnitude
+
+   name                   percentage
+   version                1.18
+   value data type        ASCII_Real
+   description            The percentage of known objects that are detected at the given magnitude for the specified band
+
+   name                   n_sigma_n
+   version                1.18
+   value data type        ASCII_Real
+   description            Represents the value of n for n-sigma limiting magnitude: The limiting magnitude of a point source at a significance of n-sigma (i.e. a S/N of n)
+
+   name                   limiting_magnitude
+   version                1.18
+   value data type        ASCII_Real
+   description            Magnitude at which a threshold known objects are detected
+
+   name                   rollover_magnitude
+   version                1.18
+   value data type        ASCII_Real
+   description            The magnitude of the peak of the histogram of stellar magnitudes in the image.
+
+   name                   rollover_snr
+   version                1.18
+   value data type        ASCII_Real
+   description            The SNR at the magnitude of the peak of the histogram of stellar magnitudes in the image.
+
+   name                   rollover_fwhm
+   version                1.18
+   value data type        ASCII_Real
+   description            The full width at half maximum of stellar sources at the magnitude of the peak of the histogram of stellar magnitudes in the image, in arcseconds
+   unit of measure type   Units_of_Angle
+
+   name                   corner_identification
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies which corner of the image is being located. This assumes that the image is displayed correctly according to the orientation information provided in the display dictionary
+
+   name                   equinox
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            Time that defines the origin of a celestial coordinate system, given in fractional year. Type of year may also be indicated. For example, 'J2000.0' corresponds to an origin specified by January 1, 2000 at 12:00 Terrestrial Time in Julian years.
+
+   name                   right_ascension
+   version                1.18
+   value data type        ASCII_Real
+   description            The right ascension component of a coordinate, decimal degrees
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   declination
+   version                1.18
+   value data type        ASCII_Real
+   description            The declination component of a coordinate, decimal degrees
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   field_id
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            Project-dependent field ID
+
+   name                   observation_purpose
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the intent of the observation, whether it is an actual survey observation, a followup, or a calibration image.
+
+   name                   observation_technique
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            Further classifies survey observations by the technique used to acquire it.
+
+   name                   calibration_type
+   version                1.18
+   value data type        ASCII_Short_String_Collapsed
+   description            Further classifies calibration images by the type of calibration field used.
+
+Parsed Input - Classes:
+
+   name                   Display_Settings
+   description            The Display_Settings class contains one or more classes describing how data should be displayed on a display device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Display_Direction
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Color_Display_Settings
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Movie_Display_Settings
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Display_Direction
+   description            The Display_Direction class specifies how two of the dimensions of an Array object should be displayed in the vertical (line) and horizontal (sample) dimensions of a display device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      horizontal_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      horizontal_display_direction
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vertical_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vertical_display_direction
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Color_Display_Settings
+   description            The Color_Display_Settings class provides guidance to data users on how to display a multi-banded Array object on a color-capable display device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      color_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      red_channel_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      green_channel_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      blue_channel_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Movie_Display_Settings
+   description            The Movie_Display_Settings class provides default values for the display of a multi-banded Array using a software application capable of displaying video content.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      time_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      frame_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_delay
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_back_and_forth_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Display_Settings
+   description            The Display_Settings class contains one or more classes describing how data should be displayed on a display device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Display_Direction
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Color_Display_Settings
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Movie_Display_Settings
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Display_Direction
+   description            The Display_Direction class specifies how two of the dimensions of an Array object should be displayed in the vertical (line) and horizontal (sample) dimensions of a display device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      horizontal_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      horizontal_display_direction
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vertical_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vertical_display_direction
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Color_Display_Settings
+   description            The Color_Display_Settings class provides guidance to data users on how to display a multi-banded Array object on a color-capable display device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      color_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      red_channel_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      green_channel_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      blue_channel_band
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Movie_Display_Settings
+   description            The Movie_Display_Settings class provides default values for the display of a multi-banded Array using a software application capable of displaying video content.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      time_display_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      frame_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_delay
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      loop_back_and_forth_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Coordinate
+   description            A location on the celestial sphere, consisting of right ascension and declination.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      right_ascension
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      declination
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Corner_Position
+   description            The position of one corner of an image
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      corner_identification
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Coordinate
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Image_Corners
+   description            The portion of the sky contained within an image, identified by its four corners
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      equinox
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Corner_Position
+      minimum occurrences   4
+      maximum occurrences   4
+      reference type        component_of
+
+   name                   N_Sigma_Limit
+   description            The limiting magnitude of a point source at a significance of n-sigma (i.e. a S/N of n)
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      n_sigma_n
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      limiting_magnitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Percentage_Limit
+   description            The limiting magnitude of the image, expressed as a magnitude, and the percentage of known objects detected at that magnitude
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      percentage
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      limiting_magnitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Limiting_Magnitudes
+   description            The limiting magnitude of the image
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      band_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      reference_object_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      N_Sigma_Limit
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      Percentage_Limit
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Rollover
+   description            The properties of the peak of the histogram of stellar magnitudes within the image.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      rollover_magnitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      rollover_fwhm
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      rollover_snr
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Survey
+   description            Sky Survey related properties.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      field_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      observation_purpose
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      observation_technique
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      calibration_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Image_Corners
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Limiting_Magnitudes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Rollover
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

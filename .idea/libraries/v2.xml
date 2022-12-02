@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="v2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/particle/v2/PDS4_PARTICLE_1G00_2010.zip!/" />
+      <root url="jar://$PROJECT_DIR$/particle/v2/PDS4_PARTICLE_1F00_2000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

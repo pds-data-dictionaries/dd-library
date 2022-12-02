@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PDS4_MVN_1D00_1110">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/mvn/v1/PDS4_MVN_1D00_1110.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

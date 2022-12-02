@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="v125">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1F00_1020.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1G00_1030.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1H00_1030.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1G00_1020.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

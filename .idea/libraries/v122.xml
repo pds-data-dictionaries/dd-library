@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="v122">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1H00_1860.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1900.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1E00_1800.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1B00_1600.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1A10.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1A10_1510.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1G00_1850.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1F00_1810.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1F00_1860.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1D00_1700.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1G00_1860.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1D00_1730.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1D00_1720.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1B00_1610.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img/v1/PDS4_IMG_1E00_1860.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

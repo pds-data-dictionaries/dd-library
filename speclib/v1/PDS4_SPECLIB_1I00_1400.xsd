@@ -1,0 +1,1246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:speclib  Version:1.4.0.0 - Fri Jul 29 20:23:10 UTC 2022 -->
+  <!-- Generated from the PDS4 Information Model Version 1.18.0.0 - System Build 12.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.18.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.4.0.0 - speclib: - Spectral Library                                     -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/speclib/v1"
+    xmlns:speclib="http://pds.nasa.gov/pds4/speclib/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.4.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The SPECLIB dictionary contains classes and attributes specific to
+        spectral reflectance measurements of laboratory specimens.
+        
+        SPECLIB version 1.4.0.0 last updated 2022-07-28
+        PDS Build 1.18.0.0
+        LDDTool version 14.0.13
+        Built with lddtool -plJ PDS4_SPECLIB_IngestLDD.xml
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Spectral_Library_Product" type="speclib:Spectral_Library_Product"> </xs:element>
+
+  <xs:complexType name="Ancillary_Product">
+    <xs:annotation>
+      <xs:documentation>The Ancillary_Product class identifies an
+        ancillary measurement related to a Spectral Library
+        specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="ancillary_product_type" type="speclib:ancillary_product_type" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="speclib:ancillary_product_type = ('Attenuated Total Reflectance Spectroscopy', 'Chemical Composition', 'Differential Scanning Calorimetry', 'Electron Microprobe Analysis', 'Image', 'Modal Mineralogy', 'Raman Spectroscopy', 'Reflectance Spectroscopy', 'Thermogravimetric Analysis', 'Transmission Spectroscopy', 'X-ray Diffraction', 'X-ray Fluorescence')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Measurement_Instrument">
+    <xs:annotation>
+      <xs:documentation>The Measurement_Instrument class contains
+        attributes that identify the instrument that made the
+        measurement. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="instrument_name" type="speclib:instrument_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Measurement_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Measurement_Parameters class contains
+        attributes relevant to a single measurement of a specimen.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="segment_number" type="speclib:segment_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Measurement_Instrument" type="speclib:Measurement_Instrument" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_type" type="speclib:measurement_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_range_parameter_name" type="speclib:spectral_range_parameter_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_range_min" type="speclib:spectral_range_min" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_range_max" type="speclib:spectral_range_max" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_range_unit_name" type="speclib:spectral_range_unit_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_sampling_interval_min" nillable="true" type="speclib:spectral_sampling_interval_min" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_sampling_interval_max" nillable="true" type="speclib:spectral_sampling_interval_max" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_sampling_interval_unit_name" nillable="true" type="speclib:spectral_sampling_interval_unit_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_resolution_width_min" nillable="true" type="speclib:spectral_resolution_width_min" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_resolution_width_max" nillable="true" type="speclib:spectral_resolution_width_max" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spectral_resolution_width_unit_name" nillable="true" type="speclib:spectral_resolution_width_unit_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_run" nillable="true" type="speclib:measurement_run" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_location_number" type="speclib:measurement_location_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_locations_per_sample" type="speclib:measurement_locations_per_sample" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_reference_standard" type="speclib:measurement_reference_standard" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_geometry_type" nillable="true" type="speclib:measurement_geometry_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="incidence_angle" nillable="true" type="speclib:incidence_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="emission_angle" nillable="true" type="speclib:emission_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="phase_angle" nillable="true" type="speclib:phase_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_source_description" type="speclib:measurement_source_description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_atmosphere_pressure" nillable="true" type="speclib:measurement_atmosphere_pressure" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_atmosphere_temperature" nillable="true" type="speclib:measurement_atmosphere_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_atmosphere_relative_humidity" nillable="true" type="speclib:measurement_atmosphere_relative_humidity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_atmosphere_composition" nillable="true" type="speclib:measurement_atmosphere_composition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_atmosphere_description" type="speclib:measurement_atmosphere_description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_date_time" nillable="true" type="speclib:measurement_date_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_producer_name" type="speclib:data_producer_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="data_provider_name" type="speclib:data_provider_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_requestor" nillable="true" type="speclib:measurement_requestor" minOccurs="0" maxOccurs="2"> </xs:element>
+      <xs:element name="measurement_notes" type="speclib:measurement_notes" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="accumulation_time" type="speclib:accumulation_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="microscope_objective" type="speclib:microscope_objective" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_pulses_per_integration" type="speclib:laser_pulses_per_integration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_attenuation" type="speclib:laser_attenuation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_power_sample" type="speclib:laser_power_sample" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_power_for_calibration_min" type="speclib:laser_power_for_calibration_min" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_power_for_calibration_max" type="speclib:laser_power_for_calibration_max" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_wavelength" type="speclib:laser_wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_pulse_rate" type="speclib:laser_pulse_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_averaged_integrations" type="speclib:laser_averaged_integrations" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dark_subtraction_flag" type="speclib:dark_subtraction_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_pulses_discarded" type="speclib:laser_pulses_discarded" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="laser_integrations_saturated" type="speclib:laser_integrations_saturated" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="speclib:measurement_type = ('Attenuated Total Reflectance', 'Emission', 'LIBS', 'Raman', 'Reflectance', 'Transmission', 'X-Ray Absorption Near-Edge Structure', 'X-Ray Diffraction', 'X-Ray Fluorescence')"/> -->
+    <!-- <xs:assert test="speclib:spectral_range_parameter_name = ('Angle', 'Energy', 'Frequency', 'Time', 'Wavelength', 'Wavenumber')"/> -->
+    <!-- <xs:assert test="speclib:measurement_geometry_type = ('Biconical', 'Bidirectional', 'Directional Hemispherical', 'Hemispherical Hemispherical', 'Unknown')"/> -->
+    <!-- <xs:assert test="speclib:dark_subtraction_flag = ('N', 'Y')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Specimen_Classification">
+    <xs:annotation>
+      <xs:documentation>The Specimen_Classification class provides
+        information about how a specimen has been
+        classified.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="specimen_type" type="speclib:specimen_type" minOccurs="1" maxOccurs="2"> </xs:element>
+      <xs:element name="material_common_name" type="speclib:material_common_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="material_origin" type="speclib:material_origin" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="synthetic_type" type="speclib:synthetic_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="material_state" type="speclib:material_state" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="organic_type" type="speclib:organic_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="material_type" type="speclib:material_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="material_subtype" type="speclib:material_subtype" minOccurs="0" maxOccurs="10"> </xs:element>
+      <xs:element name="mineral_type" type="speclib:mineral_type" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="mineral_subtype" type="speclib:mineral_subtype" minOccurs="0" maxOccurs="10"> </xs:element>
+      <xs:element name="rock_type" type="speclib:rock_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rock_subtype" type="speclib:rock_subtype" minOccurs="0" maxOccurs="10"> </xs:element>
+      <xs:element name="volatile_type" nillable="true" type="speclib:volatile_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="synthetic_processing_description" type="speclib:synthetic_processing_description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_ph" type="speclib:specimen_ph" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_dilution_method" type="speclib:specimen_dilution_method" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_solute_standard" type="speclib:specimen_solute_standard" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="speclib:specimen_type = ('Lunar Meteorite', 'Mars Meteorite', 'Other Meteorite', 'Returned Asteroid Sample', 'Returned Lunar Sample', 'Synthetic Sample', 'Terrestrial Sample')"/> -->
+    <!-- <xs:assert test="speclib:material_origin = ('Natural', 'Natural-Doped', 'Synthetic')"/> -->
+    <!-- <xs:assert test="speclib:synthetic_type = ('Entirely Synthetic', 'From Natural', 'Hardware', 'Natural and Synthetic')"/> -->
+    <!-- <xs:assert test="speclib:material_state = ('Gas', 'Liquid', 'Solid')"/> -->
+    <!-- <xs:assert test="speclib:organic_type = ('Inorganic', 'Mixture', 'Organic')"/> -->
+    <!-- <xs:assert test="speclib:material_type = ('Amorphous', 'Brine', 'Consolidated Mixture', 'Element', 'Ice', 'Mineral', 'Organic', 'Rock', 'Single Particle', 'Unconsolidated Mixture')"/> -->
+    <!-- <xs:assert test="speclib:mineral_type = ('Arsenate', 'Borate', 'Carbonate', 'Chromate', 'Cyclosilicate', 'Halide', 'Hydroxide', 'Inosilicate', 'Iodate', 'Native Element', 'Nesosilicate', 'Nitrate', 'Organic Compound', 'Oxide', 'Phosphate', 'Phyllosilicate', 'Sorosilicate', 'Sulfate', 'Sulfide', 'Tectosilicate', 'Unclassified', 'Vanadate')"/> -->
+    <!-- <xs:assert test="speclib:rock_type = ('Igneous', 'Metamorphic', 'Sedimentary', 'Unknown')"/> -->
+    <!-- <xs:assert test="speclib:volatile_type = ('Poor', 'Rich', 'Unknown')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Specimen_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Specimen_Parameters class provides
+        information about a specimen for which measurements have been
+        made.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="specimen_id" type="speclib:specimen_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_name" type="speclib:specimen_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_description" type="speclib:specimen_description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="source_specimen_id" nillable="true" type="speclib:source_specimen_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_min_size" nillable="true" type="speclib:specimen_min_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_max_size" nillable="true" type="speclib:specimen_max_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_thin_section_flag" type="speclib:specimen_thin_section_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_collection_location" nillable="true" type="speclib:specimen_collection_location" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_owner_location" nillable="true" type="speclib:specimen_owner_location" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_owner_name" nillable="true" type="speclib:specimen_owner_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="specimen_provider_name" type="speclib:specimen_provider_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="speclib:specimen_thin_section_flag = ('N', 'Y')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Spectral_Library_Product">
+    <xs:annotation>
+      <xs:documentation>The Spectral_Library_Product class provides
+        information about a data product in the Spectral
+        Library.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="processing_description" type="speclib:processing_description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Specimen_Parameters" type="speclib:Specimen_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Specimen_Classification" type="speclib:Specimen_Classification" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="measurement_segments" type="speclib:measurement_segments" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Measurement_Parameters" type="speclib:Measurement_Parameters" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Ancillary_Product" type="speclib:Ancillary_Product" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="accumulation_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="accumulation_time">
+    <xs:annotation>
+      <xs:documentation>The duration for which a measurement was
+        acquired. If more than one measurement is reported, this value
+        corresponds to the total measurement time across all
+        measurements.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:accumulation_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ancillary_product_type">
+    <xs:annotation>
+      <xs:documentation>The ancillary_product_type element provides the
+        type of data found in an ancillary product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dark_subtraction_flag">
+    <xs:annotation>
+      <xs:documentation>The dark_subtraction_flag element indicates if a
+        spectrum has been dark subtracted.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_producer_name">
+    <xs:annotation>
+      <xs:documentation>The data_producer_name element provides the name
+        of the creator of the product. For products in RELAB, the value
+        of data_producer_name is always "RELAB".</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_provider_name">
+    <xs:annotation>
+      <xs:documentation>The data_provider_name element provides the full
+        name of the person who submitted the product to the
+        library.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="emission_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="emission_angle">
+    <xs:annotation>
+      <xs:documentation>The emission_angle element provides the angle
+        between the local vertical at the intercept point and a vector
+        from the intercept point to the sensor.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:emission_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="incidence_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="incidence_angle">
+    <xs:annotation>
+      <xs:documentation>The incidence_angle element provides the angle
+        between the local vertical at the intercept point and a vector
+        from the intercept point to the source.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:incidence_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="instrument_name">
+    <xs:annotation>
+      <xs:documentation>The instrument_name element provides a
+        descriptive name of the instrument that made a spectral
+        measurement.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_attenuation_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="laser_attenuation">
+    <xs:annotation>
+      <xs:documentation>The laser_attenuation element is the energy of
+        the laser pulse used for sample ablation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:laser_attenuation_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Energy" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="laser_averaged_integrations">
+    <xs:annotation>
+      <xs:documentation>The laser_averaged_integrations element
+        indicates the number of laser integrations that are averaged. A
+        value of 1 means that the integrations are not
+        averaged.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_integrations_saturated">
+    <xs:annotation>
+      <xs:documentation>The laser_integrations_saturated element lists
+        the number of spectra with at least one peak that saturates the
+        spectrometer.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_power_for_calibration_max">
+    <xs:annotation>
+      <xs:documentation>Maximum laser power, in percent, used during
+        calibration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_power_for_calibration_min">
+    <xs:annotation>
+      <xs:documentation>Minimum laser power, in percent, used during
+        calibration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_power_sample">
+    <xs:annotation>
+      <xs:documentation>Laser power, in percent, utilized during sample
+        analysis.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_pulse_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="laser_pulse_rate">
+    <xs:annotation>
+      <xs:documentation>The laser_pulse_rate element indicates the
+        frequency of laser pulses. A laser_pulse_rate of 10 Hz means
+        that the laser fires ten times per second.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:laser_pulse_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="laser_pulses_discarded">
+    <xs:annotation>
+      <xs:documentation>The laser_pulses_discarded element indicates the
+        number of laser pulses discarded.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_pulses_per_integration">
+    <xs:annotation>
+      <xs:documentation>The laser_pulses_per_integration element
+        identifies the number of laser pulses per integration. This
+        value is 1 for single shot spectra.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="laser_wavelength_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="laser_wavelength">
+    <xs:annotation>
+      <xs:documentation>Laser wavelength utilized in sample
+        analysis.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:laser_wavelength_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="material_common_name">
+    <xs:annotation>
+      <xs:documentation>The material_common_name element gives the
+        specific name of the specimen material, as specifically as it is
+        known. For example, if a specimen is pure olivine, put
+        "Olivine". If a specimen is a mixture of kaolinite and opal, put
+        "Kaolinite/Opal". Indicate if "Unidentified".</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="material_origin">
+    <xs:annotation>
+      <xs:documentation>The material_origin element identifies whether
+        the specimen is natural, synthetic, or
+        natural/doped.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="material_state">
+    <xs:annotation>
+      <xs:documentation>The material_state element identifies the
+        physical state of the specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="material_subtype">
+    <xs:annotation>
+      <xs:documentation>The material_subtype element provides an
+        optional descriptor for additional information about the
+        physical state of the specimen, e.g. particulate or
+        nonparticulate.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="material_type">
+    <xs:annotation>
+      <xs:documentation>The material_type element indicates the general
+        type of the specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="30"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="measurement_atmosphere_composition">
+    <xs:annotation>
+      <xs:documentation>The measurement_atmosphere_composition element
+        identifies any gas(es) present in measurement
+        environment.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Text_Preserved">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="measurement_atmosphere_description">
+    <xs:annotation>
+      <xs:documentation>The measurement_atmosphere_description decribes
+        the atmospheric conditions through which the data was
+        taken.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Text_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="1000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="measurement_atmosphere_pressure_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="measurement_atmosphere_pressure">
+    <xs:annotation>
+      <xs:documentation>The measurement_atmosphere_pressure element
+        provides the atmospheric pressure of the measurement
+        environment.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:measurement_atmosphere_pressure_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Pressure" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="measurement_atmosphere_relative_humidity">
+    <xs:annotation>
+      <xs:documentation>The measurement_atmosphere_relative_humidity
+        element provides the relative humidity of the measurement
+        environment.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="measurement_atmosphere_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="measurement_atmosphere_temperature">
+    <xs:annotation>
+      <xs:documentation>The measurement_atmosphere_temperature element
+        provides the temperature of the measurement
+        environment.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:measurement_atmosphere_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="measurement_date_time">
+    <xs:annotation>
+      <xs:documentation>The measurement_date_time element identifies the
+        date and time of the observation and
+        measurement.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_YMD">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="measurement_geometry_type">
+    <xs:annotation>
+      <xs:documentation>The measurement_geometry_type element identifies
+        the type of geometry at which a measurement is
+        taken.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="measurement_location_number">
+    <xs:annotation>
+      <xs:documentation>The measurement_location_number element
+        indicates the location number of spectra collection on the
+        target surface.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="measurement_locations_per_sample">
+    <xs:annotation>
+      <xs:documentation>The measurement_locations_per_sample element
+        indicates the number of measurement locations per
+        sample.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="measurement_notes">
+    <xs:annotation>
+      <xs:documentation>The measurement_notes element contains relevant
+        notes about how a measurement was made.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Text_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="1000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="measurement_reference_standard">
+    <xs:annotation>
+      <xs:documentation>The measurement_reference_standard element
+        identifies the standard object on which observations are
+        performed in order to calibrate a measurement.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="measurement_requestor">
+    <xs:annotation>
+      <xs:documentation>The measurement_requestor element identifies the
+        individual or laboratory who requested the measurement. The
+        attribute may be present with a null value. A maximum of two
+        names are permitted.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="measurement_run">
+    <xs:annotation>
+      <xs:documentation>The measurement_run element identifies the run
+        number of the measurement in a particular day.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_NonNegative_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="measurement_segments">
+    <xs:annotation>
+      <xs:documentation>The measurement_segments are the number of
+        individual spectra that were combined to create the final merged
+        spectrum. If the spectrum is not merged from multiple spectra,
+        then the value of measurement_segments is 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="measurement_source_description">
+    <xs:annotation>
+      <xs:documentation>The measurement_source_description element
+        identifies the source used for the measurement such as the type
+        of lamp, heating element, laser, or radioactive
+        source.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="measurement_type">
+    <xs:annotation>
+      <xs:documentation>The measurement_type element identifies the type
+        of spectroscopy performed on a specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="microscope_objective">
+    <xs:annotation>
+      <xs:documentation>The microscope_objective is the magnification
+        power of the objective lens by power (e.g. 4x,
+        10x).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mineral_subtype">
+    <xs:annotation>
+      <xs:documentation>The mineral_subtype element identifies the
+        mineral subtype of the specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mineral_type">
+    <xs:annotation>
+      <xs:documentation>The mineral_type element identifies the type of
+        mineral to which the specimen belongs.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="organic_type">
+    <xs:annotation>
+      <xs:documentation>The organic_type element identifies the organic
+        type to which the specimen belongs.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="phase_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-180"/>
+     <xs:maxInclusive value="180"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="phase_angle">
+    <xs:annotation>
+      <xs:documentation>The phase_angle element provides the angle
+        between incidence and emission vectors.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:phase_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="processing_description">
+    <xs:annotation>
+      <xs:documentation>The processing_description element provides
+        information about how measurement(s) for a particular product
+        were made, in addition to the information given in the
+        Measurement Parameters class. In the case of a product created
+        by merging multiple measurements, this element describes how the
+        merge was done.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Text_Preserved">
+     <xs:minLength value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rock_subtype">
+    <xs:annotation>
+      <xs:documentation>The rock_subtype element identifies the rock
+        subtype of the specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rock_type">
+    <xs:annotation>
+      <xs:documentation>The rock_type element identifies the type of
+        rock the specimen is.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="segment_number">
+    <xs:annotation>
+      <xs:documentation>The segment_number element identifies which
+        segment of a merged spectrum is described by a
+        Measurement_Parameters class. The first segment is segment
+        number 1. If the spectrum is not merged from multiple segments,
+        then the value of segment_number is 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="source_specimen_id">
+    <xs:annotation>
+      <xs:documentation>The source_specimen_id element identifies the
+        source specimen from which the observed specimen is
+        derived.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="specimen_collection_location">
+    <xs:annotation>
+      <xs:documentation>The specimen_collection_location element
+        provides the place where the specimen was
+        collected.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="specimen_description">
+    <xs:annotation>
+      <xs:documentation>The specimen_description element provides a
+        short description of the specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Text_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="1000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="specimen_dilution_method">
+    <xs:annotation>
+      <xs:documentation>The specimen_dilution_method element describes
+        the method by which dilution was conducted.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Text_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="1000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="specimen_id">
+    <xs:annotation>
+      <xs:documentation>The specimen_id element uniquely identifies the
+        specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="specimen_max_size_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="specimen_max_size">
+    <xs:annotation>
+      <xs:documentation>The specimen_max_size element identifies the
+        maximum particle size of the observed
+        specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:specimen_max_size_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="specimen_min_size_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="specimen_min_size">
+    <xs:annotation>
+      <xs:documentation>The specimen_min_size element identifies the
+        minimum particle size of the observed
+        specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="speclib:specimen_min_size_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="specimen_name">
+    <xs:annotation>
+      <xs:documentation>The specimen_name element identifies the
+        specimen as it is named where it is being
+        kept.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="specimen_owner_location">
+    <xs:annotation>
+      <xs:documentation>The specimen_owner_location element provides the
+        institution or laboratory name where the specimen
+        resides.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="specimen_owner_name">
+    <xs:annotation>
+      <xs:documentation>The specimen_owner_name element identifies the
+        individual or laboratory to whom the specimen
+        belongs.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="specimen_ph">
+    <xs:annotation>
+      <xs:documentation>The specimen_ph element provides the pH of the
+        observed specimen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="14"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="specimen_provider_name">
+    <xs:annotation>
+      <xs:documentation>The specimen_provider_name element gives the
+        name of the person who provided the specimen for spectral
+        measurement.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="specimen_solute_standard">
+    <xs:annotation>
+      <xs:documentation>The specimen_solute_standard element provides
+        the standard used for the solute.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="specimen_thin_section_flag">
+    <xs:annotation>
+      <xs:documentation>The specimen_thin_section_flag element indicates
+        whether or not the specimen is a thin section.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="specimen_type">
+    <xs:annotation>
+      <xs:documentation>The specimen_type element gives one or two terms
+        that classify the origin of the specimen. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spectral_range_max">
+    <xs:annotation>
+      <xs:documentation>The spectral_range_max element identifies the
+        maximum value at which a given data item was sampled. For
+        example, a spectrum that was measured in the 0.4 to 3.5 um
+        spectral range would have a spectral_range_max value of
+        3.5.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spectral_range_min">
+    <xs:annotation>
+      <xs:documentation>The spectral_range_min element identifies the
+        minimum value at which a given data item was sampled. For
+        example, a spectrum that was measured in the 0.4 to 3.5 um
+        spectral range would have a spectral_range_min value of
+        0.4.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spectral_range_parameter_name">
+    <xs:annotation>
+      <xs:documentation>The spectral_range_parameter_name element
+        identifies the name of the parameter which determines the
+        sampling interval of the measurement.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spectral_range_unit_name">
+    <xs:annotation>
+      <xs:documentation>The spectral_range_unit_name element identifies
+        the unit of measure for the values specified by
+        spectral_range_min and spectral_range_max.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spectral_resolution_width_max">
+    <xs:annotation>
+      <xs:documentation>The spectral_resolution_width_max element
+        identifies the full width at half maximum (FWHM) of a spectral
+        band in a given spectrum. If all bands are the same width,
+        spectral_resolution_width_min and spectral_resolution_width_max
+        will have the same value.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spectral_resolution_width_min">
+    <xs:annotation>
+      <xs:documentation>The spectral_resolution_width_min element
+        identifies the full width at half minimum (FWHM) of a spectral
+        band in a given spectrum. If all bands are the same width,
+        spectral_resolution_width_min and spectral_resolution_width_max
+        will have the same value.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spectral_resolution_width_unit_name">
+    <xs:annotation>
+      <xs:documentation>The spectral_resolution_width_unit_name element
+        identifies the unit of measure for the values specified by
+        spectral_resolution_width_min and
+        spectral_resolution_width_max.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spectral_sampling_interval_max">
+    <xs:annotation>
+      <xs:documentation>The spectral_sampling_interval_max element
+        identifies the maximum distance between band centers in a given
+        spectrum. If all band centers are equally spaced,
+        spectral_sampling_interval_min and
+        spectral_sampling_interval_max will have the same
+        value.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spectral_sampling_interval_min">
+    <xs:annotation>
+      <xs:documentation>The spectral_sampling_interval_min element
+        identifies the minimum distance between band centers in a given
+        spectrum. If all band centers are equally spaced,
+        spectral_sampling_interval_min and
+        spectral_sampling_interval_max will have the same
+        value.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spectral_sampling_interval_unit_name">
+    <xs:annotation>
+      <xs:documentation>The spectral_sampling_interval_unit_name element
+        identifies the unit of measure for the values specified by
+        spectral_sampling_interval_min and
+        spectral_sampling_interval_max.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="synthetic_processing_description">
+    <xs:annotation>
+      <xs:documentation>The synthetic_processing_description element
+        describes how a synthetic specimen has been
+        processed.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="synthetic_type">
+    <xs:annotation>
+      <xs:documentation>The synthetic_type element identifies the
+        process by which the specimen was produced
+        synthetically.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="volatile_type">
+    <xs:annotation>
+      <xs:documentation>The volatile_type element indicates whether the
+        material was volatile-poor (less than 2.0% loss on ignition) or
+        volatile-rich (greater than 2.0% loss on ignition).
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:UTF8_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

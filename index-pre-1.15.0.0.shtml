@@ -281,7 +281,6 @@
 				<li><a href="#speclib">Spectral Library</a></li>
 				<li><a href="#sp">Spectral Discipline Dictionary</a></li>
 				<li><a href="#survey">Survey</a></li>
-				<li><a href="#wave">Wave</a></li>
 			</ul>
 
 			<div id="alt">
@@ -500,6 +499,15 @@
 				<p>The Geometry Dictionary contains classes, attributes, and rules for specifying the geometry parameters associated with science observations.
 				</p>
 				<ul>
+					<li><b>Version:</b> 1.14.0.0</li>
+					<li><b>Posted:</b> 01/28/2022</li>
+					<ul>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1E00_1950.xsd">PDS4_GEOM_1E00_1950.xsd</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1E00_1950.sch">PDS4_GEOM_1E00_1950.sch</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1E00_1950.xml">PDS4_GEOM_1E00_1950.xml</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1E00_1950.JSON">PDS4_GEOM_1E00_1950.JSON</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1E00_1950.zip">PDS4_GEOM_1E00_1950.zip</a></li>
+					</ul>
 					<li><b>Version:</b> 1.14.0.0</li>
 					<li><b>Posted:</b> 09/09/2020</li>
 					<ul>
@@ -932,6 +940,15 @@
 				<p>The Spectral Library Data Dictionary defines the metadata terms that describe laboratory spectral measurements, including classification of the samples measured.
 				</p>
 				<ul>
+					<li><b>Version:</b> 1.14.0.0</li>
+					<li><b>Posted:</b> 01/28/2022</li>
+					<ul>
+						<li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1E00_1100.xsd">PDS4_SPECLIB_1E00_1100.xsd</a></li>
+						<li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1E00_1100.sch">PDS4_SPECLIB_1E00_1100.sch</a></li>
+						<li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1E00_1100.xml">PDS4_SPECLIB_1E00_1100.xml</a></li>
+						<li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1E00_1100.JSON">PDS4_SPECLIB_1E00_1100.JSON</a></li>
+						<li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1E00_1100.zip">PDS4_SPECLIB_1E00_1100.zip</a></li>
+					</ul>
 					<li><b>Version:</b> 1.11.0.0</li>
 					<li><b>Posted:</b> 04/21/2020</li>
 					<ul>
@@ -1102,22 +1119,6 @@
 						<li><a href="/pds4/survey/v1/PDS4_SURVEY_1A00_1000.xml">PDS4_SURVEY_1A00_1000.xml</a></li>
 						<li><a href="/pds4/survey/v1/PDS4_SURVEY_1A00_1000.JSON">PDS4_SURVEY_1A00_1000.JSON</a></li>
 						<li><a href="/pds4/survey/v1/PDS4_SURVEY_1A00_1000.zip">PDS4_SURVEY_1A00_1000.zip</a></li>
-					</ul>
-				</ul>
-				<a class="toTop">Back to top</a>
-			</div>
-			<div id="wave">
-				<h4>Wave (wave)</h4>
-				<p>The Wave dictionary contains classes that describe the composition of multidimensional wave data consisting of Array (and Array subclass) data objects.
-				</p>
-				<ul>
-					<li><b>Version:</b> 1.4.0.0</li>
-					<li><b>Posted:</b> 05/14/2015</li>
-					<ul>
-						<li><a href="/pds4/wave/v1/PDS4_WAVE_1000.xsd">PDS4_WAVE_1000.xsd</a></li>
-						<li><a href="/pds4/wave/v1/PDS4_WAVE_1000.sch">PDS4_WAVE_1000.sch</a></li>
-						<li><a href="/pds4/wave/v1/PDS4_WAVE_1000.xml">PDS4_WAVE_1000.xml</a></li>
-						<li><a href="/pds4/wave/v1/PDS4_WAVE_1000.zip">PDS4_WAVE_1000.zip</a></li>
 					</ul>
 				</ul>
 				<a class="toTop">Back to top</a>

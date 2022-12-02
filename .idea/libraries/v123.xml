@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="v123">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1B10_1110.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1A10.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1F00_1220.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1G00_1250.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1H00_1260.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1G00_1260.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1B10_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1F00_1240.zip!/" />
+      <root url="jar://$PROJECT_DIR$/img_surface/v1/PDS4_IMG_SURFACE_1F00_1230.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

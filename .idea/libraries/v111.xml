@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="v111">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/mess/v1/PDS4_MESS_1B00_1020.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/mess/v1/PDS4_MESS_1B00_1101.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/mess/v1/PDS4_MESS_1B00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/mess/v1/PDS4_MESS_1900_1020.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

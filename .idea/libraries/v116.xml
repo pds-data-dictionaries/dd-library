@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="v116">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/msn_surface/v1/PDS4_MSN_SURFACE_1D00_1110.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msn_surface/v1/PDS4_MSN_SURFACE_1A10.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msn_surface/v1/PDS4_MSN_SURFACE_1F00_1200.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msn_surface/v1/PDS4_MSN_SURFACE_1H00_1220.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msn_surface/v1/PDS4_MSN_SURFACE_1B00_1100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/msn_surface/v1/PDS4_MSN_SURFACE_1G00_1220.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

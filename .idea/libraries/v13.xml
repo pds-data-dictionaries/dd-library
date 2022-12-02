@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="v13">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/mer/v1/PDS4_MER_1B00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/mer/v1/PDS4_MER_1B10_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="v12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/nucspec/v1/PDS4_NUCSPEC_1F00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/nucspec/v1/PDS4_NUCSPEC_1G00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/nucspec/v1/PDS4_NUCSPEC_1H00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/nucspec/v1/PDS4_NUCSPEC_1B00_1000.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -117,7 +117,6 @@
 				<li><a href="#speclib">Spectral Library</a></li>
 				<li><a href="#sp">Spectral Discipline Dictionary</a></li>
 				<li><a href="#survey">Survey</a></li>
-				<li><a href="#wave">Wave</a></li>
 			</ul>
 
 			<div id="cart">
@@ -182,6 +181,17 @@ with modifications and extensions applied by PDS as needed for planetary mapping
 				<p>The Geometry Dictionary contains classes, attributes, and rules for specifying the geometry parameters associated with science observations.
 				</p>
 				<ul>
+					<li><b>Last Updated:</b> 01/28/2022</li>
+					<li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+					<li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
+					<ul>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1F00_1950.xsd">PDS4_GEOM_1F00_1950.xsd</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1F00_1950.sch">PDS4_GEOM_1F00_1950.sch</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1F00_1950.xml">PDS4_GEOM_1F00_1950.xml</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1F00_1950.JSON">PDS4_GEOM_1F00_1950.JSON</a></li>
+						<li><a href="/pds4/geom/v1/PDS4_GEOM_1F00_1950.zip">PDS4_GEOM_1F00_1950.zip</a></li>
+					</ul>
+					<br/>
 					<li><b>Last Updated:</b> 01/11/2021</li>
 					<li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
 					<li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
@@ -482,21 +492,6 @@ with modifications and extensions applied by PDS as needed for planetary mapping
 						<li><a href="/pds4/survey/v1/PDS4_SURVEY_1F00_1000.JSON">PDS4_SURVEY_1F00_1000.JSON</a></li>
 						<li><a href="/pds4/survey/v1/PDS4_SURVEY_1F00_1000.zip">PDS4_SURVEY_1F00_1000.zip</a></li>
 					</ul>
-				</ul>
-				<a class="toTop">Back to top</a>
-			</div>
-			<div id="wave">
-				<h4>Wave (wave)</h4>
-				<p>The Wave dictionary contains classes that describe the composition of multidimensional wave data consisting of Array (and Array subclass) data objects.
-				</p>
-				<ul>
-					<li><b>Last Updated:</b> </li>
-					<li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
-					<li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-wave">https://github.com/pds-data-dictionaries/ldd-wave</a></li>
-					<li><i>NOTE: A new version of this LDD was not generated with this version of the
-						PDS4  Information Model. If you would like one generated, please contact the
-						<a href="mailto:pds-operator@jpl.nasa.gov">PDS Operator</a>, or create a new issue in the
-						<a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i></li>
 				</ul>
 				<a class="toTop">Back to top</a>
 			</div>

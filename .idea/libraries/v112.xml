@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="v112">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/survey/v1/PDS4_SURVEY_1F00_100.zip!/" />
+      <root url="jar://$PROJECT_DIR$/survey/v1/PDS4_SURVEY_1A00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/survey/v1/PDS4_SURVEY_1F00_1010.zip!/" />
+      <root url="jar://$PROJECT_DIR$/survey/v1/PDS4_SURVEY_1F00_1000.zip!/" />
+      <root url="jar://$PROJECT_DIR$/survey/v1/PDS4_SURVEY_1H00_1010.zip!/" />
+      <root url="jar://$PROJECT_DIR$/survey/v1/PDS4_SURVEY_1G00_1010.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

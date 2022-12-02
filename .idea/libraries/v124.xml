@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="v124">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mission/msn_surface/v1/PDS4_MSN_SURFACE_1A10.zip!/" />
+      <root url="jar://$PROJECT_DIR$/mission/msn_surface/v1/PDS4_MSN_SURFACE_1B00_1100.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

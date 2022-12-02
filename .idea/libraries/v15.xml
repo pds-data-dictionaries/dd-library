@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="v15">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/pds/v1/PDS4_PDS_1D00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/pds/v1/PDS4_PDS_1G00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/pds/v1/PDS4_PDS_1B10.zip!/" />
+      <root url="jar://$PROJECT_DIR$/pds/v1/PDS4_PDS_1C00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/pds/v1/PDS4_PDS_1E00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/pds/v1/PDS4_PDS_1B00.zip!/" />
+      <root url="jar://$PROJECT_DIR$/pds/v1/PDS4_PDS_1F00.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
