@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:ebt  Version:1.0.0.0 - Thu May 04 00:45:56 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - ebt: - Earth-Based Telescope                                    -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/ebt/v1"
+    xmlns:ebt="http://pds.nasa.gov/pds4/ebt/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+_TBD_Ingest_LDD
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Earth_Based_Telescope_Parameters" type="ebt:Earth_Based_Telescope_Parameters"> </xs:element>
+
+  <xs:complexType name="AP_ORDER">
+    <xs:annotation>
+      <xs:documentation>Representation of the non-linear geometric
+        distortion -- inverse polynomial order of the first pixel axis.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="polynomial_order" type="ebt:polynomial_order" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="SIP_Element" type="ebt:SIP_Element" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="A_ORDER">
+    <xs:annotation>
+      <xs:documentation>Representation of the non-linear geometric
+        distortion -- polynomial order of the first world axis.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="polynomial_order" type="ebt:polynomial_order" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="SIP_Element" type="ebt:SIP_Element" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Airmass">
+    <xs:annotation>
+      <xs:documentation>This class describes parameters relevant to the
+        airmass during observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="airmass" type="ebt:airmass" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="airmass_time" nillable="true" type="ebt:airmass_time" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BP_ORDER">
+    <xs:annotation>
+      <xs:documentation>Representation of the non-linear geometric
+        distortion -- inverse polynomial order of the second pixel axis.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="polynomial_order" type="ebt:polynomial_order" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="SIP_Element" type="ebt:SIP_Element" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="B_ORDER">
+    <xs:annotation>
+      <xs:documentation>Representation of the non-linear geometric
+        distortion -- polynomial order of the second world axis.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="polynomial_order" type="ebt:polynomial_order" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="SIP_Element" type="ebt:SIP_Element" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Coordinate_Frame_Transformation_Matrix">
+    <xs:annotation>
+      <xs:documentation>Container class for the elements of a linear
+        transformation matrix between the world coordinate frame and the
+        pixel coordinate frame. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Pixel_Axes" type="ebt:Pixel_Axes" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Transformation_Element" type="ebt:Transformation_Element" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Distortion_Element">
+    <xs:annotation>
+      <xs:documentation>This class contains attributes for the axis,
+        parameter, and value of an element in a PV distortion matrix.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="world_axis_index" type="ebt:world_axis_index" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="parameter_number" type="ebt:parameter_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="element_value" type="ebt:element_value" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Earth_Based_Telescope_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class is intended to provide additional
+        metadata for earth-based telescopic observations. Much of the
+        information is geometry information, but in an earth-based
+        context.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="apparent_visual_magnitude" type="ebt:apparent_visual_magnitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Telescope_Geometry" type="ebt:Telescope_Geometry" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Instrument_Parameters" type="ebt:Instrument_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Observing_Conditions" type="ebt:Observing_Conditions" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Instrument_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class measures instrument temperatures,
+        along with other potential instrument parameters that may affect
+        the observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="instrument_temperature" type="ebt:instrument_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Observing_Conditions">
+    <xs:annotation>
+      <xs:documentation>This class details the quality of the product
+        based on observational conditions.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="photometric" type="ebt:photometric" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Airmass" type="ebt:Airmass" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Seeing" type="ebt:Seeing" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Weather" type="ebt:Weather" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observing_notes" type="ebt:observing_notes" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PV_Distortion_Matrix">
+    <xs:annotation>
+      <xs:documentation>This class contains elements of a distortion
+        matrix. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Distortion_Element" type="ebt:Distortion_Element" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Pixel_Axes">
+    <xs:annotation>
+      <xs:documentation>Class containing attributes that link the value
+        of ebt:pixel_axis_index with the horizontal and vertical axes of
+        an image. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="horizontal_axis" type="ebt:horizontal_axis" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="vertical_axis" type="ebt:vertical_axis" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Reference_Frame_Identification">
+    <xs:annotation>
+      <xs:documentation>The Reference_Frame_Identification class is a
+        base class for identifying reference frames. These are frames in
+        the NAIF sense, i.e., three orthogonal axes with a specified
+        orientation, but without a fixed origin. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="frame_spice_name" type="ebt:frame_spice_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="name" type="ebt:name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="comment" type="pds:comment" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="pds:Internal_Reference" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Reference_Frame_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class contains reference terms that define
+        the WCS axes used in an image. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="wcs_axes" type="ebt:wcs_axes" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="coordinate_system_equinox" type="ebt:coordinate_system_equinox" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="coordinate_system_celestial_pole_longitude" type="ebt:coordinate_system_celestial_pole_longitude" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="coordinate_system_celestial_pole_latitude" type="ebt:coordinate_system_celestial_pole_latitude" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="World_Axis" type="ebt:World_Axis" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Reference_Frame_Identification" type="ebt:Reference_Frame_Identification" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SIP_Distortion_Terms">
+    <xs:annotation>
+      <xs:documentation>This class contains subclasses representing the
+        distortion terms used in the SIP standard. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="A_ORDER" type="ebt:A_ORDER" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="B_ORDER" type="ebt:B_ORDER" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="AP_ORDER" type="ebt:AP_ORDER" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="BP_ORDER" type="ebt:BP_ORDER" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SIP_Element">
+    <xs:annotation>
+      <xs:documentation>Class containing the value of an element of a
+        SIP distortion polynomial, with element_value corresponding to
+        the actual coefficient. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="p_polynomial_degree" type="ebt:p_polynomial_degree" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="q_polynomial_degree" type="ebt:q_polynomial_degree" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="element_value" type="ebt:element_value" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Seeing">
+    <xs:annotation>
+      <xs:documentation>This class describes parameters relevant to the
+        seeing during observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seeing_full_width_half_maximum" type="ebt:seeing_full_width_half_maximum" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Target_Geometry">
+    <xs:annotation>
+      <xs:documentation>This class contains attributes that describe
+        angles and points in reference to the target.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="solar_phase_angle" type="ebt:solar_phase_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="subsolar_latitude" type="ebt:subsolar_latitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="subsolar_longitude" type="ebt:subsolar_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="subobserver_latitude" type="ebt:subobserver_latitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="subobserver_longitude" type="ebt:subobserver_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Telescope_Geometry">
+    <xs:annotation>
+      <xs:documentation>The Geometry_Telescope class is a container for
+        geometric information relevant to ground-based observations, as
+        well as observations made from Earth-orbiting
+        telescopes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="World_Coordinate_System" type="ebt:World_Coordinate_System" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Target_Geometry" type="ebt:Target_Geometry" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Transformation_Element">
+    <xs:annotation>
+      <xs:documentation>Class containing the value of an element of a
+        linear transformational matrix between the world_axis_index and
+        pixel_axis_index. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="world_axis_index" type="ebt:world_axis_index" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pixel_axis_index" type="ebt:pixel_axis_index" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="element_value" type="ebt:element_value" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Weather">
+    <xs:annotation>
+      <xs:documentation>This class describes parameters relevant to the
+        weather during observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ambient_temperature" type="ebt:ambient_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ambient_pressure" type="ebt:ambient_pressure" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ambient_humidity" type="ebt:ambient_humidity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ambient_clouds" type="ebt:ambient_clouds" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="weather_notes" type="ebt:weather_notes" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="World_Axis">
+    <xs:annotation>
+      <xs:documentation>This class contains attributes that describe an
+        individual world axis as used in an image. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="axis_index" type="ebt:axis_index" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="coordinate_name" type="ebt:coordinate_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="coordinate_system_projection" type="ebt:coordinate_system_projection" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="world_coordinate_reference_point" type="ebt:world_coordinate_reference_point" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="vertical_coordinate_pixel" type="ebt:vertical_coordinate_pixel"> </xs:element>
+        <xs:element name="horizontal_coordinate_pixel" type="ebt:horizontal_coordinate_pixel"> </xs:element>
+      </xs:choice>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="ebt:coordinate_system_projection = ('Gnomonic', 'Gnomonic plus SIP', 'Gnomonic with distortion term', 'Gnomonic with polynomial distortion', 'Gnomonic with polynomial distortion plus SIP', 'Hammer-Aitoff', 'Mercator', 'North Celestial Pole', 'Orthographic', 'Sanson-Flamsteed', 'Stereographic', 'Zenithal Equidistant', 'Zenithal with distortion term')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="World_Coordinate_System">
+    <xs:annotation>
+      <xs:documentation>This class contains World Coordinate System
+        (WCS) terms as specified by the FITS standard for the purpose of
+        mapping the pixel coordinate frame of an image onto a celestial
+        frame. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Reference_Frame_Parameters" type="ebt:Reference_Frame_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Coordinate_Frame_Transformation_Matrix" type="ebt:Coordinate_Frame_Transformation_Matrix" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="PV_Distortion_Matrix" type="ebt:PV_Distortion_Matrix" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SIP_Distortion_Terms" type="ebt:SIP_Distortion_Terms" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="airmass_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="airmass">
+    <xs:annotation>
+      <xs:documentation>Amount of air along the line of sight when
+        observing a celestial target. Equivalent to one divided by the
+        cosine of the zenith angle (in degrees).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:airmass_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Optical_Path_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="airmass_time">
+    <xs:annotation>
+      <xs:documentation>The airmass_time attribute specifies the time at
+        which the airmass was measured.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_YMD_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ambient_clouds">
+    <xs:annotation>
+      <xs:documentation>The clouds attribute specifies the measured
+        percentage of clouds present during the
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ambient_humidity">
+    <xs:annotation>
+      <xs:documentation>The humidity attribute specifies the measured
+        outside humidity during the observation, given as a
+        percentage.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ambient_pressure_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ambient_pressure">
+    <xs:annotation>
+      <xs:documentation>The ambient_pressure attribute specifies the
+        measured outside pressure during the
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:ambient_pressure_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Pressure" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ambient_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ambient_temperature">
+    <xs:annotation>
+      <xs:documentation>The ambient_temperature attribute specifies the
+        measured outside temperature during the
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:ambient_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="apparent_visual_magnitude">
+    <xs:annotation>
+      <xs:documentation>The estimated magnitude at the time of
+        observation as seen by the eye, or unfiltered
+        observations.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="axis_index">
+    <xs:annotation>
+      <xs:documentation>Positive integer identifying which World_Axis is
+        being described. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="coordinate_name">
+    <xs:annotation>
+      <xs:documentation>Name of the celestial coordinate to which this
+        axis corresponds. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="coordinate_system_celestial_pole_latitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="coordinate_system_celestial_pole_latitude">
+    <xs:annotation>
+      <xs:documentation>Latitude in the native coordinate system of the
+        system's celestial pole. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:coordinate_system_celestial_pole_latitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="coordinate_system_celestial_pole_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="coordinate_system_celestial_pole_longitude">
+    <xs:annotation>
+      <xs:documentation>Longitude in the native coordinate system of the
+        system's celestial pole. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:coordinate_system_celestial_pole_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="coordinate_system_equinox">
+    <xs:annotation>
+      <xs:documentation>Time origin of the coordinate system.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="1950"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="coordinate_system_projection">
+    <xs:annotation>
+      <xs:documentation>Name of the coordinate system projection used
+        for this axis. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="element_value">
+    <xs:annotation>
+      <xs:documentation>The value of the matrix element corresponding to
+        a given set of indices. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="frame_spice_name">
+    <xs:annotation>
+      <xs:documentation>The frame_spice_name attribute is a
+        NAIF-recognized string identifier for a reference frame
+        associated with the data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="horizontal_axis">
+    <xs:annotation>
+      <xs:documentation>The ebt:pixel_axis_index corresponding to the
+        horizontal axis of an image. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="horizontal_coordinate_pixel_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="horizontal_coordinate_pixel">
+    <xs:annotation>
+      <xs:documentation>horizontal_coordinate_pixel (sample) is the
+        horizontal coordinate of a specific pixel. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:horizontal_coordinate_pixel_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="instrument_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="instrument_temperature">
+    <xs:annotation>
+      <xs:documentation>The instrument_temperature attribute specifies
+        the measured temperature of the instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:instrument_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="name">
+    <xs:annotation>
+      <xs:documentation>The name attribute provides a word or
+        combination of words by which some feature is
+        known.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observing_notes">
+    <xs:annotation>
+      <xs:documentation>The observing_notes attribute is an optional
+        field for describing the quality of the given
+        observations.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="p_polynomial_degree">
+    <xs:annotation>
+      <xs:documentation>Integer value representing the degree of the
+        polynomial term in a SIP distortion polynomial, the p in, f.e.
+        A_p_q. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="parameter_number">
+    <xs:annotation>
+      <xs:documentation>Integer between 0 and 99 corresponding to a
+        particular non-linear algorithm used in a PV Distortion Matrix.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="99"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="photometric">
+    <xs:annotation>
+      <xs:documentation>The photometric attribute specifies whether
+        observations at the time were considered photometric by the
+        observer.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pixel_axis_index">
+    <xs:annotation>
+      <xs:documentation>An axis of the pixel coordinate frame used for
+        an image, corresponding to the 'j' in the CDi_j formalism.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polynomial_order">
+    <xs:annotation>
+      <xs:documentation>Integer between 2 and 9 corresponding to the
+        order of distortion polynomial in an image using the SIP
+        standard. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="2"/>
+     <xs:maxInclusive value="9"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="q_polynomial_degree">
+    <xs:annotation>
+      <xs:documentation>Integer value representing the degree of the
+        polynomial term in a SIP distortion polynomial, the q in, f.e.
+        A_p_q. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="seeing_full_width_half_maximum_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="seeing_full_width_half_maximum">
+    <xs:annotation>
+      <xs:documentation>This attribute specifies the FWHM of the seeing
+        disk (e.g. a star).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:seeing_full_width_half_maximum_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="solar_phase_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="180"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="solar_phase_angle">
+    <xs:annotation>
+      <xs:documentation>The solar_phase_angle attribute provides a
+        measure of the relationship between the instrument viewing
+        position and the sun. Solar phase angle is measured at the
+        target; it is the angle between a vector to the sun and a vector
+        to the instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:solar_phase_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="subobserver_latitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="subobserver_latitude">
+    <xs:annotation>
+      <xs:documentation>The subobserver_latitude attribute gives the
+        value of the planetocentric latitude at the subobserver point on
+        the target.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:subobserver_latitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="subobserver_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="subobserver_longitude">
+    <xs:annotation>
+      <xs:documentation>The subobserver_longitude attribute gives the
+        value of the planetocentric longitude at the subobserver point
+        on the target.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:subobserver_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="subsolar_latitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="subsolar_latitude">
+    <xs:annotation>
+      <xs:documentation>The subsolar_latitude attribute gives the value
+        of the planetocentric latitude at the subsolar point on the
+        target.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:subsolar_latitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="subsolar_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="subsolar_longitude">
+    <xs:annotation>
+      <xs:documentation>The subsolar_longitude attribute gives the value
+        of the planetocentric longitude at the subsolar point on the
+        target.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:subsolar_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vertical_axis">
+    <xs:annotation>
+      <xs:documentation>The ebt:pixel_axis_index corresponding to the
+        vertical axis of an image. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vertical_coordinate_pixel_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="vertical_coordinate_pixel">
+    <xs:annotation>
+      <xs:documentation>vertical_coordinate_pixel (line) is the vertical
+        coordinate of a specific pixel. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:vertical_coordinate_pixel_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="wcs_axes">
+    <xs:annotation>
+      <xs:documentation>A positive integer recording the number of WCS
+        axes used in an image. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="weather_notes">
+    <xs:annotation>
+      <xs:documentation>The weather_notes attribute is an optional field
+        for describing the weather during the
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="world_axis_index">
+    <xs:annotation>
+      <xs:documentation>An axis of the world coordinate system used for
+        an image, corresponding to the 'i' in the CDi_j formalism.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="world_coordinate_reference_point_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="world_coordinate_reference_point">
+    <xs:annotation>
+      <xs:documentation>World coordinate value at the reference point
+        for this axis. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ebt:world_coordinate_reference_point_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

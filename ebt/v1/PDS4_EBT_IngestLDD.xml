@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.sch"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd">
+  <name>Earth-Based Telescope</name>
+  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <dictionary_type>Discipline</dictionary_type>
+  <full_name>Ben Hirsch</full_name>
+  <steward_id>sbn</steward_id>
+  <namespace_id>ebt</namespace_id>
+  <last_modification_date_time>2023-03-15</last_modification_date_time>
+
+<!-- EBT Parameters attributes -->
+
+  <DD_Attribute>
+    <name>apparent_visual_magnitude</name>
+	<version_id>1.0</version_id>
+	<local_identifier>apparent_visual_magnitude</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The estimated magnitude at the time of observation as 
+		seen by the eye, or unfiltered observations.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	</DD_Value_Domain>
+  </DD_Attribute>
+
+<!-- Observing_Conditions attributes -->
+
+  <DD_Attribute>
+    <name>airmass</name>
+	<version_id>1.0</version_id>
+	<local_identifier>airmass</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>Amount of air along the line of sight when observing a
+		celestial target. Equivalent to one divided by the cosine of
+		the zenith angle (in degrees).</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	  <minimum_value>0</minimum_value>
+	  <unit_of_measure_type>Units_of_Optical_Path_Length</unit_of_measure_type>
+	  <specified_unit_id>airmass</specified_unit_id>
+	</DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>photometric</name>
+	<version_id>1.0</version_id>
+	<local_identifier>photometric</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The photometric attribute specifies whether
+		observations at the time were considered photometric by the
+		observer.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Boolean</value_data_type>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>observing_notes</name>
+	<version_id>1.0</version_id>
+	<local_identifier>observing_notes</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The observing_notes attribute is an optional field for
+		describing the quality of the given observations.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	  <minimum_characters>1</minimum_characters>
+	  <maximum_characters>255</maximum_characters>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>airmass_time</name>
+	<version_id>1.0</version_id>
+	<local_identifier>airmass_time</local_identifier>
+	<nillable_flag>true</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The airmass_time attribute specifies the
+		time at which the airmass was measured.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>seeing_full_width_half_maximum</name>
+	<version_id>1.0</version_id>
+	<local_identifier>seeing_full_width_half_maximum</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>This attribute specifies the FWHM of the seeing disk (e.g. a star).</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	  <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ambient_temperature</name>
+	<version_id>1.0</version_id>
+	<local_identifier>ambient_temperature</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The ambient_temperature attribute specifies the measured
+		outside temperature during the observation.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	  <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ambient_pressure</name>
+	<version_id>1.0</version_id>
+	<local_identifier>ambient_pressure</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The ambient_pressure attribute specifies the measured
+		outside pressure during the observation.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	  <unit_of_measure_type>Units_of_Pressure</unit_of_measure_type>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ambient_humidity</name>
+	<version_id>1.0</version_id>
+	<local_identifier>ambient_humidity</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The humidity attribute specifies the measured
+		outside humidity during the observation, given as a percentage.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	  <minimum_value>0</minimum_value>
+	  <maximum_value>100</maximum_value>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ambient_clouds</name>
+	<version_id>1.0</version_id>
+	<local_identifier>ambient_clouds</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The clouds attribute specifies the measured percentage
+		of clouds present during the observation.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	  <minimum_value>0</minimum_value>
+	  <maximum_value>100</maximum_value>
+	</DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>weather_notes</name>
+	<version_id>1.0</version_id>
+	<local_identifier>weather_notes</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The weather_notes attribute is an optional field for
+		describing the weather during the observation.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	  <minimum_characters>1</minimum_characters>
+	  <maximum_characters>255</maximum_characters>
+	</DD_Value_Domain>
+  </DD_Attribute>
+
+<!-- Instrument_Parameters attributes -->
+
+  <DD_Attribute>
+    <name>instrument_temperature</name>
+	<version_id>1.0</version_id>
+	<local_identifier>instrument_temperature</local_identifier>
+	<nillable_flag>false</nillable_flag>
+	<submitter_name>SBN</submitter_name>
+	<definition>The instrument_temperature attribute specifies the
+		measured temperature of the instrument.</definition>
+	<DD_Value_Domain>
+	  <enumeration_flag>false</enumeration_flag>
+	  <value_data_type>ASCII_Real</value_data_type>
+	  <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+	</DD_Value_Domain>
+  </DD_Attribute>
+
+<!-- WCS attributes -->
+
+  <DD_Attribute>
+    <name>name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>The name attribute provides a word or combination of words by
+      which some feature is known.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>wcs_axes</name>
+    <version_id>1.0</version_id>
+    <local_identifier>wcs_axes</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>A positive integer recording the number of WCS axes used in an image.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>coordinate_system_equinox</name>
+    <version_id>1.0</version_id>
+    <local_identifier>coordinate_system_equinox</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Time origin of the coordinate system.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>1950</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>coordinate_system_celestial_pole_longitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>coordinate_system_celestial_pole_longitude</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Longitude in the native coordinate system of the system's
+      celestial pole.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>360</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>coordinate_system_celestial_pole_latitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>coordinate_system_celestial_pole_latitude</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Latitude in the native coordinate system of the system's
+      celestial pole.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-90</minimum_value>
+      <maximum_value>90</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>axis_index</name>
+    <version_id>1.0</version_id>
+    <local_identifier>axis_index</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Positive integer identifying which World_Axis is being described.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>coordinate_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>coordinate_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Name of the celestial coordinate to which this axis corresponds.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>coordinate_system_projection</name>
+    <version_id>1.0</version_id>
+    <local_identifier>coordinate_system_projection</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Name of the coordinate system projection used for this axis.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Orthographic</value>
+        <value_meaning>Equivalent to SIN.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>North Celestial Pole</value>
+        <value_meaning>Equivalent to NCP.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Gnomonic</value>
+        <value_meaning>Equivalent to TAN.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Zenithal Equidistant</value>
+        <value_meaning>Equivalent to ARC.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Stereographic</value>
+        <value_meaning>Equivalent to STG.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Hammer-Aitoff</value>
+        <value_meaning>Equivalent to AIT.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Sanson-Flamsteed</value>
+        <value_meaning>Equivalent to GLS.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Mercator</value>
+        <value_meaning>Equivalent to MER.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Gnomonic with distortion term</value>
+        <value_meaning>Equivalent to TNX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Gnomonic with polynomial distortion</value>
+        <value_meaning>Equivalent to TPV.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Zenithal with distortion term</value>
+        <value_meaning>Equivalent to ZPX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Gnomonic plus SIP</value>
+        <value_meaning>Equivalent to TAN-SIP.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Gnomonic with polynomial distortion plus SIP</value>
+        <value_meaning>Equivalent to TPV-SIP.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>world_coordinate_reference_point</name>
+    <version_id>1.0</version_id>
+    <local_identifier>world_coordinate_reference_point</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>World coordinate value at the reference point for this axis.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-90</minimum_value>
+      <maximum_value>360</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>horizontal_axis</name>
+    <version_id>1.0</version_id>
+    <local_identifier>horizontal_axis</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>The ebt:pixel_axis_index corresponding to the horizontal
+      axis of an image.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>vertical_axis</name>
+    <version_id>1.0</version_id>
+    <local_identifier>vertical_axis</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>The ebt:pixel_axis_index corresponding to the vertical
+      axis of an image.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>world_axis_index</name>
+    <version_id>1.0</version_id>
+    <local_identifier>world_axis_index</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>An axis of the world coordinate system used for an image,
+      corresponding to the 'i' in the CDi_j formalism.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>pixel_axis_index</name>
+    <version_id>1.0</version_id>
+    <local_identifier>pixel_axis_index</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>An axis of the pixel coordinate frame used for an image,
+      corresponding to the 'j' in the CDi_j formalism.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>element_value</name>
+    <version_id>1.0</version_id>
+    <local_identifier>element_value</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>The value of the matrix element corresponding to a given
+      set of indices.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>parameter_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>parameter_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Integer between 0 and 99 corresponding to a particular non-linear
+      algorithm used in a PV Distortion Matrix.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>99</maximum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>polynomial_order</name>
+    <version_id>1.0</version_id>
+    <local_identifier>polynomial_order</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Integer between 2 and 9 corresponding to the order of distortion
+      polynomial in an image using the SIP standard.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>2</minimum_value>
+      <maximum_value>9</maximum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>p_polynomial_degree</name>
+    <version_id>1.0</version_id>
+    <local_identifier>p_polynomial_degree</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Integer value representing the degree of the polynomial term in a
+      SIP distortion polynomial, the p in, f.e. A_p_q.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>q_polynomial_degree</name>
+    <version_id>1.0</version_id>
+    <local_identifier>q_polynomial_degree</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>Integer value representing the degree of the polynomial term in a
+      SIP distortion polynomial, the q in, f.e. A_p_q.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>vertical_coordinate_pixel</name>
+    <version_id>1.0</version_id>
+    <local_identifier>vertical_coordinate_pixel</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Mitchell K. Gordon</submitter_name>
+    <definition>vertical_coordinate_pixel (line) is the vertical coordinate of a specific pixel. 
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>horizontal_coordinate_pixel</name>
+    <version_id>1.0</version_id>
+    <local_identifier>horizontal_coordinate_pixel</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Mitchell K. Gordon</submitter_name>
+    <definition>horizontal_coordinate_pixel (sample) is the horizontal coordinate of a specific pixel. 
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+<!-- Target_Geometry Attributes -->
+
+  <DD_Attribute>
+    <name>solar_phase_angle</name>
+    <version_id>1.0</version_id>
+    <local_identifier>solar_phase_angle</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ben Hirsch</submitter_name>
+    <definition>The solar_phase_angle attribute provides a measure of
+      the relationship between the instrument viewing position and
+      the sun. Solar phase angle is measured at the target; it is the
+      angle between a vector to the sun and a vector to the instrument.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>180</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>subsolar_latitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>subsolar_latitude</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ben Hirsch</submitter_name>
+    <definition>The subsolar_latitude attribute gives the value
+      of the planetocentric latitude at the subsolar point on the
+      target.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-90</minimum_value>
+      <maximum_value>90</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>subsolar_longitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>subsolar_longitude</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ben Hirsch</submitter_name>
+    <definition>The subsolar_longitude attribute gives the value
+      of the planetocentric longitude at the subsolar point on the
+      target.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>360</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>subobserver_latitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>subobserver_latitude</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ben Hirsch</submitter_name>
+    <definition>The subobserver_latitude attribute gives the
+      value of the planetocentric latitude at the subobserver point
+      on the target.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-90</minimum_value>
+      <maximum_value>90</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>subobserver_longitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>subobserver_longitude</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ben Hirsch</submitter_name>
+    <definition>The subobserver_longitude attribute gives the
+      value of the planetocentric longitude at the subobserver point
+      on the target.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>360</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>frame_spice_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>frame_spice_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Mitchell K. Gordon</submitter_name>
+    <definition>The frame_spice_name attribute is a NAIF-recognized string 
+      identifier for a reference frame associated with the data.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+<!-- EBT Classes -->
+
+  <DD_Class>
+    <name>Earth_Based_Telescope_Parameters</name>
+	<version_id>1.0</version_id>
+	<local_identifier>Earth_Based_Telescope_Parameters</local_identifier>
+	<submitter_name>SBN</submitter_name>
+	<definition>This class is intended to provide additional metadata
+		for earth-based telescopic observations. Much of the information is
+		geometry information, but in an earth-based context.</definition>
+	<element_flag>true</element_flag>
+	<DD_Association>
+	  <identifier_reference>apparent_visual_magnitude</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>Telescope_Geometry</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>Instrument_Parameters</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>Observing_Conditions</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+  </DD_Class>
+
+<!-- EBT Parameters Container Classes -->
+
+  <DD_Class>
+	<name>Telescope_Geometry</name>
+	<version_id>1.0</version_id>
+	<local_identifier>Telescope_Geometry</local_identifier>
+	<submitter_name>SBN</submitter_name>
+	<definition>The Geometry_Telescope class is a container for geometric
+		information relevant to ground-based observations, as well as observations made
+		from Earth-orbiting telescopes.</definition>
+	<abstract_flag>false</abstract_flag>
+	<element_flag>false</element_flag>
+	<DD_Association>
+	  <identifier_reference>World_Coordinate_System</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+<!-- 	<DD_Association>
+	  <identifier_reference>geom.Pixel_Dimensions</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>geom.Distances</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association> -->
+  <DD_Association>
+    <identifier_reference>Target_Geometry</identifier_reference>
+    <reference_type>component_of</reference_type>
+    <minimum_occurrences>0</minimum_occurrences>
+    <maximum_occurrences>1</maximum_occurrences>
+  </DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>Instrument_Parameters</name>
+	<version_id>1.0</version_id>
+	<local_identifier>Instrument_Parameters</local_identifier>
+	<submitter_name>SBN</submitter_name>
+	<definition>This class measures instrument temperatures, along
+		with other potential instrument parameters that may affect
+		the observation.</definition>
+	<element_flag>false</element_flag>
+	<DD_Association>
+	  <identifier_reference>instrument_temperature</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>1</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>Observing_Conditions</name>
+	<version_id>1.0</version_id>
+	<local_identifier>Observing_Conditions</local_identifier>
+	<submitter_name>SBN</submitter_name>
+	<definition>This class details the quality of the product based on
+		observational conditions.</definition>
+	<element_flag>false</element_flag>
+	<DD_Association>
+	  <identifier_reference>photometric</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>Airmass</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>Seeing</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>Weather</identifier_reference>
+	  <reference_type>component_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+		<DD_Association>
+	  <identifier_reference>observing_notes</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+  </DD_Class>
+
+<!-- Telescope_Geometry classes -->
+
+  <DD_Class>
+    <name>World_Coordinate_System</name>
+    <version_id>1.0</version_id>
+    <local_identifier>World_Coordinate_System</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>This class contains World Coordinate System (WCS) terms as specified
+      by the FITS standard for the purpose of mapping the pixel coordinate frame of an
+      image onto a celestial frame.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>Reference_Frame_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Coordinate_Frame_Transformation_Matrix</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>PV_Distortion_Matrix</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>SIP_Distortion_Terms</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+<!-- Target Geometry Classes -->
+
+  <DD_Class>
+    <name>Target_Geometry</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Target_Geometry</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>This class contains attributes that describe angles and points
+      in reference to the target.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>solar_phase_angle</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>subsolar_latitude</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>subsolar_longitude</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>subobserver_latitude</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>subobserver_longitude</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+<!-- WCS classes -->
+
+  <DD_Class>
+    <name>Reference_Frame_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Reference_Frame_Parameters</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>This class contains reference terms that define the WCS axes used
+      in an image.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>wcs_axes</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>coordinate_system_equinox</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>coordinate_system_celestial_pole_longitude</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>coordinate_system_celestial_pole_latitude</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>World_Axis</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Reference_Frame_Identification</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>World_Axis</name>
+    <version_id>1.0</version_id>
+    <local_identifier>World_Axis</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>This class contains attributes that describe an individual world
+      axis as used in an image.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>axis_index</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>coordinate_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>coordinate_system_projection</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>world_coordinate_reference_point</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>XSChoice#</identifier_reference>
+      <identifier_reference>vertical_coordinate_pixel</identifier_reference>
+      <identifier_reference>horizontal_coordinate_pixel</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+     </DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>Reference_Frame_Identification</name>
+    <version_id>2.0</version_id>
+    <local_identifier>Reference_Frame_Identification</local_identifier>
+    <submitter_name>Elizabeth Rye</submitter_name>
+    <definition>The Reference_Frame_Identification class is
+      a base class for identifying reference frames.  These 
+      are frames in the NAIF sense, i.e., three orthogonal
+      axes with a specified orientation, but without a fixed origin.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>frame_spice_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>Coordinate_Frame_Transformation_Matrix</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Coordinate_Frame_Transformation_Matrix</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Container class for the elements of a linear transformation matrix
+      between the world coordinate frame and the pixel coordinate frame.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>Pixel_Axes</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Transformation_Element</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+<!-- Coordinate_Frame_Transformation_Matrix classes -->
+
+  <DD_Class>
+    <name>Pixel_Axes</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Pixel_Axes</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Class containing attributes that link the value of
+      ebt:pixel_axis_index with the horizontal and vertical axes of an image.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>horizontal_axis</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>vertical_axis</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Transformation_Element</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Transformation_Element</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Class containing the value of an element of a linear
+      transformational matrix between the world_axis_index and pixel_axis_index.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>world_axis_index</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pixel_axis_index</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>element_value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+<!-- PV_Distortion_Matrix classes -->
+
+  <DD_Class>
+    <name>PV_Distortion_Matrix</name>
+    <version_id>1.0</version_id>
+    <local_identifier>PV_Distortion_Matrix</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>This class contains elements of a distortion matrix.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>Distortion_Element</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Distortion_Element</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Distortion_Element</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>This class contains attributes for the axis, parameter, and value
+      of an element in a PV distortion matrix.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>world_axis_index</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>parameter_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>element_value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+<!-- SIP_Distortion_Terms classes -->
+
+  <DD_Class>
+    <name>SIP_Distortion_Terms</name>
+    <version_id>1.0</version_id>
+    <local_identifier>SIP_Distortion_Terms</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>This class contains subclasses representing the distortion terms
+      used in the SIP standard.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>A_ORDER</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>B_ORDER</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>AP_ORDER</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>BP_ORDER</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>A_ORDER</name>
+    <version_id>1.0</version_id>
+    <local_identifier>A_ORDER</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Representation of the non-linear geometric distortion -- polynomial
+      order of the first world axis.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>polynomial_order</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>SIP_Element</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>B_ORDER</name>
+    <version_id>1.0</version_id>
+    <local_identifier>B_ORDER</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Representation of the non-linear geometric distortion -- polynomial
+      order of the second world axis.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>polynomial_order</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>SIP_Element</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>AP_ORDER</name>
+    <version_id>1.0</version_id>
+    <local_identifier>AP_ORDER</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Representation of the non-linear geometric distortion -- inverse
+      polynomial order of the first pixel axis.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>polynomial_order</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>SIP_Element</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>BP_ORDER</name>
+    <version_id>1.0</version_id>
+    <local_identifier>BP_ORDER</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Representation of the non-linear geometric distortion -- inverse
+      polynomial order of the second pixel axis.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>polynomial_order</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>SIP_Element</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>SIP_Element</name>
+    <version_id>1.0</version_id>
+    <local_identifier>SIP_Element</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>Class containing the value of an element of a SIP distortion polynomial,
+      with element_value corresponding to the actual coefficient.
+    </definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>p_polynomial_degree</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>q_polynomial_degree</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>element_value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+<!-- Observing_Conditions classes -->
+
+  <DD_Class>
+    <name>Airmass</name>
+	<version_id>1.0</version_id>
+	<local_identifier>Airmass</local_identifier>
+	<submitter_name>SBN</submitter_name>
+	<definition>This class describes parameters relevant to
+		the airmass during observations.</definition>
+	<element_flag>false</element_flag>
+	<DD_Association>
+	  <identifier_reference>airmass</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>1</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>airmass_time</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>1</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Seeing</name>
+	<version_id>1.0</version_id>
+	<local_identifier>Seeing</local_identifier>
+	<submitter_name>SBN</submitter_name>
+	<definition>This class describes parameters relevant to
+		the seeing during observations.</definition>
+	<element_flag>false</element_flag>
+	<DD_Association>
+	  <identifier_reference>seeing_full_width_half_maximum</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>1</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>Weather</name>
+	<version_id>1.0</version_id>
+	<local_identifier>Weather</local_identifier>
+	<submitter_name>SBN</submitter_name>
+	<definition>This class describes parameters relevant to
+		the weather during observations.</definition>
+	<element_flag>false</element_flag>
+	<DD_Association>
+	  <identifier_reference>ambient_temperature</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>ambient_pressure</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>ambient_humidity</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>ambient_clouds</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+	<DD_Association>
+	  <identifier_reference>weather_notes</identifier_reference>
+	  <reference_type>attribute_of</reference_type>
+	  <minimum_occurrences>0</minimum_occurrences>
+	  <maximum_occurrences>1</maximum_occurrences>
+	</DD_Association>
+  </DD_Class>
+
+<!-- Reference_Frame_Identification schematron rules -->
+
+  <DD_Rule>
+    <local_identifier>Reference_Frame_Identification_0</local_identifier>
+    <rule_context>//ebt:Reference_Frame_Identification</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (not(ebt:frame_spice_name) and not (ebt:name) and not (pds:Internal_Reference))  then false() else true()</rule_test>
+      <rule_message>At least one of the following must be present: ebt:frame_spice_name, ebt:name, pds:Internal_Reference.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+
+  <DD_Rule>
+    <local_identifier>Reference_Frame_Identification_1</local_identifier>  
+    <rule_context>//ebt:Reference_Frame_Identification/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type = 'geometry_to_reference_frame'
+      </rule_test>
+      <rule_message>For Internal_Reference in ebt:Reference_Frame_Identification, reference_type must equal 'geometry_to_reference_frame'
+      </rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+
+<!-- WCS schematron rules -->
+
+  <DD_Rule>
+	  <local_identifier>World_Coordinate_System_0</local_identifier>
+	  <rule_context>ebt:World_Coordinate_System</rule_context>
+	
+	  <DD_Rule_Statement>
+	    <rule_type>Assert</rule_type>
+	      <rule_test>if ((ebt:Reference_Frame_Parameters/ebt:World_Axis/ebt:coordinate_system_projection = ('Gnomonic with polynomial distortion', 'Gnomonic with polynomial distortion plus SIP')) and not (ebt:PV_Distortion_Matrix)) then false() else true()</rule_test>
+	      <rule_message>If ebt:coordinate_system_projection includes polynomial distortion, you must use the ebt:PV_Distortion_Matrix class.</rule_message>
+	  </DD_Rule_Statement>
+	
+	  <DD_Rule_Statement>
+	    <rule_type>Assert</rule_type>
+	    <rule_test>if ((ebt:Reference_Frame_Parameters/ebt:World_Axis/ebt:coordinate_system_projection = ('Gnomonic plus SIP', 'Gnomonic with polynomial distortion plus SIP')) and not (ebt:SIP_Distortion_Terms)) then false() else true()</rule_test>
+	    <rule_message>If ebt:coordinate_system_projection includes 'plus SIP', you must use the ebt:SIP_Distortion_Terms class.</rule_message>
+	  </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <DD_Rule>
+	  <local_identifier>Reference_Frame_Parameters_0</local_identifier>
+	  <rule_context>ebt:World_Coordinate_System/ebt:Reference_Frame_Parameters</rule_context>
+	
+	  <DD_Rule_Statement>
+	    <rule_type>Assert</rule_type>
+	    <rule_test>if (ebt:Reference_Frame_Identification/ebt:name = ('GAPPT', 'ICRS') and not(ebt:coordinate_system_equinox/@xsi:nil eq 'true'))  then false() else true()</rule_test>
+	    <rule_message>If ebt:Reference_Frame_Identification/ebt:name = GAPPT or ICRS, then ebt:coordinate_system_equinox must be nill.</rule_message>
+	  </DD_Rule_Statement>
+	
+	  <DD_Rule_Statement>
+	    <rule_type>Assert</rule_type>
+	    <rule_test>ebt:wcs_axes = count(ebt:World_Axis)</rule_test>
+	    <rule_message>The number of ebt:World_Axis elements must match the number found in the ebt:wcs_axes attribute.</rule_message>
+	  </DD_Rule_Statement>
+  </DD_Rule>
+
+</Ingest_LDD>

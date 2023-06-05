@@ -1,0 +1,838 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        14.2.3
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.26
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Thu May 04 00:45:56 UTC 2023
+   Common Schema          [PDS4_PDS_1K00.xsd]
+   Common Schematron      [PDS4_PDS_1K00.sch]
+   IM Version Id:         1.20.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.26
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-ebt/ldd-ebt/src/PDS4_EBT_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                23
+   Attributes             38
+   Associations           71
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Earth-Based Telescope
+   LDD Version            1.0.0.0
+   Full Name              Ben Hirsch
+   Steward                sbn
+   Namespace Id           ebt
+   Comment                _TBD_Ingest_LDD
+   Last Modification Time 2023-03-15
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   apparent_visual_magnitude
+   version                1.20
+   value data type        ASCII_Real
+   description            The estimated magnitude at the time of observation as seen by the eye, or unfiltered observations.
+
+   name                   airmass
+   version                1.20
+   value data type        ASCII_Real
+   description            Amount of air along the line of sight when observing a celestial target. Equivalent to one divided by the cosine of the zenith angle (in degrees).
+   minimum value          0
+   unit of measure type   Units_of_Optical_Path_Length
+
+   name                   photometric
+   version                1.20
+   value data type        ASCII_Boolean
+   description            The photometric attribute specifies whether observations at the time were considered photometric by the observer.
+
+   name                   observing_notes
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The observing_notes attribute is an optional field for describing the quality of the given observations.
+   minimum characters     1
+   maximum characters     255
+
+   name                   airmass_time
+   version                1.20
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The airmass_time attribute specifies the time at which the airmass was measured.
+   nillable               true
+
+   name                   seeing_full_width_half_maximum
+   version                1.20
+   value data type        ASCII_Real
+   description            This attribute specifies the FWHM of the seeing disk (e.g. a star).
+   unit of measure type   Units_of_Angle
+
+   name                   ambient_temperature
+   version                1.20
+   value data type        ASCII_Real
+   description            The ambient_temperature attribute specifies the measured outside temperature during the observation.
+   unit of measure type   Units_of_Temperature
+
+   name                   ambient_pressure
+   version                1.20
+   value data type        ASCII_Real
+   description            The ambient_pressure attribute specifies the measured outside pressure during the observation.
+   unit of measure type   Units_of_Pressure
+
+   name                   ambient_humidity
+   version                1.20
+   value data type        ASCII_Real
+   description            The humidity attribute specifies the measured outside humidity during the observation, given as a percentage.
+   minimum value          0
+   maximum value          100
+
+   name                   ambient_clouds
+   version                1.20
+   value data type        ASCII_Real
+   description            The clouds attribute specifies the measured percentage of clouds present during the observation.
+   minimum value          0
+   maximum value          100
+
+   name                   weather_notes
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The weather_notes attribute is an optional field for describing the weather during the observation.
+   minimum characters     1
+   maximum characters     255
+
+   name                   instrument_temperature
+   version                1.20
+   value data type        ASCII_Real
+   description            The instrument_temperature attribute specifies the measured temperature of the instrument.
+   unit of measure type   Units_of_Temperature
+
+   name                   name
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The name attribute provides a word or combination of words by which some feature is known.
+
+   name                   wcs_axes
+   version                1.20
+   value data type        ASCII_Integer
+   description            A positive integer recording the number of WCS axes used in an image. 
+   minimum value          1
+
+   name                   coordinate_system_equinox
+   version                1.20
+   value data type        ASCII_Real
+   description            Time origin of the coordinate system. 
+   minimum value          1950
+
+   name                   coordinate_system_celestial_pole_longitude
+   version                1.20
+   value data type        ASCII_Real
+   description            Longitude in the native coordinate system of the system's celestial pole. 
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   coordinate_system_celestial_pole_latitude
+   version                1.20
+   value data type        ASCII_Real
+   description            Latitude in the native coordinate system of the system's celestial pole. 
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   axis_index
+   version                1.20
+   value data type        ASCII_Integer
+   description            Positive integer identifying which World_Axis is being described. 
+   minimum value          1
+
+   name                   coordinate_name
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the celestial coordinate to which this axis corresponds. 
+
+   name                   coordinate_system_projection
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            Name of the coordinate system projection used for this axis. 
+
+   name                   world_coordinate_reference_point
+   version                1.20
+   value data type        ASCII_Real
+   description            World coordinate value at the reference point for this axis. 
+   minimum value          -90
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   horizontal_axis
+   version                1.20
+   value data type        ASCII_Integer
+   description            The ebt:pixel_axis_index corresponding to the horizontal axis of an image. 
+   minimum value          1
+
+   name                   vertical_axis
+   version                1.20
+   value data type        ASCII_Integer
+   description            The ebt:pixel_axis_index corresponding to the vertical axis of an image. 
+   minimum value          1
+
+   name                   world_axis_index
+   version                1.20
+   value data type        ASCII_Integer
+   description            An axis of the world coordinate system used for an image, corresponding to the 'i' in the CDi_j formalism. 
+   minimum value          1
+
+   name                   pixel_axis_index
+   version                1.20
+   value data type        ASCII_Integer
+   description            An axis of the pixel coordinate frame used for an image, corresponding to the 'j' in the CDi_j formalism. 
+   minimum value          1
+
+   name                   element_value
+   version                1.20
+   value data type        ASCII_Real
+   description            The value of the matrix element corresponding to a given set of indices. 
+
+   name                   parameter_number
+   version                1.20
+   value data type        ASCII_Integer
+   description            Integer between 0 and 99 corresponding to a particular non-linear algorithm used in a PV Distortion Matrix. 
+   minimum value          0
+   maximum value          99
+
+   name                   polynomial_order
+   version                1.20
+   value data type        ASCII_Integer
+   description            Integer between 2 and 9 corresponding to the order of distortion polynomial in an image using the SIP standard. 
+   minimum value          2
+   maximum value          9
+
+   name                   p_polynomial_degree
+   version                1.20
+   value data type        ASCII_Integer
+   description            Integer value representing the degree of the polynomial term in a SIP distortion polynomial, the p in, f.e. A_p_q. 
+   minimum value          0
+
+   name                   q_polynomial_degree
+   version                1.20
+   value data type        ASCII_Integer
+   description            Integer value representing the degree of the polynomial term in a SIP distortion polynomial, the q in, f.e. A_p_q. 
+   minimum value          0
+
+   name                   vertical_coordinate_pixel
+   version                1.20
+   value data type        ASCII_Real
+   description            vertical_coordinate_pixel (line) is the vertical coordinate of a specific pixel. 
+   unit of measure type   Units_of_Misc
+
+   name                   horizontal_coordinate_pixel
+   version                1.20
+   value data type        ASCII_Real
+   description            horizontal_coordinate_pixel (sample) is the horizontal coordinate of a specific pixel. 
+   unit of measure type   Units_of_Misc
+
+   name                   solar_phase_angle
+   version                1.20
+   value data type        ASCII_Real
+   description            The solar_phase_angle attribute provides a measure of the relationship between the instrument viewing position and the sun. Solar phase angle is measured at the target; it is the angle between a vector to the sun and a vector to the instrument.
+   minimum value          0
+   maximum value          180
+   unit of measure type   Units_of_Angle
+
+   name                   subsolar_latitude
+   version                1.20
+   value data type        ASCII_Real
+   description            The subsolar_latitude attribute gives the value of the planetocentric latitude at the subsolar point on the target.
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   subsolar_longitude
+   version                1.20
+   value data type        ASCII_Real
+   description            The subsolar_longitude attribute gives the value of the planetocentric longitude at the subsolar point on the target.
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   subobserver_latitude
+   version                1.20
+   value data type        ASCII_Real
+   description            The subobserver_latitude attribute gives the value of the planetocentric latitude at the subobserver point on the target.
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   subobserver_longitude
+   version                1.20
+   value data type        ASCII_Real
+   description            The subobserver_longitude attribute gives the value of the planetocentric longitude at the subobserver point on the target.
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   frame_spice_name
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The frame_spice_name attribute is a NAIF-recognized string identifier for a reference frame associated with the data. 
+
+Parsed Input - Classes:
+
+   name                   Earth_Based_Telescope_Parameters
+   description            This class is intended to provide additional metadata for earth-based telescopic observations. Much of the information is geometry information, but in an earth-based context.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:apparent_visual_magnitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:Telescope_Geometry
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:Instrument_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:Observing_Conditions
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Telescope_Geometry
+   description            The Geometry_Telescope class is a container for geometric information relevant to ground-based observations, as well as observations made from Earth-orbiting telescopes.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:World_Coordinate_System
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:Target_Geometry
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Instrument_Parameters
+   description            This class measures instrument temperatures, along with other potential instrument parameters that may affect the observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:instrument_temperature
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observing_Conditions
+   description            This class details the quality of the product based on observational conditions.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:photometric
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:observing_notes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:Airmass
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:Seeing
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:Weather
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   World_Coordinate_System
+   description            This class contains World Coordinate System (WCS) terms as specified by the FITS standard for the purpose of mapping the pixel coordinate frame of an image onto a celestial frame. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:Reference_Frame_Parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:Coordinate_Frame_Transformation_Matrix
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:PV_Distortion_Matrix
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:SIP_Distortion_Terms
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Target_Geometry
+   description            This class contains attributes that describe angles and points in reference to the target.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:solar_phase_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:subsolar_latitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:subsolar_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:subobserver_latitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:subobserver_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Reference_Frame_Parameters
+   description            This class contains reference terms that define the WCS axes used in an image. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:wcs_axes
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:coordinate_system_equinox
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:coordinate_system_celestial_pole_longitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:coordinate_system_celestial_pole_latitude
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:World_Axis
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      ebt:Reference_Frame_Identification
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   World_Axis
+   description            This class contains attributes that describe an individual world axis as used in an image. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:axis_index
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:coordinate_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:coordinate_system_projection
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:world_coordinate_reference_point
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:vertical_coordinate_pixel
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:horizontal_coordinate_pixel
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Reference_Frame_Identification
+   description            The Reference_Frame_Identification class is a base class for identifying reference frames. These are frames in the NAIF sense, i.e., three orthogonal axes with a specified orientation, but without a fixed origin. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:frame_spice_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Coordinate_Frame_Transformation_Matrix
+   description            Container class for the elements of a linear transformation matrix between the world coordinate frame and the pixel coordinate frame. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:Pixel_Axes
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:Transformation_Element
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Pixel_Axes
+   description            Class containing attributes that link the value of ebt:pixel_axis_index with the horizontal and vertical axes of an image. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:horizontal_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:vertical_axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Transformation_Element
+   description            Class containing the value of an element of a linear transformational matrix between the world_axis_index and pixel_axis_index. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:world_axis_index
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:pixel_axis_index
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:element_value
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   PV_Distortion_Matrix
+   description            This class contains elements of a distortion matrix. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:Distortion_Element
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Distortion_Element
+   description            This class contains attributes for the axis, parameter, and value of an element in a PV distortion matrix. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:world_axis_index
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:parameter_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:element_value
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   SIP_Distortion_Terms
+   description            This class contains subclasses representing the distortion terms used in the SIP standard. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:A_ORDER
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:B_ORDER
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:AP_ORDER
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ebt:BP_ORDER
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   A_ORDER
+   description            Representation of the non-linear geometric distortion -- polynomial order of the first world axis. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:polynomial_order
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:SIP_Element
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   B_ORDER
+   description            Representation of the non-linear geometric distortion -- polynomial order of the second world axis. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:polynomial_order
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:SIP_Element
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   AP_ORDER
+   description            Representation of the non-linear geometric distortion -- inverse polynomial order of the first pixel axis. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:polynomial_order
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:SIP_Element
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   BP_ORDER
+   description            Representation of the non-linear geometric distortion -- inverse polynomial order of the second pixel axis. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:polynomial_order
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:SIP_Element
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   SIP_Element
+   description            Class containing the value of an element of a SIP distortion polynomial, with element_value corresponding to the actual coefficient. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:p_polynomial_degree
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:q_polynomial_degree
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:element_value
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Airmass
+   description            This class describes parameters relevant to the airmass during observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:airmass
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:airmass_time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Seeing
+   description            This class describes parameters relevant to the seeing during observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:seeing_full_width_half_maximum
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Weather
+   description            This class describes parameters relevant to the weather during observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ebt:ambient_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:ambient_pressure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:ambient_humidity
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:ambient_clouds
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ebt:weather_notes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

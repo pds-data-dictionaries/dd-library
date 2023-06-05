@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!-- InstanceBegin template="/Templates/main.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+	<!-- InstanceBeginEditable name="doctitle" --><title>PDS: Data Dictionaries - 1.20.0.0</title><!-- InstanceEndEditable -->
+	<!--#include virtual="/include/includes.html" -->
+	<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+	<!-- InstanceParam name="menu_section" type="text" value="schema" -->
+	<!-- InstanceParam name="menu_item" type="text" value="pds4_schema" -->
+	<!-- InstanceParam name="left_sidebar" type="boolean" value="true" -->
+	<!-- InstanceParam name="standard_sidebar" type="boolean" value="true" -->
+
+	<script type="text/javascript" src="/js/ldd.js"></script>
+	<link href="/css/ldd.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="sidebar menu_datastandards menu_item_datastandards_schema">
+<!--[if IE]>
+<div id="IE">
+<![endif]--> 
+
+<div id="header-container">
+  <!--#include virtual="/include/header_logo.html" -->
+  <div id="menu-container">
+    <!--#include virtual="/include/main_menu.html" -->
+    <!--#include virtual="/include/datastandards_menu.html" -->
+  </div>
+  <!--#include virtual="/include/header_links.html" -->
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+	<!-- InstanceBeginEditable name="leftSidebar" -->
+	<!--#include virtual="/include/toc_ldd.html" -->
+	<!-- InstanceEndEditable -->
+</div>
+
+<!-- Main content -->
+<div id="content">
+	<h1><a name="mainContent"></a><!-- InstanceBeginEditable name="pageTitle" -->Data Dictionaries - 1.20.0.0<!-- InstanceEndEditable --></h1>
+    <!-- InstanceBeginEditable name="content" -->
+	<div>
+		<p>
+			The following page links to version 1.20.0.0 of the PDS4 Data Dictionaries, including XML Schema and Schematrons for the applicable PDS4 namespace.
+		</p>
+		<p>
+            <b>Past versions of the data dictionaries can be found <a href="/datastandards/dictionaries/index-versions.shtml">here</a>.</b>
+		</p>
+		
+		<p>
+			Need help with creating a dictionary or where to start, please contact the <a href="mailto:pds_operator@jpl.nasa.gov">PDS Operator</a> at pds_operator@jpl.nasa.gov.
+		</p>
+	</div>
+	<hr />
+	<div id="ldd-search">
+		<h2>Data Dictionary Search</h2>
+		<p><a href="/datastandards/documents/dd/current/PDS4_PDS_DD_1K00/webhelp/all/">Browse and search</a> all data dictionary classes and attributes online.</p>
+		<hr />
+	</div>
+	<div id="ldd-intro">
+		<h2>What are you looking for?</h2>
+		<ul>
+			<li>The latest release of the main <a href="#pds-common">PDS Common</a> dictionary</li>
+			<li><a href="#discipline-dictionaries">Discipline dictionaries</a> to go with my main dictionary</li>
+			<li>A <a href="#mission-dictionaries">mission or project dictionary</a> from the archive</li>
+			<li>A <a href="#create-dictionary">how-to</a> on creating a dictionary</li>
+			<li>A <a href="#submit-new-version">how-to</a> on submitting my dictionary for archiving</li>
+			<li>Something else? See the <a href="#toc">Table of Contents</a> for more details</li>
+		</ul>
+	</div>
+	<hr />
+	<div id="data-dictionaries">
+		<h2>Data Dictionaries</h2>
+		<div id="compatible-versions">
+			<h3>Compatible Versions</h3>
+			<p>
+				For each version of the PDS Common Data Dictionary, there are specific discipline and mission dictionary that are compatible.
+				You can find this information in our <a href="/datastandards/schema/pds-dictionary-stacks.pdf">Dictionary Stacks</a> database.
+			</p>
+			<p><a class="toTop">Back to top</a></p>
+		</div>
+		<hr class="minihr">
+		<div id="pds-common" class="lddList">
+			<h3>PDS Common</h3>
+			<div>
+				<h4>PDS (pds)</h4>
+				<p>This directory contains the XML Schema and Schematron files under the Planetary Data System (PDS) namespace. The JSON file contains an instance of the data dictionary in JavaScript Object Notation.</p>
+				<ul>
+				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.xsd">PDS4_PDS_1K00.xsd</a></li>
+				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.sch">PDS4_PDS_1K00.sch</a></li>
+				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.xml">PDS4_PDS_1K00.xml</a></li>
+				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.JSON">PDS4_PDS_1K00.JSON</a></li>
+				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.zip">PDS4_PDS_1K00.zip</a></li>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+		</div>
+		<hr class="minihr">
+        <div id="discipline-dictionaries" class="lddList">
+            <h3>Discipline Dictionaries</h3>
+            <ul class="lddListToc">
+            				<li><a href="#cart">Cartography</a></li>
+				<li><a href="#ctli">Context Type List: Instrument</a></li>
+				<li><a href="#disp">Display</a></li>
+				<li><a href="#ebt">Earth-Based Telescope</a></li>
+				<li><a href="#geom">Geometry Dictionary Full</a></li>
+				<li><a href="#img">Imaging</a></li>
+				<li><a href="#img_surface">Surface Imaging</a></li>
+				<li><a href="#ml">Machine Learning Analysis</a></li>
+				<li><a href="#msn">Mission Information Commons</a></li>
+				<li><a href="#msn_surface">Surface Mission Information</a></li>
+				<li><a href="#msss_cam_mh">MSSS Camera Mini-header</a></li>
+				<li><a href="#multi">Multidimensional</a></li>
+				<li><a href="#nucspec">Nuclear Spectroscopy</a></li>
+				<li><a href="#particle">Particle</a></li>
+				<li><a href="#proc">Processing_Information</a></li>
+				<li><a href="#radar">Radar</a></li>
+				<li><a href="#rings">Rings</a></li>
+				<li><a href="#sb">Small Bodies</a></li>
+				<li><a href="#speclib">Spectral Library</a></li>
+				<li><a href="#sp">Spectral</a></li>
+				<li><a href="#survey">Survey</a></li>
+
+            </ul>
+
+        
+            <div id="cart">
+                <h4>Cartography (cart)</h4>
+                <p>
+                    The Cartography Dictionary contains classes, elements, attributes, and rules describing map projections, including both cartographic and lander related definitions and descriptions. The PDS Cartography dictionary is based on and utilizes the existing Federal Geographic Data Committee (FGDC) Content Standard for Digital Geospatial Metadata, with modifications and extensions applied by PDS as needed for planetary mapping application.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-cart/">https://pds-data-dictionaries.github.io/ldd-cart/</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/cart/v1/PDS4_CART_1K00_1970.xsd">PDS4_CART_1K00_1970.xsd</a></li>
+                            <li><a href="/pds4/cart/v1/PDS4_CART_1K00_1970.sch">PDS4_CART_1K00_1970.sch</a></li>
+                            <li><a href="/pds4/cart/v1/PDS4_CART_1K00_1970.xml">PDS4_CART_1K00_1970.xml</a></li>
+                            <li><a href="/pds4/cart/v1/PDS4_CART_1K00_1970.JSON">PDS4_CART_1K00_1970.JSON</a></li>
+                            <li><a href="/pds4/cart/v1/PDS4_CART_1K00_1970.zip">PDS4_CART_1K00_1970.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="ctli">
+                <h4>Context Type List: Instrument (ctli)</h4>
+                <p>
+                    The CTLI dictionary provides a set of type values for instruments for use in instrument context products.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> </li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-ctli">https://github.com/pds-data-dictionaries/ldd-ctli</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
+                                PDS4  Information Model. To submit a request the have the LDD generated, please submit a request to the
+                                <a href="https://pds.nasa.gov/?feedback=true">PDS Help Desk</a>, or create an issue in the
+                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="disp">
+                <h4>Display (disp)</h4>
+                <p>
+                    The Display Dictionary contains classes, attributes, and rules for specifying how arrays (images) as stored, should be displayed to users. For example, defining the vertical display direction &#x27;Bottom to Top&#x27; or horizontal direction &#x27;Left to Right&#x27; and it can provide guidance on mapping multiband arrays for color display (red, green, and blue) or as a movie sequence (video).
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/16/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-disp">https://github.com/pds-data-dictionaries/ldd-disp</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/disp/v1/PDS4_DISP_1K00_1510.xsd">PDS4_DISP_1K00_1510.xsd</a></li>
+                            <li><a href="/pds4/disp/v1/PDS4_DISP_1K00_1510.sch">PDS4_DISP_1K00_1510.sch</a></li>
+                            <li><a href="/pds4/disp/v1/PDS4_DISP_1K00_1510.xml">PDS4_DISP_1K00_1510.xml</a></li>
+                            <li><a href="/pds4/disp/v1/PDS4_DISP_1K00_1510.JSON">PDS4_DISP_1K00_1510.JSON</a></li>
+                            <li><a href="/pds4/disp/v1/PDS4_DISP_1K00_1510.zip">PDS4_DISP_1K00_1510.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="ebt">
+                <h4>Earth-Based Telescope (ebt)</h4>
+                <p>
+                    The Earth-Based Telescope Dictionary contains classes, attributes, and rules for specifying the metadata associated with observing parameters, provenance, and geometry relevant to ground-based telescopes on Earth and for Earth-orbiting (or Lagrange point) telescopes.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-ebt">https://github.com/pds-data-dictionaries/ldd-ebt</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1K00_1000.xsd">PDS4_EBT_1K00_1000.xsd</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1K00_1000.sch">PDS4_EBT_1K00_1000.sch</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1K00_1000.xml">PDS4_EBT_1K00_1000.xml</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1K00_1000.JSON">PDS4_EBT_1K00_1000.JSON</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1K00_1000.zip">PDS4_EBT_1K00_1000.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="geom">
+                <h4>Geometry Dictionary Full (geom)</h4>
+                <p>
+                    The Geometry Dictionary contains classes, attributes, and rules for specifying the geometry parameters associated with science observations.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1K00_1960.xsd">PDS4_GEOM_1K00_1960.xsd</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1K00_1960.sch">PDS4_GEOM_1K00_1960.sch</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1K00_1960.xml">PDS4_GEOM_1K00_1960.xml</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1K00_1960.JSON">PDS4_GEOM_1K00_1960.JSON</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1K00_1960.zip">PDS4_GEOM_1K00_1960.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="img">
+                <h4>Imaging (img)</h4>
+                <p>
+                    The Imaging Dictionary contains classes, attributes, and rules for specifying the metadata associated with imaging and spectrometer data products.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/16/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1K00_1870.xsd">PDS4_IMG_1K00_1870.xsd</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1K00_1870.sch">PDS4_IMG_1K00_1870.sch</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1K00_1870.xml">PDS4_IMG_1K00_1870.xml</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1K00_1870.JSON">PDS4_IMG_1K00_1870.JSON</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1K00_1870.zip">PDS4_IMG_1K00_1870.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="img_surface">
+                <h4>Surface Imaging (img_surface)</h4>
+                <p>
+                    The Surface Imaging Dictionary contains classes, attributes, and rules for specifying the metadata associated with imaging and spectrometer data products of surface missions.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img_surface">https://github.com/pds-data-dictionaries/ldd-img_surface</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1K00_1280.xsd">PDS4_IMG_SURFACE_1K00_1280.xsd</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1K00_1280.sch">PDS4_IMG_SURFACE_1K00_1280.sch</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1K00_1280.xml">PDS4_IMG_SURFACE_1K00_1280.xml</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1K00_1280.JSON">PDS4_IMG_SURFACE_1K00_1280.JSON</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1K00_1280.zip">PDS4_IMG_SURFACE_1K00_1280.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="ml">
+                <h4>Machine Learning Analysis (ml)</h4>
+                <p>
+                    The Machine Learning Analysis dictionary defines classes and attributes used to describe products generated by machine learning methods applied to PDS data. This information provides traceability for product provenance and credit to the creators.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/22/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-ml">https://pds-data-dictionaries.github.io/ldd-ml</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/ml/v1/PDS4_ML_1K00_1200.xsd">PDS4_ML_1K00_1200.xsd</a></li>
+                            <li><a href="/pds4/ml/v1/PDS4_ML_1K00_1200.sch">PDS4_ML_1K00_1200.sch</a></li>
+                            <li><a href="/pds4/ml/v1/PDS4_ML_1K00_1200.xml">PDS4_ML_1K00_1200.xml</a></li>
+                            <li><a href="/pds4/ml/v1/PDS4_ML_1K00_1200.JSON">PDS4_ML_1K00_1200.JSON</a></li>
+                            <li><a href="/pds4/ml/v1/PDS4_ML_1K00_1200.zip">PDS4_ML_1K00_1200.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="msn">
+                <h4>Mission Information Commons (msn)</h4>
+                <p>
+                    The sub-dictionary for the Mission Information class namespace.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 06/05/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-msn">https://github.com/pds-data-dictionaries/ldd-msn</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/msn/v1/PDS4_MSN_1K00_1300.xsd">PDS4_MSN_1K00_1300.xsd</a></li>
+                            <li><a href="/pds4/msn/v1/PDS4_MSN_1K00_1300.sch">PDS4_MSN_1K00_1300.sch</a></li>
+                            <li><a href="/pds4/msn/v1/PDS4_MSN_1K00_1300.xml">PDS4_MSN_1K00_1300.xml</a></li>
+                            <li><a href="/pds4/msn/v1/PDS4_MSN_1K00_1300.JSON">PDS4_MSN_1K00_1300.JSON</a></li>
+                            <li><a href="/pds4/msn/v1/PDS4_MSN_1K00_1300.zip">PDS4_MSN_1K00_1300.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="msn_surface">
+                <h4>Surface Mission Information (msn_surface)</h4>
+                <p>
+                    The Surface Mission Dictionary contains classes, attributes, and rules for specifying metadata elements which are specific to the data products of surface missions but are common among multiple such missions.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/16/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-msn_surface">https://github.com/pds-data-dictionaries/ldd-msn_surface</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/msn_surface/v1/PDS4_MSN_SURFACE_1K00_1220.xsd">PDS4_MSN_SURFACE_1K00_1220.xsd</a></li>
+                            <li><a href="/pds4/msn_surface/v1/PDS4_MSN_SURFACE_1K00_1220.sch">PDS4_MSN_SURFACE_1K00_1220.sch</a></li>
+                            <li><a href="/pds4/msn_surface/v1/PDS4_MSN_SURFACE_1K00_1220.xml">PDS4_MSN_SURFACE_1K00_1220.xml</a></li>
+                            <li><a href="/pds4/msn_surface/v1/PDS4_MSN_SURFACE_1K00_1220.JSON">PDS4_MSN_SURFACE_1K00_1220.JSON</a></li>
+                            <li><a href="/pds4/msn_surface/v1/PDS4_MSN_SURFACE_1K00_1220.zip">PDS4_MSN_SURFACE_1K00_1220.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="msss_cam_mh">
+                <h4>MSSS Camera Mini-header (msss_cam_mh)</h4>
+                <p>
+                    This dictionary is for a class of cameras developed by Malin Space Science Systems (MSSS) that share a common architecture or digital electronics assembly. Example cameras include Mastcam, MAHLI, MARDI, Mastcam-Z, SHERLOC-Watson and SHERLOC-ACI
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-msss_cam_mh">https://github.com/pds-data-dictionaries/ldd-msss_cam_mh</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1K00_1030.xsd">PDS4_MSSS_CAM_MH_1K00_1030.xsd</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1K00_1030.sch">PDS4_MSSS_CAM_MH_1K00_1030.sch</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1K00_1030.xml">PDS4_MSSS_CAM_MH_1K00_1030.xml</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1K00_1030.JSON">PDS4_MSSS_CAM_MH_1K00_1030.JSON</a></li>
+                            <li><a href="/pds4/msss_cam_mh/v1/PDS4_MSSS_CAM_MH_1K00_1030.zip">PDS4_MSSS_CAM_MH_1K00_1030.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="multi">
+                <h4>Multidimensional (multi)</h4>
+                <p>
+                    The Multi dictionary contains classes that describe the composition of multidimensional data consisting of Array (and Array subclass) data objects. It provides a way to associated data objects and align the objects in general multi-dimensional structures.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-multi">https://github.com/pds-data-dictionaries/ldd-multi</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1K00_2000.xsd">PDS4_MULTI_1K00_2000.xsd</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1K00_2000.sch">PDS4_MULTI_1K00_2000.sch</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1K00_2000.xml">PDS4_MULTI_1K00_2000.xml</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1K00_2000.JSON">PDS4_MULTI_1K00_2000.JSON</a></li>
+                            <li><a href="/pds4/multi/v2/PDS4_MULTI_1K00_2000.zip">PDS4_MULTI_1K00_2000.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="nucspec">
+                <h4>Nuclear Spectroscopy (nucspec)</h4>
+                <p>
+                    The Nuclear Spectroscopy dictionary provides classes, attributes, and rules for describing the circumstances surrounding nuclear spectroscopy observations.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-nucspec">https://github.com/pds-data-dictionaries/ldd-nucspec</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/nucspec/v1/PDS4_NUCSPEC_1K00_1100.xsd">PDS4_NUCSPEC_1K00_1100.xsd</a></li>
+                            <li><a href="/pds4/nucspec/v1/PDS4_NUCSPEC_1K00_1100.sch">PDS4_NUCSPEC_1K00_1100.sch</a></li>
+                            <li><a href="/pds4/nucspec/v1/PDS4_NUCSPEC_1K00_1100.xml">PDS4_NUCSPEC_1K00_1100.xml</a></li>
+                            <li><a href="/pds4/nucspec/v1/PDS4_NUCSPEC_1K00_1100.JSON">PDS4_NUCSPEC_1K00_1100.JSON</a></li>
+                            <li><a href="/pds4/nucspec/v1/PDS4_NUCSPEC_1K00_1100.zip">PDS4_NUCSPEC_1K00_1100.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="particle">
+                <h4>Particle (particle)</h4>
+                <p>
+                    The Particle dictionary contains attributes that may be used to help identify particle parameters included in a PDS4 product to supplement the information provided in the Primary_Result_Summary and in order to support enhanced data discovery.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-particle">https://github.com/pds-data-dictionaries/ldd-particle</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1K00_2010.xsd">PDS4_PARTICLE_1K00_2010.xsd</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1K00_2010.sch">PDS4_PARTICLE_1K00_2010.sch</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1K00_2010.xml">PDS4_PARTICLE_1K00_2010.xml</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1K00_2010.JSON">PDS4_PARTICLE_1K00_2010.JSON</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1K00_2010.zip">PDS4_PARTICLE_1K00_2010.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="proc">
+                <h4>Processing_Information (proc)</h4>
+                <p>
+                    The Processing_Information Dictionary contains detailed information regarding the history of processing performed on data product(s) in order to produce the current product.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-proc">https://pds-data-dictionaries.github.io/ldd-proc</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1K00_1300.xsd">PDS4_PROC_1K00_1300.xsd</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1K00_1300.sch">PDS4_PROC_1K00_1300.sch</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1K00_1300.xml">PDS4_PROC_1K00_1300.xml</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1K00_1300.JSON">PDS4_PROC_1K00_1300.JSON</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1K00_1300.zip">PDS4_PROC_1K00_1300.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="radar">
+                <h4>Radar (radar)</h4>
+                <p>
+                    The Radar dictionary describes the circumstances surrounding radar observations.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> </li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-radar">https://github.com/pds-data-dictionaries/ldd-radar</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
+                                PDS4  Information Model. To submit a request the have the LDD generated, please submit a request to the
+                                <a href="https://pds.nasa.gov/?feedback=true">PDS Help Desk</a>, or create an issue in the
+                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="rings">
+                <h4>Rings (rings)</h4>
+                <p>
+                    The Rings Dictionary contains classes supporting planetary ring observations including ring-specific geometric parameters.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/15/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-rings">https://github.com/pds-data-dictionaries/ldd-rings</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/rings/v1/PDS4_RINGS_1K00_1C00.xsd">PDS4_RINGS_1K00_1C00.xsd</a></li>
+                            <li><a href="/pds4/rings/v1/PDS4_RINGS_1K00_1C00.sch">PDS4_RINGS_1K00_1C00.sch</a></li>
+                            <li><a href="/pds4/rings/v1/PDS4_RINGS_1K00_1C00.xml">PDS4_RINGS_1K00_1C00.xml</a></li>
+                            <li><a href="/pds4/rings/v1/PDS4_RINGS_1K00_1C00.JSON">PDS4_RINGS_1K00_1C00.JSON</a></li>
+                            <li><a href="/pds4/rings/v1/PDS4_RINGS_1K00_1C00.zip">PDS4_RINGS_1K00_1C00.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="sb">
+                <h4>Small Bodies (sb)</h4>
+                <p>
+                    This dictionary will provide classes to support the documentation, support, discovery, and reuse of data from, by, and for small bodies research.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> </li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
+                                PDS4  Information Model. To submit a request the have the LDD generated, please submit a request to the
+                                <a href="https://pds.nasa.gov/?feedback=true">PDS Help Desk</a>, or create an issue in the
+                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="speclib">
+                <h4>Spectral Library (speclib)</h4>
+                <p>
+                    The Spectral Library Data Dictionary defines the metadata terms that describe laboratory spectral measurements, including classification of the samples measured.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-speclib">https://github.com/pds-data-dictionaries/ldd-speclib</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1K00_1400.xsd">PDS4_SPECLIB_1K00_1400.xsd</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1K00_1400.sch">PDS4_SPECLIB_1K00_1400.sch</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1K00_1400.xml">PDS4_SPECLIB_1K00_1400.xml</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1K00_1400.JSON">PDS4_SPECLIB_1K00_1400.JSON</a></li>
+                            <li><a href="/pds4/speclib/v1/PDS4_SPECLIB_1K00_1400.zip">PDS4_SPECLIB_1K00_1400.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="sp">
+                <h4>Spectral (sp)</h4>
+                <p>
+                    The Spectral (sp) Discipline Dictionary contains classes for defining the spectral bin characteristics (in wavelength, frequency, or wave number) of a data product.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-spectral">https://github.com/pds-data-dictionaries/ldd-spectral</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1K00_1311.xsd">PDS4_SP_1K00_1311.xsd</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1K00_1311.sch">PDS4_SP_1K00_1311.sch</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1K00_1311.xml">PDS4_SP_1K00_1311.xml</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1K00_1311.JSON">PDS4_SP_1K00_1311.JSON</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1K00_1311.zip">PDS4_SP_1K00_1311.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="survey">
+                <h4>Survey (survey)</h4>
+                <p>
+                    The Survey dictionary provides classes, attributes, and rules for describing the circumstances surrounding sky survey observations.
+
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/12/2023</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-survey">https://github.com/pds-data-dictionaries/ldd-survey</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/survey/v1/PDS4_SURVEY_1K00_1100.xsd">PDS4_SURVEY_1K00_1100.xsd</a></li>
+                            <li><a href="/pds4/survey/v1/PDS4_SURVEY_1K00_1100.sch">PDS4_SURVEY_1K00_1100.sch</a></li>
+                            <li><a href="/pds4/survey/v1/PDS4_SURVEY_1K00_1100.xml">PDS4_SURVEY_1K00_1100.xml</a></li>
+                            <li><a href="/pds4/survey/v1/PDS4_SURVEY_1K00_1100.JSON">PDS4_SURVEY_1K00_1100.JSON</a></li>
+                            <li><a href="/pds4/survey/v1/PDS4_SURVEY_1K00_1100.zip">PDS4_SURVEY_1K00_1100.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+		</div>
+		<hr class="minihr">
+		<div id="mission-dictionaries">
+			<h3>Mission Dictionaries</h3>
+			<p>All versions of the Mission data dictionaries can be found <a href="/datastandards/dictionaries/index-missions.shtml">here</a>.</p>
+			<a class="toTop">Back to top</a>
+		</div>
+	</div>
+	<hr />
+	<div id="namespaces">
+		<h2>Namespaces</h2>
+		<p>
+			The PDS4 XML Schema and Schematron files are organized by namespace. 
+			For a list of existing namespaces, refer to the <a href="https://github.com/NASA-PDS/pds4-information-model/raw/main/docs/namespace-registry/pds-namespace-registry.pdf">PDS Namespace Registry</a>.
+		</p>
+
+		<a class="toTop">Back to top</a>
+	</div>
+	<hr />
+	<div id="create-dictionary">
+		<h2>How To Create A Dictionary</h2>
+		<p>
+			Please contact your applicable discipline node to ensure a new dictionary is necessary prior to beginning development.
+			Once agreed upon, there are several places to go when trying to learn how to create a dictionary.
+		</p>
+		<ul>
+            <li>The <a href="https://pds-data-dictionaries.github.io/development/ldd-create.html">PDS Data Dictionaries GitHub page</a></li><br>
+			<li>The <a href="https://pds.nasa.gov/datastandards/documents/sr/current/">PDS4 Standards Reference</a> for basic information on schema and schematrons</li><br>
+			<li><a href="https://nasa-pds.github.io/pds4-information-model/model-lddtool/install/index.html">Local Data Dictionary Tool Installation Guide</a></li><br>
+            <li>Wiki pages with some helpful information on creating Local Dictionaries:
+                <ul>
+                    <li><a href="http://sbndev.astro.umd.edu/wiki/Installing_and_Configuring_LDDTool">Installing and Configuring LDDTool</a></li>
+                    <li><a href="http://sbndev.astro.umd.edu/wiki/Creating_the_Ingest_LDD_Dictionary_Input_File">Creating the Ingest LDD Dictionary Input File</a></li>
+                    <li><a href="http://sbndev.astro.umd.edu/wiki/Running_LDDTool_and_Verifying_the_Output">Running LDDTool and Verifying the Output</a></li>
+                </ul>
+            </li><br />
+            <li>Existing <a href="#discipline-dictionaries">Discipline Dictionaries</a> may provide some help in understanding how to data model</li><br />
+		</ul>
+        <p>
+            Once all information is gathered, create a ticket <a href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh&labels=enhancement%2C+ldd-request%2C+p.must-have&template=-ldd-request--initialize-new-pds-ldd.md&title=%5Bldd-request%5D+Create+new+LDD+%22%3Cproposed+namespace+ID%3E%22">here</a> to initialize a new PDS LDD and register it with the PDS Namespace Registry.
+        </p>
+		
+		<a class="toTop">Back to top</a>
+	</div>
+	<hr />
+    <div id="submit-new-version">
+        <h2>Submitting A New Version</h2>
+        <p>
+            When a Local Data Dictionary (LDD) Steward is ready to submit a new version of an LDD for release:
+        </p>
+        <p>
+            <a class="button" href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh%2C+elawsgh&labels=ldd-release&template=-ldd-request--pds-ldd-release.md&title=%5Bldd-release%5D+%3CLDD+Name%3E+LDD+Version%3A%3CLDD_version%3E+IM+Version%3A%3CIM_Version%3E">Submit LDD Release Request</a>
+        </p>
+        <p>
+            <em>Note: Assume <a href="#dictionary-validation">validation</a> has been completed by steward.</em>
+        </p>
+        <div id="dictionary-validation">
+            <h3>Dictionary Validation</h3>
+            <p>
+                The <b><em>LDD steward</em></b> is encouraged to perform test/validation via one/both of the testing mechanisms:
+            </p>
+            <p>
+                <em>Note: Currently, there is no explicit way to run validate to check out the schemas,
+                    but by reading the schemas into the tool, it will raise an error if they are invalid.</em>
+            </p>
+            <ul>
+                <li>Open in Oxygen and click the red checkbox at the top.</li>
+                <li>Execute latest validate (version 1.16.0+) and specify the schemas via the command-line, for example:
+                    <pre>$ validate -x PDS4_CART_1C00_1932.xsd -S PDS4_CART_1C00_1932.xsd -t PDS4_CART_1C00_1932.xml
+                    </pre></li>
+            </ul>
+            <p>
+                The <b><em>PDS Engineering Node</em></b> will also perform some basic testing and validation when a release
+                is requested to ensure nothing makes it out as &quot;released&quot; that is invalid.
+            </p>
+            <p>
+                If there is an error, an email will be sent to the steward with error message(s).
+            </p>
+            <p>
+                If no error is found, the LDD will be posted to both latest and all schemas pages.
+                An email will be sent to the steward indicating posting is completed.
+            </p>
+        </div>
+        <a class="toTop">Back to top</a>
+    </div>
+    <!-- InstanceEndEditable -->
+</div>
+
+<!--#include virtual="/include/footer.html" --
+
+<!--[if IE]>
+</div>
+<![endif]-->
+</body>
+	<!-- InstanceEnd --></html>
