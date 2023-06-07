@@ -153,16 +153,16 @@
 
                 </p>
                 <ul>
-                    <li><b>Last Updated:</b> </li>
+                    <li><b>Last Updated:</b> 06/07/2023</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-ctli">https://github.com/pds-data-dictionaries/ldd-ctli</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
-                                PDS4  Information Model. To submit a request the have the LDD generated, please submit a request to the
-                                <a href="https://pds.nasa.gov/?feedback=true">PDS Help Desk</a>, or create an issue in the
-                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
-                            </li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1K00_2000.xsd">PDS4_CTLI_1K00_2000.xsd</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1K00_2000.sch">PDS4_CTLI_1K00_2000.sch</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1K00_2000.xml">PDS4_CTLI_1K00_2000.xml</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1K00_2000.JSON">PDS4_CTLI_1K00_2000.JSON</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1K00_2000.zip">PDS4_CTLI_1K00_2000.zip</a></li>
                         </ul>
                     </li>
                 </ul>
