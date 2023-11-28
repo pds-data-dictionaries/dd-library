@@ -85,6 +85,7 @@
 				<h4>PDS (pds)</h4>
 				<p>This directory contains the XML Schema and Schematron files under the Planetary Data System (PDS) namespace. The JSON file contains an instance of the data dictionary in JavaScript Object Notation.</p>
 				<ul>
+                    <li>Data Dictionary Documentation: <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1K00.html">HTML</a>, <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1K00.pdf">PDF</a></li>
 				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.xsd">PDS4_PDS_1K00.xsd</a></li>
 				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.sch">PDS4_PDS_1K00.sch</a></li>
 				  <li><a href="/pds4/pds/v1/PDS4_PDS_1K00.xml">PDS4_PDS_1K00.xml</a></li>

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- 11/23/2021 GEO/EAG Initial version
+    09/26/2023 
+    Renamed attribute pds3_volume_id to original_pds_volume_id because many
+    Magellan datasets were created using standards that predate PDS3.
+    -->
+
+<Ingest_LDD 
+    xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
+                        https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd">
+    <name>MGN</name>
+    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <dictionary_type>Mission</dictionary_type>
+    <full_name>Jenn Ward</full_name>
+    <steward_id>geo</steward_id>
+    <namespace_id>mgn</namespace_id>
+    <comment>
+        The MGN dictionary contains classes that describe aspects of the 
+        Magellan mission and related instruments.
+        
+        MGN version 1.0.0.0
+        PDS Build 1.20.0.0 (1K00)
+        LDDTool version 14.2.4
+        
+        Created with lddtool -plJ -V 1K00 PDS4_MGN_IngestLDD.xml
+        
+        Added new mission phases for mapping cycles
+        Added P-MIDR for polar MIDRs
+        Renamed pds_volume_id to original_pds_volume_id
+    </comment>
+    <last_modification_date_time>2023-09-26Z</last_modification_date_time>
+
+    <DD_Attribute> <!-- mapping_cycle -->
+        <name>mapping_cycle</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mapping_cycle</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The mapping cycle in which the data were acquired. Should be 1 to 6.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+            <maximum_value>6</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- mission_phase_name -->
+        <name>mission_phase_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mission_phase_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The mission_phase_name attribute provides the mission-defined name of 
+            a time period within the mission.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Mapping Cycle 1</value>
+                <value_meaning>The first mapping cycle extended from completion of the orbit 
+                    trim and checkout phase until completion of one cycle of radar
+                    mapping (approximately 243 days). Started 1990-09-15 and ended
+                    1991-05-15.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mapping Cycle 2</value>
+                <value_meaning>The second mapping cycle extended from completion of the first
+                    mapping cycle through an additional cycle of mapping.         
+                    Acquisition of 'right-looking' SAR data was emphasized. Radio
+                    occultation measurements were carried out on orbits 3212-3214.
+                    A period of battery reconditioning followed completion of     
+                    Cycle 2. Started 1991-05-16 and ended 1992-01-17.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mapping Cycle 3</value>
+                <value_meaning>The third mapping cycle extended from completion of battery   
+                    reconditioning through an additional cycle of mapping         
+                    (approximately 243 days). Acquisition of 'stereo' SAR data   
+                    was emphasized. The last orbit in the third cycle was orbit  
+                    5747. Started 1992-01-24 and ended 1992-09-14.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mapping Cycle 4</value>
+                <value_meaning>The fourth mapping cycle extended from completion of the third
+                    mapping cycle through an additional cycle of mapping.         
+                    Acquisition of radio tracking data for gravity studies was    
+                    emphasized. Radio occultation measurements were carried out  
+                    on orbits 6369, 6370, 6471, and 6472. Because of poor        
+                    observing geometry for gravity data collection at the         
+                    beginning of the cycle, this cycle was extended 10 days beyond
+                    the nominal 243 days. Orbits included within the fourth cycle
+                    were 5748 through 7626. Periapsis was lowered on orbit 5752  
+                    to improve sensitivity to gravity features in Cycle 4.
+                    Started 1992-09-14 and ended 1993-05-25.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Aerobraking</value>
+                <value_meaning>The aerobraking phase extended from completion of the fourth  
+                    mapping cycle through achievement of a near-circular orbit.   
+                    Circularization was achieved more quickly than expected; the  
+                    first gravity data collection in the circular orbit was not   
+                    scheduled until 11 days later. Orbits included within the    
+                    aerobraking phase were 7627 through 8392. Started 1993-05-26
+                    and ended on 1993-08-05.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mapping Cycle 5</value>
+                <value_meaning>The fifth mapping cycle extended from completion of the       
+                    aerobraking phase through an additional cycle of mapping      
+                    (approximately 243 days). Acquisition of radio tracking data 
+                    for gravity studies was emphasized. The first orbit in the   
+                    fifth cycle was orbit 8393. Started on 1993-08-16 and ended on
+                    1994-04-15.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mapping Cycle 6</value>
+                <value_meaning>The sixth mapping cycle extended from completion of the fifth 
+                    mapping cycle through an additional cycle of mapping          
+                    (approximately 243 days). Acquisition of radio tracking data 
+                    for gravity studies was emphasized. The first orbit in the   
+                    sixth cycle was orbit 12249. Started on 1994-04-16.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Primary Mission</value>
+                <value_meaning>The prime science phase of the mission. This value occurs
+                    in the original PDS labels of the MIDR products.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- orbit_number -->
+        <name>orbit_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The orbit_number attribute identifies the number of the 
+           orbital revolution around a target body.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+            <maximum_value>20000</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- original_pds_volume_id -->
+        <name>original_pds_volume_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>original_pds_volume_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The original PDS volume_id of where the Magellan data are located.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- producer_institution_name -->
+        <name>producer_institution_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>producer_institution_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The producer_institution_name attribute identifies a university,
+            research center, NASA center, or other institution associated with the 
+            production of a data product.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- product_type -->
+        <name>product_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>product_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The product_type attribute indicates the type of data for an individual data product.
+            The values are based on the values used by the Magellan project for their delivery to PDS.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>F-MIDR</value>
+                <value_meaning>Full resolution Mosaicked Image Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>C1-MIDR</value>
+                <value_meaning>Compressed one time Mosaicked Image Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>C2-MIDR</value>
+                <value_meaning>Compressed two times Mosaicked Image Data Record</value_meaning>
+            </DD_Permissible_Value>                        
+            <DD_Permissible_Value>
+                <value>C3-MIDR</value>
+                <value_meaning>Compressed three times Mosaicked Image Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>P-MIDR</value>
+                <value_meaning>Polar projected Mosaicked Image Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>F-BIDR</value>
+                <value_meaning>Full resolution Basic Image Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>C-BIDR</value>
+                <value_meaning>Compressed Basic Image Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>ARCDR</value>
+                <value_meaning>Altimetry and Radiometry Composite Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>GTDR</value>
+                <value_meaning>Global topography map data record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>GEDR</value>
+                <value_meaning>Global emissivity map data record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>GREDR</value>
+                <value_meaning>Global reflectivity map data record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>GSDR</value>
+                <value_meaning>Global slope map data record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>GXDR</value>
+                <value_meaning>Global map image Data Record with maps for
+                    topography, emissivity, slope and reflectivity</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>SCVDR</value>
+                <value_meaning>Surface Characteristics Vector Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>GVDR</value>
+                <value_meaning>Global Vector Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>BSR</value>
+                <value_meaning>Bistatic Radar</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>LOSAPDR</value>
+                <value_meaning>Line Of Sight Acceleration Profile Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>SHXDR</value>
+                <value_meaning>Spherical Harmononic Data Record for topography and gravity models</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- product_version_id -->
+        <name>product_version_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>product_version_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The product_version_id attribute identifies the version of an
+           individual data product.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- radar_look_direction -->
+        <name>radar_look_direction</name>
+        <version_id>1.0</version_id>
+        <local_identifier>radar_look_direction</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The radar_look_direction attribute provides the direction the radar
+            antenna was pointing relative to the spacecraft ground track along 
+            a given orbit. Most cases were Left or Right. Stereo indicates left
+            looking with an incidence angle for stereo measurements. Maxwell is
+            a special case for observing the Maxwell feature.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Left</value>
+                <value_meaning>Left looking observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Right</value>
+                <value_meaning>Right looking observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Mixed</value>
+                <value_meaning>Mixed looking observation (both left and right)</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Stereo</value>
+                <value_meaning>Stereo observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Maxwell</value>
+                <value_meaning>Maxwell observation</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- spacecraft_clock_count_partition -->
+        <name>spacecraft_clock_count_partition</name>
+        <version_id>1.0</version_id>
+        <local_identifier>spacecraft_clock_count_partition</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The spacecraft_clock_count_partition attribute indicates the clock partition active
+            for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- spacecraft_clock_start_count -->
+        <name>spacecraft_clock_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>spacecraft_clock_start_count</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The spacecraft_clock_start_count attribute provides the value 
+            of the spacecraft clock at the beginning of a time period of 
+            interest.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>  
+    
+    <DD_Attribute> <!-- spacecraft_clock_stop_count -->
+        <name>spacecraft_clock_stop_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>spacecraft_clock_stop_count</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The spacecraft_clock_stop_count attribute provides the value of the spacecraft 
+            clock at the end of a time period of interest.
+        </definition>    
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- start_orbit_number -->
+        <name>start_orbit_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>start_orbit_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Provides the the lowest revolution orbit number that contributed data to a given
+            data product.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+            <maximum_value>20000</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- stop_orbit_number -->
+        <name>stop_orbit_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>stop_orbit_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Provides the the highest revolution orbit number that contributed data to a given
+            data product.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+            <maximum_value>20000</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <!-- End of attribute definitions -->
+
+<!-- Beginning of class definitions in order from innermost to outermost -->
+
+    <!-- Beginning of MGN_Parameters Class definition with attributes in the order as they appear in the label -->
+    <DD_Class> <!-- MGN_Parameters -->
+        <name>Magellan_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Magellan_Parameters</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>The Magellan_Parameters class is the container for mission-specific metadata elements.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>product_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>                
+        <DD_Association>
+            <identifier_reference>product_version_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mapping_cycle</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>orbit_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>start_orbit_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>stop_orbit_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mission_phase_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>unbounded</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>radar_look_direction</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spacecraft_clock_count_partition</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spacecraft_clock_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>spacecraft_clock_stop_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>producer_institution_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>original_pds_volume_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End of MGN_Parameters Class definition -->
+
+<!-- End of class definitions -->
+    
+</Ingest_LDD>

@@ -5,13 +5,19 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
     <name>Hayabusa2 Local Data Dictionary</name>
-    <ldd_version_id>1.1.0.0</ldd_version_id>
+    <ldd_version_id>1.2.0.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Shin-ya Murakami</full_name>
     <steward_id>sbn</steward_id>
     <namespace_id>hyb2</namespace_id>
     <comment>
         This is the Hayabusa2 Mission Specific Data Dictionary.
+
+        1.2.0.0
+          - Reverted spelling of "No.2 Wide" for filter_name and t_filter_name.
+          - Added Internal_Reference for ONC_Band_Information and rule for it.
+          - Removed {x,y}_{lower_left,upper_right}_corner.
+          - Removed ryugu_{latitude,longitude}_at_{lower_left_corner,upper_right_corner,center}.
 
         1.1.0.0
           - Updated definition for better wording.
@@ -32,7 +38,7 @@
           - Initial version
 
     </comment>
-    <last_modification_date_time>2021-08-12T00:23:00</last_modification_date_time>
+    <last_modification_date_time>2022-06-09T05:48:00</last_modification_date_time>
 
     <!-- Attribute definitions -->
 
@@ -427,40 +433,6 @@
     </DD_Attribute>
 
     <DD_Attribute>
-        <name>ryugu_latitude_at_center</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_latitude_at_center</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the latitude of Ryugu at the center of the image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>-90.0</minimum_value>
-            <maximum_value>90.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_longitude_at_center</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_longitude_at_center</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the longitude of Ryugu at the center of the image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>0.0</minimum_value>
-            <maximum_value>360.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
         <name>distance_to_ryugu_at_center</name>
         <version_id>1.1</version_id>
         <local_identifier>hyb2.Observation_Geometry.distance_to_ryugu_at_center</local_identifier>
@@ -489,142 +461,6 @@
             <minimum_value>0.0</minimum_value>
             <unit_of_measure_type>Units_of_Pixel_Resolution_Linear</unit_of_measure_type>
             <specified_unit_id>km/pixel</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_latitude_at_lower_left_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_latitude_at_lower_left_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the latitude of the Ryugu's surface at the lower-left corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the lower-left vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>-90.0</minimum_value>
-            <maximum_value>90.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_longitude_at_lower_left_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_longitude_at_lower_left_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the longitude of the Ryugu's surface at the lower-left corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the lower-left vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>0.0</minimum_value>
-            <maximum_value>360.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_latitude_at_lower_right_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_latitude_at_lower_right_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the latitude of the Ryugu's surface at the lower-right corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the lower-right vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>-90.0</minimum_value>
-            <maximum_value>90.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_longitude_at_lower_right_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_longitude_at_lower_right_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the longitude of the Ryugu's surface at the lower-right corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the lower-right vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>0.0</minimum_value>
-            <maximum_value>360.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_latitude_at_upper_left_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_latitude_at_upper_left_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the latitude of the Ryugu's surface at the upper-left corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the upper-left vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>-90.0</minimum_value>
-            <maximum_value>90.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_longitude_at_upper_left_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_longitude_at_upper_left_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the longitude of the Ryugu's surface at the upper-left corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the upper-left vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>0.0</minimum_value>
-            <maximum_value>360.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_latitude_at_upper_right_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_latitude_at_upper_right_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the latitude of the Ryugu's surface at the upper-right corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the upper-right vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>-90.0</minimum_value>
-            <maximum_value>90.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>ryugu_longitude_at_upper_right_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Observation_Geometry.ryugu_longitude_at_upper_right_corner</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the longitude of the Ryugu's surface at the upper-right corner pixel of the image. Note that this value represents value at the center of the pixel, instead of value at the upper-right vertex of the pixel.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>0.0</minimum_value>
-            <maximum_value>360.0</maximum_value>
-            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
-            <specified_unit_id>deg</specified_unit_id>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -702,11 +538,11 @@
 
     <DD_Attribute>
         <name>filter_name</name>
-        <version_id>1.1</version_id>
+        <version_id>1.2</version_id>
         <local_identifier>hyb2.Image_Observation_Information.filter_name</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the name of the filter that was used during the observation to select or modify the radiation that was transmitted to the detector. The value 'None' indicates that no filter was used. The possible values are None, No. 1: 390 nm, No. 2: WIDE, No. 3: 550 nm, No. 4: 700 nm, No. 5: 860 nm, No. 6: 589 nm, No. 7: 950 nm, and No. 8: 480 nm.</definition>
+        <definition>This attribute describes the name of the filter that was used during the observation to select or modify the radiation that was transmitted to the detector. The value 'None' indicates that no filter was used. The possible values are None, No. 1: 390 nm, No. 2: Wide, No. 3: 550 nm, No. 4: 700 nm, No. 5: 860 nm, No. 6: 589 nm, No. 7: 950 nm, and No. 8: 480 nm.</definition>
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
@@ -719,7 +555,7 @@
                 <value_meaning>This value means the ul-band filter of ONC-T is used.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>No. 2: WIDE</value>
+                <value>No. 2: Wide</value>
                 <value_meaning>This value means the wide-band filter of ONC-T is used.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
@@ -805,74 +641,6 @@
                 <value>8</value>
                 <value_meaning>8 x 8 pixels binning</value_meaning>
             </DD_Permissible_Value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>x_lower_left_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Image_Observation_Information.x_lower_left_corner</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the horizontal position of the lower-left corner of the area selected as ROI (region of interest) in the full-size image coordinate system. Note that the origin is (1, 1) and the position in integer means center of the pixel. Possible values are 1, 129, 385, 513, 641, 769, and 897 for ONC image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
-            <minimum_value>1</minimum_value>
-            <maximum_value>897</maximum_value>
-            <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
-            <specified_unit_id>pixel</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>y_lower_left_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Image_Observation_Information.y_lower_left_corner</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the vertical-position of the lower-left corner of the area selected as ROI (region of interest) in the full-size image coordinate system. Note that the origin is (1, 1) and the position in integer means center of the pixel. Possible values are 1, 129, 385, 513, 641, 769, and 897 for ONC image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
-            <minimum_value>1</minimum_value>
-            <maximum_value>897</maximum_value>
-            <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
-            <specified_unit_id>pixel</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>x_upper_right_corner</name>
-        <version_id>1.1</version_id>
-        <local_identifier>hyb2.Image_Observation_Information.x_upper_right_corner</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the horizontal position of the upper-right corner of the area selected as ROI (region of interest) in the full-size image coordinate system. Note that the origin is (1, 1) and the position in integer means center of the pixel. Possible values are 129, 385, 513, 641, 769, 897, and 1024 for ONC frame image, and 32 for ONC optical black image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
-            <minimum_value>1</minimum_value>
-            <maximum_value>1024</maximum_value>
-            <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
-            <specified_unit_id>pixel</specified_unit_id>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>y_upper_right_corner</name>
-        <version_id>1.0</version_id>
-        <local_identifier>hyb2.Image_Observation_Information.y_upper_right_corner</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the vertical position of the upper-right corner of the area selected as ROI (region of interest) in the full-size image coordinate system. Note that the origin is (1, 1) and the position in integer means center of the pixel. Possbile values are 129, 385, 513, 641, 769, 897, 1024 for ONC image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
-            <minimum_value>129</minimum_value>
-            <maximum_value>1024</maximum_value>
-            <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
-            <specified_unit_id>pixel</specified_unit_id>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -1404,7 +1172,7 @@
         <local_identifier>hyb2.ONC_Image_Information.Sub_Image_Information.t_filter_name</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Shin-ya Murakami</submitter_name>
-        <definition>This attribute describes the name of the selected filter of ONC-T for the n-th sub image, where n is sequence_number. This value should be neglected when ONC-T is not selected. The possible values are No. 1: 390 nm, No. 2: WIDE, No. 3: 550 nm, No. 4: 700 nm, No. 5: 860 nm, No. 6: 589 nm, No. 7: 950 nm, and No. 8: 480 nm.</definition>
+        <definition>This attribute describes the name of the selected filter of ONC-T for the n-th sub image, where n is sequence_number. This value should be neglected when ONC-T is not selected. The possible values are No. 1: 390 nm, No. 2: Wide, No. 3: 550 nm, No. 4: 700 nm, No. 5: 860 nm, No. 6: 589 nm, No. 7: 950 nm, and No. 8: 480 nm.</definition>
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
@@ -1413,7 +1181,7 @@
                 <value_meaning>This value means the ul-band filter is used.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>No. 2: WIDE</value>
+                <value>No. 2: Wide</value>
                 <value_meaning>This value means the wide-band filter is used.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
@@ -3799,18 +3567,6 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_center</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_center</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>hyb2.Observation_Geometry.distance_to_ryugu_at_center</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -3818,54 +3574,6 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>hyb2.Observation_Geometry.spatial_resolution_of_ryugu_at_center</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_lower_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_lower_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_upper_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_upper_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_upper_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_upper_right_corner</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -3934,32 +3642,6 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
-        <!-- 
-        <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.x_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.y_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.x_upper_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.y_upper_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        -->
         <DD_Association>
             <identifier_reference>hyb2.Image_Observation_Information.image_processing_return_status</identifier_reference>
             <reference_type>attribute_of</reference_type>
@@ -4576,30 +4258,6 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.x_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.y_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.x_upper_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Image_Observation_Information.y_upper_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>hyb2.ONC_Image_Information.stray_light_status</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -4618,18 +4276,6 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_center</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_center</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>hyb2.Observation_Geometry.distance_to_ryugu_at_center</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -4637,54 +4283,6 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>hyb2.Observation_Geometry.spatial_resolution_of_ryugu_at_center</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_lower_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_lower_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_lower_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_upper_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_upper_left_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_latitude_at_upper_right_corner</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>hyb2.Observation_Geometry.ryugu_longitude_at_upper_right_corner</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -4724,7 +4322,7 @@
     <!-- Definition of Class: ONC_Band_Information -->
     <DD_Class>
         <name>ONC_Band_Information</name>
-        <version_id>1.1</version_id>
+        <version_id>1.2</version_id>
         <local_identifier>hyb2.ONC_Band_Information</local_identifier>
         <submitter_name>Shin-ya Murakami</submitter_name>
         <definition>This class contains information of each band for co-registered data.</definition>
@@ -4739,6 +4337,12 @@
             <identifier_reference>hyb2.ONC_Band_Information.band_file_name</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pds.Internal_Reference</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
@@ -5158,5 +4762,16 @@
     </DD_Class>
 
     <!-- Definition of Class: none for LIADR -->
+
+    <!-- Schematron Rule definitions -->
+    <DD_Rule>
+        <local_identifier>reference_type_check_onc_band_information</local_identifier>
+        <rule_context>hyb2:ONC_Band_Information/pds:Internal_Reference</rule_context>
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>pds:reference_type = 'data_to_derived_source_product'</rule_test>
+            <rule_message>In hyb2:ONC_Band_Information, Internal_Reference.reference_type must be equal to 'data_to_derived_source_product'.</rule_message>
+        </DD_Rule_Statement>
+    </DD_Rule>
 
 </Ingest_LDD>

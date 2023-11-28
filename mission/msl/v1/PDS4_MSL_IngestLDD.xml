@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD 
+  xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd">
+  <name>Mars Science Laboratory Mission</name>
+  <ldd_version_id>1.1.0.0</ldd_version_id>
+  <dictionary_type>Mission</dictionary_type>
+  <full_name>Jennifer Ward</full_name>
+  <steward_id>geo</steward_id>
+  <namespace_id>msl</namespace_id>
+  <comment>
+    The Mars Science Laboratory (MSL) mission dictionary contains classes and attributes specific to the MSL mission 
+    and its instruments.
+    
+    Mars Science Laboratory version 1.1.0.0 
+    PDS Build 1.19.0.0
+    LDDTool version 13.1.0
+    
+    Built with LDDTool -plJ  PDS4_MSL_IngestLDD.xml
+     
+    2023-02-01 JGW Initial version
+    2023-05-09 JGW Added product_version_id attribute and changed allowed spacecraft_clock_stop to be nillable
+    
+  </comment>
+  <last_modification_date_time>2023-05-09T03:39</last_modification_date_time>
+  
+  <!-- Hierarchy of classes and attributes
+    <msl:MSL_Parameters>
+       <msl:Observation_Information>  </>
+          <msl:release_number> </>          
+          <msl:product_type> </>
+          <msl:mission_phase_name> </>
+          <msl:product_version_id> </>
+          <msl:spacecraft_clock_start> </>
+          <msl:spacecraft_clock_stop> </>
+          <msl:spacecraft_clock_partition> </>
+          <msl:sol_number> </>
+          <msl:start_local_true_solar_time> </>
+          <msl:start_local_true_solar_time_sol> </>
+          <msl:stop_local_true_solar_time> </>
+          <msl:stop_local_true_solar_time_sol> </>
+          <msl:active_flight_computer> </>
+          <msl:producer_institution_name> </>
+       </msl:Observation_Information> </>
+    </msl:MSL_Parameters>
+  -->
+  <!-- Begin definitions of attributes in the MSL Mission Data Dictionary. -->
+  <!-- Attribute Definitions for the Observation_Information class
+        In alphabetical order, the attributes are:
+    
+       active_flight_computer                  optional
+       mission_phase_name                      optional
+       producer_institution_name               optional
+       product_type                            optional
+       product_version_id                      optional
+       release_number                          optional
+       sol_number                              optional
+       spacecraft_clock_partition              optional; should be used if SCLK does not include partition number
+       spacecraft_clock_start                  optional
+       spacecraft_clock_stop                   optional
+       start_local_true_solar_time             optional        
+       start_local_true_solar_time_sol         optional; should be used if start_local_true_solar_time does not include sol number
+       stop_local_true_solar_time              optional
+       stop_local_true_solar_time_sol          optional; should be used if start_local_true_solar_time does not include sol number
+  -->
+  
+  <DD_Attribute>  <name>active_flight_computer</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.active_flight_computer</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>
+      The active_flight_computer indicates which flight computer "string" (separate sets
+      of electronics) was active when a product was acquired. For MSL there are two
+      redundant flight computers called "strings", also known as Rover Compute Elements
+      (RCEs). Either string, A or B, may be active at any given time.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>A</value>
+        <value_meaning>The value "A" indicates flight computer A.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>B</value>
+        <value_meaning>The value "B" indicates flight computer B.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>mission_phase_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.mission_phase_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The mission_phase_name identifies a time period within the mission.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+      <DD_Permissible_Value>
+        <value>CRUISE AND APPROACH</value>
+        <value_meaning>The cruise and approach phase began when the launch phase ended, and
+          ended 30 minutes prior to entry into the Mars atmosphere.
+          Mission Phase Start Time : 2011-11-26
+          Mission Phase Stop Time : 2012-08-06
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DEVELOPMENT</value>
+        <value_meaning>The development phase began in October 2003 with concept and technology 
+          development, followed by preliminary design and technology development completion 
+          from March 2006 through September 2006, final design and fabrication from September 
+          2006 through January 2008, and system assembly, integration, and test from late 
+          January 2008 until launch on November 26, 2011.
+          Mission Phase Start Time : 2003-10-01
+          Mission Phase Stop Time : 2011-11-26
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>ENTRY, DESCENT, AND LANDING</value>
+        <value_meaning>The entry, descent, and landing (EDL) phase began when the Cruise and
+          Approach Phase was over (30 minutes before atmospheric entry), and ended when the 
+          rover reached a thermally stable, positive energy balance, commandable configuration 
+          on the surface of Mars.
+          Mission Phase Start Time : 2012-08-06
+          Mission Phase Stop Time : 2012-08-06
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>EXTENDED SURFACE MISSION</value>
+        <value_meaning>The extended surface phase began on Sol 764.
+          Mission Phase Start Time : 2014-09-29
+          Mission Phase Stop Time : UNK
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>LAUNCH</value>
+        <value_meaning>The launch phase began when the spacecraft switched to internal power 
+          prior to launch and ended when the spacecraft reached a thermally stable commandable 
+          configuration after separation from the launch vehicle upper stage.
+          Mission Phase Start Time : 2011-11-26
+          Mission Phase Stop Time : 2011-11-26
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>PRIMARY SURFACE MISSION</value>
+        <value_meaning>The primary surface phase began when the EDL phase was over and ended 
+          on sol 763.
+          Mission Phase Start Time : 2012-08-06
+          Mission Phase Stop Time : 2014-09-28
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>producer_institution_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.producer_institution_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The producer_institution_name specifies the identity of the facility or institution that 
+      produced the product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>product_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.product_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The product_type element identifies a group of data products within a collection that have
+      some property in common, such as processing level, resolution, or instrument-specific setting.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+      <DD_Permissible_Value>
+        <value>APXS_EDR</value>
+        <value_meaning>APXS Experiment Data Records.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>APXS_RSP</value>
+        <value_meaning>APXS summed X-ray spectra.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>APXS_RWP</value>
+        <value_meaning>APXS oxide abundance data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMCAM-CCS</value>
+        <value_meaning>ChemCam LIBS Intermediate Clean Calibrated Spectra RDR data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMCAM-MOC</value>
+        <value_meaning>ChemCam LIBS Multivariate Prediction of Oxide Composition RDR data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMCAM-PSV</value>
+        <value_meaning>ChemCam LIBS Passive RDR data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMCAM-RDR</value>
+        <value_meaning>ChemCam Initial LIBS Spectrum RDR data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMCAM-TEC</value>
+        <value_meaning>ChemCam LIBS Trace Element Concentration RDR data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_ECC</value>
+        <value_meaning>CheMin CCD Frame Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_ED1</value>
+        <value_meaning>CheMin Diffraction Single Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_EDA</value>
+        <value_meaning>CheMin Diffraction All Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_EDS</value>
+        <value_meaning>CheMin Diffraction Split Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_EE1</value>
+        <value_meaning>CheMin Energy Single Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_EEA</value>
+        <value_meaning>CheMin Energy All Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_EES</value>
+        <value_meaning>CheMin Energy Split Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>           
+      <DD_Permissible_Value>
+        <value>CHEMIN_EFM</value>
+        <value_meaning>CheMin Film Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_EHK</value>
+        <value_meaning>CheMin Housekeeping N Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_ETR</value>
+        <value_meaning>CheMin Transmit Raw Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_MIN</value>
+        <value_meaning>CheMin Mineral identifications and abundances Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_RD1</value>
+        <value_meaning>CheMin Diffraction Single, windowed K-alpha (rarely K-beta) Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_RDA</value>
+        <value_meaning>CheMin Diffraction All, windowed K-alpha (rarely K-beta) Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_RDF</value>
+        <value_meaning>CheMin Diffraction, Film Mode, Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_RDS</value>
+        <value_meaning>CheMin Diffraction Split, windowed K-alpha (rarely K-beta) Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>  
+      <DD_Permissible_Value>
+        <value>CHEMIN_RE1</value>
+        <value_meaning>CheMin Energy Single Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_REA</value>
+        <value_meaning>CheMin Energy All Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CHEMIN_RES</value>
+        <value_meaning>CheMin Energy Split Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>        
+      <DD_Permissible_Value>
+        <value>CHEMIN_RTR</value>
+        <value_meaning>CheMin Diffraction All, Raw, Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_ACTIVE</value>
+        <value_meaning>DAN ACTIVE mode (neutron pulses are produced and science observations collected) Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_PASSIVE</value>
+        <value_meaning>DAN PASSIVE mode (background observations collected) Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_RDR_AA</value>
+        <value_meaning>DAN Averaged Active Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_RDR_AC</value>
+        <value_meaning>DAN Derived Active Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_RDR_AP</value>
+        <value_meaning>DAN Averaged Passive Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_RDR_EN</value>
+        <value_meaning>DAN Derived Engineering Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_RDR_PA</value>
+        <value_meaning>DAN Derived Passive Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DAN_STANDBY</value>
+        <value_meaning>DAN STANDBY mode (low voltage electronics are on, no science observations) Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Mastcam_Photometry_Cube</value>
+        <value_meaning>Mastcam derived photometry cube data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>RAD_EDR</value>
+        <value_meaning>RAD Experiment Data Record (EDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>RAD_RDR</value>
+        <value_meaning>RAD Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>SAM_RDR</value>
+        <value_meaning>SAM Reduced Data Record (RDR) data.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>product_version_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.product_version_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>product_version_id identifies the version of an individual data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>release_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.release_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>release_number is the identifier of a scheduled release of MSL data from PDS. The
+      first MSL data release has release_number "0001". The release_number for a given product is always the
+      first release in which it appears, and does not change if the product is revised later.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>4</minimum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>sol_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.sol_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>Sol_number is the number of the Mars day on which an observation was acquired.
+      Landing day is Sol 0.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>spacecraft_clock_partition</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.spacecraft_clock_partition</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The spacecraft_clock_partition provides the clock partition active for the
+      spacecraft_clock_start and spacecraft_clock_stop attributes.
+      This attribute may be used when the spacecraft_clock values do not include a partition number.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>spacecraft_clock_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.spacecraft_clock_start</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>
+      The spacecraft_clock_start is the value of the spacecraft clock at the
+      beginning of an observation, in seconds. Values are formed 
+      according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional 
+      partition number, dddddddddd is a whole number of seconds up to 10 digits,
+      and .fffffffff is an optional fraction of a second up to 9 digits. The whole
+      number and fraction are separated by a period. If a partition number and 
+      slash are not present, then the attribute spacecraft_clock_partition must be used.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>[p/]dddddddddd[.fffffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
+        preceded by a clock partition number and forward slash, and optionally followed by a fractional value. If the fractional
+        value is present, it must be separated from the whole number by a period, and may have up to 9 digits. If a partition number
+        and slash are not present, then the attribute spacecraft_clock_partition must be used.</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>19</maximum_characters>
+      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>spacecraft_clock_stop</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.spacecraft_clock_stop</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>
+      The spacecraft_clock_stop is the value of the spacecraft clock at the
+      end of an observation, in seconds. Values are formed 
+      according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional 
+      partition number, dddddddddd is a whole number of seconds up to 10 digits,
+      and .fffffffff is an optional fraction of a second up to 9 digits. The whole
+      number and fraction are separated by a period. If a partition number and 
+      slash are not present, then the attribute spacecraft_clock_partition must be used.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>[p/]dddddddddd[.fffffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
+        preceded by a clock partition number and forward slash, and optionally followed by a fractional value. If the fractional
+        value is present, it must be separated from the whole number by a period, and may have up to 9 digits. If a partition number
+        and slash are not present, then the attribute spacecraft_clock_partition must be used.</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>19</maximum_characters>
+      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>start_local_true_solar_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.start_local_true_solar_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>Start_local_true_solar_time is the local true solar time, as defined in the main
+      PDS4 data dictionary, at the beginning of an observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>[[Sol-]nnnnn ]hh:mm:ss[.fffff] - Local true solar time is given in hours, minutes and seconds, optionally
+        followed by a decimal point and fractional seconds. The time may be preceded by "nnnnn " or "Sol-nnnnn " where nnnnn is
+        the sol number, separated from the time by a space character. If no sol number is present, the attribute
+        start_local_true_solar_time_sol should be used to specify the sol number.</formation_rule>
+      <minimum_characters>8</minimum_characters>
+      <maximum_characters>24</maximum_characters>
+      <pattern>((Sol\-)?[0-9]{1,5} )?[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{1,5})?</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>start_local_true_solar_time_sol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.start_local_true_solar_time_sol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The start_local_true_solar_time_sol element specifies the number of solar days elapsed
+      since a reference day (e.g. the day on which a landing vehicle set down) for local true solar
+      time (LTST). Days are measured in rotations of the planet in question from midnight to
+      midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value
+      will be less than or equal to '0' and can be negative. Start_local_true_solar_time_sol
+      should accompany the attribute start_local_true_solar_time if that attribute's value does not
+      include a sol number prefix.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>stop_local_true_solar_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.stop_local_true_solar_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>Stop_local_true_solar_time is the local true solar time, as defined in the main PDS4
+      data dictionary, at the end of an observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>[[Sol-]nnnnn ]hh:mm:ss[.fffff] - Local true solar time is given in hours, minutes and seconds, optionally
+        followed by a decimal point and fractional seconds. The time may be preceded by "nnnnn " or "Sol-nnnnn " where nnnnn is
+        the sol number, separated from the time by a space character. If no sol number is present, the attribute
+        stop_local_true_solar_time_sol should be used to specify the sol number.</formation_rule>
+      <minimum_characters>8</minimum_characters>
+      <maximum_characters>24</maximum_characters>
+      <pattern>((Sol\-)?[0-9]{1,5} )?[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{1,5})?</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>stop_local_true_solar_time_sol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.stop_local_true_solar_time_sol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The stop_local_true_solar_time_sol element specifies the number of solar days elapsed
+      since a reference day (e.g. the day on which a landing vehicle set down) for local true solar
+      time (LTST). Days are measured in rotations of the planet in question from midnight to
+      midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value
+      will be less than or equal to '0' and can be negative. Stop_local_true_solar_time_sol
+      should accompany the attribute stop_local_true_solar_time if that attribute's value does not
+      include a sol number prefix.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <!-- End Attribute Definitions for the Observation_Information class -->
+  
+  <!-- *** Begin Class Definitions *** -->
+  <!-- Observation_Information Class Definition -->
+  <!-- Attributes are in the order required in the label:
+          release_number         
+          product_type
+          mission_phase_name
+          product_version_id
+          spacecraft_clock_start
+          spacecraft_clock_stop
+          spacecraft_clock_partition
+          sol_number
+          start_local_true_solar_time
+          start_local_true_solar_time_sol
+          stop_local_true_solar_time
+          stop_local_true_solar_time_sol
+          producer_institution_name
+          active_flight_computer
+    -->
+  <DD_Class>  <name>Observation_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.Observation_Information</local_identifier>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The Observation_Information class provides information about a science observation.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>msl.release_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.product_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.mission_phase_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.product_version_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>   
+    <DD_Association>
+      <identifier_reference>msl.spacecraft_clock_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.spacecraft_clock_stop</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.spacecraft_clock_partition</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.sol_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.start_local_true_solar_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.start_local_true_solar_time_sol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.stop_local_true_solar_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.stop_local_true_solar_time_sol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.active_flight_computer</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.producer_institution_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of Observation_Information Class Definition -->
+
+  <!-- Begin definition of MSL_Parameters container class -->
+  <DD_Class> <name>MSL_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>MSL_Parameters</local_identifier>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The MSL_Parameters class is a superclass containing all MSL mission classes.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>true</element_flag>
+    <DD_Association>  <identifier_reference>msl.Observation_Information</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of definitions of classes and attributes in the MSL Mission Data Dictionary. -->
+
+
+  <!-- *** Beginning of rule statements *** -->
+
+  <!-- Rules for time values SCLK and LTST, for all MSL Product_Observational labels -->
+    
+  <DD_Rule>
+    <local_identifier>msl_time_rules</local_identifier>
+    <rule_context>/pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/msl:Observation_Information</rule_context>
+
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if ( (msl:spacecraft_clock_partition) 
+                    or (contains(msl:spacecraft_clock_start, '/')) 
+                    or ( (not (msl:spacecraft_clock_partition)) and (not (msl:spacecraft_clock_start)) ) ) 
+                 then true() else false()
+      </rule_test>
+      <rule_message>msl:error:sclk_rule_0: If msl:spacecraft_clock_start is
+        present, it must begin with a partition number followed by a forward slash, OR the partition number must be given by
+        msl:spacecraft_clock_partition. </rule_message>
+      <rule_description>If spacecraft_clock_start is present, it must begin with a
+        partition number followed by a forward slash, OR the partition number must be given by spacecraft_clock_partition.
+      </rule_description>
+    </DD_Rule_Statement>
+      
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if ( (msl:spacecraft_clock_partition) 
+                    or (contains(msl:spacecraft_clock_stop, '/')) 
+                    or ( (not (msl:spacecraft_clock_partition)) and (not (msl:spacecraft_clock_stop)) ) ) 
+                 then true() else false()
+      </rule_test>
+      <rule_message>msl:error:sclk_rule_1: If msl:spacecraft_clock_stop is
+        present, it must begin with a partition number followed by a forward slash, OR the partition number must be given by
+        msl:spacecraft_clock_partition. </rule_message>
+      <rule_description>If spacecraft_clock_stop is present, it must begin with a
+        partition number followed by a forward slash, OR the partition number must be given by spacecraft_clock_partition.
+      </rule_description>
+    </DD_Rule_Statement>
+        
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (
+                      (msl:start_local_true_solar_time_sol) 
+                        or 
+                      ( matches(msl:start_local_true_solar_time, '^(Sol\-)?[0-9]{1,5} [0-2][0-9]:.*$')) 
+                      or 
+                      ( (not(msl:start_local_true_solar_time_sol)) 
+                         and 
+                        (not (msl:start_local_true_solar_time)) 
+                      )
+                    ) then true() else false() 
+      </rule_test>
+      <rule_message>msl:error:ltst_rule_0: If msl:start_local_true_solar_time is
+        present, it must include a sol number as in 'Sol-nnnnn hh:mm:ss[.fffff]', OR the sol number must be given by
+        msl:start_local_true_solar_time_sol. </rule_message>
+      <rule_description>If start_local_true_solar_time is present, it must include a sol number, or the sol number
+        must be given by start_local_true_solar_time_sol. [[Sol-]nnnnn ]hh:mm:ss[.fffff] </rule_description>
+    </DD_Rule_Statement>
+
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (
+                      (msl:stop_local_true_solar_time_sol) 
+                        or 
+                      ( matches(msl:stop_local_true_solar_time, '^(Sol\-)?[0-9]{1,5} [0-2][0-9]:.*$')) 
+                      or 
+                      ( (not(msl:stop_local_true_solar_time_sol)) 
+                         and 
+                        (not (msl:stop_local_true_solar_time)) 
+                      )
+                     ) then true() else false() 
+      </rule_test>
+      <rule_message>msl:error:ltst_rule_1: If msl:stop_local_true_solar_time is
+        present, it must include a sol number as in 'Sol-nnnnn hh:mm:ss[.fffff]', OR the sol number must be given by
+        msl:stop_local_true_solar_time_sol. </rule_message>
+      <rule_description>If stop_local_true_solar_time is present, it must include a sol number, or the sol number
+        must be given by stop_local_true_solar_time_sol. [[Sol-]nnnnn ]hh:mm:ss[.fffff] </rule_description>
+    </DD_Rule_Statement>
+
+  </DD_Rule>
+  
+  <!--  End of MSL-specific rules for time values SCLK and LTST -->
+
+  <!-- End of rule statements -->
+
+</Ingest_LDD>

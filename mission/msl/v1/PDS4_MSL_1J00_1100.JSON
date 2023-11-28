@@ -1,0 +1,924 @@
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "IM Version": "1.19.0.0" ,
+      "LDD Version": "1.1.0.0" ,
+      "Date": "2023-07-03T15:02:13Z" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "namespaces": ["pds:", "msl:"] ,
+      "classDictionary": [
+        {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.msl.MSL_Parameters" ,
+            "title": "MSL_Parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The MSL_Parameters class is a superclass containing all MSL mission classes."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.MSL_Parameters.msl.Observation_Information" ,
+                "title": "Observation_Information" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "classId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information" ,
+            "title": "Observation_Information" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Observation_Information class provides information about a science observation."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.release_number" ,
+                "title": "release_number" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.release_number"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.product_type" ,
+                "title": "product_type" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.product_type"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.mission_phase_name" ,
+                "title": "mission_phase_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.mission_phase_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.product_version_id" ,
+                "title": "product_version_id" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.product_version_id"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_start" ,
+                "title": "spacecraft_clock_start" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_start"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_stop" ,
+                "title": "spacecraft_clock_stop" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1060" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_stop"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_partition" ,
+                "title": "spacecraft_clock_partition" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1070" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_partition"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.sol_number" ,
+                "title": "sol_number" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1080" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.sol_number"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.start_local_true_solar_time" ,
+                "title": "start_local_true_solar_time" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1090" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.start_local_true_solar_time"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.start_local_true_solar_time_sol" ,
+                "title": "start_local_true_solar_time_sol" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1100" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.start_local_true_solar_time_sol"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.stop_local_true_solar_time" ,
+                "title": "stop_local_true_solar_time" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1110" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.stop_local_true_solar_time"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.stop_local_true_solar_time_sol" ,
+                "title": "stop_local_true_solar_time_sol" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1120" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.stop_local_true_solar_time_sol"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.active_flight_computer" ,
+                "title": "active_flight_computer" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1130" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.active_flight_computer"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.producer_institution_name" ,
+                "title": "producer_institution_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1140" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msl.Observation_Information.msl.producer_institution_name"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      ]
+    , "attributeDictionary": [
+        {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.active_flight_computer" ,
+            "title": "active_flight_computer" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": " The active_flight_computer indicates which flight computer \"string\" (separate sets of electronics) was active when a product was acquired. For MSL there are two redundant flight computers called \"strings\", also known as Rover Compute Elements (RCEs). Either string, A or B, may be active at any given time. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "A" ,
+                  "valueMeaning": "The value \"A\" indicates flight computer A." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "B" ,
+                  "valueMeaning": "The value \"B\" indicates flight computer B." ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.mission_phase_name" ,
+            "title": "mission_phase_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "The mission_phase_name identifies a time period within the mission." ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Preserved" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Preserved" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "CRUISE AND APPROACH" ,
+                  "valueMeaning": "The cruise and approach phase began when the launch phase ended, and ended 30 minutes prior to entry into the Mars atmosphere. Mission Phase Start Time : 2011-11-26 Mission Phase Stop Time : 2012-08-06 " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DEVELOPMENT" ,
+                  "valueMeaning": "The development phase began in October 2003 with concept and technology development, followed by preliminary design and technology development completion from March 2006 through September 2006, final design and fabrication from September 2006 through January 2008, and system assembly, integration, and test from late January 2008 until launch on November 26, 2011. Mission Phase Start Time : 2003-10-01 Mission Phase Stop Time : 2011-11-26 " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "ENTRY, DESCENT, AND LANDING" ,
+                  "valueMeaning": "The entry, descent, and landing (EDL) phase began when the Cruise and Approach Phase was over (30 minutes before atmospheric entry), and ended when the rover reached a thermally stable, positive energy balance, commandable configuration on the surface of Mars. Mission Phase Start Time : 2012-08-06 Mission Phase Stop Time : 2012-08-06 " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "EXTENDED SURFACE MISSION" ,
+                  "valueMeaning": "The extended surface phase began on Sol 764. Mission Phase Start Time : 2014-09-29 Mission Phase Stop Time : UNK " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "LAUNCH" ,
+                  "valueMeaning": "The launch phase began when the spacecraft switched to internal power prior to launch and ended when the spacecraft reached a thermally stable commandable configuration after separation from the launch vehicle upper stage. Mission Phase Start Time : 2011-11-26 Mission Phase Stop Time : 2011-11-26 " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "PRIMARY SURFACE MISSION" ,
+                  "valueMeaning": "The primary surface phase began when the EDL phase was over and ended on sol 763. Mission Phase Start Time : 2012-08-06 Mission Phase Stop Time : 2014-09-28 " ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.producer_institution_name" ,
+            "title": "producer_institution_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "The producer_institution_name specifies the identity of the facility or institution that produced the product." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Preserved" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Preserved" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.product_type" ,
+            "title": "product_type" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "The product_type element identifies a group of data products within a collection that have some property in common, such as processing level, resolution, or instrument-specific setting. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "true" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "APXS_EDR" ,
+                  "valueMeaning": "APXS Experiment Data Records." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "APXS_RSP" ,
+                  "valueMeaning": "APXS summed X-ray spectra." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "APXS_RWP" ,
+                  "valueMeaning": "APXS oxide abundance data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMCAM-CCS" ,
+                  "valueMeaning": "ChemCam LIBS Intermediate Clean Calibrated Spectra RDR data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMCAM-MOC" ,
+                  "valueMeaning": "ChemCam LIBS Multivariate Prediction of Oxide Composition RDR data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMCAM-PSV" ,
+                  "valueMeaning": "ChemCam LIBS Passive RDR data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMCAM-RDR" ,
+                  "valueMeaning": "ChemCam Initial LIBS Spectrum RDR data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMCAM-TEC" ,
+                  "valueMeaning": "ChemCam LIBS Trace Element Concentration RDR data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_ECC" ,
+                  "valueMeaning": "CheMin CCD Frame Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_ED1" ,
+                  "valueMeaning": "CheMin Diffraction Single Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_EDA" ,
+                  "valueMeaning": "CheMin Diffraction All Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_EDS" ,
+                  "valueMeaning": "CheMin Diffraction Split Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_EE1" ,
+                  "valueMeaning": "CheMin Energy Single Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_EEA" ,
+                  "valueMeaning": "CheMin Energy All Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_EES" ,
+                  "valueMeaning": "CheMin Energy Split Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_EFM" ,
+                  "valueMeaning": "CheMin Film Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_EHK" ,
+                  "valueMeaning": "CheMin Housekeeping N Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_ETR" ,
+                  "valueMeaning": "CheMin Transmit Raw Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_MIN" ,
+                  "valueMeaning": "CheMin Mineral identifications and abundances Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_RD1" ,
+                  "valueMeaning": "CheMin Diffraction Single, windowed K-alpha (rarely K-beta) Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_RDA" ,
+                  "valueMeaning": "CheMin Diffraction All, windowed K-alpha (rarely K-beta) Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_RDF" ,
+                  "valueMeaning": "CheMin Diffraction, Film Mode, Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_RDS" ,
+                  "valueMeaning": "CheMin Diffraction Split, windowed K-alpha (rarely K-beta) Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_RE1" ,
+                  "valueMeaning": "CheMin Energy Single Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_REA" ,
+                  "valueMeaning": "CheMin Energy All Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_RES" ,
+                  "valueMeaning": "CheMin Energy Split Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "CHEMIN_RTR" ,
+                  "valueMeaning": "CheMin Diffraction All, Raw, Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_ACTIVE" ,
+                  "valueMeaning": "DAN ACTIVE mode (neutron pulses are produced and science observations collected) Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_PASSIVE" ,
+                  "valueMeaning": "DAN PASSIVE mode (background observations collected) Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_RDR_AA" ,
+                  "valueMeaning": "DAN Averaged Active Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_RDR_AC" ,
+                  "valueMeaning": "DAN Derived Active Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_RDR_AP" ,
+                  "valueMeaning": "DAN Averaged Passive Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_RDR_EN" ,
+                  "valueMeaning": "DAN Derived Engineering Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_RDR_PA" ,
+                  "valueMeaning": "DAN Derived Passive Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "DAN_STANDBY" ,
+                  "valueMeaning": "DAN STANDBY mode (low voltage electronics are on, no science observations) Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Mastcam_Photometry_Cube" ,
+                  "valueMeaning": "Mastcam derived photometry cube data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "RAD_EDR" ,
+                  "valueMeaning": "RAD Experiment Data Record (EDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "RAD_RDR" ,
+                  "valueMeaning": "RAD Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "SAM_RDR" ,
+                  "valueMeaning": "SAM Reduced Data Record (RDR) data." ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.product_version_id" ,
+            "title": "product_version_id" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "product_version_id identifies the version of an individual data product." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.release_number" ,
+            "title": "release_number" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "release_number is the identifier of a scheduled release of MSL data from PDS. The first MSL data release has release_number \"0001\". The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "4" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.sol_number" ,
+            "title": "sol_number" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "Sol_number is the number of the Mars day on which an observation was acquired. Landing day is Sol 0." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_partition" ,
+            "title": "spacecraft_clock_partition" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock_start and spacecraft_clock_stop attributes. This attribute may be used when the spacecraft_clock values do not include a partition number." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "1" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_start" ,
+            "title": "spacecraft_clock_start" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": " The spacecraft_clock_start is the value of the spacecraft clock at the beginning of an observation, in seconds. Values are formed according to the pattern [p\/]dddddddddd[.fffffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .fffffffff is an optional fraction of a second up to 9 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "19" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "([1-9]\/)?[0-9]{1,10}(\\.[0-9]{1,9})?" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.spacecraft_clock_stop" ,
+            "title": "spacecraft_clock_stop" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": " The spacecraft_clock_stop is the value of the spacecraft clock at the end of an observation, in seconds. Values are formed according to the pattern [p\/]dddddddddd[.fffffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .fffffffff is an optional fraction of a second up to 9 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. " ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "19" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "([1-9]\/)?[0-9]{1,10}(\\.[0-9]{1,9})?" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.start_local_true_solar_time" ,
+            "title": "start_local_true_solar_time" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "Start_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the beginning of an observation." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "8" ,
+            "maximumCharacters": "24" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "((Sol\\-)?[0-9]{1,5} )?[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,5})?" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.start_local_true_solar_time_sol" ,
+            "title": "start_local_true_solar_time_sol" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Start_local_true_solar_time_sol should accompany the attribute start_local_true_solar_time if that attribute's value does not include a sol number prefix." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.stop_local_true_solar_time" ,
+            "title": "stop_local_true_solar_time" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "Stop_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the end of an observation." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "8" ,
+            "maximumCharacters": "24" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "((Sol\\-)?[0-9]{1,5} )?[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,5})?" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msl.Observation_Information.msl.stop_local_true_solar_time_sol" ,
+            "title": "stop_local_true_solar_time_sol" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msl" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": "The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Stop_local_true_solar_time_sol should accompany the attribute stop_local_true_solar_time if that attribute's value does not include a sol number prefix." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      ]
+    }
+  }
+]

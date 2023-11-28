@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:mgn  Version:1.0.0.0 - Fri Oct 06 17:00:53 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - mgn: - MGN                                                      -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/mgn/v1"
+    xmlns:mgn="http://pds.nasa.gov/pds4/mission/mgn/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The MGN dictionary contains classes that describe aspects of the 
+        Magellan mission and related instruments.
+        
+        MGN version 1.0.0.0
+        PDS Build 1.20.0.0 (1K00)
+        LDDTool version 14.2.4
+        
+        Created with lddtool -plJ -V 1K00 PDS4_MGN_IngestLDD.xml
+        
+        Added new mission phases for mapping cycles
+        Added P-MIDR for polar MIDRs
+        Renamed pds_volume_id to original_pds_volume_id
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Magellan_Parameters" type="mgn:Magellan_Parameters"> </xs:element>
+
+  <xs:complexType name="Magellan_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Magellan_Parameters class is the container
+        for mission-specific metadata elements.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="product_type" type="mgn:product_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="product_version_id" type="mgn:product_version_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapping_cycle" type="mgn:mapping_cycle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_number" type="mgn:orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_orbit_number" type="mgn:start_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_orbit_number" type="mgn:stop_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="mgn:mission_phase_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="radar_look_direction" type="mgn:radar_look_direction" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_count_partition" type="mgn:spacecraft_clock_count_partition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" nillable="true" type="mgn:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" nillable="true" type="mgn:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_institution_name" type="mgn:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="original_pds_volume_id" type="mgn:original_pds_volume_id" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mgn:product_type = ('ARCDR', 'BSR', 'C-BIDR', 'C1-MIDR', 'C2-MIDR', 'C3-MIDR', 'F-BIDR', 'F-MIDR', 'GEDR', 'GREDR', 'GSDR', 'GTDR', 'GVDR', 'GXDR', 'LOSAPDR', 'P-MIDR', 'SCVDR', 'SHXDR')"/> -->
+    <!-- <xs:assert test="mgn:mission_phase_name = ('Aerobraking', 'Mapping Cycle 1', 'Mapping Cycle 2', 'Mapping Cycle 3', 'Mapping Cycle 4', 'Mapping Cycle 5', 'Mapping Cycle 6', 'Primary Mission')"/> -->
+    <!-- <xs:assert test="mgn:radar_look_direction = ('Left', 'Maxwell', 'Mixed', 'Right', 'Stereo')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="mapping_cycle">
+    <xs:annotation>
+      <xs:documentation>The mapping cycle in which the data were
+        acquired. Should be 1 to 6. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="6"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation> The mission_phase_name attribute provides the
+        mission-defined name of a time period within the mission.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orbit_number">
+    <xs:annotation>
+      <xs:documentation>The orbit_number attribute identifies the number
+        of the orbital revolution around a target body.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="20000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="original_pds_volume_id">
+    <xs:annotation>
+      <xs:documentation>The original PDS volume_id of where the Magellan
+        data are located. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="producer_institution_name">
+    <xs:annotation>
+      <xs:documentation>The producer_institution_name attribute
+        identifies a university, research center, NASA center, or other
+        institution associated with the production of a data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type">
+    <xs:annotation>
+      <xs:documentation>The product_type attribute indicates the type of
+        data for an individual data product. The values are based on the
+        values used by the Magellan project for their delivery to
+        PDS.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_version_id">
+    <xs:annotation>
+      <xs:documentation>The product_version_id attribute identifies the
+        version of an individual data product. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="radar_look_direction">
+    <xs:annotation>
+      <xs:documentation> The radar_look_direction attribute provides the
+        direction the radar antenna was pointing relative to the
+        spacecraft ground track along a given orbit. Most cases were
+        Left or Right. Stereo indicates left looking with an incidence
+        angle for stereo measurements. Maxwell is a special case for
+        observing the Maxwell feature. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_count_partition">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_count_partition attribute
+        indicates the clock partition active for the
+        spacecraft_clock_start_count and spacecraft_clock_stop_count
+        attributes. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the beginning of a
+        time period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the end of a time
+        period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="start_orbit_number">
+    <xs:annotation>
+      <xs:documentation>Provides the the lowest revolution orbit number
+        that contributed data to a given data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="20000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_orbit_number">
+    <xs:annotation>
+      <xs:documentation>Provides the the highest revolution orbit number
+        that contributed data to a given data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="20000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
