@@ -7,16 +7,37 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd">
   <name>Earth-Based Telescope</name>
-  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <ldd_version_id>1.1.0.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Ben Hirsch</full_name>
   <steward_id>sbn</steward_id>
   <namespace_id>ebt</namespace_id>
-  <last_modification_date_time>2023-03-15</last_modification_date_time>
+  <comment>
+    version 1.1.0 2023-11-15
+     - Updated to IM version 1.21.0.0
+     - Replaced apparent_visual_magnitude attribute with an Apparent_Magnitude class that
+       can specify filter.
+     - Added telescope_tracking_rate attribute to Instrument_Parameters to record
+       Sidereal/Non-Sidereal tracking.
+     - Promoted horizontal/vertical_coordinate_pixel attributes from World_Axis class to
+       Reference_Frame_Parameters class.
+     - Added specified_unit_id to attributes with minimum and maximum values (degrees for
+       angles).
+     - Removed redundant maximum length of 255 from attributes with
+       ASCII_Short_String_Collapsed data type.
+     - Changed attributes with a minimum of 0 or 1 to ASCII_NonNegative_Integer.
+     - Removed unworkable schematron that required coordinate_system_equinox to be nil
+       when Reference_Frame_Identification/name is either ICRS or GAPPT.
+     - Added schematron rule to prohibit coordinate_system_equinox when
+       Reference_Frame_Identification/name is either ICRS or GAPPT and another that
+       requires coordinate_system_equinox when that's not the case.
+     - coordinate_system_equinox is now nillable.
+  </comment>
+  <last_modification_date_time>2023-11-15</last_modification_date_time>
 
 <!-- EBT Parameters attributes -->
 
-  <DD_Attribute>
+<!--   <DD_Attribute>
     <name>apparent_visual_magnitude</name>
 	<version_id>1.0</version_id>
 	<local_identifier>apparent_visual_magnitude</local_identifier>
@@ -28,6 +49,32 @@
 	  <enumeration_flag>false</enumeration_flag>
 	  <value_data_type>ASCII_Real</value_data_type>
 	</DD_Value_Domain>
+  </DD_Attribute> -->
+
+  <DD_Attribute>
+    <name>magnitude_filter</name>
+    <version_id>1.0</version_id>
+    <local_identifier>magnitude_filter</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>The filter in use (r', v', clear, etc.) at the time of the magnitude estimation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>magnitude_value</name>
+    <version_id>1.0</version_id>
+    <local_identifier>magnitude_value</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>The estimated magnitude at the time of observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
   </DD_Attribute>
 
 <!-- Observing_Conditions attributes -->
@@ -75,8 +122,6 @@
 	<DD_Value_Domain>
 	  <enumeration_flag>false</enumeration_flag>
 	  <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	  <minimum_characters>1</minimum_characters>
-	  <maximum_characters>255</maximum_characters>
 	</DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>
@@ -174,8 +219,6 @@
 	<DD_Value_Domain>
 	  <enumeration_flag>false</enumeration_flag>
 	  <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	  <minimum_characters>1</minimum_characters>
-	  <maximum_characters>255</maximum_characters>
 	</DD_Value_Domain>
   </DD_Attribute>
 
@@ -194,6 +237,22 @@
 	  <value_data_type>ASCII_Real</value_data_type>
 	  <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
 	</DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>telescope_tracking_rate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>telescope_tracking_rate</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>SBN</submitter_name>
+    <definition>The telescope_tracking_rate attribute identifies whether the telescope
+      used for the observation was configured for sidereal tracking, object tracking, or
+      some other tracking rate.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
   </DD_Attribute>
 
 <!-- WCS attributes -->
@@ -232,7 +291,7 @@
     <name>coordinate_system_equinox</name>
     <version_id>1.0</version_id>
     <local_identifier>coordinate_system_equinox</local_identifier>
-    <nillable_flag>false</nillable_flag>
+    <nillable_flag>true</nillable_flag>
     <submitter_name>SBN</submitter_name>
     <definition>Time origin of the coordinate system.
     </definition>
@@ -241,6 +300,7 @@
       <value_data_type>ASCII_Real</value_data_type>
       <minimum_value>1950</minimum_value>
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+      <specified_unit_id>yr</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -259,6 +319,7 @@
       <minimum_value>0</minimum_value>
       <maximum_value>360</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -277,6 +338,7 @@
       <minimum_value>-90</minimum_value>
       <maximum_value>90</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -290,7 +352,7 @@
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
       <minimum_value>1</minimum_value>
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
     </DD_Value_Domain>
@@ -390,6 +452,7 @@
       <minimum_value>-90</minimum_value>
       <maximum_value>360</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -488,8 +551,7 @@
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type>
-      <minimum_value>0</minimum_value>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
       <maximum_value>99</maximum_value>
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
     </DD_Value_Domain>
@@ -524,8 +586,7 @@
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type>
-      <minimum_value>0</minimum_value>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
@@ -541,8 +602,7 @@
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type>
-      <minimum_value>0</minimum_value>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
@@ -595,6 +655,7 @@
       <minimum_value>0</minimum_value>
       <maximum_value>180</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
 
@@ -613,6 +674,7 @@
       <minimum_value>-90</minimum_value>
       <maximum_value>90</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
 
@@ -631,6 +693,7 @@
       <minimum_value>0</minimum_value>
       <maximum_value>360</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
 
@@ -649,6 +712,7 @@
       <minimum_value>-90</minimum_value>
       <maximum_value>90</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
 
@@ -667,6 +731,7 @@
       <minimum_value>0</minimum_value>
       <maximum_value>360</maximum_value>
       <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
 
@@ -697,10 +762,10 @@
 		geometry information, but in an earth-based context.</definition>
 	<element_flag>true</element_flag>
 	<DD_Association>
-	  <identifier_reference>apparent_visual_magnitude</identifier_reference>
-	  <reference_type>attribute_of</reference_type>
+	  <identifier_reference>Apparent_Magnitude</identifier_reference>
+	  <reference_type>component_of</reference_type>
 	  <minimum_occurrences>0</minimum_occurrences>
-	  <maximum_occurrences>1</maximum_occurrences>
+	  <maximum_occurrences>*</maximum_occurrences>
 	</DD_Association>
 	<DD_Association>
 	  <identifier_reference>Telescope_Geometry</identifier_reference>
@@ -723,6 +788,29 @@
   </DD_Class>
 
 <!-- EBT Parameters Container Classes -->
+
+  <DD_Class>
+    <name>Apparent_Magnitude</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Apparent_Magnitude</local_identifier>
+    <submitter_name>SBN</submitter_name>
+    <definition>The Apparent_Magnitude class is an optional, repeatable class for
+      recording magnitude measurements made for an observation.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>magnitude_filter</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>magnitude_value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
 
   <DD_Class>
 	<name>Telescope_Geometry</name>
@@ -765,16 +853,22 @@
 	<version_id>1.0</version_id>
 	<local_identifier>Instrument_Parameters</local_identifier>
 	<submitter_name>SBN</submitter_name>
-	<definition>This class measures instrument temperatures, along
-		with other potential instrument parameters that may affect
-		the observation.</definition>
+	<definition>This class contains instrument settings and statuses relevant
+    to the observation.
+  </definition>
 	<element_flag>false</element_flag>
 	<DD_Association>
 	  <identifier_reference>instrument_temperature</identifier_reference>
 	  <reference_type>attribute_of</reference_type>
-	  <minimum_occurrences>1</minimum_occurrences>
+	  <minimum_occurrences>0</minimum_occurrences>
 	  <maximum_occurrences>1</maximum_occurrences>
 	</DD_Association>
+  <DD_Association>
+    <identifier_reference>telescope_tracking_rate</identifier_reference>
+    <reference_type>attribute_of</reference_type>
+    <minimum_occurrences>0</minimum_occurrences>
+    <maximum_occurrences>1</maximum_occurrences>
+  </DD_Association>
   </DD_Class>
 
   <DD_Class>
@@ -936,6 +1030,18 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
+      <identifier_reference>vertical_coordinate_pixel</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>horizontal_coordinate_pixel</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
       <identifier_reference>World_Axis</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
@@ -983,14 +1089,6 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
-    <DD_Association>
-      <identifier_reference>XSChoice#</identifier_reference>
-      <identifier_reference>vertical_coordinate_pixel</identifier_reference>
-      <identifier_reference>horizontal_coordinate_pixel</identifier_reference>
-      <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
-      <maximum_occurrences>1</maximum_occurrences>
-     </DD_Association>
   </DD_Class>
 
   <DD_Class>
@@ -1453,9 +1551,15 @@
 	
 	  <DD_Rule_Statement>
 	    <rule_type>Assert</rule_type>
-	    <rule_test>if (ebt:Reference_Frame_Identification/ebt:name = ('GAPPT', 'ICRS') and not(ebt:coordinate_system_equinox/@xsi:nil eq 'true'))  then false() else true()</rule_test>
-	    <rule_message>If ebt:Reference_Frame_Identification/ebt:name = GAPPT or ICRS, then ebt:coordinate_system_equinox must be nill.</rule_message>
+	    <rule_test>if (ebt:Reference_Frame_Identification/ebt:name = ('GAPPT', 'ICRS') and ebt:coordinate_system_equinox) then false() else true()</rule_test>
+	    <rule_message>If ebt:Reference_Frame_Identification/ebt:name = GAPPT or ICRS, then ebt:coordinate_system_equinox must not be present.</rule_message>
 	  </DD_Rule_Statement>
+
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (not(ebt:Reference_Frame_Identification/ebt:name = ('GAPPT', 'ICRS')) and not(ebt:coordinate_system_equinox)) then false() else true()</rule_test>
+      <rule_message>If ebt:Reference_Frame_Identification/ebt:name != GAPPT or ICRS, then ebt:coordinate_system_equinox must be present.</rule_message>
+    </DD_Rule_Statement>
 	
 	  <DD_Rule_Statement>
 	    <rule_type>Assert</rule_type>

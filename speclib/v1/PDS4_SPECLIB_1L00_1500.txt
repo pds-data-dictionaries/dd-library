@@ -1,0 +1,1065 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        14.3.0
+   LDD Version Id:        1.5.0.0
+   LDD Label Version Id:  1.27
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Fri Nov 03 18:06:50 UTC 2023
+   Common Schema          [PDS4_PDS_1L00.xsd]
+   Common Schematron      [PDS4_PDS_1L00.sch]
+   IM Version Id:         1.21.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.27
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-speclib/ldd-speclib/src/PDS4_SPECLIB_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                6
+   Attributes             78
+   Associations           85
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Spectral Library
+   LDD Version            1.5.0.0
+   Full Name              Susan Slavney
+   Steward                geo
+   Namespace Id           speclib
+   Comment                
+        The SPECLIB dictionary contains classes and attributes specific to
+        spectral reflectance measurements of laboratory specimens.
+        
+        SPECLIB version 1.5.0.0 last updated 2023-10-25
+        PDS Build 1.18.0.0
+        LDDTool version 14.0.13
+        Built with lddtool -plJ PDS4_SPECLIB_IngestLDD.xml
+    
+   Last Modification Time 2023-10-25T17:30Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   accumulation_time
+   version                1.21
+   value data type        ASCII_Real
+   description            The duration for which a measurement was acquired. If more than one measurement is reported, this value corresponds to the total measurement time across all measurements.
+   minimum value          0
+   unit of measure type   Units_of_Time
+
+   name                   ancillary_product_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The ancillary_product_type element provides the type of data found in an ancillary product.
+   minimum characters     1
+   maximum characters     255
+
+   name                   dark_subtraction_flag
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The dark_subtraction_flag element indicates if a spectrum has been dark subtracted.
+
+   name                   data_producer_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The data_producer_name element provides the name of the creator of the product. For products in RELAB, the value of data_producer_name is always "RELAB".
+   minimum characters     1
+   maximum characters     255
+
+   name                   data_provider_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The data_provider_name element provides the full name of the person who submitted the product to the library.
+   minimum characters     1
+   maximum characters     255
+
+   name                   emission_angle
+   version                1.21
+   value data type        ASCII_Real
+   description            The emission_angle element provides the angle between the local vertical at the intercept point and a vector from the intercept point to the sensor.
+   nillable               true
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   incidence_angle
+   version                1.21
+   value data type        ASCII_Real
+   description            The incidence_angle element provides the angle between the local vertical at the intercept point and a vector from the intercept point to the source.
+   nillable               true
+   minimum value          -90
+   maximum value          90
+   unit of measure type   Units_of_Angle
+
+   name                   instrument_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The instrument_name element provides a descriptive name of the instrument that made a spectral measurement.
+   minimum characters     1
+   maximum characters     100
+
+   name                   laser_attenuation
+   version                1.21
+   value data type        ASCII_Real
+   description            The laser_attenuation element is the energy of the laser pulse used for sample ablation.
+   unit of measure type   Units_of_Energy
+
+   name                   laser_averaged_integrations
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The laser_averaged_integrations element indicates the number of laser integrations that are averaged. A value of 1 means that the integrations are not averaged.
+
+   name                   laser_integrations_saturated
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The laser_integrations_saturated element lists the number of spectra with at least one peak that saturates the spectrometer.
+
+   name                   laser_power_for_calibration_max
+   version                1.21
+   value data type        ASCII_Real
+   description            Maximum laser power, in percent, used during calibration.
+   minimum value          0
+   maximum value          100
+
+   name                   laser_power_for_calibration_min
+   version                1.21
+   value data type        ASCII_Real
+   description            Minimum laser power, in percent, used during calibration.
+   minimum value          0
+   maximum value          100
+
+   name                   laser_power_sample
+   version                1.21
+   value data type        ASCII_Real
+   description            Laser power, in percent, utilized during sample analysis.
+   minimum value          0
+   maximum value          100
+
+   name                   laser_pulses_discarded
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The laser_pulses_discarded element indicates the number of laser pulses discarded.
+
+   name                   laser_pulses_per_integration
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The laser_pulses_per_integration element identifies the number of laser pulses per integration. This value is 1 for single shot spectra.
+
+   name                   laser_pulse_rate
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The laser_pulse_rate element indicates the frequency of laser pulses. A laser_pulse_rate of 10 Hz means that the laser fires ten times per second.
+   unit of measure type   Units_of_Frequency
+
+   name                   laser_wavelength
+   version                1.21
+   value data type        ASCII_Real
+   description            Laser wavelength utilized in sample analysis.
+   minimum value          0
+   unit of measure type   Units_of_Length
+
+   name                   material_common_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_common_name element gives the specific name of the specimen material, as specifically as it is known. For example, if a specimen is pure olivine, put "Olivine". If a specimen is a mixture of kaolinite and opal, put "Kaolinite/Opal". Indicate if "Unidentified".
+   minimum characters     1
+   maximum characters     100
+
+   name                   material_origin
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_origin element identifies whether the specimen is natural, synthetic, or natural/doped.
+   minimum characters     1
+   maximum characters     255
+
+   name                   material_state
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_state element identifies the physical state of the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   material_subtype
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_subtype element provides an optional descriptor for additional information about the physical state of the specimen, e.g. particulate or nonparticulate.
+   minimum characters     1
+   maximum characters     255
+
+   name                   material_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The material_type element indicates the general type of the specimen.
+   minimum characters     1
+   maximum characters     30
+
+   name                   measurement_atmosphere_composition
+   version                1.21
+   value data type        UTF8_Text_Preserved
+   description            The measurement_atmosphere_composition element identifies any gas(es) present in measurement environment.
+   nillable               true
+   minimum characters     1
+   maximum characters     1000
+
+   name                   measurement_atmosphere_description
+   version                1.21
+   value data type        UTF8_Text_Preserved
+   description            The measurement_atmosphere_description decribes the atmospheric conditions through which the data was taken.
+   minimum characters     1
+   maximum characters     1000
+
+   name                   measurement_atmosphere_pressure
+   version                1.21
+   value data type        ASCII_Real
+   description            The measurement_atmosphere_pressure element provides the atmospheric pressure of the measurement environment.
+   nillable               true
+   unit of measure type   Units_of_Pressure
+
+   name                   measurement_atmosphere_relative_humidity
+   version                1.21
+   value data type        ASCII_Real
+   description            The measurement_atmosphere_relative_humidity element provides the relative humidity of the measurement environment.
+   nillable               true
+   minimum value          0
+   maximum value          100
+
+   name                   measurement_atmosphere_temperature
+   version                1.21
+   value data type        ASCII_Real
+   description            The measurement_atmosphere_temperature element provides the temperature of the measurement environment.
+   nillable               true
+   unit of measure type   Units_of_Temperature
+
+   name                   measurement_date_time
+   version                1.21
+   value data type        ASCII_Date_Time_YMD
+   description            The measurement_date_time element identifies the date and time of the observation and measurement.
+   nillable               true
+
+   name                   measurement_geometry_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_geometry_type element identifies the type of geometry at which a measurement is taken.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   measurement_location_number
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The measurement_location_number element indicates the location number of spectra collection on the target surface.
+
+   name                   measurement_locations_per_sample
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The measurement_locations_per_sample element indicates the number of measurement locations per sample.
+
+   name                   measurement_notes
+   version                1.21
+   value data type        UTF8_Text_Preserved
+   description            The measurement_notes element contains relevant notes about how a measurement was made.
+   minimum characters     1
+   maximum characters     1000
+
+   name                   measurement_reference_standard
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_reference_standard element identifies the standard object on which observations are performed in order to calibrate a measurement.
+   minimum characters     1
+   maximum characters     255
+
+   name                   measurement_requestor
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_requestor element identifies the individual or laboratory who requested the measurement. The attribute may be present with a null value. A maximum of two names are permitted.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   measurement_run
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The measurement_run element identifies the run number of the measurement in a particular day.
+   nillable               true
+
+   name                   measurement_segments
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The measurement_segments are the number of individual spectra that were combined to create the final merged spectrum. If the spectrum is not merged from multiple spectra, then the value of measurement_segments is 1.
+
+   name                   measurement_source_description
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_source_description element identifies the source used for the measurement such as the type of lamp, heating element, laser, or radioactive source.
+   minimum characters     1
+   maximum characters     255
+
+   name                   measurement_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The measurement_type element identifies the type of spectroscopy performed on a specimen.
+   minimum characters     1
+
+   name                   microscope_objective
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The microscope_objective is the magnification power of the objective lens by power (e.g. 4x, 10x).
+   minimum value          0
+
+   name                   mineral_subtype
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The mineral_subtype element identifies the mineral subtype of the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   mineral_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The mineral_type element identifies the type of mineral to which the specimen belongs.
+   minimum characters     1
+   maximum characters     255
+
+   name                   organic_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The organic_type element identifies the organic type to which the specimen belongs.
+   minimum characters     1
+   maximum characters     255
+
+   name                   phase_angle
+   version                1.21
+   value data type        ASCII_Real
+   description            The phase_angle element provides the angle between incidence and emission vectors.
+   nillable               true
+   minimum value          -180
+   maximum value          180
+   unit of measure type   Units_of_Angle
+
+   name                   processing_description
+   version                1.21
+   value data type        UTF8_Text_Preserved
+   description            The processing_description element provides information about how measurement(s) for a particular product were made, in addition to the information given in the Measurement Parameters class. In the case of a product created by merging multiple measurements, this element describes how the merge was done.
+
+   name                   rock_subtype
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The rock_subtype element identifies the rock subtype of the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   rock_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The rock_type element identifies the type of rock the specimen is.
+   minimum characters     1
+   maximum characters     255
+
+   name                   segment_number
+   version                1.21
+   value data type        ASCII_NonNegative_Integer
+   description            The segment_number element identifies which segment of a merged spectrum is described by a Measurement_Parameters class. The first segment is segment number 1. If the spectrum is not merged from multiple segments, then the value of segment_number is 1.
+
+   name                   source_specimen_id
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The source_specimen_id element identifies the source specimen from which the observed specimen is derived.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_collection_location
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_collection_location element provides the place where the specimen was collected.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_owner_location
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_owner_location element provides the institution or laboratory name where the specimen resides.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_owner_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_owner_name element identifies the individual or laboratory to whom the specimen belongs.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_description
+   version                1.21
+   value data type        UTF8_Text_Preserved
+   description            The specimen_description element provides a short description of the specimen.
+   minimum characters     1
+   maximum characters     1000
+
+   name                   specimen_dilution_method
+   version                1.21
+   value data type        UTF8_Text_Preserved
+   description            The specimen_dilution_method element describes the method by which dilution was conducted.
+   minimum characters     1
+   maximum characters     1000
+
+   name                   specimen_id
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_id element uniquely identifies the specimen.
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_max_size
+   version                1.21
+   value data type        ASCII_Real
+   description            The specimen_max_size element identifies the maximum particle size of the observed specimen.
+   minimum value          0
+   unit of measure type   Units_of_Length
+
+   name                   specimen_max_size_reported_percentile
+   version                1.21
+   value data type        ASCII_Real
+   description            The percentile reported by the specimen_max_size element. For example, a specimen_max_size_reported_percentile of 90 indicates that 90 percent of the specimen has a particle size less than or equal to specimen_max_size.
+   minimum value          0
+   maximum value          100
+
+   name                   specimen_min_size
+   version                1.21
+   value data type        ASCII_Real
+   description            The specimen_min_size element identifies the minimum particle size of the observed specimen.
+   minimum value          0
+   unit of measure type   Units_of_Length
+
+   name                   specimen_min_size_reported_percentile
+   version                1.21
+   value data type        ASCII_Real
+   description            The percentile reported by the specimen_min_size element. For example, a specimen_min_size_reported_percentile of 90 indicates that 90 percent of the specimen has a particle size greater than or equal to specimen_min_size.
+   minimum value          0
+   maximum value          100
+
+   name                   specimen_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_name element identifies the specimen as it is named where it is being kept.
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_ph
+   version                1.21
+   value data type        ASCII_Real
+   description            The specimen_ph element provides the pH of the observed specimen.
+   minimum value          0
+   maximum value          14
+
+   name                   specimen_provider_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_provider_name element gives the name of the person who provided the specimen for spectral measurement.
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_solute_standard
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_solute_standard element provides the standard used for the solute.
+   minimum characters     1
+   maximum characters     255
+
+   name                   specimen_thin_section_flag
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The specimen_thin_section_flag element indicates whether or not the specimen is a thin section.
+
+   name                   specimen_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The specimen_type element gives one or two terms that classify the origin of the specimen. 
+   minimum characters     1
+   maximum characters     255
+
+   name                   spectral_range_max
+   version                1.21
+   value data type        ASCII_Real
+   description            The spectral_range_max element identifies the maximum value at which a given data item was sampled. For example, a spectrum that was measured in the 0.4 to 3.5 um spectral range would have a spectral_range_max value of 3.5.
+   minimum value          0
+
+   name                   spectral_range_min
+   version                1.21
+   value data type        ASCII_Real
+   description            The spectral_range_min element identifies the minimum value at which a given data item was sampled. For example, a spectrum that was measured in the 0.4 to 3.5 um spectral range would have a spectral_range_min value of 0.4.
+   minimum value          0
+
+   name                   spectral_range_parameter_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_range_parameter_name element identifies the name of the parameter which determines the sampling interval of the measurement.
+   minimum characters     1
+   maximum characters     255
+
+   name                   spectral_range_unit_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_range_unit_name element identifies the unit of measure for the values specified by spectral_range_min and spectral_range_max.
+   minimum characters     1
+   maximum characters     255
+
+   name                   spectral_resolution_width_max
+   version                1.21
+   value data type        ASCII_Real
+   description            The spectral_resolution_width_max element identifies the full width at half maximum (FWHM) of a spectral band in a given spectrum. If all bands are the same width, spectral_resolution_width_min and spectral_resolution_width_max will have the same value.
+   nillable               true
+
+   name                   spectral_resolution_width_min
+   version                1.21
+   value data type        ASCII_Real
+   description            The spectral_resolution_width_min element identifies the full width at half minimum (FWHM) of a spectral band in a given spectrum. If all bands are the same width, spectral_resolution_width_min and spectral_resolution_width_max will have the same value.
+   nillable               true
+
+   name                   spectral_resolution_width_unit_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_resolution_width_unit_name element identifies the unit of measure for the values specified by spectral_resolution_width_min and spectral_resolution_width_max.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   spectral_sampling_interval_max
+   version                1.21
+   value data type        ASCII_Real
+   description            The spectral_sampling_interval_max element identifies the maximum distance between band centers in a given spectrum. If all band centers are equally spaced, spectral_sampling_interval_min and spectral_sampling_interval_max will have the same value.
+   nillable               true
+
+   name                   spectral_sampling_interval_min
+   version                1.21
+   value data type        ASCII_Real
+   description            The spectral_sampling_interval_min element identifies the minimum distance between band centers in a given spectrum. If all band centers are equally spaced, spectral_sampling_interval_min and spectral_sampling_interval_max will have the same value.
+   nillable               true
+
+   name                   spectral_sampling_interval_unit_name
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The spectral_sampling_interval_unit_name element identifies the unit of measure for the values specified by spectral_sampling_interval_min and spectral_sampling_interval_max.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   synthetic_processing_description
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The synthetic_processing_description element describes how a synthetic specimen has been processed.
+   minimum characters     1
+   maximum characters     255
+
+   name                   synthetic_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The synthetic_type element identifies the process by which the specimen was produced synthetically.
+   minimum characters     1
+   maximum characters     255
+
+   name                   volatile_type
+   version                1.21
+   value data type        UTF8_Short_String_Collapsed
+   description            The volatile_type element indicates whether the material was volatile-poor (less than 2.0% loss on ignition) or volatile-rich (greater than 2.0% loss on ignition). 
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+Parsed Input - Classes:
+
+   name                   Measurement_Instrument
+   description            The Measurement_Instrument class contains attributes that identify the instrument that made the measurement. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      speclib:instrument_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Measurement_Parameters
+   description            The Measurement_Parameters class contains attributes relevant to a single measurement of a specimen. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      speclib:segment_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_range_parameter_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_range_min
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_range_max
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_range_unit_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_sampling_interval_min
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_sampling_interval_max
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_sampling_interval_unit_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_resolution_width_min
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_resolution_width_max
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:spectral_resolution_width_unit_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_run
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_location_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_locations_per_sample
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_reference_standard
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_geometry_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:incidence_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:emission_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:phase_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_source_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_atmosphere_pressure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_atmosphere_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_atmosphere_relative_humidity
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_atmosphere_composition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_atmosphere_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_date_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:data_producer_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:data_provider_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_requestor
+      minimum occurrences   0
+      maximum occurrences   2
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_notes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:accumulation_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:microscope_objective
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_pulses_per_integration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_attenuation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_power_sample
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_power_for_calibration_min
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_power_for_calibration_max
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_wavelength
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_pulse_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_averaged_integrations
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:dark_subtraction_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_pulses_discarded
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:laser_integrations_saturated
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:Measurement_Instrument
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Specimen_Classification
+   description            The Specimen_Classification class provides information about how a specimen has been classified.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      speclib:specimen_type
+      minimum occurrences   1
+      maximum occurrences   2
+      reference type        attribute_of
+
+      local identifier      speclib:material_common_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:material_origin
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:synthetic_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:material_state
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:organic_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:material_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:material_subtype
+      minimum occurrences   0
+      maximum occurrences   10
+      reference type        attribute_of
+
+      local identifier      speclib:mineral_type
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      speclib:mineral_subtype
+      minimum occurrences   0
+      maximum occurrences   10
+      reference type        attribute_of
+
+      local identifier      speclib:rock_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:rock_subtype
+      minimum occurrences   0
+      maximum occurrences   10
+      reference type        attribute_of
+
+      local identifier      speclib:volatile_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:synthetic_processing_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_ph
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_dilution_method
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_solute_standard
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Specimen_Parameters
+   description            The Specimen_Parameters class provides information about a specimen for which measurements have been made.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      speclib:specimen_id
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:source_specimen_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_min_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_min_size_reported_percentile
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_max_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_max_size_reported_percentile
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_thin_section_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_collection_location
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_owner_location
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_owner_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:specimen_provider_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Ancillary_Product
+   description            The Ancillary_Product class identifies an ancillary measurement related to a Spectral Library specimen.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      speclib:ancillary_product_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Spectral_Library_Product
+   description            The Spectral_Library_Product class provides information about a data product in the Spectral Library.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      speclib:processing_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:measurement_segments
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      speclib:Specimen_Parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      speclib:Specimen_Classification
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      speclib:Measurement_Parameters
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      speclib:Ancillary_Product
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+End of Report

@@ -10,8 +10,9 @@
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 
     https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
+  
     <name>Mission Information Commons</name>
-    <ldd_version_id>1.3.0.0</ldd_version_id>
+    <ldd_version_id>1.3.0.3</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
     <full_name>Trent Hare</full_name>
     <steward_id>img</steward_id>
@@ -38,8 +39,17 @@
       - Add year_number, year_number_reference attributes to Surface_Mission
       - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
 
+      1.3.0.2
+      - add instrument_clock_stop and instrument_stop_time
+      - mission_phase_name and mission_phase_identifier to unbounded (multi)
+
+     1.3.0.3
+     - add ephemeris_start_time and ephemeris_stop_time to have available at the mission level.
+         We do understand et_start and et_stop are also available from the nucspec dictionary but
+         this is required by THEMIS which is not a nucspec instrument.
+     
     </comment>
-    <last_modification_date_time>2020-08-19T13:00:00</last_modification_date_time>
+    <last_modification_date_time>2023-11-08T09:00:00Z</last_modification_date_time>
   
   <!-- Begin attribute definitions -->
   
@@ -100,45 +110,7 @@
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
-  <!-- End attribute definitions for the Mission_Information class -->
-  
-  <!-- Start attribute definitions for Orbital_Mission class -->
-  <DD_Attribute>
-    <name>start_orbit_number</name>
-    <version_id>1.0</version_id>
-    <local_identifier>start_orbit_number</local_identifier>
-    <nillable_flag>true</nillable_flag>
-    <submitter_name>Susan Slavney</submitter_name>
-    <definition>The start_orbit_number attribute provides the
-      first in a series of numbers that represent a set of orbital
-      revolutions of one body around another.</definition>
-    <DD_Value_Domain>
-      <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-      <minimum_characters>1</minimum_characters>
-      <maximum_characters>255</maximum_characters>
-    </DD_Value_Domain>
-  </DD_Attribute>
-  <DD_Attribute>
-    <name>stop_orbit_number</name>
-    <version_id>1.0</version_id>
-    <local_identifier>stop_orbit_number</local_identifier>
-    <nillable_flag>true</nillable_flag>
-    <submitter_name>Susan Slavney</submitter_name>
-    <definition>The stop_orbit_number attribute provides the
-      last in a series of numbers that represent s set of orbital
-      revolutions of one body around another.</definition>
-    <DD_Value_Domain>
-      <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-      <minimum_characters>1</minimum_characters>
-      <maximum_characters>255</maximum_characters>
-    </DD_Value_Domain>
-  </DD_Attribute>
-  
-  <!-- End attribute definitions for Orbital_Mission class -->
-  
-  <!-- Start attribute definitions for Surface_Mission class -->
+
   <DD_Attribute>
     <name>spacecraft_clock_start</name>
     <version_id>1.0</version_id>
@@ -208,6 +180,26 @@
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>
+    <name>instrument_clock_stop</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_clock_stop</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>The value of the clock returned by the instrument at the end of 
+      the observation. This may differ from the spacecraft clock due to several factors 
+      such as clock drift, or differences in definition of stop time, or differences 
+      in the time epoch between the instrument and the main spacecraft.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+ 
+  <DD_Attribute>
     <name>instrument_start_time</name>
     <version_id>1.0</version_id>
     <local_identifier>instrument_start_time</local_identifier>
@@ -221,6 +213,93 @@
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  <DD_Attribute>
+    <name>instrument_stop_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_stop_time</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>This is instrument_clock_stop converted to UTC</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>ephemeris_start_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>ephemeris_start_time</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>
+      The time of data acquisition of the leading edge of the detector array.  
+      Value given in spacecraft event time (SCET), ET format. 
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ephemeris_stop_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>ephemeris_stop_time</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>The time of the end of data acquisition. This is often calculated from the start time and image duration. 
+      Value given in spacecraft event time (SCET), ET format. </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+
+  <!-- End attribute definitions for the Mission_Information class -->
+  
+  <!-- Start attribute definitions for Orbital_Mission class -->
+  <DD_Attribute>
+    <name>start_orbit_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_orbit_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The start_orbit_number attribute provides the
+      first in a series of numbers that represent a set of orbital
+      revolutions of one body around another.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_orbit_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_orbit_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The stop_orbit_number attribute provides the
+      last in a series of numbers that represent s set of orbital
+      revolutions of one body around another.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <!-- End attribute definitions for Orbital_Mission class -->
+  
+  <!-- Start attribute definitions for Surface_Mission class -->
+  
   <DD_Attribute>
     <name>start_sol_number</name>
     <version_id>1.0</version_id>
@@ -498,13 +577,13 @@
       <identifier_reference>mission_phase_name</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>1</maximum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>mission_phase_identifier</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>1</maximum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>release_number</identifier_reference>
@@ -543,7 +622,31 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
+      <identifier_reference>instrument_clock_stop</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
       <identifier_reference>instrument_start_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>instrument_stop_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>ephemeris_start_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>ephemeris_stop_time</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>

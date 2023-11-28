@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:survey  Version:1.1.0.0 - Thu Nov 02 23:40:46 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.21.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.5.1.0 - disp: - Display                                                 -->
+  <!-- 1.1.0.0 - survey: - Survey                                                -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/survey/v1"
+    xmlns:survey="http://pds.nasa.gov/pds4/survey/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:disp="http://pds.nasa.gov/pds4/disp/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1L00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/disp/v1" schemaLocation="https://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1L00_1510.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+The Survey dictionary contains classes that support ground based sky surveys.
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Survey" type="survey:Survey"> </xs:element>
+
+  <xs:complexType name="Coordinate">
+    <xs:annotation>
+      <xs:documentation>A location on the celestial sphere, consisting
+        of right ascension and declination.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="right_ascension" type="survey:right_ascension" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="declination" type="survey:declination" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Corner_Position">
+    <xs:annotation>
+      <xs:documentation>The position of one corner of an
+        image</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="corner_identification" type="survey:corner_identification" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Coordinate" type="survey:Coordinate" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="survey:corner_identification = ('Bottom Left', 'Bottom Right', 'Top Left', 'Top Right')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Image_Corners">
+    <xs:annotation>
+      <xs:documentation>The portion of the sky contained within an
+        image, identified by its four corners</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="equinox" type="survey:equinox" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Corner_Position" type="survey:Corner_Position" minOccurs="4" maxOccurs="4"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Limiting_Magnitudes">
+    <xs:annotation>
+      <xs:documentation>The limiting magnitude of the
+        image</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="band_name" type="survey:band_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="reference_object_type" type="survey:reference_object_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="N_Sigma_Limit" type="survey:N_Sigma_Limit"> </xs:element>
+        <xs:element name="Percentage_Limit" type="survey:Percentage_Limit"> </xs:element>
+      </xs:choice>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="survey:reference_object_type = ('Asteroid', 'Comet', 'Galaxy', 'Star')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="N_Sigma_Limit">
+    <xs:annotation>
+      <xs:documentation>The limiting magnitude of a point source at a
+        significance of n-sigma (i.e. a S/N of n)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="n_sigma_n" type="survey:n_sigma_n" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="limiting_magnitude" type="survey:limiting_magnitude" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Percentage_Limit">
+    <xs:annotation>
+      <xs:documentation>The limiting magnitude of the image, expressed
+        as a magnitude, and the percentage of known objects detected at
+        that magnitude</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" type="survey:percentage" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="limiting_magnitude" type="survey:limiting_magnitude" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Rollover">
+    <xs:annotation>
+      <xs:documentation>The properties of the peak of the histogram of
+        stellar magnitudes within the image.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rollover_magnitude" type="survey:rollover_magnitude" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="rollover_fwhm" type="survey:rollover_fwhm" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="rollover_snr" type="survey:rollover_snr" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Survey">
+    <xs:annotation>
+<xs:documentation>Sky Survey related properties.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="field_id" type="survey:field_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_purpose" type="survey:observation_purpose" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_technique" type="survey:observation_technique" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="calibration_type" type="survey:calibration_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Image_Corners" type="survey:Image_Corners" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Limiting_Magnitudes" type="survey:Limiting_Magnitudes" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Rollover" type="survey:Rollover" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="survey:observation_purpose = ('Calibration', 'Followup', 'Survey')"/> -->
+    <!-- <xs:assert test="survey:observation_technique = ('Non-Sidereal Drift Scan', 'Non-Sidereal Stare', 'Sidereal Drift Scan', 'Sidereal Stare', 'Track-And-Stack')"/> -->
+    <!-- <xs:assert test="survey:calibration_type = ('Bias', 'Dark', 'Flat Field', 'Fringe Correction')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="band_name">
+    <xs:annotation>
+      <xs:documentation>The band for which the limiting magnitude
+        specification is applicable</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="calibration_type">
+    <xs:annotation>
+      <xs:documentation>Further classifies calibration images by the
+        type of calibration field used.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="corner_identification">
+    <xs:annotation>
+      <xs:documentation>Identifies which corner of the image is being
+        located. This assumes that the image is displayed correctly
+        according to the orientation information provided in the display
+        dictionary</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="declination_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="declination">
+    <xs:annotation>
+      <xs:documentation>The declination component of a coordinate,
+        decimal degrees</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="survey:declination_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="equinox">
+    <xs:annotation>
+      <xs:documentation>Time that defines the origin of a celestial
+        coordinate system, given in fractional year. Type of year may
+        also be indicated. For example, 'J2000.0' corresponds to an
+        origin specified by January 1, 2000 at 12:00 Terrestrial Time in
+        Julian years.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="field_id">
+    <xs:annotation>
+<xs:documentation>Project-dependent field ID</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="limiting_magnitude">
+    <xs:annotation>
+      <xs:documentation>Magnitude at which a threshold known objects are
+        detected</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="n_sigma_n">
+    <xs:annotation>
+      <xs:documentation>Represents the value of n for n-sigma limiting
+        magnitude: The limiting magnitude of a point source at a
+        significance of n-sigma (i.e. a S/N of n)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_purpose">
+    <xs:annotation>
+      <xs:documentation>Identifies the intent of the observation,
+        whether it is an actual survey observation, a followup, or a
+        calibration image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_technique">
+    <xs:annotation>
+      <xs:documentation>Further classifies survey observations by the
+        technique used to acquire it.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="percentage">
+    <xs:annotation>
+      <xs:documentation>The percentage of known objects that are
+        detected at the given magnitude for the specified
+        band</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reference_object_type">
+    <xs:annotation>
+      <xs:documentation>The type of observed object used to calculate
+        the limiting magnitude</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="right_ascension_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="right_ascension">
+    <xs:annotation>
+      <xs:documentation>The right ascension component of a coordinate,
+        decimal degrees</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="survey:right_ascension_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="rollover_fwhm_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="rollover_fwhm">
+    <xs:annotation>
+      <xs:documentation>The full width at half maximum of stellar
+        sources at the magnitude of the peak of the histogram of stellar
+        magnitudes in the image, in arcseconds</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="survey:rollover_fwhm_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="rollover_magnitude">
+    <xs:annotation>
+      <xs:documentation>The magnitude of the peak of the histogram of
+        stellar magnitudes in the image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rollover_snr">
+    <xs:annotation>
+      <xs:documentation>The SNR at the magnitude of the peak of the
+        histogram of stellar magnitudes in the image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

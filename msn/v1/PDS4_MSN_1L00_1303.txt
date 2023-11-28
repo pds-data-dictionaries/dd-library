@@ -1,0 +1,485 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        14.3.0
+   LDD Version Id:        1.3.0.3
+   LDD Label Version Id:  1.27
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Wed Nov 08 21:52:59 UTC 2023
+   Common Schema          [PDS4_PDS_1L00.xsd]
+   Common Schematron      [PDS4_PDS_1L00.sch]
+   IM Version Id:         1.21.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.27
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-msn/ldd-msn/src/PDS4_MSN_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                4
+   Attributes             30
+   Associations           33
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Mission Information Commons
+   LDD Version            1.3.0.3
+   Full Name              Trent Hare
+   Steward                img
+   Namespace Id           msn
+   Comment                
+      ## CHANGE LOG ##
+      1.0.0.0
+      - Initial version
+      
+      1.1.0.0
+      - Upgraded to v1B00 of the IM.
+      - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+      - Renamed Orbital_Mission_Information to Orbital_Mission, Surface_Mission_Information to Surface_Mission
+      
+      1.2.0.0
+      - Upgraded to v1D00 of the IM.
+      - Add instrument_clock_start and allow helicopter use case.
+      - Add instrument_start_time. This is instrument_clock_start converted to UTC.
+      - Updated the definition for start_sol_number to allow a primary sol to be 
+        defined for mosaic products inplace of the actual starting sol value.
+       
+      1.3.0.0
+      - Upgraded to v1E00 of the IM
+      - Add year_number, year_number_reference attributes to Surface_Mission
+      - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
+
+      1.3.0.2
+      - add instrument_clock_stop and instrument_stop_time
+      - mission_phase_name and mission_phase_identifier to unbounded (multi)
+
+     1.3.0.3
+     - add ephemeris_start_time and ephemeris_stop_time to have available at the mission level.
+         We do understand et_start and et_stop are also available from the nucspec dictionary but
+         this is required by THEMIS which is not a nucspec instrument.
+     
+    
+   Last Modification Time 2023-11-08T09:00:00Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   mission_phase_name
+   version                1.21
+   value data type        ASCII_Short_String_Preserved
+   description            The mission_phase_name identifies a time period within the mission.
+   nillable               true
+
+   name                   mission_phase_identifier
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The mission_phase_identifier attribute provides an identifier for a mission phase.
+   nillable               true
+
+   name                   release_number
+   version                1.21
+   value data type        ASCII_Integer
+   description            Release_number is the number of a scheduled release of data from the provider to PDS. The first data release is typically Release 1. The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
+   nillable               true
+   minimum value          1
+
+   name                   product_type_name
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_type_name identifies a group of data products within a collection that have some property in common, such as processing level, resolution, or instrument-specific setting. 
+   nillable               true
+
+   name                   spacecraft_clock_start
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start is the value of the spacecraft clock at the beginning of the observation.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   spacecraft_clock_stop
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop is the value of the spacecraft clock at the end of the observation. spacecraft_clock_stop should only be used if there's also a spacecraft_clock_start value.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   spacecraft_clock_partition
+   version                1.21
+   value data type        ASCII_Integer
+   description            The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock attribute.
+
+   name                   instrument_clock_start
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The value of the clock returned by the instrument at the beginning of the observation. This may differ from the spacecraft clock due to several factors such as clock drift, or differences in definition of start time (for example, spacecraft clock might be when an image was commanded, but instrument clock might be after autoexpoure or autofocus processes), or differences in the time epoch between the instrument and the main spacecraft. 
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   instrument_clock_stop
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The value of the clock returned by the instrument at the end of the observation. This may differ from the spacecraft clock due to several factors such as clock drift, or differences in definition of stop time, or differences in the time epoch between the instrument and the main spacecraft. 
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   instrument_start_time
+   version                1.21
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            This is instrument_clock_start converted to UTC
+   nillable               true
+
+   name                   instrument_stop_time
+   version                1.21
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            This is instrument_clock_stop converted to UTC
+   nillable               true
+
+   name                   ephemeris_start_time
+   version                1.21
+   value data type        ASCII_Real
+   description             The time of data acquisition of the leading edge of the detector array. Value given in spacecraft event time (SCET), ET format. 
+   nillable               true
+   unit of measure type   Units_of_Time
+
+   name                   ephemeris_stop_time
+   version                1.21
+   value data type        ASCII_Real
+   description            The time of the end of data acquisition. This is often calculated from the start time and image duration. Value given in spacecraft event time (SCET), ET format. 
+   nillable               true
+   unit of measure type   Units_of_Time
+
+   name                   start_orbit_number
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The start_orbit_number attribute provides the first in a series of numbers that represent a set of orbital revolutions of one body around another.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   stop_orbit_number
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            The stop_orbit_number attribute provides the last in a series of numbers that represent s set of orbital revolutions of one body around another.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   start_sol_number
+   version                1.21
+   value data type        ASCII_Integer
+   description            The start_sol_number is the number of the Mars day on which an observation began. Landing day is Sol 0. For multi-sol observations, such as mosaics, if start_sol_number is given but stop_sol_number is not, the start_sol_number may instead be interpreted as the primary, or most important, sol for this observation.
+   nillable               true
+   minimum value          0
+
+   name                   stop_sol_number
+   version                1.21
+   value data type        ASCII_Integer
+   description            The stop_sol_number is the number of the Mars day on which an observation ended. Landing day is Sol 0. The stop_sol_number should only be used if there's also a start_sol_number.
+   nillable               true
+   minimum value          0
+
+   name                   start_local_mean_solar_time
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            start_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary.
+   minimum characters     8
+   maximum characters     255
+
+   name                   stop_local_mean_solar_time
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            stop_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary.
+   minimum characters     8
+   maximum characters     255
+
+   name                   start_local_true_solar_time
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            start_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary.
+   minimum characters     8
+   maximum characters     255
+
+   name                   stop_local_true_solar_time
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            stop_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary.
+   minimum characters     8
+   maximum characters     255
+
+   name                   solar_longitude
+   version                1.21
+   value data type        ASCII_Real
+   description            solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary.
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   start_local_mean_solar_time_sol
+   version                1.21
+   value data type        ASCII_Integer
+   description            The start_local_mean_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar time (LMST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative.
+
+   name                   stop_local_mean_solar_time_sol
+   version                1.21
+   value data type        ASCII_Integer
+   description            The stop_local_mean_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar time (LMST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative. The stop_local_mean_solar_time_sol should only be used if there's also a start_local_mean_solar_time_sol.
+
+   name                   start_local_true_solar_time_sol
+   version                1.21
+   value data type        ASCII_Integer
+   description            The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative.
+
+   name                   stop_local_true_solar_time_sol
+   version                1.21
+   value data type        ASCII_Integer
+   description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative. The stop_local_true_solar_time_sol should only be used if there is also a start_local_true_solar_time_sol.
+
+   name                   year_number
+   version                1.21
+   value data type        ASCII_Integer
+   description            Identifies the year of the observation, using the definition for year specified in year_number_reference.
+
+   name                   year_number_reference
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the system used to measure year_number. Current values include: Mars Year: Mars year as defined by Piqueaux et al (2015), extending Clancy et al (2000). Mars Year 1 started on April 11, 1955 at Ls (areocentric solar longitude) = 0, with subsequent years starting at Ls=0. Reference: https://doi.org/10.1016/j.icarus.2014.12.014
+   minimum characters     1
+   maximum characters     255
+
+   name                   active_flight_computer
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies which of potentially several flight computers were used for this observation.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   active_flight_imu
+   version                1.21
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies which of potentially several inertial measurement units (IMUs) were used for this observation.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+Parsed Input - Classes:
+
+   name                   Mission_Information
+   description            The Mission_Information class provides information about a mission.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn:mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      msn:mission_phase_identifier
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      msn:release_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:product_type_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:spacecraft_clock_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:spacecraft_clock_stop
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:spacecraft_clock_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:instrument_clock_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:instrument_clock_stop
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:instrument_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:instrument_stop_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:ephemeris_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:ephemeris_stop_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:Orbital_Mission
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      msn:Surface_Mission
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      msn:Observation_Context
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Orbital_Mission
+   description            The Orbital_Mission class provides information about an orbital mission.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn:start_orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:stop_orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Surface_Mission
+   description            The Surface_Mission class provides information about a surface mission.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn:start_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:stop_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:start_local_mean_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:stop_local_mean_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:start_local_mean_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:stop_local_mean_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:start_local_true_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:stop_local_true_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:start_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:stop_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:solar_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:year_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:year_number_reference
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observation_Context
+   description            Describes the vehicle context at the time the observation was taken.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn:active_flight_computer
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn:active_flight_imu
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

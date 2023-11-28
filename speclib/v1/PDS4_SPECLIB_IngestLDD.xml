@@ -39,7 +39,8 @@
         - incidence_angle
         - microscope_objective   
     07/28/22 DMS update to PDS IM 1.18.0.0  Speclib 1.4.0.0
-       
+    07/19/23 JGW: Speclib 1.5.0.0
+        - Added specimen_max_size_reported_percentile and specimen_min_size_reported_percentile
 -->
 
 <Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
@@ -48,7 +49,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd">
     <name>Spectral Library</name>
-    <ldd_version_id>1.4.0.0</ldd_version_id>
+    <ldd_version_id>1.5.0.0</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
     <full_name>Susan Slavney</full_name>
     <steward_id>geo</steward_id>
@@ -57,12 +58,12 @@
         The SPECLIB dictionary contains classes and attributes specific to
         spectral reflectance measurements of laboratory specimens.
         
-        SPECLIB version 1.4.0.0 last updated 2022-07-28
+        SPECLIB version 1.5.0.0 last updated 2023-10-25
         PDS Build 1.18.0.0
         LDDTool version 14.0.13
         Built with lddtool -plJ PDS4_SPECLIB_IngestLDD.xml
     </comment>
-    <last_modification_date_time>2022-07-28T15:57Z</last_modification_date_time>
+    <last_modification_date_time>2023-10-25T17:30Z</last_modification_date_time>
 
     <!-- Begin definitions of Spectral Library attributes  -->
     <!-- Definitions for attributes of these Spectral Library classes:
@@ -131,7 +132,9 @@
           specimen_dilution_method
           specimen_id
           specimen_max_size
+          specimen_max_size_reported_percentile
           specimen_min_size
+          specimen_min_size_reported_percentile
           specimen_name
           specimen_ph
           specimen_provider_name
@@ -1291,7 +1294,7 @@
     <DD_Attribute> <name>specimen_max_size</name>
         <version_id>1.0</version_id>
         <local_identifier>specimen_max_size</local_identifier>
-        <nillable_flag>true</nillable_flag>
+        <nillable_flag>false</nillable_flag>
         <submitter_name>Allison Zastrow</submitter_name>
         <definition>The specimen_max_size element identifies the maximum particle size of the observed specimen.</definition>
         <DD_Value_Domain>
@@ -1302,10 +1305,26 @@
             <specified_unit_id>mm</specified_unit_id>
         </DD_Value_Domain>
     </DD_Attribute>
+    <DD_Attribute> <name>specimen_max_size_reported_percentile</name>
+        <version_id>1.0</version_id>
+        <local_identifier>specimen_max_size_reported_percentile</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The percentile reported by the specimen_max_size element. For example, a specimen_max_size_reported_percentile of 
+            90 indicates that 90 percent of the specimen has a particle size less than or equal to specimen_max_size.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>100</maximum_value>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+            <specified_unit_id>percent</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>specimen_min_size</name>
         <version_id>1.0</version_id>
         <local_identifier>specimen_min_size</local_identifier>
-        <nillable_flag>true</nillable_flag>
+        <nillable_flag>false</nillable_flag>
         <submitter_name>Allison Zastrow</submitter_name>
         <definition>The specimen_min_size element identifies the minimum particle size of the observed specimen.</definition>
         <DD_Value_Domain>
@@ -1314,6 +1333,22 @@
             <minimum_value>0</minimum_value>
             <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
             <specified_unit_id>mm</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>specimen_min_size_reported_percentile</name>
+        <version_id>1.0</version_id>
+        <local_identifier>specimen_min_size_reported_percentile</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The percentile reported by the specimen_min_size element. For example, a specimen_min_size_reported_percentile of 
+            90 indicates that 90 percent of the specimen has a particle size greater than or equal to specimen_min_size.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>100</maximum_value>
+            <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+            <specified_unit_id>percent</specified_unit_id>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute> <name>specimen_name</name>
@@ -2207,7 +2242,9 @@
             specimen_description (O)
             source_specimen_id (O/N)
             specimen_min_size (O)
+            specimen_min_size_reported_percentile (O)
             specimen_max_size (O)
+            specimen_max_size_reported_percentile (O)
             specimen_thin_section_flag (O)
             specimen_collection_location (R/N)
             specimen_owner_location (R/N)
@@ -2251,7 +2288,19 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
+            <identifier_reference>specimen_min_size_reported_percentile</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
             <identifier_reference>specimen_max_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>specimen_max_size_reported_percentile</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
