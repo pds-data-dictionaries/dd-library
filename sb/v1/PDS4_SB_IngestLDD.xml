@@ -1,0 +1,2167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD 
+  xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd">
+  
+  <name>Small Bodies Studies</name>
+  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <dictionary_type>Discipline</dictionary_type>
+  <full_name>Anne Raugh</full_name>
+  <steward_id>sbn</steward_id>
+  <namespace_id>sb</namespace_id>
+  <comment>
+    The Small Bodies namespace provides classes and attributes for describing techniques 
+    and metadata common in small bodies observations, space-based or ground-based. In
+    some cases this metadata is in addition to the more general classes and attributes
+    provided in other discipline namespaces, which is expected to be present.
+    
+    The initials "ACR" in the "submitter" field indicate Anne Raugh.
+  </comment>
+  <last_modification_date_time>2023-12-20</last_modification_date_time>  <!-- changed to version 1.0.0.0 for release -->
+  
+  <!-- Attribute Definitions (alphabetical) -->
+  
+  <DD_Attribute>
+    <name>best_quality_value</name>
+    <version_id>1.0</version_id>
+    <local_identifier>best_quality_value</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:best_quality_value attribute provides the value used within a
+      quality map to indicate the best quality pixels. When bit flags are in 
+      use, for example, the "best" quality is typically 0 (zero) - that is, 
+      no quality issues are flagged at all.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>bias_subtraction</name>
+    <version_id>1.0</version_id>
+    <local_identifier>bias_subtraction</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:bias_subtraction attribute should be present and contain the value
+      "true" if bias subtraction has been performed as part of the processing
+      applied to the data comprising the product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>celestial_north_clock_angle</name>
+    <version_id>1.0</version_id>
+    <local_identifier>celestial_north_clock_angle</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:celestial_north_clock_angle attribute is the angle, measured clockwise from
+      "up" to the direction of the celestial north pole. It must be in the range 0-360, 
+      calculated with respect to the image display as indicated in the corresponding
+      disp:Display_Settings_Class.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <maximum_value>360.0</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>center_wavelength</name>
+    <version_id>1.0</version_id>
+    <local_identifier>center_wavelength</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The center_wavelength attribute defines the nominal transmission peak of the 
+      filter transmission curve, assuming the spectral response is a Gaussian
+      function.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+      <specified_unit_id>nm</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>center_wavelength_is_weighted</name>
+    <version_id>1.0</version_id>
+    <local_identifier>center_wavelength_is_weighted</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      If the preceding center_wavelength is actually a weighted center wavelength 
+      (rather then the peak of a nominal Gaussian function), then this attribute 
+      should be present with a value of "true". The attribute should never appear
+      without the center_wavelength attribute.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>comment</name>
+    <version_id>1.0</version_id>
+    <local_identifier>comment</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The comment attribute provides an opportunity to provide additional
+      information in free-format (UTF-8) text. Note that characters special to 
+      XML parsing (greater-than, less-than, and ampersand, primarily) must be 
+      presented using character entity codes.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>UTF8_Text_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>conversion_to_physical_units</name>
+    <version_id>1.0</version_id>
+    <local_identifier>conversion_to_physical_units</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:conversion_to_physical_units attribute should be present and contain the
+      value "true" if the primary data is expressed in physical units once any value
+      offset and scaling factor included in the definition of the data structure have 
+      been applied.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>dark_current_removal</name>
+    <version_id>1.0</version_id>
+    <local_identifier>dark_current_removal</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:dark_current_removal attribute should be present and contain the value
+      "true" if dark current removal has been performed as part of the processing
+      applied to the data comprising the product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>delta_time_from_sequence_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>delta_time_from_sequence_start</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:delta_time_from_sequence_start attribute provide the offset of a time of
+      interest in the current frame (as indicated by the containing class) from the 
+      start of the sequence in a "Frame Sequence" observation. It is specified
+      as a floating point number of the specified units of time.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>exposure_description</name>
+    <version_id>1.0</version_id>
+    <local_identifier>exposure_description</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The exposure_description attribute should be used, typically in conjunction 
+      with the exposure_duration attribute, when the data collection process 
+      involves something other than simple photon collection over a continuous 
+      period of time. The exposure_description should define what constitutes as
+      "exposure", and/or how the "duration" is determined.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>UTF8_Text_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>exposure_duration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>exposure_duration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      As in the Imaging namespace, exposure_duration indicates the total time a
+      detector was exposed to or gathering a "signal". This element is used in
+      cases where non-standard imaging techniques (those not described by the
+      Imaging dictionary) are used, or when the detector is detecting something
+      other than photons.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>file_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>file_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:file_name attribute should contain the name, preferably without path
+      information, of the file referenced more formally by a pds:Internal_Reference class
+      in the same containing class. The file name is provided as a matter of convenience
+      and for use as a validation cross-check when the data are accepted for archiving.
+      Path information is unlikely to be useful once the data are archived, and as the
+      data are curated both paths and file names may change. Consequently, the logical
+      identifier appearing in the pds:Internal_Reference should be considered the
+      positive identification of the file in question within the archive, rather than the
+      name.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_File_Name</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>filter_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>filter_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The filter_name is a (frequently informal) identifier for the filter within
+      the context of the source data collection. Typical values will be things like
+      "Red", "Clear", or "CH4". Values should be simple ASCII strings.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>filter_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>filter_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The filter_type attribute is a broad categorization of the nature of the pass band.
+      Permissible values are defined as they are needed - contact the SB Steward for
+      assistance.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Broadband</value>
+        <value_meaning>The filter is a broadband filter, with a relatively wide bandpass.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Neutral</value>
+        <value_meaning>The "filter" is clear - that is, it does not differentially filter any of the wavelengths to which the detector is sensitive.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Linear Variable Filter (LVF)</value>
+        <value_meaning>
+          The filter is a Linear Variable Filter, with a peak transmission wavelength that 
+          varies along its length.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Narrowband</value>
+        <value_meaning>The filter is a narrowband filter, with a relatively small bandpass</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>flag_meaning</name>
+    <version_id>1.0</version_id>
+    <local_identifier>flag_meaning</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:flag_meaning attribute defines the significance of the particular 
+      value when it occurs in the associated context (typically a quality map,
+      for example).
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>UTF8_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>flag_value</name>
+    <version_id>1.0</version_id>
+    <local_identifier>flag_value</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:flag_value attribute defines an integer value that corresponds to a
+      specific condition or assessment within the containing data structure, 
+      typically a quality map.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>flags_are_bit_flags</name>
+    <version_id>1.0</version_id>
+    <local_identifier>flags_are_bit_flags</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:flag_are_bit_flags attribute contains "true" if the flags being 
+      defined within the containing class correspond to specific bits within 
+      a single integer field. When this is the case, all flag should have 
+      values that are exponents of 2. Typically, when bit flags are used,  
+      several flags may be combined within a single field (so a quality value 
+      may be 10, indicating that the  flags corresponding to the values 8 and 
+      2 are both set, for example).
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>flat_field_applied</name>
+    <version_id>1.0</version_id>
+    <local_identifier>flat_field_applied</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:flat_field_applied attribute should be present and contain the value
+      "true" if flat fielding has been performed as part of the processing
+      applied to the data comprising the product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>frame_center_dec</name>
+    <version_id>1.0</version_id>
+    <local_identifier>frame_center_dec</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:frame_center_dec attribute provide the declination, in degrees, of the
+      center point of a single frame of a "Frame Sequence" observation.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-90.0</minimum_value>
+      <maximum_value>90.0</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>frame_center_ra</name>
+    <version_id>1.0</version_id>
+    <local_identifier>frame_center_ra</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:frame_center_ra attribute provide the right ascension, in degrees, of the
+      center point of a single frame of a "Frame Sequence" observation.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <maximum_value>360.0</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>frame_exposure_duration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>frame_exposure_duration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:frame_exposure_duration attribute provides the exposure time for one
+      frame of a framing sequence.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>frame_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>frame_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:frame_number attribute specifies the sequential frame number, starting with
+      "0", to which the subsequent frame-specific metadata applies. The frame number 
+      is the subscript along the axis that defines the "frame" dimension. Frames must
+      be physically stored in sequence in the file, so for a sequence of 2D frames the
+      sb:frame_number will correspond to the (0-based) index along the third axis.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>image_observation_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>image_observation_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:image_observation_type attribute indicates whether the data product
+      is a single, 2D image, or an image "frame sequence" - a series of images 
+      obtained in a single observing sequence and processed as a set. If the images
+      were intended to comprise a spectral cube or an movie sequence, then the data
+      should be labeled accordingly and this class may not be present if there is 
+      no additional metadata needed. Additiona types can be added to the permissible
+      value list as needs arise. When in doubt, check with the PDS node curating the 
+      data or raise an issue on this dictionary.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Frame Sequence</value>
+        <value_meaning>
+          There are multiple images in the data array, physically organized in the file as
+          a sequence of frames. The images were collected as part of a single observation,
+          but do not comprise a spectral cube, or a movie sequence, or a similar higher-order 
+          whole.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Single Image</value>
+        <value_meaning>
+          The data array contains a single image.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>known_long_wavelength_leak</name>
+    <version_id>1.0</version_id>
+    <local_identifier>known_long_wavelength_leak</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      If the filter in use has a known light leak on the long-wavelength side,
+      the known_long_wavelength_leak flag should be present and set to "true". 
+      This does NOT indicate that a correction has been applied - check the 
+      calibration processing for that information.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>known_short_wavelength_leak</name>
+    <version_id>1.0</version_id>
+    <local_identifier>known_short_wavelength_leak</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      If the filter in use has a known light leak on the short-wavelength side,
+      the known_short_wavelength_leak flag should be present and set to "true". 
+      This does NOT indicate that a correction has been applied - check the 
+      calibration processing for that information.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>long_wavelength_limit</name>
+    <version_id>1.0</version_id>
+    <local_identifier>long_wavelength_limit</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The long_wavelength_limit defines the largest wavelength cutoff of a 
+      wavelength range.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+      <specified_unit_id>nm</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <!--
+  <DD_Attribute>
+    <name>midframe_time_UTC_JD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>midframe_time_UTC_JD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:midframe_time_UTC_JD attribute contains the UTC time corresponding to
+      the midpoint of data-taking for a single frame of a "Frame Sequence" observation.
+      It must be in Julian date format. The unit of "julian day" must be included when 
+      this attribute is used.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>midframe_time_UTC_YMD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>midframe_time_UTC_YMD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:midframe_time_UTC_YMD attribute contains the UTC time corresponding to
+      the midpoint of data-taking for a single frame of a "Frame Sequence" observation.
+      It must be in the format YYYY-MM-DDThh:mm:ss.sssZ (that is, the ISO YMD format 
+      with the 'Z' timezone indicator required to be present).
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  -->
+  <DD_Attribute>
+    <name>midobservation_time_UTC_JD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>midobservation_time_UTC_JD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:midobservation_time_UTC_JD attribute contains the UTC time corresponding
+      to the midpoint of the observation, in full (as opposed to modified) Julian 
+      date format. The unit of "julian day" must be included when this attribute
+      is used. Unusual circumstances relating to the definition of "midobservation" 
+      should be explained briefly in the sb:comment field of the containing class.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>midobservation_time_UTC_YMD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>midobservation_time_UTC_YMD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:midobservation_time_UTC_YMD attribute contains the UTC time corresponding
+      the midpoint of the observation, in the format YYYY-MM-DDThh:mm:ss.sssZ
+      (that is, the ISO YMD format with the 'Z' timezone indicator required to be
+      present). Unusual circumstances relating to the definition of "midobservation" 
+      should be explained briefly in the sb:comment field of the containing class.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>position_velocity_vectors</name>
+    <version_id>1.0</version_id>
+    <local_identifier>position_velocity_vectors</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:position_velocity_vectors attribute identifies the type of position and
+      velocity vectors relevant to the data provided by naming the start and end point
+      pair. (In some cases the directionality of the velocity vector is opposite that
+      of the position vector.)
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Spacecraft_to_Target</value>
+        <value_meaning>
+          The associated values are relevant to the Spacecraft_To_Target position
+          vector and/or the Spacecraft_Relative_To_Target velocity vector.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Earth_to_Target</value>
+        <value_meaning>
+          The associated values are relevant to the Earth_To_Target position
+          vector and/or the Target_Relative_To_Earth velocity vector.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Sun_to_Spacecraft</value>
+        <value_meaning>
+          The associated values are relevant to the Sun_To_Spacecraft position
+          vector and/or the Spacecraft_Relative_To_Sun velocity vector.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Earth_to_Spacecraft</value>
+        <value_meaning>
+          The associated values are relevant to the Earth_To_Spacecraft position
+          vector and/or the Spacecraft_Relative_To_Earth velocity vector.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>qcos</name>
+    <version_id>1.0</version_id>
+    <local_identifier>qcos</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:qcos attribute is the "cos(theta/2)" element of a pointing quaternion.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-1.000</minimum_value>
+      <maximum_value>1.000</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>qsin1</name>
+    <version_id>1.0</version_id>
+    <local_identifier>qsin1</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:qsin1 attribute is the "ax*sin(theta/2)" element of a pointing quaternion.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>qsin2</name>
+    <version_id>1.0</version_id>
+    <local_identifier>qsin2</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:qsin2 attribute is the "ay*sin(theta/2)" element of a pointing quaternion.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>qsin3</name>
+    <version_id>1.0</version_id>
+    <local_identifier>qsin3</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:qsin3 attribute is the "az*sin(theta/2)" element of a pointing quaternion.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>scattered_light_correction</name>
+    <version_id>1.0</version_id>
+    <local_identifier>scattered_light_correction</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:scattered_light_correction attribute should be present and contain the value
+      "true" if scattered light correction has been applied as part of the processing
+      of the data comprising the product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>short_wavelength_limit</name>
+    <version_id>1.0</version_id>
+    <local_identifier>short_wavelength_limit</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The short_wavelength_limit defines the smallest wavelength cutoff of a 
+      wavelength range.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+      <specified_unit_id>nm</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>standard_filter_identification</name>
+    <version_id>1.0</version_id>
+    <local_identifier>standard_filter_identification</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The standard_filter_identification is used when the filter is one of a 
+      standard or well-known bandpass, for example "Johnson V" or "WFPC2 R".
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>start_time_UTC_JD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_time_UTC_JD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The start_time_UTC_JD attribute contains the UTC start time of a period of 
+      interest, typically the observation period, expressed as a Julian date. Units
+      of "julian day" must be included when using this attribute.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>stop_time_UTC_JD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_time_UTC_JD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The stop_time_UTC_JD attribute contains the UTC ending time of a period of 
+      interest, typically the observation period, expressed as a Julian date. Units
+      of "julian day" must be included when using this attribute.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>time_at_Earth_UTC_JD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>time_at_Earth_UTC_JD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:time_at_Earth_UTC_YMD attribute give the local UTC time for an Earth  
+      observer at the time for which the corresponding positions and/or vectors
+      were calculated. The time is stated in Julian date format, and must be given 
+      with units of "julian day".
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>time_at_Earth_UTC_YMD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>time_at_Earth_UTC_YMD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:time_at_Earth_UTC_YMD attribute give the local UTC time for an Earth  
+      observer at the time for which the corresponding positions and/or vectors
+      were calculated. The time is in the ISO standard YYYY-MM-DDThh:mm:ss.sssZ 
+      format.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>time_at_Sun_UTC_JD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>time_at_Sun_UTC_JD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:time_at_Sun_UTC_YMD attribute give the local UTC time for an observer  
+      at the Sun at the time for which the corresponding positions and/or vectors
+      were calculated. The time is stated in Julian date format, and must be given 
+      with units of "julian day".
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>time_at_Sun_UTC_YMD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>time_at_Sun_UTC_YMD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:time_at_Sun_UTC_YMD attribute give the local UTC time for an observer 
+      at the Sun at the time for which the corresponding positions and/or vectors
+      were calculated. The time is in the ISO standard YYYY-MM-DDThh:mm:ss.sssZ 
+      format.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>time_at_target_UTC_JD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>time_at_target_UTC_JD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:time_at_Sun_UTC_YMD attribute give the local UTC time for an observer  
+      at the target at the time for which the corresponding positions and/or vectors
+      were calculated. The time is stated in Julian date format, and must be given 
+      with units of "julian day".
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>time_at_target_UTC_YMD</name>
+    <version_id>1.0</version_id>
+    <local_identifier>time_at_target_UTC_YMD</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:time_at_target_UTC_YMD attribute give the local UTC time for an observer 
+      at the target at the time for which the corresponding positions and/or vectors
+      were calculated. The time is in the ISO standard YYYY-MM-DDThh:mm:ss.sssZ format.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>y_axis_position_angle</name>
+    <version_id>1.0</version_id>
+    <local_identifier>y_axis_position_angle</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:y_axis_position_angle provides the angle measured East from celestial North
+      in the plane of an image to the +Y axis of the instrument boresight. The values
+      are in the range 0-360 degrees.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <maximum_value>360.0</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>z_axis_position_angle</name>
+    <version_id>1.0</version_id>
+    <local_identifier>z_axis_position_angle</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:z_axis_position_angle provides the angle measured East from celestial North
+      in the plane of an image to the +Z axis of the instrument boresight. The values
+      are in the range 0-360 degrees.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <maximum_value>360.0</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  
+  <!-- Class Definitions (alphabetical except for SBS_Metadata -->
+  
+  <DD_Class>
+    <name>Additional_Geometry_Metadata</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Additional_Geometry_Metadata</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Additional_Geometry_Metadata class provides information to supplement that
+      already provided in the classes of the Geometry (geom:) namespace. This class is
+      only useful in relatively simple cases where there is just a single geom:Geometry 
+      class the label, with a single target and orbiter reference. The optional 
+      sb:comment attribute may be used to note unusual circumstances.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Instrument_Position_Angles</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Geometry_Vector_Time</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Additional_Image_Metadata</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Additional_Image_Metadata</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Additional_Image_Metadata class provides metadata to supplement the
+      standard image metadata supplied by the more general discipline classes. 
+      The sb:comment field may be used to note any unsual circumstances.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>image_observation_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Ancillary_Data_Objects</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Additional_Geometry_Metadata</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Per_Frame_Metadata</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Ancillary_Data_Objects</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Ancillary_Data_Objects</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Ancillary_Data_Objects class provides mappings between the primary image
+      data in the product and the ancillary data (quality maps, error estimates, etc.)
+      provided with it as part of the data product. The optional sb:comment field may
+      be used to note any unusual circumstances.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Quality_Map</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Error_Estimates_Map</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>SNR_Map</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Bad_Pixel_Map</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Bad_Pixel_Map</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Bad_Pixel_Map class identifies the PDS archive product containing the 
+      bad pixel map applied in processing the data in the product. 
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Bias_Map</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Bias_Map</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Bias_Map class identifies a PDS4 product that contains the 
+      pixel-by-pixel bias values applied during a calibration process.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Calibration_Applied</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Calibration_Applied</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Calibration_Applied class provide flags to indicate specific calibration
+      processes that have been performed, as well as references to files provided with
+      the archive that were used as part of the processing. The otpional sb:comment field
+      may be used to note any unusual circumstances.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>bias_subtraction</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>dark_current_removal</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>flat_field_applied</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>scattered_light_correction</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>conversion_to_physical_units</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Calibration_Reference_Files</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Calibration_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Calibration_Information</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+       The sb:Calibration_Information class documents what processing steps have been
+       applied to the data, and links to both the raw data file and the specific calibration
+       files used to produce the processed product presented in the label. 
+    </definition>
+
+    <DD_Association>
+      <identifier_reference>Raw_Data_Product</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Calibration_Applied</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Calibration_Reference_Files</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Calibration_Reference_Files</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Calibration_Reference_Files</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Calibration_Reference_Files class provides explicit references to key
+      calibration files provided as part of the archive. Note that these references
+      are required to be to specific versions of calibration files, as calibration
+      processes and details typically evolve over time. The optional sb:comment 
+      should be used to note any unusual circumstances related to the calibration 
+      files as a group. The optional pds:comment field in the pds:Internal_Reference 
+      class should be used to note any unusual circumstances related to any particular 
+      referenced file. The subclasses mat be listed in any order, and may be repeated
+      if that makes sense - although that should be explained in a "comment" field.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>XSChoice#</identifier_reference>
+      <identifier_reference>Bias_Map</identifier_reference>
+      <identifier_reference>Bad_Pixel_Map</identifier_reference>
+      <identifier_reference>Dark_Field</identifier_reference>
+      <identifier_reference>Flat_Field</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Dark_Field</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Dark_Field</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Dark_Field class identifies the PDS archive product containing the 
+      dark field used to calibrate the data in the product.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  
+  <DD_Class>
+    <name>Error_Estimates_Map</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Error_Estimates_Map</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Error_Estimates_Map class links the primary image data in the product 
+      to the data object (within the same product) containing the pixel-for-pixel 
+      error estimates. The definition of the data object itself should indicate
+      the unit of measure of the errors and related information. The optional
+      sb:comment in this class can be used to note any unusual circumstances not
+      related to reading (that is, input/output of) the error map data.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Exposure</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Exposure</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Exposure class is used to provide attributes describing what constitutes
+      an "exposure" in the particular circumstances of the observation. It is used
+      primarily with non-imaging data, or imaging data that does not fit the 
+      circumstances covered by the Imaging namespace.
+      
+      The Imaging namespace class should be used when it is applicable. This class
+      may be used in addition to the Imaging class in order to provide additional
+      detail via the sb:exposure_description attribute.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>exposure_duration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>exposure_description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Filter</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Filter</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Filter class provides local and standard identification of the 
+      filter used to make the observation, as well as descriptive parameters
+      to identify types of filter (broadband, LVF, etc.) and basic filter 
+      characteristics (bandpass, center wavelegth).
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>filter_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>standard_filter_identification</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>filter_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>center_wavelength</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>center_wavelength_is_weighted</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>short_wavelength_limit</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>long_wavelength_limit</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>known_short_wavelength_leak</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>known_long_wavelength_leak</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Flat_Field</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Flat_Field</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Flat_Field class identifies the PDS archive product containing the 
+      flat field used to calibrate the data in the product.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Frame_Pointing</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Frame_Pointing</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Frame_Pointing class provide pointing information specific to one frame
+      in a "Frame Sequence" observation.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>frame_center_ra</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>frame_center_dec</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>celestial_north_clock_angle</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Instrument_Position_Angles</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Geometry_Vector_Time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Geometry_Vector_Time</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Geometry_Vector_Time class identifies a vector or pair of related vectors 
+      included in the geom:Geometry_Orbiter class and provides details about the local
+      time for an observer located at one of the endpoints of the vector at the time 
+      for which the vector was calculated. For example, if the 
+      geom:Vector_Cartesian_Position_Earth_to_Target vector was calculated for 
+      spacecraft UTC timeX, this class can be used to provide the additional information
+      that the UTC time for an Earth Observer at that instant would have been timeY.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>position_velocity_vectors</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>time_at_Earth_UTC_YMD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>time_at_Earth_UTC_JD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>time_at_Sun_UTC_YMD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>time_at_Sun_UTC_JD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>time_at_target_UTC_YMD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>time_at_target_UTC_JD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Instrument_Position_Angles</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Instrument_Position_Angles</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Instrument_Position_Angles class provide position angles for the
+      axes of the boresight on the place of the image, measured with respect 
+      to the location of the celestial North pole (also projected onto the plane
+      of the image).
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>y_axis_position_angle</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>z_axis_position_angle</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Instrument_to_J2000_Quaternion</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Instrument_to_J2000_Quaternion</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Instrument_to_J2000_Quaternion is provides the quaterion to rotate from
+      coordinates from the intrument frame to the EME J2000 frame for a single specific
+      frame of a "Frame Sequence" observation.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>qcos</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>qsin1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>qsin2</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>qsin3</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Midframe_Time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Midframe_Time</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Midframe_Time class provides timing information related to the mid-exposure 
+      time of one frame of a "Frame Sequence" observation.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>midobservation_time_UTC_YMD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>midobservation_time_UTC_JD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>delta_time_from_sequence_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Observation_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Observation_Parameters</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Observational_Parameters class provides general attributes that small bodies
+      researches find useful for a variety of types of observations. 
+      
+      Not all subclasses  will be applicable to all data types. The sb:Filter subclass
+      may be repeated, but note that if this is a spectral observation, the relevant 
+      filter characteristics must be included the Spectral Dictionary (sp:). Additional
+      filter information may be provided here if desired, of course.
+    </definition>
+    <DD_Association>
+      <identifier_reference>Exposure</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Filter</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Timing</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Per_Frame_Metadata</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Per_Frame_Metadata</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Per_Frame_Metadata class provides timing and pointing information specific
+      to a single, specified frame within a "Frame Sequence" observation. It should not
+      be used in the case of single-image observations. For single images, the full
+      geom:Image_Display_Geometry class should be used.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>frame_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>frame_exposure_duration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Midframe_Time</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Frame_Pointing</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Instrument_to_J2000_Quaternion</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Quality_Flag_Definition</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Quality_Flag_Definition</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Quality_Flag_Definition class defines one flag value with its corresponding
+      meaning within a sb:Quality_Map_Definition class. Note that flag values here should
+      not be used to replace pds:Special_Constants values - in particular the 
+      pds:missing_constant value - that should be included in the defintion of the data
+      array itself. The pds:Special_Constants class is used for visualization and data 
+      validation; the sb:Quality_Flag_Definitions are used for interpretation and analysis.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>flag_value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>flag_meaning</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Quality_Map</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Quality_Map</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Quality_Map class links the primary image data in the product to the
+      data object (within the same product) containing the pixel-for-pixel quality 
+      assessment information. It also provides the definitions associated with the
+      quality values. The optional sb:comment field may be used to note any 
+      unusual circumstances.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Quality_Map_Definition</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Quality_Map_Definition</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Quality_Map_Definition</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Quality_Map_Definition defines attributes related to a "Quality Map" data
+      structure - that is, an array with dimensions corresponding to the primary data
+      array that contains pixel-for-pixel quality information for every pixel in the
+      primary array. sb:Quality_Map_Defintion lists the meaning of each quality values 
+      used in the map. 
+      
+      Note that flag values defined for the Quality Map should not be used to replace 
+      pds:Special_Constants values - in particular the pds:missing_constant value - that 
+      should be included in the defintion of either the primary data array or the Quality 
+      Map array itself.  The pds:Special_Constants class is used for visualization and data 
+      validation; the quality values defined are used for interpretation and analysis.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>flags_are_bit_flags</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>best_quality_value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Quality_Flag_Definition</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Raw_Data_Product</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Raw_Data_Product</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Raw_Data_Product class identifies the raw data product in the PDS archive
+      that is the immediate predecessor of the current, processed data product.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>SNR_Map</name>
+    <version_id>1.0</version_id>
+    <local_identifier>SNR_Map</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:SNR_Map class links the primary image data in the product to the data
+      object (within the same product) containing the pixel-for-pixel signal-to-noise 
+      ratio information. The optional sb:comment field may be used to note any 
+      unusual circumstances.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>pds.Local_Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  
+  <DD_Class>
+    <name>Timing</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Timing</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sb:Timing class provides additional time specifications related to the
+      observation. These might include times of particular interest, or alternate
+      formats (Julian date, for example) of times expressed in ISO standard formats
+      elsewhere. The sb:comment field should be used to explain any unusual or 
+      potentially ambiguous circumstances.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>midobservation_time_UTC_YMD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>midobservation_time_UTC_JD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>start_time_UTC_JD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_time_UTC_JD</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  
+  <!-- Primary Public Class: SBS_Metadata -->
+
+  <DD_Class>
+    <name>SB_Metadata</name>
+    <version_id>1.0</version_id>
+    <local_identifier>SBS_Metadata</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The SBS_Metadata class provides metadata specific to the techniques and
+      processes of small bodies research. In some cases the metadata is supplemental
+      to more general metadata contained in other namespaces (metadata that should 
+      also be present in the product label).
+    </definition>
+    
+    <element_flag>true</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>Observation_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Calibration_Information</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Additional_Image_Metadata</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <!-- Rules (alphabetical by context) -->
+  
+  <!-- Additional_Image_Metadata -->
+  
+  <DD_Rule>
+    <local_identifier>aim_framecheck</local_identifier>
+    <rule_context>sb:Additional_Image_Metadata</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (sb:Per_Frame_Metadata) then (sb:image_observation_type eq 'Frame Sequence') else (true())</rule_test>
+      <rule_message>In sb:Additional_Image_Metadata, the sb:Per_Frame_Metadata class may only be used when sb:image_observation_type is "Frame Sequence".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Additional_Image_Metadata/pds:Local_Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>aim_lir</local_identifier>
+    <rule_context>sb:Additional_Image_Metadata/pds:Local_Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:local_reference_type eq 'image_to_additional_metadata'</rule_test>
+      <rule_message>In sb:Additional_Image_Metadata/pds:Local_Internal_Reference, the pds:local_reference_type value must be "image_to_additional_metadata".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Bad_Pixel_Map/pds:Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>badpixel_ir</local_identifier>
+    <rule_context>sb:Bad_Pixel_Map/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'image_to_bad_pixel_map'</rule_test>
+      <rule_message>In sb:Bad_Pixel_Map/pds:Internal_Reference, pds:reference_type must be "image_to_bad_pixel_map".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Bias_Map/pds:Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>bias_ir</local_identifier>
+    <rule_context>sb:Bias_Map/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'image_to_bias_levels'</rule_test>
+      <rule_message>In sb:Bias_Map/pds:Internal_Reference, pds:reference_type must be "image_to_bias_map_file".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Calibration_Reference_Files/*/pds:Internal_Reference/pds:lid_reference -->
+  
+  <DD_Rule>
+    <local_identifier>crf_require_lidvid</local_identifier>
+    <rule_context>sb:Calibration_Reference_Files//pds:lid_reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>false()</rule_test>
+      <rule_message>In "&lt;sch:value-of select="name(../..)"/&gt;/pds:Internal_Reference", the file must be referenced using LIDVID rather than LID.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Dark_Field/pds:Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>dark_ir</local_identifier>
+    <rule_context>sb:Dark_Field/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'image_to_dark_field_file'</rule_test>
+      <rule_message>In sb:Dark_Field/pds:Internal_Reference, pds:reference_type must be "image_to_dark_field_file".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Error_Map/pds:Local_Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>error_lir</local_identifier>
+    <rule_context>sb:Error_Estimates_Map/pds:Local_Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:local_reference_type eq 'image_to_error_map'</rule_test>
+      <rule_message>In sb:Error_Estimates_Map/pds:Local_Internal_Reference, pds:local_reference_type must be "image_to_error_map".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Filter -->
+  
+  <DD_Rule>
+    <local_identifier>filter</local_identifier>
+    <rule_context>sb:Filter</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (sb:center_wavelength_is_weighted) then (sb:center_wavelength) else (true())</rule_test>
+      <rule_message>The sb:center_wavelength_is_weighted flag must be used with the sb:center_wavelength attribute.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Filter/pds:Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>filter_ir</local_identifier>
+    <rule_context>sb:Filter/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type = ('data_to_filter_transmission_curve', 'data_to_filter_description')</rule_test>
+      <rule_message>In sb:Filter/pds:Local_Internal_Reference, the pds:reference_type must be one of "data_to_filter_transmission_curve" or "data_to_filter_description".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Flat_Field/pds:Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>flat_ir</local_identifier>
+    <rule_context>sb:Flat_Field/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'image_to_flat_field_file'</rule_test>
+      <rule_message>In sb:Flat_Field/pds:Internal_Reference, pds:reference_type must be "image_to_flat_field_file".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Quality_Map/pds:Local_Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>quality_lir</local_identifier>
+    <rule_context>sb:Quality_Map/pds:Local_Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:local_reference_type eq 'image_to_quality_map'</rule_test>
+      <rule_message>In sb:Quality_Map/pds:Local_Internal_Reference, pds:local_reference_type must be "image_to_quality_map".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Raw_Data_Product_Map/pds:Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>rawdp_ir</local_identifier>
+    <rule_context>sb:Raw_Data_Product/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'processed_data_to_raw_data'</rule_test>
+      <rule_message>In sb:Raw_Data_Product/pds:Internal_Reference, pds:reference_type must be "processed_data_to_raw_data".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- SNR/pds:Local_Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>snr_lir</local_identifier>
+    <rule_context>sb:SNR_Map/pds:Local_Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:local_reference_type eq 'image_to_snr_map'</rule_test>
+      <rule_message>In sb:SNR_Map/pds:Local_Internal_Reference, pds:local_reference_type must be "image_to_snr_map".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Special case: All Julian Dates must have units of "julian day" -->
+  
+  <DD_Rule>
+    <local_identifier>julian_units_check</local_identifier>
+    <rule_context>sb:SB_Metadata//*[ends-with(name(),'_JD')]</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>@unit eq 'julian day'</rule_test>
+      <rule_message>The attribute "&lt;sch:value-of select="name(.)"/&gt;" must be specified with "unit='julian day'".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+</Ingest_LDD>

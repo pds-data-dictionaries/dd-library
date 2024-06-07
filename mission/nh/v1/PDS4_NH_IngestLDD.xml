@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd">
+  
+  <name>New Horizons Primary and Extended Missions Dictionary</name>
+  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <dictionary_type>Mission</dictionary_type>
+  <full_name>Anne Raugh</full_name>
+  <steward_id>sbn</steward_id>
+  <namespace_id>nh</namespace_id>
+  <last_modification_date_time>2022-12-27</last_modification_date_time>
+
+  <!-- Attributes -->
+  
+  <DD_Attribute>
+    <name>charon_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>charon_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:charon_constant attribute supplies the constant to be used for sources with 
+      spectral distribution similar to Pluto I (Charon) to convert MVIC calibrated data to
+      physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>clock_partition</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clock_partition</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The clock_partition holds the mission clock partition counter. This
+      is a simple integer
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>detector_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>detector_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The name of the detector that recorded the observation(s) comprising the
+      product. For instruments with multiple detectors, as in the case of MVIC, 
+      for example, this string will include both the instrument ID and the 
+      specific detector ID.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>MVIC Blue (BLUE) Channel</value>
+        <value_meaning>
+          Data were obtained using the blue channel detector. The blue
+          filter covers the range 400-550nm.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>MVIC Methane (CH4) Channel</value>
+        <value_meaning>
+          Data were obtained using the narrow band methane (CH4) channel 
+          detector. The CH4 filter covers the range 860-910nm
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>MVIC Panchromatic Framing (FRAME) Array</value>
+        <value_meaning>
+          Data were obtained using the panchromatic framing array. The filter over the
+          framing array is clear; the coverage range is 400-975nm.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>MVIC Near Infrared (NIR) Channel</value>
+        <value_meaning>
+          Data were obtained using the Near IR channel detector. The NIR
+          filter covers the range 780-975nm.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>MVIC Panchromatic 1 (PAN1) Channel</value>
+        <value_meaning>
+          Data were obtained using the panchromatic channel 1 (one) detector. 
+          The filter over the panchromatic detectors is clear; the coverage
+          range is 400-975nm.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>MVIC Panchromatic 2 (PAN2) Channel</value>
+        <value_meaning>
+          Data were obtained using the panchromatic channel 2 (two) detector. 
+          The filter over the panchromatic detectors is clear; the coverage
+          range is 400-975nm.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>MVIC Red (RED) Channel</value>
+        <value_meaning>
+          Data were obtained using the red channel detector. The red filter
+          covers the range 540-700nm.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>detector_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>detector_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACT</submitter_name>
+    <definition>
+      The detector_type attribute provides a brief indication of the type of
+      hardware comprising the detector.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>CCD</value>
+        <value_meaning>The detector is a standard CCD.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>frame_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>frame_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The frame_number attribute is used to identify a single frame (or image plane)
+      in an observation that is formatted as a 3D image cube. The first frame is
+      numbered "0" (zero).
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>gain</name>
+    <version_id>1.0</version_id>
+    <local_identifier>gain</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The gain attribute provides the gain setting applied to the data collection,
+      in units of electrons/DN.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>electron/DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>jupiter_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>jupiter_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:jupiter_constant attribute supplies the constant to be used for sources with 
+      spectral distribution similar to Jupiter to convert MVIC calibrated data to
+      physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>left_side_median_bias</name>
+    <version_id>1.0</version_id>
+    <local_identifier>left_side_median_bias</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The left_side_median_bias attribute provides the median bias, in DN,
+      determined by averaging the bias levels for the shielded pixels on 
+      the left side of the detector array.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-1.0</minimum_value> <!-- This is weird. It should be zero. -->
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>mission_phase_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mission_phase_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The formal identification of the mission phase. Phases are identified
+      continuously from primary through extended missions.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>KEM1 Encounter</value>
+        <value_meaning>
+          New Horizons Kuiper Belt Extended Mission 1(KEM1) Encounter
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>observation_description</name>
+    <version_id>1.0</version_id>
+    <local_identifier>observation_description</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The observation_description element provides a human-readable decoding of
+      the nh:sequence_id string. It provides a basic description of the planned
+      observation activity. Each instrument should have an accompanying 
+      ancillary/documentation file that lists all the planned sequences for each
+      instrument for each mission phase.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>pholus_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>pholus_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:pholus_constant attribute supplies the constant to be used for sources with 
+      spectral distribution similar to (5145) Pholus to convert MVIC calibrated data to
+      physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>physical_pixel_size</name>
+    <version_id>1.0</version_id>
+    <local_identifier>physical_pixel_size</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The physical_pixel_size attribute gives the hardware dimension of a single,
+      square pixel within the detector.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+      <specified_unit_id>m</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>pivot_wavelength</name>
+    <version_id>1.0</version_id>
+    <local_identifier>pivot_wavelength</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The pivot_wavelength is used in converting the pixel values in the calibrated
+      MVIC data into physical units. It is wavelength-dependent, but once defined is
+      constant for each MVIC detector.
+      
+      A description of how to convert from data values to physical units is provided
+      in the "New Horizons SOC to Instrument Pipeline ICD" document.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+      <specified_unit_id>nm</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>pluto_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>pluto_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:pluto_constant attribute supplies the constant to be used for sources with 
+      spectral distribution similar to (134340) Pluto to convert MVIC calibrated data to
+      physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>read_noise</name>
+    <version_id>1.0</version_id>
+    <local_identifier>read_noise</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The read_noise attribute provides the noise level of the detector as a count
+      of electrons.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>right_side_median_bias</name>
+    <version_id>1.0</version_id>
+    <local_identifier>right_side_median_bias</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The right_side_median_bias attribute provides the median bias, in DN,
+      determined by averaging the bias levels for the shielded pixels on 
+      the right side of the detector array.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-1.0</minimum_value> <!-- This is weird. It should be zero. -->
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>scan_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>scan_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The scan_type attribute indicates what sort of scanning was employed in 
+      collecting the data.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>TDI - Time Delay Integration Mode</value>
+        <value_meaning>
+          The data were obtained using time delayed integration (TDI). The TDI
+          frequency should be provided in the nh:tdi_rate attribute.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>FRAMING - Framing Mode</value>
+        <value_meaning>
+          The data were obtained as a sequence of 2D image frames.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>sequence_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>sequence_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The sequence_id provides a long string encoded some infomation about the
+      planned observing sequence. A more human-readable description should be 
+      provided in the nh:observation_description element. Each instrument should 
+      have an accompanying ancillary/documentation file that lists all the planned
+      sequences for each instrument for each mission phase.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>solar_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>solar_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:solar_constant attribute supplies the constant to be used for sources with 
+      spectral distribution similar to the Sun to convert MVIC calibrated data to
+      physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>start_clock_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>start_clock_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The start_clock_count is the Mission Elapsed Time code at the start
+      of the observation(s), formatted as spacecraft clock ticks and indicating 
+      whole and fractional seconds.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>[0-9]{10}:[0-9]{5}</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>stop_clock_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>stop_clock_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The stop_clock_count is the Mission Elapsed Time code at the end
+      of the observation(s), formatted as spacecraft clock ticks and indicating 
+      whole and fractional seconds.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>[0-9]{10}:[0-9]{5}</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>tdi_median_bias_level</name>
+    <version_id>1.0</version_id>
+    <local_identifier>tdi_median_bias_level</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The tdi_median_bias_level attribute gives the medianan bias level of a time-delay
+      integration observation. For TDI mode, bias levels in each detector were determined
+      in-flight during early mission phases. They may vary depending on exposure length.
+      See the "New Horizonz SOC to Instrument Pipeline ICD" document for details.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>tdi_rate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>tdi_rate</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The tdi_rate attribute is the rate at which charge was moved through 
+      successive rows of the detector in obtaining the observation. This rate
+      was calculated to match the scan rate of the spacecraft.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
+      <specified_unit_id>Hz</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>telemetry_apid</name>
+    <version_id>1.0</version_id>
+    <local_identifier>telemetry_apid</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The telemetry_apid is the application identifier for the observation. The
+      values are specific to instrument and activity. The definitions for apIDs 
+      relevant to the archived observations are contained in various tables in 
+      the "New Horizons SOC to Instrument Pipeline ICD document. The apID is used
+      in formulating the file name, among other things. Metadata encoded in the 
+      apID is contained in separate metadata elements elsewhere in the label.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>0x[0-9A-Za-z]{3}</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>units_of_conversion_constants</name>
+    <version_id>1.0</version_id>
+    <local_identifier>units_of_conversion_constants</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The MVIC calibrated data are not converted to physical units, because the 
+      conversion applied depends on the general spectrum of the object being 
+      converted and whether it is resolved. For resolved sources, the conversion
+      produces data in units of radiance. For unresolved sources, the conversion
+      results in units of flux (irradiance). This attribute contains the appropriate
+      physical units for the conversion constants in the class in which it is contained
+      to produce either radiance or flux units, as appropriate, when the conversion is
+      applied. 
+      
+      A description of how to convert from data values to physical units is provided
+      in the "New Horizons SOC to Instrument Pipeline ICD" document.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>(DN/s)/(erg/cm^2/s/Angstrom)</value>
+        <value_meaning>
+          Units for conversion factors for unresolved sources, to produce units of
+          flux (irradiance)
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>(DN/s)/(erg/cm^2/s/Angstrom/sr)</value>
+        <value_meaning>
+          Units for conversion factors for resolved sources, to produce units of
+          radiance.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <!-- Classes -->
+  
+  <DD_Class>
+    <name>Detector</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Detector</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Detector class provides observation metadata relevant to the specific
+      detector (an instrument may have more than one detector) used to collect
+      the data.
+    </definition>
+    <DD_Association>
+      <identifier_reference>detector_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>detector_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>  <!-- This will probably evolve into a choice list. -->
+      <identifier_reference>MVIC_Details</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Mission_Elapsed_Time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Mission_Elapsed_Time</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Mission_Elapsed_Time class provides spacecraft clock partition and 
+      count readings for the start and end of the observation(s) comprising 
+      the data product.
+    </definition>
+    <DD_Association>
+      <identifier_reference>clock_partition</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>start_clock_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>stop_clock_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Frame_Bias_Levels</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Frame_Bias_Levels</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Frame_Bias_Levels class records the frame number and left/right bias levels
+      for a single frame in a framing observation sequence.
+      
+      In the MVIC detector used for framing observations, the bias level for left and
+      right sides of the detector may vary. Bias levels on each side are measured with
+      every observation through shielded pixels on either side of the detector, the
+      bias values for the pixels from each side them being averaged to return a single
+      median bias level for each side of the detector. These bias levels are reported
+      as left and right median bias levels for each frame.
+    </definition>
+    <DD_Association>
+      <identifier_reference>frame_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>left_side_median_bias</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>right_side_median_bias</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Framing_Biases</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Framing_Biases</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Framing_Biases class contains one nh:Frame_Bias_Levels class for each 
+      individual frame of a framing observation. These classes provide the left and
+      right side bias levels applied in calibrating the data.
+    </definition>
+    <DD_Association>
+      <identifier_reference>Frame_Bias_Levels</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>MVIC_Calibration_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>MVIC_Calibration_Information</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The MVIC_Calibration_Information class gathers attributes related to the
+      attributes of the detector and other information relevant to the calibration
+      processing performed to produce the current data product.
+    </definition>
+    <DD_Association>
+      <identifier_reference>physical_pixel_size</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>read_noise</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>gain</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>tdi_median_bias_level</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Framing_Biases</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>MVIC_Conversion_Constants</name>
+    <version_id>1.0</version_id>
+    <local_identifier>MVIC_Conversion_Constants</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The MVIC_Conversion_Constants class provides the values needed to run the
+      conversion from the calibrated pixel values to physical units. This conversion
+      is dependent on the spectral distribition of the source, the MVIC detector 
+      wavelength range, and whether or not the source is resolved. 
+      
+      A description of how to convert from data values to physical units is provided
+      in the "New Horizons SOC to Instrument Pipeline ICD" document.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <reference_type>class_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Association>
+      <identifier_reference>pivot_wavelength</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Resolved_Source</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Unresolved_Source</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>MVIC_Details</name>
+    <version_id>1.0</version_id>
+    <local_identifier>MVIC_Details</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The MVIC_Details class collects observational parameters that are specific
+      to the MVIC instrument and its various channels.
+    </definition>
+    <DD_Association>
+      <identifier_reference>scan_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>tdi_rate</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Observation_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Observation_Parameters</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Observation_Parameters class collects observational metadata that
+      is specific to the mission, spacecraft, and instrument which produced 
+      the data product.
+    </definition>
+    <DD_Association>
+      <identifier_reference>telemetry_apid</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>sequence_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>observation_description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Mission_Elapsed_Time</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Detector</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Resolved_Source</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Resolved_Source</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Resolved_Source class presents MVIC conversion constants for converting
+      calibrated pixel values into physical units for sources which are resolved.
+    </definition>
+    <DD_Association>
+      <identifier_reference>units_of_conversion_constants</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>solar_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>jupiter_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pholus_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pluto_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>charon_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Unresolved_Source</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Unresolved_Source</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Unresolved_Source class presents MVIC conversion constants for converting
+      calibrated pixel values into physical units for sources which are not resolved.
+    </definition>
+    <DD_Association>
+      <identifier_reference>units_of_conversion_constants</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>solar_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>jupiter_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pholus_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pluto_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>charon_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <!-- Main Class -->
+  
+  <DD_Class>
+    <name>Mission_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Mission_Parameters</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The Mission_Parameters class presents the various New Horizons-specific metadata 
+      for both primary and extended missions.
+    </definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>mission_phase_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Observation_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association> <!-- This will likely need to be a choice list -->
+      <identifier_reference>MVIC_Calibration_Information</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>MVIC_Conversion_Constants</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <!-- Rules -->
+  
+  <!-- MVIC_Details rules -->
+  
+  <DD_Rule>
+    <local_identifier>mvic_details</local_identifier>
+    <rule_context>nh:MVIC_Details</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (starts-with(nh:scan_type, 'TDI') and //pds:processing_level = ('Partially Processed')) then (nh:tdi_rate) else (true())</rule_test>
+      <rule_message>In nh:MVIC_Details, the TDI rate must be provided for TDI scans when processing level is partially processed (calibrated).</rule_message>
+    </DD_Rule_Statement>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (//pds:processing_level != ('Partially Processed') and (nh:tdi_rate)) then (false()) else (true())</rule_test>
+      <rule_message>In nh:MVIC_Details, if pds:processing_level is not partially processed, then tdi_rate cannot be included.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- Check that correct bias information is provided -->
+  
+  <DD_Rule>
+    <local_identifier>check_bias</local_identifier>
+    <rule_context>nh:MVIC_Calibration_Information</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (starts-with(//nh:MVIC_Details/nh:scan_type,'TDI')) then (nh:tdi_median_bias_level and not(nh:Framing_Biases)) else (nh:Framing_Biases and not(nh:tdi_median_bias_level))</rule_test>
+      <rule_message>In MVIC_Calibration_Information, TDI scans data must include the attribute nh:tdi_median_bias_level; framing observations must include the nh:Framing_Biases class; both should never used together.      </rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- NEEDED: Frame_Ancillary_Data Rules -->
+  
+  <!-- + number_of_frames must match count(Frame_Associations) -->
+  <!-- + frame_number must be in range [0-(number_of_frames-1)] -->
+  <!-- + any *_local_identifier value must match a local_identifier in the label -->
+  
+</Ingest_LDD>

@@ -115,6 +115,7 @@
 				<li><a href="#proc">Processing_Information</a></li>
 				<li><a href="#radar">Radar LDD</a></li>
 				<li><a href="#rings">Rings Dictionary</a></li>
+        <li><a href="#sb">Small Bodies</a></li>
 				<li><a href="#speclib">Spectral Library</a></li>
 				<li><a href="#sp">Spectral Discipline Dictionary</a></li>
 				<li><a href="#survey">Survey</a></li>
@@ -221,6 +222,19 @@
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 03/26/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1970.xsd">PDS4_GEOM_1J00_1970.xsd</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1970.sch">PDS4_GEOM_1J00_1970.sch</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1970.xml">PDS4_GEOM_1J00_1970.xml</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1970.JSON">PDS4_GEOM_1J00_1970.JSON</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1970.zip">PDS4_GEOM_1J00_1970.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 10/25/2022</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
@@ -266,6 +280,20 @@
                     The Surface Imaging Dictionary contains classes, attributes, and rules for specifying the metadata associated with imaging and spectrometer data products of surface missions.
 
                 </p>
+                <ul>
+                    <li><b>Last Updated:</b> 05/17/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img_surface">https://github.com/pds-data-dictionaries/ldd-img_surface</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1J00_1280.xsd">PDS4_IMG_SURFACE_1J00_1280.xsd</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1J00_1280.sch">PDS4_IMG_SURFACE_1J00_1280.sch</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1J00_1280.xml">PDS4_IMG_SURFACE_1J00_1280.xml</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1J00_1280.JSON">PDS4_IMG_SURFACE_1J00_1280.JSON</a></li>
+                            <li><a href="/pds4/img_surface/v1/PDS4_IMG_SURFACE_1J00_1280.zip">PDS4_IMG_SURFACE_1J00_1280.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <ul>
                     <li><b>Last Updated:</b> 10/25/2022</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
@@ -479,11 +507,11 @@
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-radar">https://github.com/pds-data-dictionaries/ldd-radar</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
-                                PDS4  Information Model. To submit a request the have the LDD generated, please contact the
-                                <a href="mailto:pds-operator@jpl.nasa.gov">PDS Operator</a>, or create an issue in the
-                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
-                            </li>
+                            <li><a href="/pds4/radar/v1/PDS4_RADAR_1J00_1000.xsd">PDS4_RADAR_1J00_1000.xsd</a></li>
+                            <li><a href="/pds4/radar/v1/PDS4_RADAR_1J00_1000.sch">PDS4_RADAR_1J00_1000.sch</a></li>
+                            <li><a href="/pds4/radar/v1/PDS4_RADAR_1J00_1000.xml">PDS4_RADAR_1J00_1000.xml</a></li>
+                            <li><a href="/pds4/radar/v1/PDS4_RADAR_1J00_1000.JSON">PDS4_RADAR_1J00_1000.JSON</a></li>
+                            <li><a href="/pds4/radar/v1/PDS4_RADAR_1J00_1000.zip">PDS4_RADAR_1J00_1000.zip</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -513,6 +541,28 @@
                 <p><a class="toTop">Back to top</a></p>
             </div>
 
+            <div id="sb">
+                <h4>Small Bodies (sb)</h4>
+                <p>
+                    This dictionary will provide classes to support the documentation, support, discovery, and reuse of data from, by, and for small bodies research.
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 01/23/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1000.xsd">PDS4_SB_1J00_1000.xsd</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1000.sch">PDS4_SB_1J00_1000.sch</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1000.xml">PDS4_SB_1J00_1000.xml</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1000.JSON">PDS4_SB_1J00_1000.JSON</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1000.zip">PDS4_SB_1J00_1000.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+            
             <div id="speclib">
                 <h4>Spectral Library (speclib)</h4>
                 <p>

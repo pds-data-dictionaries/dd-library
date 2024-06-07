@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:vgr  Version:1.0.0.0 - Sat Apr 13 21:47:07 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.21.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - vgr: - Voyager Mission Dictionary                               -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/vgr/v1"
+    xmlns:vgr="http://pds.nasa.gov/pds4/mission/vgr/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1L00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+ 
+	    v0.1.0.0  2022-06-10
+	    Created by unifying the vg1 and vg2 namespace dictionaries, which will be deprecated.  Specifically, the new base class Voyager contains the legacy label (optional), a class describing telemetry (also optional), a class describing timing (required), and a required class describing instrument-specific parameters (currently, only ISS is implemented).  
+	    This is a preliminary non-release version.  Changes have not been tracked during initial drafting, but will be henceforth. 
+	
+	    v0.2.0.0  2022-08-23
+	    Continuing to develop content, in advance of any use of this LDD.
+	    Updated enumerated values for compression_state, edit_mode_id
+	    Deleted beam, companding, elec_cal, exposure_type, filter_position, filter_step, flood, g1_voltage_count, geometry_state, image_time, image_type, pixel_dn_average_thresh, pixel_dn_average_status, shutter_exposure, shutter_reset, shutter_open, shutter_close, start_time_doy, start_time_ymd, stop_time_doy, stop_time_ymd, telemetry_mode
+	    Deleted classes Image_Description, Image_State, and Instrument_State.  The attributes that were in Image_Description and Image_State are now in the previous parent class ISS, while the attributes that were in Instrument_State have all been deleted per the line above.
+	    Renamed data_anomaly_type to pds_source_product_data_anomaly_type
+	    Made some attributes nillable or optional
+	
+	    v0.3.0.0  2022-09-20
+	    Continuing to develop content, in advance of any use of this LDD.
+	    Restored many of the attributes removed in v0.2, while prepending "legacy_label_" to the attribute names and adding class ISS_Legacy_Label to contain them. 
+	    Also moved some attributes from class ISS to class ISS_Legacy_Label, again now prepending those attribute names with "legacy_label_". 
+
+	    v0.3.1.0  2023-03-09
+	    Added enumerated value "Manual" to legacy_label_na_exposure_type and legacy_label_wa_exposure_type. 
+
+	    v0.4.0.0  2023-04-18
+	    Updated definitions and patterns for fds_scet_epoch_1, fds_scet_epoch_2, fds_scet_epoch_3, and fds_scet_epoch_4. 
+	    Updated definition and nillable_flag for spacecraft_clock_count_partition. 
+	    Updated definitions for spacecraft_clock_start_count and spacecraft_clock_stop_count. 
+	    Added an enumerated value for edit_mode_id.
+
+	    v0.5.0.0  2023-07-17
+	    Updated definitions for spacecraft_clock_start_count and spacecraft_clock_stop_count. 
+	    Updated value_data_type and removed pattern for fds_scet_epoch_1, fds_scet_epoch_2, fds_scet_epoch_3, fds_scet_epoch_4, and spacecraft_clock_count_partition. 
+	    Updated nillable_flag for earth_received_time.
+	    Added enumerated values for edit_mode_id, legacy_label_na_exposure_type, and legacy_label_wa_exposure_type.
+
+	    v0.6.0.0  2023-07-19
+	    Updated value_data_type for edr_tape_id.
+	    Added enumerated values for edit_mode_id and legacy_label_telemetry_mode.
+
+	    v1.0.0.0  2024-04-04
+	    Updated definitions for a large fraction of the attributes, resolving various questions and preparing for release.
+	    Added schematron rules to ensure proper use of mission_phase_name and fds_scet_epoch_N. 
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Voyager" type="vgr:Voyager"> </xs:element>
+
+  <xs:complexType name="ISS">
+    <xs:annotation>
+      <xs:documentation>Attributes relevant to the Voyager Imaging
+        Science Subsystem (ISS) instrument and its
+        observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="image_id" nillable="true" type="vgr:image_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="image_number" type="vgr:image_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="earth_received_time" nillable="true" type="vgr:earth_received_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="scan_mode_id" type="vgr:scan_mode_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="shutter_mode_id" type="vgr:shutter_mode_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="gain_mode_id" type="vgr:gain_mode_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="edit_mode_id" type="vgr:edit_mode_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_name" type="vgr:filter_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_number" type="vgr:filter_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="exposure_duration" type="vgr:exposure_duration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pds_source_product_target_name" nillable="true" type="vgr:pds_source_product_target_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pds_source_product_note" nillable="true" type="vgr:pds_source_product_note" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pds_source_product_description" type="vgr:pds_source_product_description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pds_source_product_data_anomaly_type" nillable="true" type="vgr:pds_source_product_data_anomaly_type" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="vgr:scan_mode_id = ('10:1', '1:1', '2:1', '3:1', '5:1')"/> -->
+    <!-- <xs:assert test="vgr:shutter_mode_id = ('BODARK', 'BOTALT', 'BOTSIM', 'BSIMAN', 'NAONLY', 'NOSHUT', 'WAONLY')"/> -->
+    <!-- <xs:assert test="vgr:gain_mode_id = ('High', 'Low')"/> -->
+    <!-- <xs:assert test="vgr:edit_mode_id = ('0:0', '1:1', '1:10', '1:2', '1:3', '1:5', '2:3', '3:4', '3:5')"/> -->
+    <!-- <xs:assert test="vgr:filter_name = ('Blue', 'CH4/JS', 'CH4/U', 'Clear', 'Green', 'Orange', 'Sodium', 'UV', 'Violet')"/> -->
+    <!-- <xs:assert test="vgr:pds_source_product_data_anomaly_type = ('RAM_Data_Corruption')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="ISS_Legacy_Label">
+    <xs:annotation>
+      <xs:documentation>Attributes relevant to the Voyager Imaging
+        Science Subsystem (ISS) instrument and its observations that are
+        taken from the legacy label and are not otherwise attributed.
+        These attributes are being retained for historical documentation
+        purposes. Nothing in this class should be required for normal
+        processing or analysis of Voyager ISS images.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="legacy_label_signal_to_noise_ratio" type="vgr:legacy_label_signal_to_noise_ratio" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_pixel_dn_average_threshold" type="vgr:legacy_label_pixel_dn_average_threshold" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_pixel_dn_average_status" type="vgr:legacy_label_pixel_dn_average_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_lsb_truncate" type="vgr:legacy_label_lsb_truncate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_telemetry_mode" type="vgr:legacy_label_telemetry_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_compression_state" type="vgr:legacy_label_compression_state" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_elec_cal" type="vgr:legacy_label_na_elec_cal" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_image_type" type="vgr:legacy_label_na_image_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_beam" type="vgr:legacy_label_na_beam" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_shutter_reset" type="vgr:legacy_label_na_shutter_reset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_shutter_open" type="vgr:legacy_label_na_shutter_open" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_shutter_close" type="vgr:legacy_label_na_shutter_close" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_flood" type="vgr:legacy_label_na_flood" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_exposure_type" type="vgr:legacy_label_na_exposure_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_filter_position" type="vgr:legacy_label_na_filter_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_filter_step" type="vgr:legacy_label_na_filter_step" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_g1_voltage_count" type="vgr:legacy_label_na_g1_voltage_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_na_shutter_exposure" type="vgr:legacy_label_na_shutter_exposure" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_elec_cal" type="vgr:legacy_label_wa_elec_cal" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_image_type" type="vgr:legacy_label_wa_image_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_beam" type="vgr:legacy_label_wa_beam" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_shutter_reset" type="vgr:legacy_label_wa_shutter_reset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_shutter_open" type="vgr:legacy_label_wa_shutter_open" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_shutter_close" type="vgr:legacy_label_wa_shutter_close" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_flood" type="vgr:legacy_label_wa_flood" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_exposure_type" type="vgr:legacy_label_wa_exposure_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_filter_position" type="vgr:legacy_label_wa_filter_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_filter_step" type="vgr:legacy_label_wa_filter_step" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_g1_voltage_count" type="vgr:legacy_label_wa_g1_voltage_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="legacy_label_wa_shutter_exposure" type="vgr:legacy_label_wa_shutter_exposure" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="vgr:legacy_label_lsb_truncate = ('N/A', 'Off', 'On')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_telemetry_mode = ('GS-2', 'GS-4', 'IM-10', 'IM-11', 'IM-12', 'IM-13', 'IM-15', 'IM-2', 'IM-20', 'IM-22', 'IM-23', 'IM-24', 'IM-25', 'IM-26', 'IM-2C', 'IM-2W', 'IM-2X', 'IM-3', 'IM-4', 'IM-5', 'IM-6', 'IM-7', 'IM-9', 'IM-K', 'IM-O', 'IM-Q', 'IM-S', 'None', 'OC-3')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_compression_state = ('Off', 'On')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_elec_cal = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_image_type = ('Prep', 'Read')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_beam = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_shutter_reset = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_shutter_open = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_shutter_close = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_flood = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_exposure_type = ('Auto', 'Manual', 'Prep', 'Read')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_na_shutter_exposure = ('End Long', 'Normal', 'Open', 'Start Long')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_elec_cal = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_image_type = ('Prep', 'Read')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_beam = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_shutter_reset = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_shutter_open = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_shutter_close = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_flood = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_exposure_type = ('Auto', 'Manual', 'Prep', 'Read')"/> -->
+    <!-- <xs:assert test="vgr:legacy_label_wa_shutter_exposure = ('End Long', 'Normal', 'Open', 'Start Long')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Voyager">
+    <xs:annotation>
+      <xs:documentation>Elements relevant to the Voyager 1 and/or
+        Voyager 2 spacecraft mission.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="legacy_label_VICAR1" type="vgr:legacy_label_VICAR1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Voyager_Telemetry" type="vgr:Voyager_Telemetry" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Voyager_Timing" type="vgr:Voyager_Timing" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="ISS" type="vgr:ISS" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="ISS_Legacy_Label" type="vgr:ISS_Legacy_Label" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Voyager_Telemetry">
+    <xs:annotation>
+      <xs:documentation>Container for elements describing the process of
+        transferring Voyager data from the spacecraft to
+        Earth.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="edr_tape_id" type="vgr:edr_tape_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="edr_file_number" type="vgr:edr_file_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dsn_station_number" type="vgr:dsn_station_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dsn_station_name" type="vgr:dsn_station_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Voyager_Timing">
+    <xs:annotation>
+      <xs:documentation>Container for elements describing the time at
+        which a data product was obtained</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" type="vgr:mission_phase_name" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="spacecraft_clock_count_partition" type="vgr:spacecraft_clock_count_partition" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" type="vgr:spacecraft_clock_start_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" type="vgr:spacecraft_clock_stop_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="fds_scet_epoch_1" type="vgr:fds_scet_epoch_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fds_scet_epoch_2" type="vgr:fds_scet_epoch_2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fds_scet_epoch_3" type="vgr:fds_scet_epoch_3" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fds_scet_epoch_4" type="vgr:fds_scet_epoch_4" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="vgr:mission_phase_name = ('Earth-Jupiter Cruise', 'Interstellar Mission', 'Jupiter Encounter', 'Jupiter-Saturn Cruise', 'Launch', 'Neptune Encounter', 'Saturn Encounter', 'Saturn-Uranus Cruise', 'Uranus Encounter', 'Uranus-Neptune Cruise')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="dsn_station_name">
+    <xs:annotation>
+      <xs:documentation>Name of the DSN station where the image was
+        received This attribute corresponds to the keyword
+        DSN_STATION_NAME in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dsn_station_number">
+    <xs:annotation>
+      <xs:documentation>Numeric ID of DSN station where the image was
+        received This attribute corresponds to the keyword
+        DSN_STATION_NUMBER in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="earth_received_time">
+    <xs:annotation>
+      <xs:documentation>Time at which the image was received at Earth.
+        This attribute corresponds to the keyword EARTH_RECEIVED_TIME in
+        earlier versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_YMD_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="edit_mode_id">
+    <xs:annotation>
+      <xs:documentation>Edit mode of the camera, indicating the subframe
+        of data read from the vidicon. '1:1' indicates the full vidicon
+        was read out. Documentation is unclear, but inspection of
+        individual data products indicates that the archived image in
+        the sample direction contains a subframe that is approximately
+        centered with a width given by the value of this attribute
+        (ratio compared to full frame), while the line direction is not
+        subframed. This attribute corresponds to the keyword
+        EDIT_MODE_ID in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="edr_file_number">
+    <xs:annotation>
+      <xs:documentation>File number within the tape where the image was
+        originally stored This attribute corresponds to the keyword
+        EDR_FILE_NUMBER in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="edr_tape_id">
+    <xs:annotation>
+      <xs:documentation>Tape ID on which the image was originally stored
+        This attribute corresponds to the keyword EDR_TAPE_ID in earlier
+        versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="exposure_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="exposure_duration">
+    <xs:annotation>
+      <xs:documentation>Time period during which the shutter was open
+        This attribute corresponds to the keyword EXPOSURE_DURATION in
+        earlier versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="vgr:exposure_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="fds_scet_epoch_1">
+    <xs:annotation>
+      <xs:documentation>The Voyager spacecraft clock, known as the
+        Flight Data System (FDS), was reset to zero multiple times,
+        dividing each mission into FDS partitions, which count starting
+        at 1. If there is uncertainty regarding the correct FDS
+        partition (that is, the correct value of
+        spacecraft_clock_count_partition), then this attribute indicates
+        what the SCET (that is, start_date_time) would be if the
+        partition were 1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fds_scet_epoch_2">
+    <xs:annotation>
+      <xs:documentation>The Voyager spacecraft clock, known as the
+        Flight Data System (FDS), was reset to zero multiple times,
+        dividing each mission into FDS partitions, which count starting
+        at 1. If there is uncertainty regarding the correct FDS
+        partition (that is, the correct value of
+        spacecraft_clock_count_partition), then this attribute indicates
+        what the SCET (that is, start_date_time) would be if the
+        partition were 2.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fds_scet_epoch_3">
+    <xs:annotation>
+      <xs:documentation>The Voyager spacecraft clock, known as the
+        Flight Data System (FDS), was reset to zero multiple times,
+        dividing each mission into FDS partitions, which count starting
+        at 1. If there is uncertainty regarding the correct FDS
+        partition (that is, the correct value of
+        spacecraft_clock_count_partition), then this attribute indicates
+        what the SCET (that is, start_date_time) would be if the
+        partition were 3.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fds_scet_epoch_4">
+    <xs:annotation>
+      <xs:documentation>The Voyager spacecraft clock, known as the
+        Flight Data System (FDS), was reset to zero multiple times,
+        dividing each mission into FDS partitions, which count starting
+        at 1. If there is uncertainty regarding the correct FDS
+        partition (that is, the correct value of
+        spacecraft_clock_count_partition), then this attribute indicates
+        what the SCET (that is, start_date_time) would be if the
+        partition were 4.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_name">
+    <xs:annotation>
+      <xs:documentation>Optical filter used for the image. This
+        attribute corresponds to the keyword FILTER_NAME in earlier
+        versions of Voyager data products. For details see the
+        documentation at
+        https://pds-rings.seti.org/voyager/iss/inst_cat_na1.html and
+        https://pds-rings.seti.org/voyager/iss/inst_cat_wa1.html
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filter_number">
+    <xs:annotation>
+      <xs:documentation>Optical filter identification number, contains
+        the unique number associated with the optical filter for the
+        image. This value should correspond with that given in the
+        definition of this label's value of filter_name. Despite the
+        redundancy, it is retained here as it was in the source product
+        label, for historical purposes. This attribute corresponds to
+        the keyword FILTER_NUMBER in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="7"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gain_mode_id">
+    <xs:annotation>
+      <xs:documentation>The gain state of an instrument. Gain is a
+        constant value, set by the observer, that indicates the
+        approximate number of photon-excited electrons registered by the
+        detector that correlate to one "data number" (DN). This
+        attribute corresponds to the keyword GAIN_MODE_ID in earlier
+        versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="image_id">
+    <xs:annotation>
+      <xs:documentation>Image identification, takes the form:
+        nnnnes+ddd, where 'nnnn' = picture sequence number for a given
+        day, 'e' = planet of encounter (J=Jupiter, S=Saturn, U=Uranus,
+        N=Neptune), 's' = Voyager spacecraft (1 or 2), - sign indicates
+        before and a + sign indicates after closest planetary approach.
+        'ddd' = number of days from closest approach. This attribute
+        corresponds to the keyword IMAGE_ID in earlier versions of
+        Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="image_number">
+    <xs:annotation>
+      <xs:documentation>Flight Data Subsystem (FDS) clock count at time
+        of image acquisition. There is a unique IMAGE_NUMBER for each
+        image in a planetary encounter. The clock count is always a
+        seven digit value, five digits to the left of the decimal point
+        and two digits to the right of the decimal point. This attribute
+        corresponds to the keyword IMAGE_NUMBER in earlier versions of
+        Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_VICAR1">
+    <xs:annotation>
+      <xs:documentation>The "VICAR-1" label that was originally attached
+        to the image. Information on how to decode this text can be
+        found in the Software Interface Specification (SIS) of the
+        Restoring and Archiving Voyager 1 Cruise Images of Uranus and
+        Neptune (RAV1CIUN) project, especially in the Appendices
+        (urn:nasa:pds:wenkert_pdart16_vgr_rav1ciun:document:vgr_rav1ciun_
+        sis.pdf). To the extent possible, the information is captured in
+        the attached VICAR-2 header and/or the PDS4 XML label. This
+        VICAR-1 legacy label is being retained for historical
+        documentation purposes, and in case there is any question about
+        how the rest of the label items were derived. Contemporaneous
+        Voyager documentation sometimes refers to these legacy
+        labels.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Text_Preserved">
+     <xs:minLength value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_compression_state">
+    <xs:annotation>
+      <xs:documentation>Whether the image compression mode was
+        operating. This attribute preserves information found in Line 11
+        of the VICAR-1 legacy header (for more information, see the
+        attribute definition for legacy_label_VICAR1). This attribute
+        corresponds to the keyword COMPRESSION in earlier versions of
+        Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_lsb_truncate">
+    <xs:annotation>
+      <xs:documentation>Whether the LSB Truncation mode was operating.
+        Documentation is unclear, but it seems likely that this mode
+        involved either regular rounding (truncating the least
+        significant bits), or keeping only a certain number of the least
+        significant bits while the bits corresponding to larger place
+        values are truncated. This attribute preserves information found
+        in Line 11 of the VICAR-1 legacy header (for more information,
+        see the attribute definition for legacy_label_VICAR1). This
+        attribute corresponds to the keyword LSB_TRUNC in earlier
+        versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_beam">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). It is reported for the
+        Narrow Angle camera, regardless of whether that camera is the
+        one that produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_elec_cal">
+    <xs:annotation>
+      <xs:documentation>Electronics cal status. Further detail about the
+        meaning of this attribute is unknown. This attribute preserves
+        information found in Line 09 of the VICAR-1 legacy header (for
+        more information, see the attribute definition for
+        legacy_label_VICAR1). It is reported for the Narrow Angle
+        camera, regardless of whether that camera is the one that
+        produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_exposure_type">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). It is reported for the
+        Narrow Angle camera, regardless of whether that camera is the
+        one that produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_filter_position">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to filter_name and
+        filter_number. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Narrow Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="7"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_filter_step">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to filter_name and
+        filter_number. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Narrow Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="7"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_flood">
+    <xs:annotation>
+      <xs:documentation>Following readout, light flooding is used to
+        remove any residual image that might remain from the previous
+        frame. For details see page 3-31 of Benesh and Jepsen (1978),
+        urn:nasa:pds:wenkert_pdart16_vgr_rav1ciun:document:benesh_jepsen_
+        1978.pdf This attribute preserves information found in Line 09
+        of the VICAR-1 legacy header (for more information, see the
+        attribute definition for legacy_label_VICAR1). It is reported
+        for the Narrow Angle camera, regardless of whether that camera
+        is the one that produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_g1_voltage_count">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). This attribute is omitted
+        if the value in the VICAR-1 legacy header is *. It is reported
+        for the Narrow Angle camera, regardless of whether that camera
+        is the one that produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="7"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_image_type">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). It is reported for the
+        Narrow Angle camera, regardless of whether that camera is the
+        one that produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_shutter_close">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Narrow Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_shutter_exposure">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Narrow Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_shutter_open">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Narrow Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_na_shutter_reset">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Narrow Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_pixel_dn_average_status">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 07 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_pixel_dn_average_threshold">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 07 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_signal_to_noise_ratio">
+    <xs:annotation>
+      <xs:documentation>Signal-to-noise ratio as measured by the camera
+        onboard. This attribute preserves information found in Line 05
+        of the VICAR-1 legacy header (for more information, see the
+        attribute definition for legacy_label_VICAR1).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_telemetry_mode">
+    <xs:annotation>
+      <xs:documentation>Documentation is unclear, including regarding
+        whether this attribute has to do with telemetry coming out of
+        the camera, or with telemetry between the spacecraft and Earth.
+        This attribute preserves information found in Line 11 of the
+        VICAR-1 legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). This attribute corresponds
+        to the keyword TLM_MODE in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_beam">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). It is reported for the Wide
+        Angle camera, regardless of whether that camera is the one that
+        produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_elec_cal">
+    <xs:annotation>
+      <xs:documentation>Electronics cal status. Further detail about the
+        meaning of this attribute is unknown. This attribute preserves
+        information found in Line 09 of the VICAR-1 legacy header (for
+        more information, see the attribute definition for
+        legacy_label_VICAR1). It is reported for the Wide Angle camera,
+        regardless of whether that camera is the one that produced this
+        data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_exposure_type">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). It is reported for the Wide
+        Angle camera, regardless of whether that camera is the one that
+        produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_filter_position">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to filter_name and
+        filter_number. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Wide Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="7"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_filter_step">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to filter_name and
+        filter_number. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Wide Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="7"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_flood">
+    <xs:annotation>
+      <xs:documentation>Following readout, light flooding is used to
+        remove any residual image that might remain from the previous
+        frame. For details see page 3-31 of Benesh and Jepsen (1978),
+        urn:nasa:pds:wenkert_pdart16_vgr_rav1ciun:document:benesh_jepsen_
+        1978.pdf This attribute preserves information found in Line 09
+        of the VICAR-1 legacy header (for more information, see the
+        attribute definition for legacy_label_VICAR1). It is reported
+        for the Wide Angle camera, regardless of whether that camera is
+        the one that produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_g1_voltage_count">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). This attribute is omitted
+        if the value in the VICAR-1 legacy header is *. It is reported
+        for the Wide Angle camera, regardless of whether that camera is
+        the one that produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="7"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_image_type">
+    <xs:annotation>
+      <xs:documentation>The meaning of this attribute is unknown. This
+        attribute preserves information found in Line 09 of the VICAR-1
+        legacy header (for more information, see the attribute
+        definition for legacy_label_VICAR1). It is reported for the Wide
+        Angle camera, regardless of whether that camera is the one that
+        produced this data product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_shutter_close">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Wide Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_shutter_exposure">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Wide Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_shutter_open">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Wide Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="legacy_label_wa_shutter_reset">
+    <xs:annotation>
+      <xs:documentation>This attribute is a precursor to
+        shutter_mode_id. This attribute preserves information found in
+        Line 09 of the VICAR-1 legacy header (for more information, see
+        the attribute definition for legacy_label_VICAR1). It is
+        reported for the Wide Angle camera, regardless of whether that
+        camera is the one that produced this data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>Time period within the Voyager 1 or Voyager 2
+        mission, as defined by the mission team. This attribute
+        corresponds to the keyword MISSION_PHASE_NAME in earlier
+        versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pds_source_product_data_anomaly_type">
+    <xs:annotation>
+      <xs:documentation>Data recording anomalies in the image. This
+        attribute, while required, is nillable. A nil_reason of missing
+        indicates that it was missing from the source product, which in
+        turn implies no anomalies were detected. In the source product,
+        DATA_ANOMALY_TYPE = RAM_DATA_CORRUPTION indicates that spurious
+        values exist in the image data due to corruption of the random
+        access memory onboard the spacecraft. This attribute corresponds
+        to the keyword DATA_ANOMALY_TYPE in earlier versions of Voyager
+        data products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pds_source_product_description">
+    <xs:annotation>
+      <xs:documentation>A description of the image, as recorded in the
+        original source product label. This attribute corresponds to the
+        keyword DESCRIPTION in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pds_source_product_note">
+    <xs:annotation>
+      <xs:documentation>The observational intent of the image, as
+        recorded in the original source product label. This attribute
+        corresponds to the keyword NOTE in earlier versions of Voyager
+        data products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pds_source_product_target_name">
+    <xs:annotation>
+      <xs:documentation>The value of TARGET_NAME as given in the source
+        product label. The relationship between this value and the
+        actual intentions of the observer is unknown. The most accurate,
+        though potentially flawed identification of the intended target
+        is given in the Target_Identification class elsewhere in the
+        label. This attribute is included in the PDS4 label for
+        historical reasons. This attribute corresponds to the keyword
+        TARGET_NAME in earlier versions of Voyager data
+        products.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="scan_mode_id">
+    <xs:annotation>
+      <xs:documentation>Scan rate of vidicon readout. The instrument
+        scan rate affects the radiometric properties of the camera
+        because of the dark current buildup on the vidicon. This
+        attribute corresponds to the keyword SCAN_MODE_ID in earlier
+        versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="shutter_mode_id">
+    <xs:annotation>
+      <xs:documentation>Shutter mode. Indicates which camera was
+        shuttered, Narrow Angle and/or Wide Angle. This attribute
+        corresponds to the keyword SHUTTER_MODE_ID in earlier versions
+        of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_count_partition">
+    <xs:annotation>
+      <xs:documentation>The Voyager spacecraft clock, known as the
+        Flight Data System (FDS), was reset to zero multiple times,
+        dividing each mission into FDS partitions. This attribute
+        signifies which FDS partition was in effect for this data
+        product. A value of 0 indicates the partition is
+        unknown.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft clock value at the beginning of a
+        time period of interest. Voyager used the term Flight Data
+        System (FDS) for this quantity, which is equivalent to the term
+        spacecraft clock (SCLK) more commonly used by subsequent
+        missions. The format is n/sssss:dd:mmm where n is the partition
+        (0 if unknown), sssss is the FDS count (48 minutes per count for
+        sssss), dd is units of 1/60 an FDS count (that is, 48 seconds
+        per count for dd), and mmm is an optional fraction of dd (unused
+        and value unknown). Note: Since the mmm digits are optional, it
+        is possible (and may be common) for spacecraft_clock_start_count
+        to be identical to spacecraft_clock_stop_count for
+        exposure_duration values less than 48 seconds. This attribute
+        corresponds to the keyword SPACECRAFT_CLOCK_START_COUNT in
+        earlier versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[0-9]?[0-9]/[0-9]{5}:[0-9]{2}(:[0-9]{3})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft clock value at the end of a time
+        period of interest. Voyager used the term Flight Data System
+        (FDS) for this quantity, which is equivalent to the term
+        spacecraft clock (SCLK) more commonly used by subsequent
+        missions. The format is n/sssss:dd:mmm where n is the partition
+        (0 if unknown), sssss is the FDS count (48 minutes per count for
+        sssss), dd is units of 1/60 an FDS count (that is, 48 seconds
+        per count for dd), and mmm is an optional fraction of dd (unused
+        and value unknown). Note: Since the mmm digits are optional, it
+        is possible (and may be common) for spacecraft_clock_start_count
+        to be identical to spacecraft_clock_stop_count for
+        exposure_duration values less than 48 seconds. This attribute
+        corresponds to the keyword SPACECRAFT_CLOCK_STOP_COUNT in
+        earlier versions of Voyager data products.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[0-9]?[0-9]/[0-9]{5}:[0-9]{2}(:[0-9]{3})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

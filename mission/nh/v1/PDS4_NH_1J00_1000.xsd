@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:nh  Version:1.0.0.0 - Thu Dec 21 00:28:48 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.19.0.0 - System Build 13.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.19.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - nh: - New Horizons Primary and Extended Missions Dictionary     -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/nh/v1"
+    xmlns:nh="http://pds.nasa.gov/pds4/mission/nh/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+_TBD_Ingest_LDD
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Mission_Parameters" type="nh:Mission_Parameters"> </xs:element>
+
+  <xs:complexType name="Detector">
+    <xs:annotation>
+      <xs:documentation> The Detector class provides observation
+        metadata relevant to the specific detector (an instrument may
+        have more than one detector) used to collect the data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="detector_name" type="nh:detector_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_type" type="nh:detector_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="MVIC_Details" type="nh:MVIC_Details" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:detector_name = ('MVIC Blue (BLUE) Channel', 'MVIC Methane (CH4) Channel', 'MVIC Near Infrared (NIR) Channel', 'MVIC Panchromatic 1 (PAN1) Channel', 'MVIC Panchromatic 2 (PAN2) Channel', 'MVIC Panchromatic Framing (FRAME) Array', 'MVIC Red (RED) Channel')"/> -->
+    <!-- <xs:assert test="nh:detector_type = ('CCD')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Frame_Bias_Levels">
+    <xs:annotation>
+      <xs:documentation> The Frame_Bias_Levels class records the frame
+        number and left/right bias levels for a single frame in a
+        framing observation sequence. In the MVIC detector used for
+        framing observations, the bias level for left and right sides of
+        the detector may vary. Bias levels on each side are measured
+        with every observation through shielded pixels on either side of
+        the detector, the bias values for the pixels from each side them
+        being averaged to return a single median bias level for each
+        side of the detector. These bias levels are reported as left and
+        right median bias levels for each frame. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="frame_number" type="nh:frame_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="left_side_median_bias" type="nh:left_side_median_bias" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="right_side_median_bias" type="nh:right_side_median_bias" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Framing_Biases">
+    <xs:annotation>
+      <xs:documentation> The Framing_Biases class contains one
+        nh:Frame_Bias_Levels class for each individual frame of a
+        framing observation. These classes provide the left and right
+        side bias levels applied in calibrating the data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Frame_Bias_Levels" type="nh:Frame_Bias_Levels" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MVIC_Calibration_Information">
+    <xs:annotation>
+      <xs:documentation> The MVIC_Calibration_Information class gathers
+        attributes related to the attributes of the detector and other
+        information relevant to the calibration processing performed to
+        produce the current data product. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="physical_pixel_size" type="nh:physical_pixel_size" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="read_noise" type="nh:read_noise" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="gain" type="nh:gain" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="tdi_median_bias_level" type="nh:tdi_median_bias_level" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Framing_Biases" type="nh:Framing_Biases" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MVIC_Conversion_Constants">
+    <xs:annotation>
+      <xs:documentation> The MVIC_Conversion_Constants class provides
+        the values needed to run the conversion from the calibrated
+        pixel values to physical units. This conversion is dependent on
+        the spectral distribition of the source, the MVIC detector
+        wavelength range, and whether or not the source is resolved. A
+        description of how to convert from data values to physical units
+        is provided in the "New Horizons SOC to Instrument Pipeline ICD"
+        document. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pivot_wavelength" type="nh:pivot_wavelength" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Resolved_Source" type="nh:Resolved_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Unresolved_Source" type="nh:Unresolved_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MVIC_Details">
+    <xs:annotation>
+      <xs:documentation> The MVIC_Details class collects observational
+        parameters that are specific to the MVIC instrument and its
+        various channels. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="scan_type" type="nh:scan_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="tdi_rate" type="nh:tdi_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:scan_type = ('FRAMING - Framing Mode', 'TDI - Time Delay Integration Mode')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Mission_Elapsed_Time">
+    <xs:annotation>
+      <xs:documentation> The Mission_Elapsed_Time class provides
+        spacecraft clock partition and count readings for the start and
+        end of the observation(s) comprising the data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="clock_partition" type="nh:clock_partition" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="start_clock_count" type="nh:start_clock_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_clock_count" type="nh:stop_clock_count" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Mission_Parameters">
+    <xs:annotation>
+      <xs:documentation> The Mission_Parameters class presents the
+        various New Horizons-specific metadata for both primary and
+        extended missions. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" type="nh:mission_phase_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Observation_Parameters" type="nh:Observation_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="MVIC_Calibration_Information" type="nh:MVIC_Calibration_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="MVIC_Conversion_Constants" type="nh:MVIC_Conversion_Constants" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:mission_phase_name = ('KEM1 Encounter')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Parameters">
+    <xs:annotation>
+      <xs:documentation> The Observation_Parameters class collects
+        observational metadata that is specific to the mission,
+        spacecraft, and instrument which produced the data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="telemetry_apid" type="nh:telemetry_apid" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="sequence_id" type="nh:sequence_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_description" type="nh:observation_description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Mission_Elapsed_Time" type="nh:Mission_Elapsed_Time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Detector" type="nh:Detector" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Resolved_Source">
+    <xs:annotation>
+      <xs:documentation> The Resolved_Source class presents MVIC
+        conversion constants for converting calibrated pixel values into
+        physical units for sources which are resolved.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="units_of_conversion_constants" type="nh:units_of_conversion_constants" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_constant" type="nh:solar_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="jupiter_constant" type="nh:jupiter_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pholus_constant" type="nh:pholus_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pluto_constant" type="nh:pluto_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="charon_constant" type="nh:charon_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:units_of_conversion_constants = ('(DN/s)/(erg/cm^2/s/Angstrom)', '(DN/s)/(erg/cm^2/s/Angstrom/sr)')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Unresolved_Source">
+    <xs:annotation>
+      <xs:documentation> The Unresolved_Source class presents MVIC
+        conversion constants for converting calibrated pixel values into
+        physical units for sources which are not resolved.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="units_of_conversion_constants" type="nh:units_of_conversion_constants" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_constant" type="nh:solar_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="jupiter_constant" type="nh:jupiter_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pholus_constant" type="nh:pholus_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pluto_constant" type="nh:pluto_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="charon_constant" type="nh:charon_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:units_of_conversion_constants = ('(DN/s)/(erg/cm^2/s/Angstrom)', '(DN/s)/(erg/cm^2/s/Angstrom/sr)')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="charon_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:charon_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to Pluto I (Charon) to convert MVIC calibrated data to
+        physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="clock_partition">
+    <xs:annotation>
+      <xs:documentation> The clock_partition holds the mission clock
+        partition counter. This is a simple integer </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="detector_name">
+    <xs:annotation>
+      <xs:documentation> The name of the detector that recorded the
+        observation(s) comprising the product. For instruments with
+        multiple detectors, as in the case of MVIC, for example, this
+        string will include both the instrument ID and the specific
+        detector ID. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="detector_type">
+    <xs:annotation>
+      <xs:documentation> The detector_type attribute provides a brief
+        indication of the type of hardware comprising the detector.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="frame_number">
+    <xs:annotation>
+      <xs:documentation> The frame_number attribute is used to identify
+        a single frame (or image plane) in an observation that is
+        formatted as a 3D image cube. The first frame is numbered "0"
+        (zero). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gain_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="gain">
+    <xs:annotation>
+      <xs:documentation> The gain attribute provides the gain setting
+        applied to the data collection, in units of electrons/DN.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:gain_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="jupiter_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:jupiter_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to Jupiter to convert MVIC calibrated data to physical
+        units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="left_side_median_bias_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="left_side_median_bias">
+    <xs:annotation>
+      <xs:documentation> The left_side_median_bias attribute provides
+        the median bias, in DN, determined by averaging the bias levels
+        for the shielded pixels on the left side of the detector array.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:left_side_median_bias_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation> The formal identification of the mission phase.
+        Phases are identified continuously from primary through extended
+        missions. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_description">
+    <xs:annotation>
+      <xs:documentation> The observation_description element provides a
+        human-readable decoding of the nh:sequence_id string. It
+        provides a basic description of the planned observation
+        activity. Each instrument should have an accompanying
+        ancillary/documentation file that lists all the planned
+        sequences for each instrument for each mission phase.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pholus_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:pholus_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to (5145) Pholus to convert MVIC calibrated data to
+        physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="physical_pixel_size_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="physical_pixel_size">
+    <xs:annotation>
+      <xs:documentation> The physical_pixel_size attribute gives the
+        hardware dimension of a single, square pixel within the
+        detector. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:physical_pixel_size_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pivot_wavelength_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pivot_wavelength">
+    <xs:annotation>
+      <xs:documentation> The pivot_wavelength is used in converting the
+        pixel values in the calibrated MVIC data into physical units. It
+        is wavelength-dependent, but once defined is constant for each
+        MVIC detector. A description of how to convert from data values
+        to physical units is provided in the "New Horizons SOC to
+        Instrument Pipeline ICD" document. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:pivot_wavelength_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pluto_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:pluto_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to (134340) Pluto to convert MVIC calibrated data to
+        physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="read_noise">
+    <xs:annotation>
+      <xs:documentation> The read_noise attribute provides the noise
+        level of the detector as a count of electrons.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="right_side_median_bias_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="right_side_median_bias">
+    <xs:annotation>
+      <xs:documentation> The right_side_median_bias attribute provides
+        the median bias, in DN, determined by averaging the bias levels
+        for the shielded pixels on the right side of the detector array.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:right_side_median_bias_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="scan_type">
+    <xs:annotation>
+      <xs:documentation> The scan_type attribute indicates what sort of
+        scanning was employed in collecting the data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sequence_id">
+    <xs:annotation>
+      <xs:documentation> The sequence_id provides a long string encoded
+        some infomation about the planned observing sequence. A more
+        human-readable description should be provided in the
+        nh:observation_description element. Each instrument should have
+        an accompanying ancillary/documentation file that lists all the
+        planned sequences for each instrument for each mission phase.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="solar_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:solar_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to the Sun to convert MVIC calibrated data to physical
+        units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_clock_count">
+    <xs:annotation>
+      <xs:documentation> The start_clock_count is the Mission Elapsed
+        Time code at the start of the observation(s), formatted as
+        spacecraft clock ticks and indicating whole and fractional
+        seconds. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[0-9]{10}:[0-9]{5}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_clock_count">
+    <xs:annotation>
+      <xs:documentation> The stop_clock_count is the Mission Elapsed
+        Time code at the end of the observation(s), formatted as
+        spacecraft clock ticks and indicating whole and fractional
+        seconds. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[0-9]{10}:[0-9]{5}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tdi_median_bias_level_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tdi_median_bias_level">
+    <xs:annotation>
+      <xs:documentation> The tdi_median_bias_level attribute gives the
+        medianan bias level of a time-delay integration observation. For
+        TDI mode, bias levels in each detector were determined in-flight
+        during early mission phases. They may vary depending on exposure
+        length. See the "New Horizonz SOC to Instrument Pipeline ICD"
+        document for details. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:tdi_median_bias_level_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="tdi_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tdi_rate">
+    <xs:annotation>
+      <xs:documentation> The tdi_rate attribute is the rate at which
+        charge was moved through successive rows of the detector in
+        obtaining the observation. This rate was calculated to match the
+        scan rate of the spacecraft. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:tdi_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="telemetry_apid">
+    <xs:annotation>
+      <xs:documentation> The telemetry_apid is the application
+        identifier for the observation. The values are specific to
+        instrument and activity. The definitions for apIDs relevant to
+        the archived observations are contained in various tables in the
+        "New Horizons SOC to Instrument Pipeline ICD document. The apID
+        is used in formulating the file name, among other things.
+        Metadata encoded in the apID is contained in separate metadata
+        elements elsewhere in the label. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='0x[0-9A-Za-z]{3}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="units_of_conversion_constants">
+    <xs:annotation>
+      <xs:documentation> The MVIC calibrated data are not converted to
+        physical units, because the conversion applied depends on the
+        general spectrum of the object being converted and whether it is
+        resolved. For resolved sources, the conversion produces data in
+        units of radiance. For unresolved sources, the conversion
+        results in units of flux (irradiance). This attribute contains
+        the appropriate physical units for the conversion constants in
+        the class in which it is contained to produce either radiance or
+        flux units, as appropriate, when the conversion is applied. A
+        description of how to convert from data values to physical units
+        is provided in the "New Horizons SOC to Instrument Pipeline ICD"
+        document. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

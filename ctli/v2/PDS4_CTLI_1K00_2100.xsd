@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:ctli  Version:2.1.0.0 - Wed Jan 17 16:32:14 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 2.1.0.0 - ctli: - Type_List                                               -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/ctli/v2"
+    xmlns:ctli="http://pds.nasa.gov/pds4/ctli/v2"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="2.1.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+    The Instrument Type List Dictionary provides a set of permissible values and their 
+    value meanings for use by the enumerated attribute  type  in the Instrument class.
+    Modification History:
+      2019-11-14: First version delivered by the Instrument Type Steward Team.
+      2021-08-31: Version 2.0 to reorganize the Type_List class.
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Type_List" type="ctli:Type_List"> </xs:element>
+  <xs:element name="Type_List_Set" type="ctli:Type_List_Set"> </xs:element>
+
+  <xs:complexType name="Type_List">
+    <xs:annotation>
+      <xs:documentation>The Type List class provides a list of values
+        and their value meanings.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="ctli:type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="subtype" type="ctli:subtype" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="ctli:type = ('Accelerometer', 'Altimeter', 'Atmospheric Structure Instrument', 'Camera', 'Charged Particle Detector', 'Dust Analyzer', 'Electric Field Instrument', 'Gamma Ray Detector', 'Gas Analyzer', 'Gravimeter', 'Imager', 'Imaging Spectrometer', 'Interferometer', 'Langmuir Probe', 'Lidar', 'Magnetometer', 'Mass Spectrometer', 'Meteorology', 'Microphone', 'Microscope', 'Mutual Impedance Probe', 'Nephelometer', 'Neutral Particle Detector', 'Neutron Detector', 'Polarimeter', 'Radar', 'Radio Receiver', 'Radio Science', 'Radiometer', 'Relaxation Sounder', 'Retroreflector Array', 'Seismometer', 'Spacecraft Sensor', 'Spectrometer', 'Spectrum Analyzer', 'Sub-Surface Tool', 'Surface Tool', 'Temperature Sensor', 'Weather Station', 'Wind Tunnel')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Type_List_Set">
+    <xs:annotation>
+      <xs:documentation>The Type List class provides a list of values
+        and their value meanings.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="ctli:Type_List" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="subtype">
+    <xs:annotation>
+      <xs:documentation>The subtype attribute provides additional nuance
+        or clarity to the type attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="type">
+    <xs:annotation>
+      <xs:documentation> The type attribute provides a character string
+        which uniquely identifies the object. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:UTF8_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

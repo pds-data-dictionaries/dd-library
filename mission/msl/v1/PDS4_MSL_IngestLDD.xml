@@ -9,7 +9,7 @@
   xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
   xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd">
   <name>Mars Science Laboratory Mission</name>
-  <ldd_version_id>1.1.0.0</ldd_version_id>
+  <ldd_version_id>1.2.0.0</ldd_version_id>
   <dictionary_type>Mission</dictionary_type>
   <full_name>Jennifer Ward</full_name>
   <steward_id>geo</steward_id>
@@ -18,7 +18,7 @@
     The Mars Science Laboratory (MSL) mission dictionary contains classes and attributes specific to the MSL mission 
     and its instruments.
     
-    Mars Science Laboratory version 1.1.0.0 
+    Mars Science Laboratory version 1.2.0.0 
     PDS Build 1.19.0.0
     LDDTool version 13.1.0
     
@@ -26,9 +26,10 @@
      
     2023-02-01 JGW Initial version
     2023-05-09 JGW Added product_version_id attribute and changed allowed spacecraft_clock_stop to be nillable
+    2024-01-17 JGW Added SAM Parameters class
     
   </comment>
-  <last_modification_date_time>2023-05-09T03:39</last_modification_date_time>
+  <last_modification_date_time>2024-01-17T15:54</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <msl:MSL_Parameters>
@@ -48,6 +49,11 @@
           <msl:active_flight_computer> </>
           <msl:producer_institution_name> </>
        </msl:Observation_Information> </>
+       <msl:SAM_Parameters>
+          <msl:sam_experiment_id> </>
+          <msl:sam_experiment_descriptions> </>
+          <msl:sam_gc_column_number> </>
+          <msl:sam_gc_column_description> </>
     </msl:MSL_Parameters>
   -->
   <!-- Begin definitions of attributes in the MSL Mission Data Dictionary. -->
@@ -535,6 +541,96 @@
 
   <!-- End Attribute Definitions for the Observation_Information class -->
   
+  <!-- Attribute Definitions for the SAM_Parameters class
+        In alphabetical order, the attributes are:
+    
+       sam_experiment_description              required
+       sam_experiment_id                       required
+       sam_gc_column_description               required
+       sam_gc_column_number                    required
+  -->
+  
+  <DD_Attribute>  <name>sam_experiment_description</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.sam_experiment_description</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The sam_experiment_description element describes the type of SAM experiment that produced a data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>  <name>sam_experiment_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.sam_experiment_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The sam_experiment_id element uniquely identifies the SAM experiment that produced a data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>65536</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>  <name>sam_gc_column_description</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.sam_gc_column_description</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The sam_gc_column_description element specifies the operational configuration of the Gas Chromatograph 
+      column used in an experiment.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>  <name>sam_gc_column_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.sam_gc_column_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The sam_gc_column_number element gives the Gas Chromatograph column number (1 through 6) used in an 
+      experiment.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+      <maximum_value>6</maximum_value>
+      <DD_Permissible_Value>
+        <value>1</value>
+        <value_meaning>GC column 1.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>2</value>
+        <value_meaning>GC column 2.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>3</value>
+        <value_meaning>GC column 3.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>4</value>
+        <value_meaning>GC column 4.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>5</value>
+        <value_meaning>GC column 5.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>6</value>
+        <value_meaning>GC column 6.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <!-- End Attribute Definitions for the SAM_Parameters class -->
+  
+  
   <!-- *** Begin Class Definitions *** -->
   <!-- Observation_Information Class Definition -->
   <!-- Attributes are in the order required in the label:
@@ -647,6 +743,41 @@
   </DD_Class>
   <!-- End of Observation_Information Class Definition -->
 
+  <!-- Begin SAM_Parameters Class Definition -->
+
+  <DD_Class>  <name>SAM_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>msl.SAM_Parameters</local_identifier>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The SAM Parameters class provides metadata specific to SAM observations.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>msl.sam_experiment_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.sam_experiment_description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.sam_gc_column_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>msl.sam_gc_column_description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
   <!-- Begin definition of MSL_Parameters container class -->
   <DD_Class> <name>MSL_Parameters</name>
     <version_id>1.0</version_id>
@@ -658,6 +789,11 @@
     <DD_Association>  <identifier_reference>msl.Observation_Information</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>  <identifier_reference>msl.SAM_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>

@@ -9,7 +9,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd">
     <name>MRO</name>
-    <ldd_version_id>1.2.2.0</ldd_version_id>
+    <ldd_version_id>1.3.1.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
@@ -18,8 +18,8 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.2.1.0
-        PDS Build 1.18.0.0 (1I00)
+        MRO version 1.3.1.0
+        PDS Build 1.20.0.0, 1.21.0.0, 1.22.0.0,
         LDDTool version 14.0.13
         
         Built with lddtool -plJ PDS4_MRO_IngestLDD.xml
@@ -44,8 +44,12 @@
         2023-08-31 PG (pgeissler@usgs.gov) added observation_rationale attribute for HiRISE, 
         bump to 1.2.2.0
         
+        2024-01-09 JGW. Added SHARAD_Observation_Parameters class
+        
+        2024-02-27 PG fixes to HiRISE, 1.3.1.0
+        
     </comment>
-    <last_modification_date_time>2023-09-01T08:00</last_modification_date_time>
+    <last_modification_date_time>2024-04-25T13:05</last_modification_date_time>
 
 <!--Hierarchy of classes and attributes 
     mro:MRO_Parameters
@@ -71,7 +75,9 @@
     <!-- Attributes for the MRO_Parameters class, in alphabetical order:
 
         mission_phase_name
-            observation_rationale
+        line_prefix_bytes
+        line_suffix_bytes
+        observation_rationale
 	    orbit_number
 	    producer_institution_name
 	    product_type
@@ -257,6 +263,14 @@
                 <value>TRDR_Browse</value>
                 <value_meaning>Targeted Reduced Data Record - Browse</value_meaning>
             </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>DTM</value>
+                <value_meaning>Digital Terrain Model</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>ORTHOIMAGE</value>
+                <value_meaning>Image orthorectified to a digital terrain model</value_meaning>
+            </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>    
     <DD_Attribute> <name>product_version_id</name>
@@ -331,6 +345,39 @@
             <pattern>([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{3,6})?</pattern>
         </DD_Value_Domain>
     </DD_Attribute>      
+    <DD_Attribute> 
+        <name>line_prefix_bytes</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.line_prefix_bytes</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The line prefix bytes attribute reports the number of bytes that precede the 
+            observational data for each line of a HiRISE or CTX image. For HiRISE, the prefix 
+            includes 6 bytes of line identification information and the values of 12 buffer pixels,
+            which contain the value of empty pixels after going through the instrument electronics.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>        
+    <DD_Attribute> 
+        <name>line_suffix_bytes</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.line_suffix_bytes</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The line suffix bytes attribute reports the number of bytes that follow the 
+            observational data for each line of a HiRISE or CTX image. For HiRISE, the suffix 
+            contains 16 dark reference pixel values produced by masked detectors.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>   
     
     <!-- End attribute definitions for the MRO_Parameters class. -->
     
@@ -701,7 +748,13 @@
 	    array_last_value       
         array_scale
         array_unit
+        azimuth_processing_window
+        chirp_frequency envelope
+        multilook_doppler_bandwidth
         name
+        number_of_looks
+        range_compression_window
+        synthetic_aperture_duration
 	    
     -->
     <DD_Attribute> <name>array_first_value</name>
@@ -806,6 +859,50 @@
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
+    <DD_Attribute> <name>azimuth_processing_window</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.azimuth_processing_window</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The windowing function used to reduce sidelobes resulting from azimuth 
+            (along-track) synthetic aperture processing of the raw echo records. All 
+            radargrams in the SHARAD radargram archive use a Hann function.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>chirp_frequency_envelope</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.chirp_frequency_envelope</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The frequency-dependent amplitude variation used in range compression of the 
+            raw echo data. All radargrams in the SHARAD radargram archive use a 
+            uniform-amplitude model.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>multilook_doppler_bandwidth</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.multilook_doppler_bandwidth</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The frequency span over which radar echoes are averaged, following 
+            synthetic aperture processing for each spatial footprint along the ground 
+            track. This frequency span is measured to either side of the zero-frequency 
+            component of the Doppler spectrum.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>name</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.name</local_identifier>
@@ -819,6 +916,50 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>number_of_looks</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.number_of_looks</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The number of frequency-resolved cells included in the multi-look averaging. 
+            This varies with the chosen frequency span and the Doppler resolution set by 
+            the inverse of the coherent integration time.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>range_compression_window</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.range_compression_window</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The windowing function used to reduce sidelobes resulting from range 
+            compression of the raw echo records. All radargrams in the SHARAD radargram
+            archive use a Hann function.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>synthetic_aperture_duration</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.synthetic_aperture_duration</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The coherent integration time for SHARAD signals processed using 
+            the synthetic aperture technique. Multiplication of this value by the MRO 
+            tangential velocity tabulated in the SHARAD radargram *GEOM.TAB files yields an 
+            approximate physical length of the aperture.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
         </DD_Value_Domain>
     </DD_Attribute>
     
@@ -886,14 +1027,72 @@
     
     <!-- Attribute definitions for the HiRISE_Time_Parameters class, in alphabetical order:
 
-	observation_start_time 
+        analog_power_start_count
+        analog_power_start_time
+        calibration_start_count
+        calibration_start_time
+	    observation_start_time 
         readout_start_count           
         readout_start_time
-           
-
-	    
+               
     -->
-        <DD_Attribute> <name>observation_start_time</name>
+    <DD_Attribute><name>analog_power_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.analog_power_start_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The analog_power_start_count attribute provides the spacecraft clock count
+            when power to the CPMM units was applied. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>analog_power_start_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.analog_power_start_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The analog_power_start_time attribute provides the UTC time 
+            when power to the CPMM units was applied. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>calibration_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.calibration_start_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The calibration_start_count attribute provides the spacecraft clock count
+            at the beginning of the first calibration image line.  
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>calibration_start_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.calibration_start_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The calibration_start_time attribute provides the UTC time 
+            at the beginning of the first calibration image line.  
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+     <DD_Attribute> <name>observation_start_time</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.observation_start_time</local_identifier>
         <nillable_flag>false</nillable_flag>
@@ -955,6 +1154,7 @@
         dll_reset_count               
         felics_compression_flag       
         focus_position_count          
+        heater_control_flag_00           
         heater_control_flag_01           
         heater_control_flag_02           
         heater_control_flag_03           
@@ -968,7 +1168,6 @@
         heater_control_flag_11           
         heater_control_flag_12           
         heater_control_flag_13           
-        heater_control_flag_14           
         heater_control_mode           
         image_exposure_duration       
         line_exposure_duration        
@@ -978,6 +1177,7 @@
         lookup_table_minimum          
         lookup_table_number           
         lookup_table_type             
+        powered_cpmm_flag_00             
         powered_cpmm_flag_01             
         powered_cpmm_flag_02             
         powered_cpmm_flag_03             
@@ -991,11 +1191,10 @@
         powered_cpmm_flag_11             
         powered_cpmm_flag_12             
         powered_cpmm_flag_13             
-        powered_cpmm_flag_14             
         scan_exposure_duration        
-        stimulation_lamp_flag_01        
-        stimulation_lamp_flag_02        
-        stimulation_lamp_flag_03        
+        stimulation_lamp_flag_red        
+        stimulation_lamp_flag_nir        
+        stimulation_lamp_flag_blg        
         tdi                           
         trim_lines                    
             
@@ -1012,20 +1211,10 @@
      analog-to-digital conversion timing settings for the readout of the video waveform.
         </definition>
         <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
+            <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
-	     <DD_Permissible_Value>
-                <value>4</value>
-		<value_meaning>4</value_meaning>
-             </DD_Permissible_Value>
- 	     <DD_Permissible_Value>
-                <value>5</value>
-		<value_meaning>5</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
-                <value>6</value>
-		<value_meaning>6</value_meaning>
-             </DD_Permissible_Value>	     	     
+            <minimum_value>0</minimum_value>
+            <maximum_value>9</maximum_value>	     	     
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute><name>adc_timing_settings_reset</name>
@@ -1038,20 +1227,10 @@
      analog-to-digital conversion timing settings for the reset of the video waveform.
         </definition>
         <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
+            <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
-	     <DD_Permissible_Value>
-                <value>4</value>
-		<value_meaning>4</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
-                <value>5</value>
-		<value_meaning>5</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
-                <value>6</value>
-		<value_meaning>6</value_meaning>
-             </DD_Permissible_Value>	     	     
+            <minimum_value>0</minimum_value>
+            <maximum_value>9</maximum_value>	     	    
         </DD_Value_Domain>
     </DD_Attribute> 
     <DD_Attribute><name>binning</name>
@@ -1358,6 +1537,29 @@
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>				         	     
         </DD_Value_Domain>
+    </DD_Attribute> 
+    <DD_Attribute><name>heater_control_flag_00</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_00</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The heater_control_flag element is a set of 14 on/off flags
+            that indicate which of the 14 heater control areas were on at the
+            time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>heater on</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>heater off</value_meaning>
+            </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
     </DD_Attribute>  
     <DD_Attribute><name>heater_control_flag_01</name>
         <version_id>1.0</version_id>
@@ -1657,30 +1859,7 @@
 		<value_meaning>heater off</value_meaning>
              </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
-    </DD_Attribute>
-    <DD_Attribute><name>heater_control_flag_14</name>
-        <version_id>1.0</version_id>
-        <local_identifier>mro.heater_control_flag_14</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>
-	The heater_control_flag element is a set of 14 on/off flags
-        that indicate which of the 14 heater control areas were on at the
-        time of a HiRISE observation.        
-        </definition>
-        <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
-                <value>ON</value>
-		<value_meaning>heater on</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
-                <value>OFF</value>
-		<value_meaning>heater off</value_meaning>
-             </DD_Permissible_Value>	         	     
-        </DD_Value_Domain>													
-    </DD_Attribute>     
+    </DD_Attribute>   
      <DD_Attribute><name>heater_control_mode</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.heater_control_mode</local_identifier>
@@ -1860,6 +2039,30 @@
                 <value>STORED</value>
                 <value_meaning>stored LUT</value_meaning>
              </DD_Permissible_Value>	     	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute> 
+    <DD_Attribute><name>powered_cpmm_flag_00</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_00</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            The powered_cpmm_flag attribute provides a set of 14 values that
+            identify which HiRISE CCD Processing/Memory Modules were commanded to
+            acquire imaging during the observation. The first element is for CPMM 0
+            and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered on</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered off</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>													
     </DD_Attribute>     
     <DD_Attribute><name>powered_cpmm_flag_01</name>
@@ -2173,31 +2376,7 @@
                 <value_meaning>CPMM powered off</value_meaning>
              </DD_Permissible_Value>	         	     
         </DD_Value_Domain>													
-    </DD_Attribute>        
-    <DD_Attribute><name>powered_cpmm_flag_14</name>
-        <version_id>1.0</version_id>
-        <local_identifier>mro.powered_cpmm_flag_14</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>
-	The powered_cpmm_flag attribute provides a set of 14 values that
-        identify which HiRISE CCD Processing/Memory Modules were commanded to
-        acquire imaging during the observation. The first element is for CPMM 0
-       and the last element is for CPMM 13.        
-        </definition>
-        <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
-                <value>ON</value>
-                <value_meaning>CPMM powered on</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
-                <value>OFF</value>
-                <value_meaning>CPMM powered off</value_meaning>
-             </DD_Permissible_Value>	         	     
-        </DD_Value_Domain>													
-    </DD_Attribute>        
+    </DD_Attribute>               
     <DD_Attribute><name>scan_exposure_duration</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.scan_exposure_duration</local_identifier>
@@ -2220,9 +2399,9 @@
 	    <unit_of_measure_type>Units_of_Time</unit_of_measure_type>				         	     
         </DD_Value_Domain>
     </DD_Attribute>     
-    <DD_Attribute><name>stimulation_lamp_flag_01</name>
+    <DD_Attribute><name>stimulation_lamp_flag_red</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.stimulation_lamp_flag_01</local_identifier>
+        <local_identifier>mro.stimulation_lamp_flag_red</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>
@@ -2245,9 +2424,9 @@
              </DD_Permissible_Value>	         	     
         </DD_Value_Domain>													
     </DD_Attribute>      
-    <DD_Attribute><name>stimulation_lamp_flag_02</name>
+    <DD_Attribute><name>stimulation_lamp_flag_nir</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.stimulation_lamp_flag_02</local_identifier>
+        <local_identifier>mro.stimulation_lamp_flag_nir</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>
@@ -2270,9 +2449,9 @@
              </DD_Permissible_Value>	         	     
         </DD_Value_Domain>													
     </DD_Attribute>      
-    <DD_Attribute><name>stimulation_lamp_flag_03</name>
+    <DD_Attribute><name>stimulation_lamp_flag_blg</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.stimulation_lamp_flag_03</local_identifier>
+        <local_identifier>mro.stimulation_lamp_flag_blg</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>
@@ -4343,7 +4522,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4373,7 +4552,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4403,7 +4582,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4433,7 +4612,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4463,7 +4642,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4493,7 +4672,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4523,7 +4702,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4553,7 +4732,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4583,7 +4762,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4613,7 +4792,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4643,7 +4822,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4673,7 +4852,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4703,7 +4882,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -4733,7 +4912,7 @@
 	The special_processing_flag elements indicate if special
         calibration processing was applied to a HiRISE CCD image. The
         HiRISE instrument may experience instability problems or a
-        ow-signal image may have been poorly calibrated requiring an
+        low-signal image may have been poorly calibrated requiring an
         alternate calibration strategy. There is a special processing
         flag for each CCD used in the observation.        
         </definition>
@@ -5224,6 +5403,30 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>	
+        <DD_Association>
+            <identifier_reference>mro.analog_power_start_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>	
+        <DD_Association>
+            <identifier_reference>mro.analog_power_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>	
+        <DD_Association>
+            <identifier_reference>mro.calibration_start_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>	
+        <DD_Association>
+            <identifier_reference>mro.calibration_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>	
     </DD_Class>    
     <!-- End of HiRISE_Time_Parameters Class definition -->
     
@@ -5268,6 +5471,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>mro.delta_line_timer_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_00</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -5351,12 +5560,6 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.powered_cpmm_flag_14</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>mro.binning</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -5387,25 +5590,31 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.stimulation_lamp_flag_01</identifier_reference>
+            <identifier_reference>mro.stimulation_lamp_flag_red</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.stimulation_lamp_flag_02</identifier_reference>
+            <identifier_reference>mro.stimulation_lamp_flag_blg</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.stimulation_lamp_flag_03</identifier_reference>
+            <identifier_reference>mro.stimulation_lamp_flag_nir</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
             <identifier_reference>mro.heater_control_mode</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_00</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -5484,12 +5693,6 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>mro.heater_control_flag_13</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>mro.heater_control_flag_14</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -6469,7 +6672,56 @@
         </DD_Association>
     </DD_Class>
     <!-- End of CRISM_ATO_Parameters Class definition -->
-
+    
+    <!-- Beginning of SHARAD_Observation_Parameters Class definition with attributes in the order as they appear in the label -->    
+    <DD_Class> <name>SHARAD_Observation_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.SHARAD_Observation_Parameters</local_identifier>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>
+            The SHARAD_Observation_Parameters class provides parameters for SHARAD radar observations.
+        </definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.synthetic_aperture_duration</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.multilook_doppler_bandwidth</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.number_of_looks</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.chirp_frequency_envelope</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.range_compression_window</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.azimuth_processing_window</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End of SHARAD_Observation_Parameters Class definition -->
+    
     <!-- Beginning of Array_Sampled Class definition with attributes in the order as they appear in the label -->    
     <DD_Class> <name>Array_Sampled</name>
         <version_id>1.0</version_id>
@@ -6527,6 +6779,12 @@
         <definition>The SHARAD_Parameters class contains attributes specific to SHARAD data.</definition>
         <abstract_flag>false</abstract_flag>
         <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.SHARAD_Observation_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
         <DD_Association>
             <identifier_reference>mro.Array_Sampled</identifier_reference>
             <reference_type>component_of</reference_type>
@@ -6600,6 +6858,18 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>mro.producer_institution_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.line_prefix_bytes</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.line_suffix_bytes</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>

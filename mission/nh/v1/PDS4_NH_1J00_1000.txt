@@ -1,0 +1,487 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        14.3.0
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.25
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Thu Dec 21 00:28:48 UTC 2023
+   Common Schema          [PDS4_PDS_1J00.xsd]
+   Common Schematron      [PDS4_PDS_1J00.sch]
+   IM Version Id:         1.19.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.25
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-nh/ldd-nh/src/PDS4_NH_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                11
+   Attributes             25
+   Associations           41
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               New Horizons Primary and Extended Missions Dictionary
+   LDD Version            1.0.0.0
+   Full Name              Anne Raugh
+   Steward                sbn
+   Namespace Id           nh
+   Comment                _TBD_Ingest_LDD
+   Last Modification Time 2022-12-27
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   charon_constant
+   version                1.19
+   value data type        ASCII_Real
+   description             The nh:charon_constant attribute supplies the constant to be used for sources with spectral distribution similar to Pluto I (Charon) to convert MVIC calibrated data to physical units. 
+
+   name                   clock_partition
+   version                1.19
+   value data type        ASCII_NonNegative_Integer
+   description             The clock_partition holds the mission clock partition counter. This is a simple integer 
+
+   name                   detector_name
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The name of the detector that recorded the observation(s) comprising the product. For instruments with multiple detectors, as in the case of MVIC, for example, this string will include both the instrument ID and the specific detector ID. 
+
+   name                   detector_type
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The detector_type attribute provides a brief indication of the type of hardware comprising the detector. 
+
+   name                   frame_number
+   version                1.19
+   value data type        ASCII_NonNegative_Integer
+   description             The frame_number attribute is used to identify a single frame (or image plane) in an observation that is formatted as a 3D image cube. The first frame is numbered "0" (zero). 
+
+   name                   gain
+   version                1.19
+   value data type        ASCII_Real
+   description             The gain attribute provides the gain setting applied to the data collection, in units of electrons/DN. 
+   minimum value          0.0
+   unit of measure type   Units_of_Misc
+
+   name                   jupiter_constant
+   version                1.19
+   value data type        ASCII_Real
+   description             The nh:jupiter_constant attribute supplies the constant to be used for sources with spectral distribution similar to Jupiter to convert MVIC calibrated data to physical units. 
+
+   name                   left_side_median_bias
+   version                1.19
+   value data type        ASCII_Real
+   description             The left_side_median_bias attribute provides the median bias, in DN, determined by averaging the bias levels for the shielded pixels on the left side of the detector array. 
+   minimum value          -1.0
+   unit of measure type   Units_of_Misc
+
+   name                   mission_phase_name
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The formal identification of the mission phase. Phases are identified continuously from primary through extended missions. 
+
+   name                   observation_description
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The observation_description element provides a human-readable decoding of the nh:sequence_id string. It provides a basic description of the planned observation activity. Each instrument should have an accompanying ancillary/documentation file that lists all the planned sequences for each instrument for each mission phase. 
+
+   name                   pholus_constant
+   version                1.19
+   value data type        ASCII_Real
+   description             The nh:pholus_constant attribute supplies the constant to be used for sources with spectral distribution similar to (5145) Pholus to convert MVIC calibrated data to physical units. 
+
+   name                   physical_pixel_size
+   version                1.19
+   value data type        ASCII_Real
+   description             The physical_pixel_size attribute gives the hardware dimension of a single, square pixel within the detector. 
+   minimum value          0.0
+   unit of measure type   Units_of_Length
+
+   name                   pivot_wavelength
+   version                1.19
+   value data type        ASCII_Real
+   description             The pivot_wavelength is used in converting the pixel values in the calibrated MVIC data into physical units. It is wavelength-dependent, but once defined is constant for each MVIC detector. A description of how to convert from data values to physical units is provided in the "New Horizons SOC to Instrument Pipeline ICD" document. 
+   minimum value          0.0
+   unit of measure type   Units_of_Length
+
+   name                   pluto_constant
+   version                1.19
+   value data type        ASCII_Real
+   description             The nh:pluto_constant attribute supplies the constant to be used for sources with spectral distribution similar to (134340) Pluto to convert MVIC calibrated data to physical units. 
+
+   name                   read_noise
+   version                1.19
+   value data type        ASCII_Real
+   description             The read_noise attribute provides the noise level of the detector as a count of electrons. 
+
+   name                   right_side_median_bias
+   version                1.19
+   value data type        ASCII_Real
+   description             The right_side_median_bias attribute provides the median bias, in DN, determined by averaging the bias levels for the shielded pixels on the right side of the detector array. 
+   minimum value          -1.0
+   unit of measure type   Units_of_Misc
+
+   name                   scan_type
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The scan_type attribute indicates what sort of scanning was employed in collecting the data. 
+
+   name                   sequence_id
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The sequence_id provides a long string encoded some infomation about the planned observing sequence. A more human-readable description should be provided in the nh:observation_description element. Each instrument should have an accompanying ancillary/documentation file that lists all the planned sequences for each instrument for each mission phase. 
+
+   name                   solar_constant
+   version                1.19
+   value data type        ASCII_Real
+   description             The nh:solar_constant attribute supplies the constant to be used for sources with spectral distribution similar to the Sun to convert MVIC calibrated data to physical units. 
+
+   name                   start_clock_count
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The start_clock_count is the Mission Elapsed Time code at the start of the observation(s), formatted as spacecraft clock ticks and indicating whole and fractional seconds. 
+
+   name                   stop_clock_count
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The stop_clock_count is the Mission Elapsed Time code at the end of the observation(s), formatted as spacecraft clock ticks and indicating whole and fractional seconds. 
+
+   name                   tdi_median_bias_level
+   version                1.19
+   value data type        ASCII_Real
+   description             The tdi_median_bias_level attribute gives the medianan bias level of a time-delay integration observation. For TDI mode, bias levels in each detector were determined in-flight during early mission phases. They may vary depending on exposure length. See the "New Horizonz SOC to Instrument Pipeline ICD" document for details. 
+   minimum value          0.0
+   unit of measure type   Units_of_Misc
+
+   name                   tdi_rate
+   version                1.19
+   value data type        ASCII_Real
+   description             The tdi_rate attribute is the rate at which charge was moved through successive rows of the detector in obtaining the observation. This rate was calculated to match the scan rate of the spacecraft. 
+   minimum value          0.0
+   unit of measure type   Units_of_Frequency
+
+   name                   telemetry_apid
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The telemetry_apid is the application identifier for the observation. The values are specific to instrument and activity. The definitions for apIDs relevant to the archived observations are contained in various tables in the "New Horizons SOC to Instrument Pipeline ICD document. The apID is used in formulating the file name, among other things. Metadata encoded in the apID is contained in separate metadata elements elsewhere in the label. 
+
+   name                   units_of_conversion_constants
+   version                1.19
+   value data type        ASCII_Short_String_Collapsed
+   description             The MVIC calibrated data are not converted to physical units, because the conversion applied depends on the general spectrum of the object being converted and whether it is resolved. For resolved sources, the conversion produces data in units of radiance. For unresolved sources, the conversion results in units of flux (irradiance). This attribute contains the appropriate physical units for the conversion constants in the class in which it is contained to produce either radiance or flux units, as appropriate, when the conversion is applied. A description of how to convert from data values to physical units is provided in the "New Horizons SOC to Instrument Pipeline ICD" document. 
+
+Parsed Input - Classes:
+
+   name                   Detector
+   description             The Detector class provides observation metadata relevant to the specific detector (an instrument may have more than one detector) used to collect the data. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:detector_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:detector_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:MVIC_Details
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Mission_Elapsed_Time
+   description             The Mission_Elapsed_Time class provides spacecraft clock partition and count readings for the start and end of the observation(s) comprising the data product. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:clock_partition
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:start_clock_count
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:stop_clock_count
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Frame_Bias_Levels
+   description             The Frame_Bias_Levels class records the frame number and left/right bias levels for a single frame in a framing observation sequence. In the MVIC detector used for framing observations, the bias level for left and right sides of the detector may vary. Bias levels on each side are measured with every observation through shielded pixels on either side of the detector, the bias values for the pixels from each side them being averaged to return a single median bias level for each side of the detector. These bias levels are reported as left and right median bias levels for each frame. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:frame_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:left_side_median_bias
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:right_side_median_bias
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Framing_Biases
+   description             The Framing_Biases class contains one nh:Frame_Bias_Levels class for each individual frame of a framing observation. These classes provide the left and right side bias levels applied in calibrating the data. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:Frame_Bias_Levels
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   MVIC_Calibration_Information
+   description             The MVIC_Calibration_Information class gathers attributes related to the attributes of the detector and other information relevant to the calibration processing performed to produce the current data product. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:physical_pixel_size
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:read_noise
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:gain
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:tdi_median_bias_level
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:Framing_Biases
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   MVIC_Conversion_Constants
+   description             The MVIC_Conversion_Constants class provides the values needed to run the conversion from the calibrated pixel values to physical units. This conversion is dependent on the spectral distribition of the source, the MVIC detector wavelength range, and whether or not the source is resolved. A description of how to convert from data values to physical units is provided in the "New Horizons SOC to Instrument Pipeline ICD" document. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:pivot_wavelength
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:Resolved_Source
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nh:Unresolved_Source
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   MVIC_Details
+   description             The MVIC_Details class collects observational parameters that are specific to the MVIC instrument and its various channels. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:scan_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:tdi_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observation_Parameters
+   description             The Observation_Parameters class collects observational metadata that is specific to the mission, spacecraft, and instrument which produced the data product. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:telemetry_apid
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:sequence_id
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:observation_description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:Mission_Elapsed_Time
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nh:Detector
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Resolved_Source
+   description             The Resolved_Source class presents MVIC conversion constants for converting calibrated pixel values into physical units for sources which are resolved. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:units_of_conversion_constants
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:solar_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:jupiter_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:pholus_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:pluto_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:charon_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Unresolved_Source
+   description             The Unresolved_Source class presents MVIC conversion constants for converting calibrated pixel values into physical units for sources which are not resolved. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:units_of_conversion_constants
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:solar_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:jupiter_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:pholus_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:pluto_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:charon_constant
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Mission_Parameters
+   description             The Mission_Parameters class presents the various New Horizons-specific metadata for both primary and extended missions. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      nh:mission_phase_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      nh:Observation_Parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nh:MVIC_Calibration_Information
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      nh:MVIC_Conversion_Constants
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report
