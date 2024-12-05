@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model 
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD 
+  xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd">
+  <name>Commercial Lunar Payload Services Mission</name>
+  <ldd_version_id>1.1.0.0</ldd_version_id>
+  <dictionary_type>Mission</dictionary_type>
+  <full_name>Jennifer Ward</full_name>
+  <steward_id>geo</steward_id>
+  <namespace_id>clps</namespace_id>
+  <comment>
+    The Commercial Lunar Payload Services (CLPS) mission dictionary contains classes and attributes specific to CLPS deliveries 
+    and their instruments. 
+    
+    CLPS version 1.1.0.0 
+    PDS Build 1.19.0.0
+    LDDTool version 14.0.13
+    
+    Built with LDDTool -plJ  PDS4_CLPS_IngestLDD.xml
+     
+    2023-06-16 JGW Initial version.
+    2023-06-22 JGW Added CLPS_NIRVSS_Parameters class.
+    
+  </comment>
+  <last_modification_date_time>2023-06-22</last_modification_date_time>
+  
+  <!-- Hierarchy of classes and attributes
+    <clps:CLPS_Parameters>
+       <clps:CLPS_Delivery_Information>
+          <clps:nasa_delivery_name> 
+          <clps:vendor> 
+          <clps:vendor_mission_name> 
+          <clps:lunar_lander_name> 
+          <clps:project_scientist> 
+       <clps:CLPS_Delivery_Information>
+       <clps:CLPS_Observation_Information>
+          <clps:release_number>          
+          <clps:product_type> 
+          <clps:mission_phase_name> 
+          <clps:spacecraft_clock_start> 
+          <clps:spacecraft_clock_stop> 
+          <clps:spacecraft_clock_partition> 
+          <clps:producer_institution_name> 
+       </clps:CLPS_Observation_Information> 
+       <clps:NIRVSS_Parameters> 
+          [Defined below]
+       </clps:NIRVSS_Parameters>
+    </clps:CLPS_Parameters>
+  -->
+
+  <!-- Begin definitions of attributes in the CLPS Mission Data Dictionary. -->
+
+  <!-- Attribute Definitions for the CLPS_Delivery_Information class
+       In alphabetical order, the attributes are:
+          
+       lunar_lander_name        required
+       nasa_delivery_name       required
+       project_scientist        required
+       vendor                   required
+       vendor_mission_name      required
+
+  -->
+  
+  <DD_Attribute> <name>lunar_lander_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.lunar_lander_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>lunar_lander_name identifies the name of the lunar lander.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+      <DD_Permissible_Value>
+        <value>Nova-C Lunar Lander</value>
+        <value_meaning>Nova-C Lunar Lander.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Peregrine Lunar Lander</value>
+        <value_meaning>Peregrine Lunar Lander.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Blue Ghost Lander</value>
+        <value_meaning>Blue Ghost Lander.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Griffin Lunar Lander</value>
+        <value_meaning>Griffin Lunar Lander.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>SERIES-2 Lunar Lander</value>
+        <value_meaning>SERIES-2 Lunar Lander.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>nasa_delivery_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nasa_delivery_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>nasa_delivery_name identifies the delivery name assigned by NASA.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+      <DD_Permissible_Value>
+        <value>TO_2IM</value>
+        <value_meaning>NASA Task Order 2IM.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_2AB</value>
+        <value_meaning>NASA Task Order 2AB.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_PRIME1</value>
+        <value_meaning>NASA Task Order PRIME1.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_19D</value>
+        <value_meaning>NASA Task Order 19D.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_20A</value>
+        <value_meaning>NASA Task Order 20A.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_CP11</value>
+        <value_meaning>NASA Task Order CP11.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_CP12</value>
+        <value_meaning>NASA Task Order CP12.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_CS3</value>
+        <value_meaning>NASA Task Order CS3.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_CP21</value>
+        <value_meaning>NASA Task Order CP21.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TO_CP22</value>
+        <value_meaning>NASA Task Order CP22.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>project_scientist</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.project_scientist</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The project_scientist element identifies the name of the delivery's Project Scientist.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>vendor</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.vendor</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The vendor element identifies the company responsible for delivering the payload to the lunar surface.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+      <DD_Permissible_Value>
+        <value>Astrobotic</value>
+        <value_meaning>Vendor is Astrobotic.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Draper</value>
+        <value_meaning>Vendor is Draper.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Firefly Aerospace</value>
+        <value_meaning>Vendor is Firefly Aerospace.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Intuitive Machines</value>
+        <value_meaning>Vendor is Intuitive Machines.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>vendor_mission_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.vendor_mission_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>vendor_mission_name identifies the name given to the mission by the CLPS vendor.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+      <DD_Permissible_Value>
+        <value>Blue Ghost 1</value>
+        <value_meaning>Mission is Blue Ghost 1 (BG1).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Griffin Mission One</value>
+        <value_meaning>Mission is Griffin Mission One (GM1).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Intuitive Machines Mission 1</value>
+        <value_meaning>Mission is Intuitive Machines Mission 1 (IM1).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Intuitive Machines Mission 2</value>
+        <value_meaning>Mission is Intuitive Machines Mission 2 (IM2).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Intuitive Machines Mission 3</value>
+        <value_meaning>Mission is Intuitive Machines Mission 3 (IM3).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Peregrine Mission 1</value>
+        <value_meaning>Mission is Peregrine Mission 1.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <!-- End Attribute Definitions for the CLPS_Delivery_Information class -->
+ 
+  <!-- Attribute Definitions for the CLPS_Observation_Information class
+       In alphabetical order, the attributes are:
+    
+       mission_phase_name                      optional
+       producer_institution_name               optional
+       product_type                            optional
+       release_number                          optional
+       spacecraft_clock_partition              optional; should be used if SCLK does not include partition number
+       spacecraft_clock_start                  optional
+       spacecraft_clock_stop                   optional
+
+  -->
+  
+  <DD_Attribute> <name>mission_phase_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.mission_phase_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The mission_phase_name identifies a time period within the mission.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->      
+      <DD_Permissible_Value>
+        <value>CRUISE AND APPROACH</value>
+        <value_meaning>The cruise and approach phase takes place between launch and entry into Lunar Orbit. "Cruise" is also referred to 
+          as "Transit" by some CLPS Vendors. This phase also includes Lunar Orbit Insertion (LOI). Some data products may be generated 
+          during this time.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DESCENT AND LANDING</value>
+        <value_meaning>The descent and landing phase begins when the Lunar Orbit Phase is over, and the spacecraft has begun maneuvers 
+          to land on the Lunar surface. This phase includes Powered Descent (PDI/PD) and Deorbit Decent and Landing (DDL).
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>LUNAR ORBIT</value>
+        <value_meaning>The Lunar Orbit phase begins when the spacecraft enters orbit around the moon. This phase includes Low Lunar 
+          Orbit (LLO). The phase ends when the Descent and Landing phase begins.
+        </value_meaning>
+      </DD_Permissible_Value>     
+      <DD_Permissible_Value>
+        <value>SURFACE MISSION</value>
+        <value_meaning>The surface mission phase is the time from arrival on the moon through the end of the mission. Depending on the 
+          mission, this may (or may not) include operations into the lunar night.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>TEST, DEVELOPMENT, and CALIBRATION</value>
+        <value_meaning>The test, development, and calibration mission phase refers to the pre-launch period and consists of data 
+          processing software development and testing, and instrument calibration. Some products generated during this phase may not be 
+          a part of the final PDS archive but may be used for testing and peer review.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>producer_institution_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.producer_institution_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The producer_institution_name specifies the identity of the facility or institution that produced the product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>product_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.product_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The product_type element identifies a group of data products within a collection that have some property in common, such 
+      as processing level, resolution, or instrument-specific setting.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
+      <DD_Permissible_Value>
+        <value>NSS_ENG_CAL</value>
+        <value_meaning>Time sequenced NSS engineering data (engineering units: voltages, circuit board temperatures; high voltage and 
+          discriminator threshold settings).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>NSS_ENG_RAW</value>
+        <value_meaning>Time sequenced NSS engineering data (raw engineering: encoded parameters that are translated to engineering units 
+          by processing).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>NSS_SCI_CAL</value>
+        <value_meaning>NSS processed neutron count rates and affiliated instrument data (time stamped).</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>NSS_SCI_RAW</value>
+        <value_meaning>NSS raw neutron count rates and affiliated instrument data (time stamped).</value_meaning>
+      </DD_Permissible_Value>
+     </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>release_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.release_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>release_number is the identifier of a scheduled release of data from PDS. The first data release has release_number 
+      "0001". The release_number for a given product is always the first release in which it appears, and does not change if the product 
+      is revised later.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>4</minimum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>spacecraft_clock_partition</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.spacecraft_clock_partition</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock_start and 
+      spacecraft_clock_stop attributes. This attribute may be used when the spacecraft_clock values do not include a partition 
+      number.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>spacecraft_clock_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.spacecraft_clock_start</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The spacecraft_clock_start attribute provides the value of the spacecraft clock at the beginning of a time period of 
+      interest.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>[p/]dddddddddd[.fffffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
+        preceded by a clock partition number and forward slash, and optionally followed by a fractional value. If the fractional
+        value is present, it must be separated from the whole number by a period, and may have up to 9 digits. If a partition number
+        and slash are not present, then the attribute spacecraft_clock_partition must be used.</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>19</maximum_characters>
+      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute> <name>spacecraft_clock_stop</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.spacecraft_clock_stop</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of 
+      interest.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>[p/]dddddddddd[.fffffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
+        preceded by a clock partition number and forward slash, and optionally followed by a fractional value. If the fractional
+        value is present, it must be separated from the whole number by a period, and may have up to 9 digits. If a partition number
+        and slash are not present, then the attribute spacecraft_clock_partition must be used.</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>19</maximum_characters>
+      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <!-- End Attribute Definitions for the CLPS_Observation_Information class -->
+
+  <!-- Attribute Definitions for the NIRVSS_Parameters class
+       In alphabetical order, the attributes are:
+    
+       nirvss_aim_xend                        optional
+       nirvss_aim_xscale                      optional
+       nirvss_aim_xstart                      optional
+       nirvss_aim_yend                        optional
+       nirvss_aim_yscale                      optional       
+       nirvss_aim_ystart                      optional      
+       nirvss_led_illumination_duration       optional
+
+  -->
+  
+  <DD_Attribute> <name>nirvss_aim_xend</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nirvss_aim_xend</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>Pixel location of the largest value column of the sub-array. Always given in the native Scale 0. Allowable values 
+      are from 0 to 2047.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>2047</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>nirvss_aim_xscale</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nirvss_aim_xscale</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>Scale factor representing the number 2^N of columns that are averaged onboard by the AIM, where N is the scale 
+      factor. For each scale factor, the number of columns is decreased by 1/(2^N) of the native number of columns (2048): for 
+      XScale = 0 the image contains the native number of columns; for XScale = 1 the image contains 1/2 of the native number 
+      of columns; etc. Allowable values of XScale are 0, 1, 2, 3, 4.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>4</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>nirvss_aim_xstart</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nirvss_aim_xstart</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>Pixel location of the smallest value column of the sub-array. Always given in the native Scale 0. Allowable 
+      values are from 0 to 2047.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>2047</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>nirvss_aim_yend</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nirvss_aim_yend</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>Pixel location of the largest value row of the sub-array. Always given in the native Scale 0. Allowable values 
+      are from 0 to 2047.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>2047</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>nirvss_aim_yscale</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nirvss_aim_yscale</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>Scale factor representing the number 2^N of rows that are skipped onboard by the AIM, where N is the scale 
+      factor. For each scale factor, the number of rows is decreased by 1/(2^N) of the native number of rows (2048) for 
+      YScale = 0 the image contains the native number of rows; for YScale = 1 the image contains 1/2 of the native number of 
+      rows; etc. Allowable values of YScale are 0, 1, 2, 3, 4.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>4</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>nirvss_aim_ystart</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nirvss_aim_ystart</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>Pixel location of the smallest value row of the sub-array. Always given in the native Scale 0. Allowable 
+      values are from 0 to 2047.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>2047</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>nirvss_led_illumination_duration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.nirvss_led_illumination_duration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>Time, in milliseconds, that the chosen LED is in the illuminated or on state. Typically LED illumination 
+      duration time equals the image exposure duration. However, when the image exposure duration exceeds the LED's maximum 
+      allowable exposure, the LED will turn off at the maximum allowable exposure, while the detector continues acquiring the 
+      image.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <!-- End Attribute Definitions for the NIRVSS_Parameters class -->
+
+  <!-- *** Begin Class Definitions *** -->
+  
+  <!-- CLPS_Delivery_Information Class Definition -->
+  <!-- Attributes are in the order required in the label:
+          nasa_delivery_name
+          vendor
+          vendor_mission_name
+          lunar_lander_name
+          project_scientist
+    -->
+  
+  <DD_Class>  <name>CLPS_Delivery_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.CLPS_Delivery_Information</local_identifier>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The CLPS_Delivery_Information class provides information about a CLPS delivery.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>clps.nasa_delivery_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.vendor</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.vendor_mission_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>   
+    <DD_Association>
+      <identifier_reference>clps.lunar_lander_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.project_scientist</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of CLPS_Delivery_Information Class Definition -->
+  
+  <!-- CLPS_Observation_Information Class Definition -->
+  <!-- Attributes are in the order required in the label:
+          release_number          
+          product_type
+          mission_phase_name
+          spacecraft_clock_start
+          spacecraft_clock_stop
+          spacecraft_clock_partition
+          producer_institution_name
+    -->
+  
+  <DD_Class>  <name>CLPS_Observation_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.CLPS_Observation_Information</local_identifier>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The CLPS_Observation_Information class provides information about a science observation.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>clps.release_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.product_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.mission_phase_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>   
+    <DD_Association>
+      <identifier_reference>clps.spacecraft_clock_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.spacecraft_clock_stop</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.spacecraft_clock_partition</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.producer_institution_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of CLPS_Observation_Information Class Definition -->
+
+  <!-- NIRVSS Parameters Class Definition -->
+  <!-- Attributes are in the order required in the label:
+          nirvss_aim_xscale
+          nirvss_aim_yscale
+          nirvss_aim_xstart
+          nirvss_aim_xend
+          nirvss_aim_ystart
+          nirvss_aim_yend
+          nirvss_led_illumination_duration
+    -->
+
+  <DD_Class>  <name>NIRVSS_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>clps.NIRVSS_Parameters</local_identifier>
+    <submitter_name>Ellaine Talle</submitter_name>
+    <definition>The NIRVSS_Parameters class provides metadata specific to NIRVSS observations.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>clps.nirvss_aim_xscale</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.nirvss_aim_yscale</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.nirvss_aim_xstart</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.nirvss_aim_xend</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.nirvss_aim_ystart</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.nirvss_aim_yend</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>clps.nirvss_led_illumination_duration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of NIRVSS_Parameters Class Definition -->    
+
+  <!-- Begin definition of CLPS_Parameters container class -->
+  <DD_Class> <name>CLPS_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>CLPS_Parameters</local_identifier>
+    <submitter_name>Jennifer Ward</submitter_name>
+    <definition>The CLPS_Parameters class is a superclass containing all CLPS mission classes.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>true</element_flag>
+    <DD_Association>  <identifier_reference>clps.CLPS_Delivery_Information</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>  <identifier_reference>clps.CLPS_Observation_Information</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>  <identifier_reference>clps.NIRVSS_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <!-- End of definitions of classes and attributes in the CLPS Mission Data Dictionary. -->
+
+
+  <!-- *** Beginning of rule statements *** -->
+
+  <!-- Rules for time values SCLK, for all CLPS Product_Observational labels -->
+    
+  <DD_Rule>
+    <local_identifier>clps_time_rules</local_identifier>
+    <rule_context>/pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/clps:CLPS_Observation_Information</rule_context>
+
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if ( (clps:spacecraft_clock_partition) 
+                    or (contains(clps:spacecraft_clock_start, '/')) 
+                    or ( (not (clps:spacecraft_clock_partition)) and (not (clps:spacecraft_clock_start)) ) ) 
+                 then true() else false()
+      </rule_test>
+      <rule_message>clps:error:sclk_rule_0: If clps:spacecraft_clock_start is present, it must begin with a partition number followed by a forward slash, OR the partition number must 
+        be given by clps:spacecraft_clock_partition.</rule_message>
+      <rule_description>If spacecraft_clock_start is present, it must begin with a partition number followed by a forward slash, OR the partition number must be given by 
+        spacecraft_clock_partition.</rule_description>
+    </DD_Rule_Statement>
+      
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if ( (clps:spacecraft_clock_partition) 
+                    or (contains(clps:spacecraft_clock_stop, '/')) 
+                    or ( (not (clps:spacecraft_clock_partition)) and (not (clps:spacecraft_clock_stop)) ) ) 
+                 then true() else false()
+      </rule_test>
+      <rule_message>clps:error:sclk_rule_1: If clps:spacecraft_clock_stop is present, it must begin with a partition number followed by a forward slash, OR the partition number must 
+        be given by msl:spacecraft_clock_partition.</rule_message>
+      <rule_description>If spacecraft_clock_stop is present, it must begin with a partition number followed by a forward slash, OR the partition number must be given by 
+        spacecraft_clock_partition.</rule_description>
+    </DD_Rule_Statement>
+    
+  </DD_Rule>
+  
+  <!--  End of CLPS-specific rules for time values SCLK -->
+
+  <!-- End of rule statements -->
+
+</Ingest_LDD>

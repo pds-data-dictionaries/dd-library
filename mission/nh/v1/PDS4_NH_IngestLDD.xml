@@ -6,14 +6,180 @@
   xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd">
   
   <name>New Horizons Primary and Extended Missions Dictionary</name>
-  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <ldd_version_id>1.1.0.0</ldd_version_id>
   <dictionary_type>Mission</dictionary_type>
   <full_name>Anne Raugh</full_name>
   <steward_id>sbn</steward_id>
   <namespace_id>nh</namespace_id>
-  <last_modification_date_time>2022-12-27</last_modification_date_time>
+  <comment>
+    This dictionary is in development by multiple parties at UMD (NH migration) 
+    and SWRI (NH second extended mission). Async releases are anticipated to 
+    keep the published dictionary in line with published data.
+    
+    Initials/handles:
+       ACR        Anne Raugh, SBN at UMD
+       AGB        Adeline Gicquel-Brodtke, SBN at UMD
+       BJH        Ben Hirsch, SBN at UMD
+       cgobat     Caden Gobat, SwRI
+       MKC        M. Kate Crombie, Indigo Information Systems, LLC
 
+    =======
+    
+    Modification History:
+    
+      2024-04-03  ACR  Begin history
+      
+      === Version 1.1.0.0 ===
+      
+      2024-04-03 to 2024-04-05  Version 1.1.0 continued updates:
+             ACR    Deprecate MVIC_Conversion_Constants class in favor of
+                    Radiometric_Conversion_Constants class, with corresponding
+                    Schematron rule.
+                    Consistently add "nh:" prefix to references in descriptions.
+                    Review definitions for completeness, consistency, and style;
+                      flag problems.
+      2024-06-15  ACR  Manually resolved conflicts resulting from multiple people editing
+                       the the same parts of the file in separate branches.
+                       Convert all occurrences of the name to "Alice".
+                       Split "scan_type" attribute definition into two occurences, one for
+                       MVIC and one for LEISA, to accommodate different permissible value
+                       lists.
+                       Modified LEISA_Details class definition to not refer to "channels".
+      
+      2024-06-20       Added schematron rule to enforce correct units for resolved vs.
+          cgobat       unresolved sources in nh:units_of_conversion_constants; updated
+                       several attribute descriptions and removed [INCOMPLETE] and [CHECK]
+                       flags; removed "Spectrograph" as a permissible value for
+                       nh:detector_type; added a minimum value of absolute zero for LEISA
+                       temperature attribute; added the SOCC to the list of permissible
+                       Alice aperture values; removed nh:binning_mode attribute and its
+                       parent class nh:LORRI_Details (of which it was the only member).
+  </comment>
+
+  <last_modification_date_time>2024-06-20</last_modification_date_time>
+  
   <!-- Attributes -->
+
+  <DD_Attribute>
+    <name>aperture</name>
+    <version_id>1.0</version_id>
+    <local_identifier>aperture</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>AGB; cgobat</submitter_name>
+    <definition>
+      The Alice instrument has two different apertures (i.e., optical paths)
+      through which it can collect data: the "airglow" aperture and the solar
+      occultation channel (SOCC). The nh:aperture attribute indicates which was
+      used for a given data product.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_documents:alice:alice_inst_overview</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+    </Internal_Reference>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:nh_obs_geom</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Airglow</value>
+        <value_meaning>
+          The data were collected through Alice's airglow aperture.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Solar Occultation Channel</value>
+        <value_meaning>
+          The data were obtained via Alice's solar occultation channel (SOCC).
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>approx_target_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>approx_target_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>BJH</submitter_name>
+    <definition>
+      The nh:approx_target_name attribute is the best guess of the intended
+      target of the observation made by the automated data processing pipeline.
+      
+      If the best guess at the target is unknown, the attribute will be UNK i.e.
+      unknown. If there was no target, i.e. for some instances of instrument
+      calibration activities, the attribute will be nilled.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>approx_target_line</name>
+    <version_id>1.0</version_id>
+    <local_identifier>approx_target_line</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>BJH</submitter_name>
+    <definition>
+      The nh:approx_target_line attribute provides the approximate pixel
+      position in the image of the center of the best guess target (as specified
+      by nh:approx_target_name) in one-based absolute units along the "Line"
+      axis as defined in the primary_image Array object. The origin is in the
+      lower left of the image when disp:horizontal_display_direction is "Left to
+      Right" and disp:vertical_display_direction is "Bottom to Top".
+      
+      If there is no best guess at the target position, the attribute will be
+      omitted.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>approx_target_sample</name>
+    <version_id>1.0</version_id>
+    <local_identifier>approx_target_sample</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>BJH</submitter_name>
+    <definition>
+      The nh:approx_target_sample attribute provides the approximate pixel
+      position in the image of the center of the best guess target (as specified
+      by nh:approx_target_name) in one-based absolute units along the "Sample"
+      axis as defined in the primary_image Array object. The origin is in the
+      lower left of the image when disp:horizontal_display_direction is "Left to
+      Right" and disp:vertical_display_direction is "Bottom to Top".
+      
+      If there is no best guess at the target position, the attribute will be
+      omitted.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>arrokoth_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>arrokoth_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:arrokoth_constant attribute supplies the constant to be used for sources with 
+      spectral distribution similar to (486958) Arrokoth (a.k.a., 2014 MU69) to convert 
+      calibrated data to physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   
   <DD_Attribute>
     <name>charon_constant</name>
@@ -23,7 +189,7 @@
     <submitter_name>ACR</submitter_name>
     <definition>
       The nh:charon_constant attribute supplies the constant to be used for sources with 
-      spectral distribution similar to Pluto I (Charon) to convert MVIC calibrated data to
+      spectral distribution similar to Pluto I (Charon) to convert calibrated data to
       physical units.
     </definition>
     <DD_Value_Domain>
@@ -39,8 +205,8 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The clock_partition holds the mission clock partition counter. This
-      is a simple integer
+      The nh:clock_partition holds the mission clock partition counter. This
+      is a simple integer.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
@@ -50,19 +216,25 @@
   
   <DD_Attribute>
     <name>detector_name</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>detector_name</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The name of the detector that recorded the observation(s) comprising the
-      product. For instruments with multiple detectors, as in the case of MVIC, 
-      for example, this string will include both the instrument ID and the 
-      specific detector ID.
+      The nh:detector_name provides the identifier of the detector that recorded 
+      the observation(s) comprising the product. For instruments with multiple 
+      detectors, as in the case of MVIC, for example, this string will include 
+      both the instrument ID and the specific detector ID.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>true</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Linear Etalon Imaging Spectral Array</value>
+        <value_meaning>
+          Data were obtained using the RALPH/LEISA infrared detector with a waveleght range of 1250 - 2500 nm. 
+        </value_meaning>
+      </DD_Permissible_Value>
       <DD_Permissible_Value>
         <value>MVIC Blue (BLUE) Channel</value>
         <value_meaning>
@@ -114,17 +286,59 @@
           covers the range 540-700nm.
         </value_meaning>
       </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Alice spectrograph</value>
+        <value_meaning>
+          Data were obtained using the Alice spectrograph. The Alice UV spectrograph
+          has a spectral passband of 520-1870 Angstrom, a spectral PSF of 3-6 Angstrom
+          FWHM, and an instantaneous spatial field of view that is 6 degrees long.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>LORRI imager</value>
+        <value_meaning>
+          Data were obtained using the LORRI imager. LORRI is a high-resolution
+          panchromatic imager with a spectral passband of 350-850 nm.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Pluto Energetic Particles Spectrometer Science Investigation</value>
+        <value_meaning>
+          Data were obtained using the PEPSSI time-of-flight (TOF) spectrometer that
+          measures ions and electrons over a broad range of energies and pitch angles.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Radio Science Experiment</value>
+        <value_meaning>
+          Data were obtained using the REX subsystem comprising the 2.1 m spacecraft    
+          high-gain antenna (HGA) and the NH radio receiver as well as the the Deep   
+          Space Network (DSN).
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Student Dust Counter</value>
+        <value_meaning>
+          Data were obtained using the SDC dust imapact counter.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Solar Wind Around Pluto</value>
+        <value_meaning>
+          Data were obtained using the SWAP electrostatic analyzer.
+        </value_meaning>
+      </DD_Permissible_Value>
     </DD_Value_Domain>
   </DD_Attribute>
   
   <DD_Attribute>
     <name>detector_type</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>detector_type</local_identifier>
     <nillable_flag>false</nillable_flag>
-    <submitter_name>ACT</submitter_name>
+    <submitter_name>ACR</submitter_name>
     <definition>
-      The detector_type attribute provides a brief indication of the type of
+      The nh:detector_type attribute provides a brief indication of the type of
       hardware comprising the detector.
     </definition>
     <DD_Value_Domain>
@@ -133,6 +347,36 @@
       <DD_Permissible_Value>
         <value>CCD</value>
         <value_meaning>The detector is a standard CCD.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Dust Impact Counter</value>
+        <value_meaning>The detector is a set of permanently polarized Polyvinylidene Fluoride
+          (PVDF) plastic films that generate an electrical signal when dust particles penetrate
+          their surface.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Electrostatic</value>
+        <value_meaning>The detector is an electrostatic low-energy plasma instrument.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>HgCdTe PICNIC array</value>
+        <value_meaning>The detector is a modified HgCdTe 'PICNIC' array from Rockwell Scientific Imaging.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Local oscillator vs. uplink signal phase comparator</value>
+        <value_meaning>
+          The detector is a local oscillator vs. uplink signal phase comparator.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Microchannel plate</value>
+        <value_meaning>The detector is a Microchannel plate (MCP) which is sensitive
+          to extreme and far UV light and energetic particles.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>SSD</value>
+        <value_meaning>
+          The detector is a solid-state silicon detector.</value_meaning>
       </DD_Permissible_Value>
     </DD_Value_Domain>
   </DD_Attribute>
@@ -144,7 +388,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The frame_number attribute is used to identify a single frame (or image plane)
+      The nh:frame_number attribute is used to identify a single frame (or image plane)
       in an observation that is formatted as a 3D image cube. The first frame is
       numbered "0" (zero).
     </definition>
@@ -161,7 +405,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The gain attribute provides the gain setting applied to the data collection,
+      The nh:gain attribute provides the gain setting applied in collecting the data,
       in units of electrons/DN.
     </definition>
     <DD_Value_Domain>
@@ -174,6 +418,24 @@
   </DD_Attribute>
   
   <DD_Attribute>
+    <name>gc_scan_rate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>gc_scan_rate</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:gc_scan_rate attribute provides the scan rate requested of the Guidance, Navigation,
+      and Control (GNC) system by the Ralph instrument. If the scan rate was not forced, GNC will
+      return the actual scan rate achieved.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  
+  <DD_Attribute>
     <name>jupiter_constant</name>
     <version_id>1.0</version_id>
     <local_identifier>jupiter_constant</local_identifier>
@@ -181,7 +443,7 @@
     <submitter_name>ACR</submitter_name>
     <definition>
       The nh:jupiter_constant attribute supplies the constant to be used for sources with 
-      spectral distribution similar to Jupiter to convert MVIC calibrated data to
+      spectral distribution similar to Jupiter to convert calibrated data to
       physical units.
     </definition>
     <DD_Value_Domain>
@@ -197,7 +459,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The left_side_median_bias attribute provides the median bias, in DN,
+      The nh:left_side_median_bias attribute provides the median bias, in DN,
       determined by averaging the bias levels for the shielded pixels on 
       the left side of the detector array.
     </definition>
@@ -211,22 +473,225 @@
   </DD_Attribute>
   
   <DD_Attribute>
+    <name>leisa_mode</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_mode</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_mode attribute identifies the data collection readout mode of the LEISA instrument, where RAW is 
+      for un-subtracted readout mode and SUBTRACTED for correlated double sample (CDS) mode.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>RAW</value>
+        <value_meaning>
+          The LEISA readout mode is un-subtracted.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>SUBTRACTED</value>
+        <value_meaning>
+          The LEISA readout mode is subtracted.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_offset_1</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_offset_1</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_offset_1 attribute provides the voltage offset, in DN,
+      in the first of the four LEISA quadrants.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_offset_2</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_offset_2</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_offset_2 attribute provides the voltage offset, in DN,
+      in the second of the four LEISA quadrants.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_offset_3</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_offset_3</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_offset_3 attribute provides the voltage offset, in DN,
+      in the third of the four LEISA quadrants.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_offset_4</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_offset_4</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_offset_4 attribute provides the voltage offset, in DN,
+      in the fourth of the four LEISA quadrants.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_rate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_rate</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_rate attribute provides the time between LEISA readouts.
+      There is zero dead time between frames, so in practice, this value is
+      equivalent to the per-frame exposure time, and the number of frames
+      per second is exactly its reciprocal.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>ms</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_side</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_side</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_side attribute indicates the hardware side in use during the observation sequence.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>A</value>
+        <value_meaning>
+          The LEISA "A" hardware side.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>B</value>
+        <value_meaning>
+          The LEISA "B" hardware side.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_temperature</name>
+    <version_id>1.0</version_id>
+    <local_identifier>leisa_temperature</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:leisa_temperature attribute provides the temperature of the
+      LEISA instrument.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>-273.15</minimum_value>
+      <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+      <specified_unit_id>degC</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>met510</name>
+    <version_id>1.0</version_id>
+    <local_identifier>met510</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:met510 attribute provides the mission elapsed time (MET) of the Ralph housekeeping packet
+      (ApID 0x510) that marks the start of an observation, used to determine the observation start
+      time and frame rate.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
     <name>mission_phase_name</name>
     <version_id>1.0</version_id>
     <local_identifier>mission_phase_name</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The formal identification of the mission phase. Phases are identified
+      The nh:mission_phase_name provides the formal identification of the mission phase. Phases are identified
       continuously from primary through extended missions.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>true</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
       <DD_Permissible_Value>
+        <value>KEM1 Cruise</value>
+        <value_meaning>
+          New Horizons Kuiper Belt Extended Mission 1 (KEM1) Cruise phase
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
         <value>KEM1 Encounter</value>
         <value_meaning>
-          New Horizons Kuiper Belt Extended Mission 1(KEM1) Encounter
+          New Horizons Kuiper Belt Extended Mission 1 (KEM1) Encounter
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>KEM2 Cruise</value>
+        <value_meaning>
+          New Horizons Kuiper Belt Extended Mission 2 (KEM2) Cruise phase
         </value_meaning>
       </DD_Permissible_Value>
     </DD_Value_Domain>
@@ -239,8 +704,8 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The observation_description element provides a human-readable decoding of
-      the nh:sequence_id string. It provides a basic description of the planned
+      The nh:observation_description element provides a human-readable decoding of
+      the sequence_id string. It provides a basic description of the planned
       observation activity. Each instrument should have an accompanying 
       ancillary/documentation file that lists all the planned sequences for each
       instrument for each mission phase.
@@ -259,7 +724,7 @@
     <submitter_name>ACR</submitter_name>
     <definition>
       The nh:pholus_constant attribute supplies the constant to be used for sources with 
-      spectral distribution similar to (5145) Pholus to convert MVIC calibrated data to
+      spectral distribution similar to (5145) Pholus to convert calibrated data to
       physical units.
     </definition>
     <DD_Value_Domain>
@@ -275,7 +740,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The physical_pixel_size attribute gives the hardware dimension of a single,
+      The nh:physical_pixel_size attribute gives the hardware dimension of a single,
       square pixel within the detector.
     </definition>
     <DD_Value_Domain>
@@ -294,15 +759,15 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The pivot_wavelength is used in converting the pixel values in the calibrated
-      MVIC data into physical units. It is wavelength-dependent, but once defined is
-      constant for each MVIC detector.
+      The nh:pivot_wavelength is used in converting the pixel values in the calibrated
+      data into physical units for some instruments. It is wavelength-dependent, but once
+      defined is constant for each detector.
       
       A description of how to convert from data values to physical units is provided
       in the "New Horizons SOC to Instrument Pipeline ICD" document.
     </definition>
     <Internal_Reference>
-      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
       <reference_type>attribute_to_document</reference_type>
     </Internal_Reference>
     <DD_Value_Domain>
@@ -322,12 +787,36 @@
     <submitter_name>ACR</submitter_name>
     <definition>
       The nh:pluto_constant attribute supplies the constant to be used for sources with 
-      spectral distribution similar to (134340) Pluto to convert MVIC calibrated data to
+      spectral distribution similar to (134340) Pluto to convert calibrated data to
       physical units.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>pointing_method</name>
+    <version_id>1.0</version_id>
+    <local_identifier>pointing_method</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:pointing_method attribute indicates the spacecraft pointing method enabled during the operational sequence.
+
+      Possible enumerated values are 'CB1', 'CB2', 'CB3', 'EARTH', 'SUN' or 'ORBIT NORMAL', which describe the body or
+      plane used to establish a reference frame onboard the spacecraft for pointing purposes (where 'CB' stands for
+      central body). Alternatively, this value can take the form 'RADEC=[X],[Y]' (where [X] and [Y] represent a numeric
+      right ascension and declination in degrees, respectively) to indicate inertial pointing.
+
+      This value does *not* indicate that any particular axis of the spacecraft is aligned with the target or direction
+      indicated by the pointing method. This attribute is not applicable if nh:spacecraft_spin_state is 'Spinning'.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>CB[1-3]|EARTH|SUN|ORBIT NORMAL|RADEC=([0-9]*\.[0-9]*,\s*\-?[0-9]*\.[0-9]*)</pattern>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -338,12 +827,27 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The read_noise attribute provides the noise level of the detector as a count
+      The nh:read_noise attribute provides the noise level of the detector as a count
       of electrons.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>relative_control_mode_active</name>
+    <version_id>1.0</version_id>
+    <local_identifier>relative_control_mode_active</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:relative_control_mode_active attribute is a true/false flag that indicates if the relative control mode of the spacecraft was enabled during the operational sequence.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -354,7 +858,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The right_side_median_bias attribute provides the median bias, in DN,
+      The nh:right_side_median_bias attribute provides the median bias, in DN,
       determined by averaging the bias levels for the shielded pixels on 
       the right side of the detector array.
     </definition>
@@ -367,14 +871,26 @@
     </DD_Value_Domain>
   </DD_Attribute>
   
+  <!-- *** SPECIAL NOTE FOR scan_type
+    
+    This attribute appears in multiple classes for different instruments. Its
+    Permissible Value list is context-dependent. Consequently, this attribute 
+    has multiple definitions. The local_identifier provides the unique identifer
+    to be associated with each context. If additional contexts are needed, copy
+    an existing DD_Attribute class, changing only the <local_idenfitier> value
+    and replace the <DD_Permissible_Value> classes with the new values needed
+    for the new context.
+    
+    NOTE THAT THIS WILL GENERATE A WARNING WHEN THE DICTIONARY IS BUILT.
+  -->
   <DD_Attribute>
     <name>scan_type</name>
-    <version_id>1.0</version_id>
-    <local_identifier>scan_type</local_identifier>
+    <version_id>1.1</version_id>
+    <local_identifier>MVICscan_type</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The scan_type attribute indicates what sort of scanning was employed in 
+      The nh:scan_type attribute indicates what sort of scanning was employed in 
       collecting the data.
     </definition>
     <DD_Value_Domain>
@@ -384,13 +900,37 @@
         <value>TDI - Time Delay Integration Mode</value>
         <value_meaning>
           The data were obtained using time delayed integration (TDI). The TDI
-          frequency should be provided in the nh:tdi_rate attribute.
+          frequency should be provided in the tdi_rate attribute.
         </value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
         <value>FRAMING - Framing Mode</value>
         <value_meaning>
           The data were obtained as a sequence of 2D image frames.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <!-- See SPECIAL NOTE FOR scan_type, above -->
+  
+  <DD_Attribute>
+    <name>scan_type</name>
+    <version_id>1.1</version_id>
+    <local_identifier>LEISAscan_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:scan_type attribute indicates what sort of scanning was employed in 
+      collecting the data.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>LEISA</value>
+        <value_meaning>
+          The data were obtained as a sequence of LEISA frames.
         </value_meaning>
       </DD_Permissible_Value>
     </DD_Value_Domain>
@@ -403,7 +943,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The sequence_id provides a long string encoded some infomation about the
+      The nh:sequence_id provides a long string encoding some infomation about the
       planned observing sequence. A more human-readable description should be 
       provided in the nh:observation_description element. Each instrument should 
       have an accompanying ancillary/documentation file that lists all the planned
@@ -433,13 +973,39 @@
   </DD_Attribute>
   
   <DD_Attribute>
+    <name>spacecraft_spin_state</name>
+    <version_id>1.0</version_id>
+    <local_identifier>spacecraft_spin_state</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:spacecraft_spin_state attribute indicates which of the spacecraft spin states was employed during the observation sequence.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>3-Axis</value>
+        <value_meaning>
+          The spacecraft is actively controlling its pointing in all 3 axes.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Spinning</value>
+        <value_meaning>
+          The spacecraft is maintaining pointing stability by spinning about one of its axes.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
     <name>start_clock_count</name>
     <version_id>1.0</version_id>
     <local_identifier>start_clock_count</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The start_clock_count is the Mission Elapsed Time code at the start
+      The nh:start_clock_count is the Mission Elapsed Time code at the start
       of the observation(s), formatted as spacecraft clock ticks and indicating 
       whole and fractional seconds.
     </definition>
@@ -457,7 +1023,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The stop_clock_count is the Mission Elapsed Time code at the end
+      The nh:stop_clock_count is the Mission Elapsed Time code at the end
       of the observation(s), formatted as spacecraft clock ticks and indicating 
       whole and fractional seconds.
     </definition>
@@ -469,19 +1035,51 @@
   </DD_Attribute>
   
   <DD_Attribute>
+    <name>sweep_samples_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>sweep_samples_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:sweep_samples_count attribute is the count of samples during a sweep of the SWAP electro-optics. 
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>target_motion_rate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>target_motion_rate</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      [INCOMPLETE] The nh:target_motion_rate attribute is the rate of motion of the target with respect to the instrument detector in units of (TBR). 
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
     <name>tdi_median_bias_level</name>
     <version_id>1.0</version_id>
     <local_identifier>tdi_median_bias_level</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The tdi_median_bias_level attribute gives the medianan bias level of a time-delay
+      The nh:tdi_median_bias_level attribute gives the median bias level of a time-delay
       integration observation. For TDI mode, bias levels in each detector were determined
       in-flight during early mission phases. They may vary depending on exposure length.
       See the "New Horizonz SOC to Instrument Pipeline ICD" document for details.
     </definition>
     <Internal_Reference>
-      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
       <reference_type>attribute_to_document</reference_type>
     </Internal_Reference>
     <DD_Value_Domain>
@@ -500,7 +1098,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The tdi_rate attribute is the rate at which charge was moved through 
+      The nh:tdi_rate attribute is the rate at which charge was moved through 
       successive rows of the detector in obtaining the observation. This rate
       was calculated to match the scan rate of the spacecraft.
     </definition>
@@ -520,7 +1118,7 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The telemetry_apid is the application identifier for the observation. The
+      The nh:telemetry_apid is the application identifier for the observation. The
       values are specific to instrument and activity. The definitions for apIDs 
       relevant to the archived observations are contained in various tables in 
       the "New Horizons SOC to Instrument Pipeline ICD document. The apID is used
@@ -528,7 +1126,7 @@
       apID is contained in separate metadata elements elsewhere in the label.
     </definition>
     <Internal_Reference>
-      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
       <reference_type>attribute_to_document</reference_type>
     </Internal_Reference>
     <DD_Value_Domain>
@@ -539,26 +1137,90 @@
   </DD_Attribute>
   
   <DD_Attribute>
+    <name>thruster_x_enabled</name>
+    <version_id>1.0</version_id>
+    <local_identifier>thruster_x_enabled</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:thruster_x_enabled attribute describes the state of the x thruster.
+      The thruster is either enabled ('true') or disabled ('false').
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>thruster_y_enabled</name>
+    <version_id>1.0</version_id>
+    <local_identifier>thruster_y_enabled</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:thruster_y_enabled attribute describes the state of the y thruster.
+      The thruster is either enabled ('true') or disabled ('false').
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>thruster_z_enabled</name>
+    <version_id>1.0</version_id>
+    <local_identifier>thruster_z_enabled</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:thruster_z_enabled attribute describes the state of the z thruster.
+      The thruster is either enabled ('true') or disabled ('false').
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>hk_packet_is_real</name>
+    <version_id>1.0</version_id>
+    <local_identifier>hk_packet_is_real</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:hk_packet_is_real attribute describes whether the Ralph housekeeping packet (ApID 0x510) is real (true) or assumed from a gap (false).
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  
+  <DD_Attribute>
     <name>units_of_conversion_constants</name>
     <version_id>1.0</version_id>
     <local_identifier>units_of_conversion_constants</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The MVIC calibrated data are not converted to physical units, because the 
+      The calibrated data are not converted to physical units, because the 
       conversion applied depends on the general spectrum of the object being 
       converted and whether it is resolved. For resolved sources, the conversion
       produces data in units of radiance. For unresolved sources, the conversion
-      results in units of flux (irradiance). This attribute contains the appropriate
-      physical units for the conversion constants in the class in which it is contained
-      to produce either radiance or flux units, as appropriate, when the conversion is
-      applied. 
+      results in units of flux (irradiance). The nh:units_of_conversion_constants 
+      attribute contains the appropriate physical units for the conversion constants 
+      in the class in which it is contained to produce either radiance or flux units, 
+      as appropriate, when the conversion is applied. 
       
       A description of how to convert from data values to physical units is provided
       in the "New Horizons SOC to Instrument Pipeline ICD" document.
     </definition>
     <Internal_Reference>
-      <lid_reference>urn:nasa:pds:nh_doc:all:soc_inst_icd</lid_reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
       <reference_type>attribute_to_document</reference_type>
     </Internal_Reference>
     <DD_Value_Domain>
@@ -585,11 +1247,11 @@
   
   <DD_Class>
     <name>Detector</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Detector</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Detector class provides observation metadata relevant to the specific
+      The nh:Detector class provides observation metadata relevant to the specific
       detector (an instrument may have more than one detector) used to collect
       the data.
     </definition>
@@ -605,13 +1267,38 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
-    <DD_Association>  <!-- This will probably evolve into a choice list. -->
+    <DD_Association>  
+      <identifier_reference>Alice_Details</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Ralph_Details</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>LEISA_Details</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
       <identifier_reference>MVIC_Details</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>SWAP_Details</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
   </DD_Class>
+  
   
   <DD_Class>
     <name>Mission_Elapsed_Time</name>
@@ -619,7 +1306,7 @@
     <local_identifier>Mission_Elapsed_Time</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Mission_Elapsed_Time class provides spacecraft clock partition and 
+      The nh:Mission_Elapsed_Time class provides spacecraft clock partition and 
       count readings for the start and end of the observation(s) comprising 
       the data product.
     </definition>
@@ -649,7 +1336,7 @@
     <local_identifier>Frame_Bias_Levels</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Frame_Bias_Levels class records the frame number and left/right bias levels
+      The nh:Frame_Bias_Levels class records the frame number and left/right bias levels
       for a single frame in a framing observation sequence.
       
       In the MVIC detector used for framing observations, the bias level for left and
@@ -685,7 +1372,7 @@
     <local_identifier>Framing_Biases</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Framing_Biases class contains one nh:Frame_Bias_Levels class for each 
+      The nh:Framing_Biases class contains one nh:Frame_Bias_Levels class for each 
       individual frame of a framing observation. These classes provide the left and
       right side bias levels applied in calibrating the data.
     </definition>
@@ -698,12 +1385,41 @@
   </DD_Class>
   
   <DD_Class>
+    <name>LORRI_Target_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>LORRI_Target_Information</local_identifier>
+    <submitter_name>BJH</submitter_name>
+    <definition>
+      The nh:LORRI_Target_Information class collects attributes related to the
+      target of the LORRI observation.
+    </definition>
+    <DD_Association>
+      <identifier_reference>approx_target_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>approx_target_line</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>approx_target_sample</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
     <name>MVIC_Calibration_Information</name>
     <version_id>1.0</version_id>
     <local_identifier>MVIC_Calibration_Information</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The MVIC_Calibration_Information class gathers attributes related to the
+      The nh:MVIC_Calibration_Information class gathers attributes related to the
       attributes of the detector and other information relevant to the calibration
       processing performed to produce the current data product.
     </definition>
@@ -745,7 +1461,10 @@
     <local_identifier>MVIC_Conversion_Constants</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The MVIC_Conversion_Constants class provides the values needed to run the
+      This class is deprecated as of version 1.1.0.0. Please use
+      nh:Radiometric_Conversion_Constants instead.
+      
+      The nh:MVIC_Conversion_Constants class provides the values needed to run the
       conversion from the calibrated pixel values to physical units. This conversion
       is dependent on the spectral distribition of the source, the MVIC detector 
       wavelength range, and whether or not the source is resolved. 
@@ -778,16 +1497,120 @@
   </DD_Class>
   
   <DD_Class>
+    <name>Radiometric_Conversion_Constants</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Radiometric_Conversion_Constants</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:Radiometric_Conversion_Constants class provides the values needed to run the
+      conversion from the calibrated pixel values to physical units. This conversion
+      is dependent on the spectral distribition of the source, the detector 
+      wavelength range, and whether or not the source is resolved. 
+      
+      A description of how to convert from data values to physical units is provided
+      in the "New Horizons SOC to Instrument Pipeline ICD" document.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
+      <reference_type>class_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Association>
+      <identifier_reference>pivot_wavelength</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Resolved_Source</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Unresolved_Source</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>LEISA_Details</name>
+    <version_id>1.0</version_id>
+    <local_identifier>LEISA_Details</local_identifier>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:LEISA_Details class collects observational parameters that are specific
+      to the LEISA instrument.
+    </definition>
+    <DD_Association>
+      <identifier_reference>LEISAscan_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_mode</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_offset_1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_offset_2</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_offset_3</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_offset_4</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_rate</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_side</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>leisa_temperature</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+ 
+  <DD_Class>
     <name>MVIC_Details</name>
     <version_id>1.0</version_id>
     <local_identifier>MVIC_Details</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The MVIC_Details class collects observational parameters that are specific
+      The nh:MVIC_Details class collects observational parameters that are specific
       to the MVIC instrument and its various channels.
     </definition>
     <DD_Association>
-      <identifier_reference>scan_type</identifier_reference>
+      <identifier_reference>MVICscan_type</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
@@ -801,12 +1624,29 @@
   </DD_Class>
   
   <DD_Class>
-    <name>Observation_Parameters</name>
+    <name>Alice_Details</name>
     <version_id>1.0</version_id>
+    <local_identifier>Alice_Details</local_identifier>
+    <submitter_name>AGB</submitter_name>
+    <definition>
+      The Alice_Details class collects observational parameters that are specific
+      to the Alice instrument.
+    </definition>
+    <DD_Association>
+      <identifier_reference>aperture</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Observation_Parameters</name>
+    <version_id>1.1</version_id>
     <local_identifier>Observation_Parameters</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Observation_Parameters class collects observational metadata that
+      The nh:Observation_Parameters class collects observational metadata that
       is specific to the mission, spacecraft, and instrument which produced 
       the data product.
     </definition>
@@ -840,7 +1680,41 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>LORRI_Target_Information</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Spacecraft_State</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
   </DD_Class>
+  
+  <DD_Class>
+    <name>Ralph_Details</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Ralph_Details</local_identifier>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:Ralph_Details class presents Ralph common instrument parameters needed for data calibration.
+    </definition>
+    <DD_Association>
+      <identifier_reference>met510</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>hk_packet_is_real</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    </DD_Class>
   
   <DD_Class>
     <name>Resolved_Source</name>
@@ -848,7 +1722,7 @@
     <local_identifier>Resolved_Source</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Resolved_Source class presents MVIC conversion constants for converting
+      The nh:Resolved_Source class presents radiometric conversion constants for converting
       calibrated pixel values into physical units for sources which are resolved.
     </definition>
     <DD_Association>
@@ -887,6 +1761,89 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>arrokoth_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Spacecraft_State</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Spacecraft_State</local_identifier>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:Spacecraft_State class collects observational parameters that are specific
+      to the spacecraft state at the time of the observation.
+    </definition>
+    <DD_Association>
+      <identifier_reference>thruster_x_enabled</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>thruster_y_enabled</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>thruster_z_enabled</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>gc_scan_rate</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>target_motion_rate</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>relative_control_mode_active</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pointing_method</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>spacecraft_spin_state</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  
+  <DD_Class>
+    <name>SWAP_Details</name>
+    <version_id>1.0</version_id>
+    <local_identifier>SWAP_Details</local_identifier>
+    <submitter_name>MKC</submitter_name>
+    <definition>
+      The nh:SWAP_Details class collects observational parameters that are specific
+      to the SWAP instrument.
+    </definition>
+    <DD_Association>
+      <identifier_reference>sweep_samples_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
   </DD_Class>
   
   <DD_Class>
@@ -895,7 +1852,7 @@
     <local_identifier>Unresolved_Source</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Unresolved_Source class presents MVIC conversion constants for converting
+      The nh:Unresolved_Source class presents radiometric conversion constants for converting
       calibrated pixel values into physical units for sources which are not resolved.
     </definition>
     <DD_Association>
@@ -934,6 +1891,12 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>arrokoth_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
   </DD_Class>
   
   <!-- Main Class -->
@@ -944,7 +1907,7 @@
     <local_identifier>Mission_Parameters</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
-      The Mission_Parameters class presents the various New Horizons-specific metadata 
+      The nh:Mission_Parameters class presents the various New Horizons-specific metadata 
       for both primary and extended missions.
     </definition>
     <element_flag>true</element_flag>
@@ -960,14 +1923,20 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
-    <DD_Association> <!-- This will likely need to be a choice list -->
+    <DD_Association>
       <identifier_reference>MVIC_Calibration_Information</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
-    <DD_Association>
+    <DD_Association> <!-- DEPRECATED -->
       <identifier_reference>MVIC_Conversion_Constants</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Radiometric_Conversion_Constants</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
@@ -993,6 +1962,39 @@
     </DD_Rule_Statement>
   </DD_Rule>
   
+  <!-- Deprecate MVIC_Conversion_Constants -->
+  
+  <DD_Rule>
+    <local_identifier>deprecate_mvic_cc</local_identifier>
+    <rule_context>nh:MVIC_Conversion_Constants</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>false()</rule_test>
+      <rule_message>As of version 1.1 of the New Horizons mission dictionary, the MVIC_Conversion_Constants class is deprecated. Please use the Radiometric_Conversion_Constants class for all instruments supplying this information.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+
+  <!-- Check units of radiometric conversion constants -->
+  <DD_Rule>
+    <local_identifier>resolved_cc_units</local_identifier>
+    <rule_context>nh:Resolved_Source</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>(nh:units_of_conversion_constants eq '(DN/s)/(erg/cm^2/s/Angstrom/sr)')</rule_test>
+      <rule_message>The units of the radiometric conversion constants for a resolved source should be (DN/s)/(erg/cm^2/s/Angstrom/sr).</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  <DD_Rule>
+    <local_identifier>unresolved_cc_units</local_identifier>
+    <rule_context>nh:Unresolved_Source</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>(nh:units_of_conversion_constants eq '(DN/s)/(erg/cm^2/s/Angstrom)')</rule_test>
+      <rule_message>The units of the radiometric conversion constants for an unresolved source should be (DN/s)/(erg/cm^2/s/Angstrom).</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+
+  
   <!-- Check that correct bias information is provided -->
   
   <DD_Rule>
@@ -1005,10 +2007,23 @@
     </DD_Rule_Statement>
   </DD_Rule>
   
-  <!-- NEEDED: Frame_Ancillary_Data Rules -->
+  <!-- LORRI_Target_Information rules -->
   
-  <!-- + number_of_frames must match count(Frame_Associations) -->
-  <!-- + frame_number must be in range [0-(number_of_frames-1)] -->
-  <!-- + any *_local_identifier value must match a local_identifier in the label -->
+  <DD_Rule>
+    <local_identifier>lorri_target</local_identifier>
+    <rule_context>nh:LORRI_Target_Information</rule_context>
+    
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (nh:approx_target_name/@xsi:nil eq 'true') then not(nh:approx_target_line) else true()</rule_test>
+      <rule_message>If nh:approx_target_name is nilled, then nh:approx_target_line must not be present.</rule_message>
+    </DD_Rule_Statement>
+    
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (nh:approx_target_name/@xsi:nil eq 'true') then not(nh:approx_target_sample) else true()</rule_test>
+      <rule_message>If nh:approx_target_name is nilled, then nh:approx_target_sample must not be present.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
   
 </Ingest_LDD>

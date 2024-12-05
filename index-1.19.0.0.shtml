@@ -16,7 +16,7 @@
 <body class="sidebar menu_datastandards menu_item_datastandards_schema">
 <!--[if IE]>
 <div id="IE">
-<![endif]--> 
+<![endif]-->
 
 <div id="header-container">
   <!--#include virtual="/include/header_logo.html" -->
@@ -45,7 +45,7 @@
 		<p>
             <b>Past versions of the data dictionaries can be found <a href="/datastandards/dictionaries/index-versions.shtml">here</a>.</b>
 		</p>
-		
+
 		<p>
 			Need help with creating a dictionary or where to start, please contact the <a href="mailto:pds_operator@jpl.nasa.gov">PDS Operator</a> at pds_operator@jpl.nasa.gov.
 		</p>
@@ -122,7 +122,7 @@
 
             </ul>
 
-        
+
             <div id="cart">
                 <h4>Cartography (cart)</h4>
                 <p>
@@ -199,16 +199,16 @@
 
                 </p>
                 <ul>
-                    <li><b>Last Updated:</b> </li>
+                    <li><b>Last Updated: 2024-08-15</b> </li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-ebt">https://github.com/pds-data-dictionaries/ldd-ebt</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
-                                PDS4  Information Model. To submit a request the have the LDD generated, please contact the
-                                <a href="mailto:pds-operator@jpl.nasa.gov">PDS Operator</a>, or create an issue in the
-                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
-                            </li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1J00_1100.xsd">PDS4_EBT_1J00_1100.xsd</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1J00_1100.sch">PDS4_EBT_1J00_1100.sch</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1J00_1100.xml">PDS4_EBT_1J00_1100.xml</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1J00_1100.JSON">PDS4_EBT_1J00_1100.JSON</a></li>
+                            <li><a href="/pds4/ebt/v1/PDS4_EBT_1J00_1100.zip">PDS4_EBT_1J00_1100.zip</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -222,6 +222,19 @@
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 11/21/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1980.xsd">PDS4_GEOM_1J00_1980.xsd</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1980.sch">PDS4_GEOM_1J00_1980.sch</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1980.xml">PDS4_GEOM_1J00_1980.xml</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1980.JSON">PDS4_GEOM_1J00_1980.JSON</a></li>
+                            <li><a href="/pds4/geom/v1/PDS4_GEOM_1J00_1980.zip">PDS4_GEOM_1J00_1980.zip</a></li>
+                        </ul>
+                    </li>
+                    <br/>
                     <li><b>Last Updated:</b> 03/26/2024</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-geom">https://github.com/pds-data-dictionaries/ldd-geom</a></li>
@@ -257,6 +270,20 @@
                     The Imaging Dictionary contains classes, attributes, and rules for specifying the metadata associated with imaging and spectrometer data products.
 
                 </p>
+                <ul>
+                    <li><b>Last Updated:</b> 08/25/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1J00_1890.xsd">PDS4_IMG_1J00_1890.xsd</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1J00_1890.sch">PDS4_IMG_1J00_1890.sch</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1J00_1890.xml">PDS4_IMG_1J00_1890.xml</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1J00_1890.JSON">PDS4_IMG_1J00_1890.JSON</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1J00_1890.zip">PDS4_IMG_1J00_1890.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <ul>
                     <li><b>Last Updated:</b> 10/25/2022</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
@@ -547,6 +574,34 @@
                     This dictionary will provide classes to support the documentation, support, discovery, and reuse of data from, by, and for small bodies research.
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 08/26/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1110.xsd">PDS4_SB_1J00_1110.xsd</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1110.sch">PDS4_SB_1J00_1110.sch</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1110.xml">PDS4_SB_1J00_1110.xml</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1110.JSON">PDS4_SB_1J00_1110.JSON</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1110.zip">PDS4_SB_1J00_1110.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><b>Last Updated:</b> 06/30/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1100.xsd">PDS4_SB_1J00_1100.xsd</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1100.sch">PDS4_SB_1J00_1100.sch</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1100.xml">PDS4_SB_1J00_1100.xml</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1100.JSON">PDS4_SB_1J00_1100.JSON</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1J00_1100.zip">PDS4_SB_1J00_1100.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
                     <li><b>Last Updated:</b> 01/23/2024</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
@@ -562,7 +617,7 @@
                 </ul>
                 <p><a class="toTop">Back to top</a></p>
             </div>
-            
+
             <div id="speclib">
                 <h4>Spectral Library (speclib)</h4>
                 <p>
@@ -644,7 +699,7 @@
 	<div id="namespaces">
 		<h2>Namespaces</h2>
 		<p>
-			The PDS4 XML Schema and Schematron files are organized by namespace. 
+			The PDS4 XML Schema and Schematron files are organized by namespace.
 			For a list of existing namespaces, refer to the <a href="https://github.com/NASA-PDS/pds4-information-model/raw/main/docs/namespace-registry/pds-namespace-registry.pdf">PDS Namespace Registry</a>.
 		</p>
 
@@ -673,7 +728,7 @@
         <p>
             Once all information is gathered, create a ticket <a href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh&labels=enhancement%2C+ldd-request%2C+p.must-have&template=-ldd-request--initialize-new-pds-ldd.md&title=%5Bldd-request%5D+Create+new+LDD+%22%3Cproposed+namespace+ID%3E%22">here</a> to initialize a new PDS LDD and register it with the PDS Namespace Registry.
         </p>
-		
+
 		<a class="toTop">Back to top</a>
 	</div>
 	<hr />

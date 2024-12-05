@@ -44,6 +44,10 @@
 		</p>
 		<ul class="versionsList">
 			<li>
+				<b><a href="/datastandards/dictionaries/index-1.23.0.0.shtml">PDS4 Version 1.23.0.0</a></b>
+				<br>Released in December 2024
+			</li>
+			<li>
 				<b><a href="/datastandards/dictionaries/index-1.22.0.0.shtml">PDS4 Version 1.22.0.0</a></b>
 				<br>Released in June 2024
 			</li>

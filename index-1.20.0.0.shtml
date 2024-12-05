@@ -535,6 +535,20 @@
                     This dictionary will provide classes to support the documentation, support, discovery, and reuse of data from, by, and for small bodies research.
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 08/26/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1K00_1110.xsd">PDS4_SB_1K00_1110.xsd</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1K00_1110.sch">PDS4_SB_1K00_1110.sch</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1K00_1110.xml">PDS4_SB_1K00_1110.xml</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1K00_1110.JSON">PDS4_SB_1K00_1110.JSON</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1K00_1110.zip">PDS4_SB_1K00_1110.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
                     <li><b>Last Updated:</b> 01/23/2024</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>

@@ -1,0 +1,211 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.2.2
+   LDD Version Id:        2.0.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Mon Nov 18 19:18:46 UTC 2024
+   Common Schema          [PDS4_PDS_1N00.xsd]
+   Common Schematron      [PDS4_PDS_1N00.sch]
+   IM Version Id:         1.23.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-multi/ldd-multi/src/PDS4_MULTI_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                6
+   Attributes             2
+   Associations           15
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Multi
+   LDD Version            2.0.0.0
+   Full Name              Joseph N. Mafi
+   Steward                ppi
+   Namespace Id           multi
+   Comment                
+		The Multi dictionary contains classes that describe the composition of multidimensional 
+		data consisting of Array (and Array subclass) data objects. It provides a way to 
+		associate data objects and align the objects in general multi-dimensional structures. 
+		
+		Modification History:
+		
+		1.0.0.0 (Todd King, 2018-Sep-29): 
+		   - Initial version
+		
+		2.0.0.0 (J. Mafi, 2021-Feb-23):
+		   - Changed base class name from "Particle_Observation" to "Multidimensional_Data"
+		   - Changed value class names from plural to singular ("Primary_Values" to 
+		     "Primary_Value", etc.)
+		   - Updated DD_Attribute, DD_Association objects to comply with PDS4 V.1.15.0.0
+		   - Eliminated local re-definition of Local_Internal_Reference class, and 
+		     local_reference_type attribute
+		   - Changed "Face_Plane" class to "Face_Axis"
+		   - changed "axis_number" to "primary_axis_number" and added "face_axis_number" 
+		     attribute
+		   - Added DD_Rule to set permissible values for 
+		     Local_Internal_Reference/local_reference_type in Multidimensional_Data
+	
+   Last Modification Time 2021-08-31T17:21:00
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   primary_axis_number
+   version                1.23
+   value data type        ASCII_Integer
+   description            The index of the axis in the primary array. The first axis is numbered as 1.
+   minimum value          1
+
+   name                   face_axis_number
+   version                1.23
+   value data type        ASCII_Integer
+   description            The index of the axis in the face array. The first axis is numbered as 1.
+   minimum value          1
+
+Parsed Input - Classes:
+
+   name                   Axis_Value
+   description            The Axis_Value class identifies the data object which is associated with the one of the axes of the main data array.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      multi.primary_axis_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Face_Axis
+   description            The Face_Axis class associates one of the axes of a face data array with one of those of the main (primary) data array.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      multi.primary_axis_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      multi.face_axis_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Face_Value
+   description            The Face_Value class identifies the data object which contains parameters associated with two or more axes of the main (primary) data array.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      multi.Face_Axis
+      minimum occurrences   2
+      maximum occurrences   16
+      reference type        component_of
+
+   name                   Aligned_Value
+   description            The Aligned_Value class identifies a value which aligns element-by-element with the main (primary) data array. The aligned values array must have the same dimensions as the observation array.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Primary_Value
+   description            The Primary_Value class identifies the data object which constitutes the main data array.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Multidimensional_Data
+   description            The Multidimensional_Data describes the data values which are associated with the elements along an axis or on the face of a observation data array.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      pds.name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.local_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.description
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      multi.Primary_Value
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      multi.Axis_Value
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      multi.Face_Value
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      multi.Aligned_Value
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+End of Report

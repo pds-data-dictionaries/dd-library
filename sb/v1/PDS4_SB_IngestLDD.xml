@@ -7,7 +7,7 @@
   xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd">
   
   <name>Small Bodies Studies</name>
-  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <ldd_version_id>1.1.1.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Anne Raugh</full_name>
   <steward_id>sbn</steward_id>
@@ -19,8 +19,28 @@
     provided in other discipline namespaces, which is expected to be present.
     
     The initials "ACR" in the "submitter" field indicate Anne Raugh.
+
+    version 1.1.1.0 2024-08-07
+     - Fixed a bug whereby the reference_type value enforced by the 'bias_ir' schematron
+       rule did not match the rule message, class name, or other calibration file reference
+       classes.
+    
+    version 1.1.0 2024-06-23
+     - Added dead_time_correction, effective_area_correction, smear_removal_applied, and
+       wavelength_solution_applied attributes, which are boolean checks that should be
+       present if their respective calibration steps have been applied to the data product.
+     - Updated Calibration_Applied class to allow for the above attributes.
+     - Added Desmear_Matrix, Effective_Area_Table, and Wavelength_Solution classes, which
+       are containers providing a file_name and Internal_Reference to the calibration
+       product associated with a particular calibration process.
+     - Updated Calibration_Reference_File class to allow for the above classes.
+     - Added schematron rules specifying the reference_type used in pds:Internal_Reference
+       for the above classes.
+     - Added x_axis_position_angle attribute to Instrument_Position_Angles class along
+       with schematron rules requiring exactly 2 of the 3 attributes in that class.
   </comment>
-  <last_modification_date_time>2023-12-20</last_modification_date_time>  <!-- changed to version 1.0.0.0 for release -->
+  <last_modification_date_time>2024-08-07</last_modification_date_time>
+  <!-- fixed bias_ir rule's enforced value -->
   
   <!-- Attribute Definitions (alphabetical) -->
   
@@ -171,6 +191,23 @@
       <value_data_type>ASCII_Boolean</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
+
+  <DD_Attribute>
+    <name>dead_time_correction</name>
+    <version_id>1.0</version_id>
+    <local_identifier>dead_time_correction</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>AG</submitter_name>
+    <definition>
+      The sb:dead_time_correction attribute should be present and contain the value
+      "true" if deadtime correction has been performed as part of the processing
+      applied to the data comprising the product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   
   <DD_Attribute>
     <name>delta_time_from_sequence_start</name>
@@ -190,6 +227,24 @@
       <minimum_value>0.0</minimum_value>
       <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
       <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>effective_area_correction</name>
+    <version_id>1.0</version_id>
+    <local_identifier>effective_area_correction</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>AG</submitter_name>
+    <definition>
+      The sb:effective_area_correction attribute should be present and contain the value
+      "true" if effective area correction based on the calculated effective area of the
+      instrument due to varying sensitivity has been performed as part of the processing
+      applied to the data comprising the product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -776,6 +831,24 @@
       <specified_unit_id>nm</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
+
+  <DD_Attribute>
+    <name>smear_removal_applied</name>
+    <version_id>1.0</version_id>
+    <local_identifier>smear_removal_applied</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>BJH</submitter_name>
+    <definition>
+      The sb:smear_removal_applied attribute should be present and contain the value
+      "true" if a smear removal correction algorithm to remove readout smear generated
+      as charge is transferred across the CCD has been applied as part of the processing
+      of the data comprising the product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   
   <DD_Attribute>
     <name>standard_filter_identification</name>
@@ -946,6 +1019,45 @@
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>wavelength_solution_applied</name>
+    <version_id>1.0</version_id>
+    <local_identifier>wavelength_solution_applied</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>AG</submitter_name>
+    <definition>
+      The sb:wavelength_solution_applied attribute should be present and contain the value "true"
+      if a wavelength solution corresponding to the spectral dimension of the detector
+      has been determined as part of the processing applied to the data comprising the
+      product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>x_axis_position_angle</name>
+    <version_id>1.0</version_id>
+    <local_identifier>x_axis_position_angle</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>C. Gobat</submitter_name>
+    <definition>
+      The sb:x_axis_position_angle provides the angle measured East from celestial North
+      in the plane of an image to the +X axis of the instrument boresight. The values
+      are in the range 0-360 degrees.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <maximum_value>360.0</maximum_value>
+      <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+      <specified_unit_id>deg</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -1170,7 +1282,7 @@
   
   <DD_Class>
     <name>Calibration_Applied</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Calibration_Applied</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
@@ -1199,6 +1311,18 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
+      <identifier_reference>dead_time_correction</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>effective_area_correction</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
       <identifier_reference>flat_field_applied</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
@@ -1206,6 +1330,18 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>scattered_light_correction</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>smear_removal_applied</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>wavelength_solution_applied</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
@@ -1257,7 +1393,7 @@
   
   <DD_Class>
     <name>Calibration_Reference_Files</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Calibration_Reference_Files</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
@@ -1283,7 +1419,10 @@
       <identifier_reference>Bias_Map</identifier_reference>
       <identifier_reference>Bad_Pixel_Map</identifier_reference>
       <identifier_reference>Dark_Field</identifier_reference>
+      <identifier_reference>Desmear_Matrix</identifier_reference>
+      <identifier_reference>Effective_Area_Table</identifier_reference>
       <identifier_reference>Flat_Field</identifier_reference>
+      <identifier_reference>Wavelength_Solution</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>*</maximum_occurrences>
@@ -1319,8 +1458,69 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
-  
-  
+
+  <DD_Class>
+    <name>Desmear_Matrix</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Desmear_Matrix</local_identifier>
+    <submitter_name>BJH</submitter_name>
+    <definition>
+      The sb:Desmear_Matrix class identifies the PDS archive product containing the 
+      desmear matrix used to calibrate the data in the product. A desmear matrix is used
+      to remove readout smear generated as charge is transferred across the CCD.
+    </definition>
+
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+  <DD_Class>
+    <name>Effective_Area_Table</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Effective_Area_Table</local_identifier>
+    <submitter_name>AG</submitter_name>
+    <definition>
+      The sb:Effective_Area_Table class identifies the PDS archive product containing the 
+      effective area table used to calibrate the data in the product. An effective area
+      table lists the calculated effected area of the detector at particular wavelengths.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+    
   <DD_Class>
     <name>Error_Estimates_Map</name>
     <version_id>1.0</version_id>
@@ -1586,7 +1786,7 @@
   
   <DD_Class>
     <name>Instrument_Position_Angles</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Instrument_Position_Angles</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
@@ -1594,18 +1794,28 @@
       axes of the boresight on the place of the image, measured with respect 
       to the location of the celestial North pole (also projected onto the plane
       of the image).
+      Only two axes should be specified, with the third being the instrument's
+      boresight. Note that the instrument frame's axis orientation is assumed to
+      be right-handed, so the direction of the boresight axis (into or out of the
+      image plane) can be inferred from the relative positions of the other two.
     </definition>
-    
+
     <DD_Association>
+      <identifier_reference>x_axis_position_angle</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+        <DD_Association>
       <identifier_reference>y_axis_position_angle</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>z_axis_position_angle</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
@@ -1956,6 +2166,38 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
+
+  <DD_Class>
+    <name>Wavelength_Solution</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Wavelength_Solution</local_identifier>
+    <submitter_name>AG</submitter_name>
+    <definition>
+      The sb:Wavelength_Solution class identifies the PDS archive product containing the 
+      wavelength solution used to calibrate the data in the product. A wavelength solution
+      is a row of data representing the wavelengths corresponding to the spectral
+      dimension of the detector.
+    </definition>
+    
+    <DD_Association>
+      <identifier_reference>file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>comment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
   
   
   <!-- Primary Public Class: SBS_Metadata -->
@@ -2039,7 +2281,7 @@
     <rule_context>sb:Bias_Map/pds:Internal_Reference</rule_context>
     <DD_Rule_Statement>
       <rule_type>Assert</rule_type>
-      <rule_test>pds:reference_type eq 'image_to_bias_levels'</rule_test>
+      <rule_test>pds:reference_type eq 'image_to_bias_map_file'</rule_test>
       <rule_message>In sb:Bias_Map/pds:Internal_Reference, pds:reference_type must be "image_to_bias_map_file".</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
@@ -2065,6 +2307,29 @@
       <rule_type>Assert</rule_type>
       <rule_test>pds:reference_type eq 'image_to_dark_field_file'</rule_test>
       <rule_message>In sb:Dark_Field/pds:Internal_Reference, pds:reference_type must be "image_to_dark_field_file".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+
+  <!-- Desmear_Matrix/pds:Internal_Reference -->
+  <DD_Rule>
+    <local_identifier>desmear_ir</local_identifier>
+    <rule_context>sb:Desmear_Matrix/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'image_to_desmear_matrix'</rule_test>
+      <rule_message>In sb:Desmear_Matrix/pds:Internal_Reference, pds:reference_type must be "image_to_desmear_matrix"</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+
+  <!-- Effective_Area/pds:Internal_Reference -->
+
+  <DD_Rule>
+    <local_identifier>Effective_area_ir</local_identifier>
+    <rule_context>sb:Effective_Area_Table/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'image_to_effective_area_file'</rule_test>
+      <rule_message>In sb:Effective_Area_Table/pds:Internal_Reference, pds:reference_type must be "image_to_effective_area_file".</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
   
@@ -2115,6 +2380,17 @@
       <rule_message>In sb:Flat_Field/pds:Internal_Reference, pds:reference_type must be "image_to_flat_field_file".</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
+
+  <!-- Instrument_Position_Angles -->
+  <DD_Rule>
+    <local_identifier>exactly_2_position_angle_axes</local_identifier>
+    <rule_context>sb:Instrument_Position_Angles</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (count(*) = 2) then true() else false()</rule_test>
+      <rule_message>In sb:Instrument_Position_Angles, exactly two of sb:x_axis_position_angle, sb:y_axis_position_angle, or sb:z_axis_position_angle must be provided.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
   
   <!-- Quality_Map/pds:Local_Internal_Reference -->
   
@@ -2161,6 +2437,18 @@
       <rule_type>Assert</rule_type>
       <rule_test>@unit eq 'julian day'</rule_test>
       <rule_message>The attribute "&lt;sch:value-of select="name(.)"/&gt;" must be specified with "unit='julian day'".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+
+  <!-- Wavelength_Solution/pds:Internal_Reference -->
+  
+  <DD_Rule>
+    <local_identifier>Wavelength_Solution_ir</local_identifier>
+    <rule_context>sb:Wavelength_Solution/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type eq 'image_to_wavelength_solution_file'</rule_test>
+      <rule_message>In sb:Wavelength_Solution/pds:Internal_Reference, pds:reference_type must be "image_to_wavelength_solution_file".</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
   

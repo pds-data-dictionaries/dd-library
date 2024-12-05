@@ -1,0 +1,1220 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.2.2
+   LDD Version Id:        1.1.1.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Mon Nov 18 19:20:45 UTC 2024
+   Common Schema          [PDS4_PDS_1N00.xsd]
+   Common Schematron      [PDS4_PDS_1N00.sch]
+   IM Version Id:         1.23.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-sb/ldd-sb/src/PDS4_SB_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                30
+   Attributes             51
+   Associations           120
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Small Bodies Studies
+   LDD Version            1.1.1.0
+   Full Name              Anne Raugh
+   Steward                sbn
+   Namespace Id           sb
+   Comment                
+    The Small Bodies namespace provides classes and attributes for describing techniques 
+    and metadata common in small bodies observations, space-based or ground-based. In
+    some cases this metadata is in addition to the more general classes and attributes
+    provided in other discipline namespaces, which is expected to be present.
+    
+    The initials "ACR" in the "submitter" field indicate Anne Raugh.
+
+    version 1.1.1.0 2024-08-07
+     - Fixed a bug whereby the reference_type value enforced by the 'bias_ir' schematron
+       rule did not match the rule message, class name, or other calibration file reference
+       classes.
+    
+    version 1.1.0 2024-06-23
+     - Added dead_time_correction, effective_area_correction, smear_removal_applied, and
+       wavelength_solution_applied attributes, which are boolean checks that should be
+       present if their respective calibration steps have been applied to the data product.
+     - Updated Calibration_Applied class to allow for the above attributes.
+     - Added Desmear_Matrix, Effective_Area_Table, and Wavelength_Solution classes, which
+       are containers providing a file_name and Internal_Reference to the calibration
+       product associated with a particular calibration process.
+     - Updated Calibration_Reference_File class to allow for the above classes.
+     - Added schematron rules specifying the reference_type used in pds:Internal_Reference
+       for the above classes.
+     - Added x_axis_position_angle attribute to Instrument_Position_Angles class along
+       with schematron rules requiring exactly 2 of the 3 attributes in that class.
+  
+   Last Modification Time 2024-08-07
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   best_quality_value
+   version                1.23
+   value data type        ASCII_Integer
+   description             The sb:best_quality_value attribute provides the value used within a quality map to indicate the best quality pixels. When bit flags are in use, for example, the "best" quality is typically 0 (zero) - that is, no quality issues are flagged at all. 
+
+   name                   bias_subtraction
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:bias_subtraction attribute should be present and contain the value "true" if bias subtraction has been performed as part of the processing applied to the data comprising the product. 
+
+   name                   celestial_north_clock_angle
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:celestial_north_clock_angle attribute is the angle, measured clockwise from "up" to the direction of the celestial north pole. It must be in the range 0-360, calculated with respect to the image display as indicated in the corresponding disp:Display_Settings_Class. 
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   center_wavelength
+   version                1.23
+   value data type        ASCII_Real
+   description             The center_wavelength attribute defines the nominal transmission peak of the filter transmission curve, assuming the spectral response is a Gaussian function. 
+   minimum value          0.0
+   unit of measure type   Units_of_Length
+
+   name                   center_wavelength_is_weighted
+   version                1.23
+   value data type        ASCII_Boolean
+   description             If the preceding center_wavelength is actually a weighted center wavelength (rather then the peak of a nominal Gaussian function), then this attribute should be present with a value of "true". The attribute should never appear without the center_wavelength attribute. 
+
+   name                   comment
+   version                1.23
+   value data type        UTF8_Text_Preserved
+   description             The comment attribute provides an opportunity to provide additional information in free-format (UTF-8) text. Note that characters special to XML parsing (greater-than, less-than, and ampersand, primarily) must be presented using character entity codes. 
+
+   name                   conversion_to_physical_units
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:conversion_to_physical_units attribute should be present and contain the value "true" if the primary data is expressed in physical units once any value offset and scaling factor included in the definition of the data structure have been applied. 
+
+   name                   dark_current_removal
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:dark_current_removal attribute should be present and contain the value "true" if dark current removal has been performed as part of the processing applied to the data comprising the product. 
+
+   name                   dead_time_correction
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:dead_time_correction attribute should be present and contain the value "true" if deadtime correction has been performed as part of the processing applied to the data comprising the product. 
+
+   name                   delta_time_from_sequence_start
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:delta_time_from_sequence_start attribute provide the offset of a time of interest in the current frame (as indicated by the containing class) from the start of the sequence in a "Frame Sequence" observation. It is specified as a floating point number of the specified units of time. 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   effective_area_correction
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:effective_area_correction attribute should be present and contain the value "true" if effective area correction based on the calculated effective area of the instrument due to varying sensitivity has been performed as part of the processing applied to the data comprising the product. 
+
+   name                   exposure_description
+   version                1.23
+   value data type        UTF8_Text_Preserved
+   description             The exposure_description attribute should be used, typically in conjunction with the exposure_duration attribute, when the data collection process involves something other than simple photon collection over a continuous period of time. The exposure_description should define what constitutes as "exposure", and/or how the "duration" is determined. 
+
+   name                   exposure_duration
+   version                1.23
+   value data type        ASCII_Real
+   description             As in the Imaging namespace, exposure_duration indicates the total time a detector was exposed to or gathering a "signal". This element is used in cases where non-standard imaging techniques (those not described by the Imaging dictionary) are used, or when the detector is detecting something other than photons. 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   file_name
+   version                1.23
+   value data type        ASCII_File_Name
+   description             The sb:file_name attribute should contain the name, preferably without path information, of the file referenced more formally by a pds:Internal_Reference class in the same containing class. The file name is provided as a matter of convenience and for use as a validation cross-check when the data are accepted for archiving. Path information is unlikely to be useful once the data are archived, and as the data are curated both paths and file names may change. Consequently, the logical identifier appearing in the pds:Internal_Reference should be considered the positive identification of the file in question within the archive, rather than the name. 
+
+   name                   filter_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The filter_name is a (frequently informal) identifier for the filter within the context of the source data collection. Typical values will be things like "Red", "Clear", or "CH4". Values should be simple ASCII strings. 
+
+   name                   filter_type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The filter_type attribute is a broad categorization of the nature of the pass band. Permissible values are defined as they are needed - contact the SB Steward for assistance. 
+
+   name                   flag_meaning
+   version                1.23
+   value data type        UTF8_Short_String_Collapsed
+   description             The sb:flag_meaning attribute defines the significance of the particular value when it occurs in the associated context (typically a quality map, for example). 
+
+   name                   flag_value
+   version                1.23
+   value data type        ASCII_Integer
+   description             The sb:flag_value attribute defines an integer value that corresponds to a specific condition or assessment within the containing data structure, typically a quality map. 
+
+   name                   flags_are_bit_flags
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:flag_are_bit_flags attribute contains "true" if the flags being defined within the containing class correspond to specific bits within a single integer field. When this is the case, all flag should have values that are exponents of 2. Typically, when bit flags are used, several flags may be combined within a single field (so a quality value may be 10, indicating that the flags corresponding to the values 8 and 2 are both set, for example). 
+
+   name                   flat_field_applied
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:flat_field_applied attribute should be present and contain the value "true" if flat fielding has been performed as part of the processing applied to the data comprising the product. 
+
+   name                   frame_center_dec
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:frame_center_dec attribute provide the declination, in degrees, of the center point of a single frame of a "Frame Sequence" observation. 
+   minimum value          -90.0
+   maximum value          90.0
+   unit of measure type   Units_of_Angle
+
+   name                   frame_center_ra
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:frame_center_ra attribute provide the right ascension, in degrees, of the center point of a single frame of a "Frame Sequence" observation. 
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   frame_exposure_duration
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:frame_exposure_duration attribute provides the exposure time for one frame of a framing sequence. 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   frame_number
+   version                1.23
+   value data type        ASCII_Integer
+   description             The sb:frame_number attribute specifies the sequential frame number, starting with "0", to which the subsequent frame-specific metadata applies. The frame number is the subscript along the axis that defines the "frame" dimension. Frames must be physically stored in sequence in the file, so for a sequence of 2D frames the sb:frame_number will correspond to the (0-based) index along the third axis. 
+   minimum value          0
+
+   name                   image_observation_type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The sb:image_observation_type attribute indicates whether the data product is a single, 2D image, or an image "frame sequence" - a series of images obtained in a single observing sequence and processed as a set. If the images were intended to comprise a spectral cube or an movie sequence, then the data should be labeled accordingly and this class may not be present if there is no additional metadata needed. Additiona types can be added to the permissible value list as needs arise. When in doubt, check with the PDS node curating the data or raise an issue on this dictionary. 
+
+   name                   known_long_wavelength_leak
+   version                1.23
+   value data type        ASCII_Boolean
+   description             If the filter in use has a known light leak on the long-wavelength side, the known_long_wavelength_leak flag should be present and set to "true". This does NOT indicate that a correction has been applied - check the calibration processing for that information. 
+
+   name                   known_short_wavelength_leak
+   version                1.23
+   value data type        ASCII_Boolean
+   description             If the filter in use has a known light leak on the short-wavelength side, the known_short_wavelength_leak flag should be present and set to "true". This does NOT indicate that a correction has been applied - check the calibration processing for that information. 
+
+   name                   long_wavelength_limit
+   version                1.23
+   value data type        ASCII_Real
+   description             The long_wavelength_limit defines the largest wavelength cutoff of a wavelength range. 
+   minimum value          0.0
+   unit of measure type   Units_of_Length
+
+   name                   midobservation_time_UTC_JD
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:midobservation_time_UTC_JD attribute contains the UTC time corresponding to the midpoint of the observation, in full (as opposed to modified) Julian date format. The unit of "julian day" must be included when this attribute is used. Unusual circumstances relating to the definition of "midobservation" should be explained briefly in the sb:comment field of the containing class. 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   midobservation_time_UTC_YMD
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description             The sb:midobservation_time_UTC_YMD attribute contains the UTC time corresponding the midpoint of the observation, in the format YYYY-MM-DDThh:mm:ss.sssZ (that is, the ISO YMD format with the 'Z' timezone indicator required to be present). Unusual circumstances relating to the definition of "midobservation" should be explained briefly in the sb:comment field of the containing class. 
+
+   name                   position_velocity_vectors
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The sb:position_velocity_vectors attribute identifies the type of position and velocity vectors relevant to the data provided by naming the start and end point pair. (In some cases the directionality of the velocity vector is opposite that of the position vector.) 
+
+   name                   qcos
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:qcos attribute is the "cos(theta/2)" element of a pointing quaternion. 
+   minimum value          -1.000
+   maximum value          1.000
+
+   name                   qsin1
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:qsin1 attribute is the "ax*sin(theta/2)" element of a pointing quaternion. 
+
+   name                   qsin2
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:qsin2 attribute is the "ay*sin(theta/2)" element of a pointing quaternion. 
+
+   name                   qsin3
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:qsin3 attribute is the "az*sin(theta/2)" element of a pointing quaternion. 
+
+   name                   scattered_light_correction
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:scattered_light_correction attribute should be present and contain the value "true" if scattered light correction has been applied as part of the processing of the data comprising the product. 
+
+   name                   short_wavelength_limit
+   version                1.23
+   value data type        ASCII_Real
+   description             The short_wavelength_limit defines the smallest wavelength cutoff of a wavelength range. 
+   minimum value          0.0
+   unit of measure type   Units_of_Length
+
+   name                   smear_removal_applied
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:smear_removal_applied attribute should be present and contain the value "true" if a smear removal correction algorithm to remove readout smear generated as charge is transferred across the CCD has been applied as part of the processing of the data comprising the product. 
+
+   name                   standard_filter_identification
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The standard_filter_identification is used when the filter is one of a standard or well-known bandpass, for example "Johnson V" or "WFPC2 R". 
+
+   name                   start_time_UTC_JD
+   version                1.23
+   value data type        ASCII_Real
+   description             The start_time_UTC_JD attribute contains the UTC start time of a period of interest, typically the observation period, expressed as a Julian date. Units of "julian day" must be included when using this attribute. 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   stop_time_UTC_JD
+   version                1.23
+   value data type        ASCII_Real
+   description             The stop_time_UTC_JD attribute contains the UTC ending time of a period of interest, typically the observation period, expressed as a Julian date. Units of "julian day" must be included when using this attribute. 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   time_at_Earth_UTC_JD
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:time_at_Earth_UTC_YMD attribute give the local UTC time for an Earth observer at the time for which the corresponding positions and/or vectors were calculated. The time is stated in Julian date format, and must be given with units of "julian day". 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   time_at_Earth_UTC_YMD
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description             The sb:time_at_Earth_UTC_YMD attribute give the local UTC time for an Earth observer at the time for which the corresponding positions and/or vectors were calculated. The time is in the ISO standard YYYY-MM-DDThh:mm:ss.sssZ format. 
+
+   name                   time_at_Sun_UTC_JD
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:time_at_Sun_UTC_YMD attribute give the local UTC time for an observer at the Sun at the time for which the corresponding positions and/or vectors were calculated. The time is stated in Julian date format, and must be given with units of "julian day". 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   time_at_Sun_UTC_YMD
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description             The sb:time_at_Sun_UTC_YMD attribute give the local UTC time for an observer at the Sun at the time for which the corresponding positions and/or vectors were calculated. The time is in the ISO standard YYYY-MM-DDThh:mm:ss.sssZ format. 
+
+   name                   time_at_target_UTC_JD
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:time_at_Sun_UTC_YMD attribute give the local UTC time for an observer at the target at the time for which the corresponding positions and/or vectors were calculated. The time is stated in Julian date format, and must be given with units of "julian day". 
+   minimum value          0.0
+   unit of measure type   Units_of_Time
+
+   name                   time_at_target_UTC_YMD
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description             The sb:time_at_target_UTC_YMD attribute give the local UTC time for an observer at the target at the time for which the corresponding positions and/or vectors were calculated. The time is in the ISO standard YYYY-MM-DDThh:mm:ss.sssZ format. 
+
+   name                   wavelength_solution_applied
+   version                1.23
+   value data type        ASCII_Boolean
+   description             The sb:wavelength_solution_applied attribute should be present and contain the value "true" if a wavelength solution corresponding to the spectral dimension of the detector has been determined as part of the processing applied to the data comprising the product. 
+
+   name                   x_axis_position_angle
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:x_axis_position_angle provides the angle measured East from celestial North in the plane of an image to the +X axis of the instrument boresight. The values are in the range 0-360 degrees. 
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   y_axis_position_angle
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:y_axis_position_angle provides the angle measured East from celestial North in the plane of an image to the +Y axis of the instrument boresight. The values are in the range 0-360 degrees. 
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   z_axis_position_angle
+   version                1.23
+   value data type        ASCII_Real
+   description             The sb:z_axis_position_angle provides the angle measured East from celestial North in the plane of an image to the +Z axis of the instrument boresight. The values are in the range 0-360 degrees. 
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+Parsed Input - Classes:
+
+   name                   Additional_Geometry_Metadata
+   description             The sb:Additional_Geometry_Metadata class provides information to supplement that already provided in the classes of the Geometry (geom:) namespace. This class is only useful in relatively simple cases where there is just a single geom:Geometry class the label, with a single target and orbiter reference. The optional sb:comment attribute may be used to note unusual circumstances. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:Instrument_Position_Angles
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Geometry_Vector_Time
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Additional_Image_Metadata
+   description             The sb:Additional_Image_Metadata class provides metadata to supplement the standard image metadata supplied by the more general discipline classes. The sb:comment field may be used to note any unsual circumstances. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:image_observation_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Ancillary_Data_Objects
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Additional_Geometry_Metadata
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Per_Frame_Metadata
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Ancillary_Data_Objects
+   description             The sb:Ancillary_Data_Objects class provides mappings between the primary image data in the product and the ancillary data (quality maps, error estimates, etc.) provided with it as part of the data product. The optional sb:comment field may be used to note any unusual circumstances. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:Quality_Map
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Error_Estimates_Map
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:SNR_Map
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Bad_Pixel_Map
+   description             The sb:Bad_Pixel_Map class identifies the PDS archive product containing the bad pixel map applied in processing the data in the product. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Bias_Map
+   description             The sb:Bias_Map class identifies a PDS4 product that contains the pixel-by-pixel bias values applied during a calibration process. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Calibration_Applied
+   description             The sb:Calibration_Applied class provide flags to indicate specific calibration processes that have been performed, as well as references to files provided with the archive that were used as part of the processing. The otpional sb:comment field may be used to note any unusual circumstances. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:bias_subtraction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:dark_current_removal
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:dead_time_correction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:effective_area_correction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:flat_field_applied
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:scattered_light_correction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:smear_removal_applied
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:wavelength_solution_applied
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:conversion_to_physical_units
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:Calibration_Reference_Files
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Calibration_Information
+   description             The sb:Calibration_Information class documents what processing steps have been applied to the data, and links to both the raw data file and the specific calibration files used to produce the processed product presented in the label. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:Raw_Data_Product
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Calibration_Applied
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Calibration_Reference_Files
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Calibration_Reference_Files
+   description             The sb:Calibration_Reference_Files class provides explicit references to key calibration files provided as part of the archive. Note that these references are required to be to specific versions of calibration files, as calibration processes and details typically evolve over time. The optional sb:comment should be used to note any unusual circumstances related to the calibration files as a group. The optional pds:comment field in the pds:Internal_Reference class should be used to note any unusual circumstances related to any particular referenced file. The subclasses mat be listed in any order, and may be repeated if that makes sense - although that should be explained in a "comment" field. 
+   is abstract            false
+   is choice              true
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:Bias_Map
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      sb:Bad_Pixel_Map
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      sb:Dark_Field
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      sb:Desmear_Matrix
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      sb:Effective_Area_Table
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      sb:Flat_Field
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      sb:Wavelength_Solution
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Dark_Field
+   description             The sb:Dark_Field class identifies the PDS archive product containing the dark field used to calibrate the data in the product. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Desmear_Matrix
+   description             The sb:Desmear_Matrix class identifies the PDS archive product containing the desmear matrix used to calibrate the data in the product. A desmear matrix is used to remove readout smear generated as charge is transferred across the CCD. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Effective_Area_Table
+   description             The sb:Effective_Area_Table class identifies the PDS archive product containing the effective area table used to calibrate the data in the product. An effective area table lists the calculated effected area of the detector at particular wavelengths. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Error_Estimates_Map
+   description             The sb:Error_Estimates_Map class links the primary image data in the product to the data object (within the same product) containing the pixel-for-pixel error estimates. The definition of the data object itself should indicate the unit of measure of the errors and related information. The optional sb:comment in this class can be used to note any unusual circumstances not related to reading (that is, input/output of) the error map data. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Exposure
+   description             The Exposure class is used to provide attributes describing what constitutes an "exposure" in the particular circumstances of the observation. It is used primarily with non-imaging data, or imaging data that does not fit the circumstances covered by the Imaging namespace. The Imaging namespace class should be used when it is applicable. This class may be used in addition to the Imaging class in order to provide additional detail via the sb:exposure_description attribute. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:exposure_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:exposure_description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Filter
+   description             The Filter class provides local and standard identification of the filter used to make the observation, as well as descriptive parameters to identify types of filter (broadband, LVF, etc.) and basic filter characteristics (bandpass, center wavelegth). 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:filter_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:standard_filter_identification
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:filter_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:center_wavelength
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:center_wavelength_is_weighted
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:short_wavelength_limit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:long_wavelength_limit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:known_short_wavelength_leak
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:known_long_wavelength_leak
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Flat_Field
+   description             The sb:Flat_Field class identifies the PDS archive product containing the flat field used to calibrate the data in the product. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Frame_Pointing
+   description             The sb:Frame_Pointing class provide pointing information specific to one frame in a "Frame Sequence" observation. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:frame_center_ra
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:frame_center_dec
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:celestial_north_clock_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:Instrument_Position_Angles
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Geometry_Vector_Time
+   description             The sb:Geometry_Vector_Time class identifies a vector or pair of related vectors included in the geom:Geometry_Orbiter class and provides details about the local time for an observer located at one of the endpoints of the vector at the time for which the vector was calculated. For example, if the geom:Vector_Cartesian_Position_Earth_to_Target vector was calculated for spacecraft UTC timeX, this class can be used to provide the additional information that the UTC time for an Earth Observer at that instant would have been timeY. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:position_velocity_vectors
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:time_at_Earth_UTC_YMD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:time_at_Earth_UTC_JD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:time_at_Sun_UTC_YMD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:time_at_Sun_UTC_JD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:time_at_target_UTC_YMD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:time_at_target_UTC_JD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Instrument_Position_Angles
+   description             The sb:Instrument_Position_Angles class provide position angles for the axes of the boresight on the place of the image, measured with respect to the location of the celestial North pole (also projected onto the plane of the image). Only two axes should be specified, with the third being the instrument's boresight. Note that the instrument frame's axis orientation is assumed to be right-handed, so the direction of the boresight axis (into or out of the image plane) can be inferred from the relative positions of the other two. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:x_axis_position_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:y_axis_position_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:z_axis_position_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Instrument_to_J2000_Quaternion
+   description             The sb:Instrument_to_J2000_Quaternion is provides the quaterion to rotate from coordinates from the intrument frame to the EME J2000 frame for a single specific frame of a "Frame Sequence" observation. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:qcos
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:qsin1
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:qsin2
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:qsin3
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Midframe_Time
+   description             The sb:Midframe_Time class provides timing information related to the mid-exposure time of one frame of a "Frame Sequence" observation. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:midobservation_time_UTC_YMD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:midobservation_time_UTC_JD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:delta_time_from_sequence_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observation_Parameters
+   description             The sb:Observational_Parameters class provides general attributes that small bodies researches find useful for a variety of types of observations. Not all subclasses will be applicable to all data types. The sb:Filter subclass may be repeated, but note that if this is a spectral observation, the relevant filter characteristics must be included the Spectral Dictionary (sp:). Additional filter information may be provided here if desired, of course. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:Exposure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Filter
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+      local identifier      sb:Timing
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Per_Frame_Metadata
+   description             The sb:Per_Frame_Metadata class provides timing and pointing information specific to a single, specified frame within a "Frame Sequence" observation. It should not be used in the case of single-image observations. For single images, the full geom:Image_Display_Geometry class should be used. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:frame_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:frame_exposure_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:Midframe_Time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Frame_Pointing
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Instrument_to_J2000_Quaternion
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Quality_Flag_Definition
+   description             The sb:Quality_Flag_Definition class defines one flag value with its corresponding meaning within a sb:Quality_Map_Definition class. Note that flag values here should not be used to replace pds:Special_Constants values - in particular the pds:missing_constant value - that should be included in the defintion of the data array itself. The pds:Special_Constants class is used for visualization and data validation; the sb:Quality_Flag_Definitions are used for interpretation and analysis. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:flag_value
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:flag_meaning
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Quality_Map
+   description             The sb:Quality_Map class links the primary image data in the product to the data object (within the same product) containing the pixel-for-pixel quality assessment information. It also provides the definitions associated with the quality values. The optional sb:comment field may be used to note any unusual circumstances. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Quality_Map_Definition
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Quality_Map_Definition
+   description             The sb:Quality_Map_Definition defines attributes related to a "Quality Map" data structure - that is, an array with dimensions corresponding to the primary data array that contains pixel-for-pixel quality information for every pixel in the primary array. sb:Quality_Map_Defintion lists the meaning of each quality values used in the map. Note that flag values defined for the Quality Map should not be used to replace pds:Special_Constants values - in particular the pds:missing_constant value - that should be included in the defintion of either the primary data array or the Quality Map array itself. The pds:Special_Constants class is used for visualization and data validation; the quality values defined are used for interpretation and analysis. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:flags_are_bit_flags
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:best_quality_value
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:Quality_Flag_Definition
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Raw_Data_Product
+   description             The sb:Raw_Data_Product class identifies the raw data product in the PDS archive that is the immediate predecessor of the current, processed data product. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   SNR_Map
+   description             The sb:SNR_Map class links the primary image data in the product to the data object (within the same product) containing the pixel-for-pixel signal-to-noise ratio information. The optional sb:comment field may be used to note any unusual circumstances. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Local_Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Timing
+   description             The sb:Timing class provides additional time specifications related to the observation. These might include times of particular interest, or alternate formats (Julian date, for example) of times expressed in ISO standard formats elsewhere. The sb:comment field should be used to explain any unusual or potentially ambiguous circumstances. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:midobservation_time_UTC_YMD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:midobservation_time_UTC_JD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:start_time_UTC_JD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:stop_time_UTC_JD
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Wavelength_Solution
+   description             The sb:Wavelength_Solution class identifies the PDS archive product containing the wavelength solution used to calibrate the data in the product. A wavelength solution is a row of data representing the wavelengths corresponding to the spectral dimension of the detector. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:file_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      sb:comment
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds.Internal_Reference
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   SB_Metadata
+   description             The SBS_Metadata class provides metadata specific to the techniques and processes of small bodies research. In some cases the metadata is supplemental to more general metadata contained in other namespaces (metadata that should also be present in the product label). 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      sb:Observation_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Calibration_Information
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      sb:Additional_Image_Metadata
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

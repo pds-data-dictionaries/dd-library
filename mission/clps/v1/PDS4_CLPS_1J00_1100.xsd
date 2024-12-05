@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:clps  Version:1.1.0.0 - Mon Jun 17 14:18:40 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.19.0.0 - System Build 13.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.19.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.1.0.0 - clps: - Commercial Lunar Payload Services Mission               -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/clps/v1"
+    xmlns:clps="http://pds.nasa.gov/pds4/mission/clps/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+    The Commercial Lunar Payload Services (CLPS) mission dictionary contains classes and attributes specific to CLPS deliveries 
+    and their instruments. 
+    
+    CLPS version 1.1.0.0 
+    PDS Build 1.19.0.0
+    LDDTool version 14.0.13
+    
+    Built with LDDTool -plJ  PDS4_CLPS_IngestLDD.xml
+     
+    2023-06-16 JGW Initial version.
+    2023-06-22 JGW Added CLPS_NIRVSS_Parameters class.
+    
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="CLPS_Parameters" type="clps:CLPS_Parameters"> </xs:element>
+
+  <xs:complexType name="CLPS_Delivery_Information">
+    <xs:annotation>
+      <xs:documentation>The CLPS_Delivery_Information class provides
+        information about a CLPS delivery.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nasa_delivery_name" type="clps:nasa_delivery_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="vendor" type="clps:vendor" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="vendor_mission_name" type="clps:vendor_mission_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="lunar_lander_name" type="clps:lunar_lander_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="project_scientist" type="clps:project_scientist" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="clps:nasa_delivery_name = ('TO_19D', 'TO_20A', 'TO_2AB', 'TO_2IM', 'TO_CP11', 'TO_CP12', 'TO_CP21', 'TO_CP22', 'TO_CS3', 'TO_PRIME1')"/> -->
+    <!-- <xs:assert test="clps:vendor = ('Astrobotic', 'Draper', 'Firefly Aerospace', 'Intuitive Machines')"/> -->
+    <!-- <xs:assert test="clps:vendor_mission_name = ('Blue Ghost 1', 'Griffin Mission One', 'Intuitive Machines Mission 1', 'Intuitive Machines Mission 2', 'Intuitive Machines Mission 3', 'Peregrine Mission 1')"/> -->
+    <!-- <xs:assert test="clps:lunar_lander_name = ('Blue Ghost Lander', 'Griffin Lunar Lander', 'Nova-C Lunar Lander', 'Peregrine Lunar Lander', 'SERIES-2 Lunar Lander')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="CLPS_Observation_Information">
+    <xs:annotation>
+      <xs:documentation>The CLPS_Observation_Information class provides
+        information about a science observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="release_number" type="clps:release_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="product_type" type="clps:product_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="clps:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start" type="clps:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop" type="clps:spacecraft_clock_stop" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_partition" type="clps:spacecraft_clock_partition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_institution_name" type="clps:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="clps:product_type = ('NSS_ENG_CAL', 'NSS_ENG_RAW', 'NSS_SCI_CAL', 'NSS_SCI_RAW')"/> -->
+    <!-- <xs:assert test="clps:mission_phase_name = ('CRUISE AND APPROACH', 'DESCENT AND LANDING', 'LUNAR ORBIT', 'SURFACE MISSION', 'TEST, DEVELOPMENT, and CALIBRATION')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="CLPS_Parameters">
+    <xs:annotation>
+      <xs:documentation>The CLPS_Parameters class is a superclass
+        containing all CLPS mission classes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CLPS_Delivery_Information" type="clps:CLPS_Delivery_Information" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="CLPS_Observation_Information" type="clps:CLPS_Observation_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="NIRVSS_Parameters" type="clps:NIRVSS_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NIRVSS_Parameters">
+    <xs:annotation>
+      <xs:documentation>The NIRVSS_Parameters class provides metadata
+        specific to NIRVSS observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nirvss_aim_xscale" type="clps:nirvss_aim_xscale" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nirvss_aim_yscale" type="clps:nirvss_aim_yscale" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nirvss_aim_xstart" type="clps:nirvss_aim_xstart" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nirvss_aim_xend" type="clps:nirvss_aim_xend" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nirvss_aim_ystart" type="clps:nirvss_aim_ystart" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nirvss_aim_yend" type="clps:nirvss_aim_yend" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nirvss_led_illumination_duration" type="clps:nirvss_led_illumination_duration" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="lunar_lander_name">
+    <xs:annotation>
+      <xs:documentation>lunar_lander_name identifies the name of the
+        lunar lander.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name identifies a time period
+        within the mission.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nasa_delivery_name">
+    <xs:annotation>
+      <xs:documentation>nasa_delivery_name identifies the delivery name
+        assigned by NASA.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nirvss_aim_xend">
+    <xs:annotation>
+      <xs:documentation>Pixel location of the largest value column of
+        the sub-array. Always given in the native Scale 0. Allowable
+        values are from 0 to 2047.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2047"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nirvss_aim_xscale">
+    <xs:annotation>
+      <xs:documentation>Scale factor representing the number 2^N of
+        columns that are averaged onboard by the AIM, where N is the
+        scale factor. For each scale factor, the number of columns is
+        decreased by 1/(2^N) of the native number of columns (2048): for
+        XScale = 0 the image contains the native number of columns; for
+        XScale = 1 the image contains 1/2 of the native number of
+        columns; etc. Allowable values of XScale are 0, 1, 2, 3,
+        4.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="4"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nirvss_aim_xstart">
+    <xs:annotation>
+      <xs:documentation>Pixel location of the smallest value column of
+        the sub-array. Always given in the native Scale 0. Allowable
+        values are from 0 to 2047.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2047"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nirvss_aim_yend">
+    <xs:annotation>
+      <xs:documentation>Pixel location of the largest value row of the
+        sub-array. Always given in the native Scale 0. Allowable values
+        are from 0 to 2047.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2047"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nirvss_aim_yscale">
+    <xs:annotation>
+      <xs:documentation>Scale factor representing the number 2^N of rows
+        that are skipped onboard by the AIM, where N is the scale
+        factor. For each scale factor, the number of rows is decreased
+        by 1/(2^N) of the native number of rows (2048) for YScale = 0
+        the image contains the native number of rows; for YScale = 1 the
+        image contains 1/2 of the native number of rows; etc. Allowable
+        values of YScale are 0, 1, 2, 3, 4.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="4"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nirvss_aim_ystart">
+    <xs:annotation>
+      <xs:documentation>Pixel location of the smallest value row of the
+        sub-array. Always given in the native Scale 0. Allowable values
+        are from 0 to 2047.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2047"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nirvss_led_illumination_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="nirvss_led_illumination_duration">
+    <xs:annotation>
+      <xs:documentation>Time, in milliseconds, that the chosen LED is in
+        the illuminated or on state. Typically LED illumination duration
+        time equals the image exposure duration. However, when the image
+        exposure duration exceeds the LED's maximum allowable exposure,
+        the LED will turn off at the maximum allowable exposure, while
+        the detector continues acquiring the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clps:nirvss_led_illumination_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="producer_institution_name">
+    <xs:annotation>
+      <xs:documentation>The producer_institution_name specifies the
+        identity of the facility or institution that produced the
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type">
+    <xs:annotation>
+      <xs:documentation>The product_type element identifies a group of
+        data products within a collection that have some property in
+        common, such as processing level, resolution, or
+        instrument-specific setting. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="project_scientist">
+    <xs:annotation>
+      <xs:documentation>The project_scientist element identifies the
+        name of the delivery's Project Scientist.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="release_number">
+    <xs:annotation>
+      <xs:documentation>release_number is the identifier of a scheduled
+        release of data from PDS. The first data release has
+        release_number "0001". The release_number for a given product is
+        always the first release in which it appears, and does not
+        change if the product is revised later.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="4"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_partition">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_partition provides the
+        clock partition active for the spacecraft_clock_start and
+        spacecraft_clock_stop attributes. This attribute may be used
+        when the spacecraft_clock values do not include a partition
+        number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start attribute provides
+        the value of the spacecraft clock at the beginning of a time
+        period of interest.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the end of a time
+        period of interest.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vendor">
+    <xs:annotation>
+      <xs:documentation>The vendor element identifies the company
+        responsible for delivering the payload to the lunar
+        surface.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vendor_mission_name">
+    <xs:annotation>
+      <xs:documentation>vendor_mission_name identifies the name given to
+        the mission by the CLPS vendor.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

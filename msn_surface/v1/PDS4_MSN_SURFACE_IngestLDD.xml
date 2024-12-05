@@ -7,7 +7,7 @@
   xmlns:msn="http://pds.nasa.gov/pds4/msn/v1" xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
   xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd">
   <name>Surface Mission Information</name>
-  <ldd_version_id>1.2.2.0</ldd_version_id>
+  <ldd_version_id>1.3.0.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Trent Hare</full_name>
   <steward_id>img</steward_id>
@@ -45,9 +45,15 @@
     
     1.2.2.0 T.Hare
     - Added telemetry_alternate_name
+
+    1.3.0.0 T.Hare/R.Deen
+    - Added data_storage_time to Telemetry class for CLPS SCALPSS
+    - Added command_cycle_number to Command_Execution for CADRE
+    - Added expected_command_duration, command_duration, command_sampling_interval, 
+      selected_instrument_id to Command_Execution for CADRE
     
   </comment>
-  <last_modification_date_time>2021-06-09T17:08:00</last_modification_date_time>
+  <last_modification_date_time>2024-09-07T08:42:00</last_modification_date_time>
 
   <!-- Begin attribute definitions -->
 
@@ -110,6 +116,75 @@
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_NonNegative_Integer</value_data_type>
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>command_cycle_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>command_cycle_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>R. Deen</submitter_name>
+    <definition>Many missions have repetitive command cycles (which may be based on day, 
+      sol, a fixed time interval, orbit number, or any other periodic event). This 
+      attribute specifies in which cycle the observation took place.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>expected_command_duration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>expected_command_duration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>R. Deen</submitter_name>
+    <definition>Expected command execution duration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>command_duration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>command_duration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>R. Deen</submitter_name>
+    <definition>Actual command execution duration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>command_sampling_interval</name>
+    <version_id>1.0</version_id>
+    <local_identifier>command_sampling_interval</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>R. Deen</submitter_name>
+    <definition>For a repeating sequence of events, such as images acquired as a 
+      movie, this specifies what interval those events are sampled at. 
+      For example, a value of 1 means every even, 2 means every other 
+      event, 4 means every 4th event.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>selected_instrument_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>selected_instrument_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>R. Deen</submitter_name>
+    <definition>Specifies the instrument IDs of instruments selected by this command.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>
@@ -482,6 +557,20 @@
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>
+    <name>data_storage_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>data_storage_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>Time at which the data was stored into onboard memory.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
     <name>expected_packets</name>
     <version_id>0.1</version_id>
     <local_identifier>expected_packets</local_identifier>
@@ -774,7 +863,7 @@
   <!-- Start of Command_Execution Class Definition -->
   <DD_Class>
     <name>Command_Execution</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Command_Execution</local_identifier>
     <submitter_name>Jordan Padams</submitter_name>
     <definition>The Command_Execution class contains information about how the command 
@@ -804,6 +893,12 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
+      <identifier_reference>command_cycle_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
       <identifier_reference>command_source_id</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
@@ -815,6 +910,30 @@
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>expected_command_duration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>command_duration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>command_sampling_interval</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>selected_instrument_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>   
     <DD_Association>
       <identifier_reference>observation_id</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -954,6 +1073,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>earth_received_stop_date_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>data_storage_time</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>

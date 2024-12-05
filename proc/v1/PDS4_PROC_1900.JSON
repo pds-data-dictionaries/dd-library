@@ -1,0 +1,908 @@
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "Version": "1.11.0.0" ,
+      "Date": "Fri Sep 06 10:49:18 PDT 2019" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "classDictionary": [
+        {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Input_Product" ,
+            "title": "Input_Product" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Input_Product class describes one of the product most directly used as input to software for product creation, including raw, partially-processed, calibrated, or derived products."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Input_Product.pds.local_identifier" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Input_Product.pds.local_identifier"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Input_Product.proc.XSChoice#13" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "true" ,
+                "isAny": "false" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "classId": [
+                   "0001_NASA_PDS_1.pds.External_Reference",
+                   "0001_NASA_PDS_1.pds.Internal_Reference",
+                   "0001_NASA_PDS_1.pds.Local_Internal_Reference"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Input_Product_List" ,
+            "title": "Input_Product_List" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Input_Product_List class describes all of the product(s) most directly used as input to software for product creation, including raw, partially-processed, calibrated, or derived products. These Input Products can be explicitly described in this label using the Input_Product class, and\/or a list of products can be specified in another product referenced by the Internal_Reference or Local_Internal_Reference."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Input_Product_List.proc.XSChoice#12" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "true" ,
+                "isAny": "false" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1010" ,
+                "classId": [
+                   "0001_NASA_PDS_1.proc.Input_Product",
+                   "0001_NASA_PDS_1.pds.Internal_Reference",
+                   "0001_NASA_PDS_1.pds.Local_Internal_Reference"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Parameter" ,
+            "title": "Parameter" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Parameter class describes any information about software program execution. Examples of information that can be captured here are software input arguments, software output arguments, log information, and references to specific data products. This class is intended to be freeform to allow data providers the ability to specify information they determine applicable and useful for their data processing software and data products."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Parameter.pds.name" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Parameter.pds.name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Parameter.proc.parameter_type" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Parameter.proc.parameter_type"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Parameter.pds.value" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Parameter.pds.value"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Parameter.proc.XSChoice#14" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "true" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1040" ,
+                "classId": [
+                   "0001_NASA_PDS_1.pds.External_Reference",
+                   "0001_NASA_PDS_1.pds.Internal_Reference",
+                   "0001_NASA_PDS_1.pds.Local_Internal_Reference"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Process" ,
+            "title": "Process" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Process class describes one of the software processes used to produce the data product referenced in the parent Processing_Information class. This class includes descriptions of the process owner as well as the data processing software used to create the data product."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Process.pds.name" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Process.pds.name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Process.pds.description" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Process.pds.description"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Process.proc.process_owner_name" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Process.proc.process_owner_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Process.proc.process_owner_institution_name" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Process.proc.process_owner_institution_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Process.proc.Software" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "classId": [
+                   "0001_NASA_PDS_1.proc.Software"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Processing_Information" ,
+            "title": "Processing_Information" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Processing_Information class contains detailed information regarding the history of processing of the data product(s) described in the label. Information that can be specified using this class includes input products used to create a specific data product and the software and processes used to produce that product."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Processing_Information.pds.pds.Local_Internal_Reference" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "classId": [
+                   "0001_NASA_PDS_1.pds.Local_Internal_Reference"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Processing_Information.proc.XSChoice#11" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "true" ,
+                "isAny": "false" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1020" ,
+                "classId": [
+                   "0001_NASA_PDS_1.proc.Input_Product_List",
+                   "0001_NASA_PDS_1.proc.Process"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Software" ,
+            "title": "Software" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Software class describes the data processing software used in order to produce the data product."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software.pds.name" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software.pds.name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software.pds.software_id" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software.pds.software_id"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software.pds.software_version_id" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software.pds.software_version_id"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software.pds.software_type" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software.pds.software_type"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software.pds.description" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software.pds.description"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software.pds.pds.Internal_Reference" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1060" ,
+                "classId": [
+                   "0001_NASA_PDS_1.pds.Internal_Reference"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software.proc.Software_Program" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1070" ,
+                "classId": [
+                   "0001_NASA_PDS_1.proc.Software_Program"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program" ,
+            "title": "Software_Program" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Software_Program class describes the specific components or tasks of the Software executed in producing the data product."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.pds.name" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.pds.name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_type_name" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.proc.program_type_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_user" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.proc.program_user"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_hostname" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.proc.program_hostname"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_path" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.proc.program_path"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_version" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1060" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.proc.program_version"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_start_date_time" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1070" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.proc.program_start_date_time"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_stop_date_time" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1080" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.proc.program_stop_date_time"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.pds.description" ,
+                "title": "null" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1090" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.proc.Software_Program.pds.description"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.Software_Program_Parameters" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1100" ,
+                "classId": [
+                   "0001_NASA_PDS_1.proc.Software_Program_Parameters"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program_Parameters" ,
+            "title": "Software_Program_Parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "description": "The Software_Program_Parameters class specifies the set of 1 or more parameters for the software program. These parameters can be input, output, or log information. The premise being a way to capture as much information as possible about the software program execution."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.proc.Software_Program_Parameters.proc.Parameter" ,
+                "title": "null" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1010" ,
+                "classId": [
+                   "0001_NASA_PDS_1.proc.Parameter"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.XSChoice#11" ,
+            "title": "XSChoice#11" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "null" ,
+            "versionId": "1.0.0.0" ,
+            "description": "null"
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.XSChoice#12" ,
+            "title": "XSChoice#12" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "null" ,
+            "versionId": "1.0.0.0" ,
+            "description": "null"
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.XSChoice#13" ,
+            "title": "XSChoice#13" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "null" ,
+            "versionId": "1.0.0.0" ,
+            "description": "null"
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.proc.XSChoice#14" ,
+            "title": "XSChoice#14" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "null" ,
+            "versionId": "1.0.0.0" ,
+            "description": "null"
+          }
+        }
+      ]
+    , "attributeDictionary": [
+        {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Parameter.proc.parameter_type" ,
+            "title": "parameter_type" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The parameter_type attribute specifies the type of software parameter. Valid values: 'Input' - this parameter specifies input data, 'Output' - this parameter specifies output data, 'Log' - this parameter specifies log data" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "Input" ,
+                  "valueMeaning": "this parameter specifies input data"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Output" ,
+                  "valueMeaning": "this parameter specifies output data"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Log" ,
+                  "valueMeaning": "this parameter specifies log data"
+                }
+             }
+           ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Process.proc.process_owner_institution_name" ,
+            "title": "process_owner_institution_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The pprocess_owner_institution_name attribute specifies the name of the institution that owns the software process." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Process.proc.process_owner_name" ,
+            "title": "process_owner_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The pprocess_owner_name attribute specifies the name of the person or organization that owns the software process." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_hostname" ,
+            "title": "program_hostname" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The program_hostname attribute specifies the machine hostname where the software program was executed." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_path" ,
+            "title": "program_path" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The program_path attribute specifies the file path to the software program. This path can be absolute or relative depending on the desired usage." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_start_date_time" ,
+            "title": "program_start_date_time" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The program_start_date_time specifies the datetime for the start of the software program execution." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Date_Time_YMD_UTC" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Date_Time_YMD_UTC" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_stop_date_time" ,
+            "title": "program_stop_date_time" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The program_start_date_time attribute specifies the datetime for the end of the software program execution." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Date_Time_YMD_UTC" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Date_Time_YMD_UTC" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_type_name" ,
+            "title": "program_type_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The program_type_name attribute specifies the type of software program used for this software processing. Some examples include: VICAR, ISIS, GDAL." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_user" ,
+            "title": "program_user" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The program_user attribute specifies the username of the person responsible for running the software prgoram." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.proc.Software_Program.proc.program_version" ,
+            "title": "program_version" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "proc" ,
+            "steward": "img" ,
+            "versionId": "1.11" ,
+            "description": "The program_version attribute specifies the version of the software program." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      ]
+    , "PropertyMapDictionary": [
+      ]
+    }
+  }
+]

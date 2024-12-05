@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:vikinglander  Version:1.0.0.0 - Fri Aug 02 15:15:58 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.21.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - vikinglander: - Viking Lander                                   -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/vikinglander/v1"
+    xmlns:vikinglander="http://pds.nasa.gov/pds4/mission/vikinglander/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1L00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+    The Viking Lander mission dictionary contains classes and attributes specific
+    to the Viking Lander mission and its instruments.
+    
+    Viking Lander version 1.0.0.0 
+    PDS Build 1.21.0.0
+    
+    Built with LDDTool -plJ -V xxxx PDS4_VIKINGLANDER_IngestLDD.xml
+    
+    xxxx is the model version, for example 1L00
+     
+    2024-07-05 GEO/JGW Minor typo fixes.
+    
+    2024-06-30 GEO/EAG Initial version with classes for general observation attributes and specific lander
+    image attributes.
+
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Viking_Lander_Parameters" type="vikinglander:Viking_Lander_Parameters"> </xs:element>
+
+  <xs:complexType name="Image_Parameters">
+    <xs:annotation>
+      <xs:documentation>This class provides a set of parameters that
+        describe a Viking Lander image.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="diode_name" type="vikinglander:diode_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scan_start_azimuth" type="vikinglander:scan_start_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scan_stop_azimuth" type="vikinglander:scan_stop_azimuth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mirror_center_elevation" type="vikinglander:mirror_center_elevation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sampling_interval" type="vikinglander:sampling_interval" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="offset_number" type="vikinglander:offset_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gain_number" type="vikinglander:gain_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="psa_temperature" type="vikinglander:psa_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scan_rate" type="vikinglander:scan_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rescan_start_sample" type="vikinglander:rescan_start_sample" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rescan_total_samples" type="vikinglander:rescan_total_samples" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="missing_scans" type="vikinglander:missing_scans" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="downlink_path" type="vikinglander:downlink_path" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dust_flag" type="vikinglander:dust_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="vikinglander:diode_name = ('bb1', 'bb2', 'bb3', 'bb4', 'blue', 'green', 'ir1', 'ir2', 'ir3', 'red', 'sun', 'survey', 'undefined')"/> -->
+    <!-- <xs:assert test="vikinglander:downlink_path = ('realtime_s-band_link', 'realtime_uhf_link', 'recorded_s-band_link', 'recorded_uhf_link')"/> -->
+    <!-- <xs:assert test="vikinglander:dust_flag = ('false', 'true')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Information">
+    <xs:annotation>
+      <xs:documentation>The Observation_Information class provides
+        information about a Viking Lander science
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="product_type_name" type="vikinglander:product_type_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="vikinglander:mission_phase_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="native_time" type="vikinglander:native_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sol_number" type="vikinglander:sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_sol_number" type="vikinglander:start_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_sol_number" type="vikinglander:stop_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="local_hour" type="vikinglander:local_hour" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_name" type="vikinglander:observation_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="vikinglander:product_type_name = ('calibration_level_0', 'calibration_level_1', 'calibration_level_2', 'calibration_level_3', 'color_triplet', 'detector_temperature', 'event_mode', 'head-end_temperature', 'high_rate', 'high_resolution_singlet', 'infrared_triplet', 'low_resolution_singlet', 'radioactivity_counts', 'scan_verification')"/> -->
+    <!-- <xs:assert test="vikinglander:mission_phase_name = ('Completion_Mission', 'Continuation_Mission', 'Extended_Mission', 'Interim_Period', 'Primary_Mission', 'Survey_Mission')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Viking_Lander_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Viking_Lander_Parameters class is a
+        superclass containing all Viking Lander mission
+        classes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Observation_Information" type="vikinglander:Observation_Information" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Image_Parameters" type="vikinglander:Image_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="diode_name">
+    <xs:annotation>
+      <xs:documentation>Name for one of the twelve photodiode in a VL
+        camera. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="downlink_path">
+    <xs:annotation>
+      <xs:documentation>The data transmission path from the cameras to
+        Earth. The path could be recorded for later transmission or
+        transmitted in realtime as the camera scanned. The data could be
+        sent either by a UHF link to an orbiter or S-band link directly
+        to Earth.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dust_flag">
+    <xs:annotation>
+      <xs:documentation>A flag indicating whether a dust sequence was
+        done with an image.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gain_number">
+    <xs:annotation>
+      <xs:documentation>One of six gain settings used in the conversion
+        of photodiode voltage to DN.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="5"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="local_hour">
+    <xs:annotation>
+      <xs:documentation>The hour and fraction hour within a sol that an
+        observation began assuming a sol has 24 hours.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="24.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mirror_center_elevation_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-60.0"/>
+     <xs:maxInclusive value="40.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mirror_center_elevation">
+    <xs:annotation>
+      <xs:documentation>The commanded center elevation of the scanning
+        mirror used for an image. Zero elevation is generally pointed
+        toward the horizon with negative values below and positive
+        values above. Note that actual center elevation may be different
+        for some non-nominal imaging modes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="vikinglander:mirror_center_elevation_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="missing_scans">
+    <xs:annotation>
+      <xs:documentation>Sometimes vertical scans of data were lost in
+        transmission to Earth or there were errors in the telemetry such
+        that scans could not be extracted from the downlink.
+        Missing_scans is the number of vertical lines that are missing
+        from an image. A value of zero means no scans were
+        lost.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name identifies a time period
+        within the mission.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="native_time">
+    <xs:annotation>
+      <xs:documentation>Native time is the local lander time given as a
+        sol number followed by hours, minutes, and seconds past local
+        midnight on that sol. Sol 0 is day of landing. The Viking
+        project used the format of sol number, hour, minute, and second
+        for local lander time with times in a sol extending beyond 24
+        hours. This usage is different from the usage by recent Mars
+        rover missions and PDS standard for local time.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_name">
+    <xs:annotation>
+      <xs:documentation>A short note that describes the
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="offset_number">
+    <xs:annotation>
+      <xs:documentation>One of 32 offset settings used in the conversion
+        of photodiode voltage to DN.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="31"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type_name">
+    <xs:annotation>
+      <xs:documentation>The product_type_name identifies a group of data
+        products within a collection that have some property in common,
+        such as processing level, resolution, or instrument-specific
+        setting. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="psa_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="psa_temperature">
+    <xs:annotation>
+      <xs:documentation>The temperature of the photosensor array (PSA)
+        measured during the acquisition of an VL
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="vikinglander:psa_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="rescan_start_sample">
+    <xs:annotation>
+      <xs:documentation>The VL camera could collect data without
+        advancing the azimuth. This was called rescan, i.e., repeating
+        the same vertical scan of data. This sometimes happened at the
+        end of image and sometimes was commanded to repeat vertical
+        scans. Start_rescan_sample is the sample value where rescan
+        starts in an image. This value is zero if there was no
+        rescan.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="10000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rescan_total_samples">
+    <xs:annotation>
+      <xs:documentation>The VL camera could collect data without
+        advancing the azimuth. This was called rescan, i.e., repeating
+        the same vertical scan of data. This sometimes happened at the
+        end of image and sometimes was commanded to repeat vertical
+        scans. Total_rescan_samples is the total number of rescan scans
+        in an image. This value is zero if there was no
+        rescan.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sampling_interval_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.00"/>
+     <xs:maxInclusive value="0.12"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sampling_interval">
+    <xs:annotation>
+      <xs:documentation>The spacing in degrees between pixels within a
+        scan line and between scan lines.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="vikinglander:sampling_interval_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="scan_rate">
+    <xs:annotation>
+      <xs:documentation>The VL camera system has two rates of data
+        collection - 16,000 or 250 bps.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="250"/>
+     <xs:maxInclusive value="16000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scan_start_azimuth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="scan_start_azimuth">
+    <xs:annotation>
+      <xs:documentation>Beginning azimuth of an image scan. Values are
+        in the camera-aligned camera coordinate system (CACCS). This
+        zero azimuth for each camera generally points towards the other
+        camera.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="vikinglander:scan_start_azimuth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="scan_stop_azimuth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="scan_stop_azimuth">
+    <xs:annotation>
+      <xs:documentation>Ending azimuth of an image scan. Values are in
+        the camera-aligned camera coordinate system (CACCS). This zero
+        azimuth for each camera generally points towards the other
+        camera.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="vikinglander:scan_stop_azimuth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="sol_number">
+    <xs:annotation>
+      <xs:documentation>Sol_number is the number of the Mars day on
+        which an observation was acquired. Landing day is Sol 0.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2238"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_sol_number">
+    <xs:annotation>
+      <xs:documentation>Start_sol_number is the number of the Mars day
+        on which a multiple-day observation was begun. Landing day is
+        Sol 0.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2238"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_sol_number">
+    <xs:annotation>
+      <xs:documentation>Stop_sol_number is the number of the Mars day on
+        which a multiple-day observation was ended. Landing day is Sol
+        0.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2238"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

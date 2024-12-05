@@ -1,0 +1,355 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.1.0
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Fri Aug 02 15:15:58 UTC 2024
+   Common Schema          [PDS4_PDS_1M00.xsd]
+   Common Schematron      [PDS4_PDS_1M00.sch]
+   IM Version Id:         1.22.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-vikinglander/ldd-vikinglander/src/PDS4_VIKINGLANDER_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                3
+   Attributes             22
+   Associations           24
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Viking Lander
+   LDD Version            1.0.0.0
+   Full Name              E Guinness
+   Steward                geo
+   Namespace Id           vikinglander
+   Comment                
+    The Viking Lander mission dictionary contains classes and attributes specific
+    to the Viking Lander mission and its instruments.
+    
+    Viking Lander version 1.0.0.0 
+    PDS Build 1.21.0.0
+    
+    Built with LDDTool -plJ -V xxxx PDS4_VIKINGLANDER_IngestLDD.xml
+    
+    xxxx is the model version, for example 1L00
+     
+    2024-07-05 GEO/JGW Minor typo fixes.
+    
+    2024-06-30 GEO/EAG Initial version with classes for general observation attributes and specific lander
+    image attributes.
+
+  
+   Last Modification Time 2024-07-05
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   local_hour
+   version                1.22
+   value data type        ASCII_Real
+   description            The hour and fraction hour within a sol that an observation began assuming a sol has 24 hours.
+   minimum value          0.0
+   maximum value          24.0
+
+   name                   mission_phase_name
+   version                1.22
+   value data type        ASCII_Short_String_Preserved
+   description            The mission_phase_name identifies a time period within the mission.
+
+   name                   native_time
+   version                1.22
+   value data type        ASCII_Short_String_Collapsed
+   description            Native time is the local lander time given as a sol number followed by hours, minutes, and seconds past local midnight on that sol. Sol 0 is day of landing. The Viking project used the format of sol number, hour, minute, and second for local lander time with times in a sol extending beyond 24 hours. This usage is different from the usage by recent Mars rover missions and PDS standard for local time. 
+
+   name                   observation_name
+   version                1.22
+   value data type        ASCII_Short_String_Collapsed
+   description            A short note that describes the observation.
+
+   name                   product_type_name
+   version                1.22
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_type_name identifies a group of data products within a collection that have some property in common, such as processing level, resolution, or instrument-specific setting. 
+
+   name                   sol_number
+   version                1.22
+   value data type        ASCII_Integer
+   description            Sol_number is the number of the Mars day on which an observation was acquired. Landing day is Sol 0. 
+   minimum value          0
+   maximum value          2238
+
+   name                   start_sol_number
+   version                1.22
+   value data type        ASCII_Integer
+   description            Start_sol_number is the number of the Mars day on which a multiple-day observation was begun. Landing day is Sol 0.
+   minimum value          0
+   maximum value          2238
+
+   name                   stop_sol_number
+   version                1.22
+   value data type        ASCII_Integer
+   description            Stop_sol_number is the number of the Mars day on which a multiple-day observation was ended. Landing day is Sol 0.
+   minimum value          0
+   maximum value          2238
+
+   name                   diode_name
+   version                1.22
+   value data type        ASCII_Short_String_Preserved
+   description            Name for one of the twelve photodiode in a VL camera. 
+
+   name                   scan_start_azimuth
+   version                1.22
+   value data type        ASCII_Real
+   description            Beginning azimuth of an image scan. Values are in the camera-aligned camera coordinate system (CACCS). This zero azimuth for each camera generally points towards the other camera.
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   scan_stop_azimuth
+   version                1.22
+   value data type        ASCII_Real
+   description            Ending azimuth of an image scan. Values are in the camera-aligned camera coordinate system (CACCS). This zero azimuth for each camera generally points towards the other camera.
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   mirror_center_elevation
+   version                1.22
+   value data type        ASCII_Real
+   description            The commanded center elevation of the scanning mirror used for an image. Zero elevation is generally pointed toward the horizon with negative values below and positive values above. Note that actual center elevation may be different for some non-nominal imaging modes.
+   minimum value          -60.0
+   maximum value          40.0
+   unit of measure type   Units_of_Angle
+
+   name                   sampling_interval
+   version                1.22
+   value data type        ASCII_Real
+   description            The spacing in degrees between pixels within a scan line and between scan lines.
+   minimum value          0.00
+   maximum value          0.12
+   unit of measure type   Units_of_Angle
+
+   name                   offset_number
+   version                1.22
+   value data type        ASCII_Integer
+   description            One of 32 offset settings used in the conversion of photodiode voltage to DN.
+   minimum value          0
+   maximum value          31
+
+   name                   gain_number
+   version                1.22
+   value data type        ASCII_Integer
+   description            One of six gain settings used in the conversion of photodiode voltage to DN.
+   minimum value          0
+   maximum value          5
+
+   name                   psa_temperature
+   version                1.22
+   value data type        ASCII_Real
+   description            The temperature of the photosensor array (PSA) measured during the acquisition of an VL image.
+   unit of measure type   Units_of_Temperature
+
+   name                   scan_rate
+   version                1.22
+   value data type        ASCII_Integer
+   description            The VL camera system has two rates of data collection - 16,000 or 250 bps.
+   minimum value          250
+   maximum value          16000
+
+   name                   rescan_start_sample
+   version                1.22
+   value data type        ASCII_Integer
+   description            The VL camera could collect data without advancing the azimuth. This was called rescan, i.e., repeating the same vertical scan of data. This sometimes happened at the end of image and sometimes was commanded to repeat vertical scans. Start_rescan_sample is the sample value where rescan starts in an image. This value is zero if there was no rescan.
+   minimum value          0
+   maximum value          10000
+
+   name                   rescan_total_samples
+   version                1.22
+   value data type        ASCII_Integer
+   description            The VL camera could collect data without advancing the azimuth. This was called rescan, i.e., repeating the same vertical scan of data. This sometimes happened at the end of image and sometimes was commanded to repeat vertical scans. Total_rescan_samples is the total number of rescan scans in an image. This value is zero if there was no rescan.
+   minimum value          0
+
+   name                   missing_scans
+   version                1.22
+   value data type        ASCII_Integer
+   description            Sometimes vertical scans of data were lost in transmission to Earth or there were errors in the telemetry such that scans could not be extracted from the downlink. Missing_scans is the number of vertical lines that are missing from an image. A value of zero means no scans were lost.
+   minimum value          0
+
+   name                   downlink_path
+   version                1.22
+   value data type        ASCII_Short_String_Preserved
+   description            The data transmission path from the cameras to Earth. The path could be recorded for later transmission or transmitted in realtime as the camera scanned. The data could be sent either by a UHF link to an orbiter or S-band link directly to Earth.
+
+   name                   dust_flag
+   version                1.22
+   value data type        ASCII_Short_String_Preserved
+   description            A flag indicating whether a dust sequence was done with an image.
+
+Parsed Input - Classes:
+
+   name                   Observation_Information
+   description            The Observation_Information class provides information about a Viking Lander science observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      vikinglander:product_type_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      vikinglander:native_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:start_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:stop_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:local_hour
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:observation_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Image_Parameters
+   description            This class provides a set of parameters that describe a Viking Lander image.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      vikinglander:diode_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:start_scan_azimuth
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:stop_scan_azimuth
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:mirror_center_elevation
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:sampling_interval
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:offset_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:gain_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:psa_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:scan_rate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:start_rescan_sample
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:total_rescan_samples
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:missing_scans
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:downlink_path
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      vikinglander:dust_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Viking_Lander_Parameters
+   description            The Viking_Lander_Parameters class is a superclass containing all Viking Lander mission classes.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      vikinglander:Observation_Information
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      vikinglander:Image_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

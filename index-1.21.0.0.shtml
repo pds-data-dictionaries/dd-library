@@ -154,6 +154,20 @@
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 06/21/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-ctli">https://github.com/pds-data-dictionaries/ldd-ctli</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1L00_2100.xsd">PDS4_CTLI_1L00_2100.xsd</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1L00_2100.sch">PDS4_CTLI_1L00_2100.sch</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1L00_2100.xml">PDS4_CTLI_1L00_2100.xml</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1L00_2100.JSON">PDS4_CTLI_1L00_2100.JSON</a></li>
+                            <li><a href="/pds4/ctli/v2/PDS4_CTLI_1L00_2100.zip">PDS4_CTLI_1L00_2100.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
                     <li><b>Last Updated:</b> 11/21/2023</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-ctli">https://github.com/pds-data-dictionaries/ldd-ctli</a></li>

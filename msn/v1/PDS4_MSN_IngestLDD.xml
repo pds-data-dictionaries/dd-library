@@ -12,7 +12,7 @@
     https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
   
     <name>Mission Information Commons</name>
-    <ldd_version_id>1.3.0.3</ldd_version_id>
+    <ldd_version_id>1.3.1.0</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
     <full_name>Trent Hare</full_name>
     <steward_id>img</steward_id>
@@ -47,9 +47,12 @@
      - add ephemeris_start_time and ephemeris_stop_time to have available at the mission level.
          We do understand et_start and et_stop are also available from the nucspec dictionary but
          this is required by THEMIS which is not a nucspec instrument.
-     
+
+     1.3.1.0
+     - add orbit_identifier to Orbital_Mission class.
+
     </comment>
-    <last_modification_date_time>2023-11-08T09:00:00Z</last_modification_date_time>
+    <last_modification_date_time>2024-09-07T09:00:00Z</last_modification_date_time>
   
   <!-- Begin attribute definitions -->
   
@@ -295,7 +298,22 @@
       <maximum_characters>255</maximum_characters>
     </DD_Value_Domain>
   </DD_Attribute>
-  
+  <DD_Attribute>
+    <name>orbit_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>orbit_identifier</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>T. Hare</submitter_name>
+    <definition>Missions such as Cassini, JUNO and MRO, include an attribute orbit identifier whihch is 
+      more grainular then mission phase. This can be skipped or has been set to N/A for cruise images.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <!-- End attribute definitions for Orbital_Mission class -->
   
   <!-- Start attribute definitions for Surface_Mission class -->
@@ -689,6 +707,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>stop_orbit_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>orbit_identifier</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>

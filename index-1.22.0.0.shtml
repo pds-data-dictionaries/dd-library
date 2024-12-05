@@ -73,8 +73,7 @@
 		<div id="compatible-versions">
 			<h3>Compatible Versions</h3>
 			<p>
-				For each version of the PDS Common Data Dictionary, there are specific discipline and mission dictionary that are compatible.
-				You can find this information in our <a href="/datastandards/schema/pds-dictionary-stacks.pdf">Dictionary Stacks</a> database.
+				For each version of the PDS Common Data Dictionary, all Discipline Dictionaries are built with the same version of the Common to ensure validity and compatibility. Use this page to find compatible version. If the dictionary does not appear on this page, please contact the <a href="mailto:pds-operator@jpl.nasa.gov">PDS Help Desk</a> to have it generated. 
 			</p>
 			<p><a class="toTop">Back to top</a></p>
 		</div>
@@ -430,16 +429,16 @@
 
                 </p>
                 <ul>
-                    <li><b>Last Updated:</b> </li>
+                    <li><b>Last Updated:</b> 10/30/2024</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
-                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-particle">https://github.com/pds-data-dictionaries/ldd-particle</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-particle">https://pds-data-dictionaries.github.io/ldd-particle</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
-                                PDS4  Information Model. To submit a request the have the LDD generated, please submit a request to the
-                                <a href="https://pds.nasa.gov/?feedback=true">PDS Help Desk</a>, or create an issue in the
-                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
-                            </li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1M00_2020.xsd">PDS4_PARTICLE_1M00_2020.xsd</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1M00_2020.sch">PDS4_PARTICLE_1M00_2020.sch</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1M00_2020.xml">PDS4_PARTICLE_1M00_2020.xml</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1M00_2020.JSON">PDS4_PARTICLE_1M00_2020.JSON</a></li>
+                            <li><a href="/pds4/particle/v2/PDS4_PARTICLE_1M00_2020.zip">PDS4_PARTICLE_1M00_2020.zip</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -522,16 +521,30 @@
 
                 </p>
                 <ul>
-                    <li><b>Last Updated:</b> </li>
+                    <li><b>Last Updated:</b> 08/26/2024</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
                     <li><b>Data Dictionary Files:</b>
                         <ul>
-                            <li><i>NOTE: A new version of this Local Data Dictionary was not generated with this version of the
-                                PDS4  Information Model. To submit a request the have the LDD generated, please submit a request to the
-                                <a href="https://pds.nasa.gov/?feedback=true">PDS Help Desk</a>, or create an issue in the
-                                <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">PDS4 LDD Issues Repository</a></i>
-                            </li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1110.xsd">PDS4_SB_1M00_1110.xsd</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1110.sch">PDS4_SB_1M00_1110.sch</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1110.xml">PDS4_SB_1M00_1110.xml</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1110.JSON">PDS4_SB_1M00_1110.JSON</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1110.zip">PDS4_SB_1M00_1110.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><b>Last Updated:</b> 06/30/2024</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1100.xsd">PDS4_SB_1M00_1100.xsd</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1100.sch">PDS4_SB_1M00_1100.sch</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1100.xml">PDS4_SB_1M00_1100.xml</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1100.JSON">PDS4_SB_1M00_1100.JSON</a></li>
+                            <li><a href="/pds4/sb/v1/PDS4_SB_1M00_1100.zip">PDS4_SB_1M00_1100.zip</a></li>
                         </ul>
                     </li>
                 </ul>
