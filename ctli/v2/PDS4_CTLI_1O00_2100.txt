@@ -1,0 +1,103 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.3.0
+   LDD Version Id:        2.1.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Mon Apr 28 22:29:55 UTC 2025
+   Common Schema          [PDS4_PDS_1O00.xsd]
+   Common Schematron      [PDS4_PDS_1O00.sch]
+   IM Version Id:         1.24.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-ctli/ldd-ctli/src/PDS4_CTLI_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                2
+   Attributes             2
+   Associations           3
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Type_List
+   LDD Version            2.1.0.0
+   Full Name              Lyle Huber
+   Steward                ctli
+   Namespace Id           ctli
+   Comment                
+    The Instrument Type List Dictionary provides a set of permissible values and their 
+    value meanings for use by the enumerated attribute  type  in the Instrument class.
+    Modification History:
+      2019-11-14: First version delivered by the Instrument Type Steward Team.
+      2021-08-31: Version 2.0 to reorganize the Type_List class.
+  
+   Last Modification Time 2024-01-10T21:00:00Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   type
+   version                1.24
+   value data type        UTF8_Short_String_Collapsed
+   description             The type attribute provides a character string which uniquely identifies the object. 
+   minimum characters     1
+   maximum characters     255
+
+   name                   subtype
+   version                1.24
+   value data type        UTF8_Short_String_Collapsed
+   description            The subtype attribute provides additional nuance or clarity to the type attribute.
+
+Parsed Input - Classes:
+
+   name                   Type_List_Set
+   description            The Type List class provides a list of values and their value meanings.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ctli:Type_List
+      minimum occurrences   1
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Type_List
+   description            The Type List class provides a list of values and their value meanings.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ctli:type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ctli:subtype
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+End of Report

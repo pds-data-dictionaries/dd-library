@@ -1,0 +1,1396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:atm="http://pds.nasa.gov/pds4/atm/v1"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.xsd">
+
+    <name>Atmosphere</name>
+    <ldd_version_id>1.2.0.0</ldd_version_id>
+    <dictionary_type>Discipline</dictionary_type>
+    <full_name>Lyle Huber</full_name>
+    <steward_id>atm</steward_id>
+    <namespace_id>ama</namespace_id>
+    <comment>
+        This dictionary describes the modeling output generic variables
+    </comment>
+    <last_modification_date_time>2025-05-29T12:00:00Z</last_modification_date_time>
+
+        <DD_Attribute>
+            <name>type</name>
+            <version_id>1.0</version_id>
+            <local_identifier>type</local_identifier>
+            <nillable_flag>false</nillable_flag>
+            <submitter_name>Victoria Hartwick</submitter_name>
+            <definition>Model Type (e.g GCM, MESOSCALE, ASSIMILATION)</definition>
+            <DD_Value_Domain>
+                <enumeration_flag>true</enumeration_flag>
+                <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                <DD_Permissible_Value>
+		            <value>GCM</value>
+                    <value_meaning>General Circulation Model</value_meaning>
+                </DD_Permissible_Value>                   
+                <DD_Permissible_Value>
+                    <value>MESOSCALE</value>
+                    <value_meaning>Mesoscale Model</value_meaning>
+                </DD_Permissible_Value>           
+                <DD_Permissible_Value>
+                    <value>ASSIMILATION</value>
+                    <value_meaning>Assimilation Model</value_meaning>
+                </DD_Permissible_Value>           
+            </DD_Value_Domain>
+        </DD_Attribute>
+
+
+        <DD_Attribute>
+            <name>name</name>
+            <version_id>1.0</version_id>
+            <local_identifier>name</local_identifier>
+            <nillable_flag>false</nillable_flag>
+            <submitter_name>Victoria Hartwick</submitter_name>
+            <definition>Describes the name of the model (e.g NASA Ames Mars MGCM)</definition>
+            <DD_Value_Domain>
+                <enumeration_flag>false</enumeration_flag>
+                <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            </DD_Value_Domain>
+        </DD_Attribute>
+
+        <DD_Attribute>
+            <name>version</name>
+            <version_id>1.0</version_id>
+            <local_identifier>version</local_identifier>
+            <nillable_flag>false</nillable_flag>
+            <submitter_name>Victoria Hartwick</submitter_name>
+            <definition>Identifies the specific version of the model (e.g v3.0)</definition>
+            <DD_Value_Domain>
+                <enumeration_flag>false</enumeration_flag>
+                <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            </DD_Value_Domain>
+        </DD_Attribute>
+
+        <DD_Attribute>
+            <name>institution</name>
+            <version_id>1.0</version_id>
+            <local_identifier>institution</local_identifier>
+            <nillable_flag>false</nillable_flag>
+            <submitter_name>Victoria Hartwick</submitter_name>
+            <definition>Identifies the host institution or author of the model</definition>
+            <DD_Value_Domain>
+                <enumeration_flag>false</enumeration_flag>
+                <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            </DD_Value_Domain>
+        </DD_Attribute>
+
+
+            <DD_Attribute>
+                <name>horizontal_grid_type</name>
+                <version_id>1.0</version_id>
+                <local_identifier>horizontal_grid_type</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Identifies the native horizontal grid of the model (e.g lat/lon, cube sphere, etc)</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>true</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                    <DD_Permissible_Value>
+                        <value>lat-lon</value>
+                        <value_meaning>Latitude vs. longitude grid</value_meaning>
+                    </DD_Permissible_Value>                   
+                    <DD_Permissible_Value>
+                        <value>cube-sphere</value>
+                        <value_meaning>Cube sphere grid</value_meaning>
+                    </DD_Permissible_Value>           
+                    <DD_Permissible_Value>
+                        <value>icosahedral</value>
+                        <value_meaning>Icosahedral grid</value_meaning>
+                    </DD_Permissible_Value>           
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>model_resolution</name>
+                <version_id>1.0</version_id>
+                <local_identifier>model_resolution</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>identifies the horizontal resolution (dx,dy) of the model in km, m, degrees.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+      	    <DD_Attribute>
+                <name>model_resolution_unit</name>
+                <version_id>1.0</version_id>
+                <local_identifier>model_resolution_unit</local_identifier>
+      	      <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>identifies the unit of the horizontal grid km, m, degrees.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>vertical_grid_type</name>
+                <version_id>1.0</version_id>
+                <local_identifier>vertical_grid_type</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Identifies the vertical grid type (e.g. SIGMA, HYBRID-SIGMA, ALTITUDE, PRESSURE)</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>true</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                    <DD_Permissible_Value>
+                        <value>Sigma</value>
+                        <value_meaning>Sigma grid type</value_meaning>
+                    </DD_Permissible_Value>                   
+                    <DD_Permissible_Value>
+                        <value>Hybrid-Sigma</value>
+                        <value_meaning>Hybrid-Sigma grid type</value_meaning>
+                    </DD_Permissible_Value>           
+                    <DD_Permissible_Value>
+                        <value>Altitude</value>
+                        <value_meaning>Altitude grid type</value_meaning>
+                    </DD_Permissible_Value>          
+                    <DD_Permissible_Value>
+                        <value>Pressure</value>
+                        <value_meaning>Pressure grid type</value_meaning>
+                    </DD_Permissible_Value>
+                    <DD_Permissible_Value>
+                        <value>Isentropic</value>
+                        <value_meaning>Isentropic grid type</value_meaning>
+                    </DD_Permissible_Value>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>vertical_grid_unit</name>
+                <version_id>1.0</version_id>
+                <local_identifier>vertical_grid_unit</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Identifies the unit of the vertical grid type (e.g. Pa, mbar, km, m)</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>model_timestep</name>
+                <version_id>1.0</version_id>
+                <local_identifier>model_timestep</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Identifies the base model timestep</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>model_timestep_unit</name>
+                <version_id>1.0</version_id>
+                <local_identifier>model_timestep_unit</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Identifies the unit of the base model timestep</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>upper_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>upper_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The lower_boundary attribute provides the top most coverage limit in levels such as pressure</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>lower_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>lower_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The lower_boundary attribute provides the bottom most coverage limit in levels such as pressure</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>northern_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>northern_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The northern_boundary attribute provides the northern most coordinate of the limit of coverage expressed in latitude.</definition>
+                <DD_Value_Domain>
+		            <enumeration_flag>false</enumeration_flag> 
+                    <value_data_type>ASCII_Real</value_data_type>
+                    <minimum_value>-90.0</minimum_value>
+                    <maximum_value>90.0</maximum_value>
+                    <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+                    <specified_unit_id>degrees</specified_unit_id>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>southern_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>southern_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The southern_boundary attribute provides the southern most coordinate of the limit of coverage expressed in latitude.</definition>
+                <DD_Value_Domain>
+		            <enumeration_flag>false</enumeration_flag> 
+                    <value_data_type>ASCII_Real</value_data_type>
+                    <minimum_value>-90.0</minimum_value>
+                    <maximum_value>90.0</maximum_value>
+                    <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+                    <specified_unit_id>degrees</specified_unit_id>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>eastern_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>eastern_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The eastern_boundary attribute provides the eastern most coordinate of the limit of coverage expressed in longitude</definition>
+                <DD_Value_Domain>
+		            <enumeration_flag>false</enumeration_flag> 
+                    <value_data_type>ASCII_Real</value_data_type>
+                    <minimum_value>-180.0</minimum_value>
+                    <maximum_value>360.0</maximum_value>
+                    <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+                    <specified_unit_id>degrees</specified_unit_id>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>western_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>western_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The western_boundary attribute provides the western most coordinate of the limit of coverage expressed in longitude. </definition>
+                <DD_Value_Domain>
+		            <enumeration_flag>false</enumeration_flag> 
+                    <value_data_type>ASCII_Real</value_data_type>
+                    <minimum_value>-180.0</minimum_value>
+                    <maximum_value>360.0</maximum_value>
+                    <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+                    <specified_unit_id>degrees</specified_unit_id>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>start_time</name>
+                <version_id>1.0</version_id>
+                <local_identifier>start_time</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The start_time attribute provides the coverage start time expressed in any format of time</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+		            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>end_time</name>
+                <version_id>1.0</version_id>
+                <local_identifier>end_time</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The end_time attribute provides the coverage end time expressed in any format of time.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+             <DD_Attribute>
+                 <name>time_unit</name>
+                 <version_id>1.0</version_id>
+                 <local_identifier>time_unit</local_identifier>
+                 <nillable_flag>false</nillable_flag>
+                 <submitter_name>Victoria Hartwick</submitter_name>
+                 <definition>The time_unit attribute provides the unit of time in the output file.</definition>
+                <DD_Value_Domain>
+                  <enumeration_flag>false</enumeration_flag>
+                  <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+    
+    
+
+            <DD_Attribute>
+                <name>top_level</name>
+                <version_id>1.0</version_id>
+                <local_identifier>top_level</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The top_level attribute provides the top most coverage expressed in pressure level</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>bottom_level</name>
+                <version_id>1.0</version_id>
+                <local_identifier>bottom_level</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The bottom_level attribute provides the bottom most coverage expressed in pressure level.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+    
+	        <DD_Attribute>
+	            <name>postprocessing_methods</name>
+                <version_id>1.0</version_id>
+                <local_identifier>postprocessing_methods</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>a description of post-processing operating on all data in the file, including time mean, interpolation etc. Methodology can be described in text or using netcdf standard recommendations for cell_methods (e.g. for a zonal time-mean with a three hour interval, 'time:mean(interval=3 hours) longitude:mean'</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+ 
+
+	        <DD_Attribute>
+                <name>variable_name</name>
+                <version_id>1.0</version_id>
+                <local_identifier>variable_name</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The name of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+	        <DD_Attribute>
+                <name>long_name</name>
+                <version_id>1.0</version_id>
+                <local_identifier>long_name</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The long name of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+
+	        <DD_Attribute>
+                <name>fieldnam</name>
+                <version_id>1.0</version_id>
+                <local_identifier>fieldnam</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>A description of the variable (up to 30 characters).</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+	        <DD_Attribute>
+                <name>standard_name</name>
+                <version_id>1.0</version_id>
+                <local_identifier>standard_name</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Optional Attribute to identify the variable with a specific standard name (see python script add metadata)</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+	        <DD_Attribute>
+                <name>dimensions</name>
+                <version_id>1.0</version_id>
+                <local_identifier>dimensions</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The dimensions of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+            
+
+	        <DD_Attribute>
+                <name>dim_name</name>
+                <version_id>1.0</version_id>
+                <local_identifier>dim_name</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The names of dimensions the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+
+            <DD_Attribute>
+                <name>interval</name>
+                <version_id>1.0</version_id>
+                <local_identifier>interval</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The interval size of the coordinate space, used for uniform grids, specify 'non-uniform' if coordinate grid spacing is non-uniform.</definition>
+                <DD_Value_Domain>
+                   <enumeration_flag>false</enumeration_flag>
+                   <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+               </DD_Value_Domain>
+            </DD_Attribute>
+    
+            <DD_Attribute>
+                <name>units</name>
+                <version_id>1.0</version_id>
+                <local_identifier>units</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The unit of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>level_type</name>
+                <version_id>1.0</version_id>
+                <local_identifier>level_type</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>level/model/height at which variable is outputted</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>validmin</name>
+                <version_id>1.0</version_id>
+                <local_identifier>validmin</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The minimum valid value for a variable.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>validmax</name>
+                <version_id>1.0</version_id>
+                <local_identifier>validmax</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The maximum valid value for a variable.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>missing_value</name>
+                <version_id>1.0</version_id>
+                <local_identifier>missing_value</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The unit of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+
+            <DD_Attribute>
+                <name>scale_factor</name>
+                <version_id>1.0</version_id>
+                <local_identifier>scale_factor</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition> scale factor provides the multiplier to the packed value, unpacked_value=packed_value * scale_factor + add_offset</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>add_offset</name>
+                <version_id>1.0</version_id>
+                <local_identifier>add_offset</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>add_offset if there is any; scale factor and add offset  are used to reduce the storage space of packed variable unpacked_value = packed_value * scale_factor + add_offset</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+	        <DD_Attribute>
+                <name>stagger</name>
+                <version_id>1.0</version_id>
+                <local_identifier>stagger</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The unit of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+    	    <DD_Attribute>
+                <name>memory_order</name>
+                <version_id>1.0</version_id>
+                <local_identifier>memory_order</local_identifier>
+    	        <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The memory order of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+    	    <DD_Attribute>
+                <name>catdesk</name>
+                <version_id>1.0</version_id>
+                <local_identifier>catdesk</local_identifier>
+    	        <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Approximately 80-character string which is a textual description of
+                    the variable</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+    	    <DD_Attribute>
+                <name>format</name>
+                <version_id>1.0</version_id>
+                <local_identifier>format</local_identifier>
+    	        <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The format of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+    	    <DD_Attribute>
+                <name>monoton</name>
+                <version_id>1.0</version_id>
+                <local_identifier>monoton</local_identifier>
+    	        <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Whether the variable is monotonically increasing or monotonically
+                            decreasing. A value of INCREASE indicates strictly increasing values,
+                            DECREASE strictly decreasing values, or FALSE indicates not monotonic</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+    	    <DD_Attribute>
+                <name>fillval</name>
+                <version_id>1.0</version_id>
+                <local_identifier>fillval</local_identifier>
+    	        <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The value used for missing or invalid variable values.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+
+	        <DD_Attribute>
+                <name>description</name>
+                <version_id>1.0</version_id>
+                <local_identifier>description</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+	            <definition>he description attribute can be used to describe the specific simulation configuration, including specific inputs, parameterizations, variable, processing, etc in greater detail.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Text_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+	        <DD_Attribute>
+                <name>var_type</name>
+                <version_id>1.0</version_id>
+                <local_identifier>var_type</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Identifies a variable as either data, support_data, metadata or
+                    ignore_data.</definition>
+	            <DD_Value_Domain>
+	                <enumeration_flag>true</enumeration_flag>
+	                <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	                <DD_Permissible_Value>
+	                    <value>Data</value>
+	                    <value_meaning>Variable representing data</value_meaning>
+	                </DD_Permissible_Value>                   
+	                <DD_Permissible_Value>
+	                    <value>Support_data</value>
+	                    <value_meaning>Variable representing support data</value_meaning>
+	                </DD_Permissible_Value>           
+	                <DD_Permissible_Value>
+	                    <value>Metadata</value>
+	                    <value_meaning>Variable representing metadata</value_meaning>
+	                </DD_Permissible_Value>          
+	                <DD_Permissible_Value>
+	                    <value>Ignore_data</value>
+	                    <value_meaning>Variable representing ignored data</value_meaning>
+	                </DD_Permissible_Value>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>cell_methods</name>
+                <version_id>1.0</version_id>
+                <local_identifier>cell_methods</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>ia string attribute comprising a list of blank-separated words of
+                     the form "name: method". Each "name: method" pair indicates that for an
+                     axis identified by name, the cell values representing the field have been
+                     determined or derived by the specified method. For example, if data values
+                     have been generated by computing time means, then this could be indicated
+                     with cell_methods="time:mean(interval=2 hours)"</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+	        <DD_Attribute>
+                <name>formula_terms</name>
+                <version_id>1.0</version_id>
+                <local_identifier>formula_terms</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>an attribute used  to associate terms in the definitions with
+                    variables in a netCDF file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+
+	        <DD_Attribute>
+                <name>coord_name</name>
+                <version_id>1.0</version_id>
+                <local_identifier>coord_name</local_identifier>
+	            <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The name of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+   	        <DD_Attribute>
+                <name>axis</name>
+                <version_id>1.0</version_id>
+                <local_identifier>axis</local_identifier>
+   	         <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>Identifies latitude, longitude, vertical, or time axes.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>true</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                    <DD_Permissible_Value>
+                        <value>X</value>
+                        <value_meaning>Latitude (X) axis</value_meaning>
+                    </DD_Permissible_Value>                   
+                    <DD_Permissible_Value>
+                        <value>Y</value>
+                        <value_meaning>Longitude (Y) axis</value_meaning>
+                    </DD_Permissible_Value>           
+                    <DD_Permissible_Value>
+                        <value>Z</value>
+                        <value_meaning>Vertical (Z) axis</value_meaning>
+                    </DD_Permissible_Value>          
+                    <DD_Permissible_Value>
+                        <value>T</value>
+                        <value_meaning>Time (T) axis</value_meaning>
+                    </DD_Permissible_Value>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>positive</name>
+                <version_id>1.0</version_id>
+                <local_identifier>positive</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition> the direction in which the coordinate values are increasing</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>true</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                    <DD_Permissible_Value>
+                        <value>Down</value>
+                        <value_meaning>Values increase downward</value_meaning>
+                    </DD_Permissible_Value>                   
+                    <DD_Permissible_Value>
+                        <value>Up</value>
+                        <value_meaning>Values increase upward</value_meaning>
+                    </DD_Permissible_Value>           
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>calendar</name>
+                <version_id>1.0</version_id>
+                <local_identifier>calendar</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>In order to calculate a new date and time given a base date, base time and a time increment one must know what calendar to use. For this purpose we recommend that the calendar be specified by the attribute calendar which is assigned to the time coordinate variable.</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>true</enumeration_flag>
+                    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                    <DD_Permissible_Value>
+                        <value>Gregorian</value>
+                        <value_meaning>Mixed Gregorian/Julian calendar as defined by Udunits. This is the default. (Same as Standard.)</value_meaning>
+                    </DD_Permissible_Value>                   
+                    <DD_Permissible_Value>
+                        <value>Standard</value>
+                        <value_meaning>Mixed Gregorian/Julian calendar as defined by Udunits. This is the default. (Same as Gregorian.)</value_meaning>
+                    </DD_Permissible_Value>           
+                    <DD_Permissible_Value>
+                        <value>Proleptic_Gregorian</value>
+                        <value_meaning>A Gregorian calendar extended to dates before 1582-10-15. That is, a year is a leap year if either (i) it is divisible by 4 but not by 100 or (ii) it is divisible by 400.</value_meaning>
+                    </DD_Permissible_Value>          
+                    <DD_Permissible_Value>
+                        <value>Noleap</value>
+                        <value_meaning>Gregorian calendar without leap years, i.e., all years are 365 days long. (Same as 365_Day.)</value_meaning>
+                    </DD_Permissible_Value>
+                    <DD_Permissible_Value>
+                        <value>365_Day</value>
+                        <value_meaning>Gregorian calendar without leap years, i.e., all years are 365 days long. (Same as Noleap.)</value_meaning>
+                    </DD_Permissible_Value>                   
+                    <DD_Permissible_Value>
+                        <value>All_Leap</value>
+                        <value_meaning>Gregorian calendar with every year being a leap year, i.e., all years are 366 days long. (Same as 366_Day.)</value_meaning>
+                    </DD_Permissible_Value>           
+                    <DD_Permissible_Value>
+                        <value>366_Day</value>
+                        <value_meaning>Gregorian calendar with every year being a leap year, i.e., all years are 366 days long. (Same as All_Leap.)</value_meaning>
+                    </DD_Permissible_Value>          
+                    <DD_Permissible_Value>
+                        <value>360_Day</value>
+                        <value_meaning>All years are 360 days divided into 30 day months.</value_meaning>
+                    </DD_Permissible_Value>
+                    <DD_Permissible_Value>
+                        <value>Julian</value>
+                       <value_meaning>Julian calendar.</value_meaning>
+                   </DD_Permissible_Value>         
+                    <DD_Permissible_Value>      
+                        <value>None</value>
+                        <value_meaning>No calendar.</value_meaning>
+                    </DD_Permissible_Value>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>day_length</name>
+                <version_id>1.0</version_id>
+                <local_identifier>day_length</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>The unit of the variable in the file</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                    <unit_of_measure_type>Units_of_Time</unit_of_measure_type> 
+                    <specified_unit_id>seconds</specified_unit_id>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>month_length</name>
+                <version_id>1.0</version_id>
+                <local_identifier>month_length</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>If none of the calendar types apply, a non-standard calendar can be defined. The user must explicitly define the number of days per month</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                    <unit_of_measure_type>Units_of_Time</unit_of_measure_type> 
+                    <specified_unit_id>days</specified_unit_id>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>maximum_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>maximum_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>the maximum boundary of the coordinate</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+            <DD_Attribute>
+                <name>minimum_boundary</name>
+                <version_id>1.0</version_id>
+                <local_identifier>minimum_boundary</local_identifier>
+                <nillable_flag>false</nillable_flag>
+                <submitter_name>Victoria Hartwick</submitter_name>
+                <definition>the minimum boundary of the coordinate</definition>
+                <DD_Value_Domain>
+                    <enumeration_flag>false</enumeration_flag>
+                    <value_data_type>ASCII_Real</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+
+	            
+	            
+	            <DD_Class>
+	                <name>Model_Metadata</name>
+	                <version_id>1.0</version_id>
+	                <local_identifier>Model_Metadata</local_identifier>
+	                <submitter_name>Victoria Hartwick</submitter_name>
+	                <definition>The Model_Metadata class contains those attributes and sub-classes that describe the model metadata. Metadata is anything that describes the model and specific simulation configuration that is not described by dimensions, coordinates or variables included in the data product.</definition>
+	                <abstract_flag>false</abstract_flag>
+	                <element_flag>false</element_flag>
+	                <DD_Association>
+	                    <identifier_reference>type</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>
+	                <DD_Association>
+	                    <identifier_reference>name</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>version</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>institution</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	               
+        </DD_Class>
+    
+	            <DD_Class>
+	                <name>Simulation_Configuration</name>
+	                <version_id>1.0</version_id>
+	                <local_identifier>Simulation_Configuration</local_identifier>
+	                <submitter_name>Victoria Hartwick</submitter_name>
+	                <definition>The Simulation_Configuration sub-class contains attributes that describe the specific simulation configuration that is not described by dimensions, coordinates or variables included in the data product. This class specifically describes the simulation configuration at runtime, not the data structure after processing (e.g. it provides the native vertical coordinate while the model output files may be interpolated to a new vertical grid</definition>
+	                <abstract_flag>false</abstract_flag>
+	                <element_flag>false</element_flag>
+	                <DD_Association>
+	                    <identifier_reference>description</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	        
+	                <DD_Association>
+	                    <identifier_reference>horizontal_grid_type</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>model_resolution</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>model_resolution_unit</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>vertical_grid_type</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>vertical_grid_unit</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>model_timestep</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>model_timestep_unit</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>upper_boundary</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>lower_boundary</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>northern_boundary</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>southern_boundary</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>eastern_boundary</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>
+	                <DD_Association>
+	                    <identifier_reference>western_boundary</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>start_time</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	                
+	                <DD_Association>
+	                    <identifier_reference>end_time</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>
+	                <DD_Association>
+	                    <identifier_reference>time_unit</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>
+	            </DD_Class>
+    
+
+	                    <DD_Class>
+	                        <name>File_Description</name>
+	                        <version_id>1.0</version_id>
+	                        <local_identifier>File_Description</local_identifier>
+	                        <submitter_name>Victoria Hartwick</submitter_name>
+	                        <definition>The file_description sub-class contains attributes that describe the specific file, rather than the original simulation. The intention is to make the data searchable, e.g for a specific location or time of year.</definition>
+	                        <abstract_flag>false</abstract_flag>
+	                        <element_flag>false</element_flag>
+	                        <DD_Association>
+	                            <identifier_reference>top_level</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>bottom_level</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>start_time</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>end_time</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>time_unit</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>postprocessing_methods</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>
+	                    </DD_Class>
+	                    
+	                    <DD_Class>		<!-- can the attributes be dynamics, e.g based on the metadata extracted you get a new attribute? Probably not.../ -->
+	                        <name>Variable</name>
+	                        <version_id>1.0</version_id>
+	                        <local_identifier>Variable</local_identifier>
+	                        <submitter_name>Victoria Hartwick</submitter_name>
+	                        <definition>The variable sub-class contains attributes that describe variables and coordinates in external data files.These attributes should be populated automatically for each variable using the python script (readmetadata)</definition>
+	                        <abstract_flag>false</abstract_flag>
+	                        <element_flag>false</element_flag>
+	                        <DD_Association>
+	                            <identifier_reference>variable_name</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>long_name</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>fieldnam</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>standard_name</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>dimensions</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>dim_name</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>units</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>level_type</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>validmin</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>validmax</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>missing_value</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>scale_factor</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>add_offset</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>stagger</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>memory_order</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>catdesk</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>format</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>monoton</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>fillval</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>description</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>var_type</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>cell_methods</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>formula_terms</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                        
+	                    </DD_Class>
+	                    
+	                    <DD_Class>		<!-- can the attributes be dynamics, e.g based on the metadata extracted you get a new attribute? Probably not.../ -->
+	                        <name>Coordinate</name>
+	                        <version_id>1.0</version_id>
+	                        <local_identifier>Coordinate</local_identifier>
+	                        <submitter_name>Victoria Hartwick</submitter_name>
+	                        <definition>The coordinate sub-class contains attributes that describe coordinates in external data files.These attributes should be populated automatically for each variable using the python script (readmetadata)</definition>
+	                        <abstract_flag>false</abstract_flag>
+	                        <element_flag>false</element_flag>
+	                        <DD_Association>
+	                            <identifier_reference>coord_name</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>standard_name</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	               
+	                        <DD_Association>
+	                            <identifier_reference>formula_terms</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                               
+	                        <DD_Association>
+	                            <identifier_reference>dim_name</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>interval</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	
+	                        <DD_Association>
+	                            <identifier_reference>units</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>axis</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>positive</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>calendar</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>day_length</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>month_length</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>maximum_boundary</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>minimum_boundary</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	                
+	                        <DD_Association>
+	                            <identifier_reference>description</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>                            
+    </DD_Class>
+                   <DD_Class>
+	                    <name>Model_Output</name>
+	                    <version_id>1.0</version_id>
+	                    <local_identifier>Model_Output</local_identifier>
+	                    <submitter_name>Victoria Hartwick</submitter_name>
+	                    <definition>The Model_Output class contains those attributes and sub-classes that describe the model output. Model output includes coordinate, dimensions and variable products as well as information about variable processing, for example, to generate figure data. Most attributes are generated automatically from the python script </definition>
+	                    <abstract_flag>false</abstract_flag>
+                       <element_flag>false</element_flag>
+                       <DD_Association>
+                           <identifier_reference>File_Description</identifier_reference>
+                           <reference_type>component_of</reference_type>
+                           <minimum_occurrences>1</minimum_occurrences>
+                           <maximum_occurrences>1</maximum_occurrences>
+                       </DD_Association>	                        
+                       <DD_Association>
+                           <identifier_reference>Variable</identifier_reference>
+                           <reference_type>component_of</reference_type>
+                           <minimum_occurrences>1</minimum_occurrences>
+                           <maximum_occurrences>*</maximum_occurrences> 
+                       </DD_Association>	                        
+                       <DD_Association>
+                           <identifier_reference>Coordinate</identifier_reference>
+                           <reference_type>component_of</reference_type>
+                           <minimum_occurrences>1</minimum_occurrences>
+                           <maximum_occurrences>*</maximum_occurrences> 
+                       </DD_Association>   
+                   </DD_Class>
+
+
+    <!-- The umbrella class for the dictionary -->
+    <DD_Class>
+        <name>AMA</name>
+        <version_id>1.0</version_id>
+        <local_identifier>ama</local_identifier>
+        <submitter_name>Lyle Huber</submitter_name>
+        <definition>This is the umbrella class for the AMA (Atmospheric Modeling Annex) local dictionary.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>    
+        <DD_Association>
+            <identifier_reference>Model_Metadata</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Simulation_Configuration</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>        
+        <DD_Association>
+            <identifier_reference>Model_Output</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>    
+    </DD_Class>
+    
+    <!-- Schematron Rules -->
+</Ingest_LDD>

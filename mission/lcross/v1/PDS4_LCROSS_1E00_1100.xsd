@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:lcross  Version:1.1.0.0 - Tue Jan 21 15:28:28 UTC 2025 -->
+  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.1.0.0 - lcross: - LCROSS Mission Dictionary                             -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/lcross/v1"
+    xmlns:lcross="http://pds.nasa.gov/pds4/mission/lcross/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The LCROSS mission dictionary contains a class with attributes specific to the 
+        LCROSS mission and instruments. This dictionary was created for the migration
+        of LCROSS data products from PDS3 to PDS4.        
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="LCROSS_Parameters" type="lcross:LCROSS_Parameters"> </xs:element>
+
+  <xs:complexType name="Ground_Based_Parameters">
+    <xs:annotation>
+      <xs:documentation>Container class for ground-based observation
+        parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="right_ascension_angle" type="lcross:right_ascension_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="declination" type="lcross:declination" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="exposure_length" type="lcross:exposure_length" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="filter_name" type="lcross:filter_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="center_filter_wavelength" type="lcross:center_filter_wavelength" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LCROSS_Parameters">
+    <xs:annotation>
+<xs:documentation>Top level container class.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Mission_Parameters" type="lcross:Mission_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="MIR_Instrument_State" type="lcross:MIR_Instrument_State" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="NIR_Instrument_State" type="lcross:NIR_Instrument_State" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="NSP_Instrument_State" type="lcross:NSP_Instrument_State" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="VSP_Instrument_State" type="lcross:VSP_Instrument_State" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Ground_Based_Parameters" type="lcross:Ground_Based_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MIR_Instrument_State">
+    <xs:annotation>
+      <xs:documentation>Class with attributes specific to the MIR
+        instrument on LCROSS.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="instrument_gain_state" type="lcross:instrument_gain_state" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="missing_packet_flag" type="lcross:missing_packet_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="calibration_valid" type="lcross:calibration_valid" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lcross:instrument_gain_state = ('High', 'Low')"/> -->
+    <!-- <xs:assert test="lcross:missing_packet_flag = ('No', 'Yes')"/> -->
+    <!-- <xs:assert test="lcross:calibration_valid = ('No', 'Yes')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Mission_Parameters">
+    <xs:annotation>
+      <xs:documentation>Container class for mission level attributes
+        (i.e., common across all or most instruments) and instrument
+        specific classes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="product_type" type="lcross:product_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_name" type="lcross:producer_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_institution_name" type="lcross:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="lcross:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" type="lcross:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" type="lcross:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="intercept_point_latitude" type="lcross:intercept_point_latitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="intercept_point_longitude" type="lcross:intercept_point_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_temperature" type="lcross:instrument_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_temperature_count" type="lcross:instrument_temperature_count" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lcross:product_type = ('Calibrated Data', 'Calibrated Image', 'Calibrated Spectrum', 'Raw Data', 'Raw Image', 'Raw Spectrum')"/> -->
+    <!-- <xs:assert test="lcross:mission_phase_name = ('Earthlook1', 'Earthlook2', 'Impact', 'Mirlook', 'Preimpact', 'Quicklook', 'Separation', 'Starfield', 'Swingby')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="NIR_Instrument_State">
+    <xs:annotation>
+      <xs:documentation>Class with attributes specific to the NIR
+        instrument on LCROSS.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enhancement_mode" type="lcross:enhancement_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="operating_setting_value" type="lcross:operating_setting_value" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="integration_time" type="lcross:integration_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gain_value" type="lcross:gain_value" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lcross:enhancement_mode = ('Off', 'On')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="NSP_Instrument_State">
+    <xs:annotation>
+      <xs:documentation>Class with attributes specific to the NSP
+        instrument on LCROSS.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="saturation_flag" type="lcross:saturation_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="boresight_to_sun_angle" type="lcross:boresight_to_sun_angle" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lcross:saturation_flag = ('No', 'Yes')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="VSP_Instrument_State">
+    <xs:annotation>
+      <xs:documentation>Class with attributes specific to the VSP
+        instrument on LCROSS.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="saturation_flag" type="lcross:saturation_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="exposure_duration" type="lcross:exposure_duration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="tec_setpoint" type="lcross:tec_setpoint" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="tec_temperature" type="lcross:tec_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="packet_timestamp" type="lcross:packet_timestamp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="vsp_bracket_number" type="lcross:vsp_bracket_number" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lcross:saturation_flag = ('No', 'Yes')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="boresight_to_sun_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="boresight_to_sun_angle">
+    <xs:annotation>
+      <xs:documentation>Angle between the instrument boresight vector
+        and the spacecraft to sun vector in degrees. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:boresight_to_sun_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="calibration_valid">
+    <xs:annotation>
+      <xs:documentation>The response of the mid-IR cameras exhibited a
+        startup transient. The calibration is valid only after this
+        transient had settled. This attribute indicates whether the
+        image was taken before or after this point. Values are Yes or
+        No. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="center_filter_wavelength_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="center_filter_wavelength">
+    <xs:annotation>
+      <xs:documentation>The center wavelength of a filter used in an
+        imaging system.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:center_filter_wavelength_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="declination_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="declination">
+    <xs:annotation>
+      <xs:documentation>The declination_angle (Dec) attribute provides
+        the value of an angle on the celestial sphere, measured north
+        from the celestial equator to the point in question. (For points
+        south of the celestial equator, negative values are used.)
+        Declination is used in conjunction with right ascension
+        (right_ascension_angle) to specify a point on the
+        sky.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:declination_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="enhancement_mode">
+    <xs:annotation>
+      <xs:documentation>This attribute indicates whether onboard image
+        stretching was enabled or disabled. Values are On or Off.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="exposure_duration">
+    <xs:annotation>
+      <xs:documentation>The time interval between the opening and
+        closing of an instrument aperture. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="exposure_length_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="exposure_length">
+    <xs:annotation>
+      <xs:documentation>Provides the length of time for an
+        exposure.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:exposure_length_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="filter_name">
+    <xs:annotation>
+      <xs:documentation>The commonly used name of a filter the is part
+        of an imaging system.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gain_value">
+    <xs:annotation>
+      <xs:documentation>The focal plane sensitivity in electrons per
+        count. Value is approximate and inferred from the operating
+        setting value and factory definitions. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="instrument_gain_state">
+    <xs:annotation>
+      <xs:documentation>The instrument_gain_state specifies the
+        instrument gain state, either High or Low. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="instrument_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="instrument_temperature">
+    <xs:annotation>
+      <xs:documentation>The instrument_temperature attribute provides
+        the temperature, in degrees Celsius of an instrument or some
+        part of an instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:instrument_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="instrument_temperature_count">
+    <xs:annotation>
+      <xs:documentation>The instrument_temperature_count attribute
+        provides the temperature of an instrument in raw counts or DN
+        values. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="integration_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="integration_time">
+    <xs:annotation>
+<xs:documentation>The integration time in msec. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:integration_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="intercept_point_latitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="intercept_point_latitude">
+    <xs:annotation>
+      <xs:documentation>The intercept_point_latitude attribute is the
+        latitude of a point on the surface of a body.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:intercept_point_latitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="intercept_point_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="intercept_point_longitude">
+    <xs:annotation>
+      <xs:documentation>The intercept_point_longitude attribute is the
+        longitude of a point on the surface of a body.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:intercept_point_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="missing_packet_flag">
+    <xs:annotation>
+      <xs:documentation>The missing_packet_flag indicates whether the
+        image is missing data. A missing packet appears as a horizontal
+        bar 8 pixels high of zero data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation> The mission_phase_name element provides the
+        commonly-used identifier of a mission phase. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="operating_setting_value">
+    <xs:annotation>
+      <xs:documentation>The operating setting value determines the
+        integration time and gain. Values range from 0 to 15.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="15"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="packet_timestamp">
+    <xs:annotation>
+      <xs:documentation>A 32-bit unsigned integer representing time from
+        the epoch Jan 1, 1980 in milliseconds. This counter resets every
+        approximately 50 days. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="producer_institution_name">
+    <xs:annotation>
+      <xs:documentation> The producer_institution_name element
+        identifies a university, research center, NASA center or other
+        institution associated with the production of a data set.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="producer_name">
+    <xs:annotation>
+      <xs:documentation>The name of the person who produced the data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type">
+    <xs:annotation>
+      <xs:documentation> The product_type attributes identifies the type
+        or category of a product within a data set. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="right_ascension_angle_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="right_ascension_angle">
+    <xs:annotation>
+      <xs:documentation>The right_ascension_angle attribute provides the
+        value of right ascension (RA) as an angle. Right ascension is
+        measured from the vernal equinox or the first point of Aries,
+        which is the place on the celestial sphere where the Sun crosses
+        the celestial equator from south to north at the March equinox.
+        Right ascension is measured continuously in a full circle from
+        that equinox towards the east. Right ascension is used in
+        conjunction with the declination attribute to specify a point on
+        the sky. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:right_ascension_angle_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="saturation_flag">
+    <xs:annotation>
+      <xs:documentation>Indicates whether a spectra is saturated based
+        on a mechanical test. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the beginning of a
+        time period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="15"/>
+     <xs:maxLength value="15"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the end of a time
+        period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tec_setpoint_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tec_setpoint">
+    <xs:annotation>
+      <xs:documentation>The setpoint temperature of the VSP
+        thermo-electric cooler. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:tec_setpoint_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="tec_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tec_temperature">
+    <xs:annotation>
+      <xs:documentation>The measurement temperature of the VSP
+        thermo-electric cooler. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lcross:tec_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vsp_bracket_number">
+    <xs:annotation>
+      <xs:documentation>When in bracket mode, the VSP captures three
+        spectra in quick succession. The bracket number indicates which
+        of the three spectra are captured.. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

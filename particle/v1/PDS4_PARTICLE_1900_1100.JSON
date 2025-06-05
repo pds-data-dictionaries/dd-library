@@ -3,7 +3,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.9.0.0" ,
-      "Date": "Thu Dec 06 10:22:32 PST 2018" ,
+      "Date": "2018-12-06T10:22:32" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "classDictionary": [
         {

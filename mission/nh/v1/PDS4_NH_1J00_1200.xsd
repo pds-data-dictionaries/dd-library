@@ -1,0 +1,1417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:nh  Version:1.2.0.0 - Thu Mar 27 14:35:31 UTC 2025 -->
+  <!-- Generated from the PDS4 Information Model Version 1.19.0.0 - System Build 13.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.19.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.2.0.0 - nh: - New Horizons Primary and Extended Missions Dictionary     -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/nh/v1"
+    xmlns:nh="http://pds.nasa.gov/pds4/mission/nh/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.2.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+    This dictionary is in development by multiple parties at UMD (NH migration) 
+    and SWRI (NH second extended mission). Async releases are anticipated to 
+    keep the published dictionary in line with published data.
+    
+    Initials/handles:
+       ACR        Anne Raugh, SBN at UMD
+       AGB        Adeline Gicquel-Brodtke, SBN at UMD
+       BJH        Ben Hirsch, SBN at UMD
+       cgobat     Caden Gobat, SwRI
+       MKC        M. Kate Crombie, Indigo Information Systems, LLC
+
+    =======
+    
+    Modification History:
+    
+      2024-04-03  ACR  Begin history
+      
+      === Version 1.2.0.0
+      
+      2024-11-26   ACR  Removed (well, commented out) unused class LORRI_Target_Information and its three
+                        attributes. There were issues with the attribute descriptions in any event, 
+                        misconstruing the use of xsi:nil and instructing users to insert "UNK" as a value
+                        for target name, which is not appropriate. If target pixel location is desired,
+                        recommend we determine it precisedly via SPICE and convert to pixel location.
+      2025-01-09   ACR  Changed minOccurs for nh:Observation_Parameters in nh:Mission_Parameters to zero
+                        (i.e., made it optional). No test added for when it should be used largely 
+                        because for migration the templates will already include the optional class
+                        everywhere it makes sense.
+                        Changed minOccirs for nh:Spacecraft_State in nh:Observation_Parameters to zero
+                        and added note in definition that if the class has no relevant attributes, it 
+                        should be omitted entirely.
+      2025-01-10   ACR  Changed detector_name value for SWAP and added rule to flag the old value as 
+                        no longer acceptable.
+      2025-01-28   ACR  Corrected minor typos in spelling, punctuation, etc. as they were noted in 
+                        passing.
+      2025-02-15   ACR  o Deprecated pointing_method 
+                        o Updated: frame_data_source definition, gc_scan_rate, target_motion_rate, 
+                          radiometry_response_offset 
+                        o Set max/min for target_motion_rate on appropriate range, which is 
+                          1-1100 microrad/s, but will appear in labels with units of rad/s (so
+                          0.000001-0.0011 rad/s).
+                        o Removed "[CHECK]" remark from radio_bandwidth
+                        o Completed NH/KEM1/KEM2 mission_phase_name value list.
+                        o Modified definition of agc_gain_provenance to replace reference to non-existent
+                          permissible value in agc_setting_source to the correct permissible value. Replaced
+                          references to "ULDB" acronym with "uplink database" in agc_setting_source.
+                        o Expanded "TDI" acronym in error messages and definitions.
+                        o Clarified the English in the "check_bias" DD_Rule.
+                        o Added Internal_Reference to SOC Instrument ICD document to REX attribute 
+                          definitions that quoted the power equation in the definitions and did not
+                          already have such a reference. Also added reference to ICD document name in
+                          definition.
+                        o Modified the definition of time_tag_calibration_constant based on an email
+                          conversation and reference to the REX chapter of the ICD.
+                        o Updated definition of Radiometric_Conversion_Constants class to explicitly state
+                          that it appears in both MVIC and LORRI data.
+                        o Added door_position attribute to Alice_Details class. It is technically optional
+                          to avoid a non-backwards compatible change, but it should always be present.
+      
+      === Version 1.1.0.0 ===
+      
+      2024-04-03 to 2024-04-05  Version 1.1.0 continued updates:
+             ACR    Deprecate MVIC_Conversion_Constants class in favor of
+                    Radiometric_Conversion_Constants class, with corresponding
+                    Schematron rule.
+                    Consistently add "nh:" prefix to references in descriptions.
+                    Review definitions for completeness, consistency, and style;
+                      flag problems.
+      2024-06-15  ACR  Manually resolved conflicts resulting from multiple people editing
+                       the the same parts of the file in separate branches.
+                       Convert all occurrences of the name to "Alice".
+                       Split "scan_type" attribute definition into two occurences, one for
+                       MVIC and one for LEISA, to accommodate different permissible value
+                       lists.
+                       Modified LEISA_Details class definition to not refer to "channels".
+      
+      2024-06-20       Added schematron rule to enforce correct units for resolved vs.
+          cgobat       unresolved sources in nh:units_of_conversion_constants; updated
+                       several attribute descriptions and removed [INCOMPLETE] and [CHECK]
+                       flags; removed "Spectrograph" as a permissible value for
+                       nh:detector_type; added a minimum value of absolute zero for LEISA
+                       temperature attribute; added the SOCC to the list of permissible
+                       Alice aperture values; removed nh:binning_mode attribute and its
+                       parent class nh:LORRI_Details (of which it was the only member).
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Mission_Parameters" type="nh:Mission_Parameters"> </xs:element>
+
+  <xs:complexType name="Alice_Details">
+    <xs:annotation>
+      <xs:documentation> The Alice_Details class collects observational
+        parameters that are specific to the Alice instrument.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aperture" type="nh:aperture" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="door_position" type="nh:door_position" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:aperture = ('Airglow', 'Solar Occultation Channel')"/> -->
+    <!-- <xs:assert test="nh:door_position = ('Closed', 'In Between', 'Open', 'Unknown')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Detector">
+    <xs:annotation>
+      <xs:documentation> The nh:Detector class provides observation
+        metadata relevant to the specific detector (an instrument may
+        have more than one detector) used to collect the data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="detector_name" type="nh:detector_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_type" type="nh:detector_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Alice_Details" type="nh:Alice_Details" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Ralph_Details" type="nh:Ralph_Details" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="LEISA_Details" type="nh:LEISA_Details" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="MVIC_Details" type="nh:MVIC_Details" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SWAP_Details" type="nh:SWAP_Details" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:detector_name = ('Alice spectrograph', 'LORRI imager', 'Linear Etalon Imaging Spectral Array', 'MVIC Blue (BLUE) Channel', 'MVIC Methane (CH4) Channel', 'MVIC Near Infrared (NIR) Channel', 'MVIC Panchromatic 1 (PAN1) Channel', 'MVIC Panchromatic 2 (PAN2) Channel', 'MVIC Panchromatic Framing (FRAME) Array', 'MVIC Red (RED) Channel', 'Pluto Energetic Particles Spectrometer Science Investigation', 'Radio Science Experiment', 'SWAP Channel Electron Multiplier (CEM)', 'Solar Wind Around Pluto', 'Student Dust Counter')"/> -->
+    <!-- <xs:assert test="nh:detector_type = ('CCD', 'Dust Impact Counter', 'Electrostatic', 'HgCdTe PICNIC array', 'Local oscillator vs. uplink signal phase comparator', 'Microchannel plate', 'SSD')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Frame_Bias_Levels">
+    <xs:annotation>
+      <xs:documentation> The nh:Frame_Bias_Levels class records the
+        frame number and left/right bias levels for a single frame in a
+        framing observation sequence. In the MVIC detector used for
+        framing observations, the bias level for left and right sides of
+        the detector may vary. Bias levels on each side are measured
+        with every observation through shielded pixels on either side of
+        the detector, the bias values for the pixels from each side them
+        being averaged to return a single median bias level for each
+        side of the detector. These bias levels are reported as left and
+        right median bias levels for each frame. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="frame_number" type="nh:frame_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="left_side_median_bias" type="nh:left_side_median_bias" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="right_side_median_bias" type="nh:right_side_median_bias" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Framing_Biases">
+    <xs:annotation>
+      <xs:documentation> The nh:Framing_Biases class contains one
+        nh:Frame_Bias_Levels class for each individual frame of a
+        framing observation. These classes provide the left and right
+        side bias levels applied in calibrating the data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Frame_Bias_Levels" type="nh:Frame_Bias_Levels" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LEISA_Details">
+    <xs:annotation>
+      <xs:documentation> The nh:LEISA_Details class collects
+        observational parameters that are specific to the LEISA
+        instrument. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="scan_type" type="nh:scan_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_mode" type="nh:leisa_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_offset_1" type="nh:leisa_offset_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_offset_2" type="nh:leisa_offset_2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_offset_3" type="nh:leisa_offset_3" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_offset_4" type="nh:leisa_offset_4" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_rate" type="nh:leisa_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_side" type="nh:leisa_side" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_temperature" type="nh:leisa_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:scan_type = ('LEISA')"/> -->
+    <!-- <xs:assert test="nh:leisa_mode = ('RAW', 'SUBTRACTED')"/> -->
+    <!-- <xs:assert test="nh:leisa_side = ('A', 'B')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="MVIC_Calibration_Information">
+    <xs:annotation>
+      <xs:documentation> The nh:MVIC_Calibration_Information class
+        gathers attributes related to the attributes of the detector and
+        other information relevant to the calibration processing
+        performed to produce the current data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="physical_pixel_size" type="nh:physical_pixel_size" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="read_noise" type="nh:read_noise" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="gain" type="nh:gain" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="tdi_median_bias_level" type="nh:tdi_median_bias_level" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Framing_Biases" type="nh:Framing_Biases" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MVIC_Conversion_Constants">
+    <xs:annotation>
+      <xs:documentation> This class is deprecated as of version 1.1.0.0.
+        Please use nh:Radiometric_Conversion_Constants instead. The
+        nh:MVIC_Conversion_Constants class provides the values needed to
+        run the conversion from the calibrated pixel values to physical
+        units. This conversion is dependent on the spectral distribition
+        of the source, the MVIC detector wavelength range, and whether
+        or not the source is resolved. A description of how to convert
+        from data values to physical units is provided in the "New
+        Horizons SOC to Instrument Pipeline ICD" document.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pivot_wavelength" type="nh:pivot_wavelength" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Resolved_Source" type="nh:Resolved_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Unresolved_Source" type="nh:Unresolved_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MVIC_Details">
+    <xs:annotation>
+      <xs:documentation> The nh:MVIC_Details class collects
+        observational parameters that are specific to the MVIC
+        instrument and its various channels. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="scan_type" type="nh:scan_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="tdi_rate" type="nh:tdi_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:scan_type = ('FRAMING - Framing Mode', 'TDI - Time Delay Integration Mode')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Mission_Elapsed_Time">
+    <xs:annotation>
+      <xs:documentation> The nh:Mission_Elapsed_Time class provides
+        spacecraft clock partition and count readings for the start and
+        end of the observation(s) comprising the data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="clock_partition" type="nh:clock_partition" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="start_clock_count" type="nh:start_clock_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_clock_count" type="nh:stop_clock_count" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Mission_Parameters">
+    <xs:annotation>
+      <xs:documentation> The nh:Mission_Parameters class presents the
+        various New Horizons-specific metadata for both primary and
+        extended missions. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" type="nh:mission_phase_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Observation_Parameters" type="nh:Observation_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="MVIC_Calibration_Information" type="nh:MVIC_Calibration_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="MVIC_Conversion_Constants" type="nh:MVIC_Conversion_Constants" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Radiometric_Conversion_Constants" type="nh:Radiometric_Conversion_Constants" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="REX_Radiometry_Information" type="nh:REX_Radiometry_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:mission_phase_name = ('Cruise to First KBO Encounter', 'Jupiter Encounter', 'KEM1 Encounter', 'KEM2 Cruise', 'Pluto Cruise', 'Pluto Encounter', 'Post-Launch Checkout')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Parameters">
+    <xs:annotation>
+      <xs:documentation> The nh:Observation_Parameters class collects
+        observational metadata that is specific to the mission,
+        spacecraft, and instrument which produced the data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="telemetry_apid" type="nh:telemetry_apid" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="sequence_id" type="nh:sequence_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_description" type="nh:observation_description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Mission_Elapsed_Time" type="nh:Mission_Elapsed_Time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Detector" type="nh:Detector" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Spacecraft_State" type="nh:Spacecraft_State" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="REX_Radiometry_Information">
+    <xs:annotation>
+      <xs:documentation> The nh:REX_Radiometry_Information class
+        collects radiometric parameter values and conversion information
+        specific to Radio Science Experiment (REX) observations.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="frame_data_source" type="nh:frame_data_source" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="agc_gain_setting" type="nh:agc_gain_setting" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="agc_setting_source" type="nh:agc_setting_source" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="agc_gain_provenance" type="nh:agc_gain_provenance" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="base_agc_gain" type="nh:base_agc_gain" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="base_power" type="nh:base_power" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radio_bandwidth" type="nh:radio_bandwidth" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radiometry_response_step" type="nh:radiometry_response_step" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="radiometry_response_offset" type="nh:radiometry_response_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="iq_calibration_constant" type="nh:iq_calibration_constant" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="time_tag_calibration_constant" type="nh:time_tag_calibration_constant" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:frame_data_source = ('0x00', '0x10', '0x20', '0x30', '0x40', '0x50', '0x60', '0x70', '0xFF')"/> -->
+    <!-- <xs:assert test="nh:agc_setting_source = ('AUX', 'ULCMD')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Radiometric_Conversion_Constants">
+    <xs:annotation>
+      <xs:documentation> The nh:Radiometric_Conversion_Constants class
+        provides the values needed to run the conversion from the
+        calibrated pixel values to physical units for the MVIC and LORRI
+        instruments. This conversion is dependent on the spectral
+        distribition of the source, the detector wavelength range, and
+        whether or not the source is resolved. A description of how to
+        convert from data values to physical units is provided in the
+        "New Horizons SOC to Instrument Pipeline ICD" document.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pivot_wavelength" type="nh:pivot_wavelength" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Resolved_Source" type="nh:Resolved_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Unresolved_Source" type="nh:Unresolved_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Ralph_Details">
+    <xs:annotation>
+      <xs:documentation> The nh:Ralph_Details class presents Ralph
+        common instrument parameters needed for data calibration.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="met510" type="nh:met510" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="hk_packet_is_real" type="nh:hk_packet_is_real" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Resolved_Source">
+    <xs:annotation>
+      <xs:documentation> The nh:Resolved_Source class presents
+        radiometric conversion constants for converting calibrated pixel
+        values into physical units for sources which are resolved.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="units_of_conversion_constants" type="nh:units_of_conversion_constants" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_constant" type="nh:solar_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="jupiter_constant" type="nh:jupiter_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pholus_constant" type="nh:pholus_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pluto_constant" type="nh:pluto_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="charon_constant" type="nh:charon_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="arrokoth_constant" type="nh:arrokoth_constant" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:units_of_conversion_constants = ('(DN/s)/(erg/cm^2/s/Angstrom)', '(DN/s)/(erg/cm^2/s/Angstrom/sr)')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="SWAP_Details">
+    <xs:annotation>
+      <xs:documentation> The nh:SWAP_Details class collects
+        observational parameters that are specific to the SWAP
+        instrument. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sweep_samples_count" type="nh:sweep_samples_count" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Spacecraft_State">
+    <xs:annotation>
+      <xs:documentation> The nh:Spacecraft_State class collects
+        observational parameters that are specific to the spacecraft
+        state at the time of the observation. If none of its attributes
+        are relevant to the data product, this class should be omitted.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="thruster_x_enabled" type="nh:thruster_x_enabled" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="thruster_y_enabled" type="nh:thruster_y_enabled" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="thruster_z_enabled" type="nh:thruster_z_enabled" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gc_scan_rate" type="nh:gc_scan_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="target_motion_rate" type="nh:target_motion_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="relative_control_mode_active" type="nh:relative_control_mode_active" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pointing_method" type="nh:pointing_method" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_spin_state" type="nh:spacecraft_spin_state" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:spacecraft_spin_state = ('3-Axis', 'Spinning')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Unresolved_Source">
+    <xs:annotation>
+      <xs:documentation> The nh:Unresolved_Source class presents
+        radiometric conversion constants for converting calibrated pixel
+        values into physical units for sources which are not resolved.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="units_of_conversion_constants" type="nh:units_of_conversion_constants" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_constant" type="nh:solar_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="jupiter_constant" type="nh:jupiter_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pholus_constant" type="nh:pholus_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pluto_constant" type="nh:pluto_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="charon_constant" type="nh:charon_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="arrokoth_constant" type="nh:arrokoth_constant" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="nh:units_of_conversion_constants = ('(DN/s)/(erg/cm^2/s/Angstrom)', '(DN/s)/(erg/cm^2/s/Angstrom/sr)')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="agc_gain_provenance">
+    <xs:annotation>
+      <xs:documentation> The nh:agc_gain_provenance attribute supplies
+        the provenance for the nh:agc_gain_setting attribute. If
+        nh:agc_setting_source='ULCMD', this value will take the form
+        'YYDOY.ssf:...', where YY is the two-digit year, DOY is the
+        day-of-year, and '...' represents a string that indicates the
+        source sequence file. Otherwise, if nh:agc_setting_source='AUX',
+        this value will be 'Nominal'. The nominal automatic gain control
+        (AGC) values are 167 for side A and 163 for side B.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='(\d{5}\.ssf:[^\s]+)|Nominal'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="agc_gain_setting">
+    <xs:annotation>
+      <xs:documentation> The nh:agc_gain_setting attribute supplies the
+        value of the automatic gain control (AGC) setting used in the
+        radiometry calibration. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="agc_setting_source">
+    <xs:annotation>
+      <xs:documentation> The nh:agc_setting_source attribute provides
+        the source of the nh:agc_gain_setting value. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="aperture">
+    <xs:annotation>
+      <xs:documentation> The Alice instrument has two different
+        apertures (i.e., optical paths) through which it can collect
+        data: the "airglow" aperture and the solar occultation channel
+        (SOCC). The nh:aperture attribute indicates which was used for a
+        given data product. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="arrokoth_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:arrokoth_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to (486958) Arrokoth (a.k.a., 2014 MU69) to convert
+        calibrated data to physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="base_agc_gain">
+    <xs:annotation>
+      <xs:documentation> The nh:base_agc_gain attribute supplies the
+        nominal/base AGC gain setting for the active side of the REX
+        electronics. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="base_power_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="base_power">
+    <xs:annotation>
+      <xs:documentation> The nh:base_power attribute supplies the
+        base/offset value in dBm for REX radiometry. This is equivalent
+        to the output power when RAW = (10^(-Ro/10))/Bandwidth and AGC =
+        AGCOF in the formula Power[dBm] = Rbase +
+        10*log10(Bandwidth*RAW) + dBstep*(AGC-AGCOF) + Ro The nominal
+        values for this attribute are -176.852 for right circular
+        polarization (side A) and -177.177 for left circular
+        polarization (side B). This equation is explained in section
+        12.3.1.2 of the "New Horizons SOC to Instrument Pipeline ICD".
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:base_power_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Power" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="charon_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:charon_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to Pluto I (Charon) to convert calibrated data to
+        physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="clock_partition">
+    <xs:annotation>
+      <xs:documentation> The nh:clock_partition holds the mission clock
+        partition counter. This is a simple integer. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="detector_name">
+    <xs:annotation>
+      <xs:documentation> The nh:detector_name provides the identifier of
+        the detector that recorded the observation(s) comprising the
+        product. For instruments with multiple detectors, as in the case
+        of MVIC, for example, this string will include both the
+        instrument ID and the specific detector ID. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="detector_type">
+    <xs:annotation>
+      <xs:documentation> The nh:detector_type attribute provides a brief
+        indication of the type of hardware comprising the detector.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="door_position">
+    <xs:annotation>
+      <xs:documentation> The nh:door_position attribute indicate the
+        status of the Alice Airglow Aperture door as reported in the
+        housekeeping data associated with an observation. When there is
+        no housekeeping data linked to a particular observation, this
+        attribute will have a value of "Unknown". This condition does
+        not occur in data prior to the Pluto Encounter phase of the
+        primary mission. It is regularly reported in the Pluto Encounter
+        data and all subsequent phases of the primary and extended
+        missions. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="frame_data_source">
+    <xs:annotation>
+      <xs:documentation> The nh:frame_data_source attribute indicates
+        the source of the input as a two-digit hexadecimal number (i.e.,
+        one octet), represented as a string prefixed by '0x'. 0x00 is
+        the default source when taking data of external 7.2 GHz signal
+        or external radiometry and is the only value that indicates an
+        observational product intended for science. All other values
+        indicate REX-internal sources intended for diagnostics. The 4
+        least significant bits and the single most significant bit are
+        not used. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="frame_number">
+    <xs:annotation>
+      <xs:documentation> The nh:frame_number attribute is used to
+        identify a single frame (or image plane) in an observation that
+        is formatted as a 3D image cube. The first frame is numbered "0"
+        (zero). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gain_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="gain">
+    <xs:annotation>
+      <xs:documentation> The nh:gain attribute provides the gain setting
+        applied in collecting the data, in units of electrons/DN.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:gain_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="gc_scan_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="gc_scan_rate">
+    <xs:annotation>
+      <xs:documentation> The nh:gc_scan_rate attribute provides the scan
+        rate requested of the Guidance, Navigation, and Control (GNC)
+        system by the Ralph instrument. The rate is given in units of
+        Hz. Note that this will always be a positive value for MVIC, but
+        might be a negative value (indicating scan steps in the opposite
+        direction) for LEISA. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:gc_scan_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="hk_packet_is_real">
+    <xs:annotation>
+      <xs:documentation> The nh:hk_packet_is_real attribute describes
+        whether the Ralph housekeeping packet (ApID 0x510) is real
+        (true) or assumed from a gap (false). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="iq_calibration_constant_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="iq_calibration_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:iq_calibration_constant attribute
+        supplies the I and Q response of the REX instrument, used to
+        convert between raw counts and an I/Q value in mV. This constant
+        has a nominal value of (1000 / (2^13)) mV/count.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:iq_calibration_constant_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="jupiter_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:jupiter_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to Jupiter to convert calibrated data to physical units.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="left_side_median_bias_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="left_side_median_bias">
+    <xs:annotation>
+      <xs:documentation> The nh:left_side_median_bias attribute provides
+        the median bias, in DN, determined by averaging the bias levels
+        for the shielded pixels on the left side of the detector array.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:left_side_median_bias_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_mode">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_mode attribute identifies the data
+        collection readout mode of the LEISA instrument, where RAW is
+        for un-subtracted readout mode and SUBTRACTED for correlated
+        double sample (CDS) mode. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_offset_1_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_offset_1">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_offset_1 attribute provides the
+        voltage offset, in DN, in the first of the four LEISA quadrants.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:leisa_offset_1_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_offset_2_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_offset_2">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_offset_2 attribute provides the
+        voltage offset, in DN, in the second of the four LEISA
+        quadrants. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:leisa_offset_2_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_offset_3_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_offset_3">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_offset_3 attribute provides the
+        voltage offset, in DN, in the third of the four LEISA quadrants.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:leisa_offset_3_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_offset_4_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_offset_4">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_offset_4 attribute provides the
+        voltage offset, in DN, in the fourth of the four LEISA
+        quadrants. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:leisa_offset_4_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_rate">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_rate attribute provides the time
+        between LEISA readouts. There is zero dead time between frames,
+        so in practice, this value is equivalent to the per-frame
+        exposure time, and the number of frames per second is exactly
+        its reciprocal. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:leisa_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_side">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_side attribute indicates the
+        hardware side in use during the observation sequence.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-273.15"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_temperature">
+    <xs:annotation>
+      <xs:documentation> The nh:leisa_temperature attribute provides the
+        temperature of the LEISA instrument. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:leisa_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="met510_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="met510">
+    <xs:annotation>
+      <xs:documentation> The nh:met510 attribute provides the mission
+        elapsed time (MET) of the Ralph housekeeping packet (ApID 0x510)
+        that marks the start of an observation, used to determine the
+        observation start time and frame rate. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:met510_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation> The nh:mission_phase_name provides the formal
+        identification of the mission phase. Phases are identified
+        continuously from primary through extended missions.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_description">
+    <xs:annotation>
+      <xs:documentation> The nh:observation_description element provides
+        a human-readable decoding of the sequence_id string. It provides
+        a basic description of the planned observation activity. Each
+        instrument should have an accompanying ancillary/documentation
+        file that lists all the planned sequences for each instrument
+        for each mission phase. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pholus_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:pholus_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to (5145) Pholus to convert calibrated data to physical
+        units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="physical_pixel_size_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="physical_pixel_size">
+    <xs:annotation>
+      <xs:documentation> The nh:physical_pixel_size attribute gives the
+        hardware dimension of a single, square pixel within the
+        detector. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:physical_pixel_size_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pivot_wavelength_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pivot_wavelength">
+    <xs:annotation>
+      <xs:documentation> The nh:pivot_wavelength is used in converting
+        the pixel values in the calibrated data into physical units for
+        some instruments. It is wavelength-dependent, but once defined
+        is constant for each detector. A description of how to convert
+        from data values to physical units is provided in the "New
+        Horizons SOC to Instrument Pipeline ICD" document.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:pivot_wavelength_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="pluto_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:pluto_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to (134340) Pluto to convert calibrated data to physical
+        units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pointing_method">
+    <xs:annotation>
+      <xs:documentation> The nh:pointing_method attribute is deprecated
+        and should not be used in new migrations or data products. In
+        some early migration data it contained a string copied from the
+        FITS header that was used to indicate intended pointing to the
+        pipeline software. It has no application to the processed data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='CB[1-3]|EARTH|SUN|ORBIT NORMAL|RADEC=([0-9]*\.[0-9]*,\s*\-?[0-9]*\.[0-9]*)'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="radio_bandwidth_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="radio_bandwidth">
+    <xs:annotation>
+      <xs:documentation> The nh:radio_bandwidth attribute provides the
+        active bandwidth of the REX radio. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:radio_bandwidth_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="radiometry_response_offset_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="radiometry_response_offset">
+    <xs:annotation>
+      <xs:documentation> The nh:radiometry_response_offset attribute
+        provides the response offset of the REX radiometer. The "offset"
+        is the power level in REX if there is no RF power going into the
+        X-band receiver. It is the power level produced by the receiver
+        itself, and thus represents the noise level, or "system
+        temperature", of the receiver. It is the "Ro" term in the
+        formula Power[dBm] = Rbase + 10*log10(Bandwidth*RAW) +
+        dBstep*(AGC-AGCOF) + Ro The nominal values are -101.030 dBm for
+        side A and -104.547 dBm for side B. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:radiometry_response_offset_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Power" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="radiometry_response_step_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="radiometry_response_step">
+    <xs:annotation>
+      <xs:documentation> The nh:radiometry_response_step attribute
+        provides the REX radiometer response per -1 step in the
+        automatic gain control (AGC) setting (away from the base value).
+        This quantity is represented by 'dBstep' in the formula
+        Power[dBm] = Rbase + 10*log10(Bandwidth*RAW) +
+        dBstep*(AGC-AGCOF) + Ro given in section 12.3.1.2 of the "New
+        Horizons SOC to Instrument Pipeline ICD" document.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:radiometry_response_step_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Power" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="read_noise">
+    <xs:annotation>
+      <xs:documentation> The nh:read_noise attribute provides the noise
+        level of the detector as a count of electrons.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="relative_control_mode_active">
+    <xs:annotation>
+      <xs:documentation> The nh:relative_control_mode_active attribute
+        is a true/false flag that indicates if the relative control mode
+        of the spacecraft was enabled during the operational sequence.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="right_side_median_bias_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="right_side_median_bias">
+    <xs:annotation>
+      <xs:documentation> The nh:right_side_median_bias attribute
+        provides the median bias, in DN, determined by averaging the
+        bias levels for the shielded pixels on the right side of the
+        detector array. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:right_side_median_bias_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="scan_type">
+    <xs:annotation>
+      <xs:documentation> The nh:scan_type attribute indicates what sort
+        of scanning was employed in collecting the data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sequence_id">
+    <xs:annotation>
+      <xs:documentation> The nh:sequence_id provides a long string
+        encoding some infomation about the planned observing sequence. A
+        more human-readable description should be provided in the
+        nh:observation_description element. Each instrument should have
+        an accompanying ancillary/documentation file that lists all the
+        planned sequences for each instrument for each mission phase.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="solar_constant">
+    <xs:annotation>
+      <xs:documentation> The nh:solar_constant attribute supplies the
+        constant to be used for sources with spectral distribution
+        similar to the Sun to convert MVIC calibrated data to physical
+        units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_spin_state">
+    <xs:annotation>
+      <xs:documentation> The nh:spacecraft_spin_state attribute
+        indicates which of the spacecraft spin states was employed
+        during the observation sequence.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_clock_count">
+    <xs:annotation>
+      <xs:documentation> The nh:start_clock_count is the Mission Elapsed
+        Time code at the start of the observation(s), formatted as
+        spacecraft clock ticks and indicating whole and fractional
+        seconds. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[0-9]{10}:[0-9]{5}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_clock_count">
+    <xs:annotation>
+      <xs:documentation> The nh:stop_clock_count is the Mission Elapsed
+        Time code at the end of the observation(s), formatted as
+        spacecraft clock ticks and indicating whole and fractional
+        seconds. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='[0-9]{10}:[0-9]{5}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sweep_samples_count">
+    <xs:annotation>
+      <xs:documentation> The nh:sweep_samples_count attribute is the
+        count of samples during a sweep of the SWAP electro-optics.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="target_motion_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.000001"/>
+     <xs:maxInclusive value="0.001100"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="target_motion_rate">
+    <xs:annotation>
+      <xs:documentation> The nh:target_motion_rate attribute is the rate
+        of motion of the target with respect to the instrument detector
+        in units of rad/s. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:target_motion_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angular_Velocity" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="tdi_median_bias_level_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tdi_median_bias_level">
+    <xs:annotation>
+      <xs:documentation> The nh:tdi_median_bias_level attribute gives
+        the median bias level of a time-delay integration observation.
+        For time delay integration (TDI) mode, bias levels in each
+        detector were determined in-flight during early mission phases.
+        They may vary depending on exposure length. See the "New
+        Horizonz SOC to Instrument Pipeline ICD" document for details.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:tdi_median_bias_level_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="tdi_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tdi_rate">
+    <xs:annotation>
+      <xs:documentation> The nh:tdi_rate attribute is the rate at which
+        charge was moved through successive rows of the detector in
+        obtaining the observation. This rate was calculated to match the
+        scan rate of the spacecraft. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:tdi_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Frequency" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="telemetry_apid">
+    <xs:annotation>
+      <xs:documentation> The nh:telemetry_apid is the application
+        identifier for the observation. The values are specific to
+        instrument and activity. The definitions for apIDs relevant to
+        the archived observations are contained in various tables in the
+        "New Horizons SOC to Instrument Pipeline ICD document. The apID
+        is used in formulating the file name, among other things.
+        Metadata encoded in the apID is contained in separate metadata
+        elements elsewhere in the label. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='0x[0-9A-Za-z]{3}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="thruster_x_enabled">
+    <xs:annotation>
+      <xs:documentation> The nh:thruster_x_enabled attribute describes
+        the state of the x thruster. The thruster is either enabled
+        ('true') or disabled ('false'). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="thruster_y_enabled">
+    <xs:annotation>
+      <xs:documentation> The nh:thruster_y_enabled attribute describes
+        the state of the y thruster. The thruster is either enabled
+        ('true') or disabled ('false'). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="thruster_z_enabled">
+    <xs:annotation>
+      <xs:documentation> The nh:thruster_z_enabled attribute describes
+        the state of the z thruster. The thruster is either enabled
+        ('true') or disabled ('false'). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="time_tag_calibration_constant_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="time_tag_calibration_constant">
+    <xs:annotation>
+      <xs:documentation> In a REX Observational Frame (ROF) data
+        products there is a time tag represented as an unsigned integer
+        that increments with each frame, resetting to zero only after a
+        "start" command, rather than with each sequence. The time tags
+        are used to check for a break in the ROF sequence, and to
+        calculate time between ROFs. The
+        nh:time_tag_calibration_constant is the length of time
+        corresponding to a single time tag increment, nominally 0.1024s.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nh:time_tag_calibration_constant_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="units_of_conversion_constants">
+    <xs:annotation>
+      <xs:documentation> The calibrated data are not converted to
+        physical units, because the conversion applied depends on the
+        general spectrum of the object being converted and whether it is
+        resolved. For resolved sources, the conversion produces data in
+        units of radiance. For unresolved sources, the conversion
+        results in units of flux (irradiance). The
+        nh:units_of_conversion_constants attribute contains the
+        appropriate physical units for the conversion constants in the
+        class in which it is contained to produce either radiance or
+        flux units, as appropriate, when the conversion is applied. A
+        description of how to convert from data values to physical units
+        is provided in the "New Horizons SOC to Instrument Pipeline ICD"
+        document. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

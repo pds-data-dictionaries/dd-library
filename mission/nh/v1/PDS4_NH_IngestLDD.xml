@@ -6,7 +6,7 @@
   xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd">
   
   <name>New Horizons Primary and Extended Missions Dictionary</name>
-  <ldd_version_id>1.1.0.0</ldd_version_id>
+  <ldd_version_id>1.2.0.0</ldd_version_id>
   <dictionary_type>Mission</dictionary_type>
   <full_name>Anne Raugh</full_name>
   <steward_id>sbn</steward_id>
@@ -28,6 +28,48 @@
     Modification History:
     
       2024-04-03  ACR  Begin history
+      
+      === Version 1.2.0.0
+      
+      2024-11-26   ACR  Removed (well, commented out) unused class LORRI_Target_Information and its three
+                        attributes. There were issues with the attribute descriptions in any event, 
+                        misconstruing the use of xsi:nil and instructing users to insert "UNK" as a value
+                        for target name, which is not appropriate. If target pixel location is desired,
+                        recommend we determine it precisedly via SPICE and convert to pixel location.
+      2025-01-09   ACR  Changed minOccurs for nh:Observation_Parameters in nh:Mission_Parameters to zero
+                        (i.e., made it optional). No test added for when it should be used largely 
+                        because for migration the templates will already include the optional class
+                        everywhere it makes sense.
+                        Changed minOccirs for nh:Spacecraft_State in nh:Observation_Parameters to zero
+                        and added note in definition that if the class has no relevant attributes, it 
+                        should be omitted entirely.
+      2025-01-10   ACR  Changed detector_name value for SWAP and added rule to flag the old value as 
+                        no longer acceptable.
+      2025-01-28   ACR  Corrected minor typos in spelling, punctuation, etc. as they were noted in 
+                        passing.
+      2025-02-15   ACR  o Deprecated pointing_method 
+                        o Updated: frame_data_source definition, gc_scan_rate, target_motion_rate, 
+                          radiometry_response_offset 
+                        o Set max/min for target_motion_rate on appropriate range, which is 
+                          1-1100 microrad/s, but will appear in labels with units of rad/s (so
+                          0.000001-0.0011 rad/s).
+                        o Removed "[CHECK]" remark from radio_bandwidth
+                        o Completed NH/KEM1/KEM2 mission_phase_name value list.
+                        o Modified definition of agc_gain_provenance to replace reference to non-existent
+                          permissible value in agc_setting_source to the correct permissible value. Replaced
+                          references to "ULDB" acronym with "uplink database" in agc_setting_source.
+                        o Expanded "TDI" acronym in error messages and definitions.
+                        o Clarified the English in the "check_bias" DD_Rule.
+                        o Added Internal_Reference to SOC Instrument ICD document to REX attribute 
+                          definitions that quoted the power equation in the definitions and did not
+                          already have such a reference. Also added reference to ICD document name in
+                          definition.
+                        o Modified the definition of time_tag_calibration_constant based on an email
+                          conversation and reference to the REX chapter of the ICD.
+                        o Updated definition of Radiometric_Conversion_Constants class to explicitly state
+                          that it appears in both MVIC and LORRI data.
+                        o Added door_position attribute to Alice_Details class. It is technically optional
+                          to avoid a non-backwards compatible change, but it should always be present.
       
       === Version 1.1.0.0 ===
       
@@ -98,6 +140,7 @@
     </DD_Value_Domain>
   </DD_Attribute>
   
+  <!-- Removed (unused) in Version 1.2.0.0
   <DD_Attribute>
     <name>approx_target_name</name>
     <version_id>1.0</version_id>
@@ -107,6 +150,9 @@
     <definition>
       The nh:approx_target_name attribute is the best guess of the intended
       target of the observation made by the automated data processing pipeline.
+      
+      *** NOTE that "UNK" should NEVER be used as an attribute value - the value 
+      *** should be nil with a nilReason of "unknown".
       
       If the best guess at the target is unknown, the attribute will be UNK i.e.
       unknown. If there was no target, i.e. for some instances of instrument
@@ -163,6 +209,75 @@
       <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  -->
+
+  <DD_Attribute>
+    <name>agc_gain_setting</name>
+    <version_id>1.1</version_id>
+    <local_identifier>agc_gain_setting</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:agc_gain_setting attribute supplies the value of the automatic gain control (AGC) 
+      setting used in the radiometry calibration.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>agc_gain_provenance</name>
+    <version_id>1.1</version_id>
+    <local_identifier>agc_gain_provenance</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:agc_gain_provenance attribute supplies the provenance for the nh:agc_gain_setting
+      attribute. If nh:agc_setting_source='ULCMD', this value will take the form 'YYDOY.ssf:...',
+      where YY is the two-digit year, DOY is the day-of-year, and '...' represents a string that
+      indicates the source sequence file. Otherwise, if nh:agc_setting_source='AUX', this value
+      will be 'Nominal'. The nominal automatic gain control (AGC) values are 167 for side A and 
+      163 for side B.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>(\d{5}\.ssf:[^\s]+)|Nominal</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>agc_setting_source</name>
+    <version_id>1.1</version_id>
+    <local_identifier>agc_setting_source</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:agc_setting_source attribute provides the source of the nh:agc_gain_setting value.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ULCMD</value>
+        <value_meaning>
+          The source is the uplink database, using values extracted from the sequence
+          command files.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>AUX</value>
+        <value_meaning>
+          No values were available from the uplink database, so nominal values (167 for side A, 
+          163 for side B) have been used.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
   
   <DD_Attribute>
     <name>arrokoth_constant</name>
@@ -178,6 +293,55 @@
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>base_agc_gain</name>
+    <version_id>1.0</version_id>
+    <local_identifier>base_agc_gain</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:base_agc_gain attribute supplies the nominal/base AGC gain setting for the active side
+      of the REX electronics.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>base_power</name>
+    <version_id>1.0</version_id>
+    <local_identifier>base_power</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:base_power attribute supplies the base/offset value in dBm for REX radiometry. This is
+      equivalent to the output power when RAW = (10^(-Ro/10))/Bandwidth and AGC = AGCOF in the
+      formula
+
+          Power[dBm] = Rbase + 10*log10(Bandwidth*RAW) + dBstep*(AGC-AGCOF) + Ro
+
+      The nominal values for this attribute are -176.852 for right circular polarization (side A)
+      and -177.177 for left circular polarization (side B).
+      
+      This equation is explained in section 12.3.1.2 of the "New Horizons SOC to Instrument Pipeline
+      ICD".
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+      <comment>This document explains the equation given in the definition.</comment>
+    </Internal_Reference>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Power</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -216,7 +380,7 @@
   
   <DD_Attribute>
     <name>detector_name</name>
-    <version_id>1.1</version_id>
+    <version_id>1.2</version_id>
     <local_identifier>detector_name</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
@@ -323,6 +487,13 @@
         </value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
+        <value>SWAP Channel Electron Multiplier (CEM)</value>
+        <value_meaning>
+          Data were obtained using the SWAP Channel Electron Multiple and counter.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <!-- The following value should NOT be used in new data migrations/submissions -->
+      <DD_Permissible_Value>
         <value>Solar Wind Around Pluto</value>
         <value_meaning>
           Data were obtained using the SWAP electrostatic analyzer.
@@ -382,6 +553,46 @@
   </DD_Attribute>
   
   <DD_Attribute>
+    <name>door_position</name>
+    <version_id>1.0</version_id>
+    <local_identifier>door_position</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>ACR</submitter_name>
+    <definition>
+      The nh:door_position attribute indicate the status of the Alice Airglow Aperture door as reported in the housekeeping
+      data associated with an observation. When there is no housekeeping data linked to a particular observation, this 
+      attribute will have a value of "Unknown". This condition does not occur in data prior to the Pluto Encounter phase of 
+      the primary mission. It is regularly reported in the Pluto Encounter data and all subsequent phases of the primary and 
+      extended missions.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Open</value>
+        <value_meaning>The Alice airglow aperture door was open.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Closed</value>
+        <value_meaning>The Alice airglow aperture door was closed.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Unknown</value>
+        <value_meaning>
+          The position of the Alice aperture door is unknown because no housekeeping data were associated with the observation. 
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>In Between</value>
+        <value_meaning>
+          The position of the Alice aperture door is known to be partially closed. This condition has not been reported in any data 
+          returned by the primary mission or the extended missions to date.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
     <name>frame_number</name>
     <version_id>1.0</version_id>
     <local_identifier>frame_number</local_identifier>
@@ -395,6 +606,83 @@
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>frame_data_source</name>
+    <version_id>1.1</version_id>
+    <local_identifier>frame_data_source</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:frame_data_source attribute indicates the source of the input as a two-digit
+      hexadecimal number (i.e., one octet), represented as a string prefixed by '0x'. 0x00 is the
+      default source when taking data of external 7.2 GHz signal or external radiometry and is the
+      only value that indicates an observational product intended for science. All other
+      values indicate REX-internal sources intended for diagnostics. The 4 least significant bits
+      and the single most significant bit are not used.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>0x00</value>
+        <value_meaning>
+          The data come from the REX Analog-To-Digital converter (ADC), whose input is the wideband
+          If output from the NH Radiometrics channel: HGA; switch assembly (SP3T switch, diplexer,
+          filter, Low-Noise Amplifier); 4.5 MHz bandpass filter.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0x10</value>
+        <value_meaning>
+          Impulse mode: the data consist of 2 samples (200ns) of value 128 at the start of each
+          REX output frame (ROF), followed by zeroes.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0x20</value>
+        <value_meaning>
+          The data source is an artifically-generated Low-Frequency Square Wave: +/-256 @ 610.3515625 Hz.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0x30</value>
+        <value_meaning>
+          The data source is an artifically-generated Mid Frequency Square Wave: +/-256 @ 19.53125 KHz.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0x40</value>
+        <value_meaning>
+          The data source is a Pseudo-Random Number generator with values of +/-1 @ 10 MHz.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0x50</value>
+        <value_meaning>
+          The data source is a Pseudo-Random Number generator (full scale) @ 10 MHz.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0x60</value>
+        <value_meaning>
+          The data source is an artificially-generated High Frequency Square Wave: +/-256 @ 78.125 KHz
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0x70</value>
+        <value_meaning>
+          The data are all zeroes.
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>0xFF</value>
+        <value_meaning>
+          Undefined; indicates probable corruption.
+        </value_meaning>
+      </DD_Permissible_Value>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -419,22 +707,41 @@
   
   <DD_Attribute>
     <name>gc_scan_rate</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>gc_scan_rate</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>MKC</submitter_name>
     <definition>
       The nh:gc_scan_rate attribute provides the scan rate requested of the Guidance, Navigation,
-      and Control (GNC) system by the Ralph instrument. If the scan rate was not forced, GNC will
-      return the actual scan rate achieved.
+      and Control (GNC) system by the Ralph instrument. The rate is given in units of Hz. Note 
+      that this will always be a positive value for MVIC, but might be a negative value (indicating
+      scan steps in the opposite direction) for LEISA.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
-  
-  
+    
+  <DD_Attribute>
+    <name>iq_calibration_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>iq_calibration_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:iq_calibration_constant attribute supplies the I and Q response of the REX instrument,
+      used to convert between raw counts and an I/Q value in mV. This constant has a nominal value
+      of (1000 / (2^13)) mV/count.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+    
   <DD_Attribute>
     <name>jupiter_constant</name>
     <version_id>1.0</version_id>
@@ -665,7 +972,7 @@
   
   <DD_Attribute>
     <name>mission_phase_name</name>
-    <version_id>1.0</version_id>
+    <version_id>2.0</version_id>
     <local_identifier>mission_phase_name</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
@@ -677,21 +984,43 @@
       <enumeration_flag>true</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
       <DD_Permissible_Value>
+        <value>Post-Launch Checkout</value>
+        <value_meaning>New Horizons Mission (NH) Post-Launch Checkout Phase</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Jupiter Encounter</value>
+        <value_meaning>New Horizons Mission (NH) Jupiter Encounter Phase</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Pluto Cruise</value>
+        <value_meaning>New Horizons Mission (NH) Pluto Cruise Phase</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Pluto Encounter</value>
+        <value_meaning>New Horizons Mission (NH) Pluto Encounter Phase</value_meaning>
+      </DD_Permissible_Value>
+      <!-- This value should not be used. I'm hoping it hasn't been...
+      <DD_Permissible_Value>
         <value>KEM1 Cruise</value>
         <value_meaning>
-          New Horizons Kuiper Belt Extended Mission 1 (KEM1) Cruise phase
+          New Horizons Kuiper Belt Extended Mission 1 (KEM1) Cruise Phase
         </value_meaning>
+      </DD_Permissible_Value>
+      -->
+      <DD_Permissible_Value>
+        <value>Cruise to First KBO Encounter</value>
+        <value_meaning>New Horizons Kuiper Belt Extended Mission 1 (KEM1) Cruise to First KBO Encounter Phase</value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
         <value>KEM1 Encounter</value>
         <value_meaning>
-          New Horizons Kuiper Belt Extended Mission 1 (KEM1) Encounter
+          New Horizons Kuiper Belt Extended Mission 1 (KEM1) Encounter Phase
         </value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
         <value>KEM2 Cruise</value>
         <value_meaning>
-          New Horizons Kuiper Belt Extended Mission 2 (KEM2) Cruise phase
+          New Horizons Kuiper Belt Extended Mission 2 (KEM2) Cruise Phase
         </value_meaning>
       </DD_Permissible_Value>
     </DD_Value_Domain>
@@ -798,25 +1127,91 @@
   
   <DD_Attribute>
     <name>pointing_method</name>
-    <version_id>1.0</version_id>
+    <version_id>2.0</version_id>
     <local_identifier>pointing_method</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>MKC</submitter_name>
     <definition>
-      The nh:pointing_method attribute indicates the spacecraft pointing method enabled during the operational sequence.
-
-      Possible enumerated values are 'CB1', 'CB2', 'CB3', 'EARTH', 'SUN' or 'ORBIT NORMAL', which describe the body or
-      plane used to establish a reference frame onboard the spacecraft for pointing purposes (where 'CB' stands for
-      central body). Alternatively, this value can take the form 'RADEC=[X],[Y]' (where [X] and [Y] represent a numeric
-      right ascension and declination in degrees, respectively) to indicate inertial pointing.
-
-      This value does *not* indicate that any particular axis of the spacecraft is aligned with the target or direction
-      indicated by the pointing method. This attribute is not applicable if nh:spacecraft_spin_state is 'Spinning'.
+      The nh:pointing_method attribute is deprecated and should not be used in new migrations or data products. In some
+      early migration data it contained a string copied from the FITS header that was used to indicate intended pointing
+      to the pipeline software. It has no application to the processed data.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
       <pattern>CB[1-3]|EARTH|SUN|ORBIT NORMAL|RADEC=([0-9]*\.[0-9]*,\s*\-?[0-9]*\.[0-9]*)</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>radio_bandwidth</name>
+    <version_id>1.0</version_id>
+    <local_identifier>radio_bandwidth</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:radio_bandwidth attribute provides the active bandwidth of the REX radio.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
+      <specified_unit_id>Hz</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>radiometry_response_step</name>
+    <version_id>1.0</version_id>
+    <local_identifier>radiometry_response_step</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:radiometry_response_step attribute provides the REX radiometer response per -1 step 
+      in the automatic gain control (AGC) setting (away from the base value). This quantity is 
+      represented by 'dBstep' in the formula
+
+          Power[dBm] = Rbase + 10*log10(Bandwidth*RAW) + dBstep*(AGC-AGCOF) + Ro
+          
+      given in section 12.3.1.2 of the "New Horizons SOC to Instrument Pipeline ICD"
+      document.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
+      <reference_type>attribute_to_document</reference_type>
+      <comment>
+        This document is the source of the equation provided in the definition.
+      </comment>
+    </Internal_Reference>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Power</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>radiometry_response_offset</name>
+    <version_id>1.1</version_id>
+    <local_identifier>radiometry_response_offset</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:radiometry_response_offset attribute provides the response offset of the REX
+      radiometer. The "offset" is the power level in REX if there is no RF power going
+      into the X-band receiver. It is the power level produced by the receiver itself, and
+      thus represents the noise level, or "system temperature", of the receiver. It is the 
+      "Ro" term in the formula
+      
+        Power[dBm] = Rbase + 10*log10(Bandwidth*RAW) + dBstep*(AGC-AGCOF) + Ro
+      
+      The nominal values are -101.030 dBm for side A and -104.547 dBm for side B.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Power</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -1052,31 +1447,35 @@
   
   <DD_Attribute>
     <name>target_motion_rate</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>target_motion_rate</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>MKC</submitter_name>
     <definition>
-      [INCOMPLETE] The nh:target_motion_rate attribute is the rate of motion of the target with respect to the instrument detector in units of (TBR). 
+      The nh:target_motion_rate attribute is the rate of motion of the target with respect to the instrument detector in units of rad/s. 
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Real</value_data_type>
-      <minimum_value>0</minimum_value>
+      <minimum_value>0.000001</minimum_value>
+      <maximum_value>0.001100</maximum_value>
+      <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+      <specified_unit_id>rad/s</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
   
   <DD_Attribute>
     <name>tdi_median_bias_level</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>tdi_median_bias_level</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>ACR</submitter_name>
     <definition>
       The nh:tdi_median_bias_level attribute gives the median bias level of a time-delay
-      integration observation. For TDI mode, bias levels in each detector were determined
-      in-flight during early mission phases. They may vary depending on exposure length.
-      See the "New Horizonz SOC to Instrument Pipeline ICD" document for details.
+      integration observation. For time delay integration (TDI) mode, bias levels in each 
+      detector were determined in-flight during early mission phases. They may vary 
+      depending on exposure length. See the "New Horizonz SOC to Instrument Pipeline ICD" 
+      document for details.
     </definition>
     <Internal_Reference>
       <lid_reference>urn:nasa:pds:nh_documents:mission:soc_inst_icd</lid_reference>
@@ -1181,6 +1580,29 @@
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>time_tag_calibration_constant</name>
+    <version_id>1.1</version_id>
+    <local_identifier>time_tag_calibration_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      In a REX Observational Frame (ROF) data products there is a time tag represented 
+      as an unsigned integer that increments with each frame, resetting to zero only 
+      after a "start" command, rather than with each sequence. The time tags are used 
+      to check for a break in the ROF sequence, and to calculate time between ROFs. 
+      The nh:time_tag_calibration_constant is the length of time corresponding to a 
+      single time tag increment, nominally 0.1024s.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
     </DD_Value_Domain>
   </DD_Attribute>
   
@@ -1384,6 +1806,7 @@
     </DD_Association>
   </DD_Class>
   
+  <!-- Removed (unused) in Version 1.2.0.0
   <DD_Class>
     <name>LORRI_Target_Information</name>
     <version_id>1.0</version_id>
@@ -1412,6 +1835,7 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
+  -->
   
   <DD_Class>
     <name>MVIC_Calibration_Information</name>
@@ -1498,14 +1922,14 @@
   
   <DD_Class>
     <name>Radiometric_Conversion_Constants</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Radiometric_Conversion_Constants</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
       The nh:Radiometric_Conversion_Constants class provides the values needed to run the
-      conversion from the calibrated pixel values to physical units. This conversion
-      is dependent on the spectral distribition of the source, the detector 
-      wavelength range, and whether or not the source is resolved. 
+      conversion from the calibrated pixel values to physical units for the MVIC and
+      LORRI instruments. This conversion is dependent on the spectral distribition of the 
+      source, the detector wavelength range, and whether or not the source is resolved. 
       
       A description of how to convert from data values to physical units is provided
       in the "New Horizons SOC to Instrument Pipeline ICD" document.
@@ -1597,8 +2021,7 @@
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
-  </DD_Class>
-  
+  </DD_Class> 
  
   <DD_Class>
     <name>MVIC_Details</name>
@@ -1625,7 +2048,7 @@
   
   <DD_Class>
     <name>Alice_Details</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Alice_Details</local_identifier>
     <submitter_name>AGB</submitter_name>
     <definition>
@@ -1636,6 +2059,12 @@
       <identifier_reference>aperture</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>door_position</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
@@ -1680,16 +2109,18 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <!-- Removed (unused) Version 1.2.0.0
     <DD_Association>
       <identifier_reference>LORRI_Target_Information</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    -->
     <DD_Association>
       <identifier_reference>Spacecraft_State</identifier_reference>
       <reference_type>component_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
@@ -1770,13 +2201,91 @@
   </DD_Class>
   
   <DD_Class>
-    <name>Spacecraft_State</name>
+    <name>REX_Radiometry_Information</name>
     <version_id>1.0</version_id>
+    <local_identifier>REX_Radiometry_Information</local_identifier>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The nh:REX_Radiometry_Information class collects radiometric parameter values and conversion
+      information specific to Radio Science Experiment (REX) observations.
+    </definition>
+    <DD_Association>
+      <identifier_reference>frame_data_source</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>      
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>agc_gain_setting</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>      
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>agc_setting_source</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>agc_gain_provenance</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>base_agc_gain</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>base_power</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>radio_bandwidth</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>radiometry_response_step</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>radiometry_response_offset</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>iq_calibration_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>time_tag_calibration_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Spacecraft_State</name>
+    <version_id>1.1</version_id>
     <local_identifier>Spacecraft_State</local_identifier>
     <submitter_name>MKC</submitter_name>
     <definition>
       The nh:Spacecraft_State class collects observational parameters that are specific
-      to the spacecraft state at the time of the observation.
+      to the spacecraft state at the time of the observation. If none of its attributes
+      are relevant to the data product, this class should be omitted.
     </definition>
     <DD_Association>
       <identifier_reference>thruster_x_enabled</identifier_reference>
@@ -1903,7 +2412,7 @@
   
   <DD_Class>
     <name>Mission_Parameters</name>
-    <version_id>1.0</version_id>
+    <version_id>1.1</version_id>
     <local_identifier>Mission_Parameters</local_identifier>
     <submitter_name>ACR</submitter_name>
     <definition>
@@ -1920,7 +2429,7 @@
     <DD_Association>
       <identifier_reference>Observation_Parameters</identifier_reference>
       <reference_type>component_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -1941,6 +2450,12 @@
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>REX_Radiometry_Information</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
   </DD_Class>
   
   <!-- Rules -->
@@ -1953,12 +2468,29 @@
     <DD_Rule_Statement>
       <rule_type>Assert</rule_type>
       <rule_test>if (starts-with(nh:scan_type, 'TDI') and //pds:processing_level = ('Partially Processed')) then (nh:tdi_rate) else (true())</rule_test>
-      <rule_message>In nh:MVIC_Details, the TDI rate must be provided for TDI scans when processing level is partially processed (calibrated).</rule_message>
+      <rule_message>In nh:MVIC_Details, the TDI rate must be provided for time delay integration (TDI) scans when processing level is "Partially Processed".</rule_message>
     </DD_Rule_Statement>
     <DD_Rule_Statement>
       <rule_type>Assert</rule_type>
       <rule_test>if (//pds:processing_level != ('Partially Processed') and (nh:tdi_rate)) then (false()) else (true())</rule_test>
-      <rule_message>In nh:MVIC_Details, if pds:processing_level is not partially processed, then tdi_rate cannot be included.</rule_message>
+      <rule_message>In nh:MVIC_Details, if pds:processing_level is not "Partially Processed", then nh:tdi_rate cannot be included.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- REX AGC source/provenance association -->
+
+  <DD_Rule>
+    <local_identifier>rex_agc_source</local_identifier>
+    <rule_context>nh:REX_Radiometry_Information</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (nh:agc_setting_source = ('AUX')) then (nh:agc_gain_provenance = ('Nominal')) else (true())</rule_test>
+      <rule_message>In nh:REX_Radiometry_Information, if nh:agc_setting_source is 'AUX', then nh:agc_gain_provenance must be 'Nominal', and vice versa.</rule_message>
+    </DD_Rule_Statement>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>if (nh:agc_gain_provenance = ('Nominal')) then (nh:agc_setting_source = ('AUX')) else (true())</rule_test>
+      <rule_message>In nh:REX_Radiometry_Information, nh:agc_gain_provenance cannot be 'Nominal' unless nh:agc_setting_source is 'AUX', and vice versa.</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
   
@@ -2003,7 +2535,7 @@
     <DD_Rule_Statement>
       <rule_type>Assert</rule_type>
       <rule_test>if (starts-with(//nh:MVIC_Details/nh:scan_type,'TDI')) then (nh:tdi_median_bias_level and not(nh:Framing_Biases)) else (nh:Framing_Biases and not(nh:tdi_median_bias_level))</rule_test>
-      <rule_message>In MVIC_Calibration_Information, TDI scans data must include the attribute nh:tdi_median_bias_level; framing observations must include the nh:Framing_Biases class; both should never used together.      </rule_message>
+      <rule_message>In MVIC_Calibration_Information, time delay integration (TDI) scans data must include the attribute nh:tdi_median_bias_level and framing observations must include the nh:Framing_Biases class. Both classes should never used together.</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
   
@@ -2023,6 +2555,28 @@
       <rule_type>Assert</rule_type>
       <rule_test>if (nh:approx_target_name/@xsi:nil eq 'true') then not(nh:approx_target_sample) else true()</rule_test>
       <rule_message>If nh:approx_target_name is nilled, then nh:approx_target_sample must not be present.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <!-- DEPRECATED FEATURES -->
+  
+  <DD_Rule>
+    <local_identifier>dep-detector_name</local_identifier>
+    <rule_context>nh:detector_name</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>(. ne 'Solar Wind Around Pluto')</rule_test>
+      <rule_message>In nh:detector, the value "Solar Wind Around Pluto" should not be used. Instead, use "SWAP Channel Electron Multiplier (CEM)".</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <DD_Rule>
+    <local_identifier>dep-pointing_method</local_identifier>
+    <rule_context>nh:Spacecraft_State</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>(not(nh:pointing_method))</rule_test>
+      <rule_message>In nh:Spacecraft_State, the attribute nh:pointing_method is deprecated and should not be used in new products or migrations.</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
   

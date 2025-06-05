@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:ama  Version:1.0.0.0 - Wed Feb 12 20:21:19 UTC 2025 -->
+  <!-- Generated from the PDS4 Information Model Version 1.23.0.0 - System Build 15.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.23.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - ama: - Atmosphere                                               -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/ama/v1"
+    xmlns:ama="http://pds.nasa.gov/pds4/ama/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        This dictionary describes the modeling output generic variables
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="AMA" type="ama:AMA"> </xs:element>
+
+  <xs:complexType name="AMA">
+    <xs:annotation>
+      <xs:documentation>This is the umbrella class for the AMA
+        (Atmospheric Modeling Annex) local dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Model_Metadata" type="ama:Model_Metadata" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Simulation_Configuration" type="ama:Simulation_Configuration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Model_Output" type="ama:Model_Output" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Coordinate">
+    <xs:annotation>
+      <xs:documentation>The coordinate sub-class contains attributes
+        that describe coordinates in external data files.These
+        attributes should be populated automatically for each variable
+        using the python script (readmetadata)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="coord_name" type="ama:coord_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="standard_name" type="ama:standard_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="formula_terms" type="ama:formula_terms" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dimensions" type="ama:dimensions" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dim_name" type="ama:dim_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="units" type="ama:units" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="axis" type="ama:axis" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="positive" type="ama:positive" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="calendar" type="ama:calendar" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="day_length" type="ama:day_length" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="month_length" type="ama:month_length" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_boundary" type="ama:maximum_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_boundary" type="ama:minimum_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="ama:description" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="ama:axis = ('T', 'X', 'Y', 'Z')"/> -->
+    <!-- <xs:assert test="ama:positive = ('Down', 'Up')"/> -->
+    <!-- <xs:assert test="ama:calendar = ('360_Day', '365_Day', '366_Day', 'All_Leap', 'Gregorian', 'Julian', 'Noleap', 'None', 'Proleptic_Gregorian', 'Standard')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="File_Description">
+    <xs:annotation>
+      <xs:documentation>The file_description sub-class contains
+        attributes that describe the specific file, rather than the
+        original simulation. The intention is to make the data
+        searchable, e.g for a specific location or time of
+        year.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="top_level" type="ama:top_level" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bottom_level" type="ama:bottom_level" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_time" type="ama:start_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_time" type="ama:end_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="postprocessing_methods" type="ama:postprocessing_methods" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Model_Metadata">
+    <xs:annotation>
+      <xs:documentation>The Model_Metadata class contains those
+        attributes and sub-classes that describe the model metadata.
+        Metadata is anything that describes the model and specific
+        simulation configuration that is not described by dimensions,
+        coordinates or variables included in the data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="ama:type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="name" type="ama:name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="version" type="ama:version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="institution" type="ama:institution" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="ama:type = ('ASSIMILATION', 'GCM', 'MESOSCALE')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Model_Output">
+    <xs:annotation>
+      <xs:documentation>The Model_Output class contains those attributes
+        and sub-classes that describe the model output. Model output
+        includes coordinate, dimensions and variable products as well as
+        information about variable processing, for example, to generate
+        figure data. Most attributes are generated automatically from
+        the python script </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="File_Description" type="ama:File_Description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Variable" type="ama:Variable" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Coordinate" type="ama:Coordinate" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Simulation_Configuration">
+    <xs:annotation>
+      <xs:documentation>The Simulation_Configuration sub-class contains
+        attributes that describe the specific simulation configuration
+        that is not described by dimensions, coordinates or variables
+        included in the data product. This class specifically describes
+        the simulation configuration at runtime, not the data structure
+        after processing (e.g. it provides the native vertical
+        coordinate while the model output files may be interpolated to a
+        new vertical grid</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="horizontal_grid_type" type="ama:horizontal_grid_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="model_resolution" type="ama:model_resolution" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="model_resolution_unit" type="ama:model_resolution_unit" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="vertical_grid_type" type="ama:vertical_grid_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="vertical_grid_unit" type="ama:vertical_grid_unit" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="model_timestep" type="ama:model_timestep" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="model_timestep_unit" type="ama:model_timestep_unit" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="upper_boundary" type="ama:upper_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lower_boundary" type="ama:lower_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="northern_boundary" type="ama:northern_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="southern_boundary" type="ama:southern_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="eastern_boundary" type="ama:eastern_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="western_boundary" type="ama:western_boundary" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_time" type="ama:start_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_time" type="ama:end_time" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="ama:horizontal_grid_type = ('cube-sphere', 'icosahedral', 'lat-lon')"/> -->
+    <!-- <xs:assert test="ama:vertical_grid_type = ('Altitude', 'Hybrid-Sigma', 'Isentropic', 'Pressure', 'Sigma')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Variable">
+    <xs:annotation>
+      <xs:documentation>The variable sub-class contains attributes that
+        describe variables and coordinates in external data files.These
+        attributes should be populated automatically for each variable
+        using the python script (readmetadata)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="variable_name" type="ama:variable_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="long_name" type="ama:long_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fieldnam" type="ama:fieldnam" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="standard_name" type="ama:standard_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dimensions" type="ama:dimensions" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dim_name" type="ama:dim_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="units" type="ama:units" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="level_type" type="ama:level_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="validmin" type="ama:validmin" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="validmax" type="ama:validmax" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="missing_value" type="ama:missing_value" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scale_factor" type="ama:scale_factor" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="add_offset" type="ama:add_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stagger" type="ama:stagger" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="memory_order" type="ama:memory_order" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="catdesk" type="ama:catdesk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="format" type="ama:format" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="monoton" type="ama:monoton" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fillval" type="ama:fillval" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="ama:description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="var_type" type="ama:var_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cell_methods" type="ama:cell_methods" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="formula_terms" type="ama:formula_terms" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="ama:var_type = ('Data', 'Ignore_data', 'Metadata', 'Support_data')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="add_offset">
+    <xs:annotation>
+      <xs:documentation>add_offset if there is any; scale factor and add
+        offset are used to reduce the storage space of packed variable
+        unpacked_value = packed_value * scale_factor +
+        add_offset</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="axis">
+    <xs:annotation>
+      <xs:documentation>Identifies latitude, longitude, vertical, or
+        time axes.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bottom_level">
+    <xs:annotation>
+      <xs:documentation>The bottom_level attribute provides the bottom
+        most coverage expressed in pressure level.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="calendar">
+    <xs:annotation>
+      <xs:documentation>In order to calculate a new date and time given
+        a base date, base time and a time increment one must know what
+        calendar to use. For this purpose we recommend that the calendar
+        be specified by the attribute calendar which is assigned to the
+        time coordinate variable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="catdesk">
+    <xs:annotation>
+      <xs:documentation>Approximately 80-character string which is a
+        textual description of the variable</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cell_methods">
+    <xs:annotation>
+      <xs:documentation>ia string attribute comprising a list of
+        blank-separated words of the form "name: method". Each "name:
+        method" pair indicates that for an axis identified by name, the
+        cell values representing the field have been determined or
+        derived by the specified method. For example, if data values
+        have been generated by computing time means, then this could be
+        indicated with cell_methods="time:mean(interval=2
+        hours)"</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="coord_name">
+    <xs:annotation>
+      <xs:documentation>The name of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="day_length_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="day_length">
+    <xs:annotation>
+      <xs:documentation>The unit of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ama:day_length_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="description">
+    <xs:annotation>
+      <xs:documentation>any additional description of the variable,
+        processing, etc</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dim_name">
+    <xs:annotation>
+      <xs:documentation>The names of dimensions the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dimensions">
+    <xs:annotation>
+      <xs:documentation>The dimensions of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="eastern_boundary_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-180.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="eastern_boundary">
+    <xs:annotation>
+      <xs:documentation>The eastern_boundary attribute provides the
+        eastern most coordinate of the limit of coverage expressed in
+        longitude</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ama:eastern_boundary_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="end_time">
+    <xs:annotation>
+      <xs:documentation>The end_time attribute provides the coverage end
+        time expressed in any format of time.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fieldnam">
+    <xs:annotation>
+      <xs:documentation>A description of the variable (up to 30
+        characters).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fillval">
+    <xs:annotation>
+      <xs:documentation>The value used for missing or invalid variable
+        values.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="format">
+    <xs:annotation>
+      <xs:documentation>The format of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="formula_terms">
+    <xs:annotation>
+      <xs:documentation>an attribute used to associate terms in the
+        definitions with variables in a netCDF file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="horizontal_grid_type">
+    <xs:annotation>
+      <xs:documentation>Identifies the native horizontal grid of the
+        model (e.g lat/lon, cube sphere, etc)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="institution">
+    <xs:annotation>
+      <xs:documentation>Identifies the host institution or author of the
+        model</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="level_type">
+    <xs:annotation>
+      <xs:documentation>level/model/height at which variable is
+        outputted</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="long_name">
+    <xs:annotation>
+      <xs:documentation>The long name of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="lower_boundary">
+    <xs:annotation>
+      <xs:documentation>The lower_boundary attribute provides the bottom
+        most coverage limit in levels such as pressure</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="maximum_boundary">
+    <xs:annotation>
+      <xs:documentation>the maximum boundary of the
+        coordinate</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="memory_order">
+    <xs:annotation>
+      <xs:documentation>The dimensions of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="minimum_boundary">
+    <xs:annotation>
+      <xs:documentation>the minimum boundary of the
+        coordinate</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="missing_value">
+    <xs:annotation>
+      <xs:documentation>The unit of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="model_resolution">
+    <xs:annotation>
+      <xs:documentation>identifies the horizontal resolution (dx,dy) of
+        the model in km, m, degrees.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="model_resolution_unit">
+    <xs:annotation>
+      <xs:documentation>identifies the unit of the horizontal grid km,
+        m, degrees.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="model_timestep">
+    <xs:annotation>
+      <xs:documentation>Identifies the base model
+        timestep</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="model_timestep_unit">
+    <xs:annotation>
+      <xs:documentation>Identifies the unit of the base model
+        timestep</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="monoton">
+    <xs:annotation>
+      <xs:documentation>Whether the variable is monotonically increasing
+        or monotonically decreasing. A value of INCREASE indicates
+        strictly increasing values, DECREASE strictly decreasing values,
+        or FALSE indicates not monotonic</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="month_length_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="month_length">
+    <xs:annotation>
+      <xs:documentation>If none of the calendar types apply, a
+        non-standard calendar can be defined. The user must explicitly
+        define the number of days per month</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ama:month_length_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="name">
+    <xs:annotation>
+      <xs:documentation>Describes the name of the model (e.g NASA Ames
+        Mars MGCM)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="northern_boundary_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="northern_boundary">
+    <xs:annotation>
+      <xs:documentation>The northern_boundary attribute provides the
+        northern most coordinate of the limit of coverage expressed in
+        latitude.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ama:northern_boundary_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="positive">
+    <xs:annotation>
+      <xs:documentation> the direction in which the coordinate values
+        are increasing</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="postprocessing_methods">
+    <xs:annotation>
+      <xs:documentation>a description of post-processing operating on
+        all data in the file, including time mean, interpolation etc.
+        Methodology can be described in text or using netcdf standard
+        recommendations for cell_methods (e.g. for a zonal time-mean
+        with a three hour interval, 'time:mean(interval=3 hours)
+        longitude:mean'</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scale_factor">
+    <xs:annotation>
+      <xs:documentation> scale factor provides the multiplier to the
+        packed value, unpacked_value=packed_value * scale_factor +
+        add_offset</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="southern_boundary_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="southern_boundary">
+    <xs:annotation>
+      <xs:documentation>The southern_boundary attribute provides the
+        southern most coordinate of the limit of coverage expressed in
+        latitude.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ama:southern_boundary_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="stagger">
+    <xs:annotation>
+      <xs:documentation>The unit of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="standard_name">
+    <xs:annotation>
+      <xs:documentation>Optional Attribute to identify the variable with
+        a specific standard name (see python script add
+        metadata)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_time">
+    <xs:annotation>
+      <xs:documentation>The start_time attribute provides the coverage
+        start time expressed in any format of time</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="top_level">
+    <xs:annotation>
+      <xs:documentation>The top_level attribute provides the top most
+        coverage expressed in pressure level</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="type">
+    <xs:annotation>
+      <xs:documentation>Model Type (e.g GCM, MESOSCALE,
+        ASSIMILATION)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="units">
+    <xs:annotation>
+      <xs:documentation>The unit of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="upper_boundary">
+    <xs:annotation>
+      <xs:documentation>The lower_boundary attribute provides the top
+        most coverage limit in levels such as pressure</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="validmax">
+    <xs:annotation>
+      <xs:documentation>The maximum valid value for a
+        variable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="validmin">
+    <xs:annotation>
+      <xs:documentation>The minimum valid value for a
+        variable.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="var_type">
+    <xs:annotation>
+      <xs:documentation>Identifies a variable as either data,
+        support_data, metadata or ignore_data.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="variable_name">
+    <xs:annotation>
+      <xs:documentation>The name of the variable in the
+        file</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="version">
+    <xs:annotation>
+      <xs:documentation>Identifies the specific version of the model
+        (e.g v3.0)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vertical_grid_type">
+    <xs:annotation>
+      <xs:documentation>Identifies the vertical grid type (e.g. SIGMA,
+        HYBRID-SIGMA, ALTITUDE, PRESSURE)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vertical_grid_unit">
+    <xs:annotation>
+      <xs:documentation>Identifies the unit of the vertical grid type
+        (e.g. Pa, mbar, km, m)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="western_boundary_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-180.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="western_boundary">
+    <xs:annotation>
+      <xs:documentation>The western_boundary attribute provides the
+        western most coordinate of the limit of coverage expressed in
+        longitude. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ama:western_boundary_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,726 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.2.4
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Wed Feb 12 20:21:19 UTC 2025
+   Common Schema          [PDS4_PDS_1N00.xsd]
+   Common Schematron      [PDS4_PDS_1N00.sch]
+   IM Version Id:         1.23.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-ama/ldd-ama/src/PDS4_AMA_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                7
+   Attributes             53
+   Associations           67
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Atmosphere
+   LDD Version            1.0.0.0
+   Full Name              Lyle Huber
+   Steward                atm
+   Namespace Id           ama
+   Comment                
+        This dictionary describes the modeling output generic variables
+    
+   Last Modification Time 2024-11-21T12:00:00Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Model Type (e.g GCM, MESOSCALE, ASSIMILATION)
+
+   name                   name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Describes the name of the model (e.g NASA Ames Mars MGCM)
+
+   name                   version
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the specific version of the model (e.g v3.0)
+
+   name                   institution
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the host institution or author of the model
+
+   name                   horizontal_grid_type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the native horizontal grid of the model (e.g lat/lon, cube sphere, etc)
+
+   name                   model_resolution
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            identifies the horizontal resolution (dx,dy) of the model in km, m, degrees.
+
+   name                   model_resolution_unit
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            identifies the unit of the horizontal grid km, m, degrees.
+
+   name                   vertical_grid_type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the vertical grid type (e.g. SIGMA, HYBRID-SIGMA, ALTITUDE, PRESSURE)
+
+   name                   vertical_grid_unit
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the unit of the vertical grid type (e.g. Pa, mbar, km, m)
+
+   name                   model_timestep
+   version                1.23
+   value data type        ASCII_Real
+   description            Identifies the base model timestep
+
+   name                   model_timestep_unit
+   version                1.23
+   value data type        ASCII_Real
+   description            Identifies the unit of the base model timestep
+
+   name                   upper_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            The lower_boundary attribute provides the top most coverage limit in levels such as pressure
+
+   name                   lower_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            The lower_boundary attribute provides the bottom most coverage limit in levels such as pressure
+
+   name                   northern_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            The northern_boundary attribute provides the northern most coordinate of the limit of coverage expressed in latitude.
+   minimum value          -90.0
+   maximum value          90.0
+   unit of measure type   Units_of_Angle
+
+   name                   southern_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            The southern_boundary attribute provides the southern most coordinate of the limit of coverage expressed in latitude.
+   minimum value          -90.0
+   maximum value          90.0
+   unit of measure type   Units_of_Angle
+
+   name                   eastern_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            The eastern_boundary attribute provides the eastern most coordinate of the limit of coverage expressed in longitude
+   minimum value          -180.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   western_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            The western_boundary attribute provides the western most coordinate of the limit of coverage expressed in longitude. 
+   minimum value          -180.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   start_time
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The start_time attribute provides the coverage start time expressed in any format of time
+
+   name                   end_time
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The end_time attribute provides the coverage end time expressed in any format of time.
+
+   name                   top_level
+   version                1.23
+   value data type        ASCII_Real
+   description            The top_level attribute provides the top most coverage expressed in pressure level
+
+   name                   bottom_level
+   version                1.23
+   value data type        ASCII_Real
+   description            The bottom_level attribute provides the bottom most coverage expressed in pressure level.
+
+   name                   postprocessing_methods
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            a description of post-processing operating on all data in the file, including time mean, interpolation etc. Methodology can be described in text or using netcdf standard recommendations for cell_methods (e.g. for a zonal time-mean with a three hour interval, 'time:mean(interval=3 hours) longitude:mean'
+
+   name                   variable_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The name of the variable in the file
+
+   name                   long_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The long name of the variable in the file
+
+   name                   fieldnam
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            A description of the variable (up to 30 characters).
+
+   name                   standard_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Optional Attribute to identify the variable with a specific standard name (see python script add metadata)
+
+   name                   dimensions
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The dimensions of the variable in the file
+
+   name                   dim_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The names of dimensions the variable in the file
+
+   name                   units
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The unit of the variable in the file
+
+   name                   level_type
+   version                1.23
+   value data type        ASCII_Real
+   description            level/model/height at which variable is outputted
+
+   name                   validmin
+   version                1.23
+   value data type        ASCII_Real
+   description            The minimum valid value for a variable.
+
+   name                   validmax
+   version                1.23
+   value data type        ASCII_Real
+   description            The maximum valid value for a variable.
+
+   name                   missing_value
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The unit of the variable in the file
+
+   name                   scale_factor
+   version                1.23
+   value data type        ASCII_Real
+   description             scale factor provides the multiplier to the packed value, unpacked_value=packed_value * scale_factor + add_offset
+
+   name                   add_offset
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            add_offset if there is any; scale factor and add offset are used to reduce the storage space of packed variable unpacked_value = packed_value * scale_factor + add_offset
+
+   name                   stagger
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The unit of the variable in the file
+
+   name                   memory_order
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The dimensions of the variable in the file
+
+   name                   catdesk
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Approximately 80-character string which is a textual description of the variable
+
+   name                   format
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The format of the variable in the file
+
+   name                   monoton
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Whether the variable is monotonically increasing or monotonically decreasing. A value of INCREASE indicates strictly increasing values, DECREASE strictly decreasing values, or FALSE indicates not monotonic
+
+   name                   fillval
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The value used for missing or invalid variable values.
+
+   name                   description
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            any additional description of the variable, processing, etc
+
+   name                   var_type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies a variable as either data, support_data, metadata or ignore_data.
+
+   name                   cell_methods
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            ia string attribute comprising a list of blank-separated words of the form "name: method". Each "name: method" pair indicates that for an axis identified by name, the cell values representing the field have been determined or derived by the specified method. For example, if data values have been generated by computing time means, then this could be indicated with cell_methods="time:mean(interval=2 hours)"
+
+   name                   formula_terms
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            an attribute used to associate terms in the definitions with variables in a netCDF file
+
+   name                   coord_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The name of the variable in the file
+
+   name                   axis
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies latitude, longitude, vertical, or time axes.
+
+   name                   positive
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             the direction in which the coordinate values are increasing
+
+   name                   calendar
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            In order to calculate a new date and time given a base date, base time and a time increment one must know what calendar to use. For this purpose we recommend that the calendar be specified by the attribute calendar which is assigned to the time coordinate variable.
+
+   name                   day_length
+   version                1.23
+   value data type        ASCII_Real
+   description            The unit of the variable in the file
+   unit of measure type   Units_of_Time
+
+   name                   month_length
+   version                1.23
+   value data type        ASCII_Real
+   description            If none of the calendar types apply, a non-standard calendar can be defined. The user must explicitly define the number of days per month
+   unit of measure type   Units_of_Time
+
+   name                   maximum_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            the maximum boundary of the coordinate
+
+   name                   minimum_boundary
+   version                1.23
+   value data type        ASCII_Real
+   description            the minimum boundary of the coordinate
+
+Parsed Input - Classes:
+
+   name                   Model_Metadata
+   description            The Model_Metadata class contains those attributes and sub-classes that describe the model metadata. Metadata is anything that describes the model and specific simulation configuration that is not described by dimensions, coordinates or variables included in the data product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ama:type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:institution
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Simulation_Configuration
+   description            The Simulation_Configuration sub-class contains attributes that describe the specific simulation configuration that is not described by dimensions, coordinates or variables included in the data product. This class specifically describes the simulation configuration at runtime, not the data structure after processing (e.g. it provides the native vertical coordinate while the model output files may be interpolated to a new vertical grid
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ama:horizontal_grid_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:model_resolution
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:model_resolution_unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:vertical_grid_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:vertical_grid_unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:model_timestep
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:model_timestep_unit
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:upper_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:lower_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:northern_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:southern_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:eastern_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:western_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:end_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   File_Description
+   description            The file_description sub-class contains attributes that describe the specific file, rather than the original simulation. The intention is to make the data searchable, e.g for a specific location or time of year.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ama:top_level
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:bottom_level
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:end_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:postprocessing_methods
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Variable
+   description            The variable sub-class contains attributes that describe variables and coordinates in external data files.These attributes should be populated automatically for each variable using the python script (readmetadata)
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ama:variable_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:long_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:fieldnam
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:standard_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:dimensions
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:dim_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:units
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:level_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:validmin
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:validmax
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:missing_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:scale_factor
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:add_offset
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:stagger
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:memory_order
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:catdesk
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:format
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:monoton
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:fillval
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:var_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:cell_methods
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:formula_terms
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Coordinate
+   description            The coordinate sub-class contains attributes that describe coordinates in external data files.These attributes should be populated automatically for each variable using the python script (readmetadata)
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ama:coord_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:standard_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:formula_terms
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:dimensions
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:dim_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:units
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:axis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:positive
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:calendar
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:day_length
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:month_length
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:maximum_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:minimum_boundary
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      ama:description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Model_Output
+   description            The Model_Output class contains those attributes and sub-classes that describe the model output. Model output includes coordinate, dimensions and variable products as well as information about variable processing, for example, to generate figure data. Most attributes are generated automatically from the python script 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ama:File_Description
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ama:Variable
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ama:Coordinate
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   AMA
+   description            This is the umbrella class for the AMA (Atmospheric Modeling Annex) local dictionary.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      ama:Model_Metadata
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ama:Simulation_Configuration
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      ama:Model_Output
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

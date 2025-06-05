@@ -9,7 +9,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd">
     <name>MRO</name>
-    <ldd_version_id>1.3.2.0</ldd_version_id>
+    <ldd_version_id>1.3.3.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
@@ -18,7 +18,7 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.3.2.0
+        MRO version 1.3.3.0
         PDS Build 1.19.0.0, 1.20.0.0, 1.21.0.0, 1.22.0.0
         LDDTool version 15.0.6
         
@@ -50,8 +50,10 @@
         
         2024-09-16 JGW. Revised SCLK pattern to allow between 1 and 6 fractional digits.
         
+        2025-12016 TMH. v1.3.3.0 Added BADCAL enumeration to special_processing_flag_* for HiRISE
+        
     </comment>
-    <last_modification_date_time>2024-09-16T05:32</last_modification_date_time>
+    <last_modification_date_time>2025-12-16T10:22</last_modification_date_time>
 
 <!--Hierarchy of classes and attributes 
     mro:MRO_Parameters
@@ -4531,18 +4533,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red1</name>
@@ -4561,18 +4569,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red2</name>
@@ -4591,18 +4605,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red3</name>
@@ -4621,18 +4641,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red4</name>
@@ -4651,18 +4677,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red5</name>
@@ -4681,18 +4713,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red6</name>
@@ -4711,18 +4749,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red7</name>
@@ -4741,18 +4785,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red8</name>
@@ -4771,18 +4821,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_red9</name>
@@ -4801,18 +4857,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_ir10</name>
@@ -4831,18 +4893,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_ir11</name>
@@ -4861,18 +4929,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_bg12</name>
@@ -4891,18 +4965,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>special_processing_flag_bg13</name>
@@ -4921,18 +5001,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-	     <DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>NOMINAL</value>
-		<value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
-             </DD_Permissible_Value>
-	     <DD_Permissible_Value>
+                <value_meaning>the standard calibration processing was used for the CCD image.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>CUBENORM</value>
-		<value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
-             </DD_Permissible_Value>	         	     
-	     <DD_Permissible_Value>
+                <value_meaning>the calibration processing used a columnar gain correction based on columnar statistics of the image.</value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
+                <value>BADCAL</value>
+                <value_meaning>The channel could not be properly calibrated. This may be due to data gaps or 
+                    instabilities in the instrument electronics (eg. Bitflips).
+                </value_meaning>
+            </DD_Permissible_Value>	         	     
+            <DD_Permissible_Value>
                 <value>NULL</value>
-		<value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
-             </DD_Permissible_Value>	         	     
+                <value_meaning>the CCD was not operating or was missing for this observation.</value_meaning>
+            </DD_Permissible_Value>	         	     
         </DD_Value_Domain>
     </DD_Attribute>	
     <DD_Attribute><name>tdi_red0</name>

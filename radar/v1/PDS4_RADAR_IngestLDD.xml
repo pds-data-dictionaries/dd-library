@@ -8,7 +8,7 @@
 	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd">
 
 	<name>Radar</name>
-    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <ldd_version_id>1.2.0.0</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
 	<full_name>Jesse Stone</full_name>
 	<steward_id>sbn</steward_id>
@@ -21,7 +21,7 @@
         <local_identifier>range_resolution_distance</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Range resolution of products, expressed in units of distance. The minimum separation distance that can be resolved between two closely spaced targets by a radar.</definition>
+        <definition>The minimum separation distance that can be resolved between two closely spaced targets by a radar in units of distance, based on the properties of the transmitted signal.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -33,11 +33,11 @@
 
     <DD_Attribute>
         <name>range_resolution_time</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>range_resolution_time</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Range resolution of products, expressed in units of time.  The minimum separation distance that can be resolved between two closely spaced targets by a radar.</definition>
+        <definition>The minimum separation distance that can be resolved between two closely spaced targets by a radar in units of time, based on the properties of the transmitted signal.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -50,11 +50,12 @@
     
     <DD_Attribute>
         <name>transmitter_to_receiver_lighttime</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>transmitter_to_receiver_lighttime</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Distance from the transmitter, to the target, and back to the reciever at the time of observation, expressed as lighttime.</definition>
+        <definition>Specifies the distance from the transmitter, to the target, and back to the receiver at the time
+            of observation, expressed as light time.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -66,11 +67,11 @@
 
     <DD_Attribute>
         <name>matched_snr_ratio</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>matched_snr_ratio</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>total matched-filter signal-to-noise ratio in one run, expressed as an actual ratio</definition>
+        <definition>Specifies total matched-filter signal-to-noise ratio in one run, expressed as a ratio.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -80,11 +81,11 @@
 
     <DD_Attribute>
         <name>matched_snr_db</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>matched_snr_db</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>total matched-filter signal-to-noise ratio in one run, expressed in db</definition>
+        <definition>Specifies the total matched-filter signal-to-noise ratio in one run, expressed in db.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -94,14 +95,14 @@
 
     <DD_Attribute>
         <name>range_depth_distance</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>range_depth_distance</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Range depth in units of range_resolution. This is an indicator of observation usefulness for analysis</definition>
+        <definition>Range_depth_distance is the line-of-sight distance from the nearest to the farthest illuminated range element in the product. This is an indicator of the usefulness of the observation for analysis.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
             <minimum_value>0</minimum_value>
             <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
             <specified_unit_id>m</specified_unit_id>
@@ -110,14 +111,14 @@
 
     <DD_Attribute>
         <name>range_depth_time</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>range_depth_time</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Range depth in units of range_resolution. This is an indicator of observation usefulness for analysis</definition>
+        <definition>Range_depth_time is the round-trip time delay from the nearest to the farthest illuminated range element in the product. This is an indicator of the usefulness of the observation for analysis.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
             <minimum_value>0</minimum_value>
             <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
             <specified_unit_id>s</specified_unit_id>
@@ -126,11 +127,11 @@
 
     <DD_Attribute>
         <name>transmitter_power</name>
-        <version_id>2.0</version_id>
+        <version_id>2.1</version_id>
         <local_identifier>transmitter_power</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>transmitter power input to antenna</definition>
+        <definition>Specifies the transmitter power</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -141,12 +142,29 @@
     </DD_Attribute>
 
     <DD_Attribute>
-        <name>pulse_repetition_frequency</name>
+        <name>transmitter_frequency</name>
         <version_id>1.0</version_id>
+        <local_identifier>transmitter_frequency</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Specifies the transmitter frequency.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
+            <specified_unit_id>Hz</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+
+    <DD_Attribute>
+        <name>pulse_repetition_frequency</name>
+        <version_id>1.1</version_id>
         <local_identifier>pulse_repetition_frequency</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>For repeating waveforms including pulse patterns, the frequency at which the waveform or pulse pattern repeats.</definition>
+        <definition>For repeating waveforms including pulse patterns, it specifies the frequency at which the waveform or pulse pattern repeats.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -158,11 +176,11 @@
 
     <DD_Attribute>
         <name>pulse_repetition_interval</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>pulse_repetition_interval</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>For repeating waveforms including pulse patterns, the interval from the beginning of one waveform or pulse pattern to the beginning of the next.</definition>
+        <definition>For repeating waveforms including pulse patterns, it specifies the interval from the beginning of one waveform or pulse pattern to the beginning of the next.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -175,11 +193,11 @@
 
     <DD_Attribute>
         <name>pixel_count</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>pixel_number</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>number of pixels in an image with measurable signal</definition>
+        <definition>Specifies the number of pixels in an image with measurable signal.</definition>
 <!-- If this is not nillable, what happens when the product is not an image? -->
 <!-- JS: this is not required, so does not have to be nillable -->
         <DD_Value_Domain>
@@ -228,11 +246,11 @@
 
     <DD_Attribute>
         <name>sample_rate</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>sample_rate</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>For a data acquisition system, the interval between the beginning of one time sample and the beginning of the next time sample.</definition>
+        <definition>Specifies the frequency at which samples repeat for a data acquisition system.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -240,16 +258,36 @@
             <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
             <specified_unit_id>Hz</specified_unit_id>
         </DD_Value_Domain>
-    </DD_Attribute>    
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>sample_interval</name>
+        <version_id>1.1</version_id>
+        <local_identifier>sample_interval</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Specifies the interval between the beginning of one time sample and the beginning of the next time sample for a data acquisition system</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+            <specified_unit_id>s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
 
     <DD_Attribute>
         <name>sample_type</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>sample_type</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>For a data acquisition system, whether the time samples are real values or complex value pairs obtained simultaneously. Does not imply a numeric format.
-                    Sample Type is whether the (usually voltage) samples are single real values or a complex number pair (a + ib), which depends on the hardware used to do it. In either case, the numbers themselves can be any numeric type. In raw form, they are usually few-bit integers or pairs of few-bit integers. But they may get converted to floating point in processing if filtering is done in software.
+        <definition>Specifies whether the time samples are real values or complex value pairs obtained simultaneously
+            for a data acquisition system. It does not imply a numeric format. Sample Type is whether the (usually
+            voltage) samples are single real values or a complex number pair (a + ib), which depends on the hardware
+            used. In either case, the numbers themselves can be any numeric type. In raw form, they are usually
+            few-bit integers or pairs of few-bit integers. But they may get converted to floating point in processing.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
@@ -268,10 +306,10 @@
 
     <DD_Class>
         <name>Radar</name>
-        <version_id>1.1</version_id>
+        <version_id>1.2</version_id>
         <local_identifier>Radar</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>This class is the top level class that contains other radar classes, separated by sub-discipline.</definition>
+        <definition>This class specifies the parameters for radar data.</definition>
         <element_flag>true</element_flag>
         <DD_Association>
             <identifier_reference>Groundbased_Radar</identifier_reference>
@@ -283,10 +321,10 @@
 
     <DD_Class>
         <name>Groundbased_Radar</name>
-        <version_id>2.0</version_id>
+        <version_id>2.1</version_id>
         <local_identifier>Groundbased_Radar</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>This class contains attributes that describe metadata pertinent to radar observations / data from Arecibo, Goldstone, and similar installations.</definition>
+        <definition>This class specifies the parameters for radar observations acquired from groundbased facilities. Indicates that the observations were carried out with a groundbased radar facility.</definition>
         <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>observation_purpose</identifier_reference>
@@ -322,10 +360,10 @@
 
     <DD_Class>
         <name>Transmission_Properties</name>
-        <version_id>2.0</version_id>
+        <version_id>4.0</version_id>
         <local_identifier>Transmission_Properties</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Transmission properties</definition>
+        <definition>Specifies the transmission properties of the radar used for the observations.</definition>
         <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>range_resolution_time</identifier_reference>
@@ -340,40 +378,37 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
+            <identifier_reference>transmitter_frequency</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
             <identifier_reference>transmitter_power</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>1</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
             <identifier_reference>pulse_repetition_frequency</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>pulse_repetition_interval</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
-
     </DD_Class>
     
     <DD_Class>
         <name>Quality</name>
-        <version_id>1.1</version_id>
+        <version_id>2.0</version_id>
         <local_identifier>Quality</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Quality</definition>
+        <definition>Specifies the quality of the radar observations.</definition>
         <element_flag>false</element_flag>
         <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
             <identifier_reference>matched_snr_ratio</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>matched_snr_db</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -389,10 +424,10 @@
 
     <DD_Class>
         <name>Target_Properties</name>
-        <version_id>1.1</version_id>
+        <version_id>1.2</version_id>
         <local_identifier>Target_Properties</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Target Properties</definition>
+        <definition>Gives pertinent radar properties with respect to the target</definition>
         <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>transmitter_to_receiver_lighttime</identifier_reference>
@@ -416,10 +451,10 @@
 
     <DD_Class>
         <name>Sampling_Properties</name>
-        <version_id>1.0</version_id>
+        <version_id>2.0</version_id>
         <local_identifier>Sampling_Properties</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Sampling Properties</definition>
+        <definition>Specifies the sampling propertied of the radar observations.</definition>
         <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>sample_type</identifier_reference>
@@ -428,7 +463,9 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
             <identifier_reference>sample_rate</identifier_reference>
+            <identifier_reference>sample_interval</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>1</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -442,7 +479,7 @@
         <DD_Rule_Statement>
             <rule_type>Assert</rule_type>
             <rule_test>//radar:range_resolution_time</rule_test>
-            <rule_message>If range_depth_time is specified specified, range_resolution_time must also be specified.</rule_message>
+            <rule_message>If range_depth_time is specified, range_resolution_time must also be specified.</rule_message>
         </DD_Rule_Statement>
         <DD_Rule_Statement>
             <rule_type>Assert</rule_type>
@@ -458,7 +495,7 @@
         <DD_Rule_Statement>
             <rule_type>Assert</rule_type>
             <rule_test>//radar:range_resolution_distance</rule_test>
-            <rule_message>If range_depth_distance is specified specified, range_resolution_distance must also be specified.</rule_message>
+            <rule_message>If range_depth_distance is specified, range_resolution_distance must also be specified.</rule_message>
         </DD_Rule_Statement>
         <DD_Rule_Statement>
             <rule_type>Assert</rule_type>

@@ -1,0 +1,312 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.3.0
+   LDD Version Id:        1.2.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Tue May 06 20:30:51 UTC 2025
+   Common Schema          [PDS4_PDS_1O00.xsd]
+   Common Schematron      [PDS4_PDS_1O00.sch]
+   IM Version Id:         1.24.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-radar/ldd-radar/src/PDS4_RADAR_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                6
+   Attributes             16
+   Associations           21
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Radar
+   LDD Version            1.2.0.0
+   Full Name              Jesse Stone
+   Steward                sbn
+   Namespace Id           radar
+   Comment                The Radar dictionary contains classes that support radar observations.
+   Last Modification Time 2024-03-21T19:30:00.000Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   range_resolution_distance
+   version                1.24
+   value data type        ASCII_Real
+   description            The minimum separation distance that can be resolved between two closely spaced targets by a radar in units of distance, based on the properties of the transmitted signal.
+   minimum value          0
+   unit of measure type   Units_of_Length
+
+   name                   range_resolution_time
+   version                1.24
+   value data type        ASCII_Real
+   description            The minimum separation distance that can be resolved between two closely spaced targets by a radar in units of time, based on the properties of the transmitted signal.
+   minimum value          0
+   unit of measure type   Units_of_Time
+
+   name                   transmitter_to_receiver_lighttime
+   version                1.24
+   value data type        ASCII_Real
+   description            Specifies the distance from the transmitter, to the target, and back to the receiver at the time of observation, expressed as light time.
+   minimum value          0
+   unit of measure type   Units_of_Time
+
+   name                   matched_snr_ratio
+   version                1.24
+   value data type        ASCII_Real
+   description            Specifies total matched-filter signal-to-noise ratio in one run, expressed as a ratio.
+   minimum value          0
+
+   name                   matched_snr_db
+   version                1.24
+   value data type        ASCII_Real
+   description            Specifies the total matched-filter signal-to-noise ratio in one run, expressed in db.
+   minimum value          0
+
+   name                   range_depth_distance
+   version                1.24
+   value data type        ASCII_Real
+   description            Range_depth_distance is the line-of-sight distance from the nearest to the farthest illuminated range element in the product. This is an indicator of the usefulness of the observation for analysis.
+   minimum value          0
+   unit of measure type   Units_of_Length
+
+   name                   range_depth_time
+   version                1.24
+   value data type        ASCII_Real
+   description            Range_depth_time is the round-trip time delay from the nearest to the farthest illuminated range element in the product. This is an indicator of the usefulness of the observation for analysis.
+   minimum value          0
+   unit of measure type   Units_of_Time
+
+   name                   transmitter_power
+   version                1.24
+   value data type        ASCII_Real
+   description            Specifies the transmitter power
+   minimum value          0
+   unit of measure type   Units_of_Power
+
+   name                   transmitter_frequency
+   version                1.24
+   value data type        ASCII_Real
+   description            Specifies the transmitter frequency.
+   minimum value          0
+   unit of measure type   Units_of_Frequency
+
+   name                   pulse_repetition_frequency
+   version                1.24
+   value data type        ASCII_Real
+   description            For repeating waveforms including pulse patterns, it specifies the frequency at which the waveform or pulse pattern repeats.
+   minimum value          0
+   unit of measure type   Units_of_Frequency
+
+   name                   pulse_repetition_interval
+   version                1.24
+   value data type        ASCII_Real
+   description            For repeating waveforms including pulse patterns, it specifies the interval from the beginning of one waveform or pulse pattern to the beginning of the next.
+   minimum value          0
+   unit of measure type   Units_of_Time
+
+   name                   pixel_count
+   version                1.24
+   value data type        ASCII_Integer
+   description            Specifies the number of pixels in an image with measurable signal.
+   minimum value          0
+
+   name                   observation_purpose
+   version                1.24
+   value data type        UTF8_Short_String_Collapsed
+   description            Type of radar experiment being performed. Simpler experiments can have higher signal-to-noise or simpler hardware configurations, while more complicated experiments provide more information. ‘Range’ and ‘Total Power’ are mostly historical.
+
+   name                   sample_rate
+   version                1.24
+   value data type        ASCII_Real
+   description            Specifies the frequency at which samples repeat for a data acquisition system.
+   minimum value          0
+   unit of measure type   Units_of_Frequency
+
+   name                   sample_interval
+   version                1.24
+   value data type        ASCII_Real
+   description            Specifies the interval between the beginning of one time sample and the beginning of the next time sample for a data acquisition system
+   minimum value          0
+   unit of measure type   Units_of_Time
+
+   name                   sample_type
+   version                1.24
+   value data type        UTF8_Short_String_Collapsed
+   description            Specifies whether the time samples are real values or complex value pairs obtained simultaneously for a data acquisition system. It does not imply a numeric format. Sample Type is whether the (usually voltage) samples are single real values or a complex number pair (a + ib), which depends on the hardware used. In either case, the numbers themselves can be any numeric type. In raw form, they are usually few-bit integers or pairs of few-bit integers. But they may get converted to floating point in processing. 
+
+Parsed Input - Classes:
+
+   name                   Radar
+   description            This class specifies the parameters for radar data.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      radar:Groundbased_Radar
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Groundbased_Radar
+   description            This class specifies the parameters for radar observations acquired from groundbased facilities. Indicates that the observations were carried out with a groundbased radar facility.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      radar:observation_purpose
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:Transmission_Properties
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      radar:Quality
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      radar:Target_Properties
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      radar:Sampling_Properties
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Transmission_Properties
+   description            Specifies the transmission properties of the radar used for the observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      radar:range_resolution_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:range_resolution_distance
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:transmitter_frequency
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:transmitter_power
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:pulse_repetition_frequency
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:pulse_repetition_interval
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Quality
+   description            Specifies the quality of the radar observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      radar:matched_snr_ratio
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:matched_snr_db
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:pixel_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Target_Properties
+   description            Gives pertinent radar properties with respect to the target
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      radar:transmitter_to_receiver_lighttime
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:range_depth_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:range_depth_distance
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Sampling_Properties
+   description            Specifies the sampling propertied of the radar observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      radar:sample_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:sample_rate
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      radar:sample_interval
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

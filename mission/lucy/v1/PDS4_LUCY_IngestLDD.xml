@@ -1,0 +1,2133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.sch"
+  schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd">
+  <name>Lucy Mission LDD</name>
+  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <dictionary_type>Mission</dictionary_type>
+  <full_name>Crombie, M. Katherine</full_name>
+  <steward_id>katecrombie</steward_id>
+  <namespace_id>lucy</namespace_id>
+  <last_modification_date_time>2024-08-07T00:00:00Z</last_modification_date_time>
+  <DD_Attribute>
+    <name>observation_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.observation_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission observation identifier.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>99999</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>observation_id_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.observation_id_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission observation identifier counter. This number increments by 1 with each planned observation sequence (L'LORRI only).
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>99999</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>observation_complete</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.observation_complete</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission observation completion status.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>COMPLETE</value>
+        <value_meaning>The observation is complete as planned.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>INCOMPLETE</value>
+        <value_meaning>The as-planned observation is incomplete.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNKNOWN</value>
+        <value_meaning>Available information is insufficient to determine completion status.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>observation_missing_packets</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.observation_missing_packets</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The number of missing packets in the observation. The best data quality has no missing packets.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>start_sclk</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.start_sclk</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy spacecraft clock (SCLK) time (in seconds) at the start of the observation.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mid_sclk</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.mid_sclk</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy spacecraft clock (SCLK) time (in seconds) at the mid-time of the observation.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>stop_sclk</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.stop_sclk</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy spacecraft clock (SCLK) time (in seconds) at the end of the observation.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mid_utc</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.mid_utc</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The middle time of the observation in ISO UTC format "YYYY-MM-DDTHH:MM:SS.sss"
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mid_sclk_string</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.mid_sclk_string</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The middle time of the observation in Lucy spacecraft clock string partition/SSSSSSSSSS-PPPPP, where S is seconds and P are ticks in units of 1/66535 of a second.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>\d/\d{10}-\d{5}</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mid_utc_doy</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.mid_utc_doy</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The middle time of the observation in ISO DOY format, YYYY-DOYTHH:MM:SS.sss</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_DOY_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mid_utc_jd</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.mid_utc_jd</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The middle time of the observation in Julian day format.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>julian day</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mid_ephemeris_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.mid_ephemeris_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The middle time of the observation in ephemeris time, seconds past J2000, TDB.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ccsds_sclk_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Time_Information.ccsds_sclk_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy spacecraft clock time of the CCSDS playback timestamp in seconds.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>load_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.load_identifier</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The command sequence load identifier</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>21289</minimum_value>
+      <maximum_value>99999</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mission_segment</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.mission_segment</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission segment</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+      <DD_Permissible_Value>
+        <value>CRUISE 1</value>
+        <value_meaning>The Cruise 1 Lucy Mission segment from date XXXX to date XXX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>EGA 1</value>
+        <value_meaning>The EGA 1 (Earth Gravity Assist) Lucy Mission segment from date XXXX to date XXX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CRUISE 2</value>
+        <value_meaning>The Cruise 2 Lucy Mission segment from date XXXX to date XXX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DINKINESH</value>
+        <value_meaning>The Dinkinesh encounter Lucy Mission segment from date XXXX to date XXX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>CRUISE 3</value>
+        <value_meaning>The Cruise 3 Lucy Mission segment from date XXXX to date XXX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>EGA 2</value>
+        <value_meaning>The EGA 2 (Earth Gravity Assist) Lucy Mission segment from date XXXX to date XXX.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DONALDJOHANSON</value>
+        <value_meaning>The Donaldjohanson encounter Lucy Mission segment from date XXXX to date XXX.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>sap_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.sap_identifier</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission science activity plan identifier.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>SAP\.(RA|MV|LE|LO|TE|TT)\.(C|E|N)\.\d{3}\.(s(1|2)\.)?v\d{2}__[\w_]{1,22}</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>visit_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.visit_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission trojan asteroid visit name.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>\d{5}\.(crus|ega1|dnky|ega2|donj|eury|poly|leuc|orus|ega3|pmbi)\.(RA|MV|LE|LO|TE|TT)\.(C|E|N)\.\d{3}\.v\d{2}\.\d{3}\w{2}__[\w_]{1,22}</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>instrument_side</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.instrument_side</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy elctronics side.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>SIDE_1</value>
+        <value_meaning>The "A" electronics side. This is the default electronics side.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>SIDE_2</value>
+        <value_meaning>The "B" electronics side. This is the redundant fault protection side used in case of an error on the "A" side.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>N/A</value>
+        <value_meaning>Not applicable.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>llorri_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.llorri_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The status of the L'LORRI instrument.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ACTIVE</value>
+        <value_meaning>The instrument is active.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>POWERED</value>
+        <value_meaning>The instrument is powered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNPOWERED</value>
+        <value_meaning>The instrument is unpowered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNKNOWN</value>
+        <value_meaning>The instrument status is unknown.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>lralph_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.lralph_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The status of the L'RALPH instrument.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ACTIVE</value>
+        <value_meaning>The instrument is active.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>POWERED</value>
+        <value_meaning>The instrument is powered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNPOWERED</value>
+        <value_meaning>The instrument is unpowered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNKNOWN</value>
+        <value_meaning>The instrument status is unknown.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ltes_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.ltes_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The status of the L'TES instrument.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ACTIVE</value>
+        <value_meaning>The instrument is active.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>POWERED</value>
+        <value_meaning>The instrument is powered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNPOWERED</value>
+        <value_meaning>The instrument is unpowered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNKNOWN</value>
+        <value_meaning>The instrument status is unknown.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ttcam_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning.ttcam_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The status of the TTCAM instrument.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ACTIVE</value>
+        <value_meaning>The instrument is active.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>POWERED</value>
+        <value_meaning>The instrument is powered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNPOWERED</value>
+        <value_meaning>The instrument is unpowered.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>UNKNOWN</value>
+        <value_meaning>The instrument status is unknown.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>target_fov_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Target_List.target_fov_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The number of possible targets in FOV (SPICE-derived).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>target_fov_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Target_List.target_fov_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The name of the possible target in FOV (SPICE-derived).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>internal_product_version_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Product_Information.internal_product_version_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy pipeline internal data processing version number. This number is likely to be grater than the PDS version number given in the version_id attribute in the Observation_Area.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>attached_sync_marker_dec</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.attached_sync_marker_dec</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Attached Sync Marker, decimal representation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>attached_sync_marker_hex</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.attached_sync_marker_hex</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Attached Sync Marker, hexidecimal representation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <pattern>0x[0-9A-Fa-f]{8}</pattern>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>latch_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.latch_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The number of times a latchup has occurred.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>calibration_lamp_level_1</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.calibration_lamp_level_1</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Digital Number (DN) setting for calibration lamp one.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>calibration_lamp_level_2</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.calibration_lamp_level_2</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Digital Number (DN) setting for calibration lamp two.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>bias_level</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.bias_level</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>The lucy:bias_level attribute appears in calibrated L'LORRI data products and contains the mean bias level of the detector's dark columns.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>read_noise</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.read_noise</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>The lucy:read_noise attribute appears in calibrated L'LORRI data products and provides the CCD read noise for the image.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>ccd_gain</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.ccd_gain</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>The lucy:ccd_gain attribute appears in calibrated L'LORRI data products and provides the CCD gain setting for the image.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>electron/DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>bias_offset</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.bias_offset</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>The lucy:bias_offset attribute appears in calibrated L'LORRI data products and provides the CCD bias offset between the active and inactive regions of the detector.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0</minimum_value>
+      <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+      <specified_unit_id>electron/DN</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>frame_transfer_scrub_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters.frame_transfer_scrub_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:frame_transfer_scrub_time attribute appears in calibrated L'LORRI data products and contains the instrument's frame transfer/scrub time.
+      For the L'LORRI instrument, these two quantities (transfer and scrub times) are exactly equal.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>11.0</minimum_value>
+      <maximum_value>12.0</maximum_value>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>ms</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>playback_start</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.playback_start</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Playback science header timstamp of the first m4 packet used in spacecraft clock seconds.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>playback_end</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.playback_end</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Playback science header timstamp of the last m4 packet used in spacecraft clock seconds.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>playback_bad_pixel_mask_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.playback_bad_pixel_mask_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Status of the bad pixel map, true or false</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>playback_truncation_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.playback_truncation_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Status of the truncation enabled, true or false</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>playback_header_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.playback_header_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Playback header type</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>LEISA_NONCDS</value>
+        <value_meaning>CDS is not used in the current LEISA observation (TBR)</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>LEISA_CDS</value>
+        <value_meaning>LIESA CDS mode is selected for the current observation (TBR)</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>MVIC</value>
+        <value_meaning>MVIC is selected for the current observation (TBR)</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>OTHER</value>
+        <value_meaning>Other values to be filled in. This is a placeholder.(TBR)</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>test_pattern_setting</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.test_pattern_setting</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The instrument test pattern setting, 0 is science, 1 is test pattern.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>2</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>hs_xtrack_start_row</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.hs_xtrack_start_row</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The cross track start row from the high speed header.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>scan_row_pixels</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.scan_row_pixels</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The number of pixels in the scan row.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <minimum_value>1</minimum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>fpecrc_error_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.fpecrc_error_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>FPE checksum error flag, true or false</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>m4_calibration_state</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.m4_calibration_state</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Calibration state (TBR)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>m4_blackbody_setting</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.m4_blackbody_setting</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Blackbody state (TBR)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>m4_filament_setting</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.m4_filament_setting</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Filament setting (TBR)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>fpe_drop_frames</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.fpe_drop_frames</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Number of FPE drop frames (TBR).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mce_scan_rate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.mce_scan_rate</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The MCE scan rate (TBR).</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Angular_Velocity</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>first_packet_timestamp</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.first_packet_timestamp</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The timestamp of the first packet recorded in spacraft clock seconds.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>last_packet_timestamp</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.last_packet_timestamp</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The timestamp of the last packet recorded in spacraft clock seconds.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+      <specified_unit_id>s</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>xsum_error_flag_status</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.xsum_error_flag_status</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Xsum flag indicating if there are errors in the stored data packet, true or false</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>lr_acquisition_start_block</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.lr_acquisition_start_block</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The L'Ralph observation acquisition start block address.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mce_start_postion</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.mce_start_position</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The MCE start position (TBR), units TBD</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mce_end_postion</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.mce_end_position</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The MCE start position (TBR), units TBD</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>board_selection</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.board_selection</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The instrument side selected</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>EM1</value>
+        <value_meaning>Engineering Model 1.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>EM2</value>
+        <value_meaning>Engineering Model 2</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>ETU</value>
+        <value_meaning>Engineering Test Unit</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>FM1</value>
+        <value_meaning>Flight Model 1</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>FM2</value>
+        <value_meaning>Flight Model 2</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>blocks_allocated</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters.blocks_allocated</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The number of blocks allocated</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_ccd_list</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_ccd_list</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>List of the MVIC CCDs used in this observation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_actual_atrack_summing</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_actual_atrack_summing</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>MVIC actual along track pixel summing.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_actual_xtrack_summing</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_actual_xtrack_summing</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>MVIC actual along track pixel summing.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_planned_atrack_summing</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_planned_atrack_summing</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>MVIC actual summing mode.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_planned_xtrack_summing</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_planned_xtrack_summing</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>MVIC planned along track pixel summing.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_summing_mode</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_summing_mode</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>MVIC planned summing mode.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>actual_ccd1_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.actual_ccd1_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Actual CCD 1 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>actual_ccd2_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.actual_ccd2_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Actual CCD 2 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>actual_ccd3_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.actual_ccd3_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Actual CCD 3 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>actual_ccd4_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.actual_ccd4_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Actual CCD 4 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>actual_ccd5_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.actual_ccd5_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Actual CCD 5 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>actual_ccd6_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.actual_ccd6_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>Actual CCD 6 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>planned_ccd1_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.planned_ccd1_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The planned CCD 1 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>planned_ccd2_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.planned_ccd2_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The planned CCD 2 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>planned_ccd3_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.planned_ccd3_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The planned CCD 3 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>planned_ccd4_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.planned_ccd4_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The planned CCD 4 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>planned_ccd5_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.planned_ccd5_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The planned CCD 5 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>planned_ccd6_tdi_configuration</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.planned_ccd6_tdi_configuration</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The planned CCD 6 TDI configuration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_fpe_vis_temperature</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_fpe_vis_temperature</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The MVIC FPE VIS Temperature</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_observation_allocation</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_observation_allocation</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>MVIC allocated observation duration</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>mvic_tdi_row_integration_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters.mvic_tdi_row_integration_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>MVIC allocated observation duration</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>leisa_mode</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_mode</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA observation mode, T is CDS, F is NONCDS. (TBR)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_observation_allocation</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_observation_allocation</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA observation allocation duration.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_integration_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_integration_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA observation integration time (TBR)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_atrack_start_channel</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_atrack_start_channel</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA along track start channel</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_atrack_num_channels</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_atrack_num_channels</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA along track number of channels.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_xtrack_start_row</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_xtrack_start_row</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA cross track start row.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_xtrack_num_rows</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_xtrack_num_rows</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA cross track number of rows.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_offset</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_offset</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA offset (TBR)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>leisa_fpa_temperature</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters.leisa_fpa_temperature</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>LEISA Focal Plane Array Temperature</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>pivot_wavelength</name>
+    <version_id>1.0</version_id>
+    <local_identifier>pivot_wavelength</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The value contained in the lucy:pivot_wavelength attribute is used when converting
+      L'LORRI calibrated pixel values to physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+      <minimum_value>0.0</minimum_value>
+      <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+      <specified_unit_id>Angstrom</specified_unit_id>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>solar_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>solar_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:solar_constant attribute supplies the constant to be used for sources with 
+      a spectral distribution similar to the Sun to convert calibrated pixel values to
+      physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>red_trojan_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>red_trojan_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:red_trojan_constant attribute supplies the constant to be used for sources
+      with a spectral distribution similar to that of "red" Trojans to convert calibrated
+      pixel values to physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>gray_trojan_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>gray_trojan_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:gray_trojan_constant attribute supplies the constant to be used for sources
+      with a spectral distribution similar to that of "gray" Trojans to convert calibrated
+      pixel values to physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>dinkinesh_constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>dinkinesh_constant</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:dinkinesh_constant attribute supplies the constant to be used for sources with
+      a spectral distribution similar to that of Dinkinesh to convert calibrated pixel values
+      to physical units.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>photometric_zero_point</name>
+    <version_id>1.0</version_id>
+    <local_identifier>photometric_zero_point</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:photometric_zero_point attribute supplies the photometric zero point to be used
+      to convert between units of (ir)radiance and visual magnitude, V.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>units_of_conversion_constants</name>
+    <version_id>1.0</version_id>
+    <local_identifier>units_of_conversion_constants</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      For resolved sources, the radiometric conversion produces data in units of radiance.
+      For unresolved sources, the conversion results in units of flux (irradiance).
+      The lucy:units_of_conversion_constants attribute contains the appropriate physical
+      units for the conversion constants in the class in which it is contained to produce
+      either radiance or flux units, as appropriate, when the conversion is applied.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>(DN/s)/(erg/cm^2/s/Angstrom)</value>
+        <value_meaning>
+          Units for conversion factors for unresolved (point) sources, to produce units
+          of flux (irradiance).
+        </value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>(DN/s/pixel)/(erg/cm^2/s/Angstrom/sr)</value>
+        <value_meaning>
+          Units for conversion factors for resolved (diffuse) sources, to produce units
+          of radiance.
+        </value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Class>
+    <name>Diffuse_Source</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Diffuse_Source</local_identifier>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:Point_Source class presents radiometric conversion constants for converting
+      calibrated pixel values into physical units for resolved/extended sources.
+    </definition>
+    <DD_Association>
+      <identifier_reference>units_of_conversion_constants</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>solar_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>red_trojan_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>gray_trojan_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>dinkinesh_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>Lucy_Observation_Time_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Lucy_Observation_Time_Information</local_identifier>
+    <submitter_name>M.Katherine Crombie</submitter_name>
+    <definition>Lucy Mission observation identification and timing information.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.observation_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.observation_id_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.observation_complete</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.observation_missing_packets</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.start_sclk</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.mid_sclk</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.stop_sclk</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.mid_utc</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.mid_sclk_string</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.mid_utc_doy</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.mid_utc_jd</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.mid_ephemeris_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Time_Information.ccsds_sclk_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>Lucy_Observation_Planning</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Observation_Planning</local_identifier>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission observation planning class and attributes describe the observation planning information needed to understand the planned spacecraft observations.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.load_identifier</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.mission_segment</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.sap_identifier</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.visit_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.instrument_side</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.llorri_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.lralph_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.ltes_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Observation_Planning.ttcam_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>Lucy_Target_List</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Target_List</local_identifier>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission class that contains the target list of potential targets in a given observation.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Target_List.target_fov_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Target_List.target_fov_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>Lucy_Product_Information</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.Lucy_Product_Information</local_identifier>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy Mission class that contains attributes specific to the labeled data product.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.Lucy_Product_Information.internal_product_version_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>LLORRI_Instrument_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LLORRI_Instrument_Parameters</local_identifier>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy LORRI instrument class that contains instrument specific attributes relevant to the labeled data product.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.attached_sync_marker_dec</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.attached_sync_marker_hex</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.latch_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.calibration_lamp_level_1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.calibration_lamp_level_2</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.bias_level</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.read_noise</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.ccd_gain</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.bias_offset</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LLORRI_Instrument_Parameters.frame_transfer_scrub_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Radiometric_Conversion_Constants</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>LRalph_Instrument_Common_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LRalph_Instrument_Common_Parameters</local_identifier>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy LRalph instrument class that contains the common (LEISA and MVIC) instrument specific attributes relevant to the labeled data product.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.playback_start</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.playback_end</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.playback_bad_pixel_mask_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.playback_truncation_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.playback_header_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.test_pattern_setting</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.hs_xtrack_start_row</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.scan_row_pixels</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.scan_row_pixels</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.fpecrc_error_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.m4_calibration_state</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.m4_blackbody_setting</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.m4_filament_setting</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.fpe_drop_frames</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.mce_scan_rate</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.first_packet_timestamp</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.last_packet_timestamp</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.xsum_error_flag_status</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.lr_acquisition_start_block</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.mce_start_position</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.mce_end_position</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.board_selection</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LRalph_Instrument_Common_Parameters.blocks_allocated</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>LEISA_Instrument_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.LEISA_Instrument_Parameters</local_identifier>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy LRalph LEISA class that contains the instrument specific attributes relevant to the labeled data product.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_mode</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_observation_allocation</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_integration_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_atrack_start_channel</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_atrack_num_channels</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_xtrack_start_row</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_xtrack_num_rows</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_offset</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.LEISA_Instrument_Parameters.leisa_fpa_temperature</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>MVIC_Instrument_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>lucy.MVIC_Instrument_Parameters</local_identifier>
+    <submitter_name>M. Katherine Crombie</submitter_name>
+    <definition>The Lucy LRalph MVIC class that contains the instrument specific attributes relevant to the labeled data product.</definition>
+    <element_flag>true</element_flag>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_ccd_list</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_actual_atrack_summing</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_actual_xtrack_summing</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_planned_atrack_summing</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_planned_xtrack_summing</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_summing_mode</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.actual_ccd1_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.actual_ccd2_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.actual_ccd3_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.actual_ccd4_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.actual_ccd5_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.actual_ccd6_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.planned_ccd1_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.planned_ccd2_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.planned_ccd3_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.planned_ccd4_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.planned_ccd5_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.planned_ccd6_tdi_configuration</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_fpe_vis_temperature</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_observation_allocation</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>lucy.MVIC_Instrument_Parameters.mvic_tdi_row_integration_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>Point_Source</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Point_Source</local_identifier>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:Point_Source class presents radiometric conversion constants for converting
+      calibrated pixel values into physical units for unresolved/point sources.
+    </definition>
+    <DD_Association>
+      <identifier_reference>units_of_conversion_constants</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>solar_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>red_trojan_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>gray_trojan_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>dinkinesh_constant</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>
+    <name>Radiometric_Conversion_Constants</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Radiometric_Conversion_Constants</local_identifier>
+    <submitter_name>cgobat</submitter_name>
+    <definition>
+      The lucy:Radiometric_Conversion_Constants class provides the values needed to perform
+      the conversion from the calibrated pixel values to physical units. This conversion is
+      dependent on the spectral distribition of the source, the detector wavelength range,
+      and whether or not the source is resolved. 
+      
+      A description of how to convert from data values to physical units is provided
+      in the LLORRI SIS document.
+    </definition>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:lucy.llorri:documents:llorri_sis</lid_reference>
+      <reference_type>class_to_document</reference_type>
+    </Internal_Reference>
+    <DD_Association>
+      <identifier_reference>pivot_wavelength</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Diffuse_Source</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>Point_Source</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>photometric_zero_point</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+</Ingest_LDD>

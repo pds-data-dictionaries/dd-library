@@ -1,0 +1,1527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:lucy  Version:1.0.0.0 - Wed Oct 02 22:25:07 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.18.0.0 - System Build 12.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.18.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - lucy: - Lucy Mission LDD                                        -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/lucy/v1"
+    xmlns:lucy="http://pds.nasa.gov/pds4/mission/lucy/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+_TBD_Ingest_LDD
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="LEISA_Instrument_Parameters" type="lucy:LEISA_Instrument_Parameters"> </xs:element>
+  <xs:element name="LLORRI_Instrument_Parameters" type="lucy:LLORRI_Instrument_Parameters"> </xs:element>
+  <xs:element name="LRalph_Instrument_Common_Parameters" type="lucy:LRalph_Instrument_Common_Parameters"> </xs:element>
+  <xs:element name="Lucy_Observation_Planning" type="lucy:Lucy_Observation_Planning"> </xs:element>
+  <xs:element name="Lucy_Observation_Time_Information" type="lucy:Lucy_Observation_Time_Information"> </xs:element>
+  <xs:element name="Lucy_Product_Information" type="lucy:Lucy_Product_Information"> </xs:element>
+  <xs:element name="Lucy_Target_List" type="lucy:Lucy_Target_List"> </xs:element>
+  <xs:element name="MVIC_Instrument_Parameters" type="lucy:MVIC_Instrument_Parameters"> </xs:element>
+
+  <xs:complexType name="Diffuse_Source">
+    <xs:annotation>
+      <xs:documentation> The lucy:Point_Source class presents
+        radiometric conversion constants for converting calibrated pixel
+        values into physical units for resolved/extended sources.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="units_of_conversion_constants" type="lucy:units_of_conversion_constants" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_constant" type="lucy:solar_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="red_trojan_constant" type="lucy:red_trojan_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="gray_trojan_constant" type="lucy:gray_trojan_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="dinkinesh_constant" type="lucy:dinkinesh_constant" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lucy:units_of_conversion_constants = ('(DN/s)/(erg/cm^2/s/Angstrom)', '(DN/s/pixel)/(erg/cm^2/s/Angstrom/sr)')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="LEISA_Instrument_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Lucy LRalph LEISA class that contains the
+        instrument specific attributes relevant to the labeled data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="leisa_mode" type="lucy:leisa_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_observation_allocation" type="lucy:leisa_observation_allocation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_integration_time" type="lucy:leisa_integration_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_atrack_start_channel" type="lucy:leisa_atrack_start_channel" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_atrack_num_channels" type="lucy:leisa_atrack_num_channels" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_xtrack_start_row" type="lucy:leisa_xtrack_start_row" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_xtrack_num_rows" type="lucy:leisa_xtrack_num_rows" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_offset" type="lucy:leisa_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="leisa_fpa_temperature" type="lucy:leisa_fpa_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LLORRI_Instrument_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Lucy LORRI instrument class that contains
+        instrument specific attributes relevant to the labeled data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attached_sync_marker_dec" type="lucy:attached_sync_marker_dec" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="attached_sync_marker_hex" type="lucy:attached_sync_marker_hex" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="latch_count" type="lucy:latch_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="calibration_lamp_level_1" type="lucy:calibration_lamp_level_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="calibration_lamp_level_2" type="lucy:calibration_lamp_level_2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bias_level" type="lucy:bias_level" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="read_noise" type="lucy:read_noise" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_gain" type="lucy:ccd_gain" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bias_offset" type="lucy:bias_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="frame_transfer_scrub_time" type="lucy:frame_transfer_scrub_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Radiometric_Conversion_Constants" type="lucy:Radiometric_Conversion_Constants" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LRalph_Instrument_Common_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Lucy LRalph instrument class that contains
+        the common (LEISA and MVIC) instrument specific attributes
+        relevant to the labeled data product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="playback_start" type="lucy:playback_start" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="playback_end" type="lucy:playback_end" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="playback_bad_pixel_mask_status" type="lucy:playback_bad_pixel_mask_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="playback_truncation_status" type="lucy:playback_truncation_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="playback_header_type" type="lucy:playback_header_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="test_pattern_setting" type="lucy:test_pattern_setting" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="hs_xtrack_start_row" type="lucy:hs_xtrack_start_row" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scan_row_pixels" type="lucy:scan_row_pixels" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fpecrc_error_flag" type="lucy:fpecrc_error_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="m4_calibration_state" type="lucy:m4_calibration_state" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="m4_blackbody_setting" type="lucy:m4_blackbody_setting" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="m4_filament_setting" type="lucy:m4_filament_setting" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fpe_drop_frames" type="lucy:fpe_drop_frames" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mce_scan_rate" type="lucy:mce_scan_rate" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="first_packet_timestamp" type="lucy:first_packet_timestamp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="last_packet_timestamp" type="lucy:last_packet_timestamp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="xsum_error_flag_status" type="lucy:xsum_error_flag_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lr_acquisition_start_block" nillable="true" type="lucy:lr_acquisition_start_block" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mce_start_postion" type="lucy:mce_start_postion" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mce_end_postion" type="lucy:mce_end_postion" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="board_selection" type="lucy:board_selection" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="blocks_allocated" nillable="true" type="lucy:blocks_allocated" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lucy:playback_header_type = ('LEISA_CDS', 'LEISA_NONCDS', 'MVIC', 'OTHER')"/> -->
+    <!-- <xs:assert test="lucy:board_selection = ('EM1', 'EM2', 'ETU', 'FM1', 'FM2')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Lucy_Observation_Planning">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission observation planning class and
+        attributes describe the observation planning information needed
+        to understand the planned spacecraft
+        observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="load_identifier" nillable="true" type="lucy:load_identifier" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="mission_segment" type="lucy:mission_segment" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="sap_identifier" nillable="true" type="lucy:sap_identifier" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="visit_name" nillable="true" type="lucy:visit_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="instrument_side" type="lucy:instrument_side" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="llorri_status" type="lucy:llorri_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lralph_status" type="lucy:lralph_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ltes_status" type="lucy:ltes_status" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ttcam_status" type="lucy:ttcam_status" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lucy:mission_segment = ('CRUISE 1', 'CRUISE 2', 'CRUISE 3', 'DINKINESH', 'DONALDJOHANSON', 'EGA 1', 'EGA 2')"/> -->
+    <!-- <xs:assert test="lucy:instrument_side = ('N/A', 'SIDE_1', 'SIDE_2')"/> -->
+    <!-- <xs:assert test="lucy:llorri_status = ('ACTIVE', 'POWERED', 'UNKNOWN', 'UNPOWERED')"/> -->
+    <!-- <xs:assert test="lucy:lralph_status = ('ACTIVE', 'POWERED', 'UNKNOWN', 'UNPOWERED')"/> -->
+    <!-- <xs:assert test="lucy:ltes_status = ('ACTIVE', 'POWERED', 'UNKNOWN', 'UNPOWERED')"/> -->
+    <!-- <xs:assert test="lucy:ttcam_status = ('ACTIVE', 'POWERED', 'UNKNOWN', 'UNPOWERED')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Lucy_Observation_Time_Information">
+    <xs:annotation>
+      <xs:documentation>Lucy Mission observation identification and
+        timing information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="observation_id" type="lucy:observation_id" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="observation_id_count" type="lucy:observation_id_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_complete" type="lucy:observation_complete" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="observation_missing_packets" type="lucy:observation_missing_packets" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_sclk" type="lucy:start_sclk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_sclk" type="lucy:mid_sclk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_sclk" type="lucy:stop_sclk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_utc" type="lucy:mid_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_sclk_string" type="lucy:mid_sclk_string" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_utc_doy" type="lucy:mid_utc_doy" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_utc_jd" type="lucy:mid_utc_jd" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mid_ephemeris_time" type="lucy:mid_ephemeris_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccsds_sclk_time" type="lucy:ccsds_sclk_time" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lucy:observation_complete = ('COMPLETE', 'INCOMPLETE', 'UNKNOWN')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Lucy_Product_Information">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission class that contains attributes
+        specific to the labeled data product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="internal_product_version_id" type="lucy:internal_product_version_id" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Lucy_Target_List">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission class that contains the target
+        list of potential targets in a given
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="target_fov_count" type="lucy:target_fov_count" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="target_fov_name" type="lucy:target_fov_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MVIC_Instrument_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Lucy LRalph MVIC class that contains the
+        instrument specific attributes relevant to the labeled data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mvic_ccd_list" type="lucy:mvic_ccd_list" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_actual_atrack_summing" type="lucy:mvic_actual_atrack_summing" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_actual_xtrack_summing" type="lucy:mvic_actual_xtrack_summing" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_planned_atrack_summing" type="lucy:mvic_planned_atrack_summing" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_planned_xtrack_summing" type="lucy:mvic_planned_xtrack_summing" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_summing_mode" type="lucy:mvic_summing_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="actual_ccd1_tdi_configuration" type="lucy:actual_ccd1_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="actual_ccd2_tdi_configuration" type="lucy:actual_ccd2_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="actual_ccd3_tdi_configuration" type="lucy:actual_ccd3_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="actual_ccd4_tdi_configuration" type="lucy:actual_ccd4_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="actual_ccd5_tdi_configuration" type="lucy:actual_ccd5_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="actual_ccd6_tdi_configuration" type="lucy:actual_ccd6_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="planned_ccd1_tdi_configuration" type="lucy:planned_ccd1_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="planned_ccd2_tdi_configuration" type="lucy:planned_ccd2_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="planned_ccd3_tdi_configuration" type="lucy:planned_ccd3_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="planned_ccd4_tdi_configuration" type="lucy:planned_ccd4_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="planned_ccd5_tdi_configuration" type="lucy:planned_ccd5_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="planned_ccd6_tdi_configuration" type="lucy:planned_ccd6_tdi_configuration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_fpe_vis_temperature" type="lucy:mvic_fpe_vis_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_observation_allocation" type="lucy:mvic_observation_allocation" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mvic_tdi_row_integration_time" type="lucy:mvic_tdi_row_integration_time" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Point_Source">
+    <xs:annotation>
+      <xs:documentation> The lucy:Point_Source class presents
+        radiometric conversion constants for converting calibrated pixel
+        values into physical units for unresolved/point sources.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="units_of_conversion_constants" type="lucy:units_of_conversion_constants" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_constant" type="lucy:solar_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="red_trojan_constant" type="lucy:red_trojan_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="gray_trojan_constant" type="lucy:gray_trojan_constant" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="dinkinesh_constant" type="lucy:dinkinesh_constant" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="lucy:units_of_conversion_constants = ('(DN/s)/(erg/cm^2/s/Angstrom)', '(DN/s/pixel)/(erg/cm^2/s/Angstrom/sr)')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Radiometric_Conversion_Constants">
+    <xs:annotation>
+      <xs:documentation> The lucy:Radiometric_Conversion_Constants class
+        provides the values needed to perform the conversion from the
+        calibrated pixel values to physical units. This conversion is
+        dependent on the spectral distribition of the source, the
+        detector wavelength range, and whether or not the source is
+        resolved. A description of how to convert from data values to
+        physical units is provided in the LLORRI SIS document.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pivot_wavelength" type="lucy:pivot_wavelength" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Diffuse_Source" type="lucy:Diffuse_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Point_Source" type="lucy:Point_Source" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="photometric_zero_point" type="lucy:photometric_zero_point" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="actual_ccd1_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>Actual CCD 1 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="actual_ccd2_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>Actual CCD 2 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="actual_ccd3_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>Actual CCD 3 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="actual_ccd4_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>Actual CCD 4 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="actual_ccd5_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>Actual CCD 5 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="actual_ccd6_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>Actual CCD 6 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="attached_sync_marker_dec">
+    <xs:annotation>
+      <xs:documentation>Attached Sync Marker, decimal
+        representation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="attached_sync_marker_hex">
+    <xs:annotation>
+      <xs:documentation>Attached Sync Marker, hexidecimal
+        representation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='0x[0-9A-Fa-f]{8}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bias_level_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bias_level">
+    <xs:annotation>
+      <xs:documentation>The lucy:bias_level attribute appears in
+        calibrated L'LORRI data products and contains the mean bias
+        level of the detector's dark columns.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:bias_level_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bias_offset_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bias_offset">
+    <xs:annotation>
+      <xs:documentation>The lucy:bias_offset attribute appears in
+        calibrated L'LORRI data products and provides the CCD bias
+        offset between the active and inactive regions of the
+        detector.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:bias_offset_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="blocks_allocated">
+    <xs:annotation>
+<xs:documentation>The number of blocks allocated</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="board_selection">
+    <xs:annotation>
+<xs:documentation>The instrument side selected</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="calibration_lamp_level_1_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="calibration_lamp_level_1">
+    <xs:annotation>
+      <xs:documentation>The Digital Number (DN) setting for calibration
+        lamp one.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:calibration_lamp_level_1_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="calibration_lamp_level_2_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="calibration_lamp_level_2">
+    <xs:annotation>
+      <xs:documentation>The Digital Number (DN) setting for calibration
+        lamp two.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:calibration_lamp_level_2_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ccd_gain_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ccd_gain">
+    <xs:annotation>
+      <xs:documentation>The lucy:ccd_gain attribute appears in
+        calibrated L'LORRI data products and provides the CCD gain
+        setting for the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:ccd_gain_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ccsds_sclk_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ccsds_sclk_time">
+    <xs:annotation>
+      <xs:documentation>The Lucy spacecraft clock time of the CCSDS
+        playback timestamp in seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:ccsds_sclk_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="dinkinesh_constant">
+    <xs:annotation>
+      <xs:documentation> The lucy:dinkinesh_constant attribute supplies
+        the constant to be used for sources with a spectral distribution
+        similar to that of Dinkinesh to convert calibrated pixel values
+        to physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="first_packet_timestamp_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="first_packet_timestamp">
+    <xs:annotation>
+      <xs:documentation>The timestamp of the first packet recorded in
+        spacraft clock seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:first_packet_timestamp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="fpe_drop_frames">
+    <xs:annotation>
+      <xs:documentation>Number of FPE drop frames
+        (TBR).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fpecrc_error_flag">
+    <xs:annotation>
+      <xs:documentation>FPE checksum error flag, true or
+        false</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="frame_transfer_scrub_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="11.0"/>
+     <xs:maxInclusive value="12.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="frame_transfer_scrub_time">
+    <xs:annotation>
+      <xs:documentation> The lucy:frame_transfer_scrub_time attribute
+        appears in calibrated L'LORRI data products and contains the
+        instrument's frame transfer/scrub time. For the L'LORRI
+        instrument, these two quantities (transfer and scrub times) are
+        exactly equal. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:frame_transfer_scrub_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="gray_trojan_constant">
+    <xs:annotation>
+      <xs:documentation> The lucy:gray_trojan_constant attribute
+        supplies the constant to be used for sources with a spectral
+        distribution similar to that of "gray" Trojans to convert
+        calibrated pixel values to physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="hs_xtrack_start_row">
+    <xs:annotation>
+      <xs:documentation>The cross track start row from the high speed
+        header.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="instrument_side">
+    <xs:annotation>
+<xs:documentation>The Lucy elctronics side.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="internal_product_version_id">
+    <xs:annotation>
+      <xs:documentation>The Lucy pipeline internal data processing
+        version number. This number is likely to be grater than the PDS
+        version number given in the version_id attribute in the
+        Observation_Area.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="last_packet_timestamp_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="last_packet_timestamp">
+    <xs:annotation>
+      <xs:documentation>The timestamp of the last packet recorded in
+        spacraft clock seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:last_packet_timestamp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="latch_count">
+    <xs:annotation>
+      <xs:documentation>The number of times a latchup has
+        occurred.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_atrack_num_channels">
+    <xs:annotation>
+      <xs:documentation>LEISA along track number of
+        channels.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_atrack_start_channel">
+    <xs:annotation>
+      <xs:documentation>LEISA along track start
+        channel</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_fpa_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_fpa_temperature">
+    <xs:annotation>
+      <xs:documentation>LEISA Focal Plane Array
+        Temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:leisa_fpa_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_integration_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_integration_time">
+    <xs:annotation>
+      <xs:documentation>LEISA observation integration time
+        (TBR)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:leisa_integration_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_mode">
+    <xs:annotation>
+      <xs:documentation>LEISA observation mode, T is CDS, F is NONCDS.
+        (TBR)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_observation_allocation_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="leisa_observation_allocation">
+    <xs:annotation>
+      <xs:documentation>LEISA observation allocation
+        duration.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:leisa_observation_allocation_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="leisa_offset">
+    <xs:annotation>
+<xs:documentation>LEISA offset (TBR)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_xtrack_num_rows">
+    <xs:annotation>
+      <xs:documentation>LEISA cross track number of
+        rows.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leisa_xtrack_start_row">
+    <xs:annotation>
+<xs:documentation>LEISA cross track start row.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="llorri_status">
+    <xs:annotation>
+      <xs:documentation>The status of the L'LORRI
+        instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="load_identifier">
+    <xs:annotation>
+      <xs:documentation>The command sequence load
+        identifier</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="lr_acquisition_start_block">
+    <xs:annotation>
+      <xs:documentation>The L'Ralph observation acquisition start block
+        address.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="lralph_status">
+    <xs:annotation>
+      <xs:documentation>The status of the L'RALPH
+        instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ltes_status">
+    <xs:annotation>
+      <xs:documentation>The status of the L'TES
+        instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="m4_blackbody_setting">
+    <xs:annotation>
+<xs:documentation>Blackbody state (TBR)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="m4_calibration_state">
+    <xs:annotation>
+<xs:documentation>Calibration state (TBR)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="m4_filament_setting">
+    <xs:annotation>
+<xs:documentation>Filament setting (TBR)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mce_end_postion">
+    <xs:annotation>
+      <xs:documentation>The MCE start position (TBR), units
+        TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mce_scan_rate_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mce_scan_rate">
+    <xs:annotation>
+<xs:documentation>The MCE scan rate (TBR).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:mce_scan_rate_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angular_Velocity" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mce_start_postion">
+    <xs:annotation>
+      <xs:documentation>The MCE start position (TBR), units
+        TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mid_ephemeris_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mid_ephemeris_time">
+    <xs:annotation>
+      <xs:documentation>The middle time of the observation in ephemeris
+        time, seconds past J2000, TDB.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:mid_ephemeris_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mid_sclk_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mid_sclk">
+    <xs:annotation>
+      <xs:documentation>The Lucy spacecraft clock (SCLK) time (in
+        seconds) at the mid-time of the observation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:mid_sclk_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mid_sclk_string">
+    <xs:annotation>
+      <xs:documentation>The middle time of the observation in Lucy
+        spacecraft clock string partition/SSSSSSSSSS-PPPPP, where S is
+        seconds and P are ticks in units of 1/66535 of a second.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='\d/\d{10}-\d{5}'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mid_utc">
+    <xs:annotation>
+      <xs:documentation>The middle time of the observation in ISO UTC
+        format "YYYY-MM-DDTHH:MM:SS.sss" </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mid_utc_doy">
+    <xs:annotation>
+      <xs:documentation>The middle time of the observation in ISO DOY
+        format, YYYY-DOYTHH:MM:SS.sss</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_DOY_UTC">
+  <!-- format="YYYY-DOYTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mid_utc_jd_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mid_utc_jd">
+    <xs:annotation>
+      <xs:documentation>The middle time of the observation in Julian day
+        format.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:mid_utc_jd_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mission_segment">
+    <xs:annotation>
+<xs:documentation>The Lucy Mission segment</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mvic_actual_atrack_summing">
+    <xs:annotation>
+      <xs:documentation>MVIC actual along track pixel
+        summing.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mvic_actual_xtrack_summing">
+    <xs:annotation>
+      <xs:documentation>MVIC actual along track pixel
+        summing.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mvic_ccd_list">
+    <xs:annotation>
+      <xs:documentation>List of the MVIC CCDs used in this
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mvic_fpe_vis_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mvic_fpe_vis_temperature">
+    <xs:annotation>
+<xs:documentation>The MVIC FPE VIS Temperature</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:mvic_fpe_vis_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mvic_observation_allocation_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mvic_observation_allocation">
+    <xs:annotation>
+      <xs:documentation>MVIC allocated observation
+        duration</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:mvic_observation_allocation_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mvic_planned_atrack_summing">
+    <xs:annotation>
+<xs:documentation>MVIC actual summing mode.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mvic_planned_xtrack_summing">
+    <xs:annotation>
+      <xs:documentation>MVIC planned along track pixel
+        summing.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mvic_summing_mode">
+    <xs:annotation>
+<xs:documentation>MVIC planned summing mode.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mvic_tdi_row_integration_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mvic_tdi_row_integration_time">
+    <xs:annotation>
+      <xs:documentation>MVIC allocated observation
+        duration</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:mvic_tdi_row_integration_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="observation_complete">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission observation completion status.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_id">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission observation identifier.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="99999"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_id_count">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission observation identifier counter.
+        This number increments by 1 with each planned observation
+        sequence (L'LORRI only). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="99999"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="observation_missing_packets">
+    <xs:annotation>
+      <xs:documentation>The number of missing packets in the
+        observation. The best data quality has no missing packets.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="photometric_zero_point">
+    <xs:annotation>
+      <xs:documentation> The lucy:photometric_zero_point attribute
+        supplies the photometric zero point to be used to convert
+        between units of (ir)radiance and visual magnitude, V.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pivot_wavelength_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pivot_wavelength">
+    <xs:annotation>
+      <xs:documentation> The value contained in the
+        lucy:pivot_wavelength attribute is used when converting L'LORRI
+        calibrated pixel values to physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:pivot_wavelength_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="planned_ccd1_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>The planned CCD 1 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="planned_ccd2_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>The planned CCD 2 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="planned_ccd3_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>The planned CCD 3 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="planned_ccd4_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>The planned CCD 4 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="planned_ccd5_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>The planned CCD 5 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="planned_ccd6_tdi_configuration">
+    <xs:annotation>
+      <xs:documentation>The planned CCD 6 TDI
+        configuration.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="playback_bad_pixel_mask_status">
+    <xs:annotation>
+      <xs:documentation>Status of the bad pixel map, true or
+        false</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="playback_end_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="playback_end">
+    <xs:annotation>
+      <xs:documentation>Playback science header timstamp of the last m4
+        packet used in spacecraft clock seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:playback_end_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="playback_header_type">
+    <xs:annotation>
+<xs:documentation>Playback header type</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="playback_start_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="playback_start">
+    <xs:annotation>
+      <xs:documentation>Playback science header timstamp of the first m4
+        packet used in spacecraft clock seconds.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:playback_start_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="playback_truncation_status">
+    <xs:annotation>
+      <xs:documentation>Status of the truncation enabled, true or
+        false</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="read_noise_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="read_noise">
+    <xs:annotation>
+      <xs:documentation>The lucy:read_noise attribute appears in
+        calibrated L'LORRI data products and provides the CCD read noise
+        for the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:read_noise_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="red_trojan_constant">
+    <xs:annotation>
+      <xs:documentation> The lucy:red_trojan_constant attribute supplies
+        the constant to be used for sources with a spectral distribution
+        similar to that of "red" Trojans to convert calibrated pixel
+        values to physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="sap_identifier">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission science activity plan
+        identifier.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="scan_row_pixels">
+    <xs:annotation>
+      <xs:documentation>The number of pixels in the scan
+        row.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="solar_constant">
+    <xs:annotation>
+      <xs:documentation> The lucy:solar_constant attribute supplies the
+        constant to be used for sources with a spectral distribution
+        similar to the Sun to convert calibrated pixel values to
+        physical units. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_sclk_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="start_sclk">
+    <xs:annotation>
+      <xs:documentation>The Lucy spacecraft clock (SCLK) time (in
+        seconds) at the start of the observation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:start_sclk_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="stop_sclk_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="stop_sclk">
+    <xs:annotation>
+      <xs:documentation>The Lucy spacecraft clock (SCLK) time (in
+        seconds) at the end of the observation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="lucy:stop_sclk_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="target_fov_count">
+    <xs:annotation>
+      <xs:documentation>The number of possible targets in FOV
+        (SPICE-derived).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="target_fov_name">
+    <xs:annotation>
+      <xs:documentation>The name of the possible target in FOV
+        (SPICE-derived).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="test_pattern_setting">
+    <xs:annotation>
+      <xs:documentation>The instrument test pattern setting, 0 is
+        science, 1 is test pattern.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ttcam_status">
+    <xs:annotation>
+      <xs:documentation>The status of the TTCAM
+        instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="units_of_conversion_constants">
+    <xs:annotation>
+      <xs:documentation> For resolved sources, the radiometric
+        conversion produces data in units of radiance. For unresolved
+        sources, the conversion results in units of flux (irradiance).
+        The lucy:units_of_conversion_constants attribute contains the
+        appropriate physical units for the conversion constants in the
+        class in which it is contained to produce either radiance or
+        flux units, as appropriate, when the conversion is applied.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="visit_name">
+    <xs:annotation>
+      <xs:documentation>The Lucy Mission trojan asteroid visit
+        name.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="xsum_error_flag_status">
+    <xs:annotation>
+      <xs:documentation>Xsum flag indicating if there are errors in the
+        stored data packet, true or false</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

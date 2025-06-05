@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1J00_1970.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1N00_1970.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD 
   xmlns="http://pds.nasa.gov/pds4/pds/v1" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns:pds="http://pds.nasa.gov/pds4/pds/v1" 
   xmlns:cart="http://pds.nasa.gov/pds4/cart/v1" 
-  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd 
-  http://pds.nasa.gov/pds4/cart/v1 https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1D00_1933.xsd">
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.xsd 
+  http://pds.nasa.gov/pds4/cart/v1 https://pds.nasa.gov/pds4/cart/v1/PDS4_CART_1N00_1970.xsd">
  
   <name>Cassini Mission</name>
-  <ldd_version_id>1.7.0.0</ldd_version_id>
+  <ldd_version_id>1.8.0.0</ldd_version_id>
   <dictionary_type>Mission</dictionary_type>
   <full_name>Lyle Huber</full_name>
   <steward_id>atm</steward_id>
   
   <namespace_id>cassini</namespace_id>
-  <last_modification_date_time>2023-09-13T18:00:00</last_modification_date_time>
+  <last_modification_date_time>2025-04-28T09:02:00</last_modification_date_time>
 <!-- 
   <Modification_History>
+    <Modification_Detail>
+      <modification_date>2025-04-28</modification_date>
+      <version_id>1.8</version_id>
+      <description>
+        Added ISS_Calibrated_Attributes class
+      </description>
+    </Modification_Detail>	
     <Modification_Detail>
       <modification_date>2024-03-21</modification_date>
       <version_id>1.7</version_id>
@@ -172,10 +179,6 @@
       </DD_Permissible_Value>
       <DD_Permissible_Value>
         <value>Approach Science</value>
-        <value_meaning>2004-01-12 to 2004-06-10</value_meaning>
-      </DD_Permissible_Value>
-      <DD_Permissible_Value>
-        <value>Approach_Science</value>
         <value_meaning>2004-01-12 to 2004-06-10</value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
@@ -4867,8 +4870,716 @@
   </DD_Attribute>
   
   <!-- END: MJTM edits -->
-  
 
+<!-- ES edits: ISS Calibration Attributes-->
+  <DD_Attribute>
+    <name>ab_pixel_correction_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.ab_pixel_correction_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The ab_pixel_correction_flag indicates whether the A-B pixel correction
+      option was selected. This option identifies and removes bright/dark pixel artifacts caused
+      by the camera's anti-blooming mode by detecting pixel pairs with intensity 
+      differences above a user-defined threshold
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ENABLED</value>
+        <value_meaning>A-B pixel correction was enabled.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DISABLED</value>
+        <value_meaning>A-B pixel correction was disabled.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>bias_subtraction_text</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.bias_subtraction_text</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The chosen method for the CISSCAL bias subtraction. Bias subtraction
+      removes the CCD's zero-exposure signal (bias) either by subtracting the
+      BIAS_STRIP_MEAN from the image header or by fitting a line to the overclocked pixels.
+
+      This entry also details which method was chosen for the 2Hz noise removal. There are
+      two possible options for removing this noise. The first uses the overclocked pixel
+      array. The second uses the dark sky areas in the image itself. In either case, the
+      2Hz background is inferred by taking the average or median value for each line in
+      conjunction with low-pass filtering
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Subtracted bias (BIAS_STRIP_MEAN)</value>
+        <value_meaning>Subtracted bias level via the BIAS_STRIP_MEAN value from the image's VICAR header.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Subtracted bias (overclocked pixels)</value>
+        <value_meaning>Subtracted bias level via the overclocked pixel array.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Subtracted 2Hz noise (image mean)</value>
+        <value_meaning>Subtracted noise via a calculated 2Hz signal.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Subtracted 2Hz noise (overclocked pixels)</value>
+        <value_meaning>Subtracted noise via the overclocked pixel array.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>calibration_stage</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.calibration_stage</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      A keyword appended to the VICAR label of an output image, indicating how far the
+      image has progressed through the CISSCAL calibration pipeline, allowing the software
+      to resume processing from the appropriate step if calibration is restarted.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <DD_Permissible_Value>
+        <value>1</value>
+        <value_meaning>LUT conversion: Converts 8-bit table-encoded pixel values to 12-bit DN using a reverse lookup table.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>2</value>
+        <value_meaning>Bitweight correction: Corrects uneven bit-weighting in digitized signal via the appropriate look-up table.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>3</value>
+        <value_meaning>Subtract bias: Removes CCD baseline level using overclocked pixels or BIAS STRIP MEAN.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>4</value>
+        <value_meaning>Remove 2-Hz noise: Eliminates horizontal banding noise from readout electronics using either the image background or overclocked pixels.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>5</value>
+        <value_meaning>Subtract dark: Removes dark current using model or external dark frame.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>6</value>
+        <value_meaning>A-B pixel pairs: Removes pixel artifacts from anti-blooming mode.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>7</value>
+        <value_meaning>Linearize: Corrects for non-linearity in CCD response.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>8</value>
+        <value_meaning>Flatfield: Corrects pixel sensitivity using flatfield and dustring maps.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>9</value>
+        <value_meaning>Convert DN to flux: Converts DN to flux using gain, exposure time, area, and efficiency.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>10</value>
+        <value_meaning>Correction factors: Applies filter-specific corrections based on observed stellar fluxes. Considered fully calibrated.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>11</value>
+        <value_meaning>Geometric correction: Corrects for optical distortion in the camera system.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>calibration_units</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.calibration_units</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      Refers to the physical units assigned to pixel values after radiometric calibration,
+      and they indicate what kind of brightness or flux measurement the calibrated image
+      represents. There are two possible units: 
+        - the standard radiometric units (photons/cm²/s/nm/ster). This is the default if
+        CISSCAL performs the full radiometric pipeline and does not convert to I/F.
+        It reflects absolute scene brightness.
+        - I/F units. This is a unitless ratio that compares the scene's observed brightness
+          (I) to the incoming solar flux (F) at the object's distance from the Sun.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>I/F</value>
+        <value_meaning>Unitless calibration units were chosen.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>INTENSITY</value>
+        <value_meaning>Standard radiometric units  (photons per centimeter squared per nanometer per steradian).</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>data_conversion_text</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.data_conversion_text</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The data_conversion_text details the chosen LUT conversion calibration step.
+      This applies only to images with a DATA_CONVERSION_TYPE of "TABLE", which
+      have been encoded using a lookup table (LUT) to compress 12-bit data into an
+      8-bit range (0-255 DN).
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Converted from 8 to 12 bits</value>
+        <value_meaning>The image has been expanded from 8-bit to 12-bit values.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>dark_current_correction_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.dark_current_correction_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      Refers to the method used to subtract dark current from an image in CISSCAL. Three
+      possible methods exist: correction via a user-given VICAR-format dark image, a 2-parameter
+      model, and an interpolation model. The interpolation model is the most accurate
+      and is the default in current CISSCAL versions.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>Interpolation model</value>
+        <value_meaning>Dark current correction was done via the interpolation model method.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>2-parameter model</value>
+        <value_meaning>Dark current correction was done via the 2-parameter model method.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>Subtracted dark file</value>
+        <value_meaning>Dark current correction was done via a user-given VICAR-format dark image.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>dark_current_file_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.dark_current_file_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The name of a VICAR-format image file used to perform dark current correction by
+      direct subtraction. This file contains dark current measurements that will be
+      subtracted from the science data. When specified, this method overrides the default
+      interpolation model approach used by CISSCAL. The dark file must match the summation
+      mode of the science data (FULL, SUM2, or SUM4). If it doesn't match, the file will
+      be automatically resampled.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>dark_current_parameter_file</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.dark_current_parameter_file</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The parameter file used when applying the interpolation model for dark
+      current correction in CISSCAL. This file contains 8 coefficients per pixel
+      that define an equation modeling dark current as a function of the time
+      each pixel sits on the CCD. These parameter files are generated externally
+      (e.g. by Bob West at JPL), not within CISSCAL, and are specific to camera
+      mode and configuration. The file must be available for CISSCAL to construct
+      accurate synthetic dark images for subtraction.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+    <DD_Attribute>
+    <name>exposure_correction_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.exposure_correction_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The exposure_correction_flag indicates whether the exposure correction
+      option was selected. This option corrects for shutter timing effects by dividing
+      the image by the exposure time, accounting for the finite time it takes the shutter
+      to open and close. This correction is camera- and temperature-dependent, using data
+      from the "offset" directory in the calibration support files.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ENABLED</value>
+        <value_meaning>Exposure correction was enabled.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DISABLED</value>
+        <value_meaning>Exposure correction was disabled.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>exposure_offset</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.exposure_offset</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The shutter timing correction applied during the exposure correction step, measured
+      in milliseconds. This offset accounts for the finite time required for the shutter
+      to fully open and close, which affects the actual exposure time of the image.
+      The offset values (2.75 ms for NAC, 2.67 ms for WAC) were determined through ground
+      calibration and represent the mean delay across the field of view. These values are
+      used in conjunction with temperature-dependent shutter offset files that provide
+      position-specific corrections across the detector.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>2.75 ms</value>
+        <value_meaning>Exposure offset value for the ISS narrow-angle camera.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>2.67 ms</value>
+        <value_meaning>Exposure offset value for the ISS wide-angle camera.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>shutter_offset_file_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.shutter_offset_file_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The name of the calibration file used to correct for sample-dependent shutter timing 
+      effects during exposure time calculations. These files contain position-specific 
+      timing offsets and are selected based on camera type (NAC/WAC) and optics temperature 
+      range (below -5°C, -5°C to 25°C, or above 25°C). The correction is applied during 
+      the DivideByExpoT step of radiometric calibration.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>flat_field_correction_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.flat_field_correction_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The flat_field_correction_flag indicates whether flat field correction was applied
+      to normalize pixel-to-pixel sensitivity variations across the detector. When
+      ENABLED, the correction involves:
+        - Division by a normalized flat field derived from a slope file specific to the
+          filter combination and optics temperature range
+        - Correction for dust rings and mottling effects that appear in images
+      Selection of the appropriate slope file from the 'slope_db_2.tab' database is based
+      on:
+        - Camera (NAC/WAC)
+        - Filter combination
+        - Optics temperature range (-5°C and below, -5°C to 25°C, or above 25°C)
+      The correction is skipped if the shutter is disabled or if no appropriate flat field
+      file is found in the database. The flat field is normalized to the median value of
+      a 400x400 pixel region in the center of the image.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ENABLED</value>
+        <value_meaning>Flat field correction was enabled.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DISABLED</value>
+        <value_meaning>Flat field correction was disabled.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>flat_field_file_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.flat_field_file_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      Refers to the slope file used during flat field correction in CISSCAL. These files
+      are stored in the "slope" subdirectory of the calibration support directory and
+      are selected based on the filter combination and temperature of the image. The
+      correct file is automatically determined using a database file called slope_db.tab,
+      which maps filter and temperature parameters to the appropriate slope file name.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>gain_correction</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.gain_correction</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      Gain correction in CISSCAL is the first step of converting DN to flux.
+      This step multiplies the image by a gain factor to convert digital numbers (DN) to
+      the number of electrons detected, based on the camera's gain state. CISSCAL
+      automatically selects the appropriate gain factor based on image metadata.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>223.58 e-/DN</value>
+        <value_meaning>ISSNA high gain mode (Gain State 0): used for very faint targets</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>97.78 e-/DN</value>
+        <value_meaning>ISSNA medium-high gain mode (Gain State 1): used for faint targets</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>30.27 e-/DN</value>
+        <value_meaning>ISSNA nominal full-frame mode (Gain State 2): standard gain setting</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>12.84 e-/DN</value>
+        <value_meaning>ISSNA low gain mode (Gain State 3): used for bright targets</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>220.65 e-/DN</value>
+        <value_meaning>ISSWA high gain mode (Gain State 0): used for very faint targets</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>95.24 e-/DN</value>
+        <value_meaning>ISSWA medium-high gain mode (Gain State 1): used for faint targets</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>27.68 e-/DN</value>
+        <value_meaning>ISSWA nominal full-frame mode (Gain State 2): standard gain setting</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>11.73 e-/DN</value>
+        <value_meaning>ISSWA low gain mode (Gain State 3): used for bright targets</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>geometry_projection_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.geometry_projection_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      Geometric correction in CISSCAL adjusts for optical distortion in the Cassini ISS
+      images, particularly pin-cushion distortion in the Wide Angle Camera (WAC). When
+      enabled, this step performs a 2D distortion transformation on the image array to
+      improve the spatial accuracy of features. It uses precomputed distortion models
+      and is off by default.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>LINEARIZED</value>
+        <value_meaning>Geometric correction was enabled.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>nonlinearity_correction_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.nonlinearity_correction_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The nonlinearity_correction_flag indicates whether the nonlinearity correction
+      option was selected. It compensates for the non-linear response of the CCD, where
+      the relationship between incoming light and recorded DN isn't perfectly proportional.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ENABLED</value>
+        <value_meaning>Linearization was enabled.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DISABLED</value>
+        <value_meaning>Linearization was disabled.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>radiometric_correction_text</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.radiometric_correction_text</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+        A text field that provides a detailed summary of the radiometric corrections
+        applied during image calibration. This includes information about:
+            - Efficiency factors used in the flux conversion (transmission, quantum efficiency)
+            - Filter-specific absolute correction factors
+            - Sensitivity versus time corrections if applied
+            - Division by efficiency factor values
+            - Solar spectrum or other spectrum files used for I/F conversion
+            - Temperature-dependent corrections
+        The text is automatically generated by CISSCAL during the calibration process and
+        is updated at each step where radiometric corrections are applied. Each entry
+        typically includes both the type of correction and the specific numerical values
+        or filenames used. This field is particularly important for tracing the exact
+        calibration steps and parameters applied to reach the final calibrated values.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>slope_file_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.slope_file_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The name of the flat field calibration file used to correct for pixel-to-pixel
+      sensitivity variations in the detector. These files are stored in the "slope"
+      subdirectory of the calibration support directory and contain multiplicative
+      correction factors for each pixel. The appropriate file is selected automatically
+      by CISSCAL based on two criteria: the filter combination used for the observation,
+      and the temperature range of the optics (-5°C and below, -5°C to 25°C, or above
+      25°C). The selection is managed through a database file called slope_db.tab, which
+      maps filter combinations and temperature ranges to specific slope filenames. The
+      slope files themselves are in VICAR format and contain a 1024x1024 array (for
+      full-frame images) of floating-point correction factors that are divided into the
+      image during the flat field correction step.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>uneven_bit_weight_correction_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.uneven_bit_weight_correction_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The uneven_bit_weight_correction_flag indicates whether the bit weight correction
+      was applied to compensate for non-uniform weighting of bits in the digitized signal. 
+      This correction is:
+        - Applied only to uncompressed, non-TABLE mode images
+        - Skipped for lossy-encoded images where the effect is insignificant
+        - Camera and gain-state dependent, using specific correction tables for:
+          - NAC/WAC cameras
+          - Gain states (0,1,2,3)
+          - Temperature ranges (-10°C, +5°C, +25°C)
+      The correction uses calibration tables derived from ground calibration exercises to
+      convert raw DN values to their true linear representation. It is a critical early
+      step in the calibration pipeline, typically performed after 8-to-12 bit conversion
+      but before bias subtraction.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <DD_Permissible_Value>
+        <value>ENABLED</value>
+        <value_meaning>Linearization was enabled.</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>DISABLED</value>
+        <value_meaning>Linearization was disabled.</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+<!--END: ES ISS Calibration edits -->
+
+<!--START: ES Legacy Metadata Attributes-->
+  <DD_Attribute>
+    <name>legacy_start_date_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.legacy_start_date_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The legacy_start_date_time attribute preserves the original START_TIME
+      value as extracted from the corresponding PDS3 data product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>legacy_stop_date_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.legacy_stop_date_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The legacy_stop_date_time attribute preserves the original STOP_TIME
+      value as extracted from the corresponding PDS3 data product.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>legacy_start_time_doy</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.legacy_start_time_doy</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The legacy_start_time_doy attribute contains the value for START_TIME in the year
+      day-of-year format of the original PDS3 label. This value can also be previously
+      represented in cassini.start_time_doy.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_DOY</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>legacy_stop_time_doy</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.legacy_stop_time_doy</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The legacy_stop_time_doy attribute contains the value for STOP_TIME in the year
+      day-of-year format of the original PDS3 label. This value can also be previously
+      represented in cassini.stop_time_doy.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_DOY</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>legacy_image_mid_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.legacy_image_mid_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The legacy_image_mid_time attribute represents the midpoint between the
+      observation's start and stop times. It is derived from the START_TIME and STOP_TIME
+      attributes in the original PDS3 label.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_DOY</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>legacy_image_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>cassini.legacy_image_time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>
+      The legacy_image_time attribute captures the representative acquisition time for the image,
+      typically derived from the START_TIME keyword in the original PDS3 label. In cases
+      where both START_TIME and STOP_TIME are available, this value may correspond to
+      their midpoint.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_DOY</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+<!--START: ES Legacy Metadata Class-->
+<DD_Class>
+    <name>Legacy_Metadata</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Legacy_Metadata</local_identifier>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>The Legacy_Metadata class allows for the preservation of original PDS3 values that may have been corrected or changed during the migration process to PDS4.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>cassini.legacy_start_date_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.legacy_stop_date_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.legacy_start_time_doy</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.legacy_stop_time_doy</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.legacy_image_mid_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.legacy_image_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.pds3_target_desc</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.pds3_target_list</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.pds3_target_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+</DD_Class>
 <!-- CIRS Specific classes  -->
   
   <DD_Class>
@@ -5935,6 +6646,133 @@
     </DD_Association>
   </DD_Class>
 
+<!-- ES ISS Calibrated edits -->
+  <DD_Class>
+    <name>ISS_Calibrated_Attributes</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Calibrated_Attributes</local_identifier>
+    <submitter_name>Emilie Simpson</submitter_name>
+    <definition>The ISS Calibrated Attributes class provides local attributes unique to calibrated Cassini ISS data products.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>cassini.dark_current_correction_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.dark_current_file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.dark_current_parameter_file</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.nonlinearity_correction_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.flat_field_correction_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.slope_file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.gain_correction</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.geometry_projection_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.exposure_correction_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.shutter_offset_file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.exposure_offset</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.radiometric_correction_text</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.calibration_units</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.calibration_stage</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.ab_pixel_correction_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.bias_subtraction_text</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.data_conversion_text</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.flat_field_file_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>cassini.uneven_bit_weight_correction_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+
+<!-- ES ISS Calibrated edits end -->
+
 <!-- VIMS Specific classes -->  
 
   <DD_Class>
@@ -6479,6 +7317,12 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>    
     <DD_Association>
+      <identifier_reference>Calibrated_Attributes</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association> 
+    <DD_Association>
       <identifier_reference>VIMS_Attributes</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
@@ -6515,6 +7359,12 @@
           <rule_type>Assert</rule_type>
           <rule_test>if (($map_projection_rings='Ring_Polar') and not (cassini:ringpolar_min_footprint_width and cassini:ringpolar_max_footprint_width and cassini:ringpolar_min_footprint_height and cassini:ringpolar_max_footprint_height)) then false() else true()</rule_test>
           <rule_message>You must use all four ring polar footprint attributes, cassini:ringpolar_min_footprint_width, cassini:ringpolar_max_footprint_width, cassini:ringpolar_min_footprint_height, cassini:ringpolar_max_footprint_height, associated with the ring polar projection. </rule_message>
+    </DD_Rule_Statement>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>
+        if ((cassini:dark_current_correction_type='Subtracted dark file' and not(cassini:dark_current_file_name)) or (cassini:dark_current_correction_type != 'Subtracted dark file' and cassini:dark_current_file_name)) then false() else true()</rule_test>
+      <rule_message> cassini:dark_current_file_name must be provided if and only if cassini:dark_current_correction_type is "Subtracted dark file".</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
 </Ingest_LDD>

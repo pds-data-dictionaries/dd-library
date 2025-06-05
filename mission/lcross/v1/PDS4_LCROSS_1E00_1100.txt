@@ -1,0 +1,460 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.2.4
+   LDD Version Id:        1.1.0.0
+   LDD Label Version Id:  1.20
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Tue Jan 21 15:28:28 UTC 2025
+   Common Schema          [PDS4_PDS_1E00.xsd]
+   Common Schematron      [PDS4_PDS_1E00.sch]
+   IM Version Id:         1.14.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.20
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-lcross/ldd-lcross/src/PDS4_LCROSS_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                7
+   Attributes             29
+   Associations           36
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               LCROSS Mission Dictionary
+   LDD Version            1.1.0.0
+   Full Name              Jennifer Ward
+   Steward                geo
+   Namespace Id           lcross
+   Comment                
+        The LCROSS mission dictionary contains a class with attributes specific to the 
+        LCROSS mission and instruments. This dictionary was created for the migration
+        of LCROSS data products from PDS3 to PDS4.        
+    
+   Last Modification Time 2024-11-20
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   product_type
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The product_type attributes identifies the type or category of a product within a data set. 
+
+   name                   producer_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The name of the person who produced the data product.
+
+   name                   producer_institution_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The producer_institution_name element identifies a university, research center, NASA center or other institution associated with the production of a data set. 
+
+   name                   mission_phase_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The mission_phase_name element provides the commonly-used identifier of a mission phase. 
+
+   name                   spacecraft_clock_start_count
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. 
+   minimum characters     15
+   maximum characters     15
+
+   name                   spacecraft_clock_stop_count
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest. 
+
+   name                   intercept_point_latitude
+   version                1.14
+   value data type        ASCII_Real
+   description            The intercept_point_latitude attribute is the latitude of a point on the surface of a body.
+   minimum value          -90.0
+   maximum value          90.0
+   unit of measure type   Units_of_Angle
+
+   name                   intercept_point_longitude
+   version                1.14
+   value data type        ASCII_Real
+   description            The intercept_point_longitude attribute is the longitude of a point on the surface of a body.
+   minimum value          0.0
+   maximum value          360.0
+   unit of measure type   Units_of_Angle
+
+   name                   instrument_temperature
+   version                1.14
+   value data type        ASCII_Real
+   description            The instrument_temperature attribute provides the temperature, in degrees Celsius of an instrument or some part of an instrument.
+   unit of measure type   Units_of_Temperature
+
+   name                   instrument_temperature_count
+   version                1.14
+   value data type        ASCII_Integer
+   description            The instrument_temperature_count attribute provides the temperature of an instrument in raw counts or DN values. 
+
+   name                   instrument_gain_state
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The instrument_gain_state specifies the instrument gain state, either High or Low. 
+
+   name                   missing_packet_flag
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The missing_packet_flag indicates whether the image is missing data. A missing packet appears as a horizontal bar 8 pixels high of zero data. 
+
+   name                   calibration_valid
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The response of the mid-IR cameras exhibited a startup transient. The calibration is valid only after this transient had settled. This attribute indicates whether the image was taken before or after this point. Values are Yes or No. 
+
+   name                   enhancement_mode
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            This attribute indicates whether onboard image stretching was enabled or disabled. Values are On or Off. 
+
+   name                   operating_setting_value
+   version                1.14
+   value data type        ASCII_Integer
+   description            The operating setting value determines the integration time and gain. Values range from 0 to 15. 
+   minimum value          0
+   maximum value          15
+
+   name                   integration_time
+   version                1.14
+   value data type        ASCII_Integer
+   description            The integration time in msec. 
+   minimum value          0
+   unit of measure type   Units_of_Time
+
+   name                   gain_value
+   version                1.14
+   value data type        ASCII_Integer
+   description            The focal plane sensitivity in electrons per count. Value is approximate and inferred from the operating setting value and factory definitions. 
+   minimum value          0
+
+   name                   saturation_flag
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Indicates whether a spectra is saturated based on a mechanical test. 
+
+   name                   boresight_to_sun_angle
+   version                1.14
+   value data type        ASCII_Real
+   description            Angle between the instrument boresight vector and the spacecraft to sun vector in degrees. 
+   unit of measure type   Units_of_Angle
+
+   name                   exposure_duration
+   version                1.14
+   value data type        ASCII_Real
+   description            The time interval between the opening and closing of an instrument aperture. 
+
+   name                   tec_setpoint
+   version                1.14
+   value data type        ASCII_Real
+   description            The setpoint temperature of the VSP thermo-electric cooler. 
+   unit of measure type   Units_of_Temperature
+
+   name                   tec_temperature
+   version                1.14
+   value data type        ASCII_Real
+   description            The measurement temperature of the VSP thermo-electric cooler. 
+   unit of measure type   Units_of_Temperature
+
+   name                   packet_timestamp
+   version                1.14
+   value data type        ASCII_Integer
+   description            A 32-bit unsigned integer representing time from the epoch Jan 1, 1980 in milliseconds. This counter resets every approximately 50 days. 
+
+   name                   vsp_bracket_number
+   version                1.14
+   value data type        ASCII_Integer
+   description            When in bracket mode, the VSP captures three spectra in quick succession. The bracket number indicates which of the three spectra are captured.. 
+
+   name                   right_ascension_angle
+   version                1.14
+   value data type        ASCII_Real
+   description            The right_ascension_angle attribute provides the value of right ascension (RA) as an angle. Right ascension is measured from the vernal equinox or the first point of Aries, which is the place on the celestial sphere where the Sun crosses the celestial equator from south to north at the March equinox. Right ascension is measured continuously in a full circle from that equinox towards the east. Right ascension is used in conjunction with the declination attribute to specify a point on the sky. 
+   unit of measure type   Units_of_Angle
+
+   name                   declination
+   version                1.14
+   value data type        ASCII_Real
+   description            The declination_angle (Dec) attribute provides the value of an angle on the celestial sphere, measured north from the celestial equator to the point in question. (For points south of the celestial equator, negative values are used.) Declination is used in conjunction with right ascension (right_ascension_angle) to specify a point on the sky.
+   unit of measure type   Units_of_Angle
+
+   name                   exposure_length
+   version                1.14
+   value data type        ASCII_Real
+   description            Provides the length of time for an exposure.
+   unit of measure type   Units_of_Time
+
+   name                   filter_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The commonly used name of a filter the is part of an imaging system.
+
+   name                   center_filter_wavelength
+   version                1.14
+   value data type        ASCII_Real
+   description            The center wavelength of a filter used in an imaging system.
+   unit of measure type   Units_of_Length
+
+Parsed Input - Classes:
+
+   name                   MIR_Instrument_State
+   description            Class with attributes specific to the MIR instrument on LCROSS.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      lcross.instrument_gain_state
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.missing_packet_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.calibration_valid
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   NIR_Instrument_State
+   description            Class with attributes specific to the NIR instrument on LCROSS.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      lcross.enhancement_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.operating_setting_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.integration_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.gain_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   NSP_Instrument_State
+   description            Class with attributes specific to the NSP instrument on LCROSS.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      lcross.saturation_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.boresight_to_sun_angle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   VSP_Instrument_State
+   description            Class with attributes specific to the VSP instrument on LCROSS.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      lcross.saturation_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.exposure_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.tec_setpoint
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.tec_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.packet_timestamp
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.vsp_bracket_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Ground_Based_Parameters
+   description            Container class for ground-based observation parameters.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      lcross.right_ascension
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.declination
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.exposure_length
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.filter_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.center_filter_wavelength
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Mission_Parameters
+   description            Container class for mission level attributes (i.e., common across all or most instruments) and instrument specific classes.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      lcross.product_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.producer_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.producer_institution_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.intercept_point_latitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.intercept_point_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.instrument_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      lcross.instrument_temperature_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   LCROSS_Parameters
+   description            Top level container class.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      lcross.Mission_Parameters
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      lcross.MIR_Instrument_State
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      lcross.NIR_Instrument_State
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      lcross.NSP_Instrument_State
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      lcross.VSP_Instrument_State
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      lcross.Ground_Based_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report
