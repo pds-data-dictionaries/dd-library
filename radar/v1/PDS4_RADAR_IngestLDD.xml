@@ -8,7 +8,7 @@
 	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd">
 
 	<name>Radar</name>
-    <ldd_version_id>1.2.0.0</ldd_version_id>
+    <ldd_version_id>1.3.1.0</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
 	<full_name>Jesse Stone</full_name>
 	<steward_id>sbn</steward_id>
@@ -81,7 +81,7 @@
 
     <DD_Attribute>
         <name>matched_snr_db</name>
-        <version_id>1.1</version_id>
+        <version_id>1.2</version_id>
         <local_identifier>matched_snr_db</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
@@ -89,7 +89,6 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
-            <minimum_value>0</minimum_value>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -127,9 +126,9 @@
 
     <DD_Attribute>
         <name>transmitter_power</name>
-        <version_id>2.1</version_id>
+        <version_id>2.2</version_id>
         <local_identifier>transmitter_power</local_identifier>
-        <nillable_flag>false</nillable_flag>
+        <nillable_flag>true</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
         <definition>Specifies the transmitter power</definition>
         <DD_Value_Domain>
@@ -143,11 +142,11 @@
 
     <DD_Attribute>
         <name>transmitter_frequency</name>
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>transmitter_frequency</local_identifier>
-        <nillable_flag>false</nillable_flag>
+        <nillable_flag>true</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Specifies the transmitter frequency.</definition>
+        <definition>Specifies the central transmitter frequency.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -211,7 +210,7 @@
         <name>observation_purpose</name>
 <!-- The permissible values distinguish radar "modes", not purposes of observation -->
 <!-- JS: rename element? -->
-        <version_id>1.0</version_id>
+        <version_id>1.1</version_id>
         <local_identifier>observation_purpose</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Jesse Stone</submitter_name>
@@ -225,21 +224,15 @@
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Doppler</value>
-                <value_meaning>Received signal is analyzed as a function of Doppler shift with separation by range.</value_meaning>
-<!-- I don't understand the definition -->
-<!-- JS: refer to M. Nolan to clarify -->
+                <value_meaning>Received signal is analyzed as a function of Doppler shift.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Range</value>
-                <value_meaning>Transmitted signal is modulated in order to resolve and/or local the target in range, but the entire received signal is analyzed without separation by Doppler shift.</value_meaning>
-<!-- Could be rewritten for clarity -->
-<!-- JS: refer to M. Nolan to clarify -->
+                <value_meaning>Transmitted signal is modulated in order to resolve and/or locate the target in range.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Total Power</value>
                 <value_meaning>Only the total echo power is measured, with no separation in range or Doppler shift.</value_meaning>
-<!-- Are there such observations?  -->
-<!-- JS: refer to M. Nolan to clarify -->
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
@@ -303,6 +296,54 @@
         </DD_Value_Domain>
     </DD_Attribute>
 
+    <DD_Attribute>
+        <name>range_pixel_scale_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>range_pixel_scale_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The time interval from the edge of one pixel to the next in the range dimension of a radar image. This is commonly the same as or a multiple of range_resolution_time.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+            <specified_unit_id>s</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>range_pixel_scale_distance</name>
+        <version_id>1.0</version_id>
+        <local_identifier>range_pixel_scale_distance</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The distance from one pixel to the next in the range dimension of a radar image. This is commonly the same as or a multiple of range_resolution_distance.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>m</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>doppler_pixel_scale</name>
+        <version_id>1.0</version_id>
+        <local_identifier>doppler_pixel_scale</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>The frequency interval from the edge of one pixel to the next in the Doppler dimension of a radar image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
+            <specified_unit_id>Hz</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
 
     <DD_Class>
         <name>Radar</name>
@@ -321,7 +362,7 @@
 
     <DD_Class>
         <name>Groundbased_Radar</name>
-        <version_id>2.1</version_id>
+        <version_id>2.2</version_id>
         <local_identifier>Groundbased_Radar</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
         <definition>This class specifies the parameters for radar observations acquired from groundbased facilities. Indicates that the observations were carried out with a groundbased radar facility.</definition>
@@ -356,11 +397,17 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
+        <DD_Association>
+            <identifier_reference>Radar_Image_Properties</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
     </DD_Class>
 
     <DD_Class>
         <name>Transmission_Properties</name>
-        <version_id>4.0</version_id>
+        <version_id>5.0</version_id>
         <local_identifier>Transmission_Properties</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
         <definition>Specifies the transmission properties of the radar used for the observations.</definition>
@@ -380,7 +427,7 @@
         <DD_Association>
             <identifier_reference>transmitter_frequency</identifier_reference>
             <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
+            <minimum_occurrences>1</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
@@ -454,7 +501,7 @@
         <version_id>2.0</version_id>
         <local_identifier>Sampling_Properties</local_identifier>
         <submitter_name>Jesse Stone</submitter_name>
-        <definition>Specifies the sampling propertied of the radar observations.</definition>
+        <definition>Specifies the sampling properties of the radar observations.</definition>
         <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>sample_type</identifier_reference>
@@ -468,6 +515,44 @@
             <identifier_reference>sample_interval</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Radar_Image_Properties</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Radar_Image_Properties</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Attributes and classes for radar images</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>Pixel_Scale</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <DD_Class>
+        <name>Pixel_Scale</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Pixel_Scale</local_identifier>
+        <submitter_name>Jesse Stone</submitter_name>
+        <definition>Attributes that describe the dimensions of a pixel</definition>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>XSChoice#</identifier_reference>
+            <identifier_reference>range_pixel_scale_time</identifier_reference>
+            <identifier_reference>range_pixel_scale_distance</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>doppler_pixel_scale</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
     </DD_Class>

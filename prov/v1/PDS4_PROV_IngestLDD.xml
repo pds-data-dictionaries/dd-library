@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+  <!-- PDS4 Local Data Dictionary Extended Ingest File -->
+  <!-- Generated 2018-05-21T01:00:00Z -->
+
+<Ingest_LDD
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 
+                        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd">
+
+  <name>Provenance</name>
+  <ldd_version_id>1.2.1.0</ldd_version_id>
+  <dictionary_type>Discipline</dictionary_type>
+  <full_name>Steve Hughes</full_name>
+  <steward_id>prov</steward_id>
+  <namespace_id>prov</namespace_id>
+  <comment>
+    The purpose of the 'prov' LDD is to provide a PDS4 'Discipline_Area' insert for capturing provenance information. The 'prov' LDD is an implementation of the W3C PROV Data Model (PROV-DM).
+    Provenance refers to information about the entities, activities, and people involved in producing a piece of data or artifact. Such information can be used to evaluate its quality, reliability, and trustworthiness. PROV-DM is the conceptual data model that underpins the W3C PROV family of specifications.
+
+    The LDD is designed to support the creation of classes for specific types of PDS provenance.
+    
+    1) SupersededLID - This class establishes a relationship between two LIDs, identifying one as having been superseded by another. It is an exposed class intended for use as an insert into the 'Discipline_Area' of a PDS4 label.
+    
+  </comment>
+  <last_modification_date_time>2023-06-01T12:00:00Z</last_modification_date_time>
+
+
+  <!-- ======= Attribute Definitions - Prov DM ======= -->
+  
+  <DD_Attribute>
+    <name>entity1</name>
+    <version_id>1.0</version_id>
+    <local_identifier>entity1</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>entity1: an entity identifier (e) -- The attribute entity1 is an OPTIONAL identifier for an entity.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>activity1</name>
+    <version_id>1.0</version_id>
+    <local_identifier>activity1</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>activity1: an identifier (a) for the activity - The attribute activity1 is an OPTIONAL identifier for an activity.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>activity2</name>
+    <version_id>1.0</version_id>
+    <local_identifier>activity2</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>activity2: an identifier (a) for the activity - The attribute activity2 is an OPTIONAL identifier for an activity.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>agent1</name>
+    <version_id>1.0</version_id>
+    <local_identifier>agent1</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition> agent1: the identifier (ag) of the agent whom the entity is ascribed to, and therefore bears some responsibility for its existence; The attribute agent1 is an OPTIONAL identifier for an agent.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>agent2</name>
+    <version_id>1.0</version_id>
+    <local_identifier>agent2</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition> agent2: the identifier (ag) of the agent whom the entity is ascribed to, and therefore bears some responsibility for its existence; The attribute agent2 is an OPTIONAL identifier for an agent.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>generatedEntity</name>
+    <version_id>1.0</version_id>
+    <local_identifier>generatedEntity</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>generatedEntity: the identifier (e2) of the entity generated by the derivation</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>usedEntity</name>
+    <version_id>1.0</version_id>
+    <local_identifier>usedEntity</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>usedEntity: the identifier (e1) of the entity used by the derivation</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>time</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>time: an OPTIONAL "usage time" (t), the time at which the entity started to be used</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>generation</name>
+    <version_id>1.0</version_id>
+    <local_identifier>generation</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>generation: an OPTIONAL identifier (g2) for the generation involving the generated entity (e2) and activity (a)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>usage</name>
+    <version_id>1.0</version_id>
+    <local_identifier>usage</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>usage: an OPTIONAL identifier (u1) for the usage involving the used entity (e1) and activity (a)</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>plan</name>
+    <version_id>1.0</version_id>
+    <local_identifier>plan</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>plan: an OPTIONAL identifier (pl) for the plan the agent relied on in the context of this activity</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>
+    <name>name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute name.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>family_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>family_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute family_name.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>given_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>given_name</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute given_name.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>orcid</name>
+    <version_id>1.0</version_id>
+    <local_identifier>orcid</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute orcid.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>rorid</name>
+    <version_id>1.0</version_id>
+    <local_identifier>rorid</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute rorid.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>attribute</name>
+    <version_id>1.0</version_id>
+    <local_identifier>attribute</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>attribute: the attribute component of an OPTIONAL set (attrs) of attribute-value pairs representing additional information about this attribution.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>value</name>
+    <version_id>1.0</version_id>
+    <local_identifier>value</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>value: the value component of an OPTIONAL set (attrs) of attribute-value pairs representing additional information about this attribution.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <!-- ======= Attribute Definitions Basic ======= -->
+  
+  <DD_Attribute>
+    <name>title</name>
+    <version_id>1.0</version_id>
+    <local_identifier>title</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute title provides </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>local_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>local_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute local_identifier provides </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>
+    <name>description</name>
+    <version_id>1.0</version_id>
+    <local_identifier>description</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The attribute description provides </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  
+  <!-- ======= Upper Proc Class Definitions ======= -->
+  
+  <DD_Class>
+    <name>Provenance</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Provenance</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>This Provenance class is an implementation of the WC3 Provenance Model pattern ....</definition>
+    <element_flag>true</element_flag>
+
+    <DD_Association>
+      <identifier_reference>title</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>local_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+
+    <DD_Association>
+      <identifier_reference>ProvenanceEntities</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>ProvenanceActivities</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>ProvenanceAgents</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+
+    <DD_Association>
+      <identifier_reference>ProvenanceRelationships</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+
+
+  <!-- ======= Prov Class Definitions ======= -->
+  
+  <DD_Class>
+    <name>Provenance_Entities</name>
+    <version_id>1.0</version_id>
+    <local_identifier>ProvenanceEntities</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Provenance Entities class contains the Entity definitions.</definition>
+    <element_flag>false</element_flag>
+
+    <DD_Association>
+      <identifier_reference>Entity</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Entity</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Entity</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>title</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+        
+    <DD_Association>
+      <identifier_reference>local_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>Attributes</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Provenance_Activities</name>
+    <version_id>1.0</version_id>
+    <local_identifier>ProvenanceActivities</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Provenance Activities class contains the Activity definitions.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>Activity</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Activity</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Activity</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities..</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>title</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+        
+    <DD_Association>
+      <identifier_reference>local_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>Attributes</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Provenance_Agents</name>
+    <version_id>1.0</version_id>
+    <local_identifier>ProvenanceAgents</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Provenance Agents class contains the Agent definitions.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>Agent</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Agent</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Agent</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>title</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+        
+    <DD_Association>
+      <identifier_reference>local_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+
+    <DD_Association>
+      <identifier_reference>XSChoice#</identifier_reference>
+      <identifier_reference>Person</identifier_reference>
+      <identifier_reference>Organization</identifier_reference>
+      <identifier_reference>Software</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>External_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>Attributes</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+  
+  
+  <!-- ======= Relationship Definitions ======= -->
+  
+  <DD_Class>
+    <name>Provenance_Relationships</name>
+    <version_id>1.0</version_id>
+    <local_identifier>ProvenanceRelationships</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Provenance Agents class contains the Agent definitions.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>Relationship</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Relationship</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Relationship</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Relationship class defines a relationship.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>title</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>local_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>RelationType</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>Attributes</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>unbounded</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Relation_Type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>RelationType</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Relation Type class contains the set of relation types of which only one is allowed for each relationship.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>XSChoice#</identifier_reference>
+      <identifier_reference>Used</identifier_reference>
+      <identifier_reference>WasAssociatedWith</identifier_reference>
+      <identifier_reference>WasAttributedTo</identifier_reference>
+      <identifier_reference>WasDerivedFromUsed</identifier_reference>
+      <identifier_reference>WasGeneratedBy</identifier_reference>
+      <identifier_reference>WasInformedBy</identifier_reference>
+      <identifier_reference>ActedOnBehalfOf</identifier_reference>
+      <identifier_reference>WasStartedBy</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+
+  </DD_Class>
+  
+  <DD_Class>
+    <name>WasGeneratedBy</name>  <!-- 0:1 WasGeneratedBy - The entity was generated by the entity at the time.  (Entity, Activity, Time)-->
+    <version_id>1.0</version_id>
+    <local_identifier>WasGeneratedBy</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation. </definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>entity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>activity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Used</name> <!-- 0:1 Used - The activity used the entity at the time. (Activity, Entity, Time)--> 
+    <version_id>1.0</version_id>
+    <local_identifier>Used</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity. (Note: This definition is formulated for a given usage; it is permitted for an activity to have used a same entity multiple times.)</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>activity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>entity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+
+  <DD_Class>
+    <name>WasDerivedFromUsedUsed</name> <!-- 0:1 WasDerivedFromUsed - generatedEntity was derived from usedEntity using an Activity.  (Entity2, Entity1, Activity)-->   
+    <version_id>1.0</version_id>
+    <local_identifier>WasDerivedFromUsed</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.</definition>
+    <element_flag>false</element_flag>
+    
+    
+    <DD_Association>
+      <identifier_reference>generatedEntity</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>usedEntity</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>activity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <!-- 
+      <DD_Association>
+      <identifier_reference>generation</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>usage</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    -->
+    
+  </DD_Class>
+  
+  <DD_Class>
+    <name>WasAttributedTo</name>  <!-- 0:1 WasAttributedTo - The Entity was attributed to the Agent. (Entity, Agent) -->
+    <version_id>1.0</version_id>
+    <local_identifier>WasAttributedTo</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>Attribution is the ascribing of an entity to an agent.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>entity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>agent1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+ 
+  <DD_Class>
+    <name>WasAssociatedWith</name> <!-- 0:1 WasAssociatedWith - The activity was associated with the agent. (Activity, Agent)-->   
+    <version_id>1.0</version_id>
+    <local_identifier>WasAssociatedWith</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.</definition>
+    <element_flag>false</element_flag>
+
+    
+    <DD_Association>
+      <identifier_reference>activity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>agent1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+
+  <DD_Class>
+    <name>WasInformedBy</name> <!-- 0:1 WasInformedBy - informed was informed by informant. (Activity2, Activity1)--> 
+    <version_id>1.0</version_id>
+    <local_identifier>WasInformedBy</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.</definition>
+    <element_flag>false</element_flag>
+    
+    
+    <DD_Association>
+      <identifier_reference>activity2</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>activity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>  
+  
+  <DD_Class>
+    <name>ActedOnBehalfOf</name> <!-- 0:1 ActedOnBehalfOf - delegate acted on behalf of responsible during the activity. (Agent2, Agent1, Activity)-->    
+    <version_id>1.0</version_id>
+    <local_identifier>ActedOnBehalfOf</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>agent2</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>agent1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>activity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>  
+  
+  <DD_Class>
+    <name>WasStartedBy</name> <!-- 0:1 WasStartedBy - activity2 was started on the entity by activity1. (Activity2, Entity, Activity1, Time)-->
+    <version_id>1.0</version_id>
+    <local_identifier>WasStartedBy</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>activity2</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>entity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>activity1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+  
+  <!-- ======= Misc Classes ======= -->
+  
+  <DD_Class>
+    <name>Attributes</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Attributes</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>Attributes: an OPTIONAL set (attrs) of attribute-value pairs representing additional information about this attribution.</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>attribute</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+ 
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Person</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Person</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Person class describes</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>given_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>family_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>orcid</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Organization</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Organization</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Organization class describes</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>rorid</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class> 
+  
+  
+  <DD_Class>
+    <name>Software</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Software</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Software class describes ...</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class> 
+  
+  <DD_Class>
+    <name>External_Reference</name>
+    <version_id>1.0</version_id>
+    <local_identifier>External_Reference</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The External_Reference class describes</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>Affiliation</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+  
+  <DD_Class>
+    <name>Affiliation</name>
+    <version_id>1.0</version_id>
+    <local_identifier>Affiliation</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Affiliation class describes</definition>
+    <element_flag>false</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>rorid</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+  </DD_Class>
+  
+  
+  <!-- LID Supersession LDD - Provenance LDD Built Class -->
+  
+  <!-- Reasons for Superseded LID 
+  
+  Replacement: The original LID no longer matches the product/entity.
+  Duplication: An error, system issue, or oversight led to a duplicate LID.
+  Merged: Multiple products/entities were combined into one to reduce redundancy.
+  Obsolescence: The original product/entity is no longer in use.
+  Policy: New policies require changes to the LID structure.
+  
+  -->
+  
+  <DD_Class>
+    <name>SupersededLID</name>
+    <version_id>1.0</version_id>
+    <local_identifier>SupersededLID</local_identifier>
+    <submitter_name>Steve Hughes</submitter_name>
+    <definition>The Superseded LID LDD relates two LIDs, one that supersedes the other.</definition>
+    <element_flag>true</element_flag>
+    
+    <DD_Association>
+      <identifier_reference>title</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>local_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>description</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    
+    <DD_Association>
+      <identifier_reference>Entity</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
+  <DD_Rule>
+    <local_identifier>provattributes</local_identifier>
+    <rule_context>//prov:Attributes</rule_context>
+    <rule_assign>name="num_supersedes" value="count(//prov:attribute[text() = 'Supersedes'])"</rule_assign>
+    <rule_assign>name="num_reasons" value="count(//prov:attribute[text() = 'Reason'])"</rule_assign>
+    
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>$num_supersedes &gt; 0</rule_test>
+      <rule_message>There must be at least one instance where prov:attribute = 'Supersedes'.</rule_message>
+    </DD_Rule_Statement>
+    
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>$num_reasons &gt; 0</rule_test>
+      <rule_message>There must be at least one instance where prov:attribute = 'Reason'.</rule_message>
+    </DD_Rule_Statement>
+    
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>not(prov:attribute = 'Supersedes') or (starts-with(prov:value, 'urn:nasa:pds'))</rule_test>
+      <rule_message>When prov:attribute is 'Supersedes', prov:value must start with 'urn:nasa:pds'.</rule_message>
+    </DD_Rule_Statement>
+    
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>not(prov:attribute = 'Reason') or (prov:value = ('Replacement', 'Duplication', 'Merged', 'Obsolescence', 'Policy'))</rule_test>
+      <rule_message>When prov:attribute is 'Reason', prov:value must be one of these values: 'Replacement', 'Duplication', 'Merged', 'Obsolescence', 'Policy'.</rule_message>
+    </DD_Rule_Statement>
+    
+  </DD_Rule>
+  
+</Ingest_LDD>

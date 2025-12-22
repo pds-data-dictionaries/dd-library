@@ -1,0 +1,680 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        16.0.0
+   LDD Version Id:        1.3.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Wed Nov 05 20:56:57 UTC 2025
+   Common Schema          [PDS4_PDS_1P00.xsd]
+   Common Schematron      [PDS4_PDS_1P00.sch]
+   IM Version Id:         1.25.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-msn_surface/ldd-msn_surface/src/PDS4_MSN_SURFACE_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         true
+   Mission LDD            false
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                5
+   Attributes             50
+   Associations           55
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               Surface Mission Information
+   LDD Version            1.3.0.0
+   Full Name              Trent Hare
+   Steward                img
+   Namespace Id           msn_surface
+   Comment                
+    ## CHANGE LOG ##
+    1.0.0.0
+    - Initial version
+    
+    1.1.0.0, CDC
+    - Upgraded to v1B00 of the IM.
+    - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+    - Renamed Surface_Mission_Parameters to Surface_Mission_Information, Command_Execution_Information to Command_Execution, and
+      Telemetry_Information to Telemetry.
+      
+    1.1.1.0, CDC
+    - Upgraded to v1D00 of the IM.
+    - Fixed bugs in download_priority attribute: removed min and max value constraints, made definition more generic.
+    
+    1.2.0.0, Trent Hare
+    - Added Observational_Intent class and attributes: campaign, goal, task, activity_notes, keyword
+    - Added command_dispatch_sclk to msn_surface:Command_Execution. Cardinality 0:1
+    - Added several telemetry attibutes for MSL/M2020
+    - Added Commanded_Parameters class with download_priority attribute
+    - Update command_source_id definition per GitHub PDS4-LDD-Issue-Repo/issues/37
+    - Added boot_counter, rtt_version attributes to Command_Execution
+    - Added activity_id, target_id attributes to Observational_Intent
+    - Update to PDS IM 1E00
+    - Update sequence_execution_count to have a min=0
+    - Update telemetry_source_start_time to ASCII_Date_Time_DOY_UTC and formation_rule
+    - Added Commanded_Parameters to Surface_Mission_Information
+    
+    1.2.1.0, Trent Hare
+    - Added "Team-generated Image" enumeration value under transport_protocol
+    
+    1.2.2.0 T.Hare
+    - Added telemetry_alternate_name
+
+    1.3.0.0 T.Hare/R.Deen
+    - Added data_storage_time to Telemetry class for CLPS SCALPSS
+    - Added command_cycle_number to Command_Execution for CADRE
+    - Added expected_command_duration, command_duration, command_sampling_interval, 
+      selected_instrument_id to Command_Execution for CADRE
+    
+  
+   Last Modification Time 2024-09-07T08:42:00
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   surface_gravity
+   version                1.25
+   value data type        ASCII_Real
+   description            The surface_gravity attribute specifies the acceleration of gravity (magnitude, not direction).
+   minimum value          0.0
+   unit of measure type   Units_of_Acceleration
+
+   name                   sequence_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The sequence_id identifies the command sequence used to acquire this product.
+
+   name                   sequence_version_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The sequence_version_id identifies which of potentially several versions of a sequence_id were used to acquire this product.
+
+   name                   command_sequence_number
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            The command_sequence_number attribute provides a numeric identifier for a sequence of commands sent to a spacecraft or instrument.
+
+   name                   command_cycle_number
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            Many missions have repetitive command cycles (which may be based on day, sol, a fixed time interval, orbit number, or any other periodic event). This attribute specifies in which cycle the observation took place.
+
+   name                   expected_command_duration
+   version                1.25
+   value data type        ASCII_Real
+   description            Expected command execution duration.
+   unit of measure type   Units_of_Time
+
+   name                   command_duration
+   version                1.25
+   value data type        ASCII_Real
+   description            Actual command execution duration.
+   unit of measure type   Units_of_Time
+
+   name                   command_sampling_interval
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            For a repeating sequence of events, such as images acquired as a movie, this specifies what interval those events are sampled at. For example, a value of 1 means every even, 2 means every other event, 4 means every 4th event.
+
+   name                   selected_instrument_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Specifies the instrument IDs of instruments selected by this command.
+
+   name                   sequence_execution_count
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            The sequence_execution_count specifies how many times this sequence has executed since the last reset of the flight computer.
+   minimum value          0
+
+   name                   observation_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The observation_id specifies a unique identifier for a scientific observation within a data set.
+   nillable               true
+
+   name                   request_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The request_id is used to group related datasets together by science or engineering application or theme, such as frames in a mosaic.
+   nillable               true
+
+   name                   command_source_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Specifies where the command that triggered acquisition of this data came from. This may be "GROUND" for ground commanding, or the name of a flight software module that initiated the request.
+   minimum characters     1
+   maximum characters     255
+
+   name                   command_dispatch_sclk
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Specifies the spacecraft clock time at which the command execution was started.
+   minimum characters     1
+   maximum characters     255
+
+   name                   boot_counter
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Counter indicating the number of times the spacecraft flight software has been booted. The intent is that this is a global counter that can uniquely identify the current FSW boot, so other counters that reset at boot time can be disambiguated.
+   minimum characters     1
+   maximum characters     255
+
+   name                   rtt_version
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the version of the Round-Trip Tracking (RTT) system used to create metadata in this observation
+   minimum characters     1
+   maximum characters     255
+
+   name                   application_id
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            The application_id (often abbreviated APID) attribute identifies the process, or source, which created the data. This can include information such as an identification of the instrument which generated the telemetry stream, its operating mode at the time of data acquisition, and any onboard compression of the data.
+
+   name                   application_subtype_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The application_subtype_id attribute provides further distinction (i.e., greater specificity) among application_id types.
+
+   name                   application_name
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The application_name attribute provides the name associated with the source or process which created the data.
+
+   name                   provider_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The provider_id attribute identifies the organization or subsystem that supplied the telemetry data product to the producer of the raw (EDR) PDS data product. This is typically (but not always) the organization responsible for reassembling packetized data into a single product. These may vary by mission so the permissible values should be set by the mission dictionaries. 
+
+   name                   flight_software_version_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The flight_software_version_id attribute identifies the version of the instrument flight software used to acquire the image.
+
+   name                   telemetry_source_name
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The telemetry_source_name specifies the name source of the telemetry data described in the parent class.
+
+   name                   telemetry_alternate_name
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The telemetry_alternate_name is similar to telemetry_source_name but specifies an alternate name that may be used to additionally identify the source of the telemetry data in the parent class.
+
+   name                   transport_protocol
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The transport_protocol attribute specifies the protocol used in the creation of the telemetry data products by the subsystem which generates the telemetry stream. 
+   minimum characters     1
+   maximum characters     255
+
+   name                   communication_session_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the communication session used to acquire this data.
+
+   name                   telemetry_source_start_time
+   version                1.25
+   value data type        ASCII_Date_Time_DOY_UTC
+   description            The telemetry_source_start_time specifies the creation time of the source product from which this product was derived. It is the same as the telemetry_source_sclk_start converted to Spacecraft Event Time (SCET).
+
+   name                   telemetry_source_sclk_start
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The telemetry_source_sclk_start attribute specifies the value of the spacecraft clock (in seconds) at the creation time of the source product from which this product was derived.
+
+   name                   product_completion_status
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_completion_status attribute indicates whether or not a product is complete or is in one of a number of incomplete states. Sample values might indicate that all portions of the product have been downlinked and received correctly, that all portions have not yet been received, or that the product contains transmission errors. The specific values are mission-dependent.
+
+   name                   earth_received_start_date_time
+   version                1.25
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The earth_received_start_date_time attribute provides the earliest time at which any component telemetry data for a particular product was received.
+
+   name                   earth_received_stop_date_time
+   version                1.25
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            The earth_received_stop_date_time attribute provides the latest time at which any component telemetry data for a particular product was received.
+
+   name                   download_priority
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            The download_priority attribute specifies which data to downlink/transmit, based on order of importance. The ranking and meaning of specific values will vary depending on the mission, and should be defined in the mission software interface specification (SIS).
+
+   name                   data_size
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            The data_size specifies number of bytes in the compressed data stream, not including headers.
+
+   name                   data_storage_time
+   version                1.25
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Time at which the data was stored into onboard memory.
+
+   name                   expected_packets
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            The expected_packets attribute provides the total number of telemetry packets which constitute a complete data product, i.e., a data product without missing data.
+
+   name                   received_packets
+   version                1.25
+   value data type        ASCII_NonNegative_Integer
+   description            The received_packets attribute provides the total number of telemetry packets actually used to construct this data product. cf. expected_packets.
+
+   name                   telemetry_source_host_name
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Specifies the name of the host venue that provided the telemetry source data used in the creation of this data set.
+
+   name                   expected_transmission_path
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Specifies the planned transmission path (route) for the telemetry data. See also transmission_path and communication_session_id.
+
+   name                   transmission_path
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Indicates the actual transmission path (route) for the telemetry data. See also expected_transmission_path and communication_session_id.
+
+   name                   flight_software_mode
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Specifies the active flight software mode at the time of data product creation. Interpretation of specific modes is mission-dependent.
+
+   name                   telemetry_source_size
+   version                1.25
+   value data type        ASCII_Integer
+   description            Specifies the length in bytes of the telemetry stream from which this product was derived.
+
+   name                   telemetry_source_checksum
+   version                1.25
+   value data type        ASCII_Integer
+   description            Specifies the checksum for the telemetry stream from which this product was derived.
+
+   name                   auto_delete_flag
+   version                1.25
+   value data type        ASCII_Boolean
+   description            Indicates if the product was to be automatically deleted onboard after it is transmitted.
+
+   name                   virtual_channel_id
+   version                1.25
+   value data type        ASCII_Integer
+   description            Specifies the type of data flowing in the telemetry virtual channel.
+
+   name                   campaign
+   version                1.25
+   value data type        ASCII_Text_Preserved
+   description            Identifies the long-term observational campaign of which this observation is a part.
+
+   name                   goal
+   version                1.25
+   value data type        ASCII_Text_Preserved
+   description            Identifies the goal of this observation.
+
+   name                   task
+   version                1.25
+   value data type        ASCII_Text_Preserved
+   description            Identifies the specific task for this observation.
+
+   name                   activity_notes
+   version                1.25
+   value data type        ASCII_Text_Preserved
+   description            Provides additional notes regarding the activity.
+
+   name                   keyword
+   version                1.25
+   value data type        ASCII_Text_Preserved
+   description            Identifies geological characteristics of a feature or target.
+
+   name                   activity_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifier specifying the activity this observation is a part of.
+   minimum characters     1
+   maximum characters     255
+
+   name                   target_id
+   version                1.25
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifier specifying the name or identifier of the primary target this observation is observing. This is distinct from the pds:Target class in that pds:Target typically refers to a large entity such as a planet or satellite, whereas this keyword is intended to capture much finer target information, for example a rock name or even a specific location on a rock.
+   minimum characters     1
+   maximum characters     255
+
+Parsed Input - Classes:
+
+   name                   Surface_Mission_Information
+   description            The Surface_Mission_Information class contains attributes specific to surface missions which apply across instrument types.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn_surface:surface_gravity
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:Command_Execution
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      msn_surface:Telemetry
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      msn_surface:Observational_Intent
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      msn_surface:Commanded_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Command_Execution
+   description            The Command_Execution class contains information about how the command that acquired this data was executed, such as sequence or activity.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn_surface:sequence_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:sequence_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:sequence_execution_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:command_sequence_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:command_cycle_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:command_source_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:command_dispatch_sclk
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:expected_command_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:command_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:command_sampling_interval
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:selected_instrument_id
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        attribute_of
+
+      local identifier      msn_surface:observation_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:request_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:boot_counter
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:rtt_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Commanded_Parameters
+   description            The Commanded_Parameters class contains attributes used to identify or describe the commands sent to a spacecraft to perform one or more actions resulting in the acquisition of the current data product. These are distinct from similar values in the root Surface_Mission_Information class which indicate the state of the data as acquired.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn_surface:download_priority
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Telemetry
+   description            The Telemetry class contains downlink-related attributes used primarily during mission operations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn_surface:application_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:application_subtype_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:application_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:provider_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:flight_software_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:telemetry_source_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:telemetry_alternate_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:transport_protocol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:communication_session_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:telemetry_source_start_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:telemetry_source_sclk_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:product_completion_status
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:earth_received_start_date_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:earth_received_stop_date_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:data_storage_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:download_priority
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:data_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:expected_packets
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:received_packets
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:telemetry_source_host_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:expected_transmission_path
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:transmission_path
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:flight_software_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:telemetry_source_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:telemetry_source_checksum
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:auto_delete_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:virtual_channel_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observational_Intent
+   description            Describes the intent and context of the observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      msn_surface:campaign
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:goal
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:task
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:activity_notes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:keyword
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:activity_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      msn_surface:target_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model
-    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1L00.sch"
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD
     xmlns="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 
-                        https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1L00.xsd"
+                        https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.xsd"
                         >
   <name>Type_List</name>
-  <ldd_version_id>2.1.0.0</ldd_version_id>
+  <ldd_version_id>2.3.0.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Lyle Huber</full_name>
   <steward_id>ctli</steward_id>
@@ -22,12 +22,14 @@
       2019-11-14: First version delivered by the Instrument Type Steward Team.
       2021-08-31: Version 2.0 to reorganize the Type_List class.
   </comment>
-  <last_modification_date_time>2024-01-10T21:00:00Z</last_modification_date_time>
+  <last_modification_date_time>2025-09-05T21:00:00Z</last_modification_date_time>
   <!-- Modification History
     Version 1.0.0.0 - initial dictionary
     Version 1.1.0.0 - added subtype
     Version 2.0.0.0 - reorganized Type_List class
     Version 2.1.0.0 - added permissible value
+    Version 2.2.0.0 - added more permissible values, implemented skos types
+    Version 2.3.0.0 - added permissible value
     -->
 
   <DD_Attribute>
@@ -60,7 +62,7 @@
         </value_meaning>
         <Terminological_Entry>
           <name>Lidar</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>closeMatch</skos_relation_name> 
           <definition>
             A lidar measures distance to a target by illuminating it with a pulsed laser
             and measuring the time delay of the reflected signal.
@@ -79,7 +81,7 @@
         </value_meaning>
         <Terminological_Entry>
           <name>Meteorology</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>closeMatch</skos_relation_name>
           <definition>
             A meteorology instrument measures in situ meteorological conditions.
             These may include -- but are not limited to -- pressure, temperature, 
@@ -90,7 +92,7 @@
         </Terminological_Entry> 
         <Terminological_Entry>
           <name>Weather Station</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>closeMatch</skos_relation_name>
           <definition>
             A weather station is a suite of instruments that measures in situ meteorological conditions. These may include -- but are 
             not limited to -- pressure, temperature, wind speed and wind direction.
@@ -103,11 +105,11 @@
       <DD_Permissible_Value>
         <value>Camera</value>
         <value_meaning>
-          A camera is an optical instrument that captures a still image or a sequence of images on physical media.
+          A camera is an optical instrument that captures a still image or a sequence of images on physical media. (Synonymous with Imager.)
         </value_meaning>
         <Terminological_Entry>
           <name>Imager</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>exactMatch</skos_relation_name>
           <definition>
             An imager detects and converts information into a digital image.
           </definition>
@@ -125,6 +127,13 @@
       </DD_Permissible_Value>
       
       <DD_Permissible_Value>
+        <value>Chemical Analyzer</value>
+        <value_meaning>
+          A chemical analyzer uses sensors to detect the products of reactions when samples are mixed with known reagents.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+        <DD_Permissible_Value>
         <value>Dust Analyzer</value>
         <value_meaning>
           A dust analyzer measures the size and/or energy distribution of dust particles.
@@ -162,11 +171,11 @@
       <DD_Permissible_Value>
         <value>Imager</value>
         <value_meaning>
-          An imager detects and converts information into a digital image.
+          An imager detects and converts information into a digital image. (Synonymous with Camera).
         </value_meaning>
         <Terminological_Entry>
           <name>Camera</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>exactMatch</skos_relation_name>
           <definition>
             A camera is an optical instrument that captures a still image or a sequence of images on physical media.
           </definition>
@@ -207,7 +216,7 @@
         </value_meaning>
         <Terminological_Entry>
           <name>Altimeter</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>closeMatch</skos_relation_name>
           <definition>
             An altimeter measures distance above a surface.
           </definition>
@@ -231,6 +240,14 @@
       </DD_Permissible_Value>
       
       <DD_Permissible_Value>
+        <value>Mechanical Properties Instrument</value>
+        <value_meaning>
+          A Mechanical Properties Instrument measures the reaction of a sample to an applied load, quantifying properties 
+          such as strength, stiffness, ductility, hardness, fracture toughness, and/or friability.
+        </value_meaning>
+      </DD_Permissible_Value>
+        
+      <DD_Permissible_Value>
         <value>Meteorology</value>
         <value_meaning>
           A meteorology instrument measures in situ meteorological conditions.
@@ -239,7 +256,7 @@
         </value_meaning>
         <Terminological_Entry>
           <name>Weather Station</name>
-<!--          <skos_relation_name>exactMatch</skos_relation_name> -->
+          <skos_relation_name>exactMatch</skos_relation_name>
           <definition>
             A weather station is a suite of instruments that measures in situ meteorological conditions. 
             These may include -- but are not limited to -- pressure, temperature, wind speed and wind direction.
@@ -249,7 +266,7 @@
         </Terminological_Entry>        
         <Terminological_Entry>
           <name>Atmospheric Structure Instrument</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>closeMatch</skos_relation_name>
           <definition>
             An atmospheric structure instrument measures one or more structural properties of an atmosphere.
             These properties may include -- but are not limited to -- pressure, temperature,
@@ -304,12 +321,33 @@
       </DD_Permissible_Value>
       
       <DD_Permissible_Value>
+        <value>Photometer</value>
+        <value_meaning>
+          A photometer is an instrument that measures the brightness of light without spatial or spectral resolution.
+        </value_meaning>
+      </DD_Permissible_Value>
+        
+      <DD_Permissible_Value>
+        <value>Plasma Wave Receiver</value>
+        <value_meaning>
+          A plasma wave receiver detects waves in the local plasma medium using electric or magnetic antennas.
+        </value_meaning>
+      </DD_Permissible_Value>
+      
+      <DD_Permissible_Value>
         <value>Polarimeter</value>
         <value_meaning>
           A polarimeter measures the polarization of an electromagnetic wave.
         </value_meaning>
       </DD_Permissible_Value>
-      
+        
+      <DD_Permissible_Value>
+        <value>Precision Scale</value>
+        <value_meaning>
+          A precision scale is a device used to measure the mass of a sample.
+        </value_meaning>
+      </DD_Permissible_Value>
+        
       <DD_Permissible_Value>
         <value>Radar</value>
         <value_meaning>
@@ -358,18 +396,6 @@
         </value_meaning>
       </DD_Permissible_Value>
       
-<!--      <DD_Permissible_Value>
-        <value>Spectrograph</value>
-        <value_meaning>A spectrograph ... an energy spectrum.</value_meaning>
-        <Terminological_Entry>
-          <name>Spectrometer</name>
-          <skos_relation_name>closeMatch</skos_relation_name> 
-          <definition>A spectrometer measures an energy spectrum.</definition>
-          <language>English</language>
-          <preferred_flag>false</preferred_flag>
-        </Terminological_Entry> 
-      </DD_Permissible_Value> -->
-      
       <DD_Permissible_Value>
         <value>Spacecraft Sensor</value>
         <value_meaning>
@@ -383,15 +409,6 @@
         <value_meaning>
           A spectrometer measures an energy spectrum.
         </value_meaning>
-<!--    <Terminological_Entry>
-          <name>Spectrograph</name>
-          <skos_relation_name>closeMatch</skos_relation_name>
-          <definition>
-              A spectrograph ... 
-          </definition>
-          <language>English</language>
-          <preferred_flag>false</preferred_flag>
-        </Terminological_Entry> -->
       </DD_Permissible_Value>
       
       <DD_Permissible_Value>
@@ -431,7 +448,7 @@
         </value_meaning>
         <Terminological_Entry>
           <name>Meteorology</name>
-<!--          <skos_relation_name>exactMatch</skos_relation_name> -->
+          <skos_relation_name>exactMatch</skos_relation_name>
           <definition>A meteorology instrument measures in situ meteorological conditions.
             These may include -- but are not limited to -- pressure, temperature, 
             wind speed, and wind direction.</definition>
@@ -440,7 +457,7 @@
         </Terminological_Entry> 
         <Terminological_Entry>
           <name>Atmospheric Structure Instrument</name>
-<!--          <skos_relation_name>closeMatch</skos_relation_name> -->
+          <skos_relation_name>closeMatch</skos_relation_name>
           <definition>
             An atmospheric structure instrument measures one or more structural properties of an atmosphere.
             These properties may include -- but are not limited to -- pressure, temperature,
@@ -511,3 +528,7 @@
   </DD_Class>
   
 </Ingest_LDD>
+
+
+
+
