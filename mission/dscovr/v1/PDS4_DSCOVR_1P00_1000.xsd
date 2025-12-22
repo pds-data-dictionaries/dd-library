@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:dscovr  Version:1.0.0.0 - Tue Nov 11 00:24:21 UTC 2025 -->
+  <!-- Generated from the PDS4 Information Model Version 1.25.0.0 - System Build 16.0	 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.25.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - dscovr: - DSCOVR Mission Dictionary                             -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/dscovr/v1"
+    xmlns:dscovr="http://pds.nasa.gov/pds4/mission/dscovr/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1P00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+ This dictionary contains classes and attributes specific to the
+    DSCOVR (Deep Space Climate Observatory) mission.
+
+    IMPORTANT NOTE:  This mission is a "rescue" mission, where PDS is saving
+    the lunar data and making it available to the public before the mission
+    gets canceled.  As such, we did not have time or resources to throroughly
+    research the metadata.  It is basically copied straight from the documentation
+    we have.  For example, we do not know what the Quaternion is rotating, the
+    sense of the rotation, or even if it's scalar-first or scalar-last.  Hopefully
+    these answers are buried in the documentation somewhere; if not, they must be
+    divined by the user.  Since the primary Earth archive is with ASDC, presumably
+    they will have better information.  It is not great that we have these
+    holes, but better that than lose the data permanently.
+    
+    The following fields in the HDF are not transferred to this LDD, because
+    they were not applicable to the lunar case:
+      Lunar group:
+        centroid_mean_latitude
+        centroid_mean_longitude
+        geolocation_algorithm
+        geospatial_(lat|lon)_(min|max)
+        granule_version
+        image_set_date
+        (max|min)imum_(latitude|longitude)
+        product_level
+        bottom_latitude
+        bottom_longitude
+        centroid_center_height
+        centroid_center_(latitude|longitude)
+        east_longitude
+        left_latitude
+        left_longitude
+        north_latitude
+        south_latitude
+        top_latitude
+        top_longitude
+        west_longitude
+      Image group:
+        centroid_center_(latitude|longitude)
+        centroid_column_offset
+        centroid_row_offset
+        coordsys
+        darkspace
+        percent_bad_pixels
+        all of the pixel_type values (they're in the documentation instead)
+        
+    ## CHANGE LOG ##
+    1.0.0.0 R. Deen
+    - Initial version
+
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="DSCOVR_Parameters" type="dscovr:DSCOVR_Parameters"> </xs:element>
+
+  <xs:complexType name="Centroid">
+    <xs:annotation>
+      <xs:documentation> This class holds centroid information. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="equatorial_pixel_size" type="dscovr:equatorial_pixel_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="polar_pixel_size" type="dscovr:polar_pixel_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="x_pixel_offset" type="dscovr:x_pixel_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="y_pixel_offset" type="dscovr:y_pixel_offset" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DSCOVR_Parameters">
+    <xs:annotation>
+      <xs:documentation> This is a container class holding all the
+        DSCOVR-specific attributes and classes. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EPIC_Parameters" type="dscovr:EPIC_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EPIC_Parameters">
+    <xs:annotation>
+      <xs:documentation> This is a container class holding all the
+        camera-specific parameters for the EPIC (Earth Polychromatic
+        Imaging Camera) on the DSCOVR mission. EPIC data of Earth is
+        archived at the ASDC (Atmospheric Science Data Center). However,
+        ASDC was unable to accept lunar images, so those are being
+        archived in PDS in order to make them publicly available.
+        Because of this history, the metadata descriptions in this class
+        are largely direct transcriptions from the original HDF label,
+        with minimal descriptions (in some cases insufficient for proper
+        interpretation). Please see the DSCOVR-EPIC documentation either
+        in the bundle or at ASDC for better explanations of this
+        metadata. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Image_Parameters" type="dscovr:Image_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Lunar_Geolocation" type="dscovr:Lunar_Geolocation" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Ephemeris">
+    <xs:annotation>
+      <xs:documentation> This class holds ephemeris information. See the
+        EPIC documentation. Note that there can be multiple instances of
+        this class, where the "entity" attribute defines what the
+        ephemeris information applies to. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="entity" type="dscovr:entity" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="apparent_declination" type="dscovr:apparent_declination" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="apparent_right_ascension" type="dscovr:apparent_right_ascension" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="declination" type="dscovr:declination" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="right_ascension" type="dscovr:right_ascension" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="precession_ecliptic" type="dscovr:precession_ecliptic" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="precession_equatorial" type="dscovr:precession_equatorial" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="x_position" type="dscovr:x_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="y_position" type="dscovr:y_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="z_position" type="dscovr:z_position" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="x_velocity" type="dscovr:x_velocity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="y_velocity" type="dscovr:y_velocity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="z_velocity" type="dscovr:z_velocity" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="dscovr:entity = ('DSCOVR', 'Lunar', 'Solar')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Image_Parameters">
+    <xs:annotation>
+      <xs:documentation> This class holds information about the EPIC
+        camera that are not captured in the IMG dictionary.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ccd_pixel_size" type="dscovr:ccd_pixel_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ccd_read_mode" type="dscovr:ccd_read_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="revision_number" type="dscovr:revision_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Optical_Coefficient" type="dscovr:Optical_Coefficient" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Lunar_Geolocation">
+    <xs:annotation>
+      <xs:documentation> This class holds information about the
+        geolocation of EPIC images of the moon. See the EPIC
+        documentation for more information on how to interpret these.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="apparent_sidereal_time" type="dscovr:apparent_sidereal_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="corrected_rotation_x" type="dscovr:corrected_rotation_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="corrected_rotation_y" type="dscovr:corrected_rotation_y" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="corrected_rotation_z" type="dscovr:corrected_rotation_z" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="earth_north_direction" type="dscovr:earth_north_direction" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ecliptic_obliquity" type="dscovr:ecliptic_obliquity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="image_band" type="dscovr:image_band" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nutation_longitude" type="dscovr:nutation_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nutation_obliquity" type="dscovr:nutation_obliquity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="startracker_rotation_x" type="dscovr:startracker_rotation_x" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="startracker_rotation_y" type="dscovr:startracker_rotation_y" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="startracker_rotation_z" type="dscovr:startracker_rotation_z" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Centroid" type="dscovr:Centroid" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Ephemeris" type="dscovr:Ephemeris" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Quaternion" type="dscovr:Quaternion" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Optical_Coefficient">
+    <xs:annotation>
+      <xs:documentation> This class holds information about the optical
+        coefficients of the EPIC camera. See the EPIC documentation for
+        details. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="a" type="dscovr:a" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="b" type="dscovr:b" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="k1" type="dscovr:k1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="k2" type="dscovr:k2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="k3" type="dscovr:k3" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="p1" type="dscovr:p1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="p2" type="dscovr:p2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="p3" type="dscovr:p3" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="p4" type="dscovr:p4" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="xc" type="dscovr:xc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="yc" type="dscovr:yc" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Quaternion">
+    <xs:annotation>
+      <xs:documentation> Specifies attitude from star tracker as a
+        rotation. See the EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="q0" type="dscovr:q0" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="q1" type="dscovr:q1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="q2" type="dscovr:q2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="q3" type="dscovr:q3" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="a">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "a". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="apparent_declination_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="apparent_declination">
+    <xs:annotation>
+      <xs:documentation> Declination corrected for nutation and
+        precession. See the EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:apparent_declination_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="apparent_right_ascension_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="apparent_right_ascension">
+    <xs:annotation>
+      <xs:documentation> Right Ascension corrected for nutation and
+        precession. See the EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:apparent_right_ascension_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="apparent_sidereal_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="apparent_sidereal_time">
+    <xs:annotation>
+      <xs:documentation> Apparent sidereal time. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:apparent_sidereal_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="b">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "b". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ccd_pixel_size">
+    <xs:annotation>
+      <xs:documentation> CCD pixel size. See the EPIC documentation.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ccd_read_mode">
+    <xs:annotation>
+      <xs:documentation> Indicates CCD read mode. Default is 51 (Mode
+        3). See the EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="corrected_rotation_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="corrected_rotation_x">
+    <xs:annotation>
+      <xs:documentation> Corrected X rotation solution for
+        transformation from ECR coordinates to spacecraft view. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:corrected_rotation_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="corrected_rotation_y_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="corrected_rotation_y">
+    <xs:annotation>
+      <xs:documentation> Corrected Y rotation solution for
+        transformation from ECR coordinates to spacecraft view. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:corrected_rotation_y_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="corrected_rotation_z_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="corrected_rotation_z">
+    <xs:annotation>
+      <xs:documentation> Corrected Z rotation solution for
+        transformation from ECR coordinates to spacecraft view. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:corrected_rotation_z_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="declination_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="declination">
+    <xs:annotation>
+      <xs:documentation> Declination angle. See the EPIC documentation.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:declination_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="earth_north_direction_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="earth_north_direction">
+    <xs:annotation>
+      <xs:documentation> Rotation angle required to rotate image so
+        North is oriented to the top of the image. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:earth_north_direction_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ecliptic_obliquity_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ecliptic_obliquity">
+    <xs:annotation>
+      <xs:documentation> Earth's obliquity in the ecliptic. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:ecliptic_obliquity_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="entity">
+    <xs:annotation>
+      <xs:documentation> Indicates which entity the enclosing Ephemeris
+        class applies to: Lunar, Solar, or the spacecraft itself
+        (DSCOVR). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="equatorial_pixel_size">
+    <xs:annotation>
+      <xs:documentation> Estimated Earth pixel size at equator (measured
+        in pixels). See the EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="image_band">
+    <xs:annotation>
+      <xs:documentation> Image band number. See the EPIC documentation.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="k1">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "k1". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="k2">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "k2". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="k3">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "k3". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nutation_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="nutation_longitude">
+    <xs:annotation>
+      <xs:documentation> Earth's nutation in longitutde. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:nutation_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="nutation_obliquity_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="nutation_obliquity">
+    <xs:annotation>
+      <xs:documentation> Earth's nutation in obliquity. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:nutation_obliquity_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="p1">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "p1". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="p2">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "p2". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="p3">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "p3". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="p4">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "p4". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="polar_pixel_size">
+    <xs:annotation>
+      <xs:documentation> Estimated Earth pixel size at poles (measured
+        in pixels). See the EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="precession_ecliptic_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90.0"/>
+     <xs:maxInclusive value="90.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="precession_ecliptic">
+    <xs:annotation>
+      <xs:documentation> Precession in the ecliptic angle. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:precession_ecliptic_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="precession_equatorial_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="precession_equatorial">
+    <xs:annotation>
+      <xs:documentation> Precession in the equatorial angle. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:precession_equatorial_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="q0">
+    <xs:annotation>
+      <xs:documentation> Quaternion component 0. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="q1">
+    <xs:annotation>
+      <xs:documentation> Quaternion component 1. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="q2">
+    <xs:annotation>
+      <xs:documentation> Quaternion component 2. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="q3">
+    <xs:annotation>
+      <xs:documentation> Quaternion component 3. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="revision_number">
+    <xs:annotation>
+<xs:documentation> Revision number of data set. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="right_ascension_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0.0"/>
+     <xs:maxInclusive value="360.0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="right_ascension">
+    <xs:annotation>
+      <xs:documentation> Geocentric right ascension angle. See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:right_ascension_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="startracker_rotation_x_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="startracker_rotation_x">
+    <xs:annotation>
+      <xs:documentation> Original startracker X rotation solution for
+        transformation from ECR coordinates to spacecraft view. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:startracker_rotation_x_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="startracker_rotation_y_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="startracker_rotation_y">
+    <xs:annotation>
+      <xs:documentation> Original startracker Y rotation solution for
+        transformation from ECR coordinates to spacecraft view. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:startracker_rotation_y_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="startracker_rotation_z_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="startracker_rotation_z">
+    <xs:annotation>
+      <xs:documentation> Original startracker Z rotation solution for
+        transformation from ECR coordinates to spacecraft view. See the
+        EPIC documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:startracker_rotation_z_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="x_pixel_offset">
+    <xs:annotation>
+      <xs:documentation> X offset of center of Earth from center of the
+        image. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="x_position_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="x_position">
+    <xs:annotation>
+      <xs:documentation> X position in J2000 coordiantes, in km.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:x_position_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="x_velocity_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="x_velocity">
+    <xs:annotation>
+<xs:documentation> X velocity in km/s. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:x_velocity_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Velocity" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="xc">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "xc". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="y_pixel_offset">
+    <xs:annotation>
+      <xs:documentation> Y offset of center of Earth from center of the
+        image. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="y_position_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="y_position">
+    <xs:annotation>
+      <xs:documentation> Y position in J2000 coordiantes, in km.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:y_position_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="y_velocity_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="y_velocity">
+    <xs:annotation>
+<xs:documentation> Y velocity in km/s. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:y_velocity_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Velocity" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="yc">
+    <xs:annotation>
+      <xs:documentation> EPIC optical coefficient "yc". See the EPIC
+        documentation. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="z_position_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="z_position">
+    <xs:annotation>
+      <xs:documentation> Z position in J2000 coordiantes, in km.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:z_position_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="z_velocity_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="z_velocity">
+    <xs:annotation>
+<xs:documentation> Z velocity in km/s. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="dscovr:z_velocity_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Velocity" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

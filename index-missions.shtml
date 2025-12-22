@@ -100,6 +100,8 @@
 				<li><a href="#clipper">Clipper</a></li>
 				<li><a href="#clps">Commercial Lunar Payload Services</a></li>
 				<li><a href="#dawn">Dawn</a></li>
+				<li><a href="#dscovr">DSCOVR</a></li>
+				<li><a href="#galileo">Galileo</a></li>
 				<li><a href="#hyb2">Hayabusa2</a></li>
 				<li><a href="#hst">Hubble Space Telescope</a></li>
 				<li><a href="#insight">InSight</a></li>
@@ -148,6 +150,24 @@
 				<p>The Cassini Mission Dictionary (cassini) contains classes, attributes and rules specific to the Cassini Mission and its instruments (Note: Huygens classes will be in a separate dictionary).</br>
 				</p>
 				<ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 10/01/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1810.xsd">PDS4_CASSINI_1O00_1810.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1810.sch">PDS4_CASSINI_1O00_1810.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1810.xml">PDS4_CASSINI_1O00_1810.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1810.JSON">PDS4_CASSINI_1O00_1810.JSON</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1810.zip">PDS4_CASSINI_1O00_1810.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 06/18/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1800.xsd">PDS4_CASSINI_1O00_1800.xsd</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1800.sch">PDS4_CASSINI_1O00_1800.sch</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1800.xml">PDS4_CASSINI_1O00_1800.xml</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1800.JSON">PDS4_CASSINI_1O00_1800.JSON</a></li>
+						<li><a href="/pds4/mission/cassini/v1/PDS4_CASSINI_1O00_1800.zip">PDS4_CASSINI_1O00_1800.zip</a></li>
+					</ul>
 					<li><b>PDS4 Version:</b> 1.23.0.0</li>
 					<li><b>Posted:</b> 05/30/2025</li>
 					<ul>
@@ -216,6 +236,15 @@
 				<p>The Chandrayaan-1 Mission Dictionary (chan1) contains classes, attributes and rules specific to the Chandrayaan-1 Mission and its instruments.</br>
 				</p>
 				<ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 12/02/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1O00_1200.xsd">PDS4_CHAN1_1O00_1200.xsd</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1O00_1200.sch">PDS4_CHAN1_1O00_1200.sch</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1O00_1200.xml">PDS4_CHAN1_1O00_1200.xml</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1O00_1200.JSON">PDS4_CHAN1_1O00_1200.JSON</a></li>
+						<li><a href="/pds4/mission/chan1/v1/PDS4_CHAN1_1O00_1200.zip">PDS4_CHAN1_1O00_1200.zip</a></li>
+					</ul>
 					<li><b>PDS4 Version:</b> 1.14.0.0</li>
 					<li><b>Posted:</b> 11/25/2020</li>
 					<ul>
@@ -277,6 +306,15 @@
 						<li><a href="/pds4/mission/clipper/v1/PDS4_CLIPPER_1J00_1000.JSON">PDS4_CLIPPER_1J00_1000.JSON</a></li>
 						<li><a href="/pds4/mission/clipper/v1/PDS4_CLIPPER_1J00_1000.zip">PDS4_CLIPPER_1J00_1000.zip</a></li>
 					</ul>
+					<li><b>PDS4 Version:</b> 1.16.0.0</li>
+					<li><b>Posted:</b> 10/22/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/clipper/v1/PDS4_CLIPPER_1G00_1000.xsd">PDS4_CLIPPER_1G00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/clipper/v1/PDS4_CLIPPER_1G00_1000.sch">PDS4_CLIPPER_1G00_1000.sch</a></li>
+						<li><a href="/pds4/mission/clipper/v1/PDS4_CLIPPER_1G00_1000.xml">PDS4_CLIPPER_1G00_1000.xml</a></li>
+						<li><a href="/pds4/mission/clipper/v1/PDS4_CLIPPER_1G00_1000.JSON">PDS4_CLIPPER_1G00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/clipper/v1/PDS4_CLIPPER_1G00_1000.zip">PDS4_CLIPPER_1G00_1000.zip</a></li>
+					</ul>
 				</ul>
 				<a class="toTop">Back to top</a>
 			</div>
@@ -285,6 +323,15 @@
 				<p>The Commercial Lunar Payload Services Mission Dictionary (clps) contains classes, attributes and rules specific to the CLPS missions and their instruments.</br>
 				</p>
 				<ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 07/31/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/clps/v1/PDS4_CLPS_1O00_1110.xsd">PDS4_CLPS_1O00_1110.xsd</a></li>
+						<li><a href="/pds4/mission/clps/v1/PDS4_CLPS_1O00_1110.sch">PDS4_CLPS_1O00_1110.sch</a></li>
+						<li><a href="/pds4/mission/clps/v1/PDS4_CLPS_1O00_1110.xml">PDS4_CLPS_1O00_1110.xml</a></li>
+						<li><a href="/pds4/mission/clps/v1/PDS4_CLPS_1O00_1110.JSON">PDS4_CLPS_1O00_1110.JSON</a></li>
+						<li><a href="/pds4/mission/clps/v1/PDS4_CLPS_1O00_1110.zip">PDS4_CLPS_1O00_1110.zip</a></li>
+					</ul>
 					<li><b>PDS4 Version:</b> 1.23.0.0</li>
 					<li><b>Posted:</b> 04/24/2025</li>
 					<ul>
@@ -390,6 +437,49 @@
 						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.xml">PDS4_DAWN_1B00_1000.xml</a></li>
 						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.JSON">PDS4_DAWN_1B00_1000.JSON</a></li>
 						<li><a href="/pds4/mission/dawn/v1/PDS4_DAWN_1B00_1000.zip">PDS4_DAWN_1B00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="dscovr">
+				<h4>DSCOVR (dscovr)</h4>
+				<p>The DSCOVR Mission Data Dictionary contains classes and attributes that describe data products from the DSCOVR (Deep Space Climate Observatory) mission.</br>
+				</p>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.25.0.0</li>
+					<li><b>Posted:</b> 12/15/2024</li>
+					<ul>
+						<li><a href="/pds4/mission/dscovr/v1/PDS4_DSCOVR_1P00_1000.xsd">PDS4_DSCOVR_1P00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/dscovr/v1/PDS4_DSCOVR_1P00_1000.sch">PDS4_DSCOVR_1P00_1000.sch</a></li>
+						<li><a href="/pds4/mission/dscovr/v1/PDS4_DSCOVR_1P00_1000.xml">PDS4_DSCOVR_1P00_1000.xml</a></li>
+						<li><a href="/pds4/mission/dscovr/v1/PDS4_DSCOVR_1P00_1000.JSON">PDS4_DSCOVR_1P00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/dscovr/v1/PDS4_DSCOVR_1P00_1000.zip">PDS4_DSCOVR_1P00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<a class="toTop">Back to top</a>
+			</div>
+			<div id="galileo">
+				<h4>Galileo (galileo)</h4>
+				<p>The Galileo Mission Dictionary (galileo) contains classes, attributes and rules specific to the Galileo Mission and its instruments.</br>
+				</p>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 11/13/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1O00_1000.xsd">PDS4_GALILEO_1O00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1O00_1000.sch">PDS4_GALILEO_1O00_1000.sch</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1O00_1000.xml">PDS4_GALILEO_1O00_1000.xml</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1O00_1000.JSON">PDS4_GALILEO_1O00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1O00_1000.zip">PDS4_GALILEO_1O00_1000.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.23.0.0</li>
+					<li><b>Posted:</b> 11/13/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1N00_1000.xsd">PDS4_GALILEO_1N00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1N00_1000.sch">PDS4_GALILEO_1N00_1000.sch</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1N00_1000.xml">PDS4_GALILEO_1N00_1000.xml</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1N00_1000.JSON">PDS4_GALILEO_1N00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/galileo/v1/PDS4_GALILEO_1N00_1000.zip">PDS4_GALILEO_1N00_1000.zip</a></li>
 					</ul>
 				</ul>
 				<a class="toTop">Back to top</a>
@@ -651,6 +741,15 @@
 				</p>
 				<ul>
 					<li><b>PDS4 Version:</b> 1.19.0.0</li>
+					<li><b>Posted:</b> 12/05/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1050.xsd">PDS4_LRO_1J00_1050.xsd</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1050.sch">PDS4_LRO_1J00_1050.sch</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1050.xml">PDS4_LRO_1J00_1050.xml</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1050.JSON">PDS4_LRO_1J00_1050.JSON</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1050.zip">PDS4_LRO_1J00_1050.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.19.0.0</li>
 					<li><b>Posted:</b> 01/16/2025</li>
 					<ul>
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1040.xsd">PDS4_LRO_1J00_1040.xsd</a></li>
@@ -659,8 +758,6 @@
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1040.JSON">PDS4_LRO_1J00_1040.JSON</a></li>
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1040.zip">PDS4_LRO_1J00_1040.zip</a></li>
 					</ul>
-				</ul>
-				<ul>
 					<li><b>PDS4 Version:</b> 1.19.0.0</li>
 					<li><b>Posted:</b> 08/17/2023</li>
 					<ul>
@@ -688,6 +785,17 @@
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1020.JSON">PDS4_LRO_1J00_1020.JSON</a></li>
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1J00_1020.zip">PDS4_LRO_1J00_1020.zip</a></li>
 					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.18.0.0</li>
+					<li><b>Posted:</b> 12/05/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1050.xsd">PDS4_LRO_1I00_1050.xsd</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1050.sch">PDS4_LRO_1I00_1050.sch</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1050.xml">PDS4_LRO_1I00_1050.xml</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1050.JSON">PDS4_LRO_1I00_1050.JSON</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1050.zip">PDS4_LRO_1I00_1050.zip</a></li>
+					</ul>
 					<li><b>PDS4 Version:</b> 1.18.0.0</li>
 					<li><b>Posted:</b> 08/17/2023</li>
 					<ul>
@@ -714,6 +822,17 @@
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1020.xml">PDS4_LRO_1I00_1020.xml</a></li>
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1020.JSON">PDS4_LRO_1I00_1020.JSON</a></li>
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1I00_1020.zip">PDS4_LRO_1I00_1020.zip</a></li>
+					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.17.0.0</li>
+					<li><b>Posted:</b> 12/05/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1050.xsd">PDS4_LRO_1H00_1050.xsd</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1050.sch">PDS4_LRO_1H00_1050.sch</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1050.xml">PDS4_LRO_1H00_1050.xml</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1050.JSON">PDS4_LRO_1H00_1050.JSON</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1050.zip">PDS4_LRO_1H00_1050.zip</a></li>
 					</ul>
 					<li><b>PDS4 Version:</b> 1.17.0.0</li>
 					<li><b>Posted:</b> 08/17/2023</li>
@@ -750,6 +869,17 @@
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.xml">PDS4_LRO_1H00_1000.xml</a></li>
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.JSON">PDS4_LRO_1H00_1000.JSON</a></li>
 						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1H00_1000.zip">PDS4_LRO_1H00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.16.0.0</li>
+					<li><b>Posted:</b> 12/05/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1050.xsd">PDS4_LRO_1G00_1050.xsd</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1050.sch">PDS4_LRO_1G00_1050.sch</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1050.xml">PDS4_LRO_1G00_1050.xml</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1050.JSON">PDS4_LRO_1G00_1050.JSON</a></li>
+						<li><a href="/pds4/mission/lro/v1/PDS4_LRO_1G00_1050.zip">PDS4_LRO_1G00_1050.zip</a></li>
 					</ul>
 					<li><b>PDS4 Version:</b> 1.16.0.0</li>
 					<li><b>Posted:</b> 08/17/2023</li>
@@ -856,6 +986,69 @@
 				<p>The Mars 2020 Mission Dictionary contains classes and attributes that describe data products from the Mars 2020 Perseverance Rover Mission.</br>
 				</p>
 				<ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 07/15/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1O00_1010.xsd">PDS4_MARS2020_1O00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1O00_1010.sch">PDS4_MARS2020_1O00_1010.sch</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1O00_1010.xml">PDS4_MARS2020_1O00_1010.xml</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1O00_1010.JSON">PDS4_MARS2020_1O00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1O00_1010.zip">PDS4_MARS2020_1O00_1010.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.23.0.0</li>
+					<li><b>Posted:</b> 07/15/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1N00_1010.xsd">PDS4_MARS2020_1N00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1N00_1010.sch">PDS4_MARS2020_1N00_1010.sch</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1N00_1010.xml">PDS4_MARS2020_1N00_1010.xml</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1N00_1010.JSON">PDS4_MARS2020_1N00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1N00_1010.zip">PDS4_MARS2020_1N00_1010.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.22.0.0</li>
+					<li><b>Posted:</b> 07/15/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1M00_1010.xsd">PDS4_MARS2020_1M00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1M00_1010.sch">PDS4_MARS2020_1M00_1010.sch</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1M00_1010.xml">PDS4_MARS2020_1M00_1010.xml</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1M00_1010.JSON">PDS4_MARS2020_1M00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1M00_1010.zip">PDS4_MARS2020_1M00_1010.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.21.0.0</li>
+					<li><b>Posted:</b> 07/15/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1L00_1010.xsd">PDS4_MARS2020_1L00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1L00_1010.sch">PDS4_MARS2020_1L00_1010.sch</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1L00_1010.xml">PDS4_MARS2020_1L00_1010.xml</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1L00_1010.JSON">PDS4_MARS2020_1L00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1L00_1010.zip">PDS4_MARS2020_1L00_1010.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.20.0.0</li>
+					<li><b>Posted:</b> 07/15/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1K00_1010.xsd">PDS4_MARS2020_1K00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1K00_1010.sch">PDS4_MARS2020_1K00_1010.sch</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1K00_1010.xml">PDS4_MARS2020_1K00_1010.xml</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1K00_1010.JSON">PDS4_MARS2020_1K00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1K00_1010.zip">PDS4_MARS2020_1K00_1010.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.19.0.0</li>
+					<li><b>Posted:</b> 07/15/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1J00_1010.xsd">PDS4_MARS2020_1J00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1J00_1010.sch">PDS4_MARS2020_1J00_1010.sch</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1J00_1010.xml">PDS4_MARS2020_1J00_1010.xml</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1J00_1010.JSON">PDS4_MARS2020_1J00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1J00_1010.zip">PDS4_MARS2020_1J00_1010.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.18.0.0</li>
+					<li><b>Posted:</b> 07/15/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1I00_1010.xsd">PDS4_MARS2020_1I00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1I00_1010.sch">PDS4_MARS2020_1I00_1010.sch</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1I00_1010.xml">PDS4_MARS2020_1I00_1010.xml</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1I00_1010.JSON">PDS4_MARS2020_1I00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/mars2020/v1/PDS4_MARS2020_1I00_1010.zip">PDS4_MARS2020_1I00_1010.zip</a></li>
+					</ul>
           <li><b>PDS4 Version:</b> 1.17.0.0</li>
           <li><b>Posted:</b> 06/07/2022</li>
           <ul>
@@ -1008,6 +1201,51 @@
 				<p>The Mars Reconnaissance Orbiter Mission Dictionary (mro) contains classes, attributes and rules specific to the MRO mission and its instruments.</br>
 				</p>
 				<ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 08/26/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1410.xsd">PDS4_MRO_1O00_1410.xsd</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1410.sch">PDS4_MRO_1O00_1410.sch</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1410.xml">PDS4_MRO_1O00_1410.xml</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1410.JSON">PDS4_MRO_1O00_1410.JSON</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1410.zip">PDS4_MRO_1O00_1410.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 07/14/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1400.xsd">PDS4_MRO_1O00_1400.xsd</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1400.sch">PDS4_MRO_1O00_1400.sch</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1400.xml">PDS4_MRO_1O00_1400.xml</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1400.JSON">PDS4_MRO_1O00_1400.JSON</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1O00_1400.zip">PDS4_MRO_1O00_1400.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.23.0.0</li>
+					<li><b>Posted:</b> 08/26/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1410.xsd">PDS4_MRO_1N00_1410.xsd</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1410.sch">PDS4_MRO_1N00_1410.sch</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1410.xml">PDS4_MRO_1N00_1410.xml</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1410.JSON">PDS4_MRO_1N00_1410.JSON</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1410.zip">PDS4_MRO_1N00_1410.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.23.0.0</li>
+					<li><b>Posted:</b> 07/14/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1400.xsd">PDS4_MRO_1N00_1400.xsd</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1400.sch">PDS4_MRO_1N00_1400.sch</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1400.xml">PDS4_MRO_1N00_1400.xml</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1400.JSON">PDS4_MRO_1N00_1400.JSON</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1N00_1400.zip">PDS4_MRO_1N00_1400.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.22.0.0</li>
+					<li><b>Posted:</b> 07/14/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1400.xsd">PDS4_MRO_1M00_1400.xsd</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1400.sch">PDS4_MRO_1M00_1400.sch</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1400.xml">PDS4_MRO_1M00_1400.xml</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1400.JSON">PDS4_MRO_1M00_1400.JSON</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1400.zip">PDS4_MRO_1M00_1400.zip</a></li>
+					</ul>
 					<li><b>PDS4 Version:</b> 1.22.0.0</li>
 					<li><b>Posted:</b> 03/31/2025</li>
 					<ul>
@@ -1025,6 +1263,15 @@
 						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1320.xml">PDS4_MRO_1M00_1320.xml</a></li>
 						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1320.JSON">PDS4_MRO_1M00_1320.JSON</a></li>
 						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1M00_1320.zip">PDS4_MRO_1M00_1320.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.21.0.0</li>
+					<li><b>Posted:</b> 07/14/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1L00_1400.xsd">PDS4_MRO_1L00_1400.xsd</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1L00_1400.sch">PDS4_MRO_1L00_1400.sch</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1L00_1400.xml">PDS4_MRO_1L00_1400.xml</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1L00_1400.JSON">PDS4_MRO_1L00_1400.JSON</a></li>
+						<li><a href="/pds4/mission/mro/v1/PDS4_MRO_1L00_1400.zip">PDS4_MRO_1L00_1400.zip</a></li>
 					</ul>
 					<li><b>PDS4 Version:</b> 1.21.0.0</li>
 					<li><b>Posted:</b> 03/31/2025</li>
@@ -1366,6 +1613,17 @@
 				</p>
 				<ul>
 					<li><b>PDS4 Version:</b> 1.21.0.0</li>
+					<li><b>Posted:</b> 08/26/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1020.xsd">PDS4_ODY_1L00_1020.xsd</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1020.sch">PDS4_ODY_1L00_1020.sch</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1020.xml">PDS4_ODY_1L00_1020.xml</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1020.JSON">PDS4_ODY_1L00_1020.JSON</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1020.zip">PDS4_ODY_1L00_1020.zip</a></li>
+					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.21.0.0</li>
 					<li><b>Posted:</b> 10/30/2024</li>
 					<ul>
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1010.xsd">PDS4_ODY_1L00_1010.xsd</a></li>
@@ -1373,28 +1631,6 @@
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1010.xml">PDS4_ODY_1L00_1010.xml</a></li>
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1010.JSON">PDS4_ODY_1L00_1010.JSON</a></li>
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1L00_1010.zip">PDS4_ODY_1L00_1010.zip</a></li>
-					</ul>
-				</ul>
-				<ul>
-					<li><b>PDS4 Version:</b> 1.20.0.0</li>
-					<li><b>Posted:</b> 10/30/2024</li>
-					<ul>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.xsd">PDS4_ODY_1K00_1010.xsd</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.sch">PDS4_ODY_1K00_1010.sch</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.xml">PDS4_ODY_1K00_1010.xml</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.JSON">PDS4_ODY_1K00_1010.JSON</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.zip">PDS4_ODY_1K00_1010.zip</a></li>
-					</ul>
-				</ul>
-				<ul>
-					<li><b>PDS4 Version:</b> 1.19.0.0</li>
-					<li><b>Posted:</b> 10/30/2024</li>
-					<ul>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.xsd">PDS4_ODY_1J00_1010.xsd</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.sch">PDS4_ODY_1J00_1010.sch</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.xml">PDS4_ODY_1J00_1010.xml</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.JSON">PDS4_ODY_1J00_1010.JSON</a></li>
-						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.zip">PDS4_ODY_1J00_1010.zip</a></li>
 					</ul>
 				</ul>
 				<ul>
@@ -1410,6 +1646,28 @@
 				</ul>
 				<ul>
 					<li><b>PDS4 Version:</b> 1.20.0.0</li>
+					<li><b>Posted:</b> 08/26/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1020.xsd">PDS4_ODY_1K00_1020.xsd</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1020.sch">PDS4_ODY_1K00_1020.sch</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1020.xml">PDS4_ODY_1K00_1020.xml</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1020.JSON">PDS4_ODY_1K00_1020.JSON</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1020.zip">PDS4_ODY_1K00_1020.zip</a></li>
+					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.20.0.0</li>
+					<li><b>Posted:</b> 10/30/2024</li>
+					<ul>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.xsd">PDS4_ODY_1K00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.sch">PDS4_ODY_1K00_1010.sch</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.xml">PDS4_ODY_1K00_1010.xml</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.JSON">PDS4_ODY_1K00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1010.zip">PDS4_ODY_1K00_1010.zip</a></li>
+					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.20.0.0</li>
 					<li><b>Posted:</b> 07/26/2024</li>
 					<ul>
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1000.xsd">PDS4_ODY_1K00_1000.xsd</a></li>
@@ -1417,6 +1675,28 @@
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1000.xml">PDS4_ODY_1K00_1000.xml</a></li>
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1000.JSON">PDS4_ODY_1K00_1000.JSON</a></li>
 						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1K00_1000.zip">PDS4_ODY_1K00_1000.zip</a></li>
+					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.19.0.0</li>
+					<li><b>Posted:</b> 08/26/2025</li>
+					<ul>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1020.xsd">PDS4_ODY_1J00_1020.xsd</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1020.sch">PDS4_ODY_1J00_1020.sch</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1020.xml">PDS4_ODY_1J00_1020.xml</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1020.JSON">PDS4_ODY_1J00_1020.JSON</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1020.zip">PDS4_ODY_1J00_1020.zip</a></li>
+					</ul>
+				</ul>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.19.0.0</li>
+					<li><b>Posted:</b> 10/30/2024</li>
+					<ul>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.xsd">PDS4_ODY_1J00_1010.xsd</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.sch">PDS4_ODY_1J00_1010.sch</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.xml">PDS4_ODY_1J00_1010.xml</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.JSON">PDS4_ODY_1J00_1010.JSON</a></li>
+						<li><a href="/pds4/mission/ody/v1/PDS4_ODY_1J00_1010.zip">PDS4_ODY_1J00_1010.zip</a></li>
 					</ul>
 				</ul>
 				<ul>
@@ -1680,7 +1960,7 @@
 		</ul>
 		<p>
     <p>
-        Once all information is gathered, create a ticket <a href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh&labels=enhancement%2C+ldd-request%2C+p.must-have&template=-ldd-request--initialize-new-pds-ldd.md&title=%5Bldd-request%5D+Create+new+LDD+%22%3Cproposed+namespace+ID%3E%22">here</a> to initialize a new PDS LDD and register it with the PDS Namespace Registry.
+        Once all information is gathered, create a ticket <a href="https://github.com/NASA-PDS/operations/issues/new?template=-ldd-request--initialize-new-pds-ldd.yml">here</a> to initialize a new PDS LDD and register it with the PDS Namespace Registry.
     </p>
 
 		<a class="toTop">Back to top</a>
@@ -1692,7 +1972,7 @@
         When a Local Data Dictionary (LDD) Steward is ready to submit a new version of an LDD for release:
     </p>
     <p>
-        <a class="button" href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh%2C+elawsgh&labels=ldd-release&template=-ldd-request--pds-ldd-release.md&title=%5Bldd-release%5D+%3CLDD+Name%3E+LDD+Version%3A%3CLDD_version%3E+IM+Version%3A%3CIM_Version%3E">Submit LDD Release Request</a>
+        <a class="button" href="https://github.com/NASA-PDS/operations/issues/new?template=-ldd-request--pds-ldd-release.yml">Submit LDD Release Request</a>
     </p>
     <p>
 			<em>Note: Assume <a href="#dictionary-validation">validation</a> has been completed by steward.</em>

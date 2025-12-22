@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.sch"
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD 
     xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
-                        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd">
+                        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.xsd">
     <name>MRO</name>
-    <ldd_version_id>1.3.3.0</ldd_version_id>
+    <ldd_version_id>1.4.1.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
@@ -18,9 +18,9 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.3.3.0
-        PDS Build 1.19.0.0, 1.20.0.0, 1.21.0.0, 1.22.0.0
-        LDDTool version 15.0.6
+        MRO version 1.4.1.0
+        PDS Build 1.19.0.0, 1.20.0.0, 1.21.0.0, 1.22.0.0, 1.23.0.0, 1.24.0.0
+        LDDTool version 15.2.4
         
         Built with lddtool -plJ PDS4_MRO_IngestLDD.xml
         
@@ -39,21 +39,25 @@
         2023-03-23 PG (pgeissler@usgs.gov) added HiRISE RDR class
 
 	    2023-08-16 DVP. Modifications to some parameters of CRISM_ATO_Parameters class
-	    following urn:nasa:pds:crism_ato_s_iof_lml peer review; bumped to 1.2.1.0.
+	    following urn:nasa:pds:crism_ato_s_iof_lml peer review; bumped to 1.2.1.0
 
         2023-08-31 PG (pgeissler@usgs.gov) added observation_rationale attribute for HiRISE, 
         bump to 1.2.2.0
         
-        2024-01-09 JGW. Added SHARAD_Observation_Parameters class
+        2024-01-09 JGW. Added SHARAD_Observation_Parameters class, bump to 1.3.0.0
         
         2024-02-27 PG fixes to HiRISE, 1.3.1.0
         
-        2024-09-16 JGW. Revised SCLK pattern to allow between 1 and 6 fractional digits.
+        2024-09-16 JGW. Revised SCLK pattern to allow between 1 and 6 fractional digits, 1.3.2.0
         
-        2025-12016 TMH. v1.3.3.0 Added BADCAL enumeration to special_processing_flag_* for HiRISE
+        2025-12-16 TMH. Added BADCAL enumeration to special_processing_flag_* for HiRISE, 1.3.3.0
+        
+        2025-06-27 JGW. Added CRISM TRDR parameters. Added CRISM VRDR product types, 1.4.0.0
+        
+        2025-07-18 JGW. Added additional allowed values to mro:observation_type, 1.4.1.0 
         
     </comment>
-    <last_modification_date_time>2025-12-16T10:22</last_modification_date_time>
+    <last_modification_date_time>2025-06-27</last_modification_date_time>
 
 <!--Hierarchy of classes and attributes 
     mro:MRO_Parameters
@@ -268,6 +272,14 @@
                 <value_meaning>Targeted Reduced Data Record - Browse</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
+                <value>VRDR</value>
+                <value_meaning>VNIR Hyperspectral Reduced Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>VRDR_Browse</value>
+                <value_meaning>VNIR Hyperspectral Reduced Data Record - Browse</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>DTM</value>
                 <value_meaning>Digital Terrain Model</value_meaning>
             </DD_Permissible_Value>
@@ -391,16 +403,67 @@
         band_name
         band_sequence_number
 	    detector_temperature
-	    fpe_temperature        
+	    exposure_parameter
+	    fpe_temperature
+	    fram_stat_iqr_conf_lvl
+	    fram_stat_median_box_width
+	    fram_stat_median_conf_lvl
+	    fram_stat_min_deviation 
+	    frame_rate	     	    
+	    hdf_software_name
+	    hdf_software_version_id
+	    if_max_value
+	    if_min_value
+	    ikf_confidence_level_r1
+	    ikf_confidence_level_r2
+	    ikf_kernel_size_x_r1
+	    ikf_kernel_size_x_r2
+	    ikf_kernel_size_y_r1
+	    ikf_kernel_size_y_r2
+	    ikf_kernel_size_z_r1
+	    ikf_kernel_size_z_r2
+	    ikf_model_order_x_r1
+	    ikf_model_order_x_r2
+	    ikf_model_order_y_r1
+	    ikf_model_order_y_r2
+	    ikf_model_order_z_r1
+	    ikf_model_order_z_r2
+	    ikf_num_regions
+	    ikf_start_channel_r1
+	    ikf_start_channel_r2
+	    ikf_stop_channel_r1
+	    ikf_stop_channel_r2
+	    ikf_weighting_stddev_r1
+	    ikf_weighting_stddev_r2
+	    instrument_pointing_mode
+	    inv_lookup_table_file_name
+	    log_xform_neg_clip_value
         observation_id
 	    observation_number
 	    observation_type
 	    optical_bench_temperature
+	    pixel_proc_file_name
+	    refz_median_box_width
+	    refz_smooth_box_width
+	    rsc_ref_xy_median_width
+	    rsc_ref_xy_smooth_width
+	    rsc_ref_yz_median_width
+	    rsc_ref_yz_smooth_width
+	    rsc_ratio_xy_median_width
+	    rsc_ratio_xy_smooth_width
+	    rsc_res_xy_ply_order
+	    rsc_res_xy_ply_extnd_width
+	    sampling_mode_id
 	    scaling_factor
+	    scan_mode_id
 	    sensor_id
 	    spectrometer_housing_temperature
 	    sphere_temperature
+	    trace_max_value
+	    trace_min_value
 	    value_offset
+	    wavelength_file_name
+	    wavelength_filter
 	    
     -->
 
@@ -479,7 +542,7 @@
         <definition>
             The detector_temperature attribute provides the temperature of the
             CRISM IR detector (if sensor_id = 'L'), or the VNIR detector (if
-            SENSOR_ID = 'S'). On each detector there are two temperature
+            sensor_id = 'S'). On each detector there are two temperature
             sensors. The primary source of IR detector temperature is IR temperature
             sensor 1 (column 50 in the EDR list file). The backup source of IR
             detector temperature is IR temperature sensor 2 (column 51 in the EDR
@@ -494,6 +557,30 @@
             <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
             <specified_unit_id>K</specified_unit_id>
         </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>exposure_parameter</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.exposure_parameter</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The exposure_parameter attribute identifies the value supplied to the CRISM 
+            instrument to command the exposure time. At a given frame rate identified in 
+            frame_rate, there are 480 possible exposure times ranging from 1 to 480. An 
+            exposure parameter of 480 yields an exposure time equal to the inverse of the 
+            frame rate. An exposure time parameter of 1 yields an exposure time 1/480 as 
+            large. For example, at a frame rate of 3.75 Hz, an exposure time parameter of 
+            480 yields an exposure time of 0.26667 sec, whereas an exposure time parameter 
+            of 1 yields and exposure time of 0.00056 sec. This parameter is included 
+            independently of the exposure time itself because some of the Calibration Data 
+            Records (CDRs) are applicable to data taken at a particular exposure parameter.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+            <maximum_value>480</maximum_value>
+        </DD_Value_Domain>
     </DD_Attribute>    
     <DD_Attribute> <name>fpe_temperature</name>
         <version_id>1.0</version_id>
@@ -506,8 +593,8 @@
             Celsius. For HiRISE, see Figure 2.3, MRO HiRISE EDR SIS, REFKEYID
             JPLD-32004. For CRISM, the value refers to the focal plane
             electronics board mounted in the base of the gimbal. The values
-            represents IR focal plane electronics if SENSOR_ID = 'L', and
-            to the VNIR focal plane electronics if SENSOR_ID = 'S'. The
+            represents IR focal plane electronics if sensor_id = 'L', and
+            to the VNIR focal plane electronics if sensor_id = 'S'. The
             source of CRISM IR focal plane electronics temperature is column
             60 in the EDR list file. The source of VNIR focal plane
             electronics temperature is column 71 in the EDR list file.
@@ -519,14 +606,560 @@
             <specified_unit_id>K</specified_unit_id>
         </DD_Value_Domain>
     </DD_Attribute>
+    <DD_Attribute> <name>fram_stat_iqr_conf_lvl</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.fram_stat_iqr_conf_lvl</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The fram_stat_iqr_conf_lvl attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the confidence level parameter 
+            associated with the Grubb's Test used for outlier detection of attributes of the normalized median profile 
+            of the frame interquartile range in the detection of bad frames during the preprocessing steps. Typical 
+            values are near 0.95.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>fram_stat_median_box_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.fram_stat_median_box_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The fram_stat_median_box_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a median 
+            filter used on the frame median profile in the computation of bad frames during preprocessing steps.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>fram_stat_median_conf_lvl</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.fram_stat_median_conf_lvl</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The fram_stat_median_conf_lvl attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the confidence level parameter 
+            associated with the Grubb's Test used for outlier detection of attributes of the normalized median frame 
+            profile in the detection of bad frames during the preprocessing steps. Typical values are near 0.95.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>fram_stat_min_deviation</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.fram_stat_min_deviation</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The fram_stat_min_deviation attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the minimum deviation from 
+            the mean of an attribute of the normalized frame median profile necessary to be classified as a bad frame 
+            during the preprocessing steps.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>frame_rate</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.frame_rate</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The frame_rate attribute identifies the rate at which frames of data in a CRISM EDR were returned. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Frame_Rate</unit_of_measure_type>
+            <specified_unit_id>Hz</specified_unit_id>
+            <DD_Permissible_Value>
+                <value>1.0</value>
+                <value_meaning>The frame rate is 1.0 Hz.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>3.75</value>
+                <value_meaning>The frame rate is 3.75 Hz.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>5.0</value>
+                <value_meaning>The frame rate is 5.0 Hz.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>15.0</value>
+                <value_meaning>The frame rate is 15.0 Hz.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>30.0</value>
+                <value_meaning>The frame rate is 30.0 Hz.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>hdf_software_version_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.hdf_software_version_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The hdf_software_version_id attribute indicates the version of the software used by the CRISM hyperspectral data 
+            filter application. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>hdf_software_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.hdf_software_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The hdf_software_name attribute provides the name of the CRISM hyperspectral data filter software used to 
+            process radiance TRDR data into I/F. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>if_max_value</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.if_max_value</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The if_max_value attribute is one of the control parameters for the CRISM hyperspectral data filtering 
+            application used to convert TRR3 radiance data to I/F and indicates the maximum valid value in units of I/F.
+            Values outside of the valid range of I/F values are ignored during preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>if_min_value</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.if_min_value</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The if_min_value attribute is one of the control parameters for the CRISM hyperspectral data filtering 
+            application used to convert TRR3 radiance data to I/F and indicates the minimum valid value in units of I/F.
+            Values outside of the valid range of I/F values are ignored during preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_confidence_level_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_confidence_level_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_confidence_level_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the confidence level parameter 
+            associated with the Grubb's Test used for outlier detection of attributes of the model residuals in the 
+            Iterative Kernel Filter procedure. Spectral region 1. Typical values are near 0.95. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_confidence_level_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_confidence_level_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_confidence_level_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the confidence level parameter 
+            associated with the Grubb's Test used for outlier detection of attributes of the model residuals in the 
+            Iterative Kernel Filter procedure. Spectral region 2. Typical values are near 0.95. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_kernel_size_x_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_kernel_size_x_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_kernel_size_x_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the size of the kernel in the 
+            X direction used in the Iterative Kernel Filter procedure. Spectral region 1. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_kernel_size_x_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_kernel_size_x_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_kernel_size_x_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the size of the kernel in the 
+            X direction used in the Iterative Kernel Filter procedure. Spectral region 2. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_kernel_size_y_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_kernel_size_y_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_kernel_size_y_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the size of the kernel in the 
+            Y direction used in the Iterative Kernel Filter procedure. Spectral region 1. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_kernel_size_y_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_kernel_size_y_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_kernel_size_y_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the size of the kernel in the 
+            Y direction used in the Iterative Kernel Filter procedure. Spectral region 2. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_kernel_size_z_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_kernel_size_z_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_kernel_size_z_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the size of the kernel in the 
+            Z direction used in the Iterative Kernel Filter procedure. Spectral region 1. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_kernel_size_z_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_kernel_size_z_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_kernel_size_z_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the size of the kernel in the 
+            Z direction used in the Iterative Kernel Filter procedure. Spectral region 2. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_model_order_x_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_model_order_x_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_model_order_x_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the dimensionality of the 
+            model in the X direction used in the Iterative Kernel Filter procedure. Spectral region 1. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_model_order_x_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_model_order_x_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_model_order_x_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the dimensionality of the 
+            model in the X direction used in the Iterative Kernel Filter procedure. Spectral region 2. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_model_order_y_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_model_order_y_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_model_order_y_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the dimensionality of the 
+            model in the Y direction used in the Iterative Kernel Filter procedure. Spectral region 1. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_model_order_y_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_model_order_y_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_model_order_y_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the dimensionality of the 
+            model in the Y direction used in the Iterative Kernel Filter procedure. Spectral region 2. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_model_order_z_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_model_order_z_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_model_order_z_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the dimensionality of the
+            model in the Z direction used in the Iterative Kernel Filter procedure. Spectral region 1. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_model_order_z_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_model_order_z_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_model_order_z_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the dimensionality of the
+            model in the Z direction used in the Iterative Kernel Filter procedure. Spectral region 2. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_num_regions</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_num_regions</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_num_regions attribute is one of the control parameters for the CRISM hyperspectral data filtering 
+            application used to convert TRR3 radiance data to I/F and indicates the number of spectral regions 
+            identified for the application of the Iterative Kernel Filter procedure. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_start_channel_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_start_channel_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_start_channel_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the first channel number for 
+            spectral region 1 of the Iterative Kernel Filter procedure. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>437</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_start_channel_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_start_channel_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_start_channel_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the first channel number for 
+            spectral region 2 of the Iterative Kernel Filter procedure. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>437</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_stop_channel_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_stop_channel_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_stop_channel_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the last channel number for 
+            spectral region 1 of the Iterative Kernel Filter procedure. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>437</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_stop_channel_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_stop_channel_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_stop_channel_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the last channel number for 
+            spectral region 2 of the Iterative Kernel Filter procedure. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>437</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_weighting_stddev_r1</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_weighting_stddev_r1</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_weighting_stddev_r1 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the weighting parameter for 
+            the final model evaluation in the Iterative Kernel Filter procedure. Spectral region 1. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>ikf_weighting_stddev_r2</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ikf_weighting_stddev_r2</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The ikf_weighting_stddev_r2 attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the weighting parameter for 
+            the final model evaluation in the Iterative Kernel Filter procedure. Spectral region 2. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>instrument_pointing_mode</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.instrument_pointing_mode</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The instrument_pointing_mode element identifies the pointing mode of the CRISM gimbal. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>FIXED POINTING</value>
+                <value_meaning>The instrument remains at a single gimbal position while taking data. FIXED POINTING is the nominal mode for multispectral survey data.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>DYNAMIC POINTING</value>
+                <value_meaning>The gimbal tracks a target and typically superimposes a very slow constant-rate scan. DYNAMIC POINTING is the nominal mode for targeted observations.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>inv_lookup_table_file_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.inv_lookup_table_file_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The inv_lookup_table_file_name element identifies the name of the CRISM file that gives the 12-bit DN value 
+            replacing each 8-bit DN value if lossy compression was performed (if compression_type=8_BIT). The inverse 
+            lookup table file is a nine-column, 4095-row text file. Column 1 gives each 8-bit value, 0 through 255. 
+            Columns 2 through 9 give the 12-bit values that replace them if lookup tables 0 through 7, respectively,
+            were selected for data acquisition. Lookup tables are selected on a line by line basis. Which table is used 
+            for each line is indicated in the pixel-processing descriptive file named in pixel_proc_file_name. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>log_xform_neg_clip_value</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.log_xform_neg_clip_value</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The log_xform_neg_clip_value attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the value used for any 
+            negative I/F value in the log base 10 transform. This effectively represents the minimum possible pixel 
+            value for the Iterative Kernel Filter procedure. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>observation_id</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.observation_id</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
         <definition>
-            The observation_id attribute is a 8-byte hexadecimal integer uniquely 
-            identifying the observation.
+            The observation_id attribute is a 8-byte hexadecimal integer uniquely identifying the observation.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -539,9 +1172,8 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
         <definition>
-            The observation_number attribute gives the monotonically increasing 
-            ordinal counter of the EDRs generated for a particular CRISM 
-            observation_id. CRISM generates several EDRs for a given observation_id.
+            The observation_number attribute gives the monotonically increasing ordinal counter of the EDRs generated 
+            for a particular CRISM observation_id. CRISM generates several EDRs for a given observation_id.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -639,6 +1271,18 @@
                 <value>STO</value>
                 <value_meaning>Star Observation</value_meaning>
             </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CRL</value>
+                <value_meaning>Comet Resolution Long Scan Observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CRM</value>
+                <value_meaning>Comet Resolution Medium Scan Observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CRS</value>
+                <value_meaning>Comet Resolution Short Scan Observation</value_meaning>
+            </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>    
     <DD_Attribute> <name>optical_bench_temperature</name>
@@ -647,10 +1291,9 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
         <definition>
-            The optical_bench_temperature attribute provides the temperature of
-            the CRISM optical bench. It is a backup to sphere_temperature for
-            modeling the output radiance of the onboard integrating sphere as a
-            function of sphere temperature.
+            The optical_bench_temperature attribute provides the temperature of the CRISM optical bench. It is a backup 
+            to sphere_temperature for modeling the output radiance of the onboard integrating sphere as a function of 
+            sphere temperature.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -658,31 +1301,263 @@
             <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
             <specified_unit_id>K</specified_unit_id>
         </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>pixel_proc_file_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.pixel_proc_file_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The pixel_proc_file_name attribute gives the name of the file that documents the CRISM onboard compression 
+            options selected. Onboard compression converts a 14- bit DN with a value of 0-16383 to a 12-bit- 0-4095 
+            value or 8-bit 0-255 value for downlink. Corrections are done on a line by line basis. The pixel processing 
+            file is a 4- column, 480-row text file. The four attributes in each row are the row number, the gain 
+            correction performed, the offset correction performed, and the 12 to 8 bit lookup table used if lossy 
+            compression is performed. Both gain and offset corrections are always performed to convert 14-bit to 12-bit 
+            values prior to downlink. First the offset is subtracted from the 14-bit value. Then the difference is 
+            multiplied by the gain to shorten the result to a 12-bit value. If lossy compression is being performed 
+            (if compression_type = 8_BIT), then the 12- to 8-bit lookup table value gives the table in the file named 
+            by lookup_table_file_name that was used to convert the 12-bit value to an 8- bit value. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>refz_median_box_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.refz_median_box_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The refz_median_box_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a median 
+            filter used in the spectral direction in the computation of the reference cube during the preprocessing 
+            steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>refz_smooth_box_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.refz_smooth_box_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The refz_smooth_box_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a boxcar 
+            smoothing filter used in the spectral direction in the computation of the reference cube during the 
+            preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_ref_xy_median_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_ref_xy_median_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_ref_xy_median_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a median 
+            filter used as part of the application of the ratio shift correction procedure in the XY direction while 
+            computing the reference cube during the preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_ref_xy_smooth_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_ref_xy_smooth_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_ref_xy_smooth_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a boxcar 
+            smoothing filter used as part of the application of the ratio shift correction procedure in the XY direction 
+            while computing the reference cube during the preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_ref_yz_median_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_ref_yz_median_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_ref_yz_median_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a median 
+            filter used as part of the application of the ratio shift correction procedure in the YZ direction while 
+            computing the reference cube during the preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_ref_yz_smooth_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_ref_yz_smooth_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_ref_yz_smooth_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a boxcar 
+            smoothing filter used as part of the application of the ratio shift correction procedure in the YZ direction 
+            while computing the reference cube during the preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_ratio_xy_median_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_ratio_xy_median_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_ratio_xy_median_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a median 
+            filter used as part of the application of the ratio shift correction procedure in the XY direction while 
+            computing the ratio cube during the preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_ratio_xy_smooth_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_ratio_xy_smooth_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_ratio_xy_smooth_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the kernel size of a boxcar 
+            smoothing filter used as part of the application of the ratio shift correction procedure in the XY direction 
+            while computing the ratio cube during the preprocessing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_res_xy_ply_order</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_res_xy_ply_order</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_res_xy_ply_order attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the order of the polynomial 
+            used to model low frequency content in the XY direction used as part of the application of the ratio shift 
+            correction procedure while computing the resolve cube during the post processing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>rsc_res_xy_ply_extnd_width</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.rsc_res_xy_ply_extnd_width</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The rsc_res_xy_ply_extnd_width attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the number of pixels used to 
+            extend the trend of the column profiles when computing the polynomial used to model low frequency content in 
+            the XY direction used as part of the application of the ratio shift correction procedure while computing 
+            the resolve cube during the post processing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>sampling_mode_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.sampling_mode_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The sampling_mode_id attribute identifies the resolution mode of a wavelength or frequency channel. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>HYPERSPECTRAL</value>
+                <value_meaning>Wavelength filter used returns contiguous rows.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>MULTISPECTRAL</value>
+                <value_meaning>Wavelength filter used does not return contiguous rows.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
     </DD_Attribute>    
     <DD_Attribute> <name>scaling_factor</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.scaling_factor</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Susan Slavney</submitter_name>
-        <definition>The scaling_factor attribute is the scaling factor to be applied to each stored value
-            in order to recover an original value. The observed value (Ov) is calculated from the 
-            stored value (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. 
+        <definition>The scaling_factor attribute is the scaling factor to be applied to each stored value in order to 
+            recover an original value. The observed value (Ov) is calculated from the stored value (Sv) thus: 
+            Ov = (Sv * scaling_factor) + value_offset. 
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
-    </DD_Attribute>   
+    </DD_Attribute>
+    <DD_Attribute> <name>scan_mode_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.scan_mode_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The scan_mode_id attribute identifies one of several internal rates for data acquisition by an 
+            instrument. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>SHORT</value>
+                <value_meaning>For full-resolution or half-resolution short central swath, or limb scan observation.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>LONG</value>
+                <value_meaning>For half-resolution long central swath.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>EPF</value>
+                <value_meaning>For EPF even if part of a different class of observation.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>N/A</value>
+                <value_meaning>For targeted observations since 2012, when truncated central scans without EPF images were adopted.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>sensor_id</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.sensor_id</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
         <definition>
-            The sensor_id attribute identifies the CRISM focal plane from
-            which data in an EDR or RDR were returned; S = short-wavelength
-            or VNIR, L = long-wavelength or IR, J = joint where a data
-            product is applicable to either.
+            The sensor_id attribute identifies the CRISM focal plane from which data in an EDR or RDR were returned; 
+            S = short-wavelength or VNIR, L = long-wavelength or IR, J = joint where a data product is applicable to 
+            either.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -695,14 +1570,11 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
         <definition>
-            The spectrometer_housing_temperature attribute gives the temperature of the
-            CRISM spectrometer housing. This is a backup to direct determination,
-            using measurements with the shutter closed, of the thermal background
-            measured by the IR detector. The primary source of this temperature is a
-            measurement digitized by the VNIR focal plane electronics, column 58 in
-            the EDR list file. The backup source of this temperature is a
-            measurement digitized by the IR focal plane electronics, column 69 in
-            the EDR list file.
+            The spectrometer_housing_temperature attribute gives the temperature of the CRISM spectrometer housing. 
+            This is a backup to direct determination, using measurements with the shutter closed, of the thermal 
+            background measured by the IR detector. The primary source of this temperature is a measurement digitized 
+            by the VNIR focal plane electronics, column 58 in the EDR list file. The backup source of this temperature 
+            is a measurement digitized by the IR focal plane electronics, column 69 in the EDR list file.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -717,9 +1589,8 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
         <definition>
-            The sphere_temperature attribute gives the temperature of the CRISM
-            onboard integrating sphere. It is used for modeling the output radiance
-            of the sphere as a function of sphere temperature.
+            The sphere_temperature attribute gives the temperature of the CRISM onboard integrating sphere. It is used 
+            for modeling the output radiance of the sphere as a function of sphere temperature.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -727,22 +1598,103 @@
             <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
             <specified_unit_id>K</specified_unit_id>
         </DD_Value_Domain>
-    </DD_Attribute>    
-    <DD_Attribute> <name>value_offset</name>
+    </DD_Attribute> 
+    <DD_Attribute> <name>trace_max_value</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.value_offset</local_identifier>
+        <local_identifier>mro.trace_max_value</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>Susan Slavney</submitter_name>
-        <definition>The value_offset attribute is the offset to be applied to each stored value in order to 
-            recover an original value. The observed value (Ov) is calculated from the 
-            stored value (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. 
+        <submitter_name>GEO</submitter_name>
+        <definition>The trace_max_value attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the maximum valid value of a 
+            ratio computed for the Ratio Shift Correction algorithm. Values outside of the valid range of ratio values 
+            are ignored during this processing steps. 
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
-    
+    <DD_Attribute> <name>trace_min_value</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.trace_min_value</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The trace_min_value attribute is one of the control parameters for the CRISM hyperspectral data 
+            filtering application used to convert TRR3 radiance data to I/F and indicates the minimum valid value of a 
+            ratio computed for the Ratio Shift Correction algorithm. Values outside of the valid range of ratio values 
+            are ignored during this processing steps. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>value_offset</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.value_offset</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The value_offset attribute is the offset to be applied to each stored value in order to recover an 
+            original value. The observed value (Ov) is calculated from the stored value (Sv) thus: 
+            Ov = (Sv * scaling_factor) + value_offset. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>wavelength_file_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.wavelength_file_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The wavelenth_file_name attribute identifies the name of the file that describes wavelength 
+            sampling in a CRISM EDR, RDR, or CDR. There are two aspects to the wavelength sampling. One is the 
+            wavelength of light falling on each attribute of the 480-row detector. The second is the selection of 
+            which rows are included in downlink. For each detector there is a menu of four options; which option is 
+            selected is given in wavelength_filter, which has a value of 0, 1, 2, or 3. For an EDR, the wavelength 
+            file is a 5-column, 480-row text file. The five attributes in each row are the row number and a 0 or 1 
+            for wavelength_filter 0, 1, 2 and 3, indicating if the row is included in the EDR when that option is 
+            selected in wavelength_filter. For an RDR or CDR, the wavelength file is an image whose value at the 
+            location of a detector attribute is the center wavelength of that attribute, in nanometers. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>wavelength_filter</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.wavelength_filter</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The wavelength_filter attribute identifies which of four CRISM onboard menus of rows was 
+            selected for downlink. The four choices are 0, 1, 2, or 3. Each filter is a vector of 480 0's or 1's, 
+            one per row of the detector. 0 indicates that data are not saved; 1 indicates that data are saved. The 
+            values in the four vectors are in the file named by wavelength_file_name. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <DD_Permissible_Value>
+                <value>0</value>
+                <value_meaning>Menu 0.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>1</value>
+                <value_meaning>Menu 1.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>2</value>
+                <value_meaning>Menu 2.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>3</value>
+                <value_meaning>Menu 3.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+   
     <!-- End attribute definitions for the CRISM_Parameters class. -->
 
     <!-- Attribute definitions for the SHARAD_Parameters class, in alphabetical order:
@@ -6594,7 +7546,268 @@
     </DD_Class>    
     <!-- End of HiRISE_RDR_Parameters Class definition -->    
 
-
+    <!-- Beginning of CRISM_Hyperspectral_Data_Filter_Control_Parameters class definition with attributes in order as they appear in the label -->
+    <DD_Class> <name>CRISM_Hyperspectral_Data_Filter_Control_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.CRISM_Hyperspectral_Data_Filter_Control_Parameters</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>The CRISM_Hyperspectral_Data_Filter_Control_Parameters class contains attributes related to the 
+            CRISM hyperspectral data filtering application used to convert TRR3 radiance data to I/F.</definition>
+        <DD_Association>
+            <identifier_reference>mro.hdf_software_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.hdf_software_version_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.if_min_value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.if_max_value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.trace_min_value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.trace_max_value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.refz_median_box_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.refz_smooth_box_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.fram_stat_median_box_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.fram_stat_min_deviation</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.fram_stat_median_conf_lvl</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.fram_stat_iqr_conf_lvl</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_ref_xy_median_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_ref_xy_smooth_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_ref_yz_median_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_ref_yz_smooth_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_ratio_xy_median_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_ratio_xy_smooth_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_res_xy_ply_order</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.rsc_res_xy_ply_extnd_width</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.log_xform_neg_clip_value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_num_regions</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_start_channel_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_start_channel_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_stop_channel_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_stop_channel_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_confidence_level_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_confidence_level_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_weighting_stddev_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_weighting_stddev_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_kernel_size_x_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_kernel_size_x_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_kernel_size_y_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_kernel_size_y_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_kernel_size_z_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_kernel_size_z_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_model_order_x_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_model_order_x_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_model_order_y_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_model_order_y_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_model_order_z_r1</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ikf_model_order_z_r2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>        
+    </DD_Class>
+    <!-- End of CRISM_Hyperspectral_Data_Filter_Control_Parameters Class definition -->
+    
     <!-- Beginning of CRISM_Temperatures class definition with attributes in order as they appear in the label -->
     <DD_Class> <name>CRISM_Temperatures</name>
         <version_id>1.0</version_id>
@@ -6708,6 +7921,66 @@
         <DD_Association>
             <identifier_reference>mro.sensor_id</identifier_reference>
             <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.instrument_pointing_mode</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.scan_mode_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.frame_rate</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.exposure_parameter</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.sampling_mode_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.wavelength_filter</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.wavelength_file_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.pixel_proc_file_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.inv_lookup_table_file_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.CRISM_Hyperspectral_Data_Filter_Control_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>

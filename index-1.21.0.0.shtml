@@ -260,6 +260,20 @@
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 07/14/2025</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1L00_1920.xsd">PDS4_IMG_1L00_1920.xsd</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1L00_1920.sch">PDS4_IMG_1L00_1920.sch</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1L00_1920.xml">PDS4_IMG_1L00_1920.xml</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1L00_1920.JSON">PDS4_IMG_1L00_1920.JSON</a></li>
+                            <li><a href="/pds4/img/v1/PDS4_IMG_1L00_1920.zip">PDS4_IMG_1L00_1920.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
                     <li><b>Last Updated:</b> 11/21/2023</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-img">https://github.com/pds-data-dictionaries/ldd-img</a></li>
@@ -582,6 +596,20 @@
 
                 </p>
                 <ul>
+                    <li><b>Last Updated:</b> 06/18/2025</li>
+                    <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
+                    <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-spectral">https://github.com/pds-data-dictionaries/ldd-spectral</a></li>
+                    <li><b>Data Dictionary Files:</b>
+                        <ul>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1L00_1320.xsd">PDS4_SP_1L00_1320.xsd</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1L00_1320.sch">PDS4_SP_1L00_1320.sch</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1L00_1320.xml">PDS4_SP_1L00_1320.xml</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1L00_1320.JSON">PDS4_SP_1L00_1320.JSON</a></li>
+                            <li><a href="/pds4/sp/v1/PDS4_SP_1L00_1320.zip">PDS4_SP_1L00_1320.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
                     <li><b>Last Updated:</b> 11/16/2023</li>
                     <li><b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a></li>
                     <li><b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-spectral">https://github.com/pds-data-dictionaries/ldd-spectral</a></li>
@@ -660,7 +688,7 @@
             <li>Existing <a href="#discipline-dictionaries">Discipline Dictionaries</a> may provide some help in understanding how to data model</li><br />
 		</ul>
         <p>
-            Once all information is gathered, create a ticket <a href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh&labels=enhancement%2C+ldd-request%2C+p.must-have&template=-ldd-request--initialize-new-pds-ldd.md&title=%5Bldd-request%5D+Create+new+LDD+%22%3Cproposed+namespace+ID%3E%22">here</a> to initialize a new PDS LDD and register it with the PDS Namespace Registry.
+            Once all information is gathered, create a ticket <a href="https://github.com/NASA-PDS/operations/issues/new?template=-ldd-request--initialize-new-pds-ldd.yml">here</a> to initialize a new PDS LDD and register it with the PDS Namespace Registry.
         </p>
 		
 		<a class="toTop">Back to top</a>
@@ -672,7 +700,7 @@
             When a Local Data Dictionary (LDD) Steward is ready to submit a new version of an LDD for release:
         </p>
         <p>
-            <a class="button" href="https://github.com/NASA-PDS/pdsen-operations/issues/new?assignees=c-suh%2C+elawsgh&labels=ldd-release&template=-ldd-request--pds-ldd-release.md&title=%5Bldd-release%5D+%3CLDD+Name%3E+LDD+Version%3A%3CLDD_version%3E+IM+Version%3A%3CIM_Version%3E">Submit LDD Release Request</a>
+            <a class="button" href="https://github.com/NASA-PDS/operations/issues/new?template=-ldd-request--pds-ldd-release.yml">Submit LDD Release Request</a>
         </p>
         <p>
             <em>Note: Assume <a href="#dictionary-validation">validation</a> has been completed by steward.</em>
