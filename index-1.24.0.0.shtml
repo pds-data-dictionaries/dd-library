@@ -114,6 +114,7 @@
 				<li><a href="#nucspec">Nuclear Spectroscopy</a></li>
 				<li><a href="#particle">Particle</a></li>
 				<li><a href="#proc">Processing_Information</a></li>
+                <li><a href="#prov">Provenance</a></li>
 				<li><a href="#radar">Radar</a></li>
 				<li><a href="#rings">Rings</a></li>
 				<li><a href="#sb">Small Bodies</a></li>
@@ -671,6 +672,38 @@
                             <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1300.xml">PDS4_PROC_1O00_1300.xml</a></li>
                             <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1300.JSON">PDS4_PROC_1O00_1300.JSON</a></li>
                             <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1300.zip">PDS4_PROC_1O00_1300.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><a class="toTop">Back to top</a></p>
+            </div>
+
+            <div id="prov">
+                <h4>Provenance (prov)</h4>
+                <p>
+                    The Provenance dictionary provides a PDS4 &quot;Discipline_Area&quot; insert for capturing provenance information.
+
+                </p>
+                <p>
+                    <b>Issue Tracking:</b> <a href="https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues">https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues</a>
+                    <br>
+                    <b>Github Repo:</b> <a href="https://github.com/pds-data-dictionaries/ldd-prov">https://github.com/pds-data-dictionaries/ldd-prov</a>
+                    <br>
+                    <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-prov">https://pds-data-dictionaries.github.io/ldd-prov</a>
+                    <br>
+                    <b>Specification (Classes):</b> Not available for this build. See <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1P00/webhelp/all/#ch96.html">PDS4 1.25.0.0(1P00) WebHelp#ch96</a>.
+                    <br>
+                    <b>Specification (Attributes):</b> Not available for this build. <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1P00/webhelp/all/#ch97.html">PDS4 1.25.0.0(1P00) WebHelp#ch97</a>.
+                </p>
+                <ul>
+                    <li><b>Last Updated:</b> 01/20/2026</li>
+                    <li><b>Data Dictionary Files:</b> 
+                        <ul>
+                            <li><a href="/pds4/prov/v1/PDS4_PROV_1O00_1210.xsd">PDS4_PROV_1O00_1210.xsd</a></li>
+                            <li><a href="/pds4/prov/v1/PDS4_PROV_1O00_1210.sch">PDS4_PROV_1O00_1210.sch</a></li>
+                            <li><a href="/pds4/prov/v1/PDS4_PROV_1O00_1210.xml">PDS4_PROV_1O00_1210.xml</a></li>
+                            <li><a href="/pds4/prov/v1/PDS4_PROV_1O00_1210.JSON">PDS4_PROV_1O00_1210.JSON</a></li>
+                            <li><a href="/pds4/prov/v1/PDS4_PROV_1O00_1210.zip">PDS4_PROV_1O00_1210.zip</a></li>
                         </ul>
                     </li>
                 </ul>

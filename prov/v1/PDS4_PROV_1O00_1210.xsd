@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:prov  Version:1.2.1.0 - Wed Sep 24 14:31:34 UTC 2025 -->
+  <!-- Generated from the PDS4 Information Model Version 1.24.0.0 - System Build 15.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.24.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.2.1.0 - prov: - Provenance                                              -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/prov/v1"
+    xmlns:prov="http://pds.nasa.gov/pds4/prov/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.2.1.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+    The purpose of the 'prov' LDD is to provide a PDS4 'Discipline_Area' insert for capturing provenance information. The 'prov' LDD is an implementation of the W3C PROV Data Model (PROV-DM).
+    Provenance refers to information about the entities, activities, and people involved in producing a piece of data or artifact. Such information can be used to evaluate its quality, reliability, and trustworthiness. PROV-DM is the conceptual data model that underpins the W3C PROV family of specifications.
+
+    The LDD is designed to support the creation of classes for specific types of PDS provenance.
+    
+    1) SupersededLID - This class establishes a relationship between two LIDs, identifying one as having been superseded by another. It is an exposed class intended for use as an insert into the 'Discipline_Area' of a PDS4 label.
+    
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Provenance" type="prov:Provenance"> </xs:element>
+  <xs:element name="SupersededLID" type="prov:SupersededLID"> </xs:element>
+
+  <xs:complexType name="ActedOnBehalfOf">
+    <xs:annotation>
+      <xs:documentation>An activity association is an assignment of
+        responsibility to an agent for an activity, indicating that the
+        agent had a role in the activity. It further allows for a plan
+        to be specified, which is the plan intended by the agent to
+        achieve some goals in the context of this
+        activity.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="agent2" type="prov:agent2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="agent1" type="prov:agent1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="activity1" type="prov:activity1" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Activity">
+    <xs:annotation>
+      <xs:documentation>An activity is something that occurs over a
+        period of time and acts upon or with entities; it may include
+        consuming, processing, transforming, modifying, relocating,
+        using, or generating entities..</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="prov:title" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="local_id" type="prov:local_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="prov:description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Attributes" type="prov:Attributes" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Affiliation">
+    <xs:annotation>
+      <xs:documentation>The Affiliation class
+        describes</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="prov:name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="rorid" type="prov:rorid" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Agent">
+    <xs:annotation>
+      <xs:documentation>An agent is something that bears some form of
+        responsibility for an activity taking place, for the existence
+        of an entity, or for another agent's activity.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="prov:title" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="local_id" type="prov:local_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="prov:description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="Person" type="prov:Person"> </xs:element>
+        <xs:element name="Organization" type="prov:Organization"> </xs:element>
+        <xs:element name="Software" type="prov:Software"> </xs:element>
+      </xs:choice>
+      <xs:element name="External_Reference" type="prov:External_Reference" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Attributes" type="prov:Attributes" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Attributes">
+    <xs:annotation>
+      <xs:documentation>Attributes: an OPTIONAL set (attrs) of
+        attribute-value pairs representing additional information about
+        this attribution.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attribute" type="prov:attribute" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="value" type="prov:value" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Entity">
+    <xs:annotation>
+      <xs:documentation>An entity is a physical, digital, conceptual, or
+        other kind of thing with some fixed aspects; entities may be
+        real or imaginary.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="prov:title" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="local_id" type="prov:local_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="prov:description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Attributes" type="prov:Attributes" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="External_Reference">
+    <xs:annotation>
+      <xs:documentation>The External_Reference class
+        describes</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Affiliation" type="prov:Affiliation" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Organization">
+    <xs:annotation>
+      <xs:documentation>The Organization class
+        describes</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="prov:name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="rorid" type="prov:rorid" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Person">
+    <xs:annotation>
+<xs:documentation>The Person class describes</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="given_name" type="prov:given_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="family_name" type="prov:family_name" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="orcid" type="prov:orcid" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Provenance">
+    <xs:annotation>
+      <xs:documentation>This Provenance class is an implementation of
+        the WC3 Provenance Model pattern ....</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="prov:title" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="local_id" type="prov:local_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="prov:description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Provenance_Entities" type="prov:Provenance_Entities" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Provenance_Activities" type="prov:Provenance_Activities" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Provenance_Agents" type="prov:Provenance_Agents" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Provenance_Relationships" type="prov:Provenance_Relationships" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Provenance_Activities">
+    <xs:annotation>
+      <xs:documentation>The Provenance Activities class contains the
+        Activity definitions.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Activity" type="prov:Activity" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Provenance_Agents">
+    <xs:annotation>
+      <xs:documentation>The Provenance Agents class contains the Agent
+        definitions.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Agent" type="prov:Agent" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Provenance_Entities">
+    <xs:annotation>
+      <xs:documentation>The Provenance Entities class contains the
+        Entity definitions.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Entity" type="prov:Entity" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Provenance_Relationships">
+    <xs:annotation>
+      <xs:documentation>The Provenance Agents class contains the Agent
+        definitions.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Relationship" type="prov:Relationship" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Relation_Type">
+    <xs:annotation>
+      <xs:documentation>The Relation Type class contains the set of
+        relation types of which only one is allowed for each
+        relationship.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="Used" type="prov:Used"> </xs:element>
+        <xs:element name="WasAssociatedWith" type="prov:WasAssociatedWith"> </xs:element>
+        <xs:element name="WasAttributedTo" type="prov:WasAttributedTo"> </xs:element>
+        <xs:element name="WasDerivedFromUsedUsed" type="prov:WasDerivedFromUsedUsed"> </xs:element>
+        <xs:element name="WasGeneratedBy" type="prov:WasGeneratedBy"> </xs:element>
+        <xs:element name="WasInformedBy" type="prov:WasInformedBy"> </xs:element>
+        <xs:element name="ActedOnBehalfOf" type="prov:ActedOnBehalfOf"> </xs:element>
+        <xs:element name="WasStartedBy" type="prov:WasStartedBy"> </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Relationship">
+    <xs:annotation>
+      <xs:documentation>The Relationship class defines a
+        relationship.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="prov:title" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="local_id" type="prov:local_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="prov:description" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Relation_Type" type="prov:Relation_Type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="time" type="prov:time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Attributes" type="prov:Attributes" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Software">
+    <xs:annotation>
+      <xs:documentation>The Software class describes
+        ...</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="prov:name" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SupersededLID">
+    <xs:annotation>
+      <xs:documentation>The Superseded LID LDD relates two LIDs, one
+        that supersedes the other.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="prov:title" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="local_id" type="prov:local_id" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="description" type="prov:description" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Entity" type="prov:Entity" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Used">
+    <xs:annotation>
+      <xs:documentation>Usage is the beginning of utilizing an entity by
+        an activity. Before usage, the activity had not begun to utilize
+        this entity and could not have been affected by the entity.
+        (Note: This definition is formulated for a given usage; it is
+        permitted for an activity to have used a same entity multiple
+        times.)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="activity1" type="prov:activity1" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="entity1" type="prov:entity1" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WasAssociatedWith">
+    <xs:annotation>
+      <xs:documentation>An activity association is an assignment of
+        responsibility to an agent for an activity, indicating that the
+        agent had a role in the activity. It further allows for a plan
+        to be specified, which is the plan intended by the agent to
+        achieve some goals in the context of this
+        activity.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="activity1" type="prov:activity1" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="agent1" type="prov:agent1" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WasAttributedTo">
+    <xs:annotation>
+      <xs:documentation>Attribution is the ascribing of an entity to an
+        agent.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="entity1" type="prov:entity1" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="agent1" type="prov:agent1" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WasDerivedFromUsedUsed">
+    <xs:annotation>
+      <xs:documentation>A derivation is a transformation of an entity
+        into another, an update of an entity resulting in a new one, or
+        the construction of a new entity based on a pre-existing
+        entity.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="generatedEntity" type="prov:generatedEntity" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="usedEntity" type="prov:usedEntity" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="activity1" type="prov:activity1" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WasGeneratedBy">
+    <xs:annotation>
+      <xs:documentation>Generation is the completion of production of a
+        new entity by an activity. This entity did not exist before
+        generation and becomes available for usage after this
+        generation. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="entity1" type="prov:entity1" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="activity1" type="prov:activity1" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WasInformedBy">
+    <xs:annotation>
+      <xs:documentation>An activity association is an assignment of
+        responsibility to an agent for an activity, indicating that the
+        agent had a role in the activity. It further allows for a plan
+        to be specified, which is the plan intended by the agent to
+        achieve some goals in the context of this
+        activity.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="activity2" type="prov:activity2" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="activity1" type="prov:activity1" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WasStartedBy">
+    <xs:annotation>
+      <xs:documentation>An activity association is an assignment of
+        responsibility to an agent for an activity, indicating that the
+        agent had a role in the activity. It further allows for a plan
+        to be specified, which is the plan intended by the agent to
+        achieve some goals in the context of this
+        activity.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="activity2" type="prov:activity2" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="entity1" type="prov:entity1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="activity1" type="prov:activity1" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="activity1">
+    <xs:annotation>
+      <xs:documentation>activity1: an identifier (a) for the activity -
+        The attribute activity1 is an OPTIONAL identifier for an
+        activity.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="activity2">
+    <xs:annotation>
+      <xs:documentation>activity2: an identifier (a) for the activity -
+        The attribute activity2 is an OPTIONAL identifier for an
+        activity.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="agent1">
+    <xs:annotation>
+      <xs:documentation> agent1: the identifier (ag) of the agent whom
+        the entity is ascribed to, and therefore bears some
+        responsibility for its existence; The attribute agent1 is an
+        OPTIONAL identifier for an agent.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="agent2">
+    <xs:annotation>
+      <xs:documentation> agent2: the identifier (ag) of the agent whom
+        the entity is ascribed to, and therefore bears some
+        responsibility for its existence; The attribute agent2 is an
+        OPTIONAL identifier for an agent.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="attribute">
+    <xs:annotation>
+      <xs:documentation>attribute: the attribute component of an
+        OPTIONAL set (attrs) of attribute-value pairs representing
+        additional information about this attribution.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="description">
+    <xs:annotation>
+      <xs:documentation>The attribute description provides
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="entity1">
+    <xs:annotation>
+      <xs:documentation>entity1: an entity identifier (e) -- The
+        attribute entity1 is an OPTIONAL identifier for an
+        entity.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="family_name">
+    <xs:annotation>
+<xs:documentation>The attribute family_name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="generatedEntity">
+    <xs:annotation>
+      <xs:documentation>generatedEntity: the identifier (e2) of the
+        entity generated by the derivation</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="given_name">
+    <xs:annotation>
+<xs:documentation>The attribute given_name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="local_id">
+    <xs:annotation>
+      <xs:documentation>The attribute local_identifier provides
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="name">
+    <xs:annotation>
+<xs:documentation>The attribute name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orcid">
+    <xs:annotation>
+<xs:documentation>The attribute orcid.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rorid">
+    <xs:annotation>
+<xs:documentation>The attribute rorid.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="time">
+    <xs:annotation>
+      <xs:documentation>time: an OPTIONAL "usage time" (t), the time at
+        which the entity started to be used</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="title">
+    <xs:annotation>
+<xs:documentation>The attribute title provides </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="usedEntity">
+    <xs:annotation>
+      <xs:documentation>usedEntity: the identifier (e1) of the entity
+        used by the derivation</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="value">
+    <xs:annotation>
+      <xs:documentation>value: the value component of an OPTIONAL set
+        (attrs) of attribute-value pairs representing additional
+        information about this attribution.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
