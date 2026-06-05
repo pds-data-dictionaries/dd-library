@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:psyche  Version:1.0.0.0 - Tue May 19 22:02:53 UTC 2026 -->
+  <!-- Generated from the PDS4 Information Model Version 1.22.0.0 - System Build 14.1 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.22.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - psyche: - Psyche Mission LDD                                    -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/psyche/v1"
+    xmlns:psyche="http://pds.nasa.gov/pds4/mission/psyche/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+_TBD_Ingest_LDD
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Psyche_Parameters" type="psyche:Psyche_Parameters"> </xs:element>
+
+  <xs:complexType name="Psyche_Parameters">
+    <xs:annotation>
+      <xs:documentation>Class for Psyche related
+        values.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" type="psyche:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_number" type="psyche:orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="release_number" type="psyche:release_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start" type="psyche:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop" type="psyche:spacecraft_clock_stop" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_corrected" type="psyche:spacecraft_clock_start_corrected" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_corrected" type="psyche:spacecraft_clock_stop_corrected" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_partition" type="psyche:spacecraft_clock_partition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_fsw_dictionary_version" type="psyche:spacecraft_fsw_dictionary_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_active_flight_computer" type="psyche:spacecraft_active_flight_computer" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="psyche:mission_phase_name = ('approach', 'atlo', 'cruise_1', 'cruise_2', 'ico', 'launch', 'mga', 'orbit_a', 'orbit_b1', 'orbit_b2', 'orbit_c', 'orbit_d', 'orbit_transfer_a_to_b1', 'orbit_transfer_b1_to_d', 'orbit_transfer_c_to_b2', 'orbit_transfer_d_to_c', 'orbital_operations', 'preflight', 'test')"/> -->
+    <!-- <xs:assert test="psyche:spacecraft_fsw_dictionary_version = ('5_4_2_1', '5_4_2_2')"/> -->
+    <!-- <xs:assert test="psyche:spacecraft_active_flight_computer = ('A', 'B')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+<xs:documentation>The Psyche Mission phase name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orbit_number">
+    <xs:annotation>
+      <xs:documentation>This value denotes the orbit number during
+        orbital operations.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="release_number">
+    <xs:annotation>
+      <xs:documentation>This value denotes the release number when a
+        product was published.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_active_flight_computer">
+    <xs:annotation>
+      <xs:documentation>This value denotes the spacecraft pce active and
+        in use.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_partition">
+    <xs:annotation>
+      <xs:documentation>This value denotes the spacecraft clock
+        partition, tracking any clock resets.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start">
+    <xs:annotation>
+      <xs:documentation>This value denotes the observation spacecraft
+        clock start (SCLK) recorded.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start_corrected">
+    <xs:annotation>
+      <xs:documentation>This value denotes the observation spacecraft
+        clock start (SCLK) recorded, corrected for any clock
+        updates.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop">
+    <xs:annotation>
+      <xs:documentation>This value denotes the observation spacecraft
+        clock stop (SCLK) recorded.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop_corrected">
+    <xs:annotation>
+      <xs:documentation>This value denotes the observation spacecraft
+        clock stop (SCLK) recorded, corrected for an clock
+        updates.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_fsw_dictionary_version">
+    <xs:annotation>
+      <xs:documentation>This value denotes the version of the spacecraft
+        fsw dictionary in use.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

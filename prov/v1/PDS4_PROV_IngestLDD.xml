@@ -13,7 +13,7 @@
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd">
 
   <name>Provenance</name>
-  <ldd_version_id>1.2.1.0</ldd_version_id>
+  <ldd_version_id>1.2.2.0</ldd_version_id>
   <dictionary_type>Discipline</dictionary_type>
   <full_name>Steve Hughes</full_name>
   <steward_id>prov</steward_id>
@@ -1110,7 +1110,7 @@
     <DD_Association>
       <identifier_reference>local_id</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     
@@ -1149,8 +1149,8 @@
     
     <DD_Rule_Statement>
       <rule_type>Assert</rule_type>
-      <rule_test>not(prov:attribute = 'Supersedes') or (starts-with(prov:value, 'urn:nasa:pds'))</rule_test>
-      <rule_message>When prov:attribute is 'Supersedes', prov:value must start with 'urn:nasa:pds'.</rule_message>
+      <rule_test>not(prov:attribute = 'Supersedes') or (starts-with(prov:value, 'urn:'))</rule_test>
+      <rule_message>When prov:attribute is 'Supersedes', prov:value must start with 'urn:'.</rule_message>
     </DD_Rule_Statement>
     
     <DD_Rule_Statement>

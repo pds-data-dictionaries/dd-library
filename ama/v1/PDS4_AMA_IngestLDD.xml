@@ -8,7 +8,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.xsd">
 
     <name>Atmosphere</name>
-    <ldd_version_id>1.2.0.0</ldd_version_id>
+    <ldd_version_id>1.3.0.0</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
     <full_name>Lyle Huber</full_name>
     <steward_id>atm</steward_id>
@@ -367,7 +367,20 @@
                     <value_data_type>ASCII_Real</value_data_type>
                 </DD_Value_Domain>
             </DD_Attribute>
-    
+
+	    <DD_Attribute>
+                 <name>level_unit</name>
+                 <version_id>1.0</version_id>
+                 <local_identifier>level_unit</local_identifier>
+                 <nillable_flag>false</nillable_flag>
+                 <submitter_name>Victoria Hartwick</submitter_name>
+                 <definition>The level_unit attribute provides the unit of pressure in the output file.</definition>
+                <DD_Value_Domain>
+                  <enumeration_flag>false</enumeration_flag>
+                  <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+                </DD_Value_Domain>
+            </DD_Attribute>
+	
 	        <DD_Attribute>
 	            <name>postprocessing_methods</name>
                 <version_id>1.0</version_id>
@@ -941,13 +954,7 @@
 	                <submitter_name>Victoria Hartwick</submitter_name>
 	                <definition>The Simulation_Configuration sub-class contains attributes that describe the specific simulation configuration that is not described by dimensions, coordinates or variables included in the data product. This class specifically describes the simulation configuration at runtime, not the data structure after processing (e.g. it provides the native vertical coordinate while the model output files may be interpolated to a new vertical grid</definition>
 	                <abstract_flag>false</abstract_flag>
-	                <element_flag>false</element_flag>
-	                <DD_Association>
-	                    <identifier_reference>description</identifier_reference>
-	                    <reference_type>attribute_of</reference_type>
-	                    <minimum_occurrences>0</minimum_occurrences>
-	                    <maximum_occurrences>1</maximum_occurrences>
-	                </DD_Association>	        
+	                <element_flag>false</element_flag>        
 	                <DD_Association>
 	                    <identifier_reference>horizontal_grid_type</identifier_reference>
 	                    <reference_type>attribute_of</reference_type>
@@ -1044,6 +1051,12 @@
 	                    <minimum_occurrences>0</minimum_occurrences>
 	                    <maximum_occurrences>1</maximum_occurrences>
 	                </DD_Association>
+			<DD_Association>
+	                    <identifier_reference>description</identifier_reference>
+	                    <reference_type>attribute_of</reference_type>
+	                    <minimum_occurrences>0</minimum_occurrences>
+	                    <maximum_occurrences>1</maximum_occurrences>
+	                </DD_Association>	
 	            </DD_Class>
     
 
@@ -1068,6 +1081,12 @@
 	                            <maximum_occurrences>1</maximum_occurrences>
 	                        </DD_Association>	                
 	                        <DD_Association>
+	                            <identifier_reference>level_unit</identifier_reference>
+	                            <reference_type>attribute_of</reference_type>
+	                            <minimum_occurrences>0</minimum_occurrences>
+	                            <maximum_occurrences>1</maximum_occurrences>
+	                        </DD_Association>	
+				    <DD_Association>
 	                            <identifier_reference>start_time</identifier_reference>
 	                            <reference_type>attribute_of</reference_type>
 	                            <minimum_occurrences>0</minimum_occurrences>

@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:mgn  Version:1.2.0.0 - Tue May 26 19:49:04 UTC 2026 -->
+  <!-- Generated from the PDS4 Information Model Version 1.25.0.0 - System Build 16.0	 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.25.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.2.0.0 - mgn: - MGN                                                      -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/mgn/v1"
+    xmlns:mgn="http://pds.nasa.gov/pds4/mission/mgn/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.2.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1P00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The MGN dictionary contains classes that describe aspects of the 
+        Magellan mission and related instruments.
+        
+        MGN version 1.2.0.0
+        PDS Build 1.24.0.0 (1O00)
+        LDDTool version 15.3.0
+        
+        Created with lddtool -plJ -V 1O00 PDS4_MGN_IngestLDD.xml
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Magellan_Parameters" type="mgn:Magellan_Parameters"> </xs:element>
+
+  <xs:complexType name="BIDR_Clock_Conversion">
+    <xs:annotation>
+      <xs:documentation>Parameters related to SCLK
+        conversion</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reference_sclk_factor" type="mgn:reference_sclk_factor" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="clock_slope_coeff" type="mgn:clock_slope_coeff" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="clock_intercept_coeff" type="mgn:clock_intercept_coeff" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="clock_utc_to_j2000_correction_factor" type="mgn:clock_utc_to_j2000_correction_factor" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BIDR_Keplerians">
+    <xs:annotation>
+      <xs:documentation>Keplerians of the spacecraft orbit at the time
+        of this observation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="predicted_periapsis_sclk" type="mgn:predicted_periapsis_sclk" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="predicted_periapsis_tdb" type="mgn:predicted_periapsis_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_semimajor" type="mgn:orbit_semimajor" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_eccentricity" type="mgn:orbit_eccentricity" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_inclination" type="mgn:orbit_inclination" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_ascending_node_lon" type="mgn:orbit_ascending_node_lon" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_argument_of_periapsis" type="mgn:orbit_argument_of_periapsis" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_period" type="mgn:orbit_period" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BIDR_Oblique_Sinusoidal_Frame_Axes">
+    <xs:annotation>
+      <xs:documentation>A specification of the axes of the 3D version of
+        the oblique sinusoidal coordinate system; relative to VBF85
+        coordinate system</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="X_Axis" type="mgn:X_Axis" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Y_Axis" type="mgn:Y_Axis" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Z_Axis" type="mgn:Z_Axis" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BIDR_Parameters">
+    <xs:annotation>
+      <xs:documentation>The BIDR_Parameters class is the container for
+        BIDR-specific metadata elements.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pixel_size" type="mgn:pixel_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="projection_name" type="mgn:projection_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="projection_origin_lat" type="mgn:projection_origin_lat" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="projection_origin_lon" type="mgn:projection_origin_lon" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nav_uid_ephemeris_file" type="mgn:nav_uid_ephemeris_file" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="total_bursts" type="mgn:total_bursts" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Orbit_Metadata" type="mgn:Orbit_Metadata" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="BIDR_Keplerians" type="mgn:BIDR_Keplerians" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="BIDR_Clock_Conversion" type="mgn:BIDR_Clock_Conversion" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="BIDR_Oblique_Sinusoidal_Frame_Axes" type="mgn:BIDR_Oblique_Sinusoidal_Frame_Axes" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mgn:projection_name = ('oblique sinusoidal', 'sinusoidal')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Magellan_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Magellan_Parameters class is the container
+        for mission-specific metadata elements.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="product_type" type="mgn:product_type" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="product_version_id" type="mgn:product_version_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapping_cycle" type="mgn:mapping_cycle" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_number" type="mgn:orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_orbit_number" type="mgn:start_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_orbit_number" type="mgn:stop_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="mgn:mission_phase_name" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="radar_look_direction" type="mgn:radar_look_direction" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_count_partition" type="mgn:spacecraft_clock_count_partition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" nillable="true" type="mgn:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" nillable="true" type="mgn:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="band_name" type="mgn:band_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="received_polarization_type" type="mgn:received_polarization_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dsn_station_number" type="mgn:dsn_station_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="organization_id" type="mgn:organization_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_institution_name" type="mgn:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="original_pds_volume_id" type="mgn:original_pds_volume_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="BIDR_Parameters" type="mgn:BIDR_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mgn:product_type = ('ARCDR', 'BSR', 'C-BIDR', 'C1-MIDR', 'C2-MIDR', 'C3-MIDR', 'F-BIDR', 'F-MIDR', 'GEDR', 'GREDR', 'GSDR', 'GTDR', 'GVDR', 'GXDR', 'LOSAPDR', 'P-MIDR', 'SCVDR', 'SHXDR')"/> -->
+    <!-- <xs:assert test="mgn:mission_phase_name = ('Aerobraking', 'Cruise', 'Mapping Cycle 1', 'Mapping Cycle 2', 'Mapping Cycle 3', 'Mapping Cycle 4', 'Mapping Cycle 5', 'Mapping Cycle 6', 'Orbit Checkout', 'Orbit Insertion', 'Primary Mission')"/> -->
+    <!-- <xs:assert test="mgn:radar_look_direction = ('Left', 'Maxwell', 'Mixed', 'Right', 'Stereo')"/> -->
+    <!-- <xs:assert test="mgn:band_name = ('S', 'X')"/> -->
+    <!-- <xs:assert test="mgn:received_polarization_type = ('left circular', 'right circular')"/> -->
+    <!-- <xs:assert test="mgn:organization_id = ('SUE')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Orbit_Metadata">
+    <xs:annotation>
+      <xs:documentation>Parameters related to the timing of this
+        observation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mapping_start_time_tdb" type="mgn:mapping_start_time_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapping_stop_time_tdb" type="mgn:mapping_stop_time_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapping_start_time_utc" type="mgn:mapping_start_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mapping_stop_time_utc" type="mgn:mapping_stop_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="oblique_sinusoidal_start_time_tdb" type="mgn:oblique_sinusoidal_start_time_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="oblique_sinusoidal_stop_time_tdb" type="mgn:oblique_sinusoidal_stop_time_tdb" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="oblique_sinusoidal_start_time_utc" type="mgn:oblique_sinusoidal_start_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="oblique_sinusoidal_stop_time_utc" type="mgn:oblique_sinusoidal_stop_time_utc" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="X_Axis">
+    <xs:annotation>
+      <xs:documentation>X-axis of a coordinate system, as a unit
+        vector</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="x" type="mgn:x" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="y" type="mgn:y" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="z" type="mgn:z" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Y_Axis">
+    <xs:annotation>
+      <xs:documentation>Y-axis of a coordinate system, as a unit
+        vector</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="x" type="mgn:x" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="y" type="mgn:y" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="z" type="mgn:z" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Z_Axis">
+    <xs:annotation>
+      <xs:documentation>Z-axis of a coordinate system, as a unit
+        vector</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="x" type="mgn:x" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="y" type="mgn:y" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="z" type="mgn:z" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="band_name">
+    <xs:annotation>
+      <xs:documentation> The name of the radio band in which the signal
+        was received. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="clock_intercept_coeff">
+    <xs:annotation>
+      <xs:documentation>Intercept coefficient of the SCLK/SCET
+        conversion (A0), 19-character ASCII string </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="clock_slope_coeff">
+    <xs:annotation>
+      <xs:documentation>Slope coefficient of the SCLK/SCET conversion
+        (A1), 12-character ASCII string </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="clock_utc_to_j2000_correction_factor">
+    <xs:annotation>
+      <xs:documentation>UTC-to-epoch J2000 correction factor (DUT),
+        6-character ASCII string </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dsn_station_number">
+    <xs:annotation>
+      <xs:documentation> The number of the DSN antenna used to collect
+        the data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="99"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapping_cycle">
+    <xs:annotation>
+      <xs:documentation>The mapping cycle in which the data were
+        acquired. Should be 1 to 6. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="6"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapping_start_time_tdb">
+    <xs:annotation>
+      <xs:documentation>Mapping start time (SCET) in TDB seconds from
+        epoch J2000 </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapping_start_time_utc">
+    <xs:annotation>
+      <xs:documentation>Mapping start time (SCET) in UTC timestamp
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapping_stop_time_tdb">
+    <xs:annotation>
+      <xs:documentation>Mapping stop time (SCET) in TDB seconds from
+        epoch J2000 </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mapping_stop_time_utc">
+    <xs:annotation>
+      <xs:documentation>Mapping stop time (SCET) in UTC timestamp
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation> The mission_phase_name attribute provides the
+        mission-defined name of a time period within the mission.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nav_uid_ephemeris_file">
+    <xs:annotation>
+      <xs:documentation>NAV Unique ID of the Spacecraft Ephemeris File.
+        Will be blank if ephemeris file wasn't used. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="oblique_sinusoidal_start_time_tdb">
+    <xs:annotation>
+      <xs:documentation>Oblique sinusoidal start time (SCET) in TDB
+        seconds from epoch J2000 </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="oblique_sinusoidal_start_time_utc">
+    <xs:annotation>
+      <xs:documentation>Oblique sinusoidal start time (SCET) in UTC
+        timestamp </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="oblique_sinusoidal_stop_time_tdb">
+    <xs:annotation>
+      <xs:documentation>Oblique sinusoidal stop time (SCET) in TDB
+        seconds from epoch J2000 </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="oblique_sinusoidal_stop_time_utc">
+    <xs:annotation>
+      <xs:documentation>Oblique sinusoidal stop time (SCET) in UTC
+        timestamp </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orbit_argument_of_periapsis_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="orbit_argument_of_periapsis">
+    <xs:annotation>
+      <xs:documentation>Argument of periapsis in degrees from the Orbit
+        Header file on the EDR, J2000 coordinates </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mgn:orbit_argument_of_periapsis_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="orbit_ascending_node_lon_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="orbit_ascending_node_lon">
+    <xs:annotation>
+      <xs:documentation>Longitude of the ascending node in degrees (0 to
+        360) from the Orbit Header file on the EDR, J2000 coordinates
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mgn:orbit_ascending_node_lon_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="orbit_eccentricity">
+    <xs:annotation>
+      <xs:documentation>Orbit eccentricity from the Orbit Header file on
+        the EDR </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orbit_inclination_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="orbit_inclination">
+    <xs:annotation>
+      <xs:documentation>Orbit inclination angle in degrees from the
+        Orbit Header file on the EDR </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mgn:orbit_inclination_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="orbit_number">
+    <xs:annotation>
+      <xs:documentation>The orbit_number attribute identifies the number
+        of the orbital revolution around a target body.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="20000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orbit_period_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="orbit_period">
+    <xs:annotation>
+<xs:documentation>Orbit period </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mgn:orbit_period_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="orbit_semimajor_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="orbit_semimajor">
+    <xs:annotation>
+      <xs:documentation>Orbit semi-major axis from the Orbit Header file
+        on the EDR </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mgn:orbit_semimajor_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="organization_id">
+    <xs:annotation>
+      <xs:documentation> The organization that produced the data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="original_pds_volume_id">
+    <xs:annotation>
+      <xs:documentation>The original PDS volume_id of where the Magellan
+        data are located. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pixel_size_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="pixel_size">
+    <xs:annotation>
+      <xs:documentation>Length of a side of each pixel in this
+        observation </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mgn:pixel_size_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Length" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="predicted_periapsis_sclk">
+    <xs:annotation>
+      <xs:documentation>Predicted time of periapsis in SCLK,
+        15-character ASCII string (see SIS Appendix A)
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="predicted_periapsis_tdb">
+    <xs:annotation>
+      <xs:documentation>Predicted time of periapsis in TDB seconds from
+        epoch J2000 </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="producer_institution_name">
+    <xs:annotation>
+      <xs:documentation>The producer_institution_name attribute
+        identifies a university, research center, NASA center, or other
+        institution associated with the production of a data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type">
+    <xs:annotation>
+      <xs:documentation>The product_type attribute indicates the type of
+        data for an individual data product. The values are based on the
+        values used by the Magellan project for their delivery to
+        PDS.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_version_id">
+    <xs:annotation>
+      <xs:documentation>The product_version_id attribute identifies the
+        version of an individual data product. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="projection_name">
+    <xs:annotation>
+      <xs:documentation> The map projection used in this product, either
+        'sinusoidal' or 'oblique sinusoidal' </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="projection_origin_lat">
+    <xs:annotation>
+      <xs:documentation>Latitude of the map projection's origin, in
+        degrees </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-90"/>
+     <xs:maxInclusive value="90"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="projection_origin_lon">
+    <xs:annotation>
+      <xs:documentation>Longitude of the map projection's origin, in
+        degrees (0 to 360) </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="radar_look_direction">
+    <xs:annotation>
+      <xs:documentation> The radar_look_direction attribute provides the
+        direction the radar antenna was pointing relative to the
+        spacecraft ground track along a given orbit. Most cases were
+        Left or Right. Stereo indicates left looking with an incidence
+        angle for stereo measurements. Maxwell is a special case for
+        observing the Maxwell feature. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="received_polarization_type">
+    <xs:annotation>
+      <xs:documentation> The radio polarization of the receiving antenna
+        and feed. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reference_sclk_factor">
+    <xs:annotation>
+      <xs:documentation>Reference SCLK factor (SCLK0), 13-character
+        ASCII string </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_count_partition">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_count_partition attribute
+        indicates the clock partition active for the
+        spacecraft_clock_start_count and spacecraft_clock_stop_count
+        attributes. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the beginning of a
+        time period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the end of a time
+        period of interest. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="start_orbit_number">
+    <xs:annotation>
+      <xs:documentation>Provides the the lowest revolution orbit number
+        that contributed data to a given data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="20000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_orbit_number">
+    <xs:annotation>
+      <xs:documentation>Provides the the highest revolution orbit number
+        that contributed data to a given data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="20000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="total_bursts">
+    <xs:annotation>
+      <xs:documentation>Total number of bursts on the EDR this orbit.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="x">
+    <xs:annotation>
+<xs:documentation>X-coordinate of a unit vector </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1"/>
+     <xs:maxInclusive value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="y">
+    <xs:annotation>
+<xs:documentation>Y-coordinate of a unit vector </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1"/>
+     <xs:maxInclusive value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="z">
+    <xs:annotation>
+<xs:documentation>Z-coordinate of a unit vector </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1"/>
+     <xs:maxInclusive value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

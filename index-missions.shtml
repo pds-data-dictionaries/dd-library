@@ -122,6 +122,7 @@
 				<li><a href="#nh">New Horizons</a></li>
 				<li><a href="#ody">ODY (Mars Odyssey)</a></li>
 				<li><a href="#orex">OSIRIS-REx</a></li>
+				<li><a href="#psyche">Psyche</a></li>
 				<li><a href="#vikinglander">Viking Lander</a></li>
 				<li><a href="#vg1">Voyager 1</a></li>
 				<li><a href="#vg2">Voyager 2</a></li>
@@ -960,6 +961,24 @@
 				<p>The Magellan Mission Dictionary (mgn) contains classes, attributes and rules specific to the Magellan mission and its instruments.</br>
 				</p>
 				<ul>
+					<li><b>PDS4 Version:</b> 1.25.0.0</li>
+					<li><b>Posted:</b> 06/01/2026</li>
+					<ul>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1P00_1200.xsd">PDS4_MGN_1P00_1200.xsd</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1P00_1200.sch">PDS4_MGN_1P00_1200.sch</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1P00_1200.xml">PDS4_MGN_1P00_1200.xml</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1P00_1200.JSON">PDS4_MGN_1P00_1200.JSON</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1P00_1200.zip">PDS4_MGN_100_100.zip</a></li>
+					</ul>
+					<li><b>PDS4 Version:</b> 1.24.0.0</li>
+					<li><b>Posted:</b> 06/01/2026</li>
+					<ul>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1O00_1200.xsd">PDS4_MGN_1O00_1200.xsd</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1O00_1200.sch">PDS4_MGN_1O00_1200.sch</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1O00_1200.xml">PDS4_MGN_1O00_1200.xml</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1O00_1200.JSON">PDS4_MGN_1O00_1200.JSON</a></li>
+						<li><a href="/pds4/mission/mgn/v1/PDS4_MGN_1O00_1200.zip">PDS4_MGN_1O00_1200.zip</a></li>
+					</ul>
 					<li><b>PDS4 Version:</b> 1.23.0.0</li>
 					<li><b>Posted:</b> 05/30/2025</li>
 					<ul>
@@ -1804,6 +1823,24 @@
 				</ul>
 				<a class="toTop">Back to top</a>
 			</div>
+
+			<div id="psyche">
+				<h4>Psyche (psyche)</h4>
+				<p>The Psyche mission dictionary (psyche) contains classes, attributes, and rules specific to the Psyche mission and its instruments.
+				</p>
+				<ul>
+					<li><b>PDS4 Version:</b> 1.22.0.0</li>
+					<li><b>Posted:</b> 05/21/2026</li>
+					<ul>
+						<li><a href="/pds4/mission/psyche/v1/PDS4_PSYCHE_1M00_1000.xsd">PDS4_PSYCHE_1M00_1000.xsd</a></li>
+						<li><a href="/pds4/mission/psyche/v1/PDS4_PSYCHE_1M00_1000.sch">PDS4_PSYCHE_1M00_1000.sch</a></li>
+						<li><a href="/pds4/mission/psyche/v1/PDS4_PSYCHE_1M00_1000.xml">PDS4_PSYCHE_1M00_1000.xml</a></li>
+						<li><a href="/pds4/mission/psyche/v1/PDS4_PSYCHE_1M00_1000.JSON">PDS4_PSYCHE_1M00_1000.JSON</a></li>
+						<li><a href="/pds4/mission/psyche/v1/PDS4_PSYCHE_1M00_1000.zip">PDS4_PSYCHE_1M00_1000.zip</a></li>
+					</ul>
+				</ul>
+			</div>
+			
 			<div id="vikinglander">
 				<h4>Viking Lander (vikinglander)</h4>
 				<p>The Viking Lander Mission Dictionary (vikinglander) contains classes, attributes and rules specific to the Viking Lander Mission and its instruments.</br>
@@ -1966,7 +2003,7 @@
 		<h2>Namespaces</h2>
 		<p>
 			The PDS4 XML Schema and Schematron files are organized by namespace. 
-			For a list of existing namespaces, refer to the <a href="https://github.com/NASA-PDS/pds4-information-model/raw/main/docs/namespace-registry/pds-namespace-registry.pdf">PDS Namespace Registry</a>.
+			For a list of existing namespaces, refer to the <a href="https://github.com/NASA-PDS/pds4-information-model/raw/main/docs/namespace-registry/pds-namespace-registry.csv">PDS Namespace Registry</a>.
 		</p>
 
 		<a class="toTop">Back to top</a>

@@ -47,7 +47,7 @@
 		</p>
 		
 		<p>
-			Need help with creating a dictionary or where to start, please contact the <a href="mailto:pds_operator@jpl.nasa.gov">PDS Operator</a> at pds_operator@jpl.nasa.gov.
+			Need help with creating a dictionary or where to start, please contact the <a href="mailto:pds-operator@jpl.nasa.gov">PDS Operator</a> at pds-operator@jpl.nasa.gov.
 		</p>
 	</div>
 	<hr />
@@ -114,7 +114,7 @@
 				<li><a href="#nucspec">Nuclear Spectroscopy</a></li>
 				<li><a href="#particle">Particle</a></li>
 				<li><a href="#proc">Processing_Information</a></li>
-                <li><a href="#prov">Provenance</a></li>
+				<li><a href="#prov">Provenance</a></li>
 				<li><a href="#radar">Radar</a></li>
 				<li><a href="#rings">Rings</a></li>
 				<li><a href="#sb">Small Bodies</a></li>
@@ -138,9 +138,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-ama">https://pds-data-dictionaries.github.io/ldd-ama</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch06.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch06.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch06.html">PDS4 1.24.0.0(1O00) WebHelp#ch06</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch07.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch07.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch07.html">PDS4 1.24.0.0(1O00) WebHelp#ch07</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 07/31/2025</li>
@@ -182,9 +182,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-cart/">https://pds-data-dictionaries.github.io/ldd-cart/</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch10.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch10.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch10.html">PDS4 1.24.0.0(1O00) WebHelp#ch10</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch11.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch11.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch11.html">PDS4 1.24.0.0(1O00) WebHelp#ch11</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 04/29/2025</li>
@@ -214,9 +214,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-ctli/">https://pds-data-dictionaries.github.io/ldd-ctli/</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch22.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch22.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch22.html">PDS4 1.24.0.0(1O00) WebHelp#ch22</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch23.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch23.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch23.html">PDS4 1.24.0.0(1O00) WebHelp#ch23</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 11/13/2025</li>
@@ -270,9 +270,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-disp">https://pds-data-dictionaries.github.io/ldd-disp</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch26.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch26.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch26.html">PDS4 1.24.0.0(1O00) WebHelp#ch26</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch27.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch27.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch27.html">PDS4 1.24.0.0(1O00) WebHelp#ch27</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/03/2025</li>
@@ -302,9 +302,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-ebt">https://pds-data-dictionaries.github.io/ldd-ebt</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch28.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch28.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch30.html">PDS4 1.24.0.0(1O00) WebHelp#ch30</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch29.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch29.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch31.html">PDS4 1.24.0.0(1O00) WebHelp#ch31</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> -</li>
@@ -327,9 +327,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-geom/">https://pds-data-dictionaries.github.io/ldd-geom/</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch30.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch30.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch34.html">PDS4 1.24.0.0(1O00) WebHelp#ch34</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch31.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch31.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch35.html">PDS4 1.24.0.0(1O00) WebHelp#ch35</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 09/03/2025</li>
@@ -371,9 +371,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-img/">https://pds-data-dictionaries.github.io/ldd-img/</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch36.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch36.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch40.html">PDS4 1.24.0.0(1O00) WebHelp#ch40</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch37.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch37.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch41.html">PDS4 1.24.0.0(1O00) WebHelp#ch41</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 04/30/2025</li>
@@ -403,9 +403,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-img_surface">https://pds-data-dictionaries.github.io/ldd-img_surface</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch38.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch38.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch42.html">PDS4 1.24.0.0(1O00) WebHelp#ch42</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch39.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch39.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch43.html">PDS4 1.24.0.0(1O00) WebHelp#ch43</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/03/2025</li>
@@ -435,9 +435,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-ml">https://pds-data-dictionaries.github.io/ldd-ml</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch56.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch56.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch66.html">PDS4 1.24.0.0(1O00) WebHelp#ch66</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch57.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch57.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch67.html">PDS4 1.24.0.0(1O00) WebHelp#ch67</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/03/2025</li>
@@ -467,9 +467,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-msn">https://pds-data-dictionaries.github.io/ldd-msn</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch62.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch62.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch72.html">PDS4 1.24.0.0(1O00) WebHelp#ch72</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch63.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch63.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch73.html">PDS4 1.24.0.0(1O00) WebHelp#ch73</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/03/2025</li>
@@ -499,9 +499,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-msn_surface">https://pds-data-dictionaries.github.io/ldd-msn_surface</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch64.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch64.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch74.html">PDS4 1.24.0.0(1O00) WebHelp#ch74</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch65.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch65.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch75.html">PDS4 1.24.0.0(1O00) WebHelp#ch75</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/03/2025</li>
@@ -531,9 +531,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-msss_cam_mh">https://pds-data-dictionaries.github.io/ldd-msss_cam_mh</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch66.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch66.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch76.html">PDS4 1.24.0.0(1O00) WebHelp#ch76</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch67.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch67.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch77.html">PDS4 1.24.0.0(1O00) WebHelp#ch77</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/03/2025</li>
@@ -563,9 +563,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-multi">https://pds-data-dictionaries.github.io/ldd-multi</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch68.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch68.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch78.html">PDS4 1.24.0.0(1O00) WebHelp#ch78</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch69.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch69.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch79.html">PDS4 1.24.0.0(1O00) WebHelp#ch79</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/02/2025</li>
@@ -595,9 +595,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-nucspec">https://pds-data-dictionaries.github.io/ldd-nucspec</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch74.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch74.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch88.html">PDS4 1.24.0.0(1O00) WebHelp#ch88</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch75.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch75.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch89.html">PDS4 1.24.0.0(1O00) WebHelp#ch89</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/06/2025</li>
@@ -627,9 +627,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-particle">https://pds-data-dictionaries.github.io/ldd-particle</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch78.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch78.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch92.html">PDS4 1.24.0.0(1O00) WebHelp#ch92</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch79.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch79.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch93.html">PDS4 1.24.0.0(1O00) WebHelp#ch93</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/02/2025</li>
@@ -659,10 +659,22 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-proc">https://pds-data-dictionaries.github.io/ldd-proc</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch80.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch80.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch94.html">PDS4 1.24.0.0(1O00) WebHelp#ch94</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch81.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch81.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch95.html">PDS4 1.24.0.0(1O00) WebHelp#ch95</a>
                 </p>
+                <ul>
+                    <li><b>Last Updated:</b> 02/03/2026</li>
+                    <li><b>Data Dictionary Files:</b> 
+                        <ul>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1400.xsd">PDS4_PROC_1O00_1400.xsd</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1400.sch">PDS4_PROC_1O00_1400.sch</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1400.xml">PDS4_PROC_1O00_1400.xml</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1400.JSON">PDS4_PROC_1O00_1400.JSON</a></li>
+                            <li><a href="/pds4/proc/v1/PDS4_PROC_1O00_1400.zip">PDS4_PROC_1O00_1400.zip</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <ul>
                     <li><b>Last Updated:</b> 06/03/2025</li>
                     <li><b>Data Dictionary Files:</b> 
@@ -691,12 +703,12 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-prov">https://pds-data-dictionaries.github.io/ldd-prov</a>
                     <br>
-                    <b>Specification (Classes):</b> Not available for this build. See <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1P00/webhelp/all/#ch96.html">PDS4 1.25.0.0(1P00) WebHelp#ch96</a>.
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch96.html">PDS4 1.24.0.0(1O00) WebHelp#ch96</a>
                     <br>
-                    <b>Specification (Attributes):</b> Not available for this build. <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1P00/webhelp/all/#ch97.html">PDS4 1.25.0.0(1P00) WebHelp#ch97</a>.
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch97.html">PDS4 1.24.0.0(1O00) WebHelp#ch97</a>
                 </p>
                 <ul>
-                    <li><b>Last Updated:</b> 01/20/2026</li>
+                    <li><b>Last Updated:</b> 09/24/2025</li>
                     <li><b>Data Dictionary Files:</b> 
                         <ul>
                             <li><a href="/pds4/prov/v1/PDS4_PROV_1O00_1210.xsd">PDS4_PROV_1O00_1210.xsd</a></li>
@@ -723,9 +735,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-radar">https://pds-data-dictionaries.github.io/ldd-radar</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch82.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch82.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch100.html">PDS4 1.24.0.0(1O00) WebHelp#ch100</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch83.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch83.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch101.html">PDS4 1.24.0.0(1O00) WebHelp#ch101</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/06/2025</li>
@@ -755,9 +767,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-rings">https://pds-data-dictionaries.github.io/ldd-rings</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch84.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch84.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch102.html">PDS4 1.24.0.0(1O00) WebHelp#ch102</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch85.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch85.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch103.html">PDS4 1.24.0.0(1O00) WebHelp#ch103</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 09/19/2025</li>
@@ -811,9 +823,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-sb">https://pds-data-dictionaries.github.io/ldd-sb</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch86.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch86.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch104.html">PDS4 1.24.0.0(1O00) WebHelp#ch104</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch87.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch87.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch105.html">PDS4 1.24.0.0(1O00) WebHelp#ch105</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 04/29/2025</li>
@@ -843,9 +855,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-speclib">https://pds-data-dictionaries.github.io/ldd-speclib</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch90.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch90.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch108.html">PDS4 1.24.0.0(1O00) WebHelp#ch108</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch91.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch91.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch109.html">PDS4 1.24.0.0(1O00) WebHelp#ch109</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/22/2025</li>
@@ -875,9 +887,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-spectral">https://pds-data-dictionaries.github.io/ldd-spectral</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch88.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch88.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch106.html">PDS4 1.24.0.0(1O00) WebHelp#ch106</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch89.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch89.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch107.html">PDS4 1.24.0.0(1O00) WebHelp#ch107</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 04/29/2025</li>
@@ -907,9 +919,9 @@
                     <br>
                     <b>Read the Docs:</b> <a href="https://pds-data-dictionaries.github.io/ldd-survey">https://pds-data-dictionaries.github.io/ldd-survey</a>
                     <br>
-                    <b>Specification (Classes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch92.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch92.html</a>
+                    <b>Specification (Classes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch110.html">PDS4 1.24.0.0(1O00) WebHelp#ch110</a>
                     <br>
-                    <b>Specification (Attributes):</b> <a href="https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch93.html">https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch93.html</a>
+                    <b>Specification (Attributes):</b> <a href="/datastandards/documents/dd/v1/PDS4_PDS_DD_1O00/webhelp/all/#ch111.html">PDS4 1.24.0.0(1O00) WebHelp#ch111</a>
                 </p>
                 <ul>
                     <li><b>Last Updated:</b> 05/06/2025</li>
@@ -939,7 +951,7 @@
 		<h2>Namespaces</h2>
 		<p>
 			The PDS4 XML Schema and Schematron files are organized by namespace. 
-			For a list of existing namespaces, refer to the <a href="https://github.com/NASA-PDS/pds4-information-model/raw/main/docs/namespace-registry/pds-namespace-registry.pdf">PDS Namespace Registry</a>.
+			For a list of existing namespaces, refer to the <a href="https://github.com/NASA-PDS/pds4-information-model/raw/main/docs/namespace-registry/pds-namespace-registry.csv">PDS Namespace Registry</a>.
 		</p>
 
 		<a class="toTop">Back to top</a>
